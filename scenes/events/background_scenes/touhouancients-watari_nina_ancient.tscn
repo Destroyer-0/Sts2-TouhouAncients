@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw2t0cl4q8efw"]
+
+[ext_resource type="Texture2D" uid="uid://4siscmtahak3" path="res://sprite/WatariNina.png" id="1_86woy"]
+
+[node name="WatariNinaAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -350.0
+offset_top = -41.0
+offset_right = 2211.0
+offset_bottom = 1159.0
+texture = ExtResource("1_86woy")
