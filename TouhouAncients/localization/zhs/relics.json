@@ -1,0 +1,43 @@
+{
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的职业中选择一张耗能为[blue]X[/blue]的牌加入牌组；耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.flavor": "要不，就战个未来吧？",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
+
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将三张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]；\n卡牌奖励里已有同名牌存在于牌组中的卡牌奖励获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
+
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除三张牌，然后复制你牌组中的防御。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.flavor": "删牌大于一切啊！",
+
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.title": "萎靡心灵的魔咒",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.description": "战斗开始时，所有敌人减少9点力量，你每打出一张牌，所有敌人增加1点力量，每个敌人最多增加9次。",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.flavor": "给XX小姐减少Y点力量",
+
+  "TOUHOUANCIENTS-HUOYANTUXI.title": "涤荡腐坏的炽焰",
+  "TOUHOUANCIENTS-HUOYANTUXI.description": "受到攻击时，对攻击者造成[blue]{FlameBarrierPower}[/blue]点伤害。",
+  "TOUHOUANCIENTS-HUOYANTUXI.flavor": "火焰屏障伤害特别高",
+
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张蛇咬加入牌组；\n你牌组中与卡牌奖励中所有带有蛇咬字样的牌获得附魔：蛇毒",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
+
+  "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "鉴定为大费物。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
+
+  "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
+  "TOUHOUANCIENTS-YISHIXINGQILE.description": "在商店购买遗物后，使该商店剩余的剩余物品价格降至0，然后此遗物失效。",
+  "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "112345",
+
+  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
+  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "在每场战斗开始时，获得9覆甲；\n当你获得覆甲时，获得1能量",
+  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.flavor": "永恒铠甲王朝了",
+  
+  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.title": "激寒大地的重冰",
+  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "在每场战斗开始时，获得3个充能球位；当你没有打出任何牌结束回合时，当回合获得3临时集中，然后生成2个冰霜充能球。",
+  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "只会集中冰"
+}
