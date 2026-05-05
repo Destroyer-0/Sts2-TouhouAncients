@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -6,14 +7,15 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.TestSupport;
 
 namespace TouhouAncients.Scripts.relics;
 
+[Pool(typeof(SharedRelicPool))]
 public class Yiyandingzhen: TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [(HoverTipFactory.FromPower<ConfusedPower>())];
-    
     
     public override async Task AfterObtained()
     {
@@ -35,12 +37,15 @@ public class Yiyandingzhen: TouhouAncientRelics
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
+        if (player != base.Owner) return;
+
         Flash();
-        (await CardSelectCmd.FromHand(
+        var selected = (await CardSelectCmd.FromHand(
             prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1),
             context: choiceContext,
-            player: base.Owner,
+            player: player,
             filter: null,
-            source: this)).FirstOrDefault()?.SetToFreeThisTurn();
+            source: this)).FirstOrDefault();
+        selected?.SetToFreeThisTurn();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Godot;
+﻿using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -7,10 +8,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 
 namespace TouhouAncients.Scripts.relics;
 
+[Pool(typeof(SharedRelicPool))]
 public class Huoyantuxi : TouhouAncientRelics
 {
     
@@ -27,6 +30,7 @@ public class Huoyantuxi : TouhouAncientRelics
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
+        if (player != Owner) return;
         Flash();
         await PowerCmd.Apply<FlameBarrierPower>(base.Owner.Creature, base.DynamicVars["FlameBarrierPower"].BaseValue,
             base.Owner.Creature, null);

@@ -20,9 +20,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class Zhangeweilaiba : TouhouAncientRelics
 {
-// 遗物的数值。替换本地化中的{Cards}。
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Increase",2)];
-    
+    // 遗物的数值。替换本地化中的{Cards}。
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Increase", 2)];
+
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner)
@@ -45,25 +45,25 @@ public class Zhangeweilaiba : TouhouAncientRelics
         }
         return originalValue + base.DynamicVars["Increase"].IntValue;
     }
-    
+
     public override async Task AfterObtained()
-	{
-		GD.PrintErr($"MyEntryID: {Id.Entry.ToLowerInvariant()}");
-		Player owner = Owner;
-		CardCreationOptions options = CardCreationOptions.ForNonCombatWithUniformOdds([owner.Character.CardPool], (CardModel c) => c.EnergyCost.CostsX || c.HasStarCostX).WithFlags(CardCreationFlags.NoRarityModification | CardCreationFlags.NoUpgradeRoll);
-		List<CardCreationResult> list = CardFactory.CreateForReward(base.Owner, options.GetPossibleCards(owner).Count(), options).ToList();
-		foreach (CardModel item in await 
-			         CardSelectCmd.FromSimpleGridForRewards(
-				         prefs: new CardSelectorPrefs(
-					         RelicModel.L10NLookup(base.Id.Entry + ".selectionScreenPrompt"),
-					         1,
-					        1
-					         ), context: new BlockingPlayerChoiceContext(), cards: list, player: base.Owner))
-		{
-			CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(item, PileType.Deck));
-		}
-	}
-    
+    {
+        GD.PrintErr($"MyEntryID: {Id.Entry.ToLowerInvariant()}");
+        Player owner = Owner;
+        CardCreationOptions options = CardCreationOptions.ForNonCombatWithUniformOdds([owner.Character.CardPool], (CardModel c) => c.EnergyCost.CostsX || c.HasStarCostX).WithFlags(CardCreationFlags.NoRarityModification | CardCreationFlags.NoUpgradeRoll);
+        List<CardCreationResult> list = CardFactory.CreateForReward(base.Owner, options.GetPossibleCards(owner).Count(), options).ToList();
+        foreach (CardModel item in await
+                     CardSelectCmd.FromSimpleGridForRewards(
+                         prefs: new CardSelectorPrefs(
+                             RelicModel.L10NLookup(base.Id.Entry + ".selectionScreenPrompt"),
+                             1,
+                            1
+                             ), context: new BlockingPlayerChoiceContext(), cards: list, player: base.Owner))
+        {
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(item, PileType.Deck));
+        }
+    }
+
     // public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     // {
     //     // 这里的DynamicVars.Cards.IntValue为上面设置的CardsVar的数值。

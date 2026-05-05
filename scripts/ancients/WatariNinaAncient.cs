@@ -35,7 +35,13 @@ public class WatariNinaAncient : CustomAncientModel
         AncientOption<Zhangeweilaiba>(),
         AncientOption<Yiyandingzhen>(),
         AncientOption<Huoyantuxi>(),
-        //AncientOption<Bileihaopaiduozhua>(),
+        AncientOption<Bileihaopaiduozhua>(),
+        AncientOption<Baibaixiangxiangruanruan>(),
+        AncientOption<Geishehuaxiaojie>(),
+        AncientOption<Sheyaotebieqiang>(),
+        AncientOption<Yishixingqile>(),
+        AncientOption<Yonghengkaijiawangchaole>(),
+        AncientOption<Zhihuijizhongbing>(),
     ];
     //
     // private WeightedList<AncientOption> OptionPool2 =>

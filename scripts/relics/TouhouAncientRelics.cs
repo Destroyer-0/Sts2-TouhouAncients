@@ -1,11 +1,8 @@
 ﻿using BaseLib.Abstracts;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Models.RelicPools;
 
-namespace TouhouAncients.Scripts.relics;
+//namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
 public abstract class TouhouAncientRelics : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
