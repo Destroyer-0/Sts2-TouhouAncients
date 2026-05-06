@@ -21,7 +21,7 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<PlatingPower>(9),
+        new PowerVar<PlatingPower>(7),
         new EnergyVar(1)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
