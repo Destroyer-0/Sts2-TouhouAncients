@@ -19,7 +19,11 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class Yonghengkaijiawangchaole : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(9)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new PowerVar<PlatingPower>(9),
+        new EnergyVar(1)
+    ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<PlatingPower>(),

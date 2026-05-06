@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
@@ -9,20 +10,19 @@ namespace TouhouAncients.Scripts.Enchantment;
 
 public class SnakeBiteUpgrade : CustomEnchantmentModel
 {
-    public override bool CanEnchant(CardModel card)
+    public override Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
     {
-        return !card.HasStarCostX && !card.EnergyCost.CostsX && base.CanEnchant(card);
-    }
-
-    protected override void OnEnchant()
-    {
-        if (!HasCard) return;
-        // 耗能不高于1：如果费用>1，设为1；0或1保持不变
-        var currentCost = Card.EnergyCost.GetWithModifiers(CostModifiers.None);
-        if (currentCost > 1)
+        if (player != base.Card.Owner)
         {
-            Card.EnergyCost.SetCustomBaseCost(1);
+            return Task.CompletedTask;
         }
+        CardPile? pile = base.Card.Pile;
+        if (pile == null || pile.Type != PileType.Hand)
+        {
+            return Task.CompletedTask;
+        }
+        base.Card.EnergyCost.AddUntilPlayed(-1);
+        return Task.CompletedTask;
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)

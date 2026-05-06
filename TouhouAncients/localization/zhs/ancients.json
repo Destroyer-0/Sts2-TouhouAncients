@@ -2,11 +2,18 @@
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.title": "渡里 贝子",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.epithet": "沉迷尖塔的信息妖怪",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.firstVisitEver.0-0.ancient": "莫非你们就是不停地向高塔顶前进的，所谓的[sine]\"爬塔者\"[/sine]？\n恩，果然如传闻所说……",
-  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.firstVisitEver.0-0.next": "继续",
-  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.firstVisitEver.0-1.ancient": "占位符",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.0-0.ancient": "其实你们去找建筑师的整件事情，都是涅奥的……",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.0-0.next": "疑问",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.0-1.ancient": "哦？！你确定要听吗？这隐匿的[sine]世界的真相[/sine]？天机不可泄露……",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.1-0r.ancient": "哼哼，我乃全知之人，整座尖塔没有我，渡里贝子不知道的事情！",
-  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.2-0r.ancient": "我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！"
+  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.2-0r.ancient": "我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！",
+
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.title": "东风谷 早苗",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.epithet": "现代的先古之民",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.firstVisitEver.0-0.ancient": "来信仰[gold][jitter]守矢神社[/gold][/jitter]吧！",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-0.ancient": "其实你们去找建筑师的整件事情，都是涅奥的……",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-0.next": "疑问",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-1.ancient": "哦？！你确定要听吗？这隐匿的[sine]世界的真相[/sine]？天机不可泄露……",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.1-0r.ancient": "哼哼，我乃全知之人，整座尖塔没有我，渡里贝子不知道的事情！",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.2-0r.ancient": "我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！"
 }

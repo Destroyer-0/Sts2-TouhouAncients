@@ -1,11 +1,11 @@
 {
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
-  "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的职业中选择一张耗能为[blue]X[/blue]的牌加入牌组；耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的职业中选择一张耗能为[blue]X[/blue]的牌加入牌组。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.flavor": "战什么未来？现在就要！",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]；\n卡牌奖励里已有同名牌存在于牌组中的卡牌奖励获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。卡牌奖励里已有同名牌存在于牌组中的卡牌奖励获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
@@ -21,7 +21,7 @@
   "TOUHOUANCIENTS-HUOYANTUXI.flavor": "火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组；\n你牌组中与卡牌奖励中名字带有“蛇咬”的牌获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。你牌组中与卡牌奖励中名字带有“蛇咬”的牌获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
@@ -34,10 +34,34 @@
   "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "112345",
 
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
-  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "在每场战斗开始时，获得{PlatingPower}[gold]覆甲[/gold]；\n当你获得[gold]覆甲[/gold]时，获得1[gold]能量[/gold]",
+  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "在每场战斗开始时，获得{PlatingPower}[gold]覆甲[/gold]。当你获得[gold]覆甲[/gold]时，获得{Energy:energyIcons()}",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.flavor": "永恒铠甲王朝了",
   
   "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.title": "激寒大地的重冰",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "在每场战斗开始时，获得[blue]{Repeat}[/blue]个额外[gold]充能球栏位[/gold]；当你没有打出任何牌结束回合时，当回合获得[blue]{FocusPower}[/blue]临时[gold]集中[/gold]，然后[gold]生成[/gold]{IceOrbNum}个[gold]冰霜[/gold]充能球。",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "只会集中冰"
+  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "在每场战斗开始时，获得[blue]{Repeat}[/blue]个额外[gold]充能球栏位[/gold]。当你没有打出任何牌结束回合时，当回合获得[blue]{FocusPower}[/blue]临时[gold]集中[/gold]，然后[gold]生成[/gold]{IceOrbNum}个[gold]冰霜[/gold]充能球。",
+  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "只会集中冰",
+
+  "TOUHOUANCIENTS-MORIYAGOHEI.title": "守矢御币",
+  "TOUHOUANCIENTS-MORIYAGOHEI.description": "拾起时，选择一张卡，为其附魔：奇迹",
+  "TOUHOUANCIENTS-MORIYAGOHEI.flavor": "可不能被常识束缚哦？",
+
+  "TOUHOUANCIENTS-DAYKAKUSEI.title": "白昼新星",
+  "TOUHOUANCIENTS-DAYKAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。",
+  "TOUHOUANCIENTS-DAYKAKUSEI.flavor": "将它变成伽马射线怎么样？",
+
+  "TOUHOUANCIENTS-SNAKEAMULET.title": "蛇之护符",
+  "TOUHOUANCIENTS-SNAKEAMULET.description": "如果你在回合结束时没有任何[gold]手牌[/gold]，则获得1敏捷，下回合额外获得{Energy:energyIcons()}",
+  "TOUHOUANCIENTS-SNAKEAMULET.flavor": "据说带着这个护身符就能身强体健。",
+
+  "TOUHOUANCIENTS-FROGAMULET.title": "蛙之护符",
+  "TOUHOUANCIENTS-FROGAMULET.description": "通过卡牌造成伤害后，2回合后对所有敌人造成{ExtraDamage:percentLess()}造成伤害值的伤害。",
+  "TOUHOUANCIENTS-FROGAMULET.flavor": "据说带着这个护身符便能平安回家。",
+
+  "TOUHOUANCIENTS-SAILORSUIT.title": "水手服",
+  "TOUHOUANCIENTS-SAILORSUIT.description": "战斗开始时，获得1人工制品。进入脆弱、易伤与虚弱状态时，免疫之并对所有敌人附加等量回合的同效果。",
+  "TOUHOUANCIENTS-SAILORSUIT.flavor": "没有人能抵挡少女与水手服组合的魅力！",
+
+  "TOUHOUANCIENTS-GIFTFROMMOUNTAIN.title": "神山的谢礼",
+  "TOUHOUANCIENTS-GIFTFROMMOUNTAIN.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]，[blue]1[/blue]组[gold]普通[/gold]、[blue]1[/blue]组[gold]罕见[/gold]、和[blue]1[/blue]组[gold]稀有[/gold]卡牌奖励。",
+  "TOUHOUANCIENTS-GIFTFROMMOUNTAIN.flavor": "信仰守矢神社即可领取新人大礼包——文文新闻上是这样写的。"
 }
