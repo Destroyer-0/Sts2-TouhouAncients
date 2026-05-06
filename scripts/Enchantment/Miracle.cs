@@ -1,15 +1,31 @@
 using System.Linq;
 using System.Threading.Tasks;
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
-public class Miracle : EnchantmentModel
+public class Miracle : CustomEnchantmentModel
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new EnergyVar(1)
+    ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.ForEnergy(Card),
+    ];
+
     public override bool CanEnchantCardType(CardType cardType)
     {
         // Only Attack, Skill, Power
@@ -17,6 +33,7 @@ public class Miracle : EnchantmentModel
         {
             return true;
         }
+
         return false;
     }
 
@@ -28,26 +45,30 @@ public class Miracle : EnchantmentModel
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
         var player = base.Card.Owner;
-        if (player == null) return;
+        if (player.Creature.CombatState == null) return;
 
-        // 获得1能量
         await PlayerCmd.GainEnergy(1m, player);
 
-        // 从所有玩家职业牌与无色牌中选一张随机的（不包括状态牌、诅咒牌）
-        var eligibleCards = ModelDb.AllCards
-            .Where(c => c.Type == CardType.Attack
-                     || c.Type == CardType.Skill
-                     || c.Type == CardType.Power)
-            .ToList();
-
-        if (eligibleCards.Count == 0) return;
-
-        var randomCard = eligibleCards.UnstableShuffle(player.RunState.Rng.Niche).FirstOrDefault();
-        if (randomCard == null) return;
-
-        // 创建卡牌实例，附魔奇迹，加入抽牌堆
-        var createdCard = player.RunState.CreateCard(randomCard, player);
-        CardCmd.Enchant<Miracle>(createdCard, 1m);
-        await CardPileCmd.Add(createdCard, PileType.Draw);
+        //选择一张随机牌
+        var allCards = ModelDb.AllCharacterCardPools.SelectMany(x=>x.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint));
+        var colorlessCards = ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
+        
+        CardModel? cardModel = CardFactory.GetDistinctForCombat(
+            player,
+            allCards.Concat(colorlessCards),
+            1,
+            player.RunState.Rng.CombatCardGeneration
+        ).FirstOrDefault();
+        
+        if (cardModel != null)
+        {
+            if (base.Card.IsUpgraded)
+            {
+                CardCmd.Upgrade(cardModel);
+            }
+            
+            CardCmd.Enchant<Miracle>(cardModel, 1m);
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+        }
     }
 }

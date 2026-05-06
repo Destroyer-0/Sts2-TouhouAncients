@@ -16,7 +16,7 @@ public class Yishixingqile : TouhouAncientRelics
     private bool _hasTriggered;
     private bool _hasExhausted;
 
-    public override bool IsUsedUp => HasTriggered;
+    public override bool IsUsedUp => TouhouAncients_HasTriggered;
 
     /// <summary>
     /// 触发折扣时当前商店中已陈列的所有商品快照。
@@ -26,7 +26,7 @@ public class Yishixingqile : TouhouAncientRelics
     private HashSet<MerchantEntry>? _discountedEntries;
 
     [SavedProperty]
-    public bool HasTriggered
+    public bool TouhouAncients_HasTriggered
     {
         get => _hasTriggered;
         set
@@ -40,7 +40,7 @@ public class Yishixingqile : TouhouAncientRelics
         }
     }
     [SavedProperty]
-    public bool HasExhausted
+    public bool TouhouAncients_HasExhausted
     {
         get => _hasExhausted;
         set
@@ -53,13 +53,13 @@ public class Yishixingqile : TouhouAncientRelics
     public override Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
         if (player != base.Owner) return Task.CompletedTask;
-        if (HasTriggered) return Task.CompletedTask;
-        if (HasExhausted) return Task.CompletedTask;
+        if (TouhouAncients_HasTriggered) return Task.CompletedTask;
+        if (TouhouAncients_HasExhausted) return Task.CompletedTask;
         if (goldSpent <= 0) return Task.CompletedTask;
         if (itemPurchased is not MerchantRelicEntry) return Task.CompletedTask;
 
         Flash();
-        HasTriggered = true;
+        TouhouAncients_HasTriggered = true;
 
         // 记录当前商店中所有已陈列的商品，
         // 只有这些商品会享受价格归零，Courier 刷新出的新商品不在此列。
@@ -74,8 +74,8 @@ public class Yishixingqile : TouhouAncientRelics
     public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal cost)
     {
         if (player != base.Owner) return cost;
-        if (!HasTriggered) return cost;
-        if (HasExhausted) return cost;
+        if (!TouhouAncients_HasTriggered) return cost;
+        if (TouhouAncients_HasExhausted) return cost;
         // 只对触发时已存在的商品打折，Courier 刷新出的新商品不受影响
         if (_discountedEntries == null || !_discountedEntries.Contains(entry)) return cost;
 
@@ -84,9 +84,9 @@ public class Yishixingqile : TouhouAncientRelics
 
     public override Task BeforeRoomEntered(AbstractRoom room)
     {
-        if (HasTriggered && !HasExhausted)
+        if (TouhouAncients_HasTriggered && !TouhouAncients_HasExhausted)
         {
-            HasExhausted = true;
+            TouhouAncients_HasExhausted = true;
         }
         return Task.CompletedTask;
     }

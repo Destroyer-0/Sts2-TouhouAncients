@@ -1,24 +1,42 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
 public class KotiyaSanaeAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.58f, 1f, 0.66f, 0.5f);
-    public override Color DialogueColor => new(0.58f, 1f, 0.66f);
+    public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.5f);
+    public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f);
 
     public override string? CustomMapIconPath => "res://icon/WatariNina_MapNode.png";
 
     public override string? CustomMapIconOutlinePath => "res://icon/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://icon/WatariNina.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://icon/WatariNina.png";
-    
-    protected override OptionPools MakeOptionPools { get; } = new OptionPools(
+    public override string? CustomRunHistoryIconPath => "res://icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://icon/KotiyaSanae.png";
+
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
+
+    // protected override OptionPools MakeOptionPools => new OptionPools(
+    //     MakePool(
+    //         AncientOption<Zhangeweilaiba>(),
+    //         AncientOption<Yiyandingzhen>(),
+    //         AncientOption<Huoyantuxi>(),
+    //         AncientOption<Bileihaopaiduozhua>(),
+    //         AncientOption<Baibaixiangxiangruanruan>(),
+    //         AncientOption<Geishehuaxiaojie>(),
+    //         AncientOption<Sheyaotebieqiang>(),
+    //         AncientOption<Yishixingqile>(),
+    //         AncientOption<Yonghengkaijiawangchaole>(),
+    //         AncientOption<Zhihuijizhongbing>()
+    //     ));
+    //
+    protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MoriyaGohei>(),
             AncientOption<DayKakusei>()

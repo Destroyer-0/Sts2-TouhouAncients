@@ -10,10 +10,17 @@
 
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.title": "东风谷 早苗",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.epithet": "现代的先古之民",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.firstVisitEver.0-0.ancient": "来信仰[gold][jitter]守矢神社[/gold][/jitter]吧！",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-0.ancient": "其实你们去找建筑师的整件事情，都是涅奥的……",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-0.next": "疑问",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-1.ancient": "哦？！你确定要听吗？这隐匿的[sine]世界的真相[/sine]？天机不可泄露……",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.1-0r.ancient": "哼哼，我乃全知之人，整座尖塔没有我，渡里贝子不知道的事情！",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.2-0r.ancient": "我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！"
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.firstVisitEver.0-0.ancient": "啊，你就是两位大人提到的傀儡吗？我是风祝早苗，看你辛苦的样子，来信仰[aqua][jitter]守矢神社[/jitter][/aqua]如何？",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.0-0r.ancient": "在这座塔里，也不能被常识束缚呢。",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.1-0r.ancient": "如果我也能去降伏高塔里的怪物，说不定也挺欢乐的…啊，这话可不能被神奈子大人听到！",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.ANY.2-0r.ancient": "诹访子大人说，为你提供帮助能收集信仰，所以你也要加油哦~",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.IRONCLAD.0-0.ancient": "信仰恶魔？那太糟糕了！你应该来信仰我们[aqua][jitter]守矢神社[/jitter][/aqua]！",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.DEFECT.0-0.ancient": "哦哦哦！一个能自己行走的机器人！巨大人型机器人可是人类的梦想呢！",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.SILENT.0-0.ancient": "虽然我想你也不会感到累，但即使休息也不会被谁责怪。休息一下吧。说不定会有奇迹般的幸运降临呢。",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.REGENT.0-0.ancient": "诶诶？！？！一个外星人？！啊，好像在这个世界存在外星人也没什么奇怪的？",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-0.ancient": "一个骷髅……和一只手？话说，手如果也参拜的话，会不会是双倍的信仰呢？",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-0.next": "继续",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-1.char": "信仰？如果信仰你能帮我达成[jitter][size=22][purple]夙愿[/purple][/size][/jitter]，无论要虔诚我都能做到。",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-1.next": "继续",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-2.ancient": "哎呀，奇迹不过是偶然的顶点而已，其结果是好是坏都有可能哦。"
 }

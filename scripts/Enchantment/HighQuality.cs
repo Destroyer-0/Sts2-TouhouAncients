@@ -16,7 +16,7 @@ public class HighQuality : CustomEnchantmentModel
     /// 读档时 Props.Fill 会在 OnEnchant 之前恢复此值，避免因 Owner 为 null 无法访问 Deck。
     /// </summary>
     [SavedProperty]
-    private int EnergyDelta { get; set; }
+    private int TouhouAncients_EnergyDelta { get; set; }
 
     public override bool HasExtraCardText => false;
 
@@ -33,7 +33,7 @@ public class HighQuality : CustomEnchantmentModel
         {
             // 反序列化阶段：Card.Owner 还未赋值，无法访问 Deck，
             // 从已恢复的保存属性中读取费用减量并应用。
-            ApplyEnergyDelta(EnergyDelta);
+            ApplyEnergyDelta(TouhouAncients_EnergyDelta);
             return;
         }
 
@@ -43,7 +43,7 @@ public class HighQuality : CustomEnchantmentModel
         var sameCard = Card.Owner.Deck.Cards.Count(x => x.Id.Entry == thisCard.Id.Entry) - 1 + modify;
         GD.PrintErr($"一共有{sameCard}张同名卡牌{thisCard.Id.Entry}");
 
-        EnergyDelta = sameCard;
+        TouhouAncients_EnergyDelta = sameCard;
         ApplyEnergyDelta(sameCard);
     }
 

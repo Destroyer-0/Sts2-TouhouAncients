@@ -28,21 +28,20 @@ public class WatariNinaAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 2;
 
-    protected override OptionPools MakeOptionPools => new OptionPools(OptionPool1);
-    
-    private WeightedList<AncientOption> OptionPool1 =>
-    [
-        AncientOption<Zhangeweilaiba>(),
-        AncientOption<Yiyandingzhen>(),
-        AncientOption<Huoyantuxi>(),
-        AncientOption<Bileihaopaiduozhua>(),
-        AncientOption<Baibaixiangxiangruanruan>(),
-        AncientOption<Geishehuaxiaojie>(),
-        AncientOption<Sheyaotebieqiang>(),
-        AncientOption<Yishixingqile>(),
-        AncientOption<Yonghengkaijiawangchaole>(),
-        AncientOption<Zhihuijizhongbing>(),
-    ];
+    protected override OptionPools MakeOptionPools => new OptionPools(
+        MakePool(
+            AncientOption<Zhangeweilaiba>(),
+            AncientOption<Yiyandingzhen>(),
+            AncientOption<Huoyantuxi>(),
+            AncientOption<Bileihaopaiduozhua>(),
+            AncientOption<Baibaixiangxiangruanruan>(),
+            AncientOption<Geishehuaxiaojie>(),
+            AncientOption<Sheyaotebieqiang>(),
+            AncientOption<Yishixingqile>(),
+            AncientOption<Yonghengkaijiawangchaole>(),
+            AncientOption<Zhihuijizhongbing>()
+        ));
+
     //
     // private WeightedList<AncientOption> OptionPool2 =>
     // [
