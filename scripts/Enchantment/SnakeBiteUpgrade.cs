@@ -10,6 +10,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 
 public class SnakeBiteUpgrade : CustomEnchantmentModel
 {
+    public override bool HasExtraCardText => true;
     public override Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Card.Owner)

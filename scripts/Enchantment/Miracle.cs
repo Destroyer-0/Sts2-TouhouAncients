@@ -16,15 +16,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 
 public class Miracle : CustomEnchantmentModel
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new EnergyVar(1)
-    ];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.ForEnergy(Card),
-    ];
+    public override bool HasExtraCardText => true;
 
     public override bool CanEnchantCardType(CardType cardType)
     {
