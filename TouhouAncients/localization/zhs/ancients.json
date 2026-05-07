@@ -22,5 +22,10 @@
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-0.next": "继续",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-1.char": "信仰？如果信仰你能帮我达成[jitter][size=22][purple]夙愿[/purple][/size][/jitter]，无论要虔诚我都能做到。",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-1.next": "继续",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-2.ancient": "哎呀，奇迹不过是偶然的顶点而已，其结果是好是坏都有可能哦。"
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.talk.NECROBINDER.0-2.ancient": "哎呀，奇迹不过是偶然的顶点而已，其结果是好是坏都有可能哦。",
+
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.title": "蕾米莉亚·斯卡雷特",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.epithet": "永远鲜红的幼月",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.ANY.0-0.ancient": "占位符"
 }

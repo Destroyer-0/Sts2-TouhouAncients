@@ -2,9 +2,12 @@
     "TOUHOUANCIENTS-HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌费用减少[blue]1[/blue]。",
     "TOUHOUANCIENTS-HIGH_QUALITY.title": "优质",
     
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "回合结束时，如果这张牌在你的手牌中，则将其费用降低[blue]1[/blue]点，直到其被打出。打出后回到手牌，在本回合随机化其耗能。",
+    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "回合结束时，如果这张牌在你的手牌中，则将其费用降低[blue]1[/blue]点，直到其离开手牌。打出后回到手牌，在本回合随机化其耗能。",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "蛇毒",
     
     "TOUHOUANCIENTS-MIRACLE.description": "获得消耗。\n打出后，获得{Energy:energyIcons()}，然后将一张带有奇迹附魔的随机颜色牌加入抽牌堆。",
-    "TOUHOUANCIENTS-MIRACLE.title": "奇迹"
+    "TOUHOUANCIENTS-MIRACLE.title": "奇迹",
+
+    "TOUHOUANCIENTS-BLOODSHED.description": "首次造成伤害时，恢复等同于造成伤害的生命值。",
+    "TOUHOUANCIENTS-BLOODSHED.title": "喋血"
 }

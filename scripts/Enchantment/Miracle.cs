@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TouhouAncients.Scripts.Enchantment;
@@ -19,11 +20,6 @@ public class Miracle : CustomEnchantmentModel
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1)
-    ];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.ForEnergy(Card),
     ];
 
     public override bool CanEnchantCardType(CardType cardType)
@@ -49,9 +45,23 @@ public class Miracle : CustomEnchantmentModel
 
         await PlayerCmd.GainEnergy(1m, player);
 
+        // 根据角色过滤卡牌：
+        // - 非储君(Regent)：排除带有辉星(star cost)的牌
+        // - 非亡灵契约师(Necrobinder)：排除带有 OstyAttack 标签的牌
+        var isRegent = player.Character is Regent;
+        var isNecrobinder = player.Character is Necrobinder; 
+
+        bool IsAllowed(CardModel c) =>
+            (isRegent || (c.CanonicalStarCost < 0 && !c.HasStarCostX))
+         && (isNecrobinder || !c.Tags.Contains(CardTag.OstyAttack));
+
         //选择一张随机牌
-        var allCards = ModelDb.AllCharacterCardPools.SelectMany(x=>x.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint));
-        var colorlessCards = ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
+        var allCards = ModelDb.AllCharacterCardPools
+            .SelectMany(x => x.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint))
+            .Where(IsAllowed);
+        var colorlessCards = ModelDb.CardPool<ColorlessCardPool>()
+            .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
+            .Where(IsAllowed);
         
         CardModel? cardModel = CardFactory.GetDistinctForCombat(
             player,

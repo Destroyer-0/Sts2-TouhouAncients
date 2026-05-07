@@ -26,7 +26,7 @@ public class FrogAmulet : TouhouAncientRelics
         var damageDealtThisTurn = Mathf.FloorToInt(results.TotalDamage*(1-(float)extraDamagePercent));
         if (damageDealtThisTurn <= 0) return;
         var power = (TheBombPower?)await PowerCmd.Apply<TheBombPower>(
-            base.Owner.Creature, 2m, base.Owner.Creature, null);
+            base.Owner.Creature, 1m, base.Owner.Creature, null);
         power?.SetDamage(damageDealtThisTurn);
     }
 }

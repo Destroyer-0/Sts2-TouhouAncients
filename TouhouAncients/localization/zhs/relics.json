@@ -21,8 +21,9 @@
   "TOUHOUANCIENTS-HUOYANTUXI.flavor": "火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。你牌组中与卡牌奖励中名字带有“蛇咬”的牌获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。你牌组中与之后获得的名字带有“蛇”的牌获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
   "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
@@ -30,7 +31,7 @@
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
-  "TOUHOUANCIENTS-YISHIXINGQILE.description": "在商店购买遗物后，该商店剩余的物品价格降至0，然后此遗物失效。",
+  "TOUHOUANCIENTS-YISHIXINGQILE.description": "在商店消费后，随机一件商店出售的物品将会被降至0。",
   "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "112345",
 
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
@@ -54,7 +55,7 @@
   "TOUHOUANCIENTS-SNAKE_AMULET.flavor": "据说带着这个护身符就能身强体健。",
 
   "TOUHOUANCIENTS-FROG_AMULET.title": "蛙之护符",
-  "TOUHOUANCIENTS-FROG_AMULET.description": "通过卡牌造成伤害后，2回合后对所有敌人造成[gold]{ExtraDamage:percentLess()}%[/gold]造成伤害值的伤害。",
+  "TOUHOUANCIENTS-FROG_AMULET.description": "通过卡牌造成伤害后，下回合结束时对所有敌人造成[gold]{ExtraDamage:percentLess()}%[/gold]造成伤害值的伤害。",
   "TOUHOUANCIENTS-FROG_AMULET.flavor": "据说带着这个护身符便能平安回家。",
 
   "TOUHOUANCIENTS-SAILOR_SUIT.title": "水手服",
@@ -63,5 +64,34 @@
 
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.title": "神山的谢礼",
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]，[blue]1[/blue]组[gold]普通[/gold]、[blue]1[/blue]组[gold]罕见[/gold]、和[blue]1[/blue]组[gold]稀有[/gold]卡牌奖励。",
-  "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰守矢神社即可领取新人大礼包——文文新闻上是这样写的。"
+  "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰守矢神社即可领取新人大礼包——文文新闻上是这样写的。",
+
+  "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物，你不能再获得遗物。",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
+
+  "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "1",
+
+  "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
+  "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "拾起时，将你的体力上限翻倍，将[blue]4[/blue]张[gold]腐朽[/gold]加入牌组。",
+  "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "1",
+
+  "TOUHOUANCIENTS-BLOOD_FANG.title": "鲜血之牙",
+  "TOUHOUANCIENTS-BLOOD_FANG.description": "拾起时，失去最大生命的一半，为一张卡牌[gold]附魔[/gold]：[purple]喋血[/purple]。",
+  "TOUHOUANCIENTS-BLOOD_FANG.flavor": "1",
+
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将一张[gold]冈格尼尔之枪[/gold]加入牌组。",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
+  
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "腌制红雾",
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.description": "战斗开始时，播撒持续3回合的[color=red]红雾[/color]。",
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.flavor": "了解到所谓“第一个恶魔”瓦库的杰作「腌制活雾」后，蕾米莉亚连夜让帕秋莉制作了这个。",
+
+  "TOUHOUANCIENTS-NOBLE_BROOCH.title": "恶魔胸针",
+  "TOUHOUANCIENTS-NOBLE_BROOCH.description": "在你的回合开始时，[gold]变化[/gold]至多[blue]2[/blue]张牌，然后你可以再次[gold]变化[/gold]以此法变化的牌，每回合至多[gold]变化[/gold][blue]4[/blue]张。",
+  "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "1",
+  "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌"
 }
