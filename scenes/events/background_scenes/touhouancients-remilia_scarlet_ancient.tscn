@@ -1,15 +1,15 @@
 [gd_scene load_steps=2 format=3 uid="uid://0bmyb6rtng7y"]
 
-[ext_resource type="Texture2D" uid="uid://4siscmtahak3" path="res://sprite/WatariNina.png" id="1_sic4p"]
+[ext_resource type="Texture2D" uid="uid://x802u7erd7ix" path="res://sprite/RemiliaScarlet.png" id="1_sic4p"]
 
-[node name="WatariNinaAncient" type="Control"]
+[node name="RemiliaScarletAncient" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -350.0
-offset_top = -41.0
-offset_right = 2211.0
-offset_bottom = 1159.0
+offset_left = -440.0
+offset_top = -40.0
+offset_right = 2120.0
+offset_bottom = 1257.0
 texture = ExtResource("1_sic4p")

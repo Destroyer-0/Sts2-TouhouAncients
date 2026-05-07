@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bss48u2faq4yc"
-path="res://.godot/imported/moriyagohei.png-c449bb80b7f5ec6757cf7ff7f2f8e3d4.ctex"
+uid="uid://bhcn2idl8jkf3"
+path="res://.godot/imported/snakeamulet.png-530bcb3d9627f4d83c8d77dbfc8091ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon/relics/moriyagohei.png"
-dest_files=["res://.godot/imported/moriyagohei.png-c449bb80b7f5ec6757cf7ff7f2f8e3d4.ctex"]
+source_file="res://icon/relics/IconLarge/snakeamulet.png"
+dest_files=["res://.godot/imported/snakeamulet.png-530bcb3d9627f4d83c8d77dbfc8091ad.ctex"]
 
 [params]
 
