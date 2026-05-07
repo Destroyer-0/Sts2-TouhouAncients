@@ -15,8 +15,8 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class Yishixingqile : TouhouAncientRelics
 {
-    /// <summary>被选为免费的商品。非保存字段，离开商店后失效。</summary>
-    private MerchantEntry? _freeEntry;
+    /// <summary>被选为免费的商品列表。非保存字段，离开商店后失效。</summary>
+    private readonly HashSet<MerchantEntry> _freeEntries = new();
 
     public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
@@ -25,13 +25,21 @@ public class Yishixingqile : TouhouAncientRelics
 
         Flash();
 
-        // 从当前库存中随机选一个商品设为免费（只选购买瞬间的，不含 Courier 后续补充）
+        // 移除已购买的商品（如果它在免费列表中）
+        _freeEntries.Remove(itemPurchased);
+
+        // 从库存中随机选一个未被标记为免费的其他商品
         if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
         {
-            var entries = merchantRoom.Inventory.AllEntries.ToList();
-            if (entries.Count > 0)
+            var candidates = merchantRoom.Inventory.AllEntries
+                .Where(e => e.IsStocked
+                         && e != itemPurchased
+                         && !_freeEntries.Contains(e))
+                .ToList();
+
+            if (candidates.Count > 0)
             {
-                _freeEntry = entries.UnstableShuffle(player.RunState.Rng.Niche).First();
+                _freeEntries.Add(candidates.UnstableShuffle(player.RunState.Rng.Niche).First());
             }
         }
     }
@@ -39,17 +47,14 @@ public class Yishixingqile : TouhouAncientRelics
     public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal cost)
     {
         if (player != base.Owner) return cost;
-        if (_freeEntry == null || _freeEntry != entry) return cost;
+        if (_freeEntries.Contains(entry)) return 0m;
 
-        return 0m;
+        return cost;
     }
 
     public override Task BeforeRoomEntered(AbstractRoom room)
     {
-        if (_freeEntry != null)
-        {
-            _freeEntry = null;
-        }
+        _freeEntries.Clear();
         return Task.CompletedTask;
     }
 }
