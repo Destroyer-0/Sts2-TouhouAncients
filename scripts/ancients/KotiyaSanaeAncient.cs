@@ -20,7 +20,7 @@ public class KotiyaSanaeAncient : CustomAncientModel
     public override string? CustomRunHistoryIconPath => "res://icon/KotiyaSanae.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://icon/KotiyaSanae.png";
 
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
+    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
 
     // protected override OptionPools MakeOptionPools => new OptionPools(
     //     MakePool(

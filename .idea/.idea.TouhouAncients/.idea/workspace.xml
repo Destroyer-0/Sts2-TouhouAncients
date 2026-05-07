@@ -10,21 +10,54 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9af03d77-4fb9-4115-9dd0-c437ebea8534" name="更改" comment="" />
+    <list default="true" id="9af03d77-4fb9-4115-9dd0-c437ebea8534" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TouhouAncients/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TouhouAncients/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouhouAncients.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TouhouAncients.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouhouAncients/localization/zhs/ancients.json" beforeDir="false" afterPath="$PROJECT_DIR$/TouhouAncients/localization/zhs/ancients.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouhouAncients/localization/zhs/enchantments.json" beforeDir="false" afterPath="$PROJECT_DIR$/TouhouAncients/localization/zhs/enchantments.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouhouAncients/localization/zhs/relics.json" beforeDir="false" afterPath="$PROJECT_DIR$/TouhouAncients/localization/zhs/relics.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Enchantment/HighQuality.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Enchantment/HighQuality.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/Enchantment/Miracle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/Enchantment/Miracle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/ancients/KotiyaSanaeAncient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ancients/KotiyaSanaeAncient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/ancients/KotiyaSanaeAncient.cs.uid" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ancients/KotiyaSanaeAncient.cs.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/ancients/WatariNinaAncient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/ancients/WatariNinaAncient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Nina/Geishehuaxiaojie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Nina/Geishehuaxiaojie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Nina/Yishixingqile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Nina/Yishixingqile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Sanae/DayKakusei.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Sanae/DayKakusei.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Sanae/FrogAmulet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Sanae/FrogAmulet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Sanae/MoriyaGohei.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Sanae/MoriyaGohei.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Sanae/SailorSuit.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Sanae/SailorSuit.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/relics/Sanae/SnakeAmulet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/relics/Sanae/SnakeAmulet.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_E:/STSMods/TouhouAncients/Sts2-TouhouAncients" value="3D8iPjCGWTVpT8KemUbQLIkBC8p" />
+    </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/623673a32f6a4e15a5604f44f22978678a2200/35/2a6522c9/020004A3.il" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/37/637ccd65/LizardTail.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/53/6bfdac30/AncientEventModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/58/dbaadd9e/AncientDialogue.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/90/8abc9f7a/AncientDialogueSet.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/90/b841cc0e/ModelId.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/c5/4fa0f7a0/Akabeko.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8a9c1312de6843c7a8ead8663fefe5db9dc00/94/17067e3f/CustomAncientModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/01/b4c0fdac/HotfixPower.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/06/34e8ae40/CardTag.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/0f/9e0c3e07/RelicPoolModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/6e/0b27035d/FocusedStrikePower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/75/8482102b/SharedRelicPool.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/84/ca2bff5f/CombatState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/85/0eb27faf/RepeatVar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/9d/a7f20d9f/CardCreationResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/ab/92e4b7b2/PowerCmd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/af/d4c76b68/CardPileCmd.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/c1/99429ab3/CardModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/d8/83450884/MerchantEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/e4/47d5c82b/ModelDb.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/623673a32f6a4e15a5604f44f22978678a2200/f5/dc4a3ec3/PowerModel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -34,24 +67,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET 可执行文件.Player">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
@@ -64,7 +99,7 @@
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
-      <option name="WORKING_DIRECTORY" value="D:\STS2Mod\TouhouAncients\touhou-ancients" />
+      <option name="WORKING_DIRECTORY" value="E:\STSMods\TouhouAncients\Sts2-TouhouAncients" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -80,7 +115,7 @@
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
-      <option name="WORKING_DIRECTORY" value="D:\STS2Mod\TouhouAncients\touhou-ancients" />
+      <option name="WORKING_DIRECTORY" value="E:\STSMods\TouhouAncients\Sts2-TouhouAncients" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="ENV_FILE_PATHS" value="" />
       <option name="REDIRECT_INPUT_PATH" value="" />
@@ -107,6 +142,8 @@
       <workItem from="1777671451350" duration="282000" />
       <workItem from="1777671762843" duration="18953000" />
       <workItem from="1777732626057" duration="983000" />
+      <workItem from="1777950199483" duration="20993000" />
+      <workItem from="1778078400297" duration="309000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -13,80 +15,40 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class Yishixingqile : TouhouAncientRelics
 {
-    private bool _hasTriggered;
-    private bool _hasExhausted;
+    /// <summary>被选为免费的商品。非保存字段，离开商店后失效。</summary>
+    private MerchantEntry? _freeEntry;
 
-    public override bool IsUsedUp => TouhouAncients_HasTriggered;
-
-    /// <summary>
-    /// 触发折扣时当前商店中已陈列的所有商品快照。
-    /// 只有这些商品享受价格归零，后续 Courier 刷新出的新商品不享受折扣。
-    /// 非保存字段，离开当前商店后自动失效。
-    /// </summary>
-    private HashSet<MerchantEntry>? _discountedEntries;
-
-    [SavedProperty]
-    public bool TouhouAncients_HasTriggered
+    public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
-        get => _hasTriggered;
-        set
-        {
-            AssertMutable();
-            _hasTriggered = value;
-            if (IsUsedUp)
-            {
-                base.Status = RelicStatus.Disabled;
-            }
-        }
-    }
-    [SavedProperty]
-    public bool TouhouAncients_HasExhausted
-    {
-        get => _hasExhausted;
-        set
-        {
-            AssertMutable();
-            _hasExhausted = value;
-        }
-    }
-
-    public override Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
-    {
-        if (player != base.Owner) return Task.CompletedTask;
-        if (TouhouAncients_HasTriggered) return Task.CompletedTask;
-        if (TouhouAncients_HasExhausted) return Task.CompletedTask;
-        if (goldSpent <= 0) return Task.CompletedTask;
-        if (itemPurchased is not MerchantRelicEntry) return Task.CompletedTask;
+        if (player != base.Owner) return;
+        if (goldSpent <= 0) return; // 购买 0 价格商品不算消费
 
         Flash();
-        TouhouAncients_HasTriggered = true;
 
-        // 记录当前商店中所有已陈列的商品，
-        // 只有这些商品会享受价格归零，Courier 刷新出的新商品不在此列。
+        // 从当前库存中随机选一个商品设为免费（只选购买瞬间的，不含 Courier 后续补充）
         if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
         {
-            _discountedEntries = new HashSet<MerchantEntry>(merchantRoom.Inventory.AllEntries);
+            var entries = merchantRoom.Inventory.AllEntries.ToList();
+            if (entries.Count > 0)
+            {
+                _freeEntry = entries.UnstableShuffle(player.RunState.Rng.Niche).First();
+            }
         }
-
-        return Task.CompletedTask;
     }
 
     public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal cost)
     {
         if (player != base.Owner) return cost;
-        if (!TouhouAncients_HasTriggered) return cost;
-        if (TouhouAncients_HasExhausted) return cost;
-        // 只对触发时已存在的商品打折，Courier 刷新出的新商品不受影响
-        if (_discountedEntries == null || !_discountedEntries.Contains(entry)) return cost;
+        if (_freeEntry == null || _freeEntry != entry) return cost;
 
         return 0m;
     }
 
     public override Task BeforeRoomEntered(AbstractRoom room)
     {
-        if (TouhouAncients_HasTriggered && !TouhouAncients_HasExhausted)
+        if (_freeEntry != null)
         {
-            TouhouAncients_HasExhausted = true;
+            _freeEntry = null;
         }
         return Task.CompletedTask;
     }

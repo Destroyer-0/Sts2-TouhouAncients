@@ -11,9 +11,15 @@ namespace TouhouAncients.Scripts.Enchantment;
 public class SnakeBiteUpgrade : CustomEnchantmentModel
 {
     public override bool HasExtraCardText => true;
+    private int shouldResetNum;
     public override Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Card.Owner)
+        {
+            return Task.CompletedTask;
+        }
+
+        if (Card.EnergyCost.CostsX)
         {
             return Task.CompletedTask;
         }
@@ -22,7 +28,27 @@ public class SnakeBiteUpgrade : CustomEnchantmentModel
         {
             return Task.CompletedTask;
         }
+
+        if (base.Card.EnergyCost.GetAmountToSpend() > 0)
+        {
+            shouldResetNum++;
+        }
         base.Card.EnergyCost.AddUntilPlayed(-1);
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    {
+        if (card != base.Card)
+        {
+            return Task.CompletedTask;
+        }
+        
+        if (oldPileType == PileType.Hand)
+        {
+            base.Card.EnergyCost.AddUntilPlayed(shouldResetNum);
+            shouldResetNum = 0;
+        } 
         return Task.CompletedTask;
     }
 
