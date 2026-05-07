@@ -15,6 +15,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class MoriyaGohei : TouhouAncientRelics
 {
+    protected override bool HasBigIcon => true;
+
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("EnchantmentName", ModelDb.Enchantment<Miracle>().Title.GetFormattedText())]; 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromEnchantment<Miracle>();
     public override bool HasUponPickupEffect => true;

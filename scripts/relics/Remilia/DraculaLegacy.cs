@@ -49,6 +49,7 @@ public class DraculaLegacy : TouhouAncientRelics
         var relicRewards = rewards.OfType<RelicReward>().ToList();
         if (relicRewards.Count <= 0) return false;
 
+        Flash();
         foreach (var r in relicRewards)
         {
             rewards.Remove(r);
