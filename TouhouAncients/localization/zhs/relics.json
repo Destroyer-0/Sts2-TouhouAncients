@@ -64,14 +64,14 @@
 
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.title": "神山的谢礼",
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]，[blue]1[/blue]组[gold]普通[/gold]、[blue]1[/blue]组[gold]罕见[/gold]和[blue]1[/blue]组[gold]稀有[/gold]卡牌奖励。",
-  "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰守矢神社即可领取新人大礼包——文文新闻上是这样写的。",
+  "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰[aqua]守矢神社[/aqua]即可领取新人大礼包——文文新闻上是这样写的。",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
-  "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物，你不能再获得遗物。",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命。",
   "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养，将一张卡牌变化为[gold]血之仆从[/gold]。",
   "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "呵，再没用的仆人，也不会比一只妖精女仆更差了吧？",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
@@ -94,5 +94,34 @@
   "TOUHOUANCIENTS-NOBLE_BROOCH.title": "恶魔胸针",
   "TOUHOUANCIENTS-NOBLE_BROOCH.description": "在你的回合开始时，[gold]变化[/gold]至多[blue]2[/blue]张牌，然后你可以再次[gold]变化[/gold]以此法变化的牌，每回合至多[gold]变化[/gold][blue]4[/blue]张。",
   "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "接受还是反抗你的命运？做出你的抉择。",
-  "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌"
+  "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌",
+
+  "TOUHOUANCIENTS-THIRD_EYE.title": "第三只眼",
+  "TOUHOUANCIENTS-THIRD_EYE.description": "战斗开始时，自身获得[blue]2[/blue]层[gold]易伤[/gold]、[gold]脆弱[/gold]。第一次抽牌阶段开始前，[gold]预见[/gold][blue]5[/blue]。",
+  "TOUHOUANCIENTS-THIRD_EYE.flavor": "世界上没有比读心更美妙的能力了。",
+
+  "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当你[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果[blue]-2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.flavor": "",
+
+  "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "每当你[gold]洗牌[/gold]时，将一张[gold]灼伤[/gold]置入手牌，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.flavor": "",
+
+  "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
+  "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，使其下回合[gold]眩晕[/gold]。",
+  "TOUHOUANCIENTS-MIND_PROBE.flavor": "",
+
+  "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
+  "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，选择一张牌，为其[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "",
+
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张本职业的牌中选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]中。",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]中",
+
+  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.title": "遗忘残片",
+  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个涅奥的初始遗物。",
+  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": ""
 }

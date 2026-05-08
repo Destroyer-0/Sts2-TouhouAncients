@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BaseLib.Utils;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Runs;
+using TouhouAncients.Scripts.CmdUtils;
+
+namespace TouhouAncients.Scripts.relics;
+
+/// <summary>
+/// 第三只眼：战斗开始时，自身获得2层易伤、脆弱。第一次抽牌阶段开始前，预见5。
+/// </summary>
+[Pool(typeof(SharedRelicPool))]
+public class TheThirdEye : TouhouAncientRelics
+{
+    private bool _hasScryedThisCombat;
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<VulnerablePower>(),
+        HoverTipFactory.FromPower<FrailPower>(),
+    ];
+
+    public override async Task BeforeCombatStart()
+    {
+        var creature = base.Owner.Creature;
+
+        // 自身获得2层易伤、脆弱
+        await PowerCmd.Apply<VulnerablePower>(creature, 2m, creature, null);
+        await PowerCmd.Apply<FrailPower>(creature, 2m, creature, null);
+
+        // 注：卡牌"觉之眼"暂未实现
+        // var eyeCard = base.Owner.RunState.CreateCard(...);
+        // await CardPileCmd.Add(eyeCard, PileType.Hand);
+
+        _hasScryedThisCombat = false;
+    }
+
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    {
+        if (player != base.Owner) return;
+        if (_hasScryedThisCombat) return;
+
+        _hasScryedThisCombat = true;
+        Flash();
+
+        // 预见5：查看抽牌堆顶的5张牌，选择任意张置入弃牌堆
+        await SatoriScryCmd.SatoriScry(player, 5, choiceContext);
+    }
+}

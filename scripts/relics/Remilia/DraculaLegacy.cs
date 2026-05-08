@@ -4,57 +4,60 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
 [Pool(typeof(SharedRelicPool))]
 public class DraculaLegacy : TouhouAncientRelics
 {
-    private const string _relicsKey = "Relics";
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar(_relicsKey, 6m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13m, ValueProp.Unblockable | ValueProp.Unpowered)];
 
     public override bool HasUponPickupEffect => true;
 
-    /// <summary>
-    /// 防止 TryModifyRewardsLate 卡掉自己生成的遗物奖励。
-    /// AfterObtained → OfferCustom → GenerateWithoutOffering → TryModifyRewardsLate 也会被触发。
-    /// </summary>
-    private bool _isOfferingOwnRewards;
+    /// <summary>本遗物生成的 6 个遗物奖励引用。用于判断后续获得遗物是否来自本遗物。</summary>
+    private List<Reward>? _ourRewards;
 
     /// <summary>
     /// 拾起时，获得6个随机遗物。
     /// </summary>
     public override async Task AfterObtained()
     {
-        _isOfferingOwnRewards = true;
-        await RewardsCmd.OfferCustom(base.Owner, GenerateRewards());
-        _isOfferingOwnRewards = false;
+        _ourRewards = GenerateRewards();
+        await RewardsCmd.OfferCustom(base.Owner, _ourRewards);
     }
 
     /// <summary>
-    /// 移除后续奖励中所有遗物奖励（不能再获得遗物）。
+    /// 不以此方式获得遗物时，失去13点生命。
     /// </summary>
-    public override bool TryModifyRewardsLate(Player player, List<Reward> rewards, AbstractRoom? room)
+    public override async Task AfterRewardTaken(Player player, Reward reward)
     {
-        if (player != base.Owner) return false;
-        if (_isOfferingOwnRewards) return false; // 不卡自己生成的遗物
+        if (player != base.Owner) return;
+        if (_ourRewards == null) return;
 
-        var relicRewards = rewards.OfType<RelicReward>().ToList();
-        if (relicRewards.Count <= 0) return false;
+        // 是本遗物生成的奖励 → 不惩罚
+        if (reward is RelicReward relicReward && _ourRewards.Contains(relicReward))
+            return;
 
-        Flash();
-        foreach (var r in relicRewards)
+        // 不是本遗物获得的遗物 → 失去13点生命
+        if (reward is RelicReward)
         {
-            rewards.Remove(r);
+            Flash();
+            await CreatureCmd.Damage(
+                new ThrowingPlayerChoiceContext(),
+                player.Creature,
+                base.DynamicVars.Damage,
+                null,
+                null);
         }
-        return true;
     }
 
     private List<Reward> GenerateRewards()

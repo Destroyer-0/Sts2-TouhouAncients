@@ -40,29 +40,48 @@ public class Bileihaopaiduozhua : TouhouAncientRelics
     public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
     {
         if (player != base.Owner) return false;
+        EnchantValidCards(cardRewards);
+        return true;
+    }
+
+    public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
+    {
+        if (player == base.Owner)
+            EnchantValidCards(cards);
+    }
+
+    public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
+    {
+        newCard = null;
+        if (card.Owner != base.Owner) return false;
+        if (card.Enchantment != null) return false;
 
         var highQuality = ModelDb.Enchantment<HighQuality>();
-        bool modified = false;
+        if (!highQuality.CanEnchant(card)) return false;
+        if (!Owner.Deck.Cards.Any(x => x.Id.Entry == card.Id.Entry)) return false;
 
-        foreach (var reward in cardRewards)
+        newCard = EnchantCard(card);
+        return true;
+    }
+
+    private void EnchantValidCards(List<CardCreationResult> options)
+    {
+        var highQuality = ModelDb.Enchantment<HighQuality>();
+        foreach (var option in options)
         {
-            var card = reward.Card;
-
-            // 跳过不符合附魔条件、或已有同名牌不在牌库的卡牌
+            var card = option.Card;
             if (!highQuality.CanEnchant(card)) continue;
-            if (Owner.Deck.Cards.Any(x => x.Id.Entry == card.Id.Entry))
-            {
-                // 每张卡只能有一个附魔，跳过已有其他附魔的卡牌
-                if (card.Enchantment != null) continue;
+            if (card.Enchantment != null) continue;
+            if (!Owner.Deck.Cards.Any(x => x.Id.Entry == card.Id.Entry)) continue;
 
-                // 克隆卡牌 → 附魔 → 替换奖励卡
-                var enchantedCard = base.Owner.RunState.CloneCard(card);
-                CardCmd.Enchant<HighQuality>(enchantedCard, 1m);
-                reward.ModifyCard(enchantedCard, this);
-                modified = true;
-            }
+            option.ModifyCard(EnchantCard(card), this);
         }
+    }
 
-        return modified;
+    private CardModel EnchantCard(CardModel card)
+    {
+        var enchanted = base.Owner.RunState.CloneCard(card);
+        CardCmd.Enchant<HighQuality>(enchanted, 1m);
+        return enchanted;
     }
 }

@@ -18,6 +18,7 @@ public class Entry
         // 注册 Mod 中的 [SavedProperty] 类型到缓存中，
         // 否则读档时 SavedProperties 无法正确地序列化/反序列化这些属性。
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
 
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可

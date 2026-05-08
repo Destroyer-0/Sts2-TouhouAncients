@@ -66,20 +66,43 @@ public class Sheyaotebieqiang : TouhouAncientRelics
     public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
     {
         if (player != base.Owner) return false;
+        EnchantValidCards(cardRewards);
+        return true;
+    }
 
-        bool modified = false;
-        foreach (var reward in cardRewards)
+    public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
+    {
+        if (player == base.Owner)
+            EnchantValidCards(cards);
+    }
+
+    public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
+    {
+        newCard = null;
+        if (card.Owner != base.Owner) return false;
+        if (card.Enchantment != null) return false;
+        if (!IsSnakeCard(card)) return false;
+
+        newCard = EnchantCard(card);
+        return true;
+    }
+
+    private void EnchantValidCards(List<CardCreationResult> options)
+    {
+        foreach (var option in options)
         {
-            var card = reward.Card;
+            var card = option.Card;
             if (!IsSnakeCard(card)) continue;
             if (card.Enchantment != null) continue;
 
-            var enchantedCard = base.Owner.RunState.CloneCard(card);
-            CardCmd.Enchant<SnakeBiteUpgrade>(enchantedCard, 1m);
-            reward.ModifyCard(enchantedCard, this);
-            modified = true;
+            option.ModifyCard(EnchantCard(card), this);
         }
+    }
 
-        return modified;
+    private CardModel EnchantCard(CardModel card)
+    {
+        var enchanted = base.Owner.RunState.CloneCard(card);
+        CardCmd.Enchant<SnakeBiteUpgrade>(enchanted, 1m);
+        return enchanted;
     }
 }
