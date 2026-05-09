@@ -23,6 +23,7 @@ public class Bloodshed : CustomEnchantmentModel
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
         if (cardSource != base.Card) return;
+        if (base.Status != EnchantmentStatus.Normal) return;
         if (dealer != base.Card.Owner?.Creature) return;
 
         var healAmount = result.TotalDamage;

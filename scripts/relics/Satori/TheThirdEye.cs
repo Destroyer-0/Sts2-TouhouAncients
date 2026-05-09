@@ -15,6 +15,8 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Runs;
+using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.CmdUtils;
 
 namespace TouhouAncients.Scripts.relics;
@@ -25,12 +27,12 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class TheThirdEye : TouhouAncientRelics
 {
-    private bool _hasScryedThisCombat;
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<FrailPower>(),
+        HoverTipFactory.FromCard<SatoriEye>(),
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.SatoriScry)
     ];
 
     public override async Task BeforeCombatStart()
@@ -44,19 +46,20 @@ public class TheThirdEye : TouhouAncientRelics
         // 注：卡牌"觉之眼"暂未实现
         // var eyeCard = base.Owner.RunState.CreateCard(...);
         // await CardPileCmd.Add(eyeCard, PileType.Hand);
-
-        _hasScryedThisCombat = false;
     }
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
     {
         if (player != base.Owner) return;
-        if (_hasScryedThisCombat) return;
+        if (Owner.Creature.CombatState == null) return;
+        if (combatState.RoundNumber != 1) return;
 
-        _hasScryedThisCombat = true;
         Flash();
 
         // 预见5：查看抽牌堆顶的5张牌，选择任意张置入弃牌堆
         await SatoriScryCmd.SatoriScry(player, 5, choiceContext);
+        // 加入觉之眼卡
+        await CardPileCmd.AddGeneratedCardsToCombat([base.Owner.Creature.CombatState.CreateCard<SatoriEye>(base.Owner)],
+            PileType.Hand, addedByPlayer: true);
     }
 }

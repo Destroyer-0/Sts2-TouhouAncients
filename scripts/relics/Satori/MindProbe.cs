@@ -5,10 +5,12 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -20,12 +22,13 @@ namespace TouhouAncients.Scripts.relics;
 public class MindProbe : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Threshold", 2m)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [StunIntent.GetStaticHoverTip()];
 
     public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target != base.Owner.Creature) return;
         if (dealer == null) return;
-        if (dealer.IsPlayer || dealer.IsPet) return; // 只对敌人有效
+        if (!dealer.IsEnemy) return; // 只对敌人有效
 
         if (amount <= 0) return;
 

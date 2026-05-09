@@ -28,11 +28,15 @@ public static class SatoriScryCmd
 
         var drawPile = PileType.Draw.GetPile(player);
         var topCards = drawPile.Cards.Take(amount).ToList();
-        if (topCards.Count <= 0) return;
+        if (topCards.Count <= 0)
+        {
+            await Cmd.Wait(0.25f);
+            return;
+        }
 
         choiceContext ??= new BlockingPlayerChoiceContext();
         var prefs = new CardSelectorPrefs(
-            CardSelectorPrefs.DiscardSelectionPrompt,
+            new LocString("card_keywords","TOUHOUANCIENTS-SATORISCRY.selectionScreenPrompt"),
             0,
             topCards.Count
         );

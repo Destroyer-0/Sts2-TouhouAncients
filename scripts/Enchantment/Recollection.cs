@@ -18,15 +18,17 @@ public class Recollection : CustomEnchantmentModel
         if (!HasCard) return;
         if (card != base.Card) return;
         if (card.Pile == null) return;
+        if (base.Status != EnchantmentStatus.Normal) return;
 
         // 进入弃牌堆（如从手牌被弃）→ 自动打出
         if (card.Pile?.Type == PileType.Discard)
         {
+            base.Status = EnchantmentStatus.Disabled;
             await CardCmd.AutoPlay(
                 new ThrowingPlayerChoiceContext(),
                 card,
-                target: null);
-            base.Status = EnchantmentStatus.Disabled;
+                target: null
+                );
         }
     }
 }

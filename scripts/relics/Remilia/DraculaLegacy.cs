@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -41,15 +42,25 @@ public class DraculaLegacy : TouhouAncientRelics
     public override async Task AfterRewardTaken(Player player, Reward reward)
     {
         if (player != base.Owner) return;
-        if (_ourRewards == null) return;
 
         // 是本遗物生成的奖励 → 不惩罚
-        if (reward is RelicReward relicReward && _ourRewards.Contains(relicReward))
+        if (reward is RelicReward relicReward && (_ourRewards != null && _ourRewards.Contains(relicReward)))
+        {
+            if (_ourRewards == null)
+            {
+                GD.PrintErr($"捡起自身生成的奖励、_ourRewards为空？！");
+            }
+            else
+            {
+                GD.PrintErr($"捡起自身生成的奖励{_ourRewards.Count}");
+            }
             return;
+        }
 
         // 不是本遗物获得的遗物 → 失去13点生命
         if (reward is RelicReward)
         {
+            GD.PrintErr("捡起其他遗物");
             Flash();
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),

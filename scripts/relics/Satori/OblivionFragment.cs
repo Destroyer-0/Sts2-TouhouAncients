@@ -39,6 +39,7 @@ public class OblivionFragment : TouhouAncientRelics
 
         // 生成奖励
         var rewards = chosen.Select(r => new RelicReward(r, base.Owner)).ToList<Reward>();
-        await new RewardsSet(base.Owner).WithCustomRewards(rewards).WithSkippingDisallowed().Offer();
+        await new RewardsSet(base.Owner).WithCustomRewards(rewards).Offer();
+        base.Status = RelicStatus.Disabled;
     }
 }

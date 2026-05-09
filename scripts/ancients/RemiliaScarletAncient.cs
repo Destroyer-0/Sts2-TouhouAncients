@@ -15,15 +15,15 @@ public class RemiliaScarletAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 3;
 
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
+    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
     
-    public override string? CustomMapIconPath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://icon/KotiyaSanae.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
@@ -36,7 +36,13 @@ public class RemiliaScarletAncient : CustomAncientModel
             AncientOption<PreservedRedFog>()
         ),
         MakePool(
-            AncientOption<SpearGungnir>(),
-            AncientOption<NightServant>()
-        ));
+            AncientOption<CrimsonChalice>(),
+            AncientOption<BloodFang>(),
+            AncientOption<PreservedRedFog>()
+        )
+        // MakePool(
+        //     AncientOption<SpearGungnir>(),
+        //     AncientOption<NightServant>()
+        // )
+        );
 }

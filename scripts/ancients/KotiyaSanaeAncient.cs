@@ -12,13 +12,13 @@ public class KotiyaSanaeAncient : CustomAncientModel
     public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.35f);
     public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f);
 
-    public override string? CustomMapIconPath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://icon/KotiyaSanae.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
 
     //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
 

@@ -23,7 +23,7 @@
       <Private>false</Private>
     </Reference>
     
-    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
+    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.1.0.0" />
   </ItemGroup>
 
   <!-- 自动复制dll和json -->

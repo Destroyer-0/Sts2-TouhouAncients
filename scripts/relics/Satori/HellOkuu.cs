@@ -31,11 +31,18 @@ public class HellOkuu : TouhouAncientRelics
 
         Flash();
 
-        // 将一张灼伤置入手牌
-        var burn = base.Owner.RunState.CreateCard(ModelDb.Card<Burn>(), base.Owner);
-        await CardPileCmd.Add(burn, PileType.Hand);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(shuffler.Creature, PileType.Hand, 1, true);
+        //Flash();
+        await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, 2m, base.Owner.Creature, null);
+        await Cmd.Wait(0.5f);
+        
+        // CardModel card = base.Owner.RunState.CreateCard<Burn>(base.Owner);
+        // CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Discard, addedByPlayer: true));
+        // await Cmd.Wait(0.5f);
+        // // 将一张灼伤置入手牌
+        // var burn = base.Owner.RunState.CreateCard(ModelDb.Card<Burn>(), base.Owner);
+        // await CardPileCmd.Add(burn, PileType.Hand);
 
         // 获得2力量
-        await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, 2m, base.Owner.Creature, null);
     }
 }

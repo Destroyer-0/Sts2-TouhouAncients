@@ -5,7 +5,7 @@
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。卡牌奖励里已有同名牌存在于牌组中的卡牌奖励获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
@@ -21,7 +21,7 @@
   "TOUHOUANCIENTS-HUOYANTUXI.flavor": "火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。你牌组中与之后获得的名字带有“蛇”的牌获得[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
@@ -96,12 +96,12 @@
   "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "接受还是反抗你的命运？做出你的抉择。",
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌",
 
-  "TOUHOUANCIENTS-THIRD_EYE.title": "第三只眼",
-  "TOUHOUANCIENTS-THIRD_EYE.description": "战斗开始时，自身获得[blue]2[/blue]层[gold]易伤[/gold]、[gold]脆弱[/gold]。第一次抽牌阶段开始前，[gold]预见[/gold][blue]5[/blue]。",
-  "TOUHOUANCIENTS-THIRD_EYE.flavor": "世界上没有比读心更美妙的能力了。",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.title": "第三只眼",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，获得[blue]2[/blue]层[gold]易伤[/gold]、[gold]脆弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "读心能力实在是太美妙了。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当你[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果[blue]-2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当你[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果减少[blue]2[/blue]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
@@ -109,7 +109,7 @@
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
-  "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，使其下回合[gold]眩晕[/gold]。",
+  "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的剩余格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，[gold]击晕[/gold]该敌人。",
   "TOUHOUANCIENTS-MIND_PROBE.flavor": "",
 
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
@@ -117,11 +117,14 @@
   "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张本职业的牌中选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]中。",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中选择任意张牌，使其不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]中",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]与商店中",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetTitle": "遗忘",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing": "你还没有遗忘任何卡牌。",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forget": "已被遗忘的卡牌：\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.title": "遗忘残片",
-  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个涅奥的初始遗物。",
+  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": ""
 }

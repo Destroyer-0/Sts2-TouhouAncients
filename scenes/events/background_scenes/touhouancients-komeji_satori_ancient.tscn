@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd6tp2qy8ruxm"]
+
+[ext_resource type="Texture2D" uid="uid://b70c2i8820djp" path="res://sprite/KomejiSatori.png" id="1_0cqh2"]
+
+[node name="KomejiSatoriAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -334.0
+offset_top = -141.0
+offset_right = 2226.0
+offset_bottom = 1460.0
+texture = ExtResource("1_0cqh2")

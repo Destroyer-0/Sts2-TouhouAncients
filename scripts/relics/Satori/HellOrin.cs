@@ -30,7 +30,7 @@ public class HellOrin : TouhouAncientRelics
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
-        if (creature.Player != null) return; // 只针对敌人死亡
+        if (!creature.IsEnemy) return; // 只针对敌人死亡
         if (creature.CombatState == null) return;
 
         Flash();

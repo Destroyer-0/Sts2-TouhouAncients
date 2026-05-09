@@ -3,7 +3,7 @@
     "name": "东方先古之民",
     "author": "阿迪",
     "description": "",
-    "version": "0.0",
+    "version": "0.2.4",
     "has_pck": true,         
     "has_dll": true,        
     "dependencies": ["BaseLib"],     

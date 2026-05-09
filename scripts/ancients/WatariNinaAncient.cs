@@ -17,16 +17,16 @@ public class WatariNinaAncient : CustomAncientModel
 
     //public override string? CustomScenePath => "res://test/scenes/test_ancient.tscn";
     // 自定义地图图标和轮廓的路径
-    public override string? CustomMapIconPath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://icon/WatariNina.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://icon/WatariNina.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/WatariNina.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/WatariNina.png";
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 2;
 
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 2;
+    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 2;
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
