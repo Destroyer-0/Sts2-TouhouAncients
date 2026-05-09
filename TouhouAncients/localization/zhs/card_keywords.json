@@ -1,5 +1,8 @@
 {
   "TOUHOUANCIENTS-SATORISCRY.title": "预见",
   "TOUHOUANCIENTS-SATORISCRY.description": "检视你抽牌堆顶部的X张牌。你可以选择丢弃其中的任意张。",
-  "TOUHOUANCIENTS-SATORISCRY.selectionScreenPrompt": "选择任意张牌丢弃。"
+  "TOUHOUANCIENTS-SATORISCRY.selectionScreenPrompt": "选择任意张牌丢弃。",
+
+  "TOUHOUANCIENTS-YINYANGTRANSLATION.title": "转换",
+  "TOUHOUANCIENTS-YINYANGTRANSLATION.description": "每场战斗开始时，处于[blue]阴[/blue]状态。每当你触发[blue]阴[/blue]效果或[gold]阳[/gold]效果时，切换到另一个状态。"
 }

@@ -13,6 +13,9 @@
     "TOUHOUANCIENTS-BLOODSHED.description": "每场战斗这张牌第一次造成伤害时，恢复等同于造成伤害的生命值。",
     "TOUHOUANCIENTS-BLOODSHED.title": "喋血",
 
-    "TOUHOUANCIENTS-RECOLLECTION.description": "首次进入弃牌堆时，将其打出。",
-    "TOUHOUANCIENTS-RECOLLECTION.title": "回忆"
+    "TOUHOUANCIENTS-RECOLLECTION.description": "首次进入弃牌堆时，将此牌返回你的手牌，其在本回合可以免费打出。",
+    "TOUHOUANCIENTS-RECOLLECTION.title": "回忆",
+
+    "TOUHOUANCIENTS-EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
+    "TOUHOUANCIENTS-EXORCISM.title": "降伏"
 }

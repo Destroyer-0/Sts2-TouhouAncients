@@ -1,4 +1,10 @@
 {
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
-    "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]"
+    "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]",
+
+    "TOUHOUANCIENTS-TRIBUTE.title": "供奉",
+    "TOUHOUANCIENTS-TRIBUTE.description": "累计供奉[blue]{Remaining}[/blue]金币后，将此牌从[gold]牌组[/gold]中移除。\n[fade_in]我很可爱，请给我钱！[/fade_in]",
+
+    "TOUHOUANCIENTS-DREAM_SEAL.title": "梦想封印",
+    "TOUHOUANCIENTS-DREAM_SEAL.description": "造成[blue]{Damage:diff()}[/blue]点伤害。\n给予[blue]1[/blue]层[gold]虚弱[/gold]。\n给予[blue]1[/blue]层[gold]易伤[/gold]。\n敌人在本回合失去{StrengthLoss:diff()}点[gold]力量[/gold]。"
 }
