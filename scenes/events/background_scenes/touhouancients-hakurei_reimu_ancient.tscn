@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bvgfpqetd50uv"]
 
-[ext_resource type="Texture2D" uid="uid://4siscmtahak3" path="res://sprite/WatariNina.png" id="1_ck6q7"]
+[ext_resource type="Texture2D" uid="uid://c1e0qqnyg0ghm" path="res://sprite/HakureiReimu.png" id="1_ck6q7"]
 
 [node name="HakureiReimuAncient" type="Control"]
 layout_mode = 3
@@ -8,8 +8,8 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -350.0
-offset_top = -41.0
-offset_right = 2211.0
-offset_bottom = 1159.0
+offset_left = -359.0
+offset_top = -157.0
+offset_right = 2202.0
+offset_bottom = 1677.0
 texture = ExtResource("1_ck6q7")

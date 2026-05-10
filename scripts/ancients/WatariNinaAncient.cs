@@ -11,7 +11,7 @@ namespace TouhouAncients.Scripts;
 
 public class WatariNinaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new Color(0.05f, 0.07f, 0.2f, 0.8f);
+    public override Color ButtonColor => new Color(0.05f, 0.07f, 0.2f, 0.7f);
 
     public override Color DialogueColor => new Color("384d7a");
 

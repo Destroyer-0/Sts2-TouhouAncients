@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public class HakureiReimuAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.8f);
+    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.7f);
     public override Color DialogueColor => new(0.9f, 0.25f, 0.25f);
 
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 1;
@@ -32,8 +32,8 @@ public class HakureiReimuAncient : CustomAncientModel
             AncientOption<HakureiGohei>()
         ),
         MakePool(
-            AncientOption<DonateMoneyBox>(),
-            AncientOption<HakureiCharm>()
+            AncientOption<MiniShrine>(),
+            AncientOption<DonateMoneyBox>()
         ),
         MakePool(
             AncientOption<SubspaceHole>(),

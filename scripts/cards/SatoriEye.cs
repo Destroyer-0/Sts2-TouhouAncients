@@ -27,7 +27,7 @@ public class SatoriEye : TouhouAncientCards
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(TouhouAncientKeywords.SatoriScry),
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientSatoriScry),
         base.EnergyHoverTip
     ];
 

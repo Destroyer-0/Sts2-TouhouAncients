@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class HellOrin : TouhouAncientRelics
 {
-    private const decimal DefaultHeal = 4m;
+    private const decimal DefaultHeal = 5m;
 
     private decimal _healAmount = DefaultHeal;
 

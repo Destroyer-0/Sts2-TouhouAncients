@@ -15,8 +15,8 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Exorcism : CustomEnchantmentModel
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<DreamSeal>()];
-    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<DreamSeal>(upgrade:HasCard && Card.IsUpgraded)];
+
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
         if (cardPlay.Card != base.Card) return;
@@ -27,6 +27,10 @@ public class Exorcism : CustomEnchantmentModel
 
         // 创建梦想封印加入手牌
         var dreamSeal = player.RunState.CreateCard(ModelDb.Card<DreamSeal>(), player);
+        if (Card.IsUpgraded)
+        {
+            CardCmd.Upgrade(dreamSeal);
+        }
         await CardPileCmd.AddGeneratedCardsToCombat([dreamSeal], PileType.Hand, true);
     }
 }

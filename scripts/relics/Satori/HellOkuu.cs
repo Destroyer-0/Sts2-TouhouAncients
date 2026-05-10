@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class HellOkuu : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Strength", 2m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Strength", 2m), new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Burn>().Append(HoverTipFactory.FromPower<StrengthPower>());

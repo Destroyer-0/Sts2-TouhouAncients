@@ -27,7 +27,7 @@ public class YinYangOrb : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(TouhouAncientKeywords.YinYangTranslation),
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientYinYangTranslation),
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<DexterityPower>()
     ];

@@ -10,7 +10,7 @@ namespace TouhouAncients.Scripts;
 
 public class RemiliaScarletAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.8f);
+    public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.6f, 0.1f, 0.1f);
 
     public override bool IsValidForAct(ActModel act) => act.ActNumber() == 3;
@@ -22,8 +22,8 @@ public class RemiliaScarletAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/RemiliaScarlet.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/RemiliaScarlet.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

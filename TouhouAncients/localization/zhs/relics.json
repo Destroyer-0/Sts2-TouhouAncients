@@ -47,11 +47,11 @@
   "TOUHOUANCIENTS-MORIYA_GOHEI.flavor": "可不能被常识束缚哦？",
 
   "TOUHOUANCIENTS-DAY_KAKUSEI.title": "白昼新星",
-  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。",
+  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。当你使用能力药水时，抽两张牌。",
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "将它变成伽马射线怎么样？",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "蛇之护符",
-  "TOUHOUANCIENTS-SNAKE_AMULET.description": "如果你在回合结束时没有任何[gold]手牌[/gold]，则获得[blue]1[/blue][gold]敏捷[/gold]，下回合额外获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-SNAKE_AMULET.description": "如果你在回合结束时没有任何[gold]手牌[/gold]，获得[blue]1[/blue][gold]敏捷[/gold]，下回合额外获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-SNAKE_AMULET.flavor": "据说带着这个护身符就能身强体健。",
 
   "TOUHOUANCIENTS-FROG_AMULET.title": "蛙之护符",
@@ -71,7 +71,7 @@
   "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养，将一张卡牌变化为[gold]血之仆从[/gold]。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养，失去10点生命并将一张卡牌变化为[gold]血之仆从[/gold]。",
   "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "呵，再没用的仆人，也不会比一只妖精女仆更差了吧？",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
@@ -101,11 +101,11 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "读心能力实在是太美妙了。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当你[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果减少[blue]2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果减少[blue]2[/blue]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "每当你[gold]洗牌[/gold]时，将一张[gold]灼伤[/gold]置入手牌，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "每当你[gold]洗牌[/gold]时，将一张[gold]灼伤[/gold]置入手牌，并获得[blue]{Strength}[/blue][gold]力量[/gold]与{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -128,8 +128,12 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "",
 
+  "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
+  "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将一张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-MINI_SHRINE.flavor": "谁也不知道里面供奉的是什么神明。",
+
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "赛钱箱",
-  "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "在你的回合开始时，获得{Energy:energyIcons()}。\n拾起时，将一张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "你可以在休息处进行[gold]募捐[/gold]。",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
@@ -141,14 +145,14 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "战斗开始时，为所有敌人附加[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害增加[blue]{ExtraDamage}[/blue]。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "战斗开始时，给予所有敌人[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害增加[blue]{ExtraDamage}[/blue]。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",
-  "TOUHOUANCIENTS-YIN_YANG_ORB.description": "[orange]转换[/orange]。\n[blue]阴[/blue]：每当你打出一张技能牌时，获得[blue]1[/blue]临时[gold]力量[/gold]。\n[gold]阳[/gold]：每当你打出一张攻击牌时，获得[blue]1[/blue]临时[gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-YIN_YANG_ORB.description": "每当你打出一张技能牌时，获得[blue]1[/blue]临时[gold]力量[/gold]。每当你打出一张攻击牌时，获得[blue]1[/blue]临时[gold]敏捷[/gold]。",
   "TOUHOUANCIENTS-YIN_YANG_ORB.flavor": "太极生两仪。",
 
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "博丽御币",
-  "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，选择一张卡，为其[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，将一张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HAKUREI_GOHEI.flavor": ""
 }

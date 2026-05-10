@@ -23,14 +23,17 @@ public class Recollection : CustomEnchantmentModel
     {
         if (!HasCard) return;
         if (card != base.Card) return;
+        if (card.Pile == null) return;
         if (base.Status != EnchantmentStatus.Normal) return;
 
         if (card.Pile?.Type == PileType.Discard)
         {
-            await CardPileCmd.Add(card, PileType.Hand);
-            card.SetStarCostUntilPlayed(0);
-            card.EnergyCost.SetUntilPlayed(0);
             base.Status = EnchantmentStatus.Disabled;
+            await CardCmd.AutoPlay(
+                new ThrowingPlayerChoiceContext(),
+                card,
+                target: null
+            );
             //isWaitingForFree = false;
         }
         // else

@@ -9,17 +9,21 @@ public class TouhouAncientKeywords
     /// <summary>
     /// 使用 [CustomEnum] 注册到 CardKeyword 枚举中。
     /// </summary>
-    [CustomEnum("SatoriScry")]
+    [CustomEnum("TouhouAncientSatoriScry")]
     [KeywordProperties(AutoKeywordPosition.After)]
-    public static CardKeyword SatoriScry;
+    public static CardKeyword TouhouAncientSatoriScry;
 
     
-    [CustomEnum("YinYangTranslation")]
+    [CustomEnum("TouhouAncientYinYangTranslation")]
     [KeywordProperties(AutoKeywordPosition.After)]
-    public static CardKeyword YinYangTranslation;
+    public static CardKeyword TouhouAncientYinYangTranslation;
+    
+    [CustomEnum("TouhouAncientDonate")]
+    [KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword TouhouAncientDonate;
 
     public static bool IsScry(CardModel card)
     {
-        return card.Keywords.Contains(SatoriScry);
+        return card.Keywords.Contains(TouhouAncientSatoriScry);
     }
 }

@@ -32,7 +32,7 @@ public class TheThirdEye : TouhouAncientRelics
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<FrailPower>(),
         HoverTipFactory.FromCard<SatoriEye>(),
-        HoverTipFactory.FromKeyword(TouhouAncientKeywords.SatoriScry)
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientSatoriScry)
     ];
 
     public override async Task BeforeCombatStart()

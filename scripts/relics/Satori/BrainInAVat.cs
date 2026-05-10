@@ -22,14 +22,14 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 缸中之脑：从20张本职业的牌中选择任意张牌，使其不会出现在后续的卡牌奖励与商店中。
+/// 缸中之脑：从25张本职业的牌中选择任意张牌，使其不会出现在后续的卡牌奖励与商店中。
 /// </summary>
 [Pool(typeof(SharedRelicPool))]
 public class BrainInAVat : TouhouAncientRelics
 {
-    private static readonly int MaxChoices = 20;
-    private static readonly int MaxChoicesCommon = 8;
-    private static readonly int MaxChoicesUncommon = 8;
+    private static readonly int MaxChoices = 25;
+    private static readonly int MaxChoicesCommon = 10;
+    private static readonly int MaxChoicesUncommon = 10;
 
     /// <summary>被屏蔽的卡牌 ID 集合。
     [SavedProperty]
