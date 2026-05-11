@@ -75,11 +75,11 @@
   "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "呵，再没用的仆人，也不会比一只妖精女仆更差了吧？",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
-  "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "拾起时，将你的体力上限翻倍，将[blue]4[/blue]张[gold]腐朽[/gold]加入牌组。",
+  "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "拾起时，将你的最大生命翻倍，将[blue]4[/blue]张[gold]腐朽[/gold]加入牌组。",
   "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "大小姐只喝[red]B型血[/red]。——十六夜咲夜",
 
   "TOUHOUANCIENTS-BLOOD_FANG.title": "殷红之牙",
-  "TOUHOUANCIENTS-BLOOD_FANG.description": "拾起时，失去最大生命的一半，为一张卡牌[gold]附魔[/gold]：[purple]喋血[/purple]。",
+  "TOUHOUANCIENTS-BLOOD_FANG.description": "拾起时，失去最大生命的一半，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "她吸血时总会洒出很多血液，结果将衣服染成了一片[red]赤红[/red]。",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
@@ -113,7 +113,7 @@
   "TOUHOUANCIENTS-MIND_PROBE.flavor": "你的下一句话是……？",
 
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
-  "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，选择一张牌，为其[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
