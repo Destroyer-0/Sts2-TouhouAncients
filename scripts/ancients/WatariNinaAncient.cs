@@ -24,9 +24,16 @@ public class WatariNinaAncient : CustomAncientModel
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://sprite/icon/WatariNina.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/WatariNina.png";
-    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 2;
+    public override bool IsValidForAct(ActModel act)
+    {
+        if (TouhouAncientsConfig.BanNina) return false;
+        return act.ActNumber() == 2;
+    }
 
-    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 2;
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        return TouhouAncientsConfig.IsAncientForced<WatariNinaAncient>();
+    }
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

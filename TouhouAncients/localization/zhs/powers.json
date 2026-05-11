@@ -1,0 +1,5 @@
+{
+  "VIGOR_ON_BLOCK_POWER.title": "化劲",
+  "VIGOR_ON_BLOCK_POWER.description": "本回合将格挡掉的攻击伤害转化为等量[gold]活力[/gold]。",
+  "VIGOR_ON_BLOCK_POWER.smartDescription": "本回合将格挡掉的攻击伤害转化为[blue]{Amount}[/blue]倍[gold]活力[/gold]。"
+}

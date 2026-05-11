@@ -1,0 +1,46 @@
+using BaseLib.Abstracts;
+using BaseLib.Extensions;
+using BaseLib.Utils;
+using Godot;
+using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.relics;
+
+namespace TouhouAncients.Scripts;
+
+public class HinanawiTenshiAncient : CustomAncientModel
+{
+    public override Color ButtonColor => new(0.72f, 0.53f, 0.78f, 0.7f);
+    public override Color DialogueColor => new(0.72f, 0.53f, 0.78f);
+
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/HinanawiTenshi.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/HinanawiTenshi.png";
+
+    public override bool IsValidForAct(ActModel act)
+    {
+        if (TouhouAncientsConfig.BanTenshi) return false;
+        return act.ActNumber() == 3;
+    }
+
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        return TouhouAncientsConfig.IsAncientForced<HinanawiTenshiAncient>();
+    }
+
+    // Pool 1: 普通池
+    // Pool 2: 稀有池
+    // Pool 3: 先古之民池
+    protected override OptionPools MakeOptionPools => new OptionPools(
+        MakePool(
+            AncientOption<MysticFortunePeach>(),
+            AncientOption<CurseBreakerQi>()
+        ),
+        MakePool(
+            AncientOption<FirmamentSash>(),
+            AncientOption<SupremeHeavenSeal>()
+        ),
+        MakePool(
+            AncientOption<HisouSword>()
+            //AncientOption<KeystoneFloatingCannon>()
+        )
+    );
+}

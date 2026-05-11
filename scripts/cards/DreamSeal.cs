@@ -29,7 +29,17 @@ public class DreamSeal : TouhouAncientCards
     private const bool shouldShowInCardLibrary = true;
 
     private const int HitCount = 6;
-
+    protected override bool ShouldGlowGoldInternal
+    {
+        get
+        {
+            if (base.CombatState == null)
+            {
+                return false;
+            }
+            return base.CombatState.HittableEnemies.Any((Creature e) => e.Monster?.IntendsToAttack ?? false);
+        }
+    }
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(2m, ValueProp.Move),

@@ -40,3 +40,17 @@
 - 附魔: `TOUHOUANCIENTS-BLOODSHED.title`
 - 遗物: `TOUHOUANCIENTS-BLOOD_FANG.title`
 - Ancient: `TOUHOUANCIENTS-{角色}_ANCIENT.title` / `.epithet` / `.talk....`
+
+## 本地化文本规范
+### 1.1 遗物附魔描述格式
+拾起遗物并对牌附魔时，统一使用以下格式：
+```
+拾起时，（其他效果），从[gold]牌组[/gold]中选择一张(指定类型的)牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。
+```
+要点：
+- 使用 `[gold]牌组[/gold]` 而非 "牌组"（不加标记）
+- 使用 `为它[gold]附魔[/gold]` 而非 "为其附魔" 或其他变体
+- 附魔名使用 `{EnchantmentName}` 动态变量（`StringVar`），而非硬编码
+
+### 1.2 生命相关术语
+- 统一使用 **"最大生命"**，禁止使用 "体力上限"

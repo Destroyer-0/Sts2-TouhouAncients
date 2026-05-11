@@ -13,9 +13,16 @@ public class RemiliaScarletAncient : CustomAncientModel
     public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.6f, 0.1f, 0.1f);
 
-    public override bool IsValidForAct(ActModel act) => act.ActNumber() == 3;
+    public override bool IsValidForAct(ActModel act)
+    {
+        if (TouhouAncientsConfig.BanRemilia) return false;
+        return act.ActNumber() == 3;
+    }
 
-    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        return TouhouAncientsConfig.IsAncientForced<RemiliaScarletAncient>();
+    }
     
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
 

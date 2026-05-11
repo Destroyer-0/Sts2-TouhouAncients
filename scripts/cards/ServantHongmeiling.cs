@@ -6,14 +6,15 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cardTags;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 罡气侍从：获得20（升级后25）格挡，4（升级后6）活力。
+/// 罡气侍从：获得20（升级后25）格挡。本回合将格挡掉的攻击伤害转化为等量活力。
+/// 多次打出时转化倍率叠加。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class ServantHongmeiling : TouhouAncientCards
@@ -27,7 +28,7 @@ public class ServantHongmeiling : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(20m, ValueProp.Move),
-        new PowerVar<VigorPower>(4m)
+        new PowerVar<VigorOnBlockPower>(1)
     ];
 
 
@@ -41,12 +42,11 @@ public class ServantHongmeiling : TouhouAncientCards
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<VigorPower>(base.Owner.Creature, base.DynamicVars["VigorPower"].IntValue, base.Owner.Creature, this);
+        await PowerCmd.Apply<VigorOnBlockPower>(base.Owner.Creature, 1, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
         base.DynamicVars.Block.UpgradeValueBy(5m);
-        base.DynamicVars["VigorPower"].UpgradeValueBy(2m);
     }
 }

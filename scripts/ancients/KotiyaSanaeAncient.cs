@@ -20,7 +20,16 @@ public class KotiyaSanaeAncient : CustomAncientModel
     public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
 
-    //public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient) => act.ActNumber() == 3;
+    public override bool IsValidForAct(ActModel act)
+    {
+        if (TouhouAncientsConfig.BanSanae) return false;
+        return base.IsValidForAct(act);
+    }
+
+    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
+    {
+        return TouhouAncientsConfig.IsAncientForced<KotiyaSanaeAncient>();
+    }
 
     // protected override OptionPools MakeOptionPools => new OptionPools(
     //     MakePool(

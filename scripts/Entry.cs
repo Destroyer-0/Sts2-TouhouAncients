@@ -1,3 +1,4 @@
+using BaseLib.Config;
 using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
@@ -21,13 +22,15 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
-
+        
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.TouhouAncients");
         harmony.PatchAll();
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+        // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册
         Log.Info("Mod initialized!");
+        ModConfigRegistry.Register("TouhouAncients", new TouhouAncientsConfig());
     }
 }

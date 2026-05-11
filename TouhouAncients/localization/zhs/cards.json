@@ -16,5 +16,8 @@
     "TOUHOUANCIENTS-SERVANT_PATCHOULI.selectionScreenPrompt": "选择[blue]2[/blue]张牌[gold]消耗[/gold]",
 
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.title": "罡气侍从",
-    "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得[blue]{Block:diff()}[/blue]点[gold]格挡[/gold]。\n获得[blue]{VigorPower:diff()}[/blue]点[gold]活力[/gold]。"
+    "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得[blue]{Block:diff()}[/blue]点[gold]格挡[/gold]。\n获得[blue]{VigorOnBlockPower:diff()}[/blue]层[gold]罡气[/gold]。",
+
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "全人类的绯想天",
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "[gold]消耗[/gold]。\n[gold]保留[/gold]。\n获得{Energy:energyIcons()}。抽[blue]1[/blue]张牌。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]、[blue]1[/blue][gold]辉星[/gold]。\n[gold]召唤[/gold][blue]1[/blue]。\n[gold]铸造[/gold][blue]9[/blue]。\n将你的正面[gold]Buff[/gold]层数增加[blue]1[/blue]。"
 }

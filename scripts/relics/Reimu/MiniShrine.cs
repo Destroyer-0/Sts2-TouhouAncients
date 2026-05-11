@@ -83,6 +83,7 @@ public class MiniShrine : TouhouAncientRelics
             if (donateAmount <= 0) return;
 
             // 扣金币
+            Flash();
             await PlayerCmd.LoseGold(donateAmount, player);
             // 增加供奉进度
             await card.TryContribute(donateAmount);

@@ -29,7 +29,7 @@ public class SealingNeedle : TouhouAncientRelics
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
         if (dealer != base.Owner?.Creature) return;
-        if (!target.IsAlive) return;
+        if (!target.IsAlive || !target.IsEnemy) return;
 
         await PowerCmd.Apply<WeakPower>(target, 1m, dealer, cardSource);
     }

@@ -22,25 +22,12 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class YinYangOrb : TouhouAncientRelics
 {
-    /// <summary>true = 阴（技能→力量），false = 阳（攻击→敏捷）</summary>
-    private bool _isYinMode = true;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientYinYangTranslation),
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<DexterityPower>()
     ];
-
-    /// <summary>
-    /// 每回合开始时转换阴阳状态。
-    /// </summary>
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player != base.Owner) return;
-        _isYinMode = !_isYinMode;
-        Flash();
-    }
 
     /// <summary>
     /// 打出牌时根据当前模式触发效果。
@@ -49,26 +36,17 @@ public class YinYangOrb : TouhouAncientRelics
     {
         if (cardPlay.Card.Owner != base.Owner) return;
 
-        if (_isYinMode && cardPlay.Card.Type == CardType.Skill)
+        if (cardPlay.Card.Type == CardType.Skill)
         {
             // 阴：获得1临时力量
             Flash();
             await PowerCmd.Apply<YinYangOrbStrengthPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
-        else if (!_isYinMode && cardPlay.Card.Type == CardType.Attack)
+        else if (cardPlay.Card.Type == CardType.Attack)
         {
             // 阳：获得1临时敏捷
             Flash();
             await PowerCmd.Apply<YinYangOrbDexterityPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
-    }
-
-    /// <summary>
-    /// 战斗结束时重置为阴模式。
-    /// </summary>
-    public override Task AfterCombatEnd(CombatRoom _)
-    {
-        _isYinMode = true;
-        return Task.CompletedTask;
     }
 }

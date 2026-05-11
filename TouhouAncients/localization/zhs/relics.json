@@ -102,11 +102,11 @@
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
   "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果减少[blue]2[/blue]。",
-  "TOUHOUANCIENTS-HELL_ORIN.flavor": "",
+  "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
   "TOUHOUANCIENTS-HELL_OKUU.description": "每当你[gold]洗牌[/gold]时，将一张[gold]灼伤[/gold]置入手牌，并获得[blue]{Strength}[/blue][gold]力量[/gold]与{Energy:energyIcons()}。",
-  "TOUHOUANCIENTS-HELL_OKUU.flavor": "",
+  "TOUHOUANCIENTS-HELL_OKUU.flavor": "用这究极之力，把一切都焚烧殆尽吧！",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
   "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的剩余格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，[gold]击晕[/gold]该敌人。",
@@ -117,7 +117,7 @@
   "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中选择任意张牌，使其不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]与商店中",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetTitle": "遗忘",
@@ -153,6 +153,35 @@
   "TOUHOUANCIENTS-YIN_YANG_ORB.flavor": "太极生两仪。",
 
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "博丽御币",
-  "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，将一张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-HAKUREI_GOHEI.flavor": ""
+  "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，将[blue]1[/blue]张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-HAKUREI_GOHEI.flavor": "",
+
+  "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.title": "奇运桃子",
+  "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.description": "每当你打出攻击牌、技能牌、能力牌各一张时，清除你的负面效果并恢复{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.flavor": "",
+
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.title": "破厄真气",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "拾起时，获得[blue]9[/blue]张随机[gold]诅咒[/gold]。你可以打出原本不能打出的[gold]诅咒[/gold]。当你打出[gold]诅咒[/gold]时，获得[blue]1[/blue][gold]力量[/gold]、{Energy:energyIcons()}并抽[blue]2[/blue]张牌。",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "",
+
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到伤害时，减少[blue]{Mitigation}[/blue]失去生命并记录实际减少量。下回合结束时失去计数层数一半的生命并清空计数。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "",
+
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊天印",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "拾起时，选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组。不再掉落[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组",
+
+  "TOUHOUANCIENTS-HISOU_SWORD.title": "绯想之剑",
+  "TOUHOUANCIENTS-HISOU_SWORD.description": "拾起时，将一张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-HISOU_SWORD.flavor": "",
+
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "要石浮游炮",
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.description": "暂未实现。",
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "",
+
+  "TOUHOUANCIENTS-LOSE_MONEY.title": "破财消灾",
+  "TOUHOUANCIENTS-LOSE_MONEY.description": "每当你打出[blue]{CardsNeeded}[/blue]张牌，消耗[blue]{GoldCost}[/blue][gold]金币[/gold]获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-LOSE_MONEY.flavor": ""
 }
