@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class Tribute : TouhouAncientCards
 {
-    private const int RequiredGold = 300;
+    private const int RequiredGold = 250;
     
     [SavedProperty]
     private int _goldContributed;
