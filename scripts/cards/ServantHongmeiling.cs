@@ -30,11 +30,6 @@ public class ServantHongmeiling : TouhouAncientCards
         new PowerVar<VigorPower>(4m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientYinYangTranslation),
-        base.EnergyHoverTip
-    ];
 
     public override bool GainsBlock => true;
 
@@ -52,6 +47,6 @@ public class ServantHongmeiling : TouhouAncientCards
     protected override void OnUpgrade()
     {
         base.DynamicVars.Block.UpgradeValueBy(5m);
-        base.DynamicVars["Vigor"].UpgradeValueBy(2m);
+        base.DynamicVars["VigorPower"].UpgradeValueBy(2m);
     }
 }

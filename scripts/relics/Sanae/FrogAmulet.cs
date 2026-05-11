@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class FrogAmulet : TouhouAncientRelics
 {
-    private const decimal extraDamagePercent = 0.8m;
+    private const decimal extraDamagePercent = 0.75m;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ExtraDamage", extraDamagePercent)];
    
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult results, ValueProp props, Creature target, CardModel? cardSource)

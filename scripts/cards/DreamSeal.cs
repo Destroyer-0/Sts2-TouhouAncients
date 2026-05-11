@@ -29,15 +29,11 @@ public class DreamSeal : TouhouAncientCards
     private const bool shouldShowInCardLibrary = true;
 
     private const int HitCount = 6;
-    private const decimal DamagePerHit = 2m;
-    private const decimal DamagePerHitUpgraded = 3m;
-    private const decimal StrengthLoss = 8m;
-    private const decimal StrengthLossUpgraded = 10m;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(DamagePerHit, ValueProp.Move),
-        new DynamicVar("StrengthLoss", StrengthLoss)
+        new DamageVar(2m, ValueProp.Move),
+        new DynamicVar("StrengthLoss", 6m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -46,9 +42,7 @@ public class DreamSeal : TouhouAncientCards
         HoverTipFactory.FromPower<StrengthPower>(),
         base.EnergyHoverTip
     ];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
+    
     public DreamSeal() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
@@ -65,7 +59,7 @@ public class DreamSeal : TouhouAncientCards
             .Execute(choiceContext);
 
         // 2. 对每个意图为攻击的敌人附加易伤+临时减力量
-        decimal strengthLoss = IsUpgraded ? StrengthLossUpgraded : StrengthLoss;
+        decimal strengthLoss = base.DynamicVars["StrengthLoss"].BaseValue;
         var enemies = base.CombatState.HittableEnemies.ToList();
 
         foreach (var enemy in enemies)
@@ -80,7 +74,7 @@ public class DreamSeal : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(DamagePerHitUpgraded - DamagePerHit);
-        base.DynamicVars["StrengthLoss"].UpgradeValueBy(StrengthLossUpgraded - StrengthLoss);
+        base.DynamicVars.Damage.UpgradeValueBy(1m);
+        base.DynamicVars["StrengthLoss"].UpgradeValueBy(2m);
     }
 }

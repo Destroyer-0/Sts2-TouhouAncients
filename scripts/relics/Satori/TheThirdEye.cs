@@ -29,8 +29,7 @@ public class TheThirdEye : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<FrailPower>(),
+        HoverTipFactory.FromPower<WeakPower>(),
         HoverTipFactory.FromCard<SatoriEye>(),
         HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientSatoriScry)
     ];
@@ -39,9 +38,8 @@ public class TheThirdEye : TouhouAncientRelics
     {
         var creature = base.Owner.Creature;
 
-        // 自身获得2层易伤、脆弱
-        await PowerCmd.Apply<VulnerablePower>(creature, 2m, creature, null);
-        await PowerCmd.Apply<FrailPower>(creature, 2m, creature, null);
+        // 自身获得2层虚弱
+        await PowerCmd.Apply<WeakPower>(creature, 2m, creature, null);
 
         // 注：卡牌"觉之眼"暂未实现
         // var eyeCard = base.Owner.RunState.CreateCard(...);

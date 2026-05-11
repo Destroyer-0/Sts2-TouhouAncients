@@ -39,12 +39,6 @@ public class ServantSakuya : TouhouAncientCards
         new DynamicVar("ShivCount", ShivCount)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
-        base.EnergyHoverTip
-    ];
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public ServantSakuya() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

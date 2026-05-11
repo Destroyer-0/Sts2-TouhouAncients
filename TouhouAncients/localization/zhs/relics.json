@@ -31,7 +31,7 @@
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
-  "TOUHOUANCIENTS-YISHIXINGQILE.description": "在商店消费后，随机一件商店出售的物品价格将会被降至0。",
+  "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机一件商店出售的物品价格将会被降至0。",
   "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "112345",
 
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
@@ -51,7 +51,7 @@
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "将它变成伽马射线怎么样？",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "蛇之护符",
-  "TOUHOUANCIENTS-SNAKE_AMULET.description": "如果你在回合结束时没有任何[gold]手牌[/gold]，获得[blue]1[/blue][gold]敏捷[/gold]，下回合额外获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-SNAKE_AMULET.description": "如果你在回合结束时[gold]手牌[/gold]数不大于1，获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]，下回合额外获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-SNAKE_AMULET.flavor": "据说带着这个护身符就能身强体健。",
 
   "TOUHOUANCIENTS-FROG_AMULET.title": "蛙之护符",
@@ -97,7 +97,7 @@
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌",
 
   "TOUHOUANCIENTS-THE_THIRD_EYE.title": "第三只眼",
-  "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，给予自身[blue]2[/blue]层[gold]易伤[/gold]、[gold]脆弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，给予自身[blue]2[/blue]层[gold]虚弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "读心能力实在是太美妙了。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
@@ -126,7 +126,7 @@
 
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.title": "遗忘残片",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
-  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "",
+  "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
   "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将一张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
@@ -145,7 +145,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "战斗开始时，给予所有敌人[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害增加[blue]{ExtraDamage}[/blue]。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "卡牌造成伤害时，给予[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数一半的伤害。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",

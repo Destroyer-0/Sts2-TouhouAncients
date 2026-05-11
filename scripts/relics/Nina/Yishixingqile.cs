@@ -2,10 +2,12 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -15,8 +17,19 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class Yishixingqile : TouhouAncientRelics
 {
+    private const int StartingGold = 112;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Gold", StartingGold)];
+
     /// <summary>被选为免费的商品列表。非保存字段，离开商店后失效。</summary>
     private readonly HashSet<MerchantEntry> _freeEntries = new();
+
+    public override bool HasUponPickupEffect => true;
+
+    public override async Task AfterObtained()
+    {
+        await PlayerCmd.GainGold(StartingGold, base.Owner);
+    }
 
     public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
