@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-DREAM_SEAL.description": "对所有敌人造成[blue]{Damage:diff()}[/blue]点伤害[blue]6[/blue]次。\n如果敌人的意图是攻击，则给予[blue]1[/blue]层[gold]易伤[/gold]并使其在本回合失去[blue]{StrengthLoss}[/blue]点[gold]力量[/gold]。",
 
     "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "时间侍从",
-    "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "保留[gold]格挡[/gold]并结束你的回合[/red]。\n进行一个没有[gold]抽牌阶段[/gold]的额外回合。\n将[blue]{ShivCount}[/blue]张[gold]小刀[/gold]加入你的手牌。",
+    "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "保留[gold]格挡[/gold]并结束你的回合。\n进行一个没有[gold]抽牌阶段[/gold]的额外回合。\n将[blue]{ShivCount}[/blue]张[gold]小刀[/gold]加入你的手牌。",
 
     "TOUHOUANCIENTS-SERVANT_PATCHOULI.title": "魔法侍从",
     "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "[gold]消耗[/gold][blue]2[/blue]张牌。\n获得{Energy:energyIcons()}。",

@@ -71,7 +71,7 @@
   "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "拾起时，将一张[gold]血之仆从+[/gold]加入牌组。你可以在[gold]休息处[/gold]进行饲养，失去10点生命并将一张卡牌变化为[gold]血之仆从[/gold]。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "将之后的[gold]卡牌奖励[/gold]替换为[gold]时间侍从[/gold]、[gold]魔法侍从[/gold]、[gold]罡气侍从[/gold]。",
   "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "呵，再没用的仆人，也不会比一只妖精女仆更差了吧？",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
