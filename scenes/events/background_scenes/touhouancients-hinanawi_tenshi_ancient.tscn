@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://3hgwrawtbbn8"]
+
+[ext_resource type="Texture2D" uid="uid://rgl8hvf8o4yy" path="res://sprite/HinanawiTenshi.png" id="1_8i1iy"]
+
+[node name="HinanawiTenshiAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -262.0
+offset_top = -267.0
+offset_right = 2298.0
+offset_bottom = 1542.0
+texture = ExtResource("1_8i1iy")

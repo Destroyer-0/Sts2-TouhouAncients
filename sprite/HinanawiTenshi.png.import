@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ny254d6yhb6"
-path="res://.godot/imported/ServantHongmeiling.png-af3c2f21ddef511551a36b516014ad63.ctex"
+uid="uid://rgl8hvf8o4yy"
+path="res://.godot/imported/HinanawiTenshi.png-1d1bbd6fa5878fc3da962d75f097dcf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/cards/ServantHongmeiling.png"
-dest_files=["res://.godot/imported/ServantHongmeiling.png-af3c2f21ddef511551a36b516014ad63.ctex"]
+source_file="res://sprite/HinanawiTenshi.png"
+dest_files=["res://.godot/imported/HinanawiTenshi.png-1d1bbd6fa5878fc3da962d75f097dcf8.ctex"]
 
 [params]
 

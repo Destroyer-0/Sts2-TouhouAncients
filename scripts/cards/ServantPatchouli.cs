@@ -2,11 +2,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace TouhouAncients.Scripts.cards;
@@ -31,37 +34,38 @@ public class ServantPatchouli : TouhouAncientCards
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+        HoverTipFactory.FromKeyword(CardKeyword.Ethereal),
         base.EnergyHoverTip
     ];
-    
+
     public ServantPatchouli() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 从手牌选择ExhaustCount张牌消耗
-        var toExhaust = (await CardSelectCmd.FromHand(
-            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 2),
-            context: choiceContext,
-            player: base.Owner,
-            filter: null,
-            source: this)).ToList();
-        
-        // 消耗选中的牌
-        foreach (var card in toExhaust)
+        if (Owner.PlayerCombatState == null) return;
+        List<CardModel> list = base.Owner.PlayerCombatState.Hand.Cards.ToList();
+        foreach (var cardModel in list)
         {
-            await CardCmd.Exhaust(choiceContext, card);
+            CardCmd.ApplyKeyword(cardModel, CardKeyword.Ethereal);
         }
 
         // 获得能量
         await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
+        
+        AddKeyword(CardKeyword.Unplayable);
     }
-    
-    
+
+
     protected override void OnUpgrade()
     {
         base.DynamicVars.Energy.UpgradeValueBy(1m);
+    }
+
+    public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    {
+        RemoveKeyword(CardKeyword.Unplayable);
+        return base.AfterTurnEnd(choiceContext, side);
     }
 }

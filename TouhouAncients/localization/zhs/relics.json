@@ -105,7 +105,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "每当你[gold]洗牌[/gold]时，将一张[gold]灼伤[/gold]置入手牌，并获得[blue]{Strength}[/blue][gold]力量[/gold]与{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "在每个回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]置入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "用这究极之力，把一切都焚烧殆尽吧！",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -165,7 +165,7 @@
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到伤害时，减少[blue]{Mitigation}[/blue]失去生命并记录实际减少量。下回合结束时失去计数层数一半的生命并清空计数。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到伤害时，减少[blue]{Mitigation}[/blue]伤害并记录实际减少量。下回合结束时失去计数层数一半的生命并清空计数。",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊天印",

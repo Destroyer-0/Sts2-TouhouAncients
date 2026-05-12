@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.powers;
@@ -27,10 +28,10 @@ public class ServantHongmeiling : TouhouAncientCards
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(20m, ValueProp.Move),
-        new PowerVar<VigorOnBlockPower>(1)
+        new BlockVar(18m, ValueProp.Move)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()];
 
     public override bool GainsBlock => true;
 
@@ -42,11 +43,11 @@ public class ServantHongmeiling : TouhouAncientCards
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<VigorOnBlockPower>(base.Owner.Creature, 1, base.Owner.Creature, this);
+        await PowerCmd.Apply<VigorOnBlockPower>(base.Owner.Creature, 1m, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Block.UpgradeValueBy(5m);
+        base.DynamicVars.Block.UpgradeValueBy(7m);
     }
 }
