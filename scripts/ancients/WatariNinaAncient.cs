@@ -32,7 +32,7 @@ public class WatariNinaAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<WatariNinaAncient>();
+        return TouhouAncientsConfig.IsAncientForced<WatariNinaAncient>()&& act.ActNumber() == 2;
     }
 
     protected override OptionPools MakeOptionPools => new OptionPools(

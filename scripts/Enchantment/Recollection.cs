@@ -27,12 +27,12 @@ public class Recollection : CustomEnchantmentModel
 
         if (card.Pile?.Type == PileType.Discard)
         {
+            base.Status = EnchantmentStatus.Disabled;
             await CardCmd.AutoPlay(
                 new BlockingPlayerChoiceContext(),
                 card,
                 target: null
             );
-            base.Status = EnchantmentStatus.Disabled;
             //isWaitingForFree = false;
         }
         // else

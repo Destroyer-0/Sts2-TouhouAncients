@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ny254d6yhb6"
-path="res://.godot/imported/ServantHongmeiling.png-af3c2f21ddef511551a36b516014ad63.ctex"
+uid="uid://b8ddyv3g3shn"
+path="res://.godot/imported/19567870_p0.jpg-d68ac29c8338c36702785eb6a7652efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/cards/ServantHongmeiling.png"
-dest_files=["res://.godot/imported/ServantHongmeiling.png-af3c2f21ddef511551a36b516014ad63.ctex"]
+source_file="res://sprite/temp/19567870_p0.jpg"
+dest_files=["res://.godot/imported/19567870_p0.jpg-d68ac29c8338c36702785eb6a7652efe.ctex"]
 
 [params]
 

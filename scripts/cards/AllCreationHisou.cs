@@ -26,24 +26,25 @@ public class AllCreationHisou : TouhouAncientCards
     private const TargetType targetType = TargetType.Self;
     private const bool shouldShowInCardLibrary = true;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords
-    {
-        get
-        {
-            if (base.IsUpgraded)
-                return [CardKeyword.Exhaust, CardKeyword.Retain, CardKeyword.Innate];
-            return [CardKeyword.Exhaust, CardKeyword.Retain];
-        }
-    }
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
         HoverTipFactory.FromKeyword(CardKeyword.Retain),
-        HoverTipFactory.FromPower<StrengthPower>(),
-        HoverTipFactory.FromPower<DexterityPower>(),
-        HoverTipFactory.FromPower<FocusPower>(),
-        base.EnergyHoverTip
+        // base.EnergyHoverTip,
+        // HoverTipFactory.Static(StaticHoverTip.SummonDynamic, base.DynamicVars.Summon), 
+        // //..HoverTipFactory.FromForge(),
+        // HoverTipFactory.FromPower<StrengthPower>(),
+        // HoverTipFactory.FromPower<DexterityPower>(),
+        // HoverTipFactory.FromPower<FocusPower>()
+    ];
+        
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new EnergyVar(1),
+        new SummonVar(5m)
     ];
 
     public AllCreationHisou() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -56,7 +57,7 @@ public class AllCreationHisou : TouhouAncientCards
         var player = base.Owner;
 
         // 1能量
-        await PlayerCmd.GainEnergy(1, player);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, player);
         // 抽1张牌
         await CardPileCmd.Draw(choiceContext, 1, player);
         // 1力量
@@ -68,7 +69,7 @@ public class AllCreationHisou : TouhouAncientCards
         // 1辉星
         await PlayerCmd.GainStars(1, player);
         // 召唤1
-        await OstyCmd.Summon(choiceContext, player, 1m, this);
+        await OstyCmd.Summon(choiceContext, player, base.DynamicVars.Summon.BaseValue, this);
         // 铸造9
         await ForgeCmd.Forge(9m, player, this);
 
@@ -83,5 +84,7 @@ public class AllCreationHisou : TouhouAncientCards
     protected override void OnUpgrade()
     {
         // 升级后获得固有 — 由 CanonicalKeywords 处理
+        
+        AddKeyword(CardKeyword.Innate);
     }
 }
