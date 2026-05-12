@@ -28,7 +28,7 @@ public class KotiyaSanaeAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<KotiyaSanaeAncient>();
+        return TouhouAncientsConfig.IsAncientForced<KotiyaSanaeAncient>(act.ActNumber());
     }
 
     // protected override OptionPools MakeOptionPools => new OptionPools(

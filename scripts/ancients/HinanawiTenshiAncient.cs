@@ -23,7 +23,7 @@ public class HinanawiTenshiAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<HinanawiTenshiAncient>();
+        return TouhouAncientsConfig.IsAncientForced<HinanawiTenshiAncient>(act.ActNumber());
     }
 
     // Pool 1: 普通池

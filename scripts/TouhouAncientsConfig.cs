@@ -27,6 +27,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// </summary>
     [ConfigSection("BannedAncients")]
     public static bool BanReimu { get; set; } = false;
+
     public static bool BanSanae { get; set; } = false;
     public static bool BanRemilia { get; set; } = false;
     public static bool BanSatori { get; set; } = false;
@@ -36,8 +37,10 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
     /// </summary>
-    [ConfigSection("ForcedAncient")]
-    public static ForcedAncientOption ForcedAncient { get; set; } = ForcedAncientOption.None;
+    [ConfigSection("ForcedAncient_2")]
+    public static ForcedAncientOption ForcedAncient_2 { get; set; } = ForcedAncientOption.None;
+
+    [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
 
     /// <summary>
     /// 检查某个 Ancient 是否被禁止
@@ -60,18 +63,38 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>
     /// 检查某个 Ancient 是否被强制出现
     /// </summary>
-    public static bool IsAncientForced<T>() where T : AncientEventModel
+    public static bool IsAncientForced<T>(int actNumber) where T : AncientEventModel
     {
         var name = typeof(T).Name;
-        return ForcedAncient switch
+
+        if (actNumber == 2)
         {
-            ForcedAncientOption.Reimu灵梦 when name == nameof(HakureiReimuAncient) => true,
-            ForcedAncientOption.Sanae早苗 when name == nameof(KotiyaSanaeAncient) => true,
-            ForcedAncientOption.Remilia蕾米 when name == nameof(RemiliaScarletAncient) => true,
-            ForcedAncientOption.Satori小五 when name == nameof(KomejiSatoriAncient) => true,
-            ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
-            ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
-            _ => false
-        };
+            return ForcedAncient_2 switch
+            {
+                ForcedAncientOption.Reimu灵梦 when name == nameof(HakureiReimuAncient) => true,
+                ForcedAncientOption.Sanae早苗 when name == nameof(KotiyaSanaeAncient) => true,
+                ForcedAncientOption.Remilia蕾米 when name == nameof(RemiliaScarletAncient) => true,
+                ForcedAncientOption.Satori小五 when name == nameof(KomejiSatoriAncient) => true,
+                ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
+                ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
+                _ => false
+            };
+        }
+
+        if (actNumber == 3)
+        {
+            return ForcedAncient_3 switch
+            {
+                ForcedAncientOption.Reimu灵梦 when name == nameof(HakureiReimuAncient) => true,
+                ForcedAncientOption.Sanae早苗 when name == nameof(KotiyaSanaeAncient) => true,
+                ForcedAncientOption.Remilia蕾米 when name == nameof(RemiliaScarletAncient) => true,
+                ForcedAncientOption.Satori小五 when name == nameof(KomejiSatoriAncient) => true,
+                ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
+                ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
+                _ => false
+            };
+        }
+
+        return false;
     }
 }

@@ -21,7 +21,7 @@ public class RemiliaScarletAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<RemiliaScarletAncient>();
+        return TouhouAncientsConfig.IsAncientForced<RemiliaScarletAncient>(act.ActNumber());
     }
     
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";

@@ -25,7 +25,7 @@ public class HakureiReimuAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<HakureiReimuAncient>();
+        return TouhouAncientsConfig.IsAncientForced<HakureiReimuAncient>(act.ActNumber());
     }
 
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";

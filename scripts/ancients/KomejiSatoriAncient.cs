@@ -21,7 +21,7 @@ public class KomejiSatoriAncient : CustomAncientModel
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
-        return TouhouAncientsConfig.IsAncientForced<KomejiSatoriAncient>();
+        return TouhouAncientsConfig.IsAncientForced<KomejiSatoriAncient>(act.ActNumber());
     }
 
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
