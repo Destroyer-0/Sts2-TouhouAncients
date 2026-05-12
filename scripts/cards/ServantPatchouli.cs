@@ -25,8 +25,8 @@ public class ServantPatchouli : TouhouAncientCards
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.Self;
     private const bool shouldShowInCardLibrary = true;
-
-
+    
+    protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(2)
@@ -48,6 +48,7 @@ public class ServantPatchouli : TouhouAncientCards
         List<CardModel> list = base.Owner.PlayerCombatState.Hand.Cards.ToList();
         foreach (var cardModel in list)
         {
+            if (cardModel.Tags.Contains(CardTag.Minion)) continue;
             CardCmd.ApplyKeyword(cardModel, CardKeyword.Ethereal);
         }
 

@@ -29,6 +29,7 @@ public class ServantSakuya : TouhouAncientCards
     private const int ShivCount = 5;
     private const int ShivCountUpgraded = 9;
 
+    protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
     /// <summary>
     /// 标记是否需要触发额外回合。卡牌在弃牌堆中仍会被 IterateHookListeners 遍历。
     /// </summary>
@@ -39,7 +40,7 @@ public class ServantSakuya : TouhouAncientCards
         new DynamicVar("ShivCount", ShivCount)
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
     public ServantSakuya() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {

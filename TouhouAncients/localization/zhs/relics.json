@@ -72,7 +72,7 @@
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
   "TOUHOUANCIENTS-NIGHT_SERVANT.description": "将之后的[gold]卡牌奖励[/gold]替换为[gold]时间侍从[/gold]、[gold]魔法侍从[/gold]、[gold]罡气侍从[/gold]。",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "呵，再没用的仆人，也不会比一只妖精女仆更差了吧？",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "虽然她本人不承认，但红魔馆的威严确实大部分不在她的身上。",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
   "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "拾起时，将你的最大生命翻倍，将[blue]4[/blue]张[gold]腐朽[/gold]加入牌组。",
@@ -92,7 +92,7 @@
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张牌进行[gold]复制[/gold]。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
 
   "TOUHOUANCIENTS-NOBLE_BROOCH.title": "恶魔胸针",
-  "TOUHOUANCIENTS-NOBLE_BROOCH.description": "在你的回合开始时，[gold]变化[/gold]至多[blue]2[/blue]张牌，然后你可以再次[gold]变化[/gold]以此法变化的牌，每回合至多[gold]变化[/gold][blue]4[/blue]张。",
+  "TOUHOUANCIENTS-NOBLE_BROOCH.description": "在你的回合开始时，[gold]变化[/gold]至多[blue]2[/blue]张牌，然后你可以再次[gold]变化[/gold]以此法变化的牌。",
   "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "接受还是反抗你的命运？做出你的抉择。",
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择要[gold]变化[/gold]的卡牌",
 

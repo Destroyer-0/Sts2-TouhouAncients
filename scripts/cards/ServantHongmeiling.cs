@@ -33,6 +33,7 @@ public class ServantHongmeiling : TouhouAncientCards
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()];
 
+    protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
     public override bool GainsBlock => true;
 
     public ServantHongmeiling() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

@@ -16,7 +16,6 @@ namespace TouhouAncients.Scripts.relics;
 public class NobleBrooch : TouhouAncientRelics
 {
     private const int MaxPerRound = 2;
-    private const int MaxTotal = 4;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -38,50 +37,37 @@ public class NobleBrooch : TouhouAncientRelics
 
         if (firstSelected.Count <= 0) return;
 
-        var transformedThisTurn = new HashSet<CardModel>();
-        int totalTransformed = 0;
+        var transformedThisRound = new HashSet<CardModel>();
 
         foreach (var card in firstSelected)
         {
             var result = await CardCmd.TransformToRandom(card, rng);
             if (result.success)
             {
-                transformedThisTurn.Add(result.cardAdded);
-                totalTransformed++;
+                transformedThisRound.Add(result.cardAdded);
             }
         }
 
-        // Round 2: 再次变化以此法变化的牌（至多满4次）
-        int remaining = MaxTotal - totalTransformed;
-        while (remaining > 0 && transformedThisTurn.Count > 0)
+        // Round 2: 再次变化以此法变化的牌（仍在手牌中的）
+        if (transformedThisRound.Count > 0)
         {
-            var eligible = transformedThisTurn
+            var eligible = transformedThisRound
                 .Where(c => c.Pile?.Type == PileType.Hand)
                 .ToList();
-            if (eligible.Count <= 0) break;
-
-            int roundMax = MaxPerRound < remaining ? MaxPerRound : remaining;
-            var nextSelected = (await CardSelectCmd.FromHand(
-                prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1, roundMax),
-                context: choiceContext,
-                player: player,
-                filter: c => eligible.Contains(c),
-                source: this)).ToList();
-
-            if (nextSelected.Count <= 0) break;
-
-            transformedThisTurn.Clear();
-            foreach (var card in nextSelected)
+            if (eligible.Count > 0)
             {
-                var result = await CardCmd.TransformToRandom(card, rng);
-                if (result.success)
+                var nextSelected = (await CardSelectCmd.FromHand(
+                    prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1, MaxPerRound),
+                    context: choiceContext,
+                    player: player,
+                    filter: c => eligible.Contains(c),
+                    source: this)).ToList();
+
+                foreach (var card in nextSelected)
                 {
-                    transformedThisTurn.Add(result.cardAdded);
-                    totalTransformed++;
+                    await CardCmd.TransformToRandom(card, rng);
                 }
             }
-
-            remaining = MaxTotal - totalTransformed;
         }
     }
 }
