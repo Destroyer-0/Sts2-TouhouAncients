@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Runs;
@@ -20,27 +21,36 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class NightServant : TouhouAncientRelics
 {
-    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options, CardCreationOptions creationOptions)
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromCard<ServantSakuya>(),
+        HoverTipFactory.FromCard<ServantPatchouli>(),
+        HoverTipFactory.FromCard<ServantHongmeiling>(),
+    ];
+
+    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
+        CardCreationOptions creationOptions)
     {
         if (base.Owner != player) return false;
 
-        // 构建 3 个侍从的候选池
+        if (creationOptions.Source != CardCreationSource.Encounter)
+        {
+            return false;
+        }
+        Flash();
+        // 创建 3 个侍从的实例（不能用 ModelDb.Card<>，那是规范模型，无法加入牌组）
         var servantCards = new List<CardModel>
         {
-            ModelDb.Card<ServantSakuya>(),
-            ModelDb.Card<ServantPatchouli>(),
-            ModelDb.Card<ServantHongmeiling>()
+            player.RunState.CreateCard<ServantSakuya>(player),
+            player.RunState.CreateCard<ServantPatchouli>(player),
+            player.RunState.CreateCard<ServantHongmeiling>(player)
         };
 
-        // 用均匀稀有度创建临时选项，避免单稀有度断言
-        var servantOptions = new CardCreationOptions(servantCards, CardCreationSource.Other, CardRarityOddsType.Uniform)
-            .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
-
-        var created = CardFactory.CreateForReward(base.Owner, 1, servantOptions).FirstOrDefault();
-        if (created?.Card == null) return false;
-
-        var result = new CardCreationResult(created.Card);
-        result.ModifyCard(created.Card, this);
+        // 随机选一张
+        var rng = base.Owner.RunState.Rng.Shuffle;
+        var chosenCard = servantCards[rng.NextInt(servantCards.Count)];
+        var result = new CardCreationResult(chosenCard);
+        result.ModifyCard(chosenCard, this);
         options.Add(result);
         return true;
     }

@@ -19,21 +19,22 @@ public class Tribute : TouhouAncientCards
 {
     private const int RequiredGold = 250;
     
+    // BaseLib 的 [SavedProperty] 需要放在属性上，不能放在字段上。
     [SavedProperty]
-    private int _goldContributed;
+    private int SavedGoldContributed { get; set; }
 
     public int GoldContributed
     {
-        get => _goldContributed;
+        get => SavedGoldContributed;
         set
         {
             AssertMutable();
-            _goldContributed = value;
-            base.DynamicVars["Remaining"].BaseValue = RequiredGold - _goldContributed;
+            SavedGoldContributed = value;
+            base.DynamicVars["Remaining"].BaseValue = RequiredGold - SavedGoldContributed;
         }
     }
 
-    public int RemainingGold => RequiredGold - _goldContributed;
+    public int RemainingGold => RequiredGold - SavedGoldContributed;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -56,7 +57,7 @@ public class Tribute : TouhouAncientCards
 
         GoldContributed += contribute;
 
-        if (_goldContributed >= RequiredGold && base.Pile?.Type == PileType.Deck)
+        if (GoldContributed >= RequiredGold && base.Pile?.Type == PileType.Deck)
         {
             await CardPileCmd.RemoveFromDeck(this);
             return true;

@@ -33,12 +33,12 @@ public class HinanawiTenshiAncient : CustomAncientModel
     // Pool 3: 先古之民池
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
-            AncientOption<MysticFortunePeach>(),
-            AncientOption<CurseBreakerQi>()
+            AncientOption<MysticFortunePeach>()
+            //, AncientOption<CurseBreakerQi>()
         ),
         MakePool(
-            AncientOption<FirmamentSash>(),
-            AncientOption<SupremeHeavenSeal>()
+            AncientOption<FirmamentSash>()
+            //, AncientOption<SupremeHeavenSeal>()
         ),
         MakePool(
             AncientOption<HisouSword>()

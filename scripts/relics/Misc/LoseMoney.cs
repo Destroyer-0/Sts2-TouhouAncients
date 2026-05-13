@@ -22,16 +22,18 @@ namespace TouhouAncients.Scripts.relics;
 public class LoseMoney : TouhouAncientRelics
 {
     public override RelicRarity Rarity => RelicRarity.Event;
+    
     [SavedProperty]
-    public int CardsPlayed { get; set; }
+    public int TouhouAncients_CardsPlayed { get; set; }
 
     private const int CardsNeeded = 3;
     private const int GoldCost = 4;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("CardsNeeded", CardsNeeded),
-        new DynamicVar("GoldCost", GoldCost)
+        new DynamicVar("CardsNeeded", 3m),
+        new DynamicVar("GoldCost", 4m),
+        new EnergyVar(1)
     ];
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
@@ -39,11 +41,11 @@ public class LoseMoney : TouhouAncientRelics
         if (cardPlay.Card.Owner != base.Owner || !CombatManager.Instance.IsInProgress)
             return;
 
-        CardsPlayed++;
+        TouhouAncients_CardsPlayed++;
 
-        if (CardsPlayed >= CardsNeeded)
+        if (TouhouAncients_CardsPlayed >= CardsNeeded)
         {
-            CardsPlayed = 0;
+            TouhouAncients_CardsPlayed = 0;
 
             if (base.Owner.Gold >= GoldCost)
             {

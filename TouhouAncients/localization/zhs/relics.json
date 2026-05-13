@@ -32,7 +32,7 @@
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
   "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机一件商店出售的物品价格将会被降至0。",
-  "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "112345",
+  "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "我让你别带尼尔龙马？",
 
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "在每场战斗开始时，获得{PlatingPower}[gold]覆甲[/gold]。当你获得[gold]覆甲[/gold]时，获得{Energy:energyIcons()}。",
@@ -47,7 +47,7 @@
   "TOUHOUANCIENTS-MORIYA_GOHEI.flavor": "可不能被常识束缚哦？",
 
   "TOUHOUANCIENTS-DAY_KAKUSEI.title": "白昼新星",
-  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。当你使用能力药水时，抽两张牌。",
+  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。升级你生成的[gold]能力牌[/gold]。",
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "将它变成伽马射线怎么样？",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "蛇之护符",
@@ -71,7 +71,7 @@
   "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "将之后的[gold]卡牌奖励[/gold]替换为[gold]时间侍从[/gold]、[gold]魔法侍从[/gold]、[gold]罡气侍从[/gold]。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.description": "你的[gold]卡牌奖励[/gold]额外包含[gold]时间仆从[/gold]、[gold]魔法仆从[/gold]、[gold]罡气仆从[/gold]中的一张。",
   "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "虽然她本人不承认，但红魔馆的威严确实大部分不在她的身上。",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
@@ -101,7 +101,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "读心能力实在是太美妙了。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，[gold]抽一张牌[/gold]并使该效果减少[blue]2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
@@ -119,7 +119,7 @@
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励[/gold]与商店中",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励与商店[/gold]中",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetTitle": "遗忘",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing": "你还没有遗忘任何卡牌。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forget": "已被遗忘的卡牌：\n{Cards:list:{}|\n}",
@@ -145,7 +145,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "卡牌造成伤害时，给予[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数一半的伤害。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数一半的伤害。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",
@@ -168,7 +168,7 @@
   "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到伤害时，减少[blue]{Mitigation}[/blue]伤害并记录实际减少量。下回合结束时失去计数层数一半的生命并清空计数。",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "",
 
-  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊天印",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "拾起时，选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组。不再掉落[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组",

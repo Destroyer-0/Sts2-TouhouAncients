@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,16 +24,39 @@ public class SealingNeedle : TouhouAncientRelics
     [
         HoverTipFactory.FromPower<WeakPower>()
     ];
+    
+    // /// <summary>
+    // /// 造成伤害后，给予目标1层虚弱（可叠加）。
+    // /// </summary>
+    // public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
+    // {
+    //     if (dealer != base.Owner?.Creature) return;
+    //     if (!target.IsAlive || !target.IsEnemy) return;
+    //
+    //     await PowerCmd.Apply<WeakPower>(target, 1m, dealer, cardSource);
+    // }
 
     /// <summary>
-    /// 造成伤害后，给予目标1层虚弱（可叠加）。
+    /// 使用攻击牌后，给予目标1层虚弱（可叠加）。群体攻击时对所有敌人施加。
     /// </summary>
-    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (dealer != base.Owner?.Creature) return;
-        if (!target.IsAlive || !target.IsEnemy) return;
+        if (cardPlay.Card.Owner != base.Owner) return;
+        if (cardPlay.Card.Type != CardType.Attack) return;
 
-        await PowerCmd.Apply<WeakPower>(target, 1m, dealer, cardSource);
+        if (cardPlay.Card.TargetType == TargetType.AllEnemies)
+        {
+            foreach (Creature enemy in base.Owner.Creature.CombatState.GetCreaturesOnSide(CombatSide.Enemy))
+            {
+                if (enemy.IsAlive)
+                    await PowerCmd.Apply<WeakPower>(enemy, 1m, base.Owner.Creature, cardPlay.Card);
+            }
+        }
+        else
+        {
+            if (cardPlay.Target == null || !cardPlay.Target.IsAlive || !cardPlay.Target.IsEnemy) return;
+            await PowerCmd.Apply<WeakPower>(cardPlay.Target, 1m, base.Owner.Creature, cardPlay.Card);
+        }
     }
 
     /// <summary>

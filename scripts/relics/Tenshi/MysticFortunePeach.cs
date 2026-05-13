@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -40,6 +41,8 @@ public class MysticFortunePeach : TouhouAncientRelics
         get => _powersPlayedThisTurn;
         set { AssertMutable(); _powersPlayedThisTurn = value; }
     }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {

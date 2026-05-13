@@ -32,14 +32,31 @@ public class BrainInAVat : TouhouAncientRelics
     private static readonly int MaxChoicesUncommon = 10;
 
     /// <summary>被屏蔽的卡牌 ID 集合。
-    [SavedProperty]
-    private HashSet<string>? _blockedCardIds;
-    
+    /// BaseLib 的 [SavedProperty] 不支持 List&lt;string&gt;，故用制表符分隔的字符串存储。
+    [SavedProperty] private string TouhouAncients_SavedBlockedCardIds { get; set; }
+    private List<string>? _blockedCardIds;
+
+    /// <summary>懒初始化：从 _savedBlockedCardIds 反序列化到 _blockedCardIds。</summary>
+    private List<string> BlockedCardIds
+    {
+        get
+        {
+            if (_blockedCardIds == null)
+            {
+                _blockedCardIds = string.IsNullOrEmpty(TouhouAncients_SavedBlockedCardIds)
+                    ? new List<string>()
+                    : TouhouAncients_SavedBlockedCardIds.Split("\t").ToList();
+            }
+            return _blockedCardIds;
+        }
+    }
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Cards", MaxChoices)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get
         {
+            GD.PrintErr("缸中之脑："+TouhouAncients_SavedBlockedCardIds);
             var title = new LocString("relics", base.Id.Entry + ".forgetTitle");
             if (!HasBlockedCard)
             {
@@ -48,7 +65,7 @@ public class BrainInAVat : TouhouAncientRelics
 
             var description = new LocString("relics", base.Id.Entry + ".forget");
             var blockCardTextList = new List<string>();
-            foreach (var cardId in _blockedCardIds)
+            foreach (var cardId in BlockedCardIds)
             {
                 blockCardTextList.Add(new LocString("cards", cardId + ".title").GetFormattedText());
             }
@@ -60,7 +77,7 @@ public class BrainInAVat : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
-    private bool HasBlockedCard => _blockedCardIds is { Count: > 0 };
+    private bool HasBlockedCard => BlockedCardIds.Count > 0;
 
     public override async Task AfterObtained()
     {
@@ -86,7 +103,8 @@ public class BrainInAVat : TouhouAncientRelics
             prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, allCards.Count)
         );
 
-        _blockedCardIds = selected.Select(c => c.Id.Entry).ToHashSet();
+        _blockedCardIds = selected.Select(c => c.Id.Entry).ToList();
+        TouhouAncients_SavedBlockedCardIds = string.Join("\t", _blockedCardIds);
         if (_blockedCardIds.Count <= 0) return;
 
         Flash();
@@ -104,12 +122,21 @@ public class BrainInAVat : TouhouAncientRelics
         if (options.Flags.HasFlag(CardCreationFlags.NoCardPoolModifications)) return options;
 
         // GetPossibleCards 兼容 CardPools 和 CustomCardPool 两种模式
+        var blockedIds = BlockedCardIds;
         var possibleCards = options.GetPossibleCards(player).ToList();
-        var filtered = possibleCards.Where(c => !_blockedCardIds.Contains(c.Id.Entry)).ToList();
+        var filtered = possibleCards.Where(c => !blockedIds.Contains(c.Id.Entry)).ToList();
 
         // 全被屏蔽了 → 不过滤，避免空池崩溃
         if (filtered.Count <= 0) return options;
 
         return options.WithCustomPool(filtered);
+    }
+
+    public override IEnumerable<CardModel> ModifyMerchantCardPool(Player player, IEnumerable<CardModel> options)
+    {
+        if (player != base.Owner) return options;
+        if (!HasBlockedCard) return options;
+        var blockedIds = BlockedCardIds;
+        return options.Where(x => !blockedIds.Contains(x.Id.Entry));
     }
 }

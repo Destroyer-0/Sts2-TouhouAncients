@@ -23,6 +23,7 @@ namespace TouhouAncients.Scripts.relics;
 public class CurseBreakerQi : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     public override async Task AfterObtained()
     {
@@ -40,8 +41,11 @@ public class CurseBreakerQi : TouhouAncientRelics
     public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
     {
         if (card.Owner != base.Owner) return true;
-        if (card.Type == CardType.Curse && card.Pile?.Type == PileType.Hand) return true;
-        return true;
+        if (card is { Type: CardType.Curse })
+        {
+            return true;
+        }
+        return base.ShouldPlay(card, autoPlayType);
     }
 
     // 打出诅咒时获得奖励

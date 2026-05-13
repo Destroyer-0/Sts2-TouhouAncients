@@ -19,7 +19,7 @@ public class BloodFang : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => 
         [
             new DynamicVar("LoseHp", 0),
-            new StringVar("EnchantmentName", ModelDb.Enchantment<Miracle>().Title.GetFormattedText())
+            new StringVar("EnchantmentName", ModelDb.Enchantment<Bloodshed>().Title.GetFormattedText())
         ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromEnchantment<Bloodshed>();

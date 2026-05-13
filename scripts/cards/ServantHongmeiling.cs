@@ -44,7 +44,7 @@ public class ServantHongmeiling : TouhouAncientCards
     {
         await CreatureCmd.GainBlock(base.Owner.Creature, base.DynamicVars.Block, cardPlay);
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<VigorOnBlockPower>(base.Owner.Creature, 1m, base.Owner.Creature, this);
+        await PowerCmd.Apply<VigorOnBlockPower>(base.Owner.Creature, 50m, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

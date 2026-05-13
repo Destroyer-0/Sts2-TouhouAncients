@@ -34,7 +34,7 @@ public class VigorOnBlockPower : PowerModel
         if (dealer == null) return;
 
         // 将格挡掉的伤害 × 层数 转化为活力
-        var vigorAmount = (int)(result.BlockedDamage * base.Amount);
+        var vigorAmount = (int)(result.BlockedDamage * base.Amount / 100);
         if (vigorAmount > 0)
         {
             await PowerCmd.Apply<VigorPower>(base.Owner, vigorAmount, base.Owner, null);
@@ -45,7 +45,7 @@ public class VigorOnBlockPower : PowerModel
     {
         if (side == base.Owner.Side)
         {
-            await PowerCmd.Decrement(this);
+            await PowerCmd.Remove(this);
         }
     }
 }

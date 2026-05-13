@@ -21,7 +21,6 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class FirmamentSash : TouhouAncientRelics
 {
-    [SavedProperty]
     public int MitigationTotal { get; set; }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
