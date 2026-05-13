@@ -43,31 +43,42 @@ public class SnakeBiteUpgrade : CustomEnchantmentModel
         return Task.CompletedTask;
     }
 
-    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
     {
+        if (!HasCard) return;
         if (card != base.Card)
         {
-            return Task.CompletedTask;
+            return ;
         }
         
         if (oldPileType == PileType.Hand)
         {
             base.Card.EnergyCost.AddUntilPlayed(_shouldResetNum);
             _shouldResetNum = 0;
-        } 
-        return Task.CompletedTask;
+        }
+
+        if (oldPileType == PileType.Play && card.Pile != null && card.Pile.Type != PileType.None)
+        {
+            await CardPileCmd.Add(Card, PileType.Hand, source: this);
+
+            // 本回合随机化耗能（0-3）
+            var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
+            Card.EnergyCost.SetThisTurn(randomCost);
+        }
+        
+        return;
     }
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (!HasCard) return;
-        if (cardPlay.Card != Card) return;
-
-        // 回到手牌
-        await CardPileCmd.Add(Card, PileType.Hand, source: this);
-
-        // 本回合随机化耗能（0-3）
-        var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
-        Card.EnergyCost.SetThisTurn(randomCost);
-    }
+    // public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)
+    // {
+    //     if (!HasCard) return;
+    //     if (cardPlay.Card != Card) return;
+    //     if (Card.HasBeenRemovedFromState) return;
+    //     // 回到手牌
+    //     await CardPileCmd.Add(Card, PileType.Hand, source: this);
+    //
+    //     // 本回合随机化耗能（0-3）
+    //     var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
+    //     Card.EnergyCost.SetThisTurn(randomCost);
+    // }
 }

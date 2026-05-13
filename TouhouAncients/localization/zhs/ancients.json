@@ -64,5 +64,10 @@
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.title": "比那名居 天子",
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.epithet": "于先子星降临的天人",
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.firstVisitEver.0-0.ancient": "喂，那边的家伙！看过来！本小姐这里有个好东西给你！心怀感激的收下吧！",
-  "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.ANY.0-0r.ancient": "占位符"
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.ANY.0-0r.ancient": "占位符",
+
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.title": "因幡 帝",
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.epithet": "商人的伙伴与对手",
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.ANY.0-0r.ancient": "占位符"
 }
