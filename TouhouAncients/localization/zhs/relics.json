@@ -206,8 +206,8 @@
   "TOUHOUANCIENTS-LOSE_MONEY.flavor": "",
 
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "白兔御守",
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有[gold]诅咒[/gold]。之后[gold]诅咒[/gold]不会加入你的牌组。",
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有[gold]诅咒[/gold]。之后[gold]诅咒[/gold]不会加入你的牌组。",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.flavor": "",
 
   "TOUHOUANCIENTS-CARROT_NECKLACE.title": "萝卜项链",
@@ -216,8 +216,8 @@
   "TOUHOUANCIENTS-CARROT_NECKLACE.flavor": "",
 
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.title": "兔角契约",
-  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.description": "拾起时，获得[blue]200[/blue][gold]金币[/gold]并将一张[gold]债务[/gold]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]10%[/blue]。",
-  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.eventDescription": "获得[blue]200[/blue][gold]金币[/gold]并将一张[gold]债务[/gold]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]10%[/blue]。",
+  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.description": "拾起时，获得[blue]200[/blue][gold]金币[/gold]并将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
+  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.eventDescription": "获得[blue]200[/blue][gold]金币[/gold]，将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.flavor": "",
 
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.title": "幸运宝盒",
@@ -226,10 +226,10 @@
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.flavor": "",
 
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四叶草",
-  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每获得[blue]2[/blue]次[gold]卡牌奖励[/gold]，额外出现一张[gold]稀有卡牌[/gold]，第二次以此法出现的[gold]稀有卡牌[/gold]已升级。",
+  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "兔脚",
-  "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]40[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]中的卡牌。",
+  "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]50[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": ""
 }

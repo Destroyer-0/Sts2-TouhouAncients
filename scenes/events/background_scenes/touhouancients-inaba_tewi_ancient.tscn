@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://vfaclfrtaq08"]
 
-[ext_resource type="Texture2D" uid="uid://4siscmtahak3" path="res://sprite/WatariNina.png" id="1_8kr37"]
+[ext_resource type="Texture2D" uid="uid://dbrgtf8sqwlx8" path="res://sprite/InabaTewi.png" id="1_8kr37"]
 
 [node name="InabaTewiAncient" type="Control"]
 layout_mode = 3
@@ -8,8 +8,8 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -350.0
-offset_top = -170.0
-offset_right = 2211.0
-offset_bottom = 1750.0
+offset_left = -246.0
+offset_top = -142.0
+offset_right = 2314.0
+offset_bottom = 1298.0
 texture = ExtResource("1_8kr37")

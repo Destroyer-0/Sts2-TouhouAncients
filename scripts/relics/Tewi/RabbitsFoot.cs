@@ -37,6 +37,6 @@ public class RabbitsFoot : TouhouAncientRelics
     {
         // 出售时获得 40 金币
         Flash();
-        await PlayerCmd.GainGold(40, base.Owner);
+        await PlayerCmd.GainGold(50, base.Owner);
     }
 }
