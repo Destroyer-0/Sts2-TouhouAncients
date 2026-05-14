@@ -7,8 +7,10 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Characters;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
@@ -30,6 +32,8 @@ public class AllCreationHisou : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Amount", 5m)];
+
     public AllCreationHisou() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
@@ -39,6 +43,7 @@ public class AllCreationHisou : TouhouAncientCards
         var player = base.Owner;
         if (player?.PlayerCombatState == null) return;
 
+        
         // 快照：记录当前手牌（排除自身）和消耗堆的所有牌
         var handCards = player.PlayerCombatState.Hand.Cards
             .Where(c => c != cardPlay.Card)
@@ -46,19 +51,24 @@ public class AllCreationHisou : TouhouAncientCards
 
         var exhaustCards = player.PlayerCombatState.ExhaustPile.Cards.ToList();
 
+        var hitNum = 0;
         var allTargetCards = handCards.Concat(exhaustCards).ToList();
         bool shouldUpgrade = cardPlay.Card.IsUpgraded;
-        
-        var a = NCombatRoom.Instance?.GetCreatureNode(player.Creature);
+
+        var playerCreature = player.Creature;
+        var a = NCombatRoom.Instance?.GetCreatureNode(playerCreature);
         Vector2 vfxSpawnPosition = a.VfxSpawnPosition;
 
+        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NFireSmokePuffVfx.Create(playerCreature));
+        await Cmd.CustomScaledWait(0.2f, 0.4f);
+        VfxCmd.PlayOnCreatureCenter(playerCreature, "vfx/vfx_scream");
         NHyperbeamVfx? nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition + new Vector2(0, 100), new Vector2(vfxSpawnPosition.X, vfxSpawnPosition.Y - 10));
         if (nHyperbeamVfx != null)
         {
             nHyperbeamVfx.GlobalScale = new Vector2(2, 2);
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
             float scale = 2.8f;
-            NGroundFireVfx nGroundFireVfx = NGroundFireVfx.Create(player.Creature);
+            NGroundFireVfx nGroundFireVfx = NGroundFireVfx.Create(playerCreature);
             if (nGroundFireVfx != null)
             {
                 SfxCmd.Play("event:/sfx/characters/attack_fire");
@@ -69,6 +79,9 @@ public class AllCreationHisou : TouhouAncientCards
             await Cmd.Wait(0.5f);
         }
         
+        List<Creature> enumerable = (from c in base.CombatState.GetTeammatesOf(base.Owner.Creature)
+            where c is { IsAlive: true, IsPlayer: true }
+            select c).ToList();
         foreach (var card in allTargetCards)
         {
             // 升级后：先升级每张牌
@@ -92,6 +105,24 @@ public class AllCreationHisou : TouhouAncientCards
             if (card.Pile != null && card.Pile.Type != PileType.None && !card.HasBeenRemovedFromState)
             {
                 await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card, skipVisuals: true);
+            }
+
+            hitNum++;
+            if (hitNum == base.DynamicVars["Amount"].BaseValue)
+            {
+                hitNum = 0;
+                
+                await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, playerCreature, this));
+                await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
+                await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
+            }
+
+        }
+        async Task ApplyOnAllPlayer(Func<Creature,Task> task)
+        {
+            foreach (Creature item in enumerable)
+            {
+                await task(item);
             }
         }
     }

@@ -35,8 +35,8 @@ public class RabbitsFoot : TouhouAncientRelics
 
     private async Task OnSellCard()
     {
-        // 出售时获得 40 金币
+        // 出售时获得 70 金币
         Flash();
-        await PlayerCmd.GainGold(50, base.Owner);
+        await PlayerCmd.GainGold(70, base.Owner);
     }
 }
