@@ -15,8 +15,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 天穹裙带：受到伤害时减少10点失去生命，并记录实际减少量。
-/// 下回合结束时失去记录层数一半的生命并清空计数。
+/// 天穹裙带：受到来自敌人的伤害时减少10，并记录实际减少量。
+/// 下回合结束时受到记录层数的伤害并清空计数。
 /// </summary>
 [Pool(typeof(SharedRelicPool))]
 public class FirmamentSash : TouhouAncientRelics
@@ -28,39 +28,49 @@ public class FirmamentSash : TouhouAncientRelics
         new DynamicVar("Mitigation", 10)
     ];
 
-    public override async Task AfterDamageReceived(
-        PlayerChoiceContext choiceContext,
-        Creature target,
-        DamageResult result,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
+    public override Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (target != base.Owner.Creature) return;
-        if (result.UnblockedDamage <= 0) return;
-
-        var reduction = (int)base.DynamicVars["Mitigation"].BaseValue;
-        var actualMitigation = System.Math.Min(reduction, (int)result.UnblockedDamage);
-        if (actualMitigation > 0)
-        {
-            // 治疗后追加减免的伤害
-            await CreatureCmd.Heal(target, actualMitigation);
-            MitigationTotal += actualMitigation;
-        }
+        return base.BeforeDamageReceived(choiceContext, target, amount, props, dealer, cardSource);
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    {
+        if (target != base.Owner.Creature)
+        {
+            return amount;
+        }
+
+        if (props.HasFlag(ValueProp.Unblockable))
+        {
+            return amount;
+        }
+
+        if (dealer == Owner.Creature)
+        {
+            return amount;
+        }
+
+        var reduce = Math.Min(base.DynamicVars["Mitigation"].BaseValue, amount);
+        MitigationTotal += (int)reduce;
+        return Math.Max(0m, amount - reduce);
+    }
+
+    public override Task AfterModifyingHpLostAfterOsty()
+    {
+        Flash();
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
         if (side != base.Owner.Creature.Side) return;
         if (MitigationTotal <= 0) return;
-
-        var damageToTake = MitigationTotal / 2;
-        if (damageToTake > 0)
+        if (MitigationTotal > 0)
         {
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 base.Owner.Creature,
-                damageToTake,
+                MitigationTotal,
                 ValueProp.Unpowered,
                 base.Owner.Creature,
                 null);

@@ -27,7 +27,8 @@ public class HisouSword : TouhouAncientRelics
     public override async Task AfterObtained()
     {
         var player = base.Owner;
-        var card = player.RunState.CreateCard(ModelDb.Card<AllCreationHisou>(), player);
+        var cardModel = ModelDb.Card<AllCreationHisou>();
+        var card = player.RunState.CreateCard(cardModel, player);
         var addResult = await CardPileCmd.Add(card, PileType.Deck);
         CardCmd.PreviewCardPileAdd(addResult);
     }

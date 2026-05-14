@@ -21,7 +21,7 @@
 
   "TOUHOUANCIENTS-HUOYANTUXI.title": "涤荡腐坏的炽焰",
   "TOUHOUANCIENTS-HUOYANTUXI.description": "受到攻击时，对攻击者造成[blue]{FlameBarrierPower}[/blue]点伤害。",
-  "TOUHOUANCIENTS-HUOYANTUXI.flavor": "火焰屏障伤害特别高",
+  "TOUHOUANCIENTS-HUOYANTUXI.flavor": "噶人们，火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
@@ -31,7 +31,7 @@
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
   "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "鉴定为大费物。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "异眼顶真，鉴定为大费物。",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
@@ -76,11 +76,11 @@
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命。",
   "TOUHOUANCIENTS-DRACULA_LEGACY.eventDescription": "随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命。",
-  "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "1",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "蕾米莉亚并不是德古拉的后裔。但确实有一些宝藏是那位大公赠予的。",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
   "TOUHOUANCIENTS-NIGHT_SERVANT.description": "你的[gold]卡牌奖励[/gold]额外包含[gold]时间仆从[/gold]、[gold]魔法仆从[/gold]、[gold]罡气仆从[/gold]中的一张。",
-  "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "虽然她本人不承认，但红魔馆的威严确实大部分不在她的身上。",
+  "TOUHOUANCIENTS-NIGHT_SERVANT.flavor": "仆人的威严也是[jitter]主人威严[/jitter]的一部分。——蕾米莉亚",
 
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "猩红酒樽",
   "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "拾起时，将你的最大生命翻倍，将[blue]4[/blue]张[gold]腐朽[/gold]加入牌组。",
@@ -100,7 +100,7 @@
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "腌制红雾",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.description": "拾起时，从你的[gold]牌组[/gold]中复制[blue]{Cards}[/blue]张牌。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.eventDescription": "从你的[gold]牌组[/gold]中复制[blue]{Cards}[/blue]张牌。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-PRESERVED_RED_FOG.flavor": "了解到所谓“第一个恶魔”瓦库的杰作「腌制活雾」后，蕾米莉亚连夜让帕秋莉制作了这个。",  
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.flavor": "为了胜过所谓“第一个恶魔”的杰作「腌制活雾」，蕾米连夜让我制作了这个。——帕秋莉·诺蕾姬",  
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张牌进行[gold]复制[/gold]。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
 
   "TOUHOUANCIENTS-NOBLE_BROOCH.title": "恶魔胸针",
@@ -127,12 +127,12 @@
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
   "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-MEMORY_FLASK.eventDescription": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "",
+  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "待补充",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.eventDescription": "从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "待补充",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励与商店[/gold]中",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetTitle": "遗忘",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing": "你还没有遗忘任何卡牌。",
@@ -150,7 +150,7 @@
 
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "赛钱箱",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "你可以在休息处进行[gold]募捐[/gold]。",
-  "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "",
+  "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "摇晃的时候听不到声音。",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
   "TOUHOUANCIENTS-HAKUREI_CHARM.description": "战斗开始时，选择一个选项进行[gold]祈愿[/gold]。",
@@ -158,7 +158,7 @@
 
   "TOUHOUANCIENTS-SUBSPACE_HOLE.title": "亚空穴",
   "TOUHOUANCIENTS-SUBSPACE_HOLE.description": "每场战斗你首次失去生命值时，获得[blue]{IntangiblePower}[/blue]层[gold]无实体[/gold]。",
-  "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "",
+  "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "可不是[u]那家伙[/u]的能力。",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
   "TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数一半的伤害。",
@@ -171,9 +171,9 @@
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "博丽御币",
   "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，将[blue]1[/blue]张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HAKUREI_GOHEI.eventDescription": "将[blue]1[/blue]张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-HAKUREI_GOHEI.flavor": "",
+  "TOUHOUANCIENTS-HAKUREI_GOHEI.flavor": "退治妖怪的趁手好戏。",
 
-  "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.title": "奇运桃子",
+  "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.title": "奇运仙桃",
   "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.description": "每当你打出攻击牌、技能牌、能力牌各一张时，清除你的负面效果并恢复{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.flavor": "",
 
@@ -183,7 +183,7 @@
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到伤害时，减少[blue]{Mitigation}[/blue]伤害并记录实际减少量。下回合结束时失去计数层数一半的生命并清空计数。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身施加的伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。回合结束时，对自身造成等同于计数的伤害并清空计数。",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",
@@ -197,7 +197,7 @@
   "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "将一张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HISOU_SWORD.flavor": "",
 
-  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "要石浮游炮",
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "要石陀螺",
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.description": "暂未实现。",
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "",
 
@@ -208,7 +208,7 @@
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "白兔御守",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.flavor": "",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.flavor": "常见的用来抵御邪灵的护身符，画上兔子的图案后价值更高了。",
 
   "TOUHOUANCIENTS-CARROT_NECKLACE.title": "萝卜项链",
   "TOUHOUANCIENTS-CARROT_NECKLACE.description": "拾起时，从[gold]牌组[/gold]中移除至多[blue]3[/blue]张牌。商人移除卡牌服务的价格翻倍。",
@@ -223,11 +223,11 @@
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.title": "幸运宝盒",
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.description": "拾起时，获得[blue]3[/blue]个[gold]药水栏位[/gold]，并用[gold]幸运补剂[/gold]填满你的[gold]药水栏[/gold]。",
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.eventDescription": "获得[blue]3[/blue]个[gold]药水栏位[/gold]，并用[gold]幸运补剂[/gold]填满你的[gold]药水栏[/gold]。",
-  "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.flavor": "",
+  "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.flavor": "据说有一半的人购买了这个宝盒以后，把盒子还了回去。",
 
-  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四叶草",
+  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四十叶草",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
-  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "",
+  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "兔脚",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]50[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",

@@ -41,7 +41,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.IRONCLAD.0-0.ancient": "占位符",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.DEFECT.0-0.ancient": "占位符",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-0.ancient": "占位符",
-  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.REGENT.0-0.ancient": "我怎么总能遇上奇怪的家伙……拿上我的东西离开吧，就在那赛钱箱旁边。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.REGENT.0-0.ancient": "又是个奇怪的家伙……拿上东西离开吧，就在那赛钱箱旁边。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.REGENT.0-0.char": "？",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.REGENT.0-0.next": "查看",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.REGENT.0-1.char": "[i][font_size=22]储君往赛钱箱里投了一把金币。[/font_size][/i]",
@@ -63,7 +63,7 @@
 
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.title": "比那名居 天子",
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.epithet": "于先子星降临的天人",
-  "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.firstVisitEver.0-0.ancient": "喂，那边的家伙！看过来！本小姐这里有个好东西给你！心怀感激的收下吧！",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.firstVisitEver.0-0.ancient": "喂，那边的家伙，看过来！本小姐这里有好东西要给你！心怀感激的收下吧！",
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT.talk.ANY.0-0r.ancient": "占位符",
 
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.title": "因幡 帝",
