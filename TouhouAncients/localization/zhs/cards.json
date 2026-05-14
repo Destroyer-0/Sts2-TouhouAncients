@@ -19,8 +19,7 @@
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得[blue]{Block:diff()}[/blue]点[gold]格挡[/gold]。\n在本回合将你格挡掉的攻击伤害的一半转化为[gold]活力[/gold]。",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "全人类的绯想天",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "[gold]保留[/gold]。\n打出并[gold]消耗[/gold]所有当前[gold]手牌[/gold]与[gold]消耗堆[/gold]里的牌。",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU.descriptionUpgraded": "[gold]保留[/gold]。\n[gold]升级、[/gold]打出并[gold]消耗[/gold]所有当前[gold]手牌[/gold]与[gold]消耗堆[/gold]里的牌。",
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。"

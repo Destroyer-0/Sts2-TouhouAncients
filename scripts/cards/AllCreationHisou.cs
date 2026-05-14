@@ -1,10 +1,16 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Characters;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -42,7 +48,27 @@ public class AllCreationHisou : TouhouAncientCards
 
         var allTargetCards = handCards.Concat(exhaustCards).ToList();
         bool shouldUpgrade = cardPlay.Card.IsUpgraded;
+        
+        var a = NCombatRoom.Instance?.GetCreatureNode(player.Creature);
+        Vector2 vfxSpawnPosition = a.VfxSpawnPosition;
 
+        NHyperbeamVfx? nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition + new Vector2(0, 100), new Vector2(vfxSpawnPosition.X, vfxSpawnPosition.Y - 10));
+        if (nHyperbeamVfx != null)
+        {
+            nHyperbeamVfx.GlobalScale = new Vector2(2, 2);
+            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
+            float scale = 2.8f;
+            NGroundFireVfx nGroundFireVfx = NGroundFireVfx.Create(player.Creature);
+            if (nGroundFireVfx != null)
+            {
+                SfxCmd.Play("event:/sfx/characters/attack_fire");
+                nGroundFireVfx.Scale = Vector2.One * scale;
+                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nGroundFireVfx);
+                scale += 0.2f;
+            }
+            await Cmd.Wait(0.5f);
+        }
+        
         foreach (var card in allTargetCards)
         {
             // 升级后：先升级每张牌
@@ -51,13 +77,21 @@ public class AllCreationHisou : TouhouAncientCards
                 CardCmd.Upgrade(card);
             }
 
+            // foreach (Creature item in enemies)
+            // {
+            //     NHyperbeamImpactVfx nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
+            //     if (nHyperbeamImpactVfx != null)
+            //     {
+            //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
+            //     }
+            // }
             // 自动打出
             await CardCmd.AutoPlay(new BlockingPlayerChoiceContext(), card, target: null);
 
             // 打出后若牌还存在且不在消耗堆，则消耗它
             if (card.Pile != null && card.Pile.Type != PileType.None && !card.HasBeenRemovedFromState)
             {
-                await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card);
+                await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card, skipVisuals: true);
             }
         }
     }

@@ -30,7 +30,7 @@ public class VigorOnBlockPower : PowerModel
     {
         if (target != base.Owner) return;
         if (result.BlockedDamage <= 0) return;
-        if (!props.IsPoweredAttack()) return;
+        if (!props.IsCardOrMonsterMove()) return;
         if (dealer == null) return;
 
         // 将格挡掉的伤害 × 层数 转化为活力

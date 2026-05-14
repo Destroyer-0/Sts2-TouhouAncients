@@ -48,7 +48,6 @@ public class Zhangeweilaiba : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        GD.PrintErr($"MyEntryID: {Id.Entry.ToLowerInvariant()}");
         Player owner = Owner;
         CardCreationOptions options = CardCreationOptions.ForNonCombatWithUniformOdds([owner.Character.CardPool], (CardModel c) => c.EnergyCost.CostsX || c.HasStarCostX).WithFlags(CardCreationFlags.NoRarityModification | CardCreationFlags.NoUpgradeRoll);
         List<CardCreationResult> list = CardFactory.CreateForReward(base.Owner, options.GetPossibleCards(owner).Count(), options).ToList();

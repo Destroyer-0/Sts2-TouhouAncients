@@ -183,7 +183,7 @@
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身施加的伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。回合结束时，对自身造成等同于计数的伤害并清空计数。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身造成的伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。回合结束时，对自身造成等同于计数的伤害并清空计数。",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",

@@ -19,6 +19,7 @@ namespace TouhouAncients.Scripts.cards;
 /// 获得1能量，抽1张牌，获得1力量、1敏捷、1集中、1辉星，召唤1，铸造9，将正面Buff层数增加1。
 /// 升级后获得固有。
 /// </summary>
+[Pool(typeof(EventCardPool))]
 public class AllCreationHisou_Old : TouhouAncientCards
 {
     private const int energyCost = 2;

@@ -46,11 +46,12 @@ public class Miracle : CustomEnchantmentModel
         // - 非储君(Regent)：排除带有辉星(star cost)的牌
         // - 非亡灵契约师(Necrobinder)：排除带有 OstyAttack 标签的牌
         var isRegent = player.Character is Regent;
-        var isNecrobinder = player.Character is Necrobinder; 
+        var isNecrobinder = player.Character is Necrobinder;
 
         bool IsAllowed(CardModel c) =>
-            (isRegent || (c.CanonicalStarCost < 0 && !c.HasStarCostX))
-         && (isNecrobinder || !c.Tags.Contains(CardTag.OstyAttack));
+            CanEnchant(c)
+            && (isRegent || c is { CanonicalStarCost: < 0, HasStarCostX: false })
+            && (isNecrobinder || !c.Tags.Contains(CardTag.OstyAttack));
 
         //选择一张随机牌
         var allCards = ModelDb.AllCharacterCardPools
@@ -66,7 +67,6 @@ public class Miracle : CustomEnchantmentModel
             1,
             player.RunState.Rng.CombatCardGeneration
         ).FirstOrDefault();
-        
         if (cardModel != null)
         {
             if (base.Card.IsUpgraded)

@@ -23,24 +23,22 @@ public class FirmamentSash : TouhouAncientRelics
 {
     public int MitigationTotal { get; set; }
 
+    public override bool ShowCounter => true;
+    public override int DisplayAmount => MitigationTotal;
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Mitigation", 10)
     ];
-
-    public override Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
-    {
-        return base.BeforeDamageReceived(choiceContext, target, amount, props, dealer, cardSource);
-    }
-
+    
     public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target != base.Owner.Creature)
         {
             return amount;
         }
-
-        if (props.HasFlag(ValueProp.Unblockable))
+        
+        if (!props.IsCardOrMonsterMove())
         {
             return amount;
         }
@@ -52,6 +50,7 @@ public class FirmamentSash : TouhouAncientRelics
 
         var reduce = Math.Min(base.DynamicVars["Mitigation"].BaseValue, amount);
         MitigationTotal += (int)reduce;
+        InvokeDisplayAmountChanged();
         return Math.Max(0m, amount - reduce);
     }
 
@@ -67,6 +66,7 @@ public class FirmamentSash : TouhouAncientRelics
         if (MitigationTotal <= 0) return;
         if (MitigationTotal > 0)
         {
+            Flash();
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 base.Owner.Creature,
@@ -74,8 +74,9 @@ public class FirmamentSash : TouhouAncientRelics
                 ValueProp.Unpowered,
                 base.Owner.Creature,
                 null);
+            MitigationTotal = 0;
+            InvokeDisplayAmountChanged();
         }
-        MitigationTotal = 0;
     }
 
     public override Task AfterCombatEnd(CombatRoom _)
