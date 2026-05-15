@@ -65,10 +65,18 @@ public class AllCreationHisou_Old : TouhouAncientCards
         await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, creature, this));
         await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, creature, this));
         await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, creature, this));
+        
+        //
+        // var buffs = creature.Powers.Where(p => p.Type == PowerType.Buff).ToList();
+        // foreach (var buff in buffs)
+        // {
+        //     await PowerCmd.ModifyAmount(buff, 1m, creature, this);
+        // }
     }
 
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Innate);
     }
+    
 }

@@ -35,6 +35,7 @@ public class InabaTewiAncient : CustomAncientModel
             AncientOption<FourLeafClover>(),
             AncientOption<RabbitHornContract>(),
             AncientOption<RabbitsFoot>(),
-            AncientOption<LuckyTreasureChest>()
+            AncientOption<LuckyTreasureChest>(),
+            AncientOption<RabbitsCage>()
         ));
 }

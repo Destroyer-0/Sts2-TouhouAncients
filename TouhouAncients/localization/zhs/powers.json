@@ -1,7 +1,15 @@
 {
   "VIGOR_ON_BLOCK_POWER.title": "化劲",
-  "VIGOR_ON_BLOCK_POWER.description": "本回合将格挡掉的攻击伤害转化为等量[gold]活力[/gold]。",
+  "VIGOR_ON_BLOCK_POWER.description": "本回合将格挡掉的攻击伤害转化为一半的[gold]活力[/gold]。",
   "VIGOR_ON_BLOCK_POWER.smartDescription": "本回合将格挡掉的攻击伤害的[blue]{Amount}%[/blue]转化为[gold]活力[/gold]。",
+
+  "LUCKY_RABBIT_POWER.title": "幸运白兔",
+  "LUCKY_RABBIT_POWER.description": "本回合费用为[blue]0[/blue]的卡牌造成[blue]2[/blue]倍的伤害与[gold]格挡[/gold]。",
+  "LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌造成[blue]{Amount}[/blue]倍的伤害与[gold]格挡[/gold]。",
+
+  "KEYSTONE_POWER.title": "要石",
+  "KEYSTONE_POWER.description": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成伤害。",
+  "KEYSTONE_POWER.smartDescription": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
 
   "ALL_CREATION_HISOU_POWER.title": "全人类的绯想天",
   "ALL_CREATION_HISOU_POWER.description": "获得的正面效果层数增加[gold]1[/gold]。",

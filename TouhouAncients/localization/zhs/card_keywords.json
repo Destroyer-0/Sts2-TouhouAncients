@@ -7,5 +7,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTYINYANGTRANSLATION.description": "每场战斗开始时，处于[blue]阴[/blue]状态。每当你触发[blue]阴[/blue]效果或[gold]阳[/gold]效果时，切换到另一个状态。",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.title": "募捐",
-  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.description": "获得200金币与一组卡牌奖励。"
+  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.description": "获得200金币与一组卡牌奖励。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "储君",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "来自天上的，群星王座的继承人。因此也是天人。"
 }

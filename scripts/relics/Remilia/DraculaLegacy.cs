@@ -36,6 +36,7 @@ public class DraculaLegacy : TouhouAncientRelics
         await RewardsCmd.OfferCustom(base.Owner, _ourRewards);
     }
 
+    
     /// <summary>
     /// 不以此方式获得遗物时，失去13点生命。
     /// </summary>

@@ -42,7 +42,8 @@ public class ServantSakuya : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(4m, ValueProp.Move)
+        new CardsVar(2),
+        new DamageVar(5m, ValueProp.Move)
     ];
 
     public ServantSakuya() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -92,8 +93,7 @@ public class ServantSakuya : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(1m);
-        base.OnUpgrade();
+        base.DynamicVars.Cards.UpgradeValueBy(1m);
     }
 
     // /// <summary>

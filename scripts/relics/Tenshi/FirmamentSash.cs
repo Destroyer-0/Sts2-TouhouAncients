@@ -21,7 +21,18 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class FirmamentSash : TouhouAncientRelics
 {
-    public int MitigationTotal { get; set; }
+    private int mitigationTotal;
+
+    public int MitigationTotal
+    {
+        get => mitigationTotal;
+        set
+        {
+            AssertMutable();
+            mitigationTotal = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
 
     public override bool ShowCounter => true;
     public override int DisplayAmount => MitigationTotal;
@@ -50,7 +61,6 @@ public class FirmamentSash : TouhouAncientRelics
 
         var reduce = Math.Min(base.DynamicVars["Mitigation"].BaseValue, amount);
         MitigationTotal += (int)reduce;
-        InvokeDisplayAmountChanged();
         return Math.Max(0m, amount - reduce);
     }
 
@@ -75,7 +85,6 @@ public class FirmamentSash : TouhouAncientRelics
                 base.Owner.Creature,
                 null);
             MitigationTotal = 0;
-            InvokeDisplayAmountChanged();
         }
     }
 
