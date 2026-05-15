@@ -40,7 +40,7 @@ public class HinanawiTenshiAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<FirmamentSash>(weight:3),
-            //AncientOption<CurseBreakerQi>(weight:3),
+            AncientOption<CurseBreakerQi>(weight:3),
             AncientOption<CelestialIndifference>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 3 : 1),
             AncientOption<CosmicDecree>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 0 : 2)
             //, AncientOption<SupremeHeavenSeal>()
