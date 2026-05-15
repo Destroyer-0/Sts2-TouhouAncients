@@ -29,7 +29,7 @@ public class NobleBrooch : TouhouAncientRelics
 
         // Round 1: 选择至多2张牌变化
         var firstSelected = (await CardSelectCmd.FromHand(
-            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1, MaxPerRound),
+            prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, MaxPerRound),
             context: choiceContext,
             player: player,
             filter: null,
@@ -57,7 +57,7 @@ public class NobleBrooch : TouhouAncientRelics
             if (eligible.Count > 0)
             {
                 var nextSelected = (await CardSelectCmd.FromHand(
-                    prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1, MaxPerRound),
+                    prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 0, eligible.Count),
                     context: choiceContext,
                     player: player,
                     filter: c => eligible.Contains(c),

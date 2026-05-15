@@ -25,27 +25,33 @@ public class CurseBreakerQi : TouhouAncientRelics
     public override bool HasUponPickupEffect => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.FromKeyword(CardKeyword.Unplayable),
+        HoverTipFactory.ForEnergy(this),
+    ];
+    
     public override async Task AfterObtained()
     {
         var player = base.Owner;
 
         // 获得9张随机诅咒
-        var cursePool = ModelDb.CardPool<CurseCardPool>();
-        var allCurses = cursePool.AllCards.ToList();
+        HashSet<CardModel> availableCurses = (from c in ModelDb.CardPool<CurseCardPool>().GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)
+            where c.CanBeGeneratedByModifiers
+            select c).ToHashSet();
         var rng = player.RunState.Rng.Shuffle;
-        var cursesToAdd = allCurses.UnstableShuffle(rng).Take(9);
+        var cursesToAdd = availableCurses.ToList().UnstableShuffle(rng).Take(9);
         await CardPileCmd.AddCursesToDeck(cursesToAdd, player);
     }
 
-    // 允许打出诅咒牌
-    public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
+    public override Task AfterCardEnteredCombat(CardModel card)
     {
-        if (card.Owner != base.Owner) return true;
-        if (card is { Type: CardType.Curse })
+        if (card.Type is CardType.Curse)
         {
-            return true;
+            card.RemoveKeyword(CardKeyword.Unplayable);
         }
-        return base.ShouldPlay(card, autoPlayType);
+        return base.AfterCardEnteredCombat(card);
     }
 
     // 打出诅咒时获得奖励

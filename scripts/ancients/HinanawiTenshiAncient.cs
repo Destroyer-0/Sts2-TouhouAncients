@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Characters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -28,20 +29,25 @@ public class HinanawiTenshiAncient : CustomAncientModel
         return TouhouAncientsConfig.IsAncientForced<HinanawiTenshiAncient>(act.ActNumber());
     }
 
-    // Pool 1: 普通池
-    // Pool 2: 稀有池
-    // Pool 3: 先古之民池
+    /// <summary>
+    /// 池子2依照玩家是否是储君选择给予 天界冷漠（储君权重3，其他人权重1）/天宇诏令（储君权重0，其他人权重2）
+    /// </summary>
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
-            AncientOption<MysticFortunePeach>()
+            AncientOption<MysticFortunePeach>(),
+            AncientOption<HolyArmor>()
             //, AncientOption<CurseBreakerQi>()
         ),
         MakePool(
-            AncientOption<FirmamentSash>()
+            AncientOption<FirmamentSash>(weight:3),
+            //AncientOption<CurseBreakerQi>(weight:3),
+            AncientOption<CelestialIndifference>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 3 : 1),
+            AncientOption<CosmicDecree>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 0 : 2)
             //, AncientOption<SupremeHeavenSeal>()
         ),
         MakePool(
-            AncientOption<HisouSword>()
+            AncientOption<HisouSword>(),
+            AncientOption<KeystoneFloatingCannon>()
             //AncientOption<KeystoneFloatingCannon>()
         )
     );
