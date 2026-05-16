@@ -1,4 +1,7 @@
 {
+    "TOUHOUANCIENTS-TRICK.description": "打出后，获得1层[gold]缓冲[/gold]，这张牌在本场战斗中费用增加[blue]1[/blue]。",
+    "TOUHOUANCIENTS-TRICK.title": "诈术",
+
     "TOUHOUANCIENTS-HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌费用减少[blue]1[/blue]。",
     "TOUHOUANCIENTS-HIGH_QUALITY.title": "优质",
     

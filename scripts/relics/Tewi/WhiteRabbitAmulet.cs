@@ -20,7 +20,7 @@ public class WhiteRabbitAmulet : TouhouAncientRelics
     public override async Task AfterObtained()
     {
         var deck = PileType.Deck.GetPile(base.Owner);
-        var curses = deck.Cards.Where(c => c.Type == CardType.Curse).ToList();
+        var curses = deck.Cards.Where(c => c is { Type: CardType.Curse, IsRemovable: true }).ToList();
         if (curses.Count > 0)
         {
             Flash();

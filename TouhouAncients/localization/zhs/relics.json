@@ -220,8 +220,8 @@
   "TOUHOUANCIENTS-LOSE_MONEY.flavor": "",
 
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "因幡御守",
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有非永恒[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有非永恒[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.flavor": "常见的用来抵御邪灵的护身符，画上兔子的图案后价值更高了。",
 
   "TOUHOUANCIENTS-CARROT_NECKLACE.title": "萝卜项链",
@@ -250,5 +250,10 @@
   "TOUHOUANCIENTS-RABBITS_CAGE.title": "兔笼",
   "TOUHOUANCIENTS-RABBITS_CAGE.description": "拾起时，将一张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-RABBITS_CAGE.eventDescription": "将一张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-RABBITS_CAGE.flavor": "这些小家伙不是很可爱吗？可要记得好好善待它们哦~——因幡帝"
+  "TOUHOUANCIENTS-RABBITS_CAGE.flavor": "这些小家伙不是很可爱吗？可要记得好好善待它们哦~——因幡帝",
+
+  "TOUHOUANCIENTS-WHITE_FLAG.title": "白旗",
+  "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-WHITE_FLAG.flavor": ""
 }

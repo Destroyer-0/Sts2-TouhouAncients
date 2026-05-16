@@ -26,8 +26,8 @@ public class KomejiSatoriAncient : CustomAncientModel
 
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KomejiSatori.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KomejiSatori.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

@@ -14,8 +14,8 @@ public class InabaTewiAncient : CustomAncientModel
 
     public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KotiyaSanae.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KotiyaSanae.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/InabaTewi.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/InabaTewi.png";
 
     public override bool IsValidForAct(ActModel act)
     {
