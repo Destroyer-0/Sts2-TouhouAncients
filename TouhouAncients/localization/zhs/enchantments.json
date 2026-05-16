@@ -10,7 +10,8 @@
     "TOUHOUANCIENTS-MIRACLE.extraCardText": "引发奇迹之力。",
     "TOUHOUANCIENTS-MIRACLE.title": "奇迹",
 
-    "TOUHOUANCIENTS-BLOODSHED.description": "每场战斗这张牌第一次造成伤害时，恢复等同于造成伤害的生命值。",
+    "TOUHOUANCIENTS-BLOODSHED.description": "回复{Heal:diff()}生命。每场战斗这张牌第一次造成伤害时，额外恢复等同于造成伤害的生命值。",
+    "TOUHOUANCIENTS-BLOODSHED.extraCardText": "回复{Heal:diff()}生命。",
     "TOUHOUANCIENTS-BLOODSHED.title": "喋血",
 
     "TOUHOUANCIENTS-RECOLLECTION.description": "首次进入弃牌堆时自动打出。",

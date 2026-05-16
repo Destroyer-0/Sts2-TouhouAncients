@@ -24,7 +24,6 @@ namespace TouhouAncients.Scripts.relics;
 public class KeystoneFloatingCannon : TouhouAncientRelics
 {
     private bool _keystoneInserted;
-    private decimal _extraDamage;
 
     public override bool ShowCounter => _keystoneInserted;
     public override int DisplayAmount => _keystoneInserted ? 1 : 0;
@@ -32,12 +31,13 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(8m, ValueProp.Unpowered),
-        new DynamicVar("ExtraDamage", 1)
+        new DynamicVar("ExtraDamage", 2)
     ];
 
     public override async Task BeforeCombatStart()
     {
         var creature = base.Owner.Creature;
+        _keystoneInserted = false;
         await PowerCmd.Apply<KeystonePower>(creature, base.DynamicVars.Damage.BaseValue, creature, null);
     }
 
@@ -46,12 +46,12 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
         if (cardPlay.Card.Owner != base.Owner) return;
         if (base.Owner.Creature.CombatState == null) return;
 
-        if (cardPlay.Card.Type == CardType.Skill)
+        if (cardPlay.Card.Type == CardType.Skill&& !_keystoneInserted)
         {
             // 使用技能牌 → 插下要石
-            _keystoneInserted = true;
             Flash();
             base.Status = RelicStatus.Active;
+            _keystoneInserted = true;
         }
         else if (cardPlay.Card.Type == CardType.Attack && _keystoneInserted)
         {
@@ -86,7 +86,6 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
     public override Task AfterCombatEnd(CombatRoom room)
     {
         _keystoneInserted = false;
-        _extraDamage = 0m;
         return Task.CompletedTask;
     }
 

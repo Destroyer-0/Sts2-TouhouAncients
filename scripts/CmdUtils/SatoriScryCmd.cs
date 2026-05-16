@@ -36,7 +36,7 @@ public static class SatoriScryCmd
 
         choiceContext ??= new BlockingPlayerChoiceContext();
         var prefs = new CardSelectorPrefs(
-            new LocString("card_keywords","TOUHOUANCIENTS-SATORISCRY.selectionScreenPrompt"),
+            new LocString("card_keywords","TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt"),
             0,
             topCards.Count
         );

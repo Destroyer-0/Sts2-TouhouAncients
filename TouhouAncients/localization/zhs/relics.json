@@ -219,7 +219,7 @@
   "TOUHOUANCIENTS-LOSE_MONEY.description": "每当你打出[blue]{CardsNeeded}[/blue]张牌，消耗[blue]{GoldCost}[/blue][gold]金币[/gold]获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-LOSE_MONEY.flavor": "",
 
-  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "白兔御守",
+  "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "因幡御守",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "拾起时，移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "移除牌组中所有[red]诅咒[/red]。阻止你之后获得的[red]诅咒[/red]。",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.flavor": "常见的用来抵御邪灵的护身符，画上兔子的图案后价值更高了。",
@@ -244,7 +244,7 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "兔脚",
-  "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]50[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]70[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给我们兔角同盟了！顺带一提，这个是仿品。",
 
   "TOUHOUANCIENTS-RABBITS_CAGE.title": "兔笼",

@@ -1,6 +1,6 @@
-{
+﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸运白兔",
-    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。在本回合随机化你[gold]手牌[/gold]中所有牌的耗能。\n本回合费用为[blue]0[/blue]的卡牌造成双倍的伤害与[gold]格挡[/gold]。",
+    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]手牌[/gold]中所有牌的耗能，并为其中费用为[blue]0[/blue]的牌添加[gold]重放[/gold]。",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]",
