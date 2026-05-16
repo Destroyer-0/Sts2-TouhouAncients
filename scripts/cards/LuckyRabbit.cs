@@ -5,13 +5,12 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 幸运白兔：0费技能。消耗（升级后去除）。
-/// 抽一张牌，随机化你的卡牌耗能。本回合费用为0的卡牌造成的伤害与提供的格挡翻倍。
+/// 抽牌，随机化手牌耗能。为本场战斗中手牌里费用为0的卡牌永久添加重放。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class LuckyRabbit : TouhouAncientCards
@@ -26,7 +25,7 @@ public class LuckyRabbit : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(1)
+        new CardsVar(3)
     ];
 
     public LuckyRabbit() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -38,8 +37,10 @@ public class LuckyRabbit : TouhouAncientCards
         var player = base.Owner;
         if (player?.PlayerCombatState == null) return;
 
-        await CardPileCmd.Draw(choiceContext, 1, player);
+        // 抽牌
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, player);
 
+        // 随机化所有手牌的耗能
         foreach (var card in player.PlayerCombatState.Hand.Cards)
         {
             if (card.EnergyCost.Canonical < 0) continue;
@@ -47,7 +48,13 @@ public class LuckyRabbit : TouhouAncientCards
             card.EnergyCost.SetThisTurn(randomCost);
         }
 
-        await PowerCmd.Apply<LuckyRabbitPower>(player.Creature, 2m, player.Creature, this);
+        // 为本场战斗中手牌里费用为0的卡牌永久添加重放
+        foreach (var card in player.PlayerCombatState.Hand.Cards)
+        {
+            if (card.EnergyCost.Canonical < 0) continue;
+            if (card.EnergyCost.GetResolved() != 0) continue;
+            card.BaseReplayCount++;
+        }
     }
 
     protected override void OnUpgrade()

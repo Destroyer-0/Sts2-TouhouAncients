@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d23126e37hgap"
-path="res://.godot/imported/InabaTewi.png-a443d21b4b2c4c0f11f397d1d02970ab.ctex"
+uid="uid://bmc2i8m8k3p71"
+path="res://.godot/imported/KomejiSatori.png-3edf2aa16bc7f749d2fe5f41feddac61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/icon/InabaTewi.png"
-dest_files=["res://.godot/imported/InabaTewi.png-a443d21b4b2c4c0f11f397d1d02970ab.ctex"]
+source_file="res://sprite/icon/KomejiSatori.png"
+dest_files=["res://.godot/imported/KomejiSatori.png-3edf2aa16bc7f749d2fe5f41feddac61.ctex"]
 
 [params]
 
