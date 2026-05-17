@@ -26,7 +26,7 @@ public class Bloodshed : CustomEnchantmentModel
         return cardType == CardType.Attack;
     }
 
-    public override bool HasExtraCardText => true;
+    //public override bool HasExtraCardText => true;
 
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {

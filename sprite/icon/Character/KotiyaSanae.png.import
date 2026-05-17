@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyxbfwrlidc65"
-path="res://.godot/imported/RemiliaScarlet.png-4c7367e026349fc8b24523d35dec195a.ctex"
+uid="uid://d2tva0r0ptqbe"
+path="res://.godot/imported/KotiyaSanae.png-770374d718d257292592e9d07a73e06a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/icon/RemiliaScarlet.png"
-dest_files=["res://.godot/imported/RemiliaScarlet.png-4c7367e026349fc8b24523d35dec195a.ctex"]
+source_file="res://sprite/icon/Character/KotiyaSanae.png"
+dest_files=["res://.godot/imported/KotiyaSanae.png-770374d718d257292592e9d07a73e06a.ctex"]
 
 [params]
 

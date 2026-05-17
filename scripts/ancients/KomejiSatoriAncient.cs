@@ -24,10 +24,10 @@ public class KomejiSatoriAncient : CustomAncientModel
         return TouhouAncientsConfig.IsAncientForced<KomejiSatoriAncient>(act.ActNumber());
     }
 
-    public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/KomejiSatori.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/KomejiSatori.png";
+    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/KomejiSatori.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/KomejiSatori.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

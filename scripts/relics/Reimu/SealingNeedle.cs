@@ -69,6 +69,6 @@ public class SealingNeedle : TouhouAncientRelics
         if (target == null || !target.IsAlive || !target.IsEnemy) return 0m;
         if (!target.HasPower<WeakPower>()) return 0m;
 
-        return Math.Floor(target.GetPowerAmount<WeakPower>() / 2m);
+        return target.GetPowerAmount<WeakPower>();
     }
 }

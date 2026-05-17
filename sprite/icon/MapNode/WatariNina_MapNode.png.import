@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kffob8b35fc4"
-path="res://.godot/imported/KotiyaSanae.png-b4908881d799711843485e000395b064.ctex"
+uid="uid://qi5dg1rhp21u"
+path="res://.godot/imported/WatariNina_MapNode.png-958d9850bba0c845b103d9e081c18959.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/icon/KotiyaSanae.png"
-dest_files=["res://.godot/imported/KotiyaSanae.png-b4908881d799711843485e000395b064.ctex"]
+source_file="res://sprite/icon/MapNode/WatariNina_MapNode.png"
+dest_files=["res://.godot/imported/WatariNina_MapNode.png-958d9850bba0c845b103d9e081c18959.ctex"]
 
 [params]
 

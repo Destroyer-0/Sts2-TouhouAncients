@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5dc8q04c86ku"
-path="res://.godot/imported/WatariNina_MapNode.png-0c8dcae435dfd0f31e88240be8f4cb94.ctex"
+uid="uid://c8ubu4wd3vhhb"
+path="res://.godot/imported/RemiliaScarlet.png-b1954a0f77ae2b0e4720d9836581b41b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/icon/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-0c8dcae435dfd0f31e88240be8f4cb94.ctex"]
+source_file="res://sprite/icon/Character/RemiliaScarlet.png"
+dest_files=["res://.godot/imported/RemiliaScarlet.png-b1954a0f77ae2b0e4720d9836581b41b.ctex"]
 
 [params]
 

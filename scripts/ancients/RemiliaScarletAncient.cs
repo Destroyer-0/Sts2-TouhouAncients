@@ -24,13 +24,13 @@ public class RemiliaScarletAncient : CustomAncientModel
         return TouhouAncientsConfig.IsAncientForced<RemiliaScarletAncient>(act.ActNumber());
     }
     
-    public override string? CustomMapIconPath => "res://sprite/icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/RemiliaScarlet.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/RemiliaScarlet.png";
+    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/RemiliaScarlet.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/RemiliaScarlet.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g22k52as1bkt"
-path="res://.godot/imported/WatariNina.png-4b28b4743481cb27c37a72eee9fcf020.ctex"
+uid="uid://dl3561g110l4g"
+path="res://.godot/imported/HakureiReimu.png-23f0605f6d63f5646794e93f70f7d156.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite/icon/WatariNina.png"
-dest_files=["res://.godot/imported/WatariNina.png-4b28b4743481cb27c37a72eee9fcf020.ctex"]
+source_file="res://sprite/icon/Character/Outline/HakureiReimu.png"
+dest_files=["res://.godot/imported/HakureiReimu.png-23f0605f6d63f5646794e93f70f7d156.ctex"]
 
 [params]
 

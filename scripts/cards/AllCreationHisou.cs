@@ -32,7 +32,7 @@ public class AllCreationHisou : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Amount", 5m)];
+    //protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Amount", 5m)];
 
     public AllCreationHisou() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -106,16 +106,16 @@ public class AllCreationHisou : TouhouAncientCards
             {
                 await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card, skipVisuals: true);
             }
-
-            hitNum++;
-            if (hitNum == base.DynamicVars["Amount"].BaseValue)
-            {
-                hitNum = 0;
-                
-                await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, playerCreature, this));
-                await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
-                await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
-            }
+            //
+            // hitNum++;
+            // if (hitNum == base.DynamicVars["Amount"].BaseValue)
+            // {
+            //     hitNum = 0;
+            //     
+            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, playerCreature, this));
+            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
+            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
+            // }
 
         }
         async Task ApplyOnAllPlayer(Func<Creature,Task> task)
