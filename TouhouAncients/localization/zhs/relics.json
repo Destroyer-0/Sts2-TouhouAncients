@@ -16,7 +16,7 @@
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.flavor": "删牌大于一切啊！",
 
   "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.title": "萎靡心灵的魔咒",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.description": "战斗开始时，所有敌人减少[blue]{StrengthLose}[/blue]点[gold]力量[/gold]，你每打出一张牌，所有敌人增加[blue]1[/blue]点[gold]力量[/gold]，每个敌人最多增加[blue]{StrengthLose}[/blue]次。",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.description": "在每场战斗开始时，所有敌人减少[blue]{StrengthLose}[/blue]点[gold]力量[/gold]，你每打出一张牌，所有敌人增加[blue]1[/blue]点[gold]力量[/gold]，每个敌人最多增加[blue]{StrengthLose}[/blue]次。",
   "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.flavor": "给XX小姐减少Y点力量",
 
   "TOUHOUANCIENTS-HUOYANTUXI.title": "涤荡腐坏的炽焰",
@@ -255,5 +255,43 @@
   "TOUHOUANCIENTS-WHITE_FLAG.title": "白旗",
   "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-WHITE_FLAG.flavor": ""
+  "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
+
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[gold]昏眩[/gold]。",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "",
+
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。在[gold]休息处[/gold]恢复的生命值减少[blue]{HealPenalty}[/blue]点。",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.flavor": "",
+
+  "TOUHOUANCIENTS-REBELLION_HORN.title": "反叛号角",
+  "TOUHOUANCIENTS-REBELLION_HORN.description": "拾起时，[green]升级[/green]你牌组中所有[gold]初始牌[/gold]与[gold]普通牌[/gold]。",
+  "TOUHOUANCIENTS-REBELLION_HORN.eventDescription": "[green]升级[/green]你牌组中所有[gold]初始牌[/gold]与[gold]普通牌[/gold]。",
+  "TOUHOUANCIENTS-REBELLION_HORN.flavor": "",
+
+  "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择至多[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合费用降至[blue]1[/blue]并拥有[gold]流电[/gold]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择至多[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合费用降至[blue]1[/blue]并拥有[gold]流电[/gold]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择至多[blue]{Amount}[/blue]张能力牌置入手牌并使其获得[gold]流电[/gold]",
+  "TOUHOUANCIENTS-BATTERY_BILI.flavor": "",
+
+  "TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
+  "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择任意张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择任意张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择任意数量的[gold]无色牌[/gold]加入牌组",
+  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "",
+
+  "TOUHOUANCIENTS-MAGIC_MALLET.title": "万宝槌",
+  "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MAGIC_MALLET.eventDescription": "将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "",
+
+  "TOUHOUANCIENTS-FOLDING_UMBRELLA.title": "折叠伞",
+  "TOUHOUANCIENTS-FOLDING_UMBRELLA.description": "在每场战斗开始时，获得[blue]5[/blue]层[gold]倒映[/gold]。",
+  "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "",
+
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.title": "伪灵异珠",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌获得[gold]紧握[/gold]：打出时失去{energyPrefix:energyIcons(1)}。",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": ""
 }

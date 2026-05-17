@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -40,12 +41,10 @@ public class HellOkuu : TouhouAncientRelics
         await Cmd.Wait(0.5f);
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
-        if (side != base.Owner.Creature.Side)
-            return;
-
-        Flash();
-        await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
+        if (player != base.Owner)
+            return amount;
+        return amount + base.DynamicVars.Energy.IntValue;
     }
 }

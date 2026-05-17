@@ -14,12 +14,14 @@
     "TOUHOUANCIENTS-MIRACLE.title": "奇迹",
 
     "TOUHOUANCIENTS-BLOODSHED.description": "回复{Heal:diff()}生命。每场战斗这张牌第一次造成伤害时，额外恢复等同于造成伤害的生命值。",
-    "TOUHOUANCIENTS-BLOODSHED.extraCardText": "回复{Heal:diff()}生命。",
     "TOUHOUANCIENTS-BLOODSHED.title": "喋血",
 
     "TOUHOUANCIENTS-RECOLLECTION.description": "首次进入弃牌堆时自动打出。",
     "TOUHOUANCIENTS-RECOLLECTION.title": "回忆",
 
     "TOUHOUANCIENTS-EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
-    "TOUHOUANCIENTS-EXORCISM.title": "降伏"
+    "TOUHOUANCIENTS-EXORCISM.title": "降伏",
+
+    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。抽牌阶段结束后，如果你的手牌中没有带有[purple]付丧之力[/purple]的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。",
+    "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力"
 }

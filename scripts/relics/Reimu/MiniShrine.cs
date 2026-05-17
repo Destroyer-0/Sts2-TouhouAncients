@@ -42,14 +42,11 @@ public class MiniShrine : TouhouAncientRelics
         await TryDonate(player);
     }
 
-    /// <summary>
-    /// 回合开始时获得1能量。
-    /// </summary>
-    public override async Task AfterEnergyReset(Player player)
+    public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
-        if (player != base.Owner) return;
-        Flash();
-        await PlayerCmd.GainEnergy(base.DynamicVars.Energy.IntValue, player);
+        if (player != base.Owner)
+            return amount;
+        return amount + base.DynamicVars.Energy.IntValue;
     }
 
     /// <summary>

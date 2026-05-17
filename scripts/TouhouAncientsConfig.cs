@@ -15,7 +15,8 @@ public enum ForcedAncientOption
     Satori小五,
     Nina贝子,
     Tenshi天子,
-    Tewi帝
+    Tewi帝,
+    Seija正邪
 }
 
 /// <summary>
@@ -35,6 +36,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanNina { get; set; } = false;
     public static bool BanTenshi { get; set; } = false;
     public static bool BanTewi { get; set; } = false;
+    public static bool BanSeija { get; set; } = false;
 
     /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
@@ -59,6 +61,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(WatariNinaAncient) => BanNina,
             nameof(HinanawiTenshiAncient) => BanTenshi,
             nameof(InabaTewiAncient) => BanTewi,
+            nameof(KijinSeijaAncient) => BanSeija,
             _ => false
         };
     }
@@ -85,6 +88,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
             ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
             ForcedAncientOption.Tewi帝 when name == nameof(InabaTewiAncient) => true,
+            ForcedAncientOption.Seija正邪 when name == nameof(KijinSeijaAncient) => true,
             _ => false
         };
     }

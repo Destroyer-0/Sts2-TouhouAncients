@@ -13,5 +13,9 @@
 
   "ALL_CREATION_HISOU_POWER.title": "全人类的绯想天",
   "ALL_CREATION_HISOU_POWER.description": "获得的正面效果层数增加[gold]1[/gold]。",
-  "ALL_CREATION_HISOU_POWER.smartDescription": "获得的正面效果层数增加[gold]{Amount}[/gold]。"
+  "ALL_CREATION_HISOU_POWER.smartDescription": "获得的正面效果层数增加[gold]{Amount}[/gold]。",
+
+  "MAGIC_WALLET_POWER.title": "魔力暴走",
+  "MAGIC_WALLET_POWER.description": "下[gold]1[/gold]张牌免费打出。",
+  "MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。"
 }

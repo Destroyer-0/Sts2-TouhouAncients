@@ -25,5 +25,8 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。\n[red][fly_in]空中的天气、大地的安定、人的气质，全都在我手掌之上！[/fly_in][/red]",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。"
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
+
+    "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌的魔力",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount}[/blue]张其它牌免费打出。\n每次打出后此牌本场战斗耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]"
 }

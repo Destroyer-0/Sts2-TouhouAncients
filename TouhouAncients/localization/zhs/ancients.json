@@ -87,5 +87,10 @@
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.title": "因幡 帝",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.epithet": "兔角商会的经理人",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
-  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.ANY.0-0r.ancient": "占位符"
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.ANY.0-0r.ancient": "占位符",
+
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT.title": "鬼人 正邪",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT.epithet": "让高塔为之倾覆",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT.talk.ANY.0-0r.ancient": "占位符"
 }
