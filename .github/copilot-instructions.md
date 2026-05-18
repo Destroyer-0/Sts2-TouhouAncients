@@ -1,5 +1,9 @@
 # TouhouAncients Mod — Copilot 工作区指令
 
+## 核心行为准则
+- **不准擅自回答我从未提出的问题**：只回应我明确提出的请求，不自问自答，不解释我没问的东西。
+- **不准擅自修改我的方案**：修改代码前必须先说明打算做什么，获得我同意后再动手。不得在未告知的情况下直接修改代码。
+
 ## 附魔开发规则
 - 附魔继承 `CustomEnchantmentModel`，位于 `TouhouAncients.Scripts.Enchantment`
 - 附魔会被包含在战斗 Hook 监听器中 → 可以重写 `AfterDamageGiven`, `BeforeDamageReceived` 等全局 Hook

@@ -30,7 +30,8 @@ public class GhostLantern : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new StringVar("EnchantmentName", ModelDb.Enchantment<Tsukumogami>().Title.GetFormattedText()),
-        new DynamicVar("Amount", 15)
+        new DynamicVar("Amount", 15),
+        new DynamicVar("SelectNum", 5)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -72,7 +73,7 @@ public class GhostLantern : TouhouAncientRelics
                 new BlockingPlayerChoiceContext(),
                 creationResults,
                 player,
-                new CardSelectorPrefs(base.SelectionScreenPrompt, 0, 15)))
+                new CardSelectorPrefs(base.SelectionScreenPrompt, 0, base.DynamicVars["SelectNum"].IntValue)))
             .ToList();
 
         if (selected.Count <= 0) return;

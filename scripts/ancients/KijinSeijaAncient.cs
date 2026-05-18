@@ -38,7 +38,8 @@ public class KijinSeijaAncient : CustomAncientModel
             AncientOption<GhostLantern>(),
             AncientOption<MagicMallet>(),
             AncientOption<FoldingUmbrella>(),
-            AncientOption<FakeSpiritOrb>()
+            AncientOption<FakeSpiritOrb>(),
+            AncientOption<HungryBackpack>()
         )
     );
 }

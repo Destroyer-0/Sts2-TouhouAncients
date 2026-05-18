@@ -259,39 +259,45 @@
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[gold]昏眩[/gold]。",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "虽然能隐去人的身形，但布本身的身形没有被隐去。",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。在[gold]休息处[/gold]恢复的生命值减少[blue]{HealPenalty}[/blue]点。",
-  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.flavor": "",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.flavor": "背面写着一行小字：这个遗物能让你把好牌都敲起来。",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.additionalRestSiteHealText": "[red]沥血阴阳玉导致减少{HealPenalty}点回复量。[/red]",
 
   "TOUHOUANCIENTS-REBELLION_HORN.title": "反叛号角",
   "TOUHOUANCIENTS-REBELLION_HORN.description": "拾起时，[green]升级[/green]你牌组中所有[gold]初始牌[/gold]与[gold]普通牌[/gold]。",
   "TOUHOUANCIENTS-REBELLION_HORN.eventDescription": "[green]升级[/green]你牌组中所有[gold]初始牌[/gold]与[gold]普通牌[/gold]。",
-  "TOUHOUANCIENTS-REBELLION_HORN.flavor": "",
+  "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪曾经想拉拢马萨雷斯的信徒加入自己的反抗军，但是因为号角发不出“咔咔”声而被拒绝了。",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择至多[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合费用降至[blue]1[/blue]并拥有[gold]流电[/gold]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择至多[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合费用降至[blue]1[/blue]并拥有[gold]流电[/gold]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择至多[blue]{Amount}[/blue]张能力牌置入手牌并使其获得[gold]流电[/gold]",
-  "TOUHOUANCIENTS-BATTERY_BILI.flavor": "",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌置入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
+  "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
-  "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择任意张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择任意张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择任意数量的[gold]无色牌[/gold]加入牌组",
-  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "",
+  "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择至多[blue]{SelectNum}[/blue]张加入牌组",
+  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。",
 
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "万宝槌",
   "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-MAGIC_MALLET.eventDescription": "将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "",
+  "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "小人城主持有的，属于鬼的秘宝。",
 
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.title": "折叠伞",
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.description": "在每场战斗开始时，获得[blue]5[/blue]层[gold]倒映[/gold]。",
-  "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "",
+  "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "怪谈：请不要以17的格挡结束回合。",
+
+  "TOUHOUANCIENTS-HUNGRY_BACKPACK.title": "饥饿背包",
+  "TOUHOUANCIENTS-HUNGRY_BACKPACK.description": "在每个回合开始时，额外抽[blue]{Cards}[/blue]张牌。随机[blue]{Cards}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]吞噬[/purple]。每个回合开始时，这两个数值减少[blue]{ReduceCardDraw}[/blue]。",
+  "TOUHOUANCIENTS-HUNGRY_BACKPACK.flavor": "似乎能隐约从背包中听到“我饥饿……”的声响。",
 
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.title": "伪灵异珠",
-  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌获得[gold]紧握[/gold]：打出时失去{energyPrefix:energyIcons(1)}。",
-  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": ""
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]沉重[/purple]。",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": "带着这个并不会招来外星人或女高中生。",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "打出这张牌时失去{energyPrefix:energyIcons(1)}。"
 }

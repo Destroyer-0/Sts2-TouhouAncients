@@ -41,6 +41,7 @@ public class CarrotNecklace : TouhouAncientRelics
         // 仅翻倍"移除卡牌"服务价格
         if (entry is MerchantCardRemovalEntry)
         {
+            Flash();
             return cost * 2m;
         }
         return cost;

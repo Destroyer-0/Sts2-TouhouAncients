@@ -8,7 +8,9 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Afflictions;
@@ -23,15 +25,28 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class FakeSpiritOrb : TouhouAncientRelics
 {
-    private bool _firstTurnApplied;
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
         new DynamicVar("Amount", 2m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        new HoverTip(
+            ModelDb.Affliction<Weighted>().ToMutable(), WeightTip
+        )
+    ];
+
+    private LocString WeightTip
+    {
+        get
+        {
+            var locString = new LocString("relics", Id.Entry + ".extra");
+            locString.Add("energyPrefix", EnergyIconHelper.GetPrefix(this));
+            return locString;
+        }
+    }
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
@@ -40,20 +55,11 @@ public class FakeSpiritOrb : TouhouAncientRelics
         return amount + base.DynamicVars.Energy.IntValue;
     }
 
-    public override Task BeforeCombatStart()
-    {
-        _firstTurnApplied = false;
-        return Task.CompletedTask;
-    }
+    private readonly HashSet<CardModel> _affectedCards = new();
 
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature?.CombatState == null) return;
-
-        var drawnCard = CombatManager.Instance.History.Entries
-            .OfType<CardDrawnEntry>()
-            .Where(e => e.HappenedThisTurn(player.Creature.CombatState) && e.Card.Owner == player).Select(x => x.Card);
-
         var candidates =
             CombatManager.Instance.History.Entries
                 .OfType<CardDrawnEntry>()
@@ -64,15 +70,34 @@ public class FakeSpiritOrb : TouhouAncientRelics
 
         if (candidates.Count <= 0) return;
 
+        Flash();
         // 随机选两张
         var selected = candidates
-            .UnstableShuffle(player.RunState.Rng.CombatCardSelection)
+            .StableShuffle(player.RunState.Rng.CombatCardSelection)
             .Take(Math.Min(candidates.Count, (int)base.DynamicVars["Amount"].BaseValue))
             .ToList();
 
         foreach (var card in selected)
         {
+            if (card.Affliction != null) continue;
             await CardCmd.Afflict<Weighted>(card, base.DynamicVars.Energy.IntValue);
+            _affectedCards.Add(card);
         }
+    }
+
+    public override Task AfterTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side)
+    {
+        if (side == CombatSide.Player)
+        {
+            foreach (var card in _affectedCards)
+            {
+                if (!card.IsInCombat) continue;
+                if (card.Affliction is not Weighted) continue;
+                CardCmd.ClearAffliction(card);
+            }
+        }
+
+        _affectedCards.Clear();
+        return Task.CompletedTask;
     }
 }
