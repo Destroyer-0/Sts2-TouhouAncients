@@ -42,8 +42,8 @@ public class MagicWalletPower : PowerModel
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature == base.Owner && cardPlay != null && !cardPlay.IsAutoPlay &&
-            cardPlay.IsLastInSeries)
+        if (cardPlay.Card.Owner.Creature == base.Owner && !cardPlay.IsAutoPlay &&
+            cardPlay.IsLastInSeries && !ShouldSkip(cardPlay.Card))
         {
             await PowerCmd.Decrement(this);
         }
