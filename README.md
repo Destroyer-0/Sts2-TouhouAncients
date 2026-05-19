@@ -22,6 +22,7 @@
 | 因幡帝（二层） | `TOUHOUANCIENTS-INABA_TEWI_ANCIENT` |
 | 蕾米莉亚·斯卡雷特（三层） | `TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT` |
 | 比那名居天子（三层） | `TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT` |
+| 鬼人正邪（二层） | `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT` |
 
 ## 获得对应遗物
 控制台也可以直接获得对应的遗物。
@@ -37,7 +38,7 @@
 | 守矢御币 | `TOUHOUANCIENTS-MORIYA_GOHEI` | 拾起时，从牌组中选择一张牌，为其附魔：**奇迹** | 奇迹：获得消耗。打出后获得1能量，将一张带有奇迹附魔的随机颜色牌加入抽牌堆。 |
 | 白昼新星 | `TOUHOUANCIENTS-DAY_KAKUSEI` | 每场战斗开始时，获得一瓶能力药水。升级你生成的能力牌。 | — |
 | 蛇之护符 | `TOUHOUANCIENTS-SNAKE_AMULET` | 如果你在回合结束时手牌数不大于1，获得8点格挡与1敏捷，下回合额外获得1能量。 | — |
-| 蛙之护符 | `TOUHOUANCIENTS-FROG_AMULET` | 通过卡牌造成伤害后，下回合结束时对所有敌人造成75%造成伤害值的伤害。 | — |
+| 蛙之护符 | `TOUHOUANCIENTS-FROG_AMULET` | 通过卡牌造成伤害后，下回合结束时对所有敌人造成25%造成伤害值的伤害。 | — |
 | 水手服 | `TOUHOUANCIENTS-SAILOR_SUIT` | 战斗开始时，获得1人工制品。进入脆弱、虚弱与易伤状态时，免疫之并对所有敌人附加等量回合的对应效果。 | — |
 | 神山的谢礼 | `TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN` | 拾起时，获得300金币、一组普通、一组罕见和一组稀有卡牌奖励。 | — |
 
@@ -98,6 +99,19 @@
 | 天界冷漠 | `TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE` | 回合结束时，升级本回合获得过的牌与抽牌堆顶的牌。 | — |
 | 天宇诏令 | `TOUHOUANCIENTS-COSMIC_DECREE` | 拾起时获得天赋君权。查看15张储君的升级牌，选择任意数量加入牌组。 | — |
 | 至尊金箍 | `TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL` | 拾起时选择一张升级后的先古之民卡牌加入牌组。不再掉落卡牌奖励。 | — |
+
+#### 鬼人正邪（二层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 反叛号角 | `TOUHOUANCIENTS-REBELLION_HORN` | 拾起时，升级你牌组中所有初始牌与普通牌。 | — |
+| 隐身布 | `TOUHOUANCIENTS-INVISIBILITY_CLOTH` | 战斗开始时获得壁垒与15点格挡。首次受伤时失去壁垒并进入1回合昏眩(只能打出一张牌)。 | — |
+| 沥血阴阳玉 | `TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB` | 每回合开始时获得1能量。休息处恢复生命减少25点。 | — |
+| 哔哩电池 | `TOUHOUANCIENTS-BATTERY_BILI` | 每场战斗第一回合开始时，从抽牌堆中选择3张能力牌置入手牌，这些牌本回合免费打出，并被侵蚀为流电(打出这张牌时受到6点伤害)。 | — |
+| 亡灵提灯 | `TOUHOUANCIENTS-GHOST_LANTERN` | 拾起时，从15张无色牌中选择至多5张加入牌组，拥有附魔：**付丧之力**。 | 付丧之力：获得虚无。抽牌阶段结束后，如果你的手牌中没有带有付丧之力的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。 |
+| 万宝槌 | `TOUHOUANCIENTS-MAGIC_MALLET` | 拾起时，将一张小槌的魔力加入牌组。 | 小槌的魔力：1费技能。你的下1张其它牌免费打出。每次打出后本场战斗费用+1，免费次数+1。 |
+| 折叠伞 | `TOUHOUANCIENTS-FOLDING_UMBRELLA` | 战斗开始时，获得5层倒映。 | — |
+| 饥饿背包 | `TOUHOUANCIENTS-HUNGRY_BACKPACK` | 每回合开始时额外抽3张牌，使随机3张抽牌阶段抽到的牌获得吞噬(获得消耗)，然后数值减少1。 | — |
+| 伪灵异珠 | `TOUHOUANCIENTS-FAKE_SPIRIT_ORB` | 每回合开始时获得1能量。随机2张抽牌阶段抽到的牌获得沉重。(打出这张牌时失去1能量) | — |
 
 #### 因幡帝（二层）
 | 遗物 | 代号 | 效果 | 衍生 |

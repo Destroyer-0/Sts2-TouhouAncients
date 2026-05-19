@@ -7,11 +7,13 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
@@ -60,22 +62,31 @@ public class Miracle : CustomEnchantmentModel
         var colorlessCards = ModelDb.CardPool<ColorlessCardPool>()
             .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
             .Where(IsAllowed);
-        
-        CardModel? cardModel = CardFactory.GetDistinctForCombat(
-            player,
-            allCards.Concat(colorlessCards),
-            1,
-            player.RunState.Rng.CombatCardGeneration
-        ).FirstOrDefault();
-        if (cardModel != null)
+
+        var selected = allCards.Concat(colorlessCards).ToList();
+
+        int tryTime = 3;
+        while (tryTime>0)
         {
-            if (base.Card.IsUpgraded)
+            CardModel? cardModel = CardFactory.GetDistinctForCombat(
+                player,
+                selected,
+                1,
+                player.RunState.Rng.CombatCardGeneration
+            ).FirstOrDefault();
+            if (cardModel != null && CanEnchant(cardModel))
             {
-                CardCmd.Upgrade(cardModel);
+                if (base.Card.IsUpgraded)
+                {
+                    CardCmd.Upgrade(cardModel);
+                }
+
+                CardCmd.Enchant<Miracle>(cardModel, 1m);
+                CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+                break;
             }
-            
-            CardCmd.Enchant<Miracle>(cardModel, 1m);
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+
+            tryTime--;
         }
     }
 }

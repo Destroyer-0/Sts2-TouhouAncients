@@ -127,7 +127,7 @@
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
   "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-MEMORY_FLASK.eventDescription": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "待补充",
+  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "严禁打开查看。",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",

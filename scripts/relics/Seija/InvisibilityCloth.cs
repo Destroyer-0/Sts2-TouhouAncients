@@ -63,6 +63,7 @@ public class InvisibilityCloth : TouhouAncientRelics
         if (target.CombatState == null) return;
         if (_firstDamageTaken) return;
         if (result.WasFullyBlocked) return;
+        if (props.HasFlag(ValueProp.Unblockable)) return;
 
         _firstDamageTaken = true;
         //_triggerRingingPowerNextRound = true;

@@ -56,7 +56,6 @@ public class BrainInAVat : TouhouAncientRelics
     {
         get
         {
-            GD.PrintErr("缸中之脑："+TouhouAncients_SavedBlockedCardIds);
             var title = new LocString("relics", base.Id.Entry + ".forgetTitle");
             if (!HasBlockedCard)
             {
@@ -122,14 +121,28 @@ public class BrainInAVat : TouhouAncientRelics
         if (options.Flags.HasFlag(CardCreationFlags.NoCardPoolModifications)) return options;
 
         // GetPossibleCards 兼容 CardPools 和 CustomCardPool 两种模式
-        var blockedIds = BlockedCardIds;
+        var blockedSet = new HashSet<string>(BlockedCardIds);
         var possibleCards = options.GetPossibleCards(player).ToList();
-        var filtered = possibleCards.Where(c => !blockedIds.Contains(c.Id.Entry)).ToList();
 
-        // 全被屏蔽了 → 不过滤，避免空池崩溃
-        if (filtered.Count <= 0) return options;
+        var nonBlocked = possibleCards.Where(c => !blockedSet.Contains(c.Id.Entry)).ToList();
 
-        return options.WithCustomPool(filtered);
+        // 如果非屏蔽卡足够，则直接返回非屏蔽池
+        if (nonBlocked.Count >= 3)
+        {
+            return options.WithCustomPool(nonBlocked);
+        }
+
+        // 否则，补回一些被屏蔽卡来凑够 3 张（按原 possibleCards 的顺序或随机）
+        var result = new List<CardModel>(nonBlocked);
+        foreach (var c in possibleCards.StableShuffle(player.PlayerRng.Rewards))
+        {
+            if (result.Count >= 3) break;
+            if (!result.Contains(c))
+            {
+                result.Add(c); // 这里包含被屏蔽的卡以补足数量
+            }
+        }
+        return options.WithCustomPool(result);
     }
 
     public override IEnumerable<CardModel> ModifyMerchantCardPool(Player player, IEnumerable<CardModel> options)
