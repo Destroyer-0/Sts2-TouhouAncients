@@ -40,7 +40,7 @@ public class HighQuality : CustomEnchantmentModel
         GD.PrintErr($"附魔：优质{Card.Id.Entry}");
         var thisCard = Card;
         GD.PrintErr($"附魔2：优质{Card.Owner.Deck.Type}");
-        var sameCard = Card.Owner.Deck.Cards.Count(x => x.Id.Entry == thisCard.Id.Entry) - 1 + modify;
+        var sameCard = Card.Owner.Deck.Cards.Count(x => x != thisCard && x.Id.Entry == thisCard.Id.Entry) + modify;
         GD.PrintErr($"一共有{sameCard}张同名卡牌{thisCard.Id.Entry}");
 
         TouhouAncients_EnergyDelta = sameCard;
@@ -64,12 +64,6 @@ public class HighQuality : CustomEnchantmentModel
     {
         if (!HasCard) return;
         CardPile? pile = card.Pile;
-        GD.PrintErr($"带有优质附魔的卡牌{card.Id.Entry}/{oldPileType}/{pile == null}");
-        if (pile != null)
-        {
-            GD.PrintErr(
-                $"卡牌所在牌堆类型{pile.Type}，卡牌所属玩家{card.Owner == base.Card.Owner}，卡牌ID是否相同{card.Id.Entry == base.Card.Id.Entry}");
-        }
 
         // 同名卡加入牌组 → 重新计算减费
         if (pile != null && pile.Type == PileType.Deck && card.Owner == base.Card.Owner &&
