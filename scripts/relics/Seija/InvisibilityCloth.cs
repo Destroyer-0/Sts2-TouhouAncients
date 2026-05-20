@@ -27,6 +27,7 @@ public class InvisibilityCloth : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<BarricadePower>(),
+        HoverTipFactory.FromPower<DexterityPower>(),
         HoverTipFactory.Static(StaticHoverTip.Block),
         HoverTipFactory.FromPower<RingingPower>()
     ];
@@ -52,6 +53,7 @@ public class InvisibilityCloth : TouhouAncientRelics
         // 获得15格挡
         await CreatureCmd.GainBlock(base.Owner.Creature, 15m, ValueProp.Unpowered, null, fast: false);
 
+        await PowerCmd.Apply<DexterityPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
         _firstDamageTaken = false;
     }
 

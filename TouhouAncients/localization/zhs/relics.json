@@ -132,7 +132,7 @@
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.eventDescription": "从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
-  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "待补充",
+  "TOUHOUANCIENTS-BRAIN_IN_A_VAT.flavor": "偏安一隅，身不由己的灵魂会感到孤独吗？",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.selectionScreenPrompt": "选择任意张牌，使其不会出现在后续的[gold]卡牌奖励与商店[/gold]中",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetTitle": "遗忘",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing": "你还没有遗忘任何卡牌。",
@@ -258,7 +258,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[gold]昏眩[/gold]。",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[gold]昏眩[/gold]。",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "虽然能隐去人的身形，但布本身的身形没有被隐去。",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
