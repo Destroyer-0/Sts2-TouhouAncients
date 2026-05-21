@@ -23,6 +23,7 @@
 | 蕾米莉亚·斯卡雷特（三层） | `TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT` |
 | 比那名居天子（三层） | `TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT` |
 | 鬼人正邪（二层） | `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT` |
+| 梅蒂欣·梅兰可莉（二层） | `TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT` |
 
 ## 获得对应遗物
 控制台也可以直接获得对应的遗物。
@@ -85,6 +86,7 @@
 | 殷红之牙 | `TOUHOUANCIENTS-BLOOD_FANG` | 拾起时失去最大生命的一半，从牌组中选择一张牌为其附魔：**喋血**。 | 喋血：每次打出恢复4生命。首伤时额外恢复等于造成伤害的生命。 |
 | 腌制红雾 | `TOUHOUANCIENTS-PRESERVED_RED_FOG` | 拾起时从牌组中复制3张牌。将一张愚行加入牌组。 | 愚行：不可打出，永恒，固有。 |
 | 极夜侍仆 | `TOUHOUANCIENTS-NIGHT_SERVANT` | 卡牌奖励额外包含时间仆从、魔法仆从、罡气仆从中的一张。 | 时间仆从：1费，生成2把小刀。回合结束时每消耗1张牌造成5伤害。<br>魔法仆从：1费，为手牌添加虚无。获得2能量，本回合不可再打出。<br>罡气仆从：2费，获得18格挡。本回合将格挡掉的攻击伤害转化为活力。 |
+| 领主防晒霜 | `TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM` | 卡牌奖励掉落的牌一定为稀有牌，且你可以选择全都要。 | — |
 | 冈格尼尔 | `TOUHOUANCIENTS-SPEAR_GUNGNIR` | 待设计 | — |
 
 #### 比那名居天子（三层）
@@ -123,4 +125,16 @@
 | 四十叶草 | `TOUHOUANCIENTS-FOUR_LEAF_CLOVER` | 每2场战斗卡牌奖励额外包含一张稀有卡牌。第二次以此法出现时升级。 | — |
 | 兔脚 | `TOUHOUANCIENTS-RABBITS_FOOT` | 可以以70金币的价格出售卡牌奖励。 | — |
 | 兔笼 | `TOUHOUANCIENTS-RABBITS_CAGE` | 拾起时，将一张幸运白兔加入你的牌组。 | 幸运白兔：0费技能。消耗。抽2张牌，在本回合随机化你手牌中所有牌的耗能，并为其中费用为0的牌在本场战斗添加重放。 |
+
+#### 梅蒂欣·梅兰可莉（二层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 童忆书包 | `TOUHOUANCIENTS-CHILDHOOD_BAG` | 用污浊药水填满空药水栏位。战斗结束时的金币奖励替换为1瓶污浊药水。自身免疫污浊药水伤害。 | — |
+| 舞台装置 | `TOUHOUANCIENTS-STAGE_DEVICE` | 回合开始时给予所有敌人1层易伤（已有易伤则失去1生命）。回合结束时给予所有敌人1层虚弱（已有虚弱则失去1生命）。 | — |
+| 蛊毒魔盒 | `TOUHOUANCIENTS-MEDICINE_POISON_BOX` | 拾起时，将所有打击替换为蛇咬并附魔：**蛊毒**。 | 蛊毒：回合结束时若在手牌，费用减1直至打出。本局游戏中毒+5。 |
+| 铃色的日记本 | `TOUHOUANCIENTS-LILY_BELL_DIARY` | 每场战斗开始时，将1张铃兰加入手牌。 | 铃兰：0费保留消耗。打出时获得1(2)能量抽2张。被保留时自身+2中毒，能量+1。 |
+| 幸福的秘药 | `TOUHOUANCIENTS-HAPPINESS_ELIXIR` | Boss战开始时用随机药水填满药水栏、回复所有生命、升级所有卡牌、移除所有诅咒。 | — |
+| 丝带蝴蝶结 | `TOUHOUANCIENTS-RIBBON_BOW` | 拾起时选2张非能力牌附魔：**誓约**。 | 誓约：打出后同时打出其他誓约牌。被消耗时消耗其他誓约牌。 |
+| 蔷薇皇冠 | `TOUHOUANCIENTS-ROSE_CROWN` | 战斗开始时获得5层荆棘与5层覆甲。 | — |
+| 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得2力量。所有敌人初始获得1层荆棘。 | — |
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fju2omu10ql"]
+
+[ext_resource type="Texture2D" uid="uid://chxs0dyvnkmwj" path="res://sprite/MedicineMelancholy.png" id="1_31v55"]
+
+[node name="WatariNinaAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -359.0
+offset_right = 2241.0
+offset_bottom = 1200.0
+texture = ExtResource("1_31v55")

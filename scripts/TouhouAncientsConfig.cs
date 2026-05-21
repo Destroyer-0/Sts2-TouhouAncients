@@ -16,7 +16,8 @@ public enum ForcedAncientOption
     Nina贝子,
     Tenshi天子,
     Tewi帝,
-    Seija正邪
+    Seija正邪,
+    Medicine梅蒂欣
 }
 
 /// <summary>
@@ -37,6 +38,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanTenshi { get; set; } = false;
     public static bool BanTewi { get; set; } = false;
     public static bool BanSeija { get; set; } = false;
+    public static bool BanMedicine { get; set; } = false;
 
     /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
@@ -45,6 +47,8 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static ForcedAncientOption ForcedAncient_2 { get; set; } = ForcedAncientOption.None;
 
     [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
+
+    // Medicine 使用 ForcedAncient_2（Act 2 角色）
 
     /// <summary>
     /// 检查某个 Ancient 是否被禁止
@@ -59,6 +63,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(RemiliaScarletAncient) => BanRemilia,
             nameof(KomejiSatoriAncient) => BanSatori,
             nameof(WatariNinaAncient) => BanNina,
+            nameof(MedicineMelancholyAncient) => BanMedicine,
             nameof(HinanawiTenshiAncient) => BanTenshi,
             nameof(InabaTewiAncient) => BanTewi,
             nameof(KijinSeijaAncient) => BanSeija,
@@ -88,6 +93,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
             ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
             ForcedAncientOption.Tewi帝 when name == nameof(InabaTewiAncient) => true,
+            ForcedAncientOption.Medicine梅蒂欣 when name == nameof(MedicineMelancholyAncient) => true,
             ForcedAncientOption.Seija正邪 when name == nameof(KijinSeijaAncient) => true,
             _ => false
         };

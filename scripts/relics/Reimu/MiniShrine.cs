@@ -26,7 +26,7 @@ public class MiniShrine : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<Tribute>()];
+        HoverTipFactory.FromCardWithCardHoverTips<Tribute>();
     
     public override bool HasUponPickupEffect => true;
 
@@ -68,9 +68,10 @@ public class MiniShrine : TouhouAncientRelics
             && combatRoom?.CombatState?.RunState.IsGameOver == true) return;
 
         // 在牌组中查找供奉牌
-        var tribute = player.Deck.Cards.OfType<Tribute>();
-
-        foreach (var card in tribute)
+        var tribute = player.Deck.Cards.OfType<Tribute>().ToList();
+        var copy = new List<Tribute>(tribute);
+        
+        foreach (var card in copy)
         {
             var remaining = card.RemainingGold;
             if (remaining <= 0) return;

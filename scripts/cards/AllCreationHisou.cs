@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Characters;
@@ -34,6 +35,9 @@ public class AllCreationHisou : TouhouAncientCards
 
     //protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Amount", 5m)];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),];
+
+
     public AllCreationHisou() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
@@ -43,7 +47,7 @@ public class AllCreationHisou : TouhouAncientCards
         var player = base.Owner;
         if (player?.PlayerCombatState == null) return;
 
-        
+
         // 快照：记录当前手牌（排除自身）和消耗堆的所有牌
         var handCards = player.PlayerCombatState.Hand.Cards
             .Where(c => c != cardPlay.Card)
@@ -76,9 +80,10 @@ public class AllCreationHisou : TouhouAncientCards
                 NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nGroundFireVfx);
                 scale += 0.2f;
             }
+
             await Cmd.Wait(0.5f);
         }
-        
+
         List<Creature> enumerable = (from c in base.CombatState.GetTeammatesOf(base.Owner.Creature)
             where c is { IsAlive: true, IsPlayer: true }
             select c).ToList();
@@ -116,9 +121,9 @@ public class AllCreationHisou : TouhouAncientCards
             //     await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
             //     await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
             // }
-
         }
-        async Task ApplyOnAllPlayer(Func<Creature,Task> task)
+
+        async Task ApplyOnAllPlayer(Func<Creature, Task> task)
         {
             foreach (Creature item in enumerable)
             {
