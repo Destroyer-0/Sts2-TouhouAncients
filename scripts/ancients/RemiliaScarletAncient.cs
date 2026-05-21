@@ -39,11 +39,12 @@ public class RemiliaScarletAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<CrimsonChalice>(),
-            AncientOption<BloodFang>()
+            AncientOption<BloodFang>(),
+            AncientOption<PreservedRedFog>()
         ),
         MakePool(
             AncientOption<NightServant>(),
-            AncientOption<PreservedRedFog>()
+            AncientOption<LordsSunscreenCream>()
         )
         // MakePool(
         //     AncientOption<SpearGungnir>(),

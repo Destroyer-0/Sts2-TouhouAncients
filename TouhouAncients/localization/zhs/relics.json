@@ -1,4 +1,4 @@
-{
+﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入牌组。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入牌组。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
@@ -97,6 +97,10 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将一张[gold]冈格尼尔之枪[/gold]加入牌组。",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
   
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "领主防晒霜",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "卡牌奖励必定出现[gold]稀有牌[/gold]，且你可以选择[gold]全都要[/gold]。",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "幼稚的吸血鬼才打阳伞，成熟的吸血鬼会让女仆先涂好防晒霜。",
+  
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "腌制红雾",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.description": "拾起时，从你的[gold]牌组[/gold]中复制[blue]{Cards}[/blue]张牌。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.eventDescription": "从你的[gold]牌组[/gold]中复制[blue]{Cards}[/blue]张牌。将一张[red]愚行[/red]加入你的[gold]牌组[/gold]。",
@@ -178,8 +182,8 @@
   "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.flavor": "天界的桃子真好吃！",
 
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.title": "天衍苦厄",
-  "TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "拾起时，获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒[/red]。当你打出[red]诅咒[/red]时，获得[blue]1[/blue][gold]力量[/gold]、{Energy:energyIcons()}并抽[blue]2[/blue]张牌。",
-  "TOUHOUANCIENTS-CURSE_BREAKER_QI.eventDescription": "获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒[/red]。当你打出[red]诅咒[/red]时，获得[blue]1[/blue][gold]力量[/gold]、{Energy:energyIcons()}并抽[blue]2[/blue]张牌。",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "拾起时，获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒[/red]。每回合第一次打出[red]诅咒[/red]时，获得[blue]1[/blue][gold]力量[/gold]、{Energy:energyIcons()}并抽[blue]3[/blue]张牌。",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.eventDescription": "获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒[/red]。每回合第一次打出[red]诅咒[/red]时，获得[blue]1[/blue][gold]力量[/gold]、{Energy:energyIcons()}并抽[blue]3[/blue]张牌。",
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "天人的强运就连最凶恶的厄神的厄运都能镇压。",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",

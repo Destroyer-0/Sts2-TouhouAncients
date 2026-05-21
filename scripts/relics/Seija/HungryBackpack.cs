@@ -71,6 +71,7 @@ public class HungryBackpack : TouhouAncientRelics
         return count + _currentExtraDraw;
     }
     
+    
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature?.CombatState == null) return;
@@ -86,7 +87,7 @@ public class HungryBackpack : TouhouAncientRelics
         if (candidates.Count <= 0) return;
 
         Flash();
-        // 随机选两张
+        
         var selected = candidates
             .StableShuffle(player.RunState.Rng.CombatCardSelection)
             .Take(Math.Min(candidates.Count, _currentExtraDraw))

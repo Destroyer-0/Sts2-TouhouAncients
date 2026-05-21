@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -60,6 +61,8 @@ public static class CurseBreakerQiPatchs
 [Pool(typeof(SharedRelicPool))]
 public class CurseBreakerQi : TouhouAncientRelics
 {
+    private bool _firstCursePlayedThisTurn;
+
     public override bool HasUponPickupEffect => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
@@ -92,15 +95,25 @@ public class CurseBreakerQi : TouhouAncientRelics
         return base.AfterCardEnteredCombat(card);
     }
 
-    // 打出诅咒时获得奖励
+    // 每回合第一次打出诅咒时获得奖励
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (cardPlay.Card.Type != CardType.Curse) return;
+        if (_firstCursePlayedThisTurn) return;
 
+        _firstCursePlayedThisTurn = true;
         Flash();
         await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
         await PlayerCmd.GainEnergy(1, base.Owner);
-        await CardPileCmd.Draw(context, 2, base.Owner);
+        await CardPileCmd.Draw(context, 3, base.Owner);
+    }
+
+    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    {
+        if (side == base.Owner.Creature.Side)
+        {
+            _firstCursePlayedThisTurn = false;
+        }
     }
 }

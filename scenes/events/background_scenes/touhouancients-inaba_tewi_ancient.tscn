@@ -13,3 +13,4 @@ offset_top = -142.0
 offset_right = 2314.0
 offset_bottom = 1298.0
 texture = ExtResource("1_8kr37")
+metadata/_edit_lock_ = true
