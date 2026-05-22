@@ -136,5 +136,5 @@
 | 幸福的秘药 | `TOUHOUANCIENTS-HAPPINESS_ELIXIR` | Boss战开始时用随机药水填满药水栏、回复所有生命、升级所有卡牌、移除所有诅咒。 | — |
 | 丝带蝴蝶结 | `TOUHOUANCIENTS-RIBBON_BOW` | 拾起时选2张非能力牌附魔：**誓约**。 | 誓约：打出后同时打出其他誓约牌。被消耗时消耗其他誓约牌。 |
 | 蔷薇皇冠 | `TOUHOUANCIENTS-ROSE_CROWN` | 战斗开始时获得5层荆棘与5层覆甲。 | — |
-| 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得2力量。所有敌人初始获得1层荆棘。 | — |
+| 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得3力量。所有敌人初始获得1层荆棘。 | — |
 
