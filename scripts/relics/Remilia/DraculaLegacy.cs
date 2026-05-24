@@ -1,21 +1,42 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rewards;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
+
+
+[HarmonyPatch]
+public static class DraculaLegacyPatch
+{
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(RelicCmd), nameof(RelicCmd.Obtain), new[] { typeof(RelicModel), typeof(Player), typeof(int) })]
+    private static void AfterObtainRelic(RelicModel relic, Player player)
+    {
+        // 玩家没有 DraculaLegacy → 不处理
+        var draculaLegacy = player.GetRelic<DraculaLegacy>();
+        if (draculaLegacy == null) return;
+
+        // 获得的是 DraculaLegacy 自身 → 不惩罚
+        if (relic == draculaLegacy) return;
+
+        // 是本遗物生成的 6 个免费遗物之一 → 不惩罚
+        if (draculaLegacy._spawnedRelicIds?.Contains(relic) == true) return;
+
+        // 扣除 13 点生命
+        _ = draculaLegacy.LoseHp();
+    }
+}
 
 [Pool(typeof(SharedRelicPool))]
 public class DraculaLegacy : TouhouAncientRelics
@@ -24,69 +45,68 @@ public class DraculaLegacy : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
-    /// <summary>本遗物生成的 6 个遗物奖励引用。用于判断后续获得遗物是否来自本遗物。</summary>
-    private List<Reward>? _ourRewards;
+    /// <summary>
+    /// 本遗物生成的 6 个遗物的 Id，Patch 据此判断是否免伤。
+    /// </summary>
+    internal List<RelicModel>? _spawnedRelicIds;
 
     /// <summary>
-    /// 拾起时，获得6个随机遗物。
+    /// 拾起时，获得 6 个随机遗物（2 普通 / 2 罕见 / 2 稀有）。
     /// </summary>
     public override async Task AfterObtained()
     {
-        _ourRewards = GenerateRewards();
-        await RewardsCmd.OfferCustom(base.Owner, _ourRewards);
+        _spawnedRelicIds = new List<RelicModel>(6);
+        var rewards = GenerateRewards();
+        await RewardsCmd.OfferCustom(base.Owner, rewards);
     }
 
-    
     /// <summary>
-    /// 不以此方式获得遗物时，失去13点生命。
+    /// 预生成 6 个遗物并追踪其 Id，使 Patch 能识别哪些是本遗物免费提供的遗物。
     /// </summary>
-    public override async Task AfterRewardTaken(Player player, Reward reward)
-    {
-        if (player != base.Owner) return;
-
-        // 是本遗物生成的奖励 → 不惩罚
-        if (reward is RelicReward relicReward && (_ourRewards != null && _ourRewards.Contains(relicReward)))
-        {
-            if (_ourRewards == null)
-            {
-                GD.PrintErr($"捡起自身生成的奖励、_ourRewards为空？！");
-            }
-            else
-            {
-                GD.PrintErr($"捡起自身生成的奖励{_ourRewards.Count}");
-            }
-            return;
-        }
-
-        // 不是本遗物获得的遗物 → 失去13点生命
-        if (reward is RelicReward)
-        {
-            GD.PrintErr("捡起其他遗物");
-            Flash();
-            await CreatureCmd.Damage(
-                new ThrowingPlayerChoiceContext(),
-                player.Creature,
-                base.DynamicVars.Damage,
-                null,
-                null);
-        }
-    }
-
     private List<Reward> GenerateRewards()
     {
         var player = base.Owner;
         var rewards = new List<Reward>(6);
-        CollectionsMarshal.SetCount(rewards, 6);
-        var span = CollectionsMarshal.AsSpan(rewards);
-        
-        // 2 common, 2 uncommon, 2 rare
-        span[0] = new RelicReward(RelicRarity.Common, player);
-        span[1] = new RelicReward(RelicRarity.Common, player);
-        span[2] = new RelicReward(RelicRarity.Uncommon, player);
-        span[3] = new RelicReward(RelicRarity.Uncommon, player);
-        span[4] = new RelicReward(RelicRarity.Rare, player);
-        span[5] = new RelicReward(RelicRarity.Rare, player);
+
+        // 2 common, 2 uncommon, 2 rare — 预生成以追踪 Id
+        var rarities = new[]
+        {
+            RelicRarity.Common, RelicRarity.Common,
+            RelicRarity.Uncommon, RelicRarity.Uncommon,
+            RelicRarity.Rare, RelicRarity.Rare
+        };
+
+        foreach (var rarity in rarities)
+        {
+            var relic = RelicFactory.PullNextRelicFromFront(player, rarity).ToMutable();
+            _spawnedRelicIds!.Add(relic);
+            rewards.Add(new RelicReward(relic, player));
+        }
 
         return rewards;
+    }
+
+    public async Task LoseHp()
+    {
+        Flash();
+
+        var damage = base.DynamicVars.Damage;
+
+        // 非战斗状态：至少保留 1 点生命
+        if (Owner.Creature.CombatState == null && damage.IntValue >= Owner.Creature.CurrentHp)
+        {
+            damage.UpgradeValueBy(Owner.Creature.CurrentHp - damage.IntValue - 1);
+        }
+
+        if (damage.IntValue > 0)
+        {
+            //await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Damage, null, null);
+            await CreatureCmd.Damage(
+                new ThrowingPlayerChoiceContext(),
+                Owner.Creature,
+                damage,
+                null,
+                null);
+        }
     }
 }

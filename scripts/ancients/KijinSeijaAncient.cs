@@ -12,11 +12,11 @@ public class KijinSeijaAncient : CustomAncientModel
     public override Color ButtonColor => new(0.588f, 0.173f, 0.165f, 0.8f);
     public override Color DialogueColor => new(0.588f, 0.173f, 0.165f);
 
-    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
 
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/KijinSeija.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/KijinSeija.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KijinSeija.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KijinSeija.png";
 
     public override bool IsValidForAct(ActModel act)
     {

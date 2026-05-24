@@ -17,13 +17,13 @@ public class WatariNinaAncient : CustomAncientModel
 
     //public override string? CustomScenePath => "res://test/scenes/test_ancient.tscn";
     // 自定义地图图标和轮廓的路径
-    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
 
     // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/WatariNina.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/WatariNina.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/WatariNina.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/WatariNina.png";
     public override bool IsValidForAct(ActModel act)
     {
         if (TouhouAncientsConfig.BanNina) return false;

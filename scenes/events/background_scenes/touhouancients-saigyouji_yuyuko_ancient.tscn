@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlh1gehunh7p3"]
+
+[ext_resource type="Texture2D" uid="uid://bcrxxcrn7r8es" path="res://sprite/SaigyoujiYuyuko.png" id="1_w4om5"]
+
+[node name="SaigyoujiYuyukoAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -343.0
+offset_top = -127.0
+offset_right = 2217.0
+offset_bottom = 1266.0
+texture = ExtResource("1_w4om5")

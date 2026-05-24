@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
@@ -15,9 +16,9 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 铃兰：0费。保留。消耗。
-/// 打出时：获得1(2)点能量，抽2张牌。
-/// 每当这张牌被保留时，自身获得2层中毒，打出此牌额外获得的能量+1。
+/// 铃兰：0费。技能。保留。升级后获得固有。
+/// 获得1能量，抽2张牌，给予自身0层中毒。
+/// 回合结束时，如果这张牌在你的手中，给予所有敌人2（升级后3）层中毒，获得的能量增加1，给予自身的中毒层数+1。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class LilyBell : TouhouAncientCards
@@ -32,7 +33,8 @@ public class LilyBell : TouhouAncientCards
     [
         new EnergyVar(1),
         new CardsVar(2),
-        new DynamicVar("PoisonSelf", 2)
+        new DynamicVar("PoisonEnemy", 2),
+        new DynamicVar("PoisonSelf", 0)
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
@@ -47,7 +49,7 @@ public class LilyBell : TouhouAncientCards
     {
         var player = base.Owner;
 
-        // 获得能量 = 基础能量 + 额外能量
+        // 获得能量
         var totalEnergy = base.DynamicVars.Energy.BaseValue;
         if (totalEnergy > 0)
         {
@@ -56,31 +58,46 @@ public class LilyBell : TouhouAncientCards
 
         // 抽2张牌
         await CardPileCmd.Draw(choiceContext, base.DynamicVars["Cards"].IntValue, player, fromHandDraw: true);
+
+        // 给予自身中毒（初始为0，后续回合递增）
+        var selfPoison = base.DynamicVars["PoisonSelf"].BaseValue;
+        if (selfPoison > 0)
+        {
+            await PowerCmd.Apply<PoisonPower>(player.Creature, selfPoison, player.Creature, this);
+        }
     }
 
-
+    /// <summary>
+    /// 回合结束时若在手牌中：给所有敌人中毒，能量+1，自身上毒量+1
     /// </summary>
     public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
         if (side != base.Owner.Creature.Side) return;
-        if (base.Owner.Creature.CombatState == null) return;
-        var player = base.Owner;
         if (Pile is not { Type: PileType.Hand }) return;
+
         CardCmd.Preview(this, 1);
-        foreach (var target in base.Owner.Creature.CombatState.Creatures.Where((Creature c) => !c.IsPet))
+
+        // 给予所有敌人中毒
+        var poisonAmount = base.DynamicVars["PoisonEnemy"].BaseValue;
+        var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature).Where(e => e.IsAlive);
+        foreach (var enemy in enemies)
         {
-            await PowerCmd.Apply<PoisonPower>(target, base.DynamicVars["PoisonSelf"].BaseValue, player.Creature, this);
+            await PowerCmd.Apply<PoisonPower>(enemy, poisonAmount, base.Owner.Creature, this);
         }
 
+        // 获得的能量+1
         base.DynamicVars.Energy.BaseValue += 1;
+
+        // 给予自身的中毒层数+1
+        base.DynamicVars["PoisonSelf"].BaseValue += 1;
     }
 
-
     /// <summary>
-    /// 升级：基础能量从1变为2。
+    /// 升级：对敌中毒+1，获得固有（通过CanonicalKeywords处理）。
     /// </summary>
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Energy.UpgradeValueBy(1m);
+        base.DynamicVars["PoisonEnemy"].UpgradeValueBy(1m);
+        AddKeyword(CardKeyword.Innate);
     }
 }

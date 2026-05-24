@@ -26,6 +26,10 @@ public class TouhouAncientKeywords
     [CustomEnum("TouhouAncientRegent")]
     [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword TouhouAncientRegent;
+    
+    [CustomEnum("TouhouAncientCherryBlossoms")]
+    [KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword TouhouAncientCherryBlossoms;
 
     public static bool IsScry(CardModel card)
     {

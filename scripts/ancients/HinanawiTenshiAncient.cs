@@ -13,10 +13,10 @@ public class HinanawiTenshiAncient : CustomAncientModel
     public override Color ButtonColor => new(0.0f, 0.63f, 1f, 0.8f);
     public override Color DialogueColor => new(0.0f, 0.63f, 1f);
 
-    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/HinanawiTenshi.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/HinanawiTenshi.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HinanawiTenshi.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HinanawiTenshi.png";
 
     public override bool IsValidForAct(ActModel act)
     {

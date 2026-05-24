@@ -17,10 +17,10 @@ public class MedicineMelancholyAncient : CustomAncientModel
     public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.8f);
     public override Color DialogueColor => new(0.8f, 0.4f, 0.6f);
 
-    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/MedicineMelancholy.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/MedicineMelancholy.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/MedicineMelancholy.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/MedicineMelancholy.png";
 
     public override bool IsValidForAct(ActModel act)
     {
@@ -35,7 +35,7 @@ public class MedicineMelancholyAncient : CustomAncientModel
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
-            //AncientOption<ChildhoodBag>(),
+            AncientOption<ChildhoodBag>(),
             AncientOption<RoseCrown>(),
             AncientOption<LilyBellDiary>()
         ),

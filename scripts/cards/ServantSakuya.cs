@@ -76,6 +76,7 @@ public class ServantSakuya : TouhouAncientCards
             .Count(e => e.HappenedThisTurn(combatState) && e.Card.Owner == player);
 
         if (exhaustedCount <= 0) return;
+        if (!Owner.Creature.IsAlive) return;
 
         foreach (var target in _target)
         {

@@ -28,10 +28,10 @@ public class HakureiReimuAncient : CustomAncientModel
         return TouhouAncientsConfig.IsAncientForced<HakureiReimuAncient>(act.ActNumber());
     }
 
-    public override string? CustomMapIconPath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://sprite/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://sprite/icon/Character/HakureiReimu.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://sprite/icon/Character/Outline/HakureiReimu.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<HakureiGohei>(),

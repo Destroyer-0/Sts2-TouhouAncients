@@ -47,8 +47,7 @@ public class NightServant : TouhouAncientRelics
         };
 
         // 随机选一张
-        var rng = base.Owner.RunState.Rng.Shuffle;
-        var chosenCard = servantCards[rng.NextInt(servantCards.Count)];
+        var chosenCard = servantCards[player.PlayerRng.Rewards.NextInt(servantCards.Count)];
         var result = new CardCreationResult(chosenCard);
         result.ModifyCard(chosenCard, this);
         options.Add(result);

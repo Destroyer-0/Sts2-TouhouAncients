@@ -1,8 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,6 +20,53 @@ using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
+
+[HarmonyPatch(typeof(FoulPotion))]
+public static class ChildhoodBagPatch
+{
+    [HarmonyPatch("OnUse")] 
+    [HarmonyPrefix]
+    private static bool Prefix(FoulPotion __instance, PlayerChoiceContext choiceContext, Creature? target)
+    {
+        // 仅在战斗中拦截，且需要替换逻辑时返回 false
+        if (!CombatManager.Instance.IsInProgress) return true;
+
+        var player = __instance.Owner;
+        if (player == null) return true;
+
+        // 只有持有 ChildhoodBag 才需要替换逻辑
+        if (player.GetRelic<ChildhoodBag>() != null)
+        {
+            // 启动异步任务但让原方法正常执行，然后跳过原方法的逻辑
+            _ = ReplaceOnUseLogic(__instance, choiceContext, target);
+            return false; // 跳过原方法
+        }
+
+        return true; // 继续原方法
+    }
+
+// 异步逻辑单独提取
+    private static async Task ReplaceOnUseLogic(FoulPotion __instance, PlayerChoiceContext choiceContext,
+        Creature? target)
+    {
+        try
+        {
+            var player = __instance.Owner;
+            if (player == null) return;
+
+            var dealer = player.Creature;
+            var damage = __instance.DynamicVars.Damage;
+            var targets = dealer.CombatState.Creatures.Where(c => c.IsEnemy);
+
+            await CreatureCmd.Damage(choiceContext, targets, damage.BaseValue, damage.Props, dealer, null);
+        }
+        catch (Exception ex)
+        {
+            // 记录日志，避免静默失败
+            GD.PrintErr($"ChildhoodBag patch error: {ex}");
+        }
+    }
+}
 
 /// <summary>
 /// 童忆书包：
@@ -48,7 +100,8 @@ public class ChildhoodBag : TouhouAncientRelics
     /// <summary>
     /// 战斗结束时，将金币奖励替换为1瓶污浊药水。
     /// </summary>
-    public override bool TryModifyRewards(Player player, System.Collections.Generic.List<Reward> rewards, AbstractRoom? room)
+    public override bool TryModifyRewards(Player player, System.Collections.Generic.List<Reward> rewards,
+        AbstractRoom? room)
     {
         if (player != base.Owner) return false;
         if (room?.RoomType != RoomType.Monster && room?.RoomType != RoomType.Elite && room?.RoomType != RoomType.Boss)
@@ -60,7 +113,7 @@ public class ChildhoodBag : TouhouAncientRelics
             if (rewards[i] is GoldReward)
             {
                 // 替换金币奖励为污浊药水
-                rewards[i] = new PotionReward(ModelDb.Potion<FoulPotion>(),player);
+                rewards[i] = new PotionReward(ModelDb.Potion<FoulPotion>(), player);
                 modified = true;
                 break;
             }

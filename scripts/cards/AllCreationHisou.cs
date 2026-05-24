@@ -2,6 +2,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.AutoSlay.Helpers;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -9,10 +11,12 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TouhouAncients.Scripts.cards;
@@ -84,9 +88,39 @@ public class AllCreationHisou : TouhouAncientCards
             await Cmd.Wait(0.5f);
         }
 
-        List<Creature> enumerable = (from c in base.CombatState.GetTeammatesOf(base.Owner.Creature)
-            where c is { IsAlive: true, IsPlayer: true }
-            select c).ToList();
+        // List<Creature> enumerable = (from c in base.CombatState.GetTeammatesOf(base.Owner.Creature)
+        //     where c is { IsAlive: true, IsPlayer: true }
+        //     select c).ToList();
+
+        // using (CardSelectCmd.PushSelector(new AutoSlayCardSelector(Owner.RunState.Rng.Shuffle)))
+        // {
+        //     int cardsPlayed;
+        //     foreach (var targetCard in allTargetCards)
+        //     {
+        //         if (CombatManager.Instance.IsOverOrEnding)
+        //         {
+        //             break;
+        //         }
+        //         if (CombatManager.Instance.IsPlayerReadyToEndTurn(player))
+        //         {
+        //             break;
+        //         }
+        //         CardPile pile = PileType.Hand.GetPile(base.Owner);
+        //         CardModel card = pile.Cards.FirstOrDefault((CardModel c) => c.CanPlay());
+        //         if (card == null)
+        //         {
+        //             break;
+        //         }
+        //         Creature target = GetTarget(card, combatState);
+        //         await card.SpendResources();
+        //         await CardCmd.AutoPlay(choiceContext, card, target, AutoPlayType.Default, skipXCapture: true);
+        //     }
+        //     flag = cardsPlayed >= 13;
+        //     if (cardsPlayed == 0)
+        //     {
+        //         return;
+        //     }
+        // }
         foreach (var card in allTargetCards)
         {
             // 升级后：先升级每张牌
@@ -123,17 +157,21 @@ public class AllCreationHisou : TouhouAncientCards
             // }
         }
 
-        async Task ApplyOnAllPlayer(Func<Creature, Task> task)
-        {
-            foreach (Creature item in enumerable)
-            {
-                await task(item);
-            }
-        }
+        // async Task ApplyOnAllPlayer(Func<Creature, Task> task)
+        // {
+        //     foreach (Creature item in enumerable)
+        //     {
+        //         await task(item);
+        //     }
+        // }
     }
 
-    protected override void OnUpgrade()
+    public class TenshiSelector: ICardSelector
     {
-        // 升级效果在 OnPlay 中通过 cardPlay.Card.IsUpgraded 判断
+        public Task<IEnumerable<CardModel>> CardsSelected()
+        {
+            throw new NotImplementedException();
+        }
     }
+    
 }

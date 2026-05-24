@@ -22,22 +22,15 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class LilyBellDiary : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DynamicVar("CardCount", 1)
-    ];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<LilyBell>();
     
     public override async Task BeforeCombatStart()
     {
         var player = base.Owner;
-        if (player?.Creature?.CombatState == null) return;
 
-        // 创建铃兰牌
-        var lilyBell = player.Creature.CombatState.CreateCard<LilyBell>(player);
-
-        // 加入手牌
-        await CardPileCmd.Add(lilyBell, PileType.Hand);
+        // 创建梦想封印并加入牌组
+        var card = player.RunState.CreateCard(ModelDb.Card<LilyBell>(), player);
+        var result = await CardPileCmd.Add(card, PileType.Deck);
+        CardCmd.PreviewCardPileAdd(result);
     }
 }

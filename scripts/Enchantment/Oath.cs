@@ -44,7 +44,8 @@ public class Oath : CustomEnchantmentModel
         try
         {
             // 收集所有战斗牌堆中带"誓约"附魔且不是当前牌的卡片
-            var oathCards = player.Piles.Where(x=>x.Type is PileType.Draw or PileType.Exhaust or PileType.Discard or PileType.Hand)
+            var oathCards = player.Piles.Where(x =>
+                    x.Type is PileType.Draw or PileType.Exhaust or PileType.Discard or PileType.Hand)
                 .SelectMany(p => p.Cards)
                 .Where(c => c != base.Card && HasOathEnchantment(c))
                 .ToList();
@@ -52,7 +53,7 @@ public class Oath : CustomEnchantmentModel
             foreach (var oathCard in oathCards)
             {
                 // 自动打出
-                await CardCmd.AutoPlay(choiceContext, oathCard, target: null);
+                await CardCmd.AutoPlay(choiceContext, oathCard, target: cardPlay.Target);
             }
         }
         finally
@@ -61,34 +62,54 @@ public class Oath : CustomEnchantmentModel
         }
     }
 
-    /// <summary>
-    /// 此牌被消耗时，消耗其他所有"誓约"牌。
-    /// 通过 AfterCardChangedPiles 检测牌是否进入了消耗堆。
-    /// </summary>
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    HashSet<CardModel> shouldExhaustedCards = new();
+
+    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card,
+        bool causedByEthereal)
     {
         if (!HasCard) return;
         if (card != base.Card) return;
+        var player = base.Card.Owner;
+        if (player?.Creature?.CombatState == null) return;
 
-        // 检测是否进入消耗堆（从非消耗堆进入消耗堆）
-        if (card.Pile?.Type == PileType.Exhaust && oldPileType != PileType.Exhaust)
+        //HashSet<CardModel> protectedCards = new();
+        //protectedCards.Add(card); // 记录已经被保护过的牌，避免重复触发消耗效果
+        // 收集所有战斗牌堆中带"誓约"附魔且不是当前牌的卡片
+        var combatState = player.Creature.CombatState;
+        var oathCards = player.Piles
+            .Where(x => x.Type is PileType.Draw or PileType.Exhaust or PileType.Discard or PileType.Hand
+                or PileType.Play)
+            .SelectMany(p => p.Cards)
+            .Where(c => c != base.Card && HasOathEnchantment(c))
+            .ToList();
+
+        foreach (var oathCard in oathCards)
         {
-            var player = base.Card.Owner;
-            if (player?.Creature?.CombatState == null) return;
-
-            // 收集所有战斗牌堆中带"誓约"附魔且不是当前牌的卡片
-            var combatState = player.Creature.CombatState;
-            var oathCards = player.Piles.Where(x => x.Type is PileType.Draw or PileType.Exhaust or PileType.Discard or PileType.Hand)
-                .SelectMany(p => p.Cards)
-                .Where(c => c != base.Card && HasOathEnchantment(c))
-                .ToList();
-
-            foreach (var oathCard in oathCards)
+            if (oathCard.Pile is { Type: PileType.Exhaust })
+                continue; // 已经在消耗堆里的牌不再被消耗，避免重复触发消耗效果
+            if (oathCard.Pile is { Type: PileType.Play })
             {
-                await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), oathCard, skipVisuals: oathCard.Pile is not { Type: PileType.Exhaust });
+                shouldExhaustedCards.Add(oathCard);
+                continue;
             }
+
+            await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), oathCard, skipVisuals: true);
+            //protectedCards.Add(oathCard); // 记录已经被保护过的牌，避免重复触发消耗效果
         }
+        //protectedCards.Clear();
     }
+
+    public override Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        foreach (var card in shouldExhaustedCards)
+        {
+            if (card.Pile is { Type: PileType.Exhaust }) continue;
+            CardCmd.Exhaust(choiceContext, card);
+        }
+
+        return Task.CompletedTask;
+    }
+
 
     /// <summary>
     /// 检查一张牌是否拥有"誓约"附魔。

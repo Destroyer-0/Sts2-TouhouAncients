@@ -64,7 +64,7 @@ public class InvisibilityCloth : TouhouAncientRelics
         if (target != base.Owner?.Creature) return;
         if (target.CombatState == null) return;
         if (_firstDamageTaken) return;
-        if (result.WasFullyBlocked) return;
+        if (result.UnblockedDamage <= 0) return;
         if (props.HasFlag(ValueProp.Unblockable)) return;
 
         _firstDamageTaken = true;
@@ -77,6 +77,7 @@ public class InvisibilityCloth : TouhouAncientRelics
         {
             await PowerCmd.Remove(barricade);
         }
+
         await PowerCmd.Apply<RingingPower>(target, 1m, target, null);
     }
 }

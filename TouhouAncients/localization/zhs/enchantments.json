@@ -29,5 +29,9 @@
     "TOUHOUANCIENTS-MEDICINE_POISON.title": "蛊毒",
 
     "TOUHOUANCIENTS-OATH.description": "这张牌被打出后，打出其它所有[purple]誓约[/purple]牌。这张牌被消耗时，消耗其他所有[purple]誓约[/purple]牌。",
-    "TOUHOUANCIENTS-OATH.title": "誓约"
+    "TOUHOUANCIENTS-OATH.title": "誓约",
+
+    "TOUHOUANCIENTS-WANDERING.description": "每回合限[blue]{BaseRemainingChance}[/blue]次，如果你打出的上一张牌是[gold]攻击牌[/gold]，这张牌打出后将回到手牌并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
+    "TOUHOUANCIENTS-WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
+    "TOUHOUANCIENTS-WANDERING.title": "彷徨"
 }

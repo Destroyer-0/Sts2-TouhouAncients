@@ -17,5 +17,9 @@
 
   "MAGIC_WALLET_POWER.title": "魔力暴走",
   "MAGIC_WALLET_POWER.description": "下[gold]1[/gold]张牌免费打出。",
-  "MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。"
+  "MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。",
+
+  "LIFE_MUST_PERISH_POWER.title": "生者必灭之理",
+  "LIFE_MUST_PERISH_POWER.description": "[blue]{Amount}[/blue]个回合后，清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。每次受到伤害，延长[blue]1[/blue]回合触发时机并给予自身[blue]10[/blue]层[gold]灾厄[/gold]。",
+  "LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]个回合后，清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长1回合倒计时并给予自身[blue]10[/blue]层[gold]灾厄[/gold]。"
 }

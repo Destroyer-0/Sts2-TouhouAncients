@@ -5,7 +5,7 @@ namespace TouhouAncients.Scripts.cards;
 
 public abstract class TouhouAncientCards : CustomCardModel
 {
-    public override string PortraitPath => $"res://sprite/cards/{GetType().Name}.png";
+    public override string PortraitPath => $"res://images/cards/{GetType().Name}.png";
 
     // /// <summary>
     // /// ModelDb 反射实例化所需的无参构造函数。
