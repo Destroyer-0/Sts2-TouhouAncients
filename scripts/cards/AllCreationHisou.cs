@@ -70,7 +70,8 @@ public class AllCreationHisou : TouhouAncientCards
         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NFireSmokePuffVfx.Create(playerCreature));
         await Cmd.CustomScaledWait(0.2f, 0.4f);
         VfxCmd.PlayOnCreatureCenter(playerCreature, "vfx/vfx_scream");
-        NHyperbeamVfx? nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition + new Vector2(0, 100), new Vector2(vfxSpawnPosition.X, vfxSpawnPosition.Y - 10));
+        NHyperbeamVfx? nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition + new Vector2(0, 100),
+            new Vector2(vfxSpawnPosition.X, vfxSpawnPosition.Y - 10));
         if (nHyperbeamVfx != null)
         {
             nHyperbeamVfx.GlobalScale = new Vector2(2, 2);
@@ -92,70 +93,68 @@ public class AllCreationHisou : TouhouAncientCards
         //     where c is { IsAlive: true, IsPlayer: true }
         //     select c).ToList();
 
-        // using (CardSelectCmd.PushSelector(new AutoSlayCardSelector(Owner.RunState.Rng.Shuffle)))
-        // {
-        //     int cardsPlayed;
-        //     foreach (var targetCard in allTargetCards)
-        //     {
-        //         if (CombatManager.Instance.IsOverOrEnding)
-        //         {
-        //             break;
-        //         }
-        //         if (CombatManager.Instance.IsPlayerReadyToEndTurn(player))
-        //         {
-        //             break;
-        //         }
-        //         CardPile pile = PileType.Hand.GetPile(base.Owner);
-        //         CardModel card = pile.Cards.FirstOrDefault((CardModel c) => c.CanPlay());
-        //         if (card == null)
-        //         {
-        //             break;
-        //         }
-        //         Creature target = GetTarget(card, combatState);
-        //         await card.SpendResources();
-        //         await CardCmd.AutoPlay(choiceContext, card, target, AutoPlayType.Default, skipXCapture: true);
-        //     }
-        //     flag = cardsPlayed >= 13;
-        //     if (cardsPlayed == 0)
-        //     {
-        //         return;
-        //     }
-        // }
-        foreach (var card in allTargetCards)
+        foreach (var targetCard in allTargetCards)
         {
-            // 升级后：先升级每张牌
-            if (shouldUpgrade && card.IsUpgradable)
+            if (CombatManager.Instance.IsOverOrEnding)
             {
-                CardCmd.Upgrade(card);
+                break;
             }
 
-            // foreach (Creature item in enemies)
-            // {
-            //     NHyperbeamImpactVfx nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
-            //     if (nHyperbeamImpactVfx != null)
-            //     {
-            //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
-            //     }
-            // }
-            // 自动打出
-            await CardCmd.AutoPlay(new BlockingPlayerChoiceContext(), card, target: null);
-
-            // 打出后若牌还存在且不在消耗堆，则消耗它
-            if (card.Pile != null && card.Pile.Type != PileType.None && !card.HasBeenRemovedFromState)
+            if (CombatManager.Instance.IsPlayerReadyToEndTurn(player))
             {
-                await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card, skipVisuals: true);
+                break;
             }
-            //
-            // hitNum++;
-            // if (hitNum == base.DynamicVars["Amount"].BaseValue)
-            // {
-            //     hitNum = 0;
-            //     
-            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, playerCreature, this));
-            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
-            //     await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
-            // }
+            
+            if (Owner.Creature.IsDead)
+            {
+                break;
+            }
+            
+            if (shouldUpgrade && targetCard.IsUpgradable)
+            {
+                CardCmd.Upgrade(targetCard);
+            }
+            
+            targetCard.ExhaustOnNextPlay = true;
+            await CardCmd.AutoPlay(choiceContext, targetCard, null, AutoPlayType.Default);
         }
+
+
+        // foreach (var card in allTargetCards)
+        // {
+        //     // 升级后：先升级每张牌
+        //     if (shouldUpgrade && card.IsUpgradable)
+        //     {
+        //         CardCmd.Upgrade(card);
+        //     }
+        //
+        //     // foreach (Creature item in enemies)
+        //     // {
+        //     //     NHyperbeamImpactVfx nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
+        //     //     if (nHyperbeamImpactVfx != null)
+        //     //     {
+        //     //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
+        //     //     }
+        //     // }
+        //     // 自动打出
+        //     await CardCmd.AutoPlay(new BlockingPlayerChoiceContext(), card, target: null);
+        //
+        //     // 打出后若牌还存在且不在消耗堆，则消耗它
+        //     if (card.Pile != null && card.Pile.Type != PileType.None && !card.HasBeenRemovedFromState)
+        //     {
+        //         await CardCmd.Exhaust(new BlockingPlayerChoiceContext(), card, skipVisuals: true);
+        //     }
+        //     //
+        //     // hitNum++;
+        //     // if (hitNum == base.DynamicVars["Amount"].BaseValue)
+        //     // {
+        //     //     hitNum = 0;
+        //     //     
+        //     //     await ApplyOnAllPlayer(x => PowerCmd.Apply<StrengthPower>(x, 1m, playerCreature, this));
+        //     //     await ApplyOnAllPlayer(x => PowerCmd.Apply<DexterityPower>(x, 1m, playerCreature, this));
+        //     //     await ApplyOnAllPlayer(x => PowerCmd.Apply<FocusPower>(x, 1m, playerCreature, this));
+        //     // }
+        // }
 
         // async Task ApplyOnAllPlayer(Func<Creature, Task> task)
         // {
@@ -166,12 +165,11 @@ public class AllCreationHisou : TouhouAncientCards
         // }
     }
 
-    public class TenshiSelector: ICardSelector
+    public class TenshiSelector : ICardSelector
     {
         public Task<IEnumerable<CardModel>> CardsSelected()
         {
             throw new NotImplementedException();
         }
     }
-    
 }

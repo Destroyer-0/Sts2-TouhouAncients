@@ -51,12 +51,13 @@ public class LifeMustPerish : TouhouAncientCards
             return;
         }
         // 应用自定义计数 Power
-        await PowerCmd.Apply<LifeMustPerishPower>(
+        var power = await PowerCmd.Apply<LifeMustPerishPower>(
             base.Owner.Creature,
-            base.DynamicVars["Countdown"].BaseValue,
+            9999,
             base.Owner.Creature,
             this
         );
+        power?.SetStartingTurns(base.DynamicVars["Countdown"].IntValue);
     }
 
     protected override void OnUpgrade()

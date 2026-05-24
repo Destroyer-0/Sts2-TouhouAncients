@@ -26,6 +26,8 @@ public class LifeMustPerishPower : PowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    public override bool IsInstanced => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("DoomAmount", 9999m),
@@ -38,6 +40,31 @@ public class LifeMustPerishPower : PowerModel
         HoverTipFactory.FromPower<DoomPower>()
     ];
 
+    private class Data
+    {
+        public int remainingTurns;
+    }
+
+    protected override object InitInternalData()
+    {
+        return new Data();
+    }
+
+    public override int DisplayAmount => RemainingTurns;
+
+    public void SetStartingTurns(int turns) => RemainingTurns = turns;
+    
+    public int RemainingTurns
+    {
+        get => GetInternalData<Data>().remainingTurns;
+        set
+        {
+            AssertMutable();
+            GetInternalData<Data>().remainingTurns = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props,
         Creature? dealer, CardModel? cardSource)
@@ -46,8 +73,9 @@ public class LifeMustPerishPower : PowerModel
         if (result.UnblockedDamage <= 0) return;
         if (props.HasFlag(ValueProp.Unblockable)) return;
 
+        Flash();
         // 延长1回合（增加层数即延长）
-        await PowerCmd.ModifyAmount(this, 1, null, null);
+        RemainingTurns++;
         // 给予自身灾厄
         await PowerCmd.Apply<DoomPower>(base.Owner, base.DynamicVars["SelfDoomAmount"].BaseValue, base.Owner, null);
     }
@@ -62,8 +90,9 @@ public class LifeMustPerishPower : PowerModel
         if (base.Owner.IsDead) return;
         // 减少计数
 
-        if (base.Amount <= 1)
+        if (RemainingTurns <= 1)
         {
+            Flash();
             // 触发：清除所有敌人的人工制品并给予9999层灾厄
             var enemies = Owner.CombatState.GetOpponentsOf(base.Owner).Where(e => e.IsAlive);
             foreach (var enemy in enemies)
@@ -83,7 +112,8 @@ public class LifeMustPerishPower : PowerModel
         }
         else
         {
-            await PowerCmd.Decrement(this);
+            Flash();
+            RemainingTurns--;
         }
     }
 }
