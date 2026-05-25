@@ -24,6 +24,7 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(LoseMoney));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
         
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可

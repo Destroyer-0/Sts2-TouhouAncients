@@ -33,5 +33,8 @@
 
     "TOUHOUANCIENTS-WANDERING.description": "每回合限[blue]{BaseRemainingChance}[/blue]次，如果你打出的上一张牌是[gold]攻击牌[/gold]，这张牌打出后将回到手牌并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
     "TOUHOUANCIENTS-WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
-    "TOUHOUANCIENTS-WANDERING.title": "彷徨"
+    "TOUHOUANCIENTS-WANDERING.title": "彷徨",
+
+    "TOUHOUANCIENTS-YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
+    "TOUHOUANCIENTS-YUMEIRO.title": "梦色"
 }

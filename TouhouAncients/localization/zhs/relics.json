@@ -6,8 +6,8 @@
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将四张[gold]壁垒[/gold]加入你的牌组，其具有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将带有四张[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将带有四张[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
@@ -385,5 +385,40 @@
 
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "西行妖枯枝",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.description": "每当你[gold]消耗[/gold]一张牌，增加一张带有[gold]虚无[/gold]的随机卡牌到你的[gold]手牌[/gold]并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": ""
+  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "",
+
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "每场战斗开始时，将一张[gold]绀珠之药[/gold]置入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.eventDescription": "每场战斗开始时，将一张[gold]绀珠之药[/gold]置入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "吞下此药，即可忘却一切痛苦与烦恼——但代价是什么呢？",
+
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "待定",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.eventDescription": "待定",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
+
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]放入你的[gold]抽牌堆[/gold]。你可以打出原本不能打出的[gold]灼伤[/gold]，打出时抽[blue]1[/blue]张牌、获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue]层[gold]荆棘[/gold]。",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.eventDescription": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]放入你的[gold]抽牌堆[/gold]。你可以打出原本不能打出的[gold]灼伤[/gold]。",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "传说中火鼠的皮毛织就的衣物，水火不侵。",
+
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "燕之子安贝",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]；进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "燕子的子安贝……据说能带来长寿与安康。",
+
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "佛御石之钵",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]；战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。当你受到伤害后，下回合获得[blue]{PostDamageBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。当你受到伤害后，下回合获得[blue]{PostDamageBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "佛前的石钵，据说能映照出人的本心。",
+
+  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "蓬莱的玉枝",
+  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.description": "每场战斗开始时，为你的随机[blue]{EnchantCount}[/blue]张牌[gold]附魔[/gold]：[purple]梦色[/purple]。",
+  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.eventDescription": "每场战斗开始时，为你的随机[blue]{EnchantCount}[/blue]张牌[gold]附魔[/gold]：[purple]梦色[/purple]。",
+  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "蓬莱玉枝如梦似幻，其上点缀的宝石闪烁着不真实的光芒。",
+
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "永远亭座药",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "拾起时，用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。每回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。每回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "永远亭特制秘药，种类繁多，效果各异。"
 }

@@ -18,7 +18,8 @@ public enum ForcedAncientOption
     Tewi帝,
     Seija正邪,
     Medicine梅蒂欣,
-    Yuyuko幽幽子
+    Yuyuko幽幽子,
+    Kaguya辉夜
 }
 
 /// <summary>
@@ -41,6 +42,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanSeija { get; set; } = false;
     public static bool BanMedicine { get; set; } = false;
     public static bool BanYuyuko { get; set; } = false;
+    public static bool BanKaguya { get; set; } = false;
 
     /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
@@ -70,6 +72,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(InabaTewiAncient) => BanTewi,
             nameof(KijinSeijaAncient) => BanSeija,
             nameof(SaigyoujiYuyukoAncient) => BanYuyuko,
+            nameof(HouraisanKaguyaAncient) => BanKaguya,
             _ => false
         };
     }
@@ -99,6 +102,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Medicine梅蒂欣 when name == nameof(MedicineMelancholyAncient) => true,
             ForcedAncientOption.Seija正邪 when name == nameof(KijinSeijaAncient) => true,
             ForcedAncientOption.Yuyuko幽幽子 when name == nameof(SaigyoujiYuyukoAncient) => true,
+            ForcedAncientOption.Kaguya辉夜 when name == nameof(HouraisanKaguyaAncient) => true,
             _ => false
         };
     }

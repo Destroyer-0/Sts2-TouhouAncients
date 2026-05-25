@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
@@ -65,31 +66,40 @@ public class ServantSakuya : TouhouAncientCards
     /// </summary>
     public override async Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
     {
-        if (base.Owner != player) return;
-        if (base.CombatState == null) return;
-        if (_target.Count == 0) return;
-
-        // 统计本回合消耗过的牌数
-        var combatState = player.Creature.CombatState;
-        int exhaustedCount = CombatManager.Instance.History.Entries
-            .OfType<CardExhaustedEntry>()
-            .Count(e => e.HappenedThisTurn(combatState) && e.Card.Owner == player);
-
-        if (exhaustedCount <= 0) return;
-        if (!Owner.Creature.IsAlive) return;
-
-        foreach (var target in _target)
+        try
         {
-            if (target == null || !target.IsEnemy || !target.IsAlive) continue;
-            await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-                .WithHitCount(exhaustedCount)
-                .FromCard(this)
-                .Targeting(target)
-                .Execute(choiceContext);
+            if (base.Owner != player) return;
+            if (base.CombatState == null) return;
+            if (_target.Count == 0) return;
+
+            // 统计本回合消耗过的牌数
+            var combatState = player.Creature.CombatState;
+            int exhaustedCount = CombatManager.Instance.History.Entries
+                .OfType<CardExhaustedEntry>()
+                .Count(e => e.HappenedThisTurn(combatState) && e.Card.Owner == player);
+
+            if (exhaustedCount <= 0) return;
+            if (!Owner.Creature.IsAlive) return;
+
+            foreach (var target in _target)
+            {
+                if (target == null || !target.IsEnemy || !target.IsAlive) continue;
+                await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
+                    .WithHitCount(exhaustedCount)
+                    .FromCard(this)
+                    .Targeting(target)
+                    .Execute(choiceContext);
+            }
+
+            _target.Clear();
         }
 
-        _target.Clear();
         // 享受活力与力量加成（ValueProp.Attack | ValueProp.Powered 自带力量加成）
+        catch (Exception ex)
+        {
+            GD.PrintErr($"ServantSakuya BeforeFlush error: {ex}\n{ex.StackTrace}");
+            throw;
+        }
     }
 
     protected override void OnUpgrade()
