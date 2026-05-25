@@ -14,8 +14,8 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public class HakureiReimuAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.7f);
-    public override Color DialogueColor => new(0.9f, 0.25f, 0.25f);
+    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.5f);
+    public override Color DialogueColor => new(0.9f, 0.25f, 0.25f, 1f);
 
     public override bool IsValidForAct(ActModel act)
     {

@@ -1,14 +1,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Saves;
+using MegaCrit.Sts2.Core.Settings;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -19,13 +28,11 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class EienteiZakushi : TouhouAncientRelics
 {
-    private const decimal DamagePerPotion = 8m;
-
     public override bool HasUponPickupEffect => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("DamagePerPotion", DamagePerPotion),
+        new DynamicVar("DamagePerPotion", 8m),
     ];
 
     /// <summary>
@@ -34,7 +41,6 @@ public class EienteiZakushi : TouhouAncientRelics
     public override async Task AfterObtained()
     {
         var player = base.Owner;
-        if (player == null) return;
         if (!player.HasOpenPotionSlots) return;
 
         var emptyCount = player.MaxPotionCount - player.Potions.Count();
@@ -63,10 +69,18 @@ public class EienteiZakushi : TouhouAncientRelics
 
         Flash();
 
+        Color color = new Color("FFFFFF80");
+        double num2 = ((SaveManager.Instance.PrefsSave.FastMode == FastModeType.Fast) ? 0.2 : 0.3);
+        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NHorizontalLinesVfx.Create(color,   (double)Mathf.Min(8, potionCount) * num2));
         for (int i = 0; i < potionCount; i++)
         {
-            var target = enemies[player.RunState.Rng.Shuffle.Next(enemies.Count)];
-            await CreatureCmd.Damage(choiceContext, target, DamagePerPotion, this);
+            Creature creature = base.Owner.RunState.Rng.CombatTargets.NextItem(base.Owner.Creature.CombatState.HittableEnemies);
+            if (creature != null)
+            {
+                VfxCmd.PlayOnCreatureCenter(creature, "vfx/vfx_attack_blunt");
+                await CreatureCmd.Damage(choiceContext, creature, base.DynamicVars["DamagePerPotion"].IntValue, ValueProp.Unpowered, base.Owner.Creature);
+            }
+            //await CreatureCmd.Damage(choiceContext, creature, DamagePerPotion, this);
         }
     }
 }

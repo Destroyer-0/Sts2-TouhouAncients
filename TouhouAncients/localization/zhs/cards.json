@@ -34,8 +34,8 @@
     "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽{Cards}张牌。给予自身{PoisonSelf}层[gold]中毒[/gold]。\n回合结束时，如果这张牌在你的手中，给予所有敌人{PoisonEnemy:diff()}层[gold]中毒[/gold]，获得的能量增加{energyPrefix:energyIcons(1)}，给予自身的中毒层数增加[blue]1[/blue]。",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "生者必灭之理",
-    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。\n受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]{SelfDoom}[/blue]层[gold]灾厄[/gold]",
+    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。\n受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]{SelfDoom}[/blue]层[gold]灾厄[/gold]。",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "绀珠之药",
-    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "[gold]保留[/gold]。\n此牌在手中时，生命值降至[blue]0[/blue]时弃置此牌，回复[red]30%[/red]生命值并失去[blue]4[/blue]点[gold]最大生命[/gold]，每有一层[red]污秽[/red]额外失去[blue]4[/blue]点[gold]最大生命[/gold]，然后获得一层[red]污秽[/red]计数。"
+    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "当你的生命值将要降低至[blue]0[/blue]或以下时，若此牌在手中时则丢弃，恢复[green]{HealPercent}%[/green]生命值，获得一层[red]污秽[/red]计数，并失去[blue]{BaseMaxHpLoss}[/blue]*[red]污秽[/red]计数点最大生命。{InCombat:\n（将失去[red]{ShouldLose}[/red]点最大生命）|}"
 }

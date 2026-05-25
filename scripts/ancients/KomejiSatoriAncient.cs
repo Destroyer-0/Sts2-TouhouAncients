@@ -10,8 +10,8 @@ namespace TouhouAncients.Scripts;
 
 public class KomejiSatoriAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.85f, 0.35f, 0.75f, 0.7f);
-    public override Color DialogueColor => new(0.85f, 0.35f, 0.75f);
+    public override Color ButtonColor => new(0.85f, 0.35f, 0.75f, 0.5f);
+    public override Color DialogueColor => new(0.85f, 0.35f, 0.75f, 1f);
 
     public override bool IsValidForAct(ActModel act)
     {

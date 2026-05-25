@@ -9,8 +9,8 @@ namespace TouhouAncients.Scripts;
 
 public class KotiyaSanaeAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.7f);
-    public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f);
+    public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.5f);
+    public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
 

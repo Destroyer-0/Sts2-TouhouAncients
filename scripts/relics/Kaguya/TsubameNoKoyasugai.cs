@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -17,19 +18,18 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class TsubameNoKoyasugai : TouhouAncientRelics
 {
-    private const decimal MaxHpGain = 15m;
     private const decimal HealThresholdPercent = 0.4m;
 
     public override bool HasUponPickupEffect => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("MaxHpGain", MaxHpGain),
+        new DynamicVar("MaxHpGain", 16m),
     ];
 
     public override async Task AfterObtained()
     {
-        await CreatureCmd.GainMaxHp(base.Owner.Creature, MaxHpGain);
+        await CreatureCmd.GainMaxHp(base.Owner.Creature, base.DynamicVars["MaxHpGain"].BaseValue);
     }
 
     /// <summary>

@@ -122,6 +122,7 @@ public class InkDyedCherryBlossomsRestSiteOption : RestSiteOption
     public InkDyedCherryBlossomsRestSiteOption(Player owner, InkDyedCherryBlossoms relic) : base(owner)
     {
         _relic = relic;
+        base.IsEnabled = _relic.DisplayAmount > 0;
     }
 
     public override async Task<bool> OnSelect()

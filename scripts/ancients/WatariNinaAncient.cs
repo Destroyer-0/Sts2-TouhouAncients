@@ -11,9 +11,9 @@ namespace TouhouAncients.Scripts;
 
 public class WatariNinaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new Color(0.05f, 0.07f, 0.2f, 0.7f);
+    public override Color ButtonColor => new Color(0.05f, 0.07f, 0.2f, 0.5f);
+    public override Color DialogueColor => new Color(0.05f, 0.07f, 0.2f, 1f);
 
-    public override Color DialogueColor => new Color("384d7a");
 
     //public override string? CustomScenePath => "res://test/scenes/test_ancient.tscn";
     // 自定义地图图标和轮廓的路径

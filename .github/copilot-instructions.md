@@ -45,6 +45,7 @@
 - 附魔: `TOUHOUANCIENTS-BLOODSHED.title`
 - 遗物: `TOUHOUANCIENTS-BLOOD_FANG.title`
 - Ancient: `TOUHOUANCIENTS-{角色}_ANCIENT.title` / `.epithet` / `.talk....`
+- **遗物的 `.description` 与 `.eventDescription` 完全一致时，省略 `.eventDescription`**
 
 ## 本地化文本规范
 ### 1.1 遗物附魔描述格式

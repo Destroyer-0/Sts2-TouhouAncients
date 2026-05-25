@@ -14,8 +14,8 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public class MedicineMelancholyAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.8f);
-    public override Color DialogueColor => new(0.8f, 0.4f, 0.6f);
+    public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.5f);
+    public override Color DialogueColor => new(0.8f, 0.4f, 0.6f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
@@ -45,7 +45,7 @@ public class MedicineMelancholyAncient : CustomAncientModel
             AncientOption<MedicinePoisonBox>()
         ),
         MakePool(
-            //AncientOption<HappinessElixir>(),
+            AncientOption<HappinessElixir>(),
             AncientOption<RibbonBow>()
         )
     );

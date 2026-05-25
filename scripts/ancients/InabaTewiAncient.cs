@@ -9,8 +9,8 @@ namespace TouhouAncients.Scripts;
 
 public class InabaTewiAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.8f);
-    public override Color DialogueColor => new(0.5f, 0.5f, 0.5f);
+    public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.5f);
+    public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 幽魂酒盅：获得70最大生命，将生命值降低至20。
+/// 幽魂酒盅：获得80最大生命，将生命值降低至60。
 /// </summary>
 [Pool(typeof(SharedRelicPool))]
 public class SoulSakeCup : TouhouAncientRelics
@@ -18,7 +18,7 @@ public class SoulSakeCup : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("MaxHpGain", 80m),
-        new DynamicVar("SetHp", 40m)
+        new DynamicVar("SetHp", 60m)
     ];
 
     public override bool HasUponPickupEffect => true;

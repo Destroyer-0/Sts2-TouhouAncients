@@ -29,7 +29,7 @@ public class LifeMustPerish : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Countdown", 4m),
-        new DynamicVar("SelfDoom", 10m)
+        new DynamicVar("SelfDoom", 8m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 

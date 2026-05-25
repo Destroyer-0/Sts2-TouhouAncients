@@ -9,13 +9,13 @@ namespace TouhouAncients.Scripts;
 
 public class HouraisanKaguyaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.9f, 0.3f, 0.5f, 0.8f);
-    public override Color DialogueColor => new(0.9f, 0.3f, 0.5f);
+    public override Color ButtonColor => new(0.9f, 0.3f, 0.5f, 0.5f);
+    public override Color DialogueColor => new(0.9f, 0.3f, 0.5f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HouraisanKaguya.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HouraisanKaguya.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/HouraisanKaguya.png";
 
     public override bool IsValidForAct(ActModel act)
     {
@@ -36,6 +36,7 @@ public class HouraisanKaguyaAncient : CustomAncientModel
             AncientOption<TsubameNoKoyasugai>(),
             AncientOption<HotokeMishiIshiNoHachi>(),
             AncientOption<HouraiNoTamae>(),
-            AncientOption<EienteiZakushi>()
+            AncientOption<EienteiZakushi>(),
+            AncientOption<KaguyaSecretTreasure>()
         ));
 }

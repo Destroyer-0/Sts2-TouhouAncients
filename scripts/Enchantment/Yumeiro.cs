@@ -26,9 +26,7 @@ public class Yumeiro : CustomEnchantmentModel
     protected override void OnEnchant()
     {
         if (!HasCard) return;
-        // 费用-1
-        var newBase = System.Math.Max(0, Card.EnergyCost.Canonical - 1);
-        Card.EnergyCost.SetCustomBaseCost(newBase);
+        Card.EnergyCost.UpgradeBy(-1);
     }
 
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
@@ -41,19 +39,19 @@ public class Yumeiro : CustomEnchantmentModel
         // 抽一张牌
         await CardPileCmd.Draw(choiceContext, 1, player);
 
+        base.Status = EnchantmentStatus.Disabled;
         // 失去梦色附魔并变化为其他附魔
-        var availableEnchantments = ModelDb.ActiveEnchantments
-            .Where(e => e != base.ModelEntry && e.CanEnchant(base.Card))
-            .ToList();
-
-        if (availableEnchantments.Count > 0)
-        {
-            var rng = player.RunState.Rng.Shuffle;
-            var randomEnchantment = availableEnchantments.UnstableShuffle(rng).First();
-
-            // 先禁用当前梦色附魔，再附加新的随机附魔
-            base.Status = EnchantmentStatus.Disabled;
-            await CardCmd.Enchant(base.Card, randomEnchantment, force: false);
-        }
+        // var availableEnchantments = ModelDb.ActiveEnchantments
+        //     .Where(e => e != base.ModelEntry && e.CanEnchant(base.Card))
+        //     .ToList();
+        //
+        // if (availableEnchantments.Count > 0)
+        // {
+        //     var rng = player.RunState.Rng.Shuffle;
+        //     var randomEnchantment = availableEnchantments.UnstableShuffle(rng).First();
+        //
+        //     // 先禁用当前梦色附魔，再附加新的随机附魔
+        //     await CardCmd.Enchant(base.Card, randomEnchantment, force: false);
+        // }
     }
 }

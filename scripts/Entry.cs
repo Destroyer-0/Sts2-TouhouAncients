@@ -3,6 +3,7 @@ using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.Enchantment;
@@ -23,8 +24,12 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(LoseMoney));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(FourLeafClover));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
+        
+        // 注册自定义药水到共享药水池
+        ModHelper.AddModelToPool(typeof(SharedPotionPool), typeof(potions.CamelliaPotion));
         
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可

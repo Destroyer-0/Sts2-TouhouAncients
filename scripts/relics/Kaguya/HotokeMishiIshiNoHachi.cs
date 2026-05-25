@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -35,6 +37,11 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
         new DynamicVar("PostDamageBlock", PostDamageBlock),
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<DexterityPower>(),
+    ];
+
     public override async Task AfterObtained()
     {
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, MaxHpLoss, isFromCard: false);
@@ -49,18 +56,18 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
         if (creature == null) return;
 
         await PowerCmd.Apply<DexterityPower>(creature, DexterityAmount, creature, null);
-        await CreatureCmd.GainBlock(creature, StartBlock, this);
+        await CreatureCmd.GainBlock(creature, DynamicVars["StartBlock"].BaseValue, ValueProp.Unpowered, null);
     }
 
-    /// <summary>
-    /// 受到伤害后，下回合获得10格挡。
-    /// </summary>
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
-    {
-        if (target != base.Owner?.Creature) return;
-        if (result.TotalDamage <= 0) return;
-
-        Flash();
-        await PowerCmd.Apply<BlockNextTurnPower>(target, PostDamageBlock, target, null);
-    }
+    // /// <summary>
+    // /// 受到伤害后，下回合获得10格挡。
+    // /// </summary>
+    // public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    // {
+    //     if (target != base.Owner?.Creature) return;
+    //     if (result.TotalDamage <= 0) return;
+    //
+    //     Flash();
+    //     await PowerCmd.Apply<BlockNextTurnPower>(target, PostDamageBlock, target, null);
+    // }
 }

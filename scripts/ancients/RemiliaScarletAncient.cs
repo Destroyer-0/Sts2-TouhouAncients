@@ -10,8 +10,8 @@ namespace TouhouAncients.Scripts;
 
 public class RemiliaScarletAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
-    public override Color DialogueColor => new(0.6f, 0.1f, 0.1f);
+    public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.5f);
+    public override Color DialogueColor => new(0.6f, 0.1f, 0.1f, 1f);
 
     public override bool IsValidForAct(ActModel act)
     {

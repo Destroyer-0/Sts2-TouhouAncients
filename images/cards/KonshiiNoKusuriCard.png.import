@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://klrshavhaolb"
-path="res://.godot/imported/mod_image.png-4c640a44619e3086fc3c263e7b1be082.ctex"
+uid="uid://3xl1yu3vb7sw"
+path="res://.godot/imported/KonshiiNoKusuriCard.png-4f24e095920a951322a8f59a97a08337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TouhouAncients/mod_image.png"
-dest_files=["res://.godot/imported/mod_image.png-4c640a44619e3086fc3c263e7b1be082.ctex"]
+source_file="res://images/cards/KonshiiNoKusuriCard.png"
+dest_files=["res://.godot/imported/KonshiiNoKusuriCard.png-4f24e095920a951322a8f59a97a08337.ctex"]
 
 [params]
 

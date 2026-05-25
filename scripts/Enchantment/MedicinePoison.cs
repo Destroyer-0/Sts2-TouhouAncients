@@ -23,7 +23,7 @@ public class MedicinePoison : CustomEnchantmentModel
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("PoisonBonus", 5)
+        new DynamicVar("PoisonBonus", 3)
     ];
 
 

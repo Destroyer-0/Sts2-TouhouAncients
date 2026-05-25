@@ -5,6 +5,8 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -27,30 +29,34 @@ public class HouraiNoTamae : TouhouAncientRelics
         new DynamicVar("EnchantCount", EnchantCount),
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromEnchantment<Yumeiro>();
+
     /// <summary>
     /// 战斗开始时，为随机7张牌附魔"梦色"。
     /// </summary>
     public override async Task BeforeCombatStart()
     {
         var player = base.Owner;
-        if (player == null) return;
 
         var deck = PileType.Deck.GetPile(player);
-        if (deck == null || deck.IsEmpty) return;
+        if (deck.IsEmpty) return;
 
+        var model = ModelDb.Enchantment<Yumeiro>();
+        
         // 找出可附魔"梦色"的牌
         var enchantable = deck.Cards
-            .Where(c => !c.HasStarCostX && !c.EnergyCost.CostsX)
+            .Where(c => model.CanEnchant(c))
             .ToList();
 
         if (enchantable.Count == 0) return;
 
-        var rng = player.RunState.Rng.Shuffle;
-        var toEnchant = enchantable.UnstableShuffle(rng).Take(EnchantCount);
+        var rng = player.RunState.Rng.CombatCardSelection;
+        var toEnchant = enchantable.UnstableShuffle(rng).Take(Math.Min(enchantable.Count, EnchantCount));
 
         foreach (var card in toEnchant)
         {
-            await CardCmd.Enchant<Yumeiro>(card, force: false);
+            CardCmd.Enchant<Yumeiro>(card,1);
         }
     }
 }

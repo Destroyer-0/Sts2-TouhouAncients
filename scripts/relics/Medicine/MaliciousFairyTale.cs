@@ -44,8 +44,22 @@ public class MaliciousFairyTale : TouhouAncientRelics
         // 获得 Power 点力量
         await PowerCmd.Apply<StrengthPower>(player.Creature, base.DynamicVars["Power"].BaseValue, player.Creature, null);
         
-        await PowerCmd.Apply<ThornsPower>(player.Creature.CombatState.Enemies, base.DynamicVars["ThornsAmount"].BaseValue, player.Creature, null);
+        //await PowerCmd.Apply<ThornsPower>(player.Creature.CombatState.Enemies, base.DynamicVars["ThornsAmount"].BaseValue, player.Creature, null);
     }
+    
+    public override async Task BeforeCombatStartLate()
+    {
+        var creature = base.Owner.Creature;
+        if (creature?.CombatState == null) return;
+    
+        // 所有敌人获得 ThornsAmount 层荆棘
+        var enemies = creature.CombatState.GetOpponentsOf(creature).Where(c => c.IsAlive);
+        foreach (var enemy in enemies)
+        {
+            await PowerCmd.Apply<ThornsPower>(enemy, base.DynamicVars["ThornsAmount"].BaseValue, enemy, null);
+        }
+    }
+    
     //
     // public override async Task BeforeCombatStartLate()
     // {
