@@ -75,7 +75,7 @@ public class KonshiiNoKusuriCard : TouhouAncientCards
     /// <summary>
     /// 阻止死亡：此牌在手中时阻止死亡。
     /// </summary>
-    public override bool ShouldDie(Creature creature)
+    public override bool ShouldDieLate(Creature creature)
     {
         if (creature != base.Owner?.Creature) return true;
         return Pile?.Type != PileType.Hand; // 不在手中则正常死亡
@@ -89,19 +89,20 @@ public class KonshiiNoKusuriCard : TouhouAncientCards
         if (creature != base.Owner?.Creature) return;
         if (Pile?.Type != PileType.Hand) return;
 
-        var relic = GetRelic();
-        if (relic == null) return;
-
-        // 从手牌中移除这张牌
-        await CardPileCmd.RemoveFromCombat(this);
 
         // 回复生命值
         var healPercent = base.DynamicVars["HealPercent"].BaseValue / 100m;
         var healAmount = Math.Max(1m, (decimal)creature.MaxHp * healPercent);
         await CreatureCmd.Heal(creature, healAmount);
 
+        var relic = GetRelic();
+        if (relic == null) return;
+
+        var a = new ThrowingPlayerChoiceContext();
+        // 从手牌中移除这张牌
+        await CardCmd.Discard(a, this);
         // 失去最大生命：基础 + 每层污秽额外
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), creature, DynamicVars["ShouldLose"].IntValue, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(a, creature, DynamicVars["ShouldLose"].IntValue, isFromCard: true);
 
         // 增加一层污秽
         relic.IncrementFilth();

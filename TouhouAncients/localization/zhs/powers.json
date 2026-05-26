@@ -20,6 +20,10 @@
   "MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。",
 
   "LIFE_MUST_PERISH_POWER.title": "生者必灭之理",
-  "LIFE_MUST_PERISH_POWER.description": "[blue]{Amount}[/blue]个回合后，清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。每次受到伤害，延长[blue]1[/blue]回合触发时机并给予自身[blue]10[/blue]层[gold]灾厄[/gold]。",
-  "LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]个回合后，清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长1回合倒计时并给予自身[blue]10[/blue]层[gold]灾厄[/gold]。"
+  "LIFE_MUST_PERISH_POWER.description": "[blue]4[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
+  "LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长1回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
+
+  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "给蛇花小姐减少8点力量",
+  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "玩家打出牌时获得1点力量，最多8次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。",
+  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "玩家打出牌时获得1点力量，还可获得{Amount}次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。"
 }

@@ -8,6 +8,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,44 +23,44 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
-/// <summary>
-/// 火鼠的皮衣Patch：使持有该遗物的玩家可以打出灼伤。
-/// </summary>
-[HarmonyPatch]
-public static class HinezumiNoKawagoromoPatchs
-{
-    private static MethodBase TargetMethod()
-    {
-        return typeof(CardModel).GetMethod("CanPlay", new[]
-        {
-            typeof(UnplayableReason).MakeByRefType(),
-            typeof(AbstractModel).MakeByRefType()
-        });
-    }
-
-    public static void Postfix(CardModel __instance, ref bool __result, ref UnplayableReason reason, ref AbstractModel preventer)
-    {
-        try
-        {
-            if (__instance.Owner != null && __instance.Owner.GetRelic<HinezumiNoKawagoromo>() != null
-                                         && __instance is Burn)
-            {
-                if (!__result && reason.HasFlag(UnplayableReason.HasUnplayableKeyword))
-                {
-                    reason &= ~UnplayableReason.HasUnplayableKeyword;
-                    if (reason == UnplayableReason.None)
-                    {
-                        __result = true;
-                    }
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Log.Error(e.ToString());
-        }
-    }
-}
+// /// <summary>
+// /// 火鼠的皮衣Patch：使持有该遗物的玩家可以打出灼伤。
+// /// </summary>
+// [HarmonyPatch]
+// public static class HinezumiNoKawagoromoPatchs
+// {
+//     private static MethodBase TargetMethod()
+//     {
+//         return typeof(CardModel).GetMethod("CanPlay", new[]
+//         {
+//             typeof(UnplayableReason).MakeByRefType(),
+//             typeof(AbstractModel).MakeByRefType()
+//         });
+//     }
+//
+//     public static void Postfix(CardModel __instance, ref bool __result, ref UnplayableReason reason, ref AbstractModel preventer)
+//     {
+//         try
+//         {
+//             if (__instance.Owner != null && __instance.Owner.GetRelic<HinezumiNoKawagoromo>() != null
+//                                          && __instance is Burn)
+//             {
+//                 if (!__result && reason.HasFlag(UnplayableReason.HasUnplayableKeyword))
+//                 {
+//                     reason &= ~UnplayableReason.HasUnplayableKeyword;
+//                     if (reason == UnplayableReason.None)
+//                     {
+//                         __result = true;
+//                     }
+//                 }
+//             }
+//         }
+//         catch (Exception e)
+//         {
+//             Log.Error(e.ToString());
+//         }
+//     }
+// }
 
 /// <summary>
 /// 火鼠的皮衣：在战斗开始时，将3张灼伤放入你的抽牌堆。
@@ -69,8 +70,8 @@ public static class HinezumiNoKawagoromoPatchs
 public class HinezumiNoKawagoromo : TouhouAncientRelics
 {
     private const int DrawCount = 1;
-    private const int BlockAmount = 6;
-    private const decimal ThornsAmount = 1m;
+    private const int BlockAmount = 9;
+    private const decimal ThornsAmount = 3m;
 
     public override bool HasUponPickupEffect => false;
 
@@ -118,4 +119,36 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
         await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, cardPlay);
         await PowerCmd.Apply<ThornsPower>(base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
     }
+
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    {
+        if (target != base.Owner.Creature) return;
+        if (cardSource is Burn)
+        {
+            await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, null);
+            await PowerCmd.Apply<ThornsPower>(base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
+            await PowerCmd.Apply<DrawCardsNextTurnPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        }
+    }
+
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    {
+        if (target != base.Owner.Creature) return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource);
+        if (cardSource is Burn)
+        {
+            return -10000;
+        }
+        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource);
+    }
+
+    // public override Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    // {
+    //     if (target != base.Owner.Creature) return Task.CompletedTask;
+    //     if (cardSource is Burn)
+    //     {
+    //         amount = 0;
+    //     }
+    //
+    //     return Task.CompletedTask;
+    // }
 }

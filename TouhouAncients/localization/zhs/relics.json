@@ -396,7 +396,7 @@
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
-  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]放入你的[gold]抽牌堆[/gold]。你可以打出原本不能打出的[gold]灼伤[/gold]并抽[blue]1[/blue]张牌、获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue]层[gold]荆棘[/gold]。",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]放入你的[gold]抽牌堆[/gold]。受到来自[gold]灼伤[/gold]的伤害时，免疫之并获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue]层[gold]荆棘[/gold]，在下回合额外抽[blue]1[/blue]张牌。",
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "燕之子安贝",

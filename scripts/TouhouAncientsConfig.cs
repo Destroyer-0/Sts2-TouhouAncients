@@ -27,22 +27,6 @@ public enum ForcedAncientOption
 /// </summary>
 public class TouhouAncientsConfig : SimpleModConfig
 {
-    /// <summary>
-    /// 配置该列表中先古之民不出现
-    /// </summary>
-    [ConfigSection("BannedAncients")]
-    public static bool BanReimu { get; set; } = false;
-
-    public static bool BanSanae { get; set; } = false;
-    public static bool BanRemilia { get; set; } = false;
-    public static bool BanSatori { get; set; } = false;
-    public static bool BanNina { get; set; } = false;
-    public static bool BanTenshi { get; set; } = false;
-    public static bool BanTewi { get; set; } = false;
-    public static bool BanSeija { get; set; } = false;
-    public static bool BanMedicine { get; set; } = false;
-    public static bool BanYuyuko { get; set; } = false;
-    public static bool BanKaguya { get; set; } = false;
 
     /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
@@ -106,4 +90,22 @@ public class TouhouAncientsConfig : SimpleModConfig
             _ => false
         };
     }
+    
+    
+    /// <summary>
+    /// 配置该列表中先古之民不出现
+    /// </summary>
+    [ConfigSection("BannedAncients")]
+    public static bool BanReimu { get; set; } = false;
+
+    public static bool BanSanae { get; set; } = false;
+    public static bool BanRemilia { get; set; } = false;
+    public static bool BanSatori { get; set; } = false;
+    public static bool BanNina { get; set; } = false;
+    public static bool BanTenshi { get; set; } = false;
+    public static bool BanTewi { get; set; } = false;
+    public static bool BanSeija { get; set; } = false;
+    public static bool BanMedicine { get; set; } = false;
+    public static bool BanYuyuko { get; set; } = false;
+    public static bool BanKaguya { get; set; } = false;
 }

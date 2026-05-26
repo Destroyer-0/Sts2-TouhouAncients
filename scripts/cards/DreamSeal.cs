@@ -29,6 +29,7 @@ public class DreamSeal : TouhouAncientCards
     private const bool shouldShowInCardLibrary = true;
 
     private const int HitCount = 6;
+
     protected override bool ShouldGlowGoldInternal
     {
         get
@@ -37,9 +38,11 @@ public class DreamSeal : TouhouAncientCards
             {
                 return false;
             }
+
             return base.CombatState.HittableEnemies.Any((Creature e) => e.Monster?.IntendsToAttack ?? false);
         }
     }
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(2m, ValueProp.Move),
@@ -52,7 +55,7 @@ public class DreamSeal : TouhouAncientCards
         HoverTipFactory.FromPower<StrengthPower>(),
         base.EnergyHoverTip
     ];
-    
+
     public DreamSeal() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
@@ -66,6 +69,8 @@ public class DreamSeal : TouhouAncientCards
             .WithHitCount(HitCount)
             .FromCard(this)
             .TargetingAllOpponents(base.CombatState)
+            .WithHitFx("vfx/vfx_attack_blunt", "event:/sfx/enemy/enemy_attacks/terror_eel/terror_eel_attack_multi")
+            .SpawningHitVfxOnEachCreature()
             .Execute(choiceContext);
 
         // 2. 对每个意图为攻击的敌人附加易伤+临时减力量

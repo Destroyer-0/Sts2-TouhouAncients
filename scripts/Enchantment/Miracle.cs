@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TouhouAncients.Scripts.Enchantment;
@@ -47,8 +48,8 @@ public class Miracle : CustomEnchantmentModel
         // 根据角色过滤卡牌：
         // - 非储君(Regent)：排除带有辉星(star cost)的牌
         // - 非亡灵契约师(Necrobinder)：排除带有 OstyAttack 标签的牌
-        var isRegent = player.Character is Regent;
-        var isNecrobinder = player.Character is Necrobinder;
+        var isRegent = player.Relics.Any(x => x is DivineRight or DivineDestiny);
+        var isNecrobinder = player.Relics.Any(x => x is BoundPhylactery or PhylacteryUnbound);
 
         bool IsAllowed(CardModel c) =>
             CanEnchant(c)
