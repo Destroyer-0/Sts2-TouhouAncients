@@ -23,7 +23,7 @@ public class MaliciousFairyTale : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Power", 3),
+        new DynamicVar("Power", 2),
         new DynamicVar("ThornsAmount", 1)
     ];
 

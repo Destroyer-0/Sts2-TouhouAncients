@@ -20,20 +20,34 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class FourLeafClover : TouhouAncientRelics
 {
-    [SavedProperty]
-    public int RewardsSinceLastRare { get; set; }
+    private int rewardsSinceLastRare;
 
-    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options, CardCreationOptions creationOptions)
+    [SavedProperty]
+    public int TouhouAncients_RewardsSinceLastRare
+    {
+        get => rewardsSinceLastRare;
+        set
+        {
+            AssertMutable();
+            rewardsSinceLastRare = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
+    public override bool ShowCounter => true;
+    public override int DisplayAmount => TouhouAncients_RewardsSinceLastRare;
+
+    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
+        CardCreationOptions creationOptions)
     {
         if (base.Owner != player) return false;
         if (creationOptions.Source != CardCreationSource.Encounter) return false;
 
-        RewardsSinceLastRare++;
+        TouhouAncients_RewardsSinceLastRare++;
 
-        if (RewardsSinceLastRare >= 2)
+        if (TouhouAncients_RewardsSinceLastRare % 2 == 0)
         {
-            RewardsSinceLastRare = 0;
-
+            Flash();
             // 从当前选项中获取一张稀有卡牌
             var rareCards = creationOptions.GetPossibleCards(player)
                 .Where(c => c.Rarity == CardRarity.Rare)
@@ -55,23 +69,29 @@ public class FourLeafClover : TouhouAncientRelics
         return true;
     }
 
-    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> options, CardCreationOptions creationOptions)
+    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> options,
+        CardCreationOptions creationOptions)
     {
         if (base.Owner != player) return false;
-
-        // 第二次稀有卡牌升级
-        var ourCards = options.Where(o => o.ModifyingRelics.Contains(this)).ToList();
-        foreach (var result in ourCards)
+        if (TouhouAncients_RewardsSinceLastRare % 4 == 0)
         {
-            var card = result.Card;
-            if (card.IsUpgradable)
+            TouhouAncients_RewardsSinceLastRare = 0;
+            // 第二次稀有卡牌升级
+            var ourCards = options.Where(o => o.ModifyingRelics.Contains(this)).ToList();
+            foreach (var result in ourCards)
             {
-                var cloned = base.Owner.RunState.CloneCard(card);
-                CardCmd.Upgrade(cloned);
-                result.ModifyCard(cloned, this);
+                var card = result.Card;
+                if (card.IsUpgradable)
+                {
+                    var cloned = base.Owner.RunState.CloneCard(card);
+                    CardCmd.Upgrade(cloned);
+                    result.ModifyCard(cloned, this);
+                }
             }
+
+            return ourCards.Count > 0;
         }
 
-        return ourCards.Count > 0;
+        return false;
     }
 }

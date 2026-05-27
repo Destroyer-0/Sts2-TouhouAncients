@@ -74,8 +74,8 @@
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰[aqua]守矢神社[/aqua]即可领取新人大礼包——文文新闻上是这样写的。",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
-  "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命。（至少保留1生命）",
-  "TOUHOUANCIENTS-DRACULA_LEGACY.eventDescription": "随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命。（至少保留1生命）",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
+  "TOUHOUANCIENTS-DRACULA_LEGACY.eventDescription": "随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
   "TOUHOUANCIENTS-DRACULA_LEGACY.flavor": "蕾米莉亚并不是德古拉的后裔。但确实有一些宝藏是那位大公赠予的。",
 
   "TOUHOUANCIENTS-NIGHT_SERVANT.title": "极夜侍仆",
@@ -315,8 +315,8 @@
   "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒[/purple]。",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒[/purple]。",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "铃色的日记本",
@@ -342,6 +342,10 @@
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "恶毒的童话书",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "在每场战斗开始时，所有敌人获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]。在你的回合开始时，获得[blue]{Power}[/blue]点[gold]力量[/gold]。",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "",
+
+  "TOUHOUANCIENTS-PLAGUE_BLEND.title": "荒疫特调",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.description": "在每个回合开始时获得{Energy:energyIcons()}。第[blue]{TriggerTurn}[/blue]回合开始时，给予自身[blue]{PoisonAmount}[/blue]层[gold]中毒[/gold]。",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "",
 
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.title": "弘川之骨",
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.description": "回合结束时，如果你本回合只打出过[gold]能力牌[/gold]，获得[blue]{BufferAmount}[/blue]层[gold]缓冲[/gold]。",
@@ -388,7 +392,7 @@
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "",
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "每场战斗开始时，将一张[gold]绀珠之药[/gold]置入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将一张[gold]绀珠之药[/gold]置入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
@@ -400,13 +404,13 @@
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "燕之子安贝",
-  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]；进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "",
 
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "佛御石之钵",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "蓬莱的玉枝",

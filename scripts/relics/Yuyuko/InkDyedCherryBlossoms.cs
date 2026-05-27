@@ -27,7 +27,7 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
 {
     private int _lostMaxHpTotal;
 
-    public override bool ShowCounter => LostMaxHpTotal > 0;
+    public override bool ShowCounter => true;
 
     public override int DisplayAmount => LostMaxHpTotal;
 

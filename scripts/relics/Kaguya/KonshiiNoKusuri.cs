@@ -29,14 +29,41 @@ public class KonshiiNoKusuri : TouhouAncientRelics
     /// 由 KonshiiNoKusuriCard 读取并递增。
     /// </summary>
     [SavedProperty]
-    public int TouhouAncients_FilthCount { get; set; }
-    
+    public int TouhouAncients_FilthCount
+    {
+        get => filthCount;
+        set
+        {
+            AssertMutable();
+            filthCount = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
+    private int filthCount;
+
     public override bool HasUponPickupEffect => false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<KonshiiNoKusuriCard>();
+
+    public override bool ShowCounter => DisplayAmount > -1;
+
+    public override int DisplayAmount => TouhouAncients_FilthCount;
+    // {
+    //     get
+    //     {
+    //         if (base.IsCanonical)
+    //         {
+    //             return -1;
+    //         }
+    //
+    //         return TouhouAncients_FilthCount;
+    //     }
+    // }
+
     /// <summary>
     /// 增加一层污秽计数并刷新显示。由 KonshiiNoKusuriCard 调用。
     /// </summary>
@@ -46,6 +73,7 @@ public class KonshiiNoKusuri : TouhouAncientRelics
         Flash();
         InvokeDisplayAmountChanged();
     }
+
     /// <summary>
     /// 战斗开始时，将绀珠之药置入手牌。
     /// </summary>

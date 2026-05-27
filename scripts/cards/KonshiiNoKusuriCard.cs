@@ -36,7 +36,7 @@ public class KonshiiNoKusuriCard : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("HealPercent", 30),
-        new DynamicVar("BaseMaxHpLoss", 6),
+        new DynamicVar("BaseMaxHpLoss", 5), 
         new DynamicVar("ShouldLose", 0)
     ];
 

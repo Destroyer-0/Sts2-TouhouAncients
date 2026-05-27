@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ruew0coahnk0"]
 
-[ext_resource type="Texture2D" uid="uid://bnyopesdo8fvx" path="res://sprite/KotiyaSanae.png" id="1_tnn40"]
+[ext_resource type="Texture2D" uid="uid://bnyopesdo8fvx" path="res://images/KotiyaSanae.png" id="1_tnn40"]
 
 [node name="KotiyaSanae" type="Control"]
 layout_mode = 3
@@ -8,8 +8,8 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -281.0
-offset_top = -40.0
-offset_right = 2279.0
-offset_bottom = 1425.0
+offset_left = -320.0
+offset_top = -166.0
+offset_right = 2240.0
+offset_bottom = 1695.0
 texture = ExtResource("1_tnn40")

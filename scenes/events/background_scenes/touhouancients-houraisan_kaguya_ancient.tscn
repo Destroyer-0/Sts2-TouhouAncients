@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b64fh7b0btuo0"]
 
-[ext_resource type="Texture2D" uid="uid://4siscmtahak3" path="res://images/WatariNina.png" id="1_h0oxu"]
+[ext_resource type="Texture2D" uid="uid://bmimu1jb8onrg" path="res://images/HouraisanKaguya.png" id="1_h0oxu"]
 
 [node name="WatariNinaAncient" type="Control"]
 layout_mode = 3
@@ -8,8 +8,8 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -350.0
-offset_top = -170.0
-offset_right = 2211.0
-offset_bottom = 1750.0
+offset_left = -377.0
+offset_top = -115.0
+offset_right = 2183.0
+offset_bottom = 1321.0
 texture = ExtResource("1_h0oxu")

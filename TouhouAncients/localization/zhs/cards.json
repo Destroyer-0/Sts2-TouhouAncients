@@ -22,7 +22,7 @@
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n在本回合将你格挡掉的攻击伤害的一半转化为[gold]活力[/gold]。",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "全人类的绯想天",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。\n[red][fly_in]空中的天气、大地的安定、人的气质，全都在我手掌之上！[/fly_in][/red]",
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。\n[red]空中的天气、大地的安定、人的气质，全都在我手掌之上！[/red]",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
@@ -31,13 +31,13 @@
     "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount}[/blue]张其它牌免费打出。\n每次打出后此牌本场战斗耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "铃兰",
-    "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽{Cards}张牌。给予自身{PoisonSelf}层[gold]中毒[/gold]。\n回合结束时，如果这张牌在你的手中，给予所有敌人{PoisonEnemy:diff()}层[gold]中毒[/gold]，获得的能量增加{energyPrefix:energyIcons(1)}，给予自身的中毒层数增加[blue]1[/blue]。",
+    "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽{Cards}张牌。给予自身{PoisonSelf}层[gold]中毒[/gold]。\n回合结束时，如果这张牌在你的手中，给予所有敌人{PoisonPower:diff()}层[gold]中毒[/gold]，获得的能量增加{energyPrefix:energyIcons(1)}，给予自身的中毒层数增加[blue]1[/blue]。",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "生者必灭之理",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。\n受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]{SelfDoom}[/blue]层[gold]灾厄[/gold]。",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "绀珠之药",
-    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "当你的生命值将要降低至[blue]0[/blue]或以下时，如果这张牌在你的手中，丢弃这张牌并恢复[green]{HealPercent}%[/green]生命值，获得一层[red]污秽[/red]计数，失去[blue]{BaseMaxHpLoss}[/blue]*[red]污秽[/red]计数点最大生命。{InCombat:\n（将失去[red]{ShouldLose}[/red]点最大生命）|}",
+    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "当你的生命值将要降低至[blue]0[/blue]或以下时，如果这张牌在你的手中，丢弃这张牌并恢复[green]{HealPercent}%[/green]生命值，获得一层[pink]污秽[/pink]计数，失去[blue]{BaseMaxHpLoss}[/blue]*[pink]污秽[/pink]计数点最大生命。{InCombat:\n（将失去[red]{ShouldLose}[/red]点最大生命）|}",
 
     "TOUHOUANCIENTS-MASTER_SPARK.title": "极限火花",
     "TOUHOUANCIENTS-MASTER_SPARK.description": "对所有敌人造成{Damage:diff()}点伤害X+{ExtraHit}次。\n如果X的最终数值为{Energy:diff()}或以上，则将X的数值{IfUpgraded:show:翻三倍|翻倍}。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]"

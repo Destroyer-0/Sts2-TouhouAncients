@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class MedicinePoisonBox : TouhouAncientRelics
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Snakebite>().Concat(HoverTipFactory.FromEnchantment<MedicinePoison>());
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Snakebite>().Concat(HoverTipFactory.FromEnchantment<MedicinePoison>(3));
 
     public override bool HasUponPickupEffect => true;
 
@@ -60,12 +60,12 @@ public class MedicinePoisonBox : TouhouAncientRelics
         {
             if (enchantmentModel.CanEnchant(cardModel))
             {
-                CardCmd.Enchant(enchantmentModel, cardModel, enchantmentModel.Amount);
+                CardCmd.Enchant(enchantmentModel, cardModel, 3);
             }
         }
         else
         {
-            CardCmd.Enchant(enchantmentModel, cardModel, enchantmentModel.Amount);
+            CardCmd.Enchant(enchantmentModel, cardModel, 3);
         }
 
         return cardModel;

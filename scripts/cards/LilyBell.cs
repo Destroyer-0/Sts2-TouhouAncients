@@ -33,7 +33,7 @@ public class LilyBell : TouhouAncientCards
     [
         new EnergyVar(1),
         new CardsVar(2),
-        new DynamicVar("PoisonEnemy", 2),
+        new DynamicVar("PoisonPower", 2),
         new DynamicVar("PoisonSelf", 0)
     ];
 

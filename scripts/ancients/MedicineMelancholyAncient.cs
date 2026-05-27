@@ -40,13 +40,14 @@ public class MedicineMelancholyAncient : CustomAncientModel
             AncientOption<LilyBellDiary>()
         ),
         MakePool(
-            AncientOption<StageDevice>(),
+            AncientOption<PlagueBlend>(),
             AncientOption<MaliciousFairyTale>(),
             AncientOption<MedicinePoisonBox>()
         ),
         MakePool(
             AncientOption<HappinessElixir>(),
             AncientOption<RibbonBow>()
+            //AncientOption<StageDevice>()
         )
     );
 }

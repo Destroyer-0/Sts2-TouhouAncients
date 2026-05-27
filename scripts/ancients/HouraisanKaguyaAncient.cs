@@ -35,7 +35,7 @@ public class HouraisanKaguyaAncient : CustomAncientModel
             AncientOption<HinezumiNoKawagoromo>(),
             AncientOption<TsubameNoKoyasugai>(),
             AncientOption<HotokeMishiIshiNoHachi>(),
-            AncientOption<HouraiNoTamae>(),
+            //AncientOption<HouraiNoTamae>(),
             AncientOption<EienteiZakushi>(),
             AncientOption<KaguyaSecretTreasure>()
         ));

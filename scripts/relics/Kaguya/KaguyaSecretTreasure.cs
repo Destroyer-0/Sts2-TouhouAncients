@@ -34,7 +34,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(7)
+        new CardsVar(12)
     ];
 
 

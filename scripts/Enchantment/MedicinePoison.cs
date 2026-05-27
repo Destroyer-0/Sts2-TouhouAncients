@@ -18,18 +18,22 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class MedicinePoison : CustomEnchantmentModel
 {
-    
- //   public override bool HasExtraCardText => true;
+    //   public override bool HasExtraCardText => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DynamicVar("PoisonBonus", 3)
-    ];
-
+    // protected override IEnumerable<DynamicVar> CanonicalVars =>
+    // [
+    //     new DynamicVar("PoisonBonus", 3)
+    // ];
+    public override bool ShowAmount => true;
+    public override bool IsStackable => true;
 
     protected override void OnEnchant()
     {
         Card.AddKeyword(CardKeyword.Eternal);
+        if (Card.DynamicVars.ContainsKey("PoisonPower"))
+        {
+            Card.DynamicVars["PoisonPower"].BaseValue += base.Amount;
+        }
     }
 
     /// <summary>
@@ -40,10 +44,10 @@ public class MedicinePoison : CustomEnchantmentModel
         if (!HasCard) return;
         if (side != base.Card.Owner.Creature.Side) return;
         if (base.Card.Pile?.Type != PileType.Hand) return;
-        Card.EnergyCost.AddUntilPlayed(-1);
+        //Card.EnergyCost.AddUntilPlayed(-1);
         if (Card.DynamicVars.ContainsKey("PoisonPower"))
         {
-            Card.DynamicVars["PoisonPower"].BaseValue += DynamicVars["PoisonBonus"].IntValue;
+            Card.DynamicVars["PoisonPower"].BaseValue += base.Amount;
         }
     }
 

@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
@@ -82,6 +83,7 @@ public class ChildhoodBag : TouhouAncientRelics
         new DynamicVar("PotionCount", 1)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPotion<FoulPotion>()];
 
     public override bool HasUponPickupEffect => true;
 
@@ -104,8 +106,6 @@ public class ChildhoodBag : TouhouAncientRelics
         AbstractRoom? room)
     {
         if (player != base.Owner) return false;
-        if (room?.RoomType != RoomType.Monster && room?.RoomType != RoomType.Elite && room?.RoomType != RoomType.Boss)
-            return false;
 
         var modified = false;
         for (var i = rewards.Count - 1; i >= 0; i--)
@@ -113,7 +113,7 @@ public class ChildhoodBag : TouhouAncientRelics
             if (rewards[i] is GoldReward)
             {
                 // 替换金币奖励为污浊药水
-                rewards[i] = new PotionReward(ModelDb.Potion<FoulPotion>(), player);
+                rewards[i] = new PotionReward(ModelDb.Potion<FoulPotion>().ToMutable(), player);
                 modified = true;
                 break;
             }
@@ -122,7 +122,7 @@ public class ChildhoodBag : TouhouAncientRelics
         // 如果没有金币奖励，也额外添加一瓶污浊药水
         if (!modified)
         {
-            rewards.Add(new PotionReward(ModelDb.Potion<FoulPotion>(), player));
+            rewards.Add(new PotionReward(ModelDb.Potion<FoulPotion>().ToMutable(), player));
             modified = true;
         }
 

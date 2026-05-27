@@ -27,7 +27,7 @@ public class SoulLattern : TouhouAncientRelics
         new DynamicVar("ReaperFormAmount", 1m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReaperFormPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromPowerWithPowerHoverTips<ReaperFormPower>();
 
     /// <summary>
     /// 战斗开始时检查一次（需要全扫）

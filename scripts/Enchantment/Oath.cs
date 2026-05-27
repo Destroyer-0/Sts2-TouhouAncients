@@ -19,7 +19,9 @@ public class Oath : CustomEnchantmentModel
     /// <summary>
     /// 防止连锁打出时无限循环。
     /// </summary>
-    private static readonly HashSet<int> _playingThisChain = new();
+    private static readonly HashSet<CardModel> _playingThisChain = new();
+
+    private HashSet<CardModel> shouldExhaustedCards = new();
 
     public override bool CanEnchantCardType(CardType cardType)
     {
@@ -39,7 +41,7 @@ public class Oath : CustomEnchantmentModel
         if (player?.Creature?.CombatState == null) return;
 
         // 防止无限循环：如果这张牌已经在播放链中，跳过
-        if (!_playingThisChain.Add(base.Card.GetHashCode())) return;
+        if (!_playingThisChain.Add(base.Card)) return;
 
         try
         {
@@ -53,16 +55,16 @@ public class Oath : CustomEnchantmentModel
             foreach (var oathCard in oathCards)
             {
                 // 自动打出
+                if (!_playingThisChain.Add(oathCard)) continue;
                 await CardCmd.AutoPlay(choiceContext, oathCard, target: cardPlay.Target);
             }
         }
         finally
         {
-            _playingThisChain.Remove(base.Card.GetHashCode());
+            _playingThisChain.Clear();//.Remove(base.Card);
         }
     }
 
-    HashSet<CardModel> shouldExhaustedCards = new();
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card,
         bool causedByEthereal)
@@ -93,7 +95,7 @@ public class Oath : CustomEnchantmentModel
                 continue;
             }
 
-            await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), oathCard, skipVisuals: true);
+            await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), oathCard);//, //skipVisuals: true);
             //protectedCards.Add(oathCard); // 记录已经被保护过的牌，避免重复触发消耗效果
         }
         //protectedCards.Clear();
