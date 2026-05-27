@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bojpjh56yguek"]
+
+[ext_resource type="Texture2D" uid="uid://48paalpd2v8v" path="res://images/KirisameMarisa.png" id="1_bw5gw"]
+
+[node name="WatariNinaAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -377.0
+offset_top = -188.0
+offset_right = 2183.0
+offset_bottom = 1576.0
+texture = ExtResource("1_bw5gw")

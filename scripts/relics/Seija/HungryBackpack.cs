@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Rooms;
 
 namespace TouhouAncients.Scripts.relics;
@@ -53,6 +54,8 @@ public class HungryBackpack : TouhouAncientRelics
         base.Status = RelicStatus.Active;
         InvokeDisplayAmountChanged();
         _affectedCards.Clear();
+
+
         return Task.CompletedTask;
     }
 
@@ -76,6 +79,11 @@ public class HungryBackpack : TouhouAncientRelics
     {
         if (player.Creature?.CombatState == null) return;
         if (_currentExtraDraw <= 0) return;
+        
+        // 播放饥饿对话
+        var dialogue = RelicModel.L10NLookup("TOUHOUANCIENTS-HUNGRY_BACKPACK.hungry");
+        TalkCmd.Play(dialogue, base.Owner.Creature, VfxColor.Red);
+        
         var candidates =
             CombatManager.Instance.History.Entries
                 .OfType<CardDrawnEntry>()

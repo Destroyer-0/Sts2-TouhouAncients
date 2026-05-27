@@ -24,9 +24,7 @@ public class TicketToNetherworld : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var player = base.Owner;
-        var card = player.RunState.CreateCard(ModelDb.Card<LifeMustPerish>(), player);
-        var result = await CardPileCmd.Add(card, PileType.Deck);
-        CardCmd.PreviewCardPileAdd([result]);
+        CardModel card = base.Owner.RunState.CreateCard<LifeMustPerish>(base.Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
     }
 }

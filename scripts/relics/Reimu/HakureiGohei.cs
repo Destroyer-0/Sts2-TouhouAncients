@@ -21,11 +21,7 @@ public class HakureiGohei : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var player = base.Owner;
-
-        // 创建梦想封印并加入牌组
-        var card = player.RunState.CreateCard(ModelDb.Card<DreamSeal>(), player);
-        var result = await CardPileCmd.Add(card, PileType.Deck);
-        CardCmd.PreviewCardPileAdd(result);
+        CardModel card = base.Owner.RunState.CreateCard<DreamSeal>(base.Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
     }
 }

@@ -25,12 +25,7 @@ public class MagicMallet : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var player = base.Owner;
-        if (player == null) return;
-
-        Flash();
-
-        var wallet = player.RunState.CreateCard(ModelDb.Card<MagicWallet>(), player);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(wallet, PileType.Deck));
+        CardModel card = base.Owner.RunState.CreateCard<MagicWallet>(base.Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
     }
 }

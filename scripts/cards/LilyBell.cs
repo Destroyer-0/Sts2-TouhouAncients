@@ -78,7 +78,7 @@ public class LilyBell : TouhouAncientCards
         CardCmd.Preview(this, 1);
 
         // 给予所有敌人中毒
-        var poisonAmount = base.DynamicVars["PoisonEnemy"].BaseValue;
+        var poisonAmount = base.DynamicVars["PoisonPower"].BaseValue;
         var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature).Where(e => e.IsAlive);
         foreach (var enemy in enemies)
         {
@@ -97,7 +97,7 @@ public class LilyBell : TouhouAncientCards
     /// </summary>
     protected override void OnUpgrade()
     {
-        base.DynamicVars["PoisonEnemy"].UpgradeValueBy(1m);
+        base.DynamicVars["PoisonPower"].UpgradeValueBy(1m);
         AddKeyword(CardKeyword.Innate);
     }
 }

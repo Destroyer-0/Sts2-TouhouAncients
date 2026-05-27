@@ -1,4 +1,4 @@
-# Sts2-TouhouAncients
+﻿# Sts2-TouhouAncients
 杀戮尖塔2，东方先古之民
 依赖于BaseLib3.1.0(如有更新会说明)
 
@@ -24,6 +24,8 @@
 | 比那名居天子（三层） | `TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT` |
 | 鬼人正邪（二层） | `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT` |
 | 梅蒂欣·梅兰可莉（二层） | `TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT` |
+| 蓬莱山辉夜（三层） | `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT` |
+| 西行寺幽幽子（三层） | `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT` |
 
 ## 获得对应遗物
 控制台也可以直接获得对应的遗物。
@@ -39,7 +41,7 @@
 | 守矢御币 | `TOUHOUANCIENTS-MORIYA_GOHEI` | 拾起时，从牌组中选择一张牌，为其附魔：**奇迹** | 奇迹：获得消耗。打出后获得1能量，将一张带有奇迹附魔的随机颜色牌加入抽牌堆。 |
 | 白昼新星 | `TOUHOUANCIENTS-DAY_KAKUSEI` | 每场战斗开始时，获得一瓶能力药水。升级你生成的能力牌。 | — |
 | 蛇之护符 | `TOUHOUANCIENTS-SNAKE_AMULET` | 如果你在回合结束时手牌数不大于1，获得8点格挡与1敏捷，下回合额外获得1能量。 | — |
-| 蛙之护符 | `TOUHOUANCIENTS-FROG_AMULET` | 通过卡牌造成伤害后，下回合结束时对所有敌人造成25%造成伤害值的伤害。 | — |
+| 蛙之护符 | `TOUHOUANCIENTS-FROG_AMULET` | 通过卡牌造成伤害后，2回合后对所有敌人造成75%造成伤害值的伤害。 | — |
 | 水手服 | `TOUHOUANCIENTS-SAILOR_SUIT` | 战斗开始时，获得1人工制品。进入脆弱、虚弱与易伤状态时，免疫之并对所有敌人附加等量回合的对应效果。 | — |
 | 神山的谢礼 | `TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN` | 拾起时，获得300金币、一组普通、一组罕见和一组稀有卡牌奖励。 | — |
 
@@ -71,7 +73,7 @@
 | 涤荡腐坏的炽焰 | `TOUHOUANCIENTS-HUOYANTUXI` | 受到攻击时，对攻击者造成8点伤害。 | — |
 | 重峦叠嶂的壁垒 | `TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA` | 拾起时，将4张壁垒加入牌组，具有附魔：**优质**。获得已有同名牌时自动附魔优质。 | 优质：牌组中每有一张同名牌，此牌费用减少1。 |
 | 白白胖胖的海兽 | `TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN` | 拾起时删除4张牌，复制牌组中所有防御牌并升级。 | — |
-| 萎靡心灵的魔咒 | `TOUHOUANCIENTS-GEISHEHUAXIAOJIE` | 战斗开始时敌人减少9力量。你每打出一张牌，敌人增加1力量（最多9次）。 | — |
+| 萎靡心灵的魔咒 | `TOUHOUANCIENTS-GEISHEHUAXIAOJIE` | 战斗开始时敌人减少8力量。你每打出一张牌，敌人增加1力量（最多8次）。 | — |
 | 吞天噬地的毒牙 | `TOUHOUANCIENTS-SHEYAOTEBIEQIANG` | 将一张蛇咬加入牌组。为牌组中名称带"蛇"的牌附魔：**蛇毒**。 | 蛇毒：手牌中每回合减1费。打出后回手，本回合随机化耗能。 |
 | 一时兴起的消费 | `TOUHOUANCIENTS-YISHIXINGQILE` | 拾起时获得112金币。消费后随机一件商品价格降至0。 | — |
 | 固若金汤的圣铠 | `TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE` | 战斗开始时获得7层覆甲。获得覆甲时获得1能量。 | — |
@@ -87,32 +89,30 @@
 | 腌制红雾 | `TOUHOUANCIENTS-PRESERVED_RED_FOG` | 拾起时从牌组中复制3张牌。将一张愚行加入牌组。 | 愚行：不可打出，永恒，固有。 |
 | 极夜侍仆 | `TOUHOUANCIENTS-NIGHT_SERVANT` | 卡牌奖励额外包含时间仆从、魔法仆从、罡气仆从中的一张。 | 时间仆从：1费，生成2把小刀。回合结束时每消耗1张牌造成5伤害。<br>魔法仆从：1费，为手牌添加虚无。获得2能量，本回合不可再打出。<br>罡气仆从：2费，获得18格挡。本回合将格挡掉的攻击伤害转化为活力。 |
 | 领主防晒霜 | `TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM` | 卡牌奖励掉落的牌一定为稀有牌，且你可以选择全都要。 | — |
-| 冈格尼尔 | `TOUHOUANCIENTS-SPEAR_GUNGNIR` | 待设计 | — |
 
 #### 比那名居天子（三层）
 | 遗物 | 代号 | 效果 | 衍生 |
 |:----|:----|:----|:----|
 | 绯想之剑 | `TOUHOUANCIENTS-HISOU_SWORD` | 拾起时，将一张全人类的绯想天加入牌组。 | 全人类的绯想天：3费能力。保留。打出并消耗所有当前手牌与消耗堆里的牌。 |
 | 天穹裙带 | `TOUHOUANCIENTS-FIRMAMENT_SASH` | 受到非自身伤害时减少至多10点并记录。回合结束时对自身造成等量伤害。 | — |
-| 天衍苦厄 | `TOUHOUANCIENTS-CURSE_BREAKER_QI` | 拾起时获得9张随机诅咒。可打出诅咒，打出诅咒时获得1力量、1能量并抽2张牌。 | — |
+| 天衍苦厄 | `TOUHOUANCIENTS-CURSE_BREAKER_QI` | 拾起时获得9张随机诅咒。可打出诅咒，每回合首次打出诅咒时获得1力量、1能量并抽3张牌。 | — |
 | 天罚石柱 | `TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON` | 技能牌插下要石，攻击牌拔出要石对所有敌人造成8伤害，本场战斗伤害+2。 | — |
 | 天馔仙桃 | `TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH` | 每打出攻击、技能、能力各一张时，清除负面效果并恢复1能量。 | — |
 | 天赐甲胄 | `TOUHOUANCIENTS-HOLY_ARMOR` | 每回合开始时获得1能量。每回合首次从卡牌获得的格挡减半。 | — |
 | 天界冷漠 | `TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE` | 回合结束时，升级本回合获得过的牌与抽牌堆顶的牌。 | — |
 | 天宇诏令 | `TOUHOUANCIENTS-COSMIC_DECREE` | 拾起时获得天赋君权。查看15张储君的升级牌，选择任意数量加入牌组。 | — |
-| 至尊金箍 | `TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL` | 拾起时选择一张升级后的先古之民卡牌加入牌组。不再掉落卡牌奖励。 | — |
 
 #### 鬼人正邪（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
 |:----|:----|:----|:----|
 | 反叛号角 | `TOUHOUANCIENTS-REBELLION_HORN` | 拾起时，升级你牌组中所有初始牌与普通牌。 | — |
-| 隐身布 | `TOUHOUANCIENTS-INVISIBILITY_CLOTH` | 战斗开始时获得壁垒与15点格挡。首次受伤时失去壁垒并进入1回合昏眩(只能打出一张牌)。 | — |
+| 隐身布 | `TOUHOUANCIENTS-INVISIBILITY_CLOTH` | 战斗开始时获得壁垒与15点格挡与1敏捷。首次受伤时失去壁垒并进入1回合昏眩(只能打出一张牌)。 | — |
 | 沥血阴阳玉 | `TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB` | 每回合开始时获得1能量。休息处恢复生命减少25点。 | — |
 | 哔哩电池 | `TOUHOUANCIENTS-BATTERY_BILI` | 每场战斗第一回合开始时，从抽牌堆中选择3张能力牌置入手牌，这些牌本回合免费打出，并被侵蚀为流电(打出这张牌时受到6点伤害)。 | — |
 | 亡灵提灯 | `TOUHOUANCIENTS-GHOST_LANTERN` | 拾起时，从15张无色牌中选择至多5张加入牌组，拥有附魔：**付丧之力**。 | 付丧之力：获得虚无。抽牌阶段结束后，如果你的手牌中没有带有付丧之力的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。 |
-| 万宝槌 | `TOUHOUANCIENTS-MAGIC_MALLET` | 拾起时，将一张小槌的魔力加入牌组。 | 小槌的魔力：1费技能。你的下1张其它牌免费打出。每次打出后本场战斗费用+1，免费次数+1。 |
+| 万宝槌 | `TOUHOUANCIENTS-MAGIC_MALLET` | 拾起时，将一张小槌的魔力加入牌组。 | 小槌的魔力：0费技能。你的下1张其它牌免费打出。每次打出后本场战斗费用+1，免费次数+1。 |
 | 折叠伞 | `TOUHOUANCIENTS-FOLDING_UMBRELLA` | 战斗开始时，获得5层倒映。 | — |
-| 饥饿背包 | `TOUHOUANCIENTS-HUNGRY_BACKPACK` | 每回合开始时额外抽3张牌，使随机3张抽牌阶段抽到的牌获得吞噬(获得消耗)，然后数值减少1。 | — |
+| 饥饿背包 | `TOUHOUANCIENTS-HUNGRY_BACKPACK` | 每回合开始时额外抽4张牌，使随机4张抽牌阶段抽到的牌获得吞噬(获得消耗)，然后数值减少1。 | — |
 | 伪灵异珠 | `TOUHOUANCIENTS-FAKE_SPIRIT_ORB` | 每回合开始时获得1能量。随机2张抽牌阶段抽到的牌获得沉重。(打出这张牌时失去1能量) | — |
 
 #### 因幡帝（二层）
@@ -130,11 +130,41 @@
 | 遗物 | 代号 | 效果 | 衍生 |
 |:----|:----|:----|:----|
 | 童忆书包 | `TOUHOUANCIENTS-CHILDHOOD_BAG` | 用污浊药水填满空药水栏位。战斗结束时的金币奖励替换为1瓶污浊药水。自身免疫污浊药水伤害。 | — |
-| 舞台装置 | `TOUHOUANCIENTS-STAGE_DEVICE` | 回合开始时给予所有敌人1层易伤（已有易伤则失去1生命）。回合结束时给予所有敌人1层虚弱（已有虚弱则失去1生命）。 | — |
-| 蛊毒魔盒 | `TOUHOUANCIENTS-MEDICINE_POISON_BOX` | 拾起时，将所有打击替换为蛇咬并附魔：**蛊毒**。 | 蛊毒：回合结束时若在手牌，费用减1直至打出。本局游戏中毒+5。 |
-| 铃色的日记本 | `TOUHOUANCIENTS-LILY_BELL_DIARY` | 每场战斗开始时，将1张铃兰加入手牌。 | 铃兰：0费保留消耗。打出时获得1(2)能量抽2张。被保留时自身+2中毒，能量+1。 |
-| 幸福的秘药 | `TOUHOUANCIENTS-HAPPINESS_ELIXIR` | Boss战开始时用随机药水填满药水栏、回复所有生命、升级所有卡牌、移除所有诅咒。 | — |
+| 蛊毒魔盒 | `TOUHOUANCIENTS-MEDICINE_POISON_BOX` | 拾起时，将所有打击替换为蛇咬并附魔：蛊毒。 | 蛊毒：回合结束时若在手牌，费用减1直至打出。本局游戏中毒+5。 |
+| 铃色的日记本 | `TOUHOUANCIENTS-LILY_BELL_DIARY` | 每场战斗开始时，将1张铃兰加入牌组。 | 铃兰：0费保留消耗。打出时获得1(2)能量抽2张。被保留时给予所有敌人2(升级后3)层中毒，能量+1。 |
+| 幸福的秘药 | `TOUHOUANCIENTS-HAPPINESS_ELIXIR` | 拾起时，获得一瓶卡米莉亚。第2幕的Boss战结束后额外掉落一瓶。 | — |
 | 丝带蝴蝶结 | `TOUHOUANCIENTS-RIBBON_BOW` | 拾起时选2张非能力牌附魔：**誓约**。 | 誓约：打出后同时打出其他誓约牌。被消耗时消耗其他誓约牌。 |
 | 蔷薇皇冠 | `TOUHOUANCIENTS-ROSE_CROWN` | 战斗开始时获得5层荆棘与5层覆甲。 | — |
-| 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得3力量。所有敌人初始获得1层荆棘。 | — |
+| 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得2力量。所有敌人初始获得1层荆棘。 | — |
+| 荒疫特调 | `TOUHOUANCIENTS-PLAGUE_BLEND` | 每回合开始时获得1能量。第3回合开始时，给予自身4层中毒。 | — |
+
+#### 蓬莱山辉夜（三层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 绀珠之药 | `TOUHOUANCIENTS-KONSHII_NO_KUSURI` | 每场战斗开始时，将一张绀珠之药置入手牌。持有污秽计数（复活次数），每次触发复活增加1层。 | 绀珠之药：诅咒。血量归0时丢弃此牌并回复30%生命值，失去5x(污秽计数+1)最大生命。 |
+| 龙颈之玉 | `TOUHOUANCIENTS-RYUKEI_NO_TAMA` | 每场战斗开始时，将一张辉星费用为0的七星+加入抽牌堆。 | 七星：辉星费用2(1)的攻击。对所有敌人造成7点伤害7次。 |
+| 火鼠的皮衣 | `TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO` | 每场战斗开始时，将3张灼伤放入抽牌堆。可以打出原本不能打出的灼伤，打出时抽1张牌，获得9格挡与3荆棘。 | — |
+| 燕之子安贝 | `TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI` | 拾起时，获得16最大生命。进入新房间时，若生命值低于40%则回复到40%。 | — |
+| 佛御石之钵 | `TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI` | 拾起时，失去30最大生命。每场战斗开始时，获得5敏捷与30格挡。 | — |
+| 永远亭座药 | `TOUHOUANCIENTS-EIENTEI_ZAKUSHI` | 拾起时，用随机药水填满药水栏位。每回合开始时，每拥有一瓶药水对随机敌人造成8点伤害。 | — |
+| 辉夜姬秘宝 | `TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE` | 每场战斗开始时，从12张其他角色的卡牌中选择一张加入手牌。打出后，其原始复制会加入战斗奖励。 | — |
+
+#### 西行寺幽幽子（三层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 西行妖枯枝 | `TOUHOUANCIENTS-SAIGYOUJI_BRANCH` | 每当你消耗一张牌，增加一张带有虚无的随机卡牌到手牌并获得1格挡。 | — |
+| 幽灵折扇 | `TOUHOUANCIENTS-GHOST_FAN` | 拾起时，选择至多3张技能牌，为其附魔：彷徨。 | 彷徨：若上一张打出的是攻击牌，此牌打出后回手并获得10格挡。 |
+| 反魂蝶 | `TOUHOUANCIENTS-SOUL_BUTTERFLY` | 防止一次致命伤，回复5点生命值，获得3层无实体，然后休眠8回合(期间不阻止死亡)。战斗后重置。 | — |
+| 幽魂酒盅 | `TOUHOUANCIENTS-SOUL_SAKE_CUP` | 拾起时，获得80最大生命，将当前生命值降低至60。 | — |
+| 人魂灯 | `TOUHOUANCIENTS-SOUL_LATTERN` | 每场战斗首次任意单位生命低于50%时，获得1层死神形态。 | — |
+| 黄泉期票 | `TOUHOUANCIENTS-TICKET_TO_NETHERWORLD` | 拾起时，将一张生者必灭之理加入牌组。 | 生者必灭之理：3费能力。X回合后清除所有敌人人工制品并给予9999层灾厄。受伤害时延长倒计时。 |
+| 天冠 | `TOUHOUANCIENTS-SKY_HAT` | 累计获得每23格挡，将一张灵魂+置入抽牌堆。每个房间重置计数。 | — |
+| 墨染的樱花 | `TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS` | 每回合开始时获得1能量并失去1最大生命。可在休息处赏樱，恢复因本遗物失去的最大生命。 | — |
+| 弘川之骨 | `TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA` | 一回合内只打出能力牌时，回合结束时获得2层缓冲。 | — |
+| 弹幕的亡灵 | `TOUHOUANCIENTS-DANMUKU_GHOST` | 敌人回合内若发动过攻击但未造成伤害，回合结束时获得2回合缩小。 | — |
+
+#### 通用
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 破财消灾 | `TOUHOUANCIENTS-LOSE_MONEY` | 每打出3张牌，消耗4金币获得1能量。金币不足时不触发。 | — |
 

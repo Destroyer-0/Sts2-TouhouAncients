@@ -24,13 +24,13 @@ public class LilyBellDiary : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<LilyBell>();
     
-    public override async Task BeforeCombatStart()
-    {
-        var player = base.Owner;
+    public override bool HasUponPickupEffect => true;
 
-        // 创建梦想封印并加入牌组
-        var card = player.RunState.CreateCard(ModelDb.Card<LilyBell>(), player);
-        var result = await CardPileCmd.Add(card, PileType.Deck);
-        CardCmd.PreviewCardPileAdd(result);
+    public override async Task AfterObtained()
+    {
+        CardModel card = base.Owner.RunState.CreateCard<LilyBell>(base.Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
     }
+    
+    
 }

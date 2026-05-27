@@ -1,5 +1,8 @@
 {
   "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "赏樱",
   "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "恢复因[pink]墨染的樱花[/pink]而失去的最大生命（{MaxHpGain}）。",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "还未到[pink][sine]樱花散落[/sine][/pink]的时候呢。"
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "还未到[pink][sine]樱花散落[/sine][/pink]的时候呢。",
+
+  "OPTION_WITCHS_CAULDRON.name": "炼药",
+  "OPTION_WITCHS_CAULDRON.description": "获得[blue]3[/blue]瓶随机药水，[gold]变化[/gold]至多[blue]1[/blue]张牌。"
 }

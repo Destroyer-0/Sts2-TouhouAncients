@@ -73,6 +73,11 @@
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.eventDescription": "获得[blue]{Gold}[/blue][gold]金币[/gold]，[blue]1[/blue]组[gold]普通[/gold]、[blue]1[/blue]组[gold]罕见[/gold]和[blue]1[/blue]组[gold]稀有[/gold]卡牌奖励。",
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.flavor": "信仰[aqua]守矢神社[/aqua]即可领取新人大礼包——文文新闻上是这样写的。",
 
+  "TOUHOUANCIENTS-MIRACLE_NOBLE.title": "奇迹圣约",
+  "TOUHOUANCIENTS-MIRACLE_NOBLE.description": "拾起时，将[blue]1[/blue]张[gold]开海的奇迹[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MIRACLE_NOBLE.eventDescription": "将[blue]1[/blue]张[gold]开海的奇迹[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "",
+
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
   "TOUHOUANCIENTS-DRACULA_LEGACY.eventDescription": "随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
@@ -299,6 +304,7 @@
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.title": "饥饿背包",
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.description": "在每个回合开始时，额外抽[blue]{Cards}[/blue]张牌并使随机[blue]{Cards}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]吞噬[/purple]，然后这两个数值减少[blue]{ReduceCardDraw}[/blue]。",
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.flavor": "似乎能隐约从背包中听到“我饥饿……”的声响。",
+  "TOUHOUANCIENTS-HUNGRY_BACKPACK.hungry": "我饥饿……",
 
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.title": "伪灵异珠",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]沉重[/purple]。",
@@ -320,8 +326,8 @@
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "铃色的日记本",
-  "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "拾起时，将一张[gold]铃兰[/gold]加入牌组。",
-  "TOUHOUANCIENTS-LILY_BELL_DIARY.eventDescription": "将一张[gold]铃兰[/gold]加入牌组。",
+  "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "拾起时，将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LILY_BELL_DIARY.eventDescription": "将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "",
 
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.title": "幸福的秘药",
@@ -425,5 +431,43 @@
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "辉夜姬秘宝",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "每场战斗开始时，从[blue]{Cards}[/blue]张其它角色的牌库中选择一张加入[gold]手牌[/gold]。打出这张牌后，其原始复制会额外出现在[gold]战斗奖励[/gold]中。",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "",
-  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "选择一张牌"
+  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "选择一张牌",
+
+  "TOUHOUANCIENTS-MINI_HAKKERO.title": "迷你八卦炉",
+  "TOUHOUANCIENTS-MINI_HAKKERO.description": "回合结束时，消耗[blue]1~3[/blue]张手牌。若消耗的牌不小于[blue]2[/blue]张，下个回合开始时获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "",
+
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.title": "恋色手电筒",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.description": "将一张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.eventDescription": "将一张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.flavor": "",
+
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.title": "彗星加速器",
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每个回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]1[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "",
+
+  "TOUHOUANCIENTS-KOMPEITO_POT.title": "金平糖罐",
+  "TOUHOUANCIENTS-KOMPEITO_POT.description": "你的[gold]卡牌奖励[/gold]中将额外出现一张[green]升级过的[/green][gold]能力牌[/gold]，选取[blue]3[/blue]张后失效。",
+  "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "",
+
+  "TOUHOUANCIENTS-STARDUST_BROOM.title": "星尘扫帚",
+  "TOUHOUANCIENTS-STARDUST_BROOM.description": "初始充能[blue]2[/blue]，最大充能[blue]3[/blue]。你可以消耗一层充能无视当前的路线选择下一层的房间。每经过[blue]3[/blue]个房间获得[blue]1[/blue]充能。",
+  "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "",
+
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "魔女的炼药锅",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "拾起时，获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "",
+
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]中的[blue]2[/blue]张牌附魔[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "",
+
+  "TOUHOUANCIENTS-GLOBE.title": "地球仪",
+  "TOUHOUANCIENTS-GLOBE.description": "以保留[green]升级[/green]的状态变化[blue]{Cards}[/blue]张牌。",
+  "TOUHOUANCIENTS-GLOBE.flavor": "",
+
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": ""
 }

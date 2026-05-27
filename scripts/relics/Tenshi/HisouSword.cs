@@ -30,17 +30,21 @@ public class HisouSword : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var player = base.Owner;
-
-        var card = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), new List<CardModel>()
-        {
-            player.RunState.CreateCard(ModelDb.Card<AllCreationHisou>(),player),
-            player.RunState.CreateCard(ModelDb.Card<AllCreationHisou_Old>(),player)
-        }, Owner, false);
-        if (card != null)
-        {
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
-        }
+        // var player = base.Owner;
+        //
+        // var card = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), new List<CardModel>()
+        // {
+        //     player.RunState.CreateCard(ModelDb.Card<AllCreationHisou>(),player),
+        //     player.RunState.CreateCard(ModelDb.Card<AllCreationHisou_Old>(),player)
+        // }, Owner, false);
+        // if (card != null)
+        // {
+        //     CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
+        // }
+        //
+        
+        CardModel card = base.Owner.RunState.CreateCard<AllCreationHisou>(base.Owner);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck), 2f);
         
         // var cardModel = ModelDb.Card<AllCreationHisou>();
         // var card = player.RunState.CreateCard(cardModel, player);

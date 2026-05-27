@@ -27,6 +27,8 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(FourLeafClover));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
         
         // 注册自定义药水到共享药水池
         ModHelper.AddModelToPool(typeof(SharedPotionPool), typeof(potions.CamelliaPotion));

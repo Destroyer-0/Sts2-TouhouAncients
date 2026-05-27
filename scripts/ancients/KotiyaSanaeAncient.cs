@@ -56,7 +56,8 @@ public class KotiyaSanaeAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<SailorSuit>(),
-            AncientOption<GiftFromMountain>()
+            AncientOption<GiftFromMountain>(),
+            AncientOption<MiracleNoble>()
         )
     );
 }
