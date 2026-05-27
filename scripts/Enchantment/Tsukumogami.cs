@@ -39,10 +39,13 @@ public class Tsukumogami : CustomEnchantmentModel
         if (player.Creature.CombatState==null) return;
         if (PileType.Hand.GetPile(player).Cards.Count(x => x.Enchantment is Tsukumogami) == 0)
         {
-            var allTsukumogami = player.Piles.SelectMany(x => x.Cards).ToList();
+            var allTsukumogami = player.Piles
+                .Where(x => x.Type is PileType.Draw or PileType.Exhaust or PileType.Discard).SelectMany(x => x.Cards)
+                .Where(x => x is { Enchantment: Tsukumogami, HasBeenRemovedFromState: false }).ToList();
             if (allTsukumogami.Count > 0)
             {
-                var backCard = allTsukumogami.TakeRandom(1, player.Creature.CombatState.RunState.Rng.CombatCardSelection).First();
+                var backCard = allTsukumogami
+                    .TakeRandom(1, player.Creature.CombatState.RunState.Rng.CombatCardSelection).First();
                 await CardPileCmd.Add(backCard, PileType.Hand);
             }
         }

@@ -78,6 +78,8 @@ public class HungryBackpack : TouhouAncientRelics
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature?.CombatState == null) return;
+        if (player != Owner) return;
+        
         if (_currentExtraDraw <= 0) return;
         
         // 播放饥饿对话

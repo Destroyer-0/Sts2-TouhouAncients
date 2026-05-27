@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
@@ -25,8 +26,7 @@ public class KompeitoPot : TouhouAncientRelics
 {
     private const int MaxUses = 3;
 
-    [SavedProperty]
-    public int TouhouAncients_UsesRemaining { get; set; } = MaxUses;
+    [SavedProperty] public int TouhouAncients_UsesRemaining { get; set; } = MaxUses;
 
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_UsesRemaining;
@@ -38,6 +38,8 @@ public class KompeitoPot : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => false;
 
+    private CardModel? spawnedCard;
+
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
         CardCreationOptions creationOptions)
     {
@@ -46,33 +48,56 @@ public class KompeitoPot : TouhouAncientRelics
         if (creationOptions.Source != CardCreationSource.Encounter) return false;
 
         // 找一张能力牌
-        var powerCards = creationOptions.GetPossibleCards(player)
-            .Where(c => c.Type == CardType.Power && c.Rarity != CardRarity.Curse)
-            .ToList();
-
-        if (!powerCards.Any()) return false;
-
-        var rng = player.PlayerRng.Rewards;
-        var chosen = powerCards.UnstableShuffle(rng).First();
-
-        Flash();
-
-        // 克隆并升级
-        var cloned = base.Owner.RunState.CloneCard(chosen);
-        CardCmd.Upgrade(cloned);
-
-        var result = new CardCreationResult(cloned);
-        result.ModifyCard(cloned, this);
-        options.Add(result);
-
-        TouhouAncients_UsesRemaining--;
-        InvokeDisplayAmountChanged();
-
-        if (TouhouAncients_UsesRemaining <= 0)
+        IEnumerable<CardModel> enumerable = from c in creationOptions.GetPossibleCards(player)
+            where c.Type == CardType.Power && options.TrueForAll((CardCreationResult o) => o.originalCard.Id != c.Id)
+            select c;
+        if (!enumerable.Any())
         {
-            base.Status = MegaCrit.Sts2.Core.Entities.Relics.RelicStatus.Disabled;
+            enumerable = from c in creationOptions.GetPossibleCards(player)
+                where c.Type == CardType.Power
+                select c;
         }
 
-        return true;
+        if (!enumerable.Any())
+        {
+            return false;
+        }
+
+        CardCreationOptions options2 =
+            new CardCreationOptions(enumerable, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(
+                CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
+        CardModel cardModel = CardFactory.CreateForReward(base.Owner, 1, options2).FirstOrDefault()?.Card;
+        if (cardModel != null)
+        {
+            if (cardModel.IsUpgradable)
+            {
+                CardCmd.Upgrade(cardModel);
+            }
+
+            CardCreationResult cardCreationResult = new CardCreationResult(cardModel);
+            cardCreationResult.ModifyCard(cardModel, this);
+            spawnedCard = cardModel;
+            options.Add(cardCreationResult);
+        }
+
+        return cardModel != null;
+    }
+
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    {
+        if (card.Owner != base.Owner) return;
+        if (spawnedCard == null) return;
+        CardPile? pile = card.Pile;
+        if (pile != null && pile.Type == PileType.Deck && card == spawnedCard)
+        {
+            Flash();
+            TouhouAncients_UsesRemaining--;
+            InvokeDisplayAmountChanged();
+
+            if (TouhouAncients_UsesRemaining <= 0)
+            {
+                base.Status = MegaCrit.Sts2.Core.Entities.Relics.RelicStatus.Disabled;
+            }
+        }
     }
 }

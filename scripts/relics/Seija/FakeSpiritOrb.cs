@@ -60,6 +60,7 @@ public class FakeSpiritOrb : TouhouAncientRelics
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature?.CombatState == null) return;
+        if (player != Owner) return;
         var candidates =
             CombatManager.Instance.History.Entries
                 .OfType<CardDrawnEntry>()

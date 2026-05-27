@@ -31,7 +31,7 @@ public class KirisameMarisaAncient : CustomAncientModel
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KirisameMarisa.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/KirisameMarisa.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KirisameMarisa.png";
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

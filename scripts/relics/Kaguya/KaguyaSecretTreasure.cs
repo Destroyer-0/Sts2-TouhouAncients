@@ -36,8 +36,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
     [
         new CardsVar(12)
     ];
-
-
+    
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner || base.Owner.Creature.CombatState.RoundNumber != 1)
@@ -73,7 +72,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
 
         // 让玩家从网格中选择一张
         foreach (var cardModel in await CardSelectCmd.FromSimpleGrid(
-                     context: new BlockingPlayerChoiceContext(),
+                     context: choiceContext,
                      cardsIn: list2,
                      player: player,
                      prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1)
