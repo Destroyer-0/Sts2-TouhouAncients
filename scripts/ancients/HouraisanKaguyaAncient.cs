@@ -19,7 +19,6 @@ public class HouraisanKaguyaAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanKaguya) return false;
         return act.ActNumber() == 3;
     }
 

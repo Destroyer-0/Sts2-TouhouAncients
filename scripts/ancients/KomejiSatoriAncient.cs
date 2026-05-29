@@ -15,7 +15,6 @@ public class KomejiSatoriAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanSatori) return false;
         return act.ActNumber() == 2;
     }
 

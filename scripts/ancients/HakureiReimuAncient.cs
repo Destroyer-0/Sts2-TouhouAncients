@@ -19,7 +19,6 @@ public class HakureiReimuAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanReimu) return false;
         return act.ActNumber() == 2;
     }
 
@@ -38,8 +37,8 @@ public class HakureiReimuAncient : CustomAncientModel
             AncientOption<SubspaceHole>()
         ),
         MakePool(
-            AncientOption<MiniShrine>()
-            //, AncientOption<DonateMoneyBox>()
+            AncientOption<MiniShrine>(),
+            AncientOption<DonateMoneyBox>()
         ),
         MakePool(
             AncientOption<YinYangOrb>(),

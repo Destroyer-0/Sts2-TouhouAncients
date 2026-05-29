@@ -15,7 +15,6 @@ public class RemiliaScarletAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanRemilia) return false;
         return act.ActNumber() == 3;
     }
 
@@ -24,9 +23,9 @@ public class RemiliaScarletAncient : CustomAncientModel
         return TouhouAncientsConfig.IsAncientForced<RemiliaScarletAncient>(act.ActNumber());
     }
     
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/RemiliaScarlet_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/RemiliaScarlet_MapNode.png";
 
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/RemiliaScarlet.png";

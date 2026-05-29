@@ -24,7 +24,6 @@ public class MedicineMelancholyAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanMedicine) return false;
         return act.ActNumber() == 2;
     }
 

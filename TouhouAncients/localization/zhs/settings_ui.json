@@ -1,16 +1,5 @@
 {
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "禁用先古之民",
-  "TOUHOUANCIENTS-BAN_REIMU.title": "禁用博丽灵梦",
-  "TOUHOUANCIENTS-BAN_SANAE.title": "禁用东风谷早苗",
-  "TOUHOUANCIENTS-BAN_REMILIA.title": "禁用蕾米莉亚·斯卡雷特",
-  "TOUHOUANCIENTS-BAN_SATORI.title": "禁用古明地觉",
-  "TOUHOUANCIENTS-BAN_NINA.title": "禁用渡里贝子",
-  "TOUHOUANCIENTS-BAN_TENSHI.title": "禁用比那名居天子",
-  "TOUHOUANCIENTS-BAN_TEWI.title": "禁用因幡帝",
-  "TOUHOUANCIENTS-BAN_SEIJA.title": "禁用鬼人正邪",
-  "TOUHOUANCIENTS-BAN_MEDICINE.title": "禁用梅蒂欣·梅兰可莉",
-  "TOUHOUANCIENTS-BAN_YUYUKO.title": "禁用西行寺幽幽子",
-  "TOUHOUANCIENTS-BAN_KAGUYA.title": "禁用蓬莱山辉夜",
 
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "二层强制出现先古之民（单选）",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "三层强制出现先古之民（单选）",
@@ -26,6 +15,5 @@
   "TOUHOUANCIENTS-FORCED_ANCIENT_MEDICINE.title": "梅蒂欣·梅兰可莉",
   "TOUHOUANCIENTS-FORCED_ANCIENT_YUYUKO.title": "西行寺幽幽子",
   "TOUHOUANCIENTS-FORCED_ANCIENT_KAGUYA.title": "蓬莱山辉夜",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_MARISA.title": "雾雨魔理沙",
-  "TOUHOUANCIENTS-BAN_MARISA.title": "禁用雾雨魔理沙"
+  "TOUHOUANCIENTS-FORCED_ANCIENT_MARISA.title": "雾雨魔理沙"
 }

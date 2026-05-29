@@ -44,7 +44,7 @@ public class ServantSakuya : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(2),
-        new DamageVar(5m, ValueProp.Move)
+        new DamageVar(6m, ValueProp.Move)
     ];
 
     public ServantSakuya() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

@@ -20,7 +20,6 @@ public class KijinSeijaAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanSeija) return false;
         return act.ActNumber() == 2;
     }
 

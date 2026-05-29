@@ -19,7 +19,6 @@ public class SaigyoujiYuyukoAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanYuyuko) return false;
         return act.ActNumber() == 3;
     }
 
