@@ -22,7 +22,6 @@ public class KotiyaSanaeAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanSanae) return false;
         return base.IsValidForAct(act);
     }
 

@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Enchantments;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Enchantments;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
@@ -37,7 +38,30 @@ public class Yumeiro : CustomEnchantmentModel
     {
         get
         {
-            s_allEnchantments ??= ModelDb.DebugEnchantments.ToList();
+            if (s_allEnchantments == null)
+            {
+                s_allEnchantments = new List<EnchantmentModel>();
+                var enchantmentTypes = ModelDb.AllAbstractModelSubtypes
+                    .Where(t => t != null && t.IsSubclassOf(typeof(EnchantmentModel)) && !t.IsAbstract);
+
+                foreach (Type type in enchantmentTypes)
+                {
+                    try
+                    {
+                        ModelId id = ModelDb.GetId(type);
+                        EnchantmentModel? enchantment = ModelDb.GetByIdOrNull<EnchantmentModel>(id);
+
+                        if (enchantment != null)
+                        {
+                            s_allEnchantments.Add(enchantment);
+                        }
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+            }
 
             return s_allEnchantments;
         }
@@ -55,14 +79,20 @@ public class Yumeiro : CustomEnchantmentModel
 
         base.Status = EnchantmentStatus.Disabled;
         if (Card.HasBeenRemovedFromState) return;
-        CardCmd.ClearEnchantment(Card);
+
+        var card = Card;
+        var cardType = card.Type;
+
+        Card.EnergyCost.FinalizeUpgrade();
+        CardCmd.ClearEnchantment(card);
         // 失去梦色附魔并变化为其他附魔
         var availableEnchantments = AllEnchantments
             .Where(e =>
             {
                 if (e is Bloodshed) return false;
                 if (e is Yumeiro) return false;
-                return e.CanEnchant(cardPlay?.Card);
+                if (e is Inky && cardType != CardType.Attack) return false;
+                return e.CanEnchant(Card);
             })
             .ToList();
 
@@ -71,7 +101,7 @@ public class Yumeiro : CustomEnchantmentModel
             var randomEnchantment =
                 availableEnchantments.UnstableShuffle(player.RunState.Rng.CombatCardGeneration).First();
             // 附加新的随机附魔
-            CardCmd.Enchant(randomEnchantment.ToMutable(), cardPlay?.Card, 1m);
+            CardCmd.Enchant(randomEnchantment.ToMutable(), Card, 1m);
         }
     }
 }

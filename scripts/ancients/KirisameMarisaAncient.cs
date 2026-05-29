@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
@@ -19,7 +20,6 @@ public class KirisameMarisaAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanMarisa) return false;
         return base.IsValidForAct(act);
     }
 
@@ -32,6 +32,7 @@ public class KirisameMarisaAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KirisameMarisa.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KirisameMarisa.png";
+
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

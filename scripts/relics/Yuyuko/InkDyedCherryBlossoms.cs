@@ -53,8 +53,18 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.ForEnergy(this), HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientCherryBlossoms)
+        HoverTipFactory.ForEnergy(this),
+        new HoverTip(
+            new LocString("rest_site_ui", "OPTION_INK_DYED_CHERRY_BLOSSOMS.name"),
+            DescriptionForTip())
     ];
+
+    private LocString DescriptionForTip()
+    {
+        var desc = new LocString("rest_site_ui", "OPTION_INK_DYED_CHERRY_BLOSSOMS.description");
+        desc.Add("MaxHpGain", LostMaxHpTotal);
+        return desc;
+    }
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {

@@ -19,7 +19,6 @@ public class InabaTewiAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanTewi) return false;
         return act.ActNumber() == 2;
     }
 

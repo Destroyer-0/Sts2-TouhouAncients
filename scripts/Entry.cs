@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.Enchantment;
+using TouhouAncients.Scripts.Patches;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -32,6 +33,9 @@ public class Entry
         
         // 注册自定义药水到共享药水池
         ModHelper.AddModelToPool(typeof(SharedPotionPool), typeof(potions.CamelliaPotion));
+        
+        // 初始化 Ancient 禁用配置扫描
+        BanAncientPatch.Initialize();
         
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可

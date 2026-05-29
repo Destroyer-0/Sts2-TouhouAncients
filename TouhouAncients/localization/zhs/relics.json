@@ -158,7 +158,7 @@
   "TOUHOUANCIENTS-MINI_SHRINE.flavor": "谁也不知道里面供奉的是什么神明。",
 
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "赛钱箱",
-  "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "你可以在休息处进行[gold]募捐[/gold]。",
+  "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "当你进入[gold]休息处[/gold]时，获得[blue]{CardRewards}[/blue]组卡牌奖励与[gold]{Gold}[/gold]~[gold]{GoldMax}[/gold]金币。",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "摇晃的时候听不到声音。",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
@@ -386,7 +386,7 @@
 
   "TOUHOUANCIENTS-SOUL_LATTERN.title": "人魂灯",
   "TOUHOUANCIENTS-SOUL_LATTERN.description": "每场战斗首次有任意单位的生命值低于[blue]50%[/blue]时，进入[gold]死神形态[/gold]。",
-  "TOUHOUANCIENTS-SOUL_LATTERN.flavor": "",
+  "TOUHOUANCIENTS-SOUL_LATTERN.flavor": "死是凉爽的夏夜，可供人无忧的安眠。",
 
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "黄泉期票",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.description": "拾起时，将一张[gold]生者必灭之理[/gold]加入牌组。",

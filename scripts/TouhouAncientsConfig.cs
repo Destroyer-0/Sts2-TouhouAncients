@@ -1,5 +1,10 @@
+using System;
+using System.Collections.Generic;
 using BaseLib.Config;
+using Godot;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.Patches;
 
 namespace TouhouAncients.Scripts;
 
@@ -40,30 +45,6 @@ public class TouhouAncientsConfig : SimpleModConfig
     // Medicine 使用 ForcedAncient_2（Act 2 角色）
 
     /// <summary>
-    /// 检查某个 Ancient 是否被禁止
-    /// </summary>
-    public static bool IsAncientBanned<T>() where T : AncientEventModel
-    {
-        var name = typeof(T).Name;
-        return name switch
-        {
-            nameof(HakureiReimuAncient) => BanReimu,
-            nameof(KotiyaSanaeAncient) => BanSanae,
-            nameof(RemiliaScarletAncient) => BanRemilia,
-            nameof(KomejiSatoriAncient) => BanSatori,
-            nameof(WatariNinaAncient) => BanNina,
-            nameof(MedicineMelancholyAncient) => BanMedicine,
-            nameof(HinanawiTenshiAncient) => BanTenshi,
-            nameof(InabaTewiAncient) => BanTewi,
-            nameof(KijinSeijaAncient) => BanSeija,
-            nameof(SaigyoujiYuyukoAncient) => BanYuyuko,
-            nameof(HouraisanKaguyaAncient) => BanKaguya,
-            nameof(KirisameMarisaAncient) => BanMarisa,
-            _ => false
-        };
-    }
-
-    /// <summary>
     /// 检查某个 Ancient 是否被强制出现
     /// </summary>
     public static bool IsAncientForced<T>(int actNumber) where T : AncientEventModel
@@ -93,23 +74,72 @@ public class TouhouAncientsConfig : SimpleModConfig
             _ => false
         };
     }
-    
-    
-    /// <summary>
-    /// 配置该列表中先古之民不出现
-    /// </summary>
-    [ConfigSection("BannedAncients")]
-    public static bool BanReimu { get; set; } = false;
 
-    public static bool BanSanae { get; set; } = false;
-    public static bool BanRemilia { get; set; } = false;
-    public static bool BanSatori { get; set; } = false;
-    public static bool BanNina { get; set; } = false;
-    public static bool BanTenshi { get; set; } = false;
-    public static bool BanTewi { get; set; } = false;
-    public static bool BanSeija { get; set; } = false;
-    public static bool BanMedicine { get; set; } = false;
-    public static bool BanYuyuko { get; set; } = false;
-    public static bool BanMarisa { get; set; } = false;
-    public static bool BanKaguya { get; set; } = false;
+    /// <summary>
+    /// 持久化存储被禁用的 Ancient 类型全名列表（逗号分隔），由 SimpleModConfig 自动序列化。
+    /// 设置界面中的复选框由 SetupConfigUI 重写动态生成。
+    /// </summary>
+    [ConfigHideInUI]
+    public static string BannedAncientData { get; set; } = "";
+
+    /// <summary>
+    /// 运行时被禁用的 Ancient Type.FullName 集合，由 BannedAncientData 同步。
+    /// </summary>
+    internal static readonly HashSet<string> BannedTypeNames = new();
+
+    internal static void SyncBannedFromData()
+    {
+        BannedTypeNames.Clear();
+        if (string.IsNullOrEmpty(BannedAncientData)) return;
+        foreach (var name in BannedAncientData.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            BannedTypeNames.Add(name);
+        }
+    }
+
+    private static void SyncDataFromBanned()
+    {
+        BannedAncientData = string.Join(",", BannedTypeNames);
+    }
+
+    /// <summary>
+    /// 重写设置界面 UI 生成：先让基类自动生成 ForcedAncient 等属性，
+    /// 再动态创建"禁用先古之民"分区，为每个扫描到的 Ancient 类型生成复选框。
+    /// </summary>
+    public override void SetupConfigUI(Control optionContainer)
+    {
+        GenerateOptionsForAllProperties(optionContainer);
+
+        // 注意：不从 BannedAncientData 同步到 BannedTypeNames，
+        // 避免清除已在 Toggled 事件中设置的条目。
+        // 复选框使用 BannedTypeNames 的当前状态。
+
+        var entries = BanAncientPatch.GetAllAncientEntries();
+        if (entries.Count == 0) return;
+
+        var section = CreateCollapsibleSection("BannedAncients");
+        optionContainer.AddChild(section);
+
+        foreach (var (type, title) in entries)
+        {
+            var fullName = type.FullName!;
+            var checkBox = new CheckBox
+            {
+                Text = "禁用" + title,
+                ButtonPressed = BannedTypeNames.Contains(fullName)
+            };
+            checkBox.Toggled += (pressed) =>
+            {
+                if (pressed)
+                    BannedTypeNames.Add(fullName);
+                else
+                    BannedTypeNames.Remove(fullName);
+                SyncDataFromBanned();
+            };
+            section.ContentContainer.AddChild(checkBox);
+        }
+
+        AddRestoreDefaultsButton(optionContainer);
+        SetupFocusNeighbors(optionContainer);
+    }
 }

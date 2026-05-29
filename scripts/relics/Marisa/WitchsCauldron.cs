@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Entities.RestSite;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -28,6 +29,13 @@ namespace TouhouAncients.Scripts.relics;
 public class WitchsCauldron : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        new HoverTip(
+            new LocString("rest_site_ui", "OPTION_WITCHS_CAULDRON.name"),
+            new LocString("rest_site_ui", "OPTION_WITCHS_CAULDRON.description"))
+    ];
 
     public override bool HasUponPickupEffect => true;
 

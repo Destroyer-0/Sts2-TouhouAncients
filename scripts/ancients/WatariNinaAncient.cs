@@ -26,7 +26,6 @@ public class WatariNinaAncient : CustomAncientModel
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/WatariNina.png";
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanNina) return false;
         return act.ActNumber() == 2;
     }
 

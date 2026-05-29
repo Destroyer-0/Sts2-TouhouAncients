@@ -20,7 +20,6 @@ public class HinanawiTenshiAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        if (TouhouAncientsConfig.BanTenshi) return false;
         return act.ActNumber() == 3;
     }
 
