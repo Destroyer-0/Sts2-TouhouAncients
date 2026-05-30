@@ -26,7 +26,8 @@ public class DonateMoneyBox : TouhouAncientRelics
         new GoldVar(100),
         new DynamicVar("GoldMax", 150m)
     ];
-
+    
+    
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
         if (room is not RestSiteRoom) return;
@@ -39,6 +40,6 @@ public class DonateMoneyBox : TouhouAncientRelics
             new GoldReward(base.DynamicVars.Gold.IntValue, base.DynamicVars["GoldMax"].IntValue, base.Owner)
         };
 
-        await RewardsCmd.OfferCustom(base.Owner, rewards);
+        RewardsCmd.OfferCustom(base.Owner, rewards);
     }
 }

@@ -3,11 +3,12 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.description": "恢复你的所有生命，用随机[gold]药水[/gold]将你的空药水栏位填满。如果处于战斗中，[green]升级[/green]你的所有手牌。",
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
-  "TOUHOUANCIENTS-SUNPER_ZUN_BEER_POTION.title": "超ZUN啤酒",
-  "TOUHOUANCIENTS-SUNPER_ZUN_BEER_POTION.description": "将一张随机东方先古之民卡牌加入到手牌。",
-  "TOUHOUANCIENTS-SUNPER_ZUN_BEER_POTION.flavor": "哇，多么好的机会啊！",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUN啤酒",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "将一张随机东方先古之民卡牌加入到手牌，这张牌在本回合免费打出。\n[jitter][b]哇，多么好的机会啊！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "哇，多么好的机会啊！",
 
-  "TOUHOUANCIENTS-SHIRANAI_POTION.title": "希腊奶",
-  "TOUHOUANCIENTS-SHIRANAI_POTION.description": "将一张消耗堆的牌加入到手牌。",
-  "TOUHOUANCIENTS-SHIRANAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。"
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "希腊奶",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "将一张消耗堆的牌加入到手牌。",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "选择一张消耗堆的牌。",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。"
 }

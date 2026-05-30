@@ -15,12 +15,12 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 彗星加速器：在每个回合开始时，额外抽2张牌，并将1张晕眩加入弃牌堆。
+/// 彗星加速器：在每个回合开始时，额外抽2张牌，并将2张晕眩加入弃牌堆。
 /// </summary>
 [Pool(typeof(SharedRelicPool))]
 public class CometAccelerator : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("DazeNum", 2)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Dazed>();
@@ -37,6 +37,6 @@ public class CometAccelerator : TouhouAncientRelics
         if (player != base.Owner) return;
 
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(base.Owner.Creature, PileType.Discard, 1, true);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(base.Owner.Creature, PileType.Discard, DynamicVars["DazeNum"].IntValue, true);
     }
 }

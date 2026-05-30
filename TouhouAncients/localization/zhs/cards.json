@@ -40,7 +40,7 @@
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "当你的生命值将要降低至[blue]0[/blue]或以下时，如果这张牌在你的手中，丢弃这张牌并恢复[green]{HealPercent}%[/green]生命值，获得一层[pink]污秽[/pink]计数，失去[blue]{BaseMaxHpLoss}[/blue]*[pink]污秽[/pink]计数点最大生命。{InCombat:\n（将失去[red]{ShouldLose}[/red]点最大生命）|}",
 
     "TOUHOUANCIENTS-MASTER_SPARK.title": "极限火花",
-    "TOUHOUANCIENTS-MASTER_SPARK.description": "对所有敌人造成{Damage:diff()}点伤害X+{ExtraHit}次。\n如果X的最终数值为{Energy:diff()}或以上，则将X的数值{IfUpgraded:show:翻三倍|翻倍}。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]",
+    "TOUHOUANCIENTS-MASTER_SPARK.description": "对所有敌人造成{Damage:diff()}点伤害X+{ExtraHit}次。\n如果X的最终数值为{Need:diff()}或以上，则将X的数值{IfUpgraded:show:翻三倍|翻倍}并获得{Energy:energyIcons()}。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]",
 
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.title": "开海的奇迹",
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "对所有敌人造成等同于其当前生命值一半的伤害。"

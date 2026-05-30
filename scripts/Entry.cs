@@ -30,9 +30,7 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
-        
-        // 注册自定义药水到共享药水池
-        ModHelper.AddModelToPool(typeof(SharedPotionPool), typeof(potions.CamelliaPotion));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(RyukeiNoTama));
         
         // 初始化 Ancient 禁用配置扫描
         BanAncientPatch.Initialize();

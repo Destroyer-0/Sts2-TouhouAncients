@@ -35,8 +35,8 @@
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
-  "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机一件商店出售的物品价格将会被降至0。",
-  "TOUHOUANCIENTS-YISHIXINGQILE.eventDescription": "获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机一件商店出售的物品价格将会被降至0。",
+  "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机1~2件商店出售的物品价格将会被降至0。",
+  "TOUHOUANCIENTS-YISHIXINGQILE.eventDescription": "获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机1~2件商店出售的物品价格将会被降至0。",
   "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "我让你别带尼尔龙马？",
 
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "固若金汤的圣铠",
@@ -122,7 +122,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "常人之所以能自由行动，只因读不透他人的心声。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值大于[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
@@ -398,15 +398,15 @@
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "请勿用作添柴。",
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]放入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张辉星费用为[blue]0[/blue]的[gold]七星+[/gold]加入你的[gold]抽牌堆[/gold]。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "你每打出[blue]{Card}[/blue]张牌，将一张带有[gold]虚无[/gold]、辉星费用为[blue]0[/blue]的[gold]七星[/gold]放入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
-  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]放入你的[gold]抽牌堆[/gold]。受到来自[gold]灼伤[/gold]的伤害时，免疫之并获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue]层[gold]荆棘[/gold]，在下回合额外抽[blue]1[/blue]张牌。",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "在战斗开始时，将[blue]{BurnCount}[/blue]张[gold]灼伤[/gold]加入你的[gold]抽牌堆[/gold]。受到来自[gold]灼伤[/gold]的伤害时，免疫之并获得[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]{Thorns}[/blue]层[gold]荆棘[/gold]，在下回合额外抽[blue]1[/blue]张牌。",
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "燕之子安贝",
@@ -443,7 +443,7 @@
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.flavor": "不华丽就不是魔法了！弹幕最重要的是火力Da☆Ze！",
 
   "TOUHOUANCIENTS-COMET_ACCELERATOR.title": "彗星加速器",
-  "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每个回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]1[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每个回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]{DazeNum}[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
   "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "携带书本逃离红魔馆的速度是每秒11.2米。",
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "金平糖罐",
@@ -460,7 +460,7 @@
   "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "炼药锅里有股洗不掉的蘑菇味。",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
-  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]中的[blue]2[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]与[gold]弃牌堆[/gold]中的各[blue]1[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",

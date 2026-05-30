@@ -33,24 +33,39 @@ public class UnstableBottle : TouhouAncientRelics
         if (base.Owner.PlayerCombatState == null) return;
 
         var drawPile = base.Owner.PlayerCombatState.DrawPile;
-        if (drawPile.IsEmpty) return;
+        var discardPile = base.Owner.PlayerCombatState.DiscardPile;
+        var toEnchant = new List<CardModel>();
+        if (!drawPile.IsEmpty)
+        {
+            var glam = ModelDb.Enchantment<Glam>().ToMutable();
+            var candidates = drawPile.Cards
+                .Where(c => glam.CanEnchant(c))
+                .ToList();
 
-        var glam = ModelDb.Enchantment<Glam>().ToMutable();
-        var candidates = drawPile.Cards
-            .Where(c => glam.CanEnchant(c))
-            .ToList();
+            if (candidates.Count != 0)
+            {
+                toEnchant.AddRange(candidates
+                    .UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection)
+                    .Take(Math.Min(1, candidates.Count)));
+            }
+        }
+        if (!discardPile.IsEmpty)
+        {
+            var glam = ModelDb.Enchantment<Glam>().ToMutable();
+            var candidates = discardPile.Cards
+                .Where(c => glam.CanEnchant(c))
+                .ToList();
 
-        if (candidates.Count == 0) return;
+            if (candidates.Count != 0)
+            {
+                toEnchant.AddRange(candidates
+                    .UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection)
+                    .Take(Math.Min(1, candidates.Count)));
+            }
+        } 
 
-        var toEnchant = candidates
-            .UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection)
-            .Take(Math.Min(2, candidates.Count))
-            .ToList();
-
-        if (toEnchant.Count == 0) return;
-
+        if(toEnchant.Count<=0) return;
         Flash();
-
         foreach (var card in toEnchant)
         {
             CardCmd.Enchant<Glam>(card, 1m);

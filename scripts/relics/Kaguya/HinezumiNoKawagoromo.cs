@@ -71,7 +71,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
 {
     private const int DrawCount = 1;
     private const int BlockAmount = 9;
-    private const decimal ThornsAmount = 3m;
+    private const decimal ThornsAmount = 2m;
 
     public override bool HasUponPickupEffect => false;
 

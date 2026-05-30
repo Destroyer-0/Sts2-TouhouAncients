@@ -44,15 +44,18 @@ public class Yishixingqile : TouhouAncientRelics
         // 从库存中随机选一个未被标记为免费的其他商品
         if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
         {
-            var candidates = merchantRoom.Inventory.AllEntries
-                .Where(e => e.IsStocked
-                         && e != itemPurchased
-                         && !_freeEntries.Contains(e))
-                .ToList();
-
-            if (candidates.Count > 0)
+            for (int i = 0; i < player.RunState.Rng.Shuffle.NextInt(1, 3); i++)
             {
-                _freeEntries.Add(candidates.UnstableShuffle(player.RunState.Rng.Niche).First());
+                var candidates = merchantRoom.Inventory.AllEntries
+                    .Where(e => e.IsStocked
+                                && e != itemPurchased
+                                && !_freeEntries.Contains(e))
+                    .ToList();
+
+                if (candidates.Count > 0)
+                {
+                    _freeEntries.Add(candidates.UnstableShuffle(player.RunState.Rng.Niche).First());
+                }
             }
         }
     }

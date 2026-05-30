@@ -37,13 +37,14 @@ public class MasterSpark : TouhouAncientCards
 
     protected override bool HasEnergyCostX => true;
 
-    protected override bool ShouldGlowGoldInternal => base.Owner.PlayerCombatState.Energy >= base.DynamicVars.Energy.IntValue;
+    protected override bool ShouldGlowGoldInternal => base.Owner.PlayerCombatState.Energy >= base.DynamicVars["Need"].IntValue;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(7m, ValueProp.Move),
-        new EnergyVar(4),
-        new DynamicVar("ExtraHit", 1)
+        new DynamicVar("Need",4),
+        new DynamicVar("ExtraHit", 1),
+        new EnergyVar(1)
     ];
 
     public MasterSpark() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
@@ -54,8 +55,10 @@ public class MasterSpark : TouhouAncientCards
     {
         //ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
         int num = ResolveEnergyXValue();
-        if (num >= base.DynamicVars.Energy.IntValue)
+        var gainEnergy = false;
+        if (num >= base.DynamicVars["Need"].IntValue)
         {
+            gainEnergy = true;
             num *= IsUpgraded ? 3 : 2;
         }
 
@@ -68,7 +71,7 @@ public class MasterSpark : TouhouAncientCards
         NCreature creatureNode1 = NCombatRoom.Instance?.GetCreatureNode(owner);
         NCreature creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
         var shouldSpawnSpark = creatureNode2 != null && creatureNode1 != null;
-        Vector2 vfxSpawnPosition=Vector2.Zero;
+        Vector2 vfxSpawnPosition = Vector2.Zero;
         if (shouldSpawnSpark)
         { 
             vfxSpawnPosition = creatureNode1.VfxSpawnPosition;
@@ -111,5 +114,9 @@ public class MasterSpark : TouhouAncientCards
                 }
             })
             .Execute(choiceContext);
+        if (gainEnergy)
+        {
+            await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
+        }
     }
 }
