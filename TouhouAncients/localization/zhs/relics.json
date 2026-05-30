@@ -6,13 +6,13 @@
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将带有四张[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将带有四张[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将[blue]4[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将[blue]4[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除四张牌，然后复制你牌组中的防御并升级。",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除四张牌，然后复制你牌组中的防御并升级。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除[blue]4[/blue]张牌，然后复制你牌组中的防御并升级。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除[blue]4[/blue]张牌，然后复制你牌组中的防御并升级。",
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.flavor": "删牌大于一切啊！",
 
   "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.title": "萎靡心灵的魔咒",
@@ -24,8 +24,8 @@
   "TOUHOUANCIENTS-HUOYANTUXI.flavor": "噶人们，火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将一张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.eventDescription": "将一张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将[blue]1[/blue]张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.eventDescription": "将[blue]1[/blue]张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
@@ -98,12 +98,12 @@
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "她吸血时总会洒出很多血液，结果将衣服染成了一片[red]赤红[/red]。",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将一张[gold]冈格尼尔之枪[/gold]加入牌组。",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将一张[gold]冈格尼尔之枪[/gold]加入牌组。",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "领主防晒霜",
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "卡牌奖励必定出现[gold]稀有牌[/gold]，且你可以选择[gold]全都要[/gold]。",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "卡牌奖励全部替换为[gold]稀有牌[/gold]，且你可以选择[gold]全都要[/gold]。",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "幼稚的吸血鬼才打阳伞，成熟的吸血鬼会让女仆先涂好防晒霜。",
   
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "腌制红雾",
@@ -119,14 +119,14 @@
 
   "TOUHOUANCIENTS-THE_THIRD_EYE.title": "第三只眼",
   "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，给予自身[blue]2[/blue]层[gold]虚弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]加入你的[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "读心能力实在是太美妙了。",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "常人之所以能自由行动，只因读不透他人的心声。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
   "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值不为[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "在每个回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]置入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "在每个回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "用这究极之力，把一切都焚烧殆尽吧！",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -136,7 +136,7 @@
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",
   "TOUHOUANCIENTS-MEMORY_FLASK.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-MEMORY_FLASK.eventDescription": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "严禁打开查看。",
+  "TOUHOUANCIENTS-MEMORY_FLASK.flavor": "不可承受的记忆之重。",
 
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.title": "缸中之脑",
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.description": "拾起时，从[blue]{Cards}[/blue]张当前角色牌中指定任意张牌，这些牌不会出现在后续的[gold]卡牌奖励与商店[/gold]中。",
@@ -153,8 +153,8 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
-  "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将一张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
-  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "在每个回合开始时获得{Energy:energyIcons()}。将一张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "在每个回合开始时获得{Energy:energyIcons()}。将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
   "TOUHOUANCIENTS-MINI_SHRINE.flavor": "谁也不知道里面供奉的是什么神明。",
 
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "赛钱箱",
@@ -202,8 +202,8 @@
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组",
 
   "TOUHOUANCIENTS-HISOU_SWORD.title": "绯想之剑",
-  "TOUHOUANCIENTS-HISOU_SWORD.description": "拾起时，将一张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "将一张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-HISOU_SWORD.description": "拾起时，将[blue]1[/blue]张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "将[blue]1[/blue]张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HISOU_SWORD.flavor": "足以洞察对方气质，只有天人才能完全掌握的武器。",
 
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "天罚石柱",
@@ -248,7 +248,7 @@
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.eventDescription": "获得[blue]3[/blue]个[gold]药水栏位[/gold]，并用[gold]幸运补剂[/gold]填满你的[gold]药水栏[/gold]。",
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.flavor": "据说有一半的人购买了这个宝盒以后，把盒子还了回去。",
 
-  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四十叶草",
+  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四叶草",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
@@ -257,9 +257,9 @@
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给兔角同盟了！顺带一提，这个是仿品。",
 
   "TOUHOUANCIENTS-RABBITS_CAGE.title": "兔笼",
-  "TOUHOUANCIENTS-RABBITS_CAGE.description": "拾起时，将一张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-RABBITS_CAGE.eventDescription": "将一张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-RABBITS_CAGE.flavor": "这些小家伙不是很可爱吗？可要记得好好善待它们哦~——因幡帝",
+  "TOUHOUANCIENTS-RABBITS_CAGE.description": "拾起时，将[blue]1[/blue]张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-RABBITS_CAGE.eventDescription": "将[blue]1[/blue]张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-RABBITS_CAGE.flavor": "这些小家伙不是很可爱吗？就连仙人都这么认为——可要记得好好善待它们哦~——因幡帝",
 
   "TOUHOUANCIENTS-WHITE_FLAG.title": "白旗",
   "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
@@ -267,7 +267,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]、[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "虽然能隐去人的身形，但布本身的身形没有被隐去。",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
@@ -281,9 +281,9 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪曾经想拉拢马萨雷斯的信徒加入自己的起义军，但是因为号角发不出“咔咔”声而被拒绝了。",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]置入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌置入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌加入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
@@ -293,13 +293,13 @@
   "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。",
 
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "万宝槌",
-  "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-MAGIC_MALLET.eventDescription": "将一张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将[blue]1[/blue]张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MAGIC_MALLET.eventDescription": "将[blue]1[/blue]张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "小人城主持有的，属于鬼的秘宝。",
 
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.title": "折叠伞",
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.description": "在每场战斗开始时，获得[blue]5[/blue]层[gold]倒映[/gold]。",
-  "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "怪谈：请不要以17的格挡结束回合。",
+  "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "怪谈：请不要以大于17的格挡结束回合。",
 
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.title": "饥饿背包",
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.description": "在每个回合开始时，额外抽[blue]{Cards}[/blue]张牌并使随机[blue]{Cards}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]吞噬[/purple]，然后这两个数值减少[blue]{ReduceCardDraw}[/blue]。",
@@ -376,29 +376,29 @@
   "TOUHOUANCIENTS-GHOST_FAN.flavor": "",
 
   "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.title": "墨染的樱花",
-  "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.description": "在每个回合开始时获得{Energy:energyIcons()}并失去[blue]1[/blue]点[gold]最大生命[/gold]。你可以在[gold]休息处[/gold][pink]赏樱[/pink]。",
+  "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.description": "在每个回合开始时获得{Energy:energyIcons()}并失去[blue]1[/blue]点[gold]最大生命值[/gold]。你可以在[gold]休息处[/gold][pink]赏樱[/pink]。",
   "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.flavor": "",
 
   "TOUHOUANCIENTS-SOUL_SAKE_CUP.title": "幽魂酒盅",
-  "TOUHOUANCIENTS-SOUL_SAKE_CUP.description": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]，将生命值降低至[blue]{SetHp}[/blue]。",
-  "TOUHOUANCIENTS-SOUL_SAKE_CUP.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]，将生命值降低至[blue]{SetHp}[/blue]。",
+  "TOUHOUANCIENTS-SOUL_SAKE_CUP.description": "拾起时，将你的最大生命值提升[blue]{MaxHpGain}[/blue]点，然后将生命值降低至[blue]{SetHp}[/blue]。",
+  "TOUHOUANCIENTS-SOUL_SAKE_CUP.eventDescription": "将你的最大生命值提升[blue]{MaxHpGain}[/blue]点，然后将生命值降低至[blue]{SetHp}[/blue]。",
   "TOUHOUANCIENTS-SOUL_SAKE_CUP.flavor": "",
 
   "TOUHOUANCIENTS-SOUL_LATTERN.title": "人魂灯",
   "TOUHOUANCIENTS-SOUL_LATTERN.description": "每场战斗首次有任意单位的生命值低于[blue]50%[/blue]时，进入[gold]死神形态[/gold]。",
   "TOUHOUANCIENTS-SOUL_LATTERN.flavor": "死是凉爽的夏夜，可供人无忧的安眠。",
 
-  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "黄泉期票",
-  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.description": "拾起时，将一张[gold]生者必灭之理[/gold]加入牌组。",
-  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.eventDescription": "将一张[gold]生者必灭之理[/gold]加入牌组。",
+  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "黄泉之期票",
+  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.description": "拾起时，将[blue]1[/blue]张[gold]生者必灭之理[/gold]加入牌组。",
+  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.eventDescription": "将[blue]1[/blue]张[gold]生者必灭之理[/gold]加入牌组。",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.flavor": "",
 
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "西行妖枯枝",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.description": "每当你[gold]消耗[/gold]一张牌，增加一张带有[gold]虚无[/gold]的随机卡牌到你的[gold]手牌[/gold]并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "",
+  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "请勿用作添柴。",
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将一张[gold]绀珠之药[/gold]置入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
@@ -410,13 +410,13 @@
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "燕之子安贝",
-  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
-  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "拾起时，将你的最大生命值提升[blue]{MaxHpGain}[/blue]点。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.eventDescription": "将你的最大生命值提升[blue]{MaxHpGain}[/blue]点。进入新的房间时，若你的生命值少于[blue]40%[/blue]则回复到[blue]40%[/blue]。",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "",
 
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "佛御石之钵",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "蓬莱的玉枝",
@@ -435,39 +435,39 @@
 
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "迷你八卦炉",
   "TOUHOUANCIENTS-MINI_HAKKERO.description": "回合结束时，消耗[blue]1~3[/blue]张手牌。若消耗的牌不小于[blue]2[/blue]张，下个回合开始时获得{Energy:energyIcons()}。",
-  "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "",
+  "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "能将魔法的波纹集中一处朝前方发射的魔法武器。",
 
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.title": "恋色手电筒",
-  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.description": "将一张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.eventDescription": "将一张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.flavor": "",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.description": "拾起时，将[blue]1[/blue]张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.eventDescription": "将[blue]1[/blue]张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.flavor": "不华丽就不是魔法了！弹幕最重要的是火力Da☆Ze！",
 
   "TOUHOUANCIENTS-COMET_ACCELERATOR.title": "彗星加速器",
   "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每个回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]1[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
-  "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "",
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "携带书本逃离红魔馆的速度是每秒11.2米。",
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "金平糖罐",
   "TOUHOUANCIENTS-KOMPEITO_POT.description": "你的[gold]卡牌奖励[/gold]中将额外出现一张[green]升级过的[/green][gold]能力牌[/gold]，选取[blue]3[/blue]张后失效。",
-  "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "",
+  "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "如同繁星一般闪烁的，孩子们与妖精们的挚爱。",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "星尘扫帚",
   "TOUHOUANCIENTS-STARDUST_BROOM.description": "初始充能[blue]2[/blue]，最大充能[blue]3[/blue]。你可以消耗一层充能无视当前的路线选择下一层的房间。每经过[blue]3[/blue]个房间获得[blue]1[/blue]充能。",
-  "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "",
+  "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "世上本没有魔法扫帚，坐的人多了，也便有了。",
 
   "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "魔女的炼药锅",
   "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "拾起时，获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
   "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
-  "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "炼药锅里有股洗不掉的蘑菇味。",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]中的[blue]2[/blue]张牌附魔[purple]华彩[/purple]。",
-  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
-  "TOUHOUANCIENTS-GLOBE.title": "地球仪",
+  "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",
   "TOUHOUANCIENTS-GLOBE.description": "以保留[green]升级[/green]的状态变化[blue]{Cards}[/blue]张牌。",
-  "TOUHOUANCIENTS-GLOBE.flavor": "",
+  "TOUHOUANCIENTS-GLOBE.flavor": "天阶夜色凉如水，坐看牵牛织女星。",
 
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
-  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": ""
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。"
 }

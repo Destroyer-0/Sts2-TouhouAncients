@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-TRIBUTE.description": "累计供奉[blue]{Remaining}[/blue]金币后，将此牌从[gold]牌组[/gold]中移除。\n[fade_in]我很可爱，请给我钱！[/fade_in]",
 
     "TOUHOUANCIENTS-DREAM_SEAL.title": "梦想封印",
-    "TOUHOUANCIENTS-DREAM_SEAL.description": "对所有敌人造成{Damage:diff()}点伤害[blue]6[/blue]次。\n如果敌人的意图是攻击，则给予[blue]1[/blue]层[gold]易伤[/gold]并使其在本回合失去{StrengthLoss:diff()}点[gold]力量[/gold]。",
+    "TOUHOUANCIENTS-DREAM_SEAL.description": "对所有敌人造成{Damage:diff()}点伤害[blue]6[/blue]次。\n如果敌人的意图是攻击，则给予[blue]1[/blue]层[gold]易伤[/gold]并使其在本回合失去{StrengthLoss:diff()}点[gold]力量[/gold]。\n[b]退治决定。[/b]",
 
     "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "时间仆从",
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "将{Cards:diff()}张[gold]小刀[/gold]添加到你的[gold]手牌[/gold]。\n回合结束时，本回合每[gold]消耗[/gold]过一张牌，对目标造成{Damage:diff()}点伤害。",
