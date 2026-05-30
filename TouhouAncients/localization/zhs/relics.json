@@ -460,7 +460,7 @@
   "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "炼药锅里有股洗不掉的蘑菇味。",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
-  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]中的[blue]2[/blue]张牌附魔[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]中的[blue]2[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",

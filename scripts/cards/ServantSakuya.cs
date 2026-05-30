@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -39,7 +40,7 @@ public class ServantSakuya : TouhouAncientCards
     ];
 
     /// <summary>记录打出时选择的目标，供回合结束时造成伤害。</summary>
-    private List<Creature?> _target = new();
+    private List<(CardPlay, Creature?)> _target = new();
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -57,7 +58,7 @@ public class ServantSakuya : TouhouAncientCards
         await Shiv.CreateInHand(base.Owner, 2, base.Owner.Creature.CombatState);
 
         // 2. 记录目标，供回合结束时使用
-        _target.Add(cardPlay.Target);
+        _target.Add((cardPlay, cardPlay.Target));
     }
 
     /// <summary>
@@ -81,12 +82,12 @@ public class ServantSakuya : TouhouAncientCards
             if (exhaustedCount <= 0) return;
             if (!Owner.Creature.IsAlive) return;
 
-            foreach (var target in _target)
+            foreach (var (card,target) in _target)
             {
                 if (target == null || !target.IsEnemy || !target.IsAlive) continue;
                 await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
                     .WithHitCount(exhaustedCount)
-                    .FromCard(this)
+                    .FromCard(card.Card)
                     .Targeting(target)
                     .Execute(choiceContext);
             }

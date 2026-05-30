@@ -37,15 +37,15 @@ public class KirisameMarisaAncient : CustomAncientModel
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MiniHakkero>(),
-            AncientOption<LoveColorFlashlight>()
+            AncientOption<LoveColorFlashlight>(),
+            AncientOption<CometAccelerator>()
         ),
         MakePool(
-            AncientOption<CometAccelerator>(),
             AncientOption<KompeitoPot>(),
-            AncientOption<StardustBroom>()
+            AncientOption<StardustBroom>(),
+            AncientOption<WitchsCauldron>()
         ),
         MakePool(
-            AncientOption<WitchsCauldron>(),
             AncientOption<UnstableBottle>(),
             AncientOption<Globe>(),
             AncientOption<MushroomBento>()
