@@ -28,15 +28,13 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(SharedRelicPool))]
 public class KaguyaSecretTreasure : TouhouAncientRelics
 {
-    // 本次战斗选中的卡牌实例（运行时，不持久化）
-    private HashSet<CardModel?> _selectedCardInstance = new();
-    private HashSet<CardModel?> _rewardedCardInstance = new();
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(12)
     ];
-    
+
+    public HashSet<CardModel> _selectedCardModel = new();
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner || base.Owner.Creature.CombatState.RoundNumber != 1)
@@ -44,11 +42,8 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
             return;
         }
 
-        _selectedCardInstance.Clear();
-        _rewardedCardInstance.Clear();
-
+        _selectedCardModel.Clear();
         Flash();
-
         var myPool = player.Character.CardPool;
         var otherPools = player.UnlockState.CharacterCardPools
             .Where(p => !ReferenceEquals(p, myPool))
@@ -64,9 +59,11 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
             list.Remove(base.Owner.Character.CardPool);
         }
 
-        IEnumerable<CardModel> cards = from c in list.SelectMany((CardPoolModel c) => c.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint))
+        IEnumerable<CardModel> cards = from c in list.SelectMany((CardPoolModel c) =>
+                c.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint))
             select c;
-        List<CardModel> list2 = CardFactory.GetDistinctForCombat(base.Owner, cards, DynamicVars.Cards.IntValue, base.Owner.RunState.Rng.CombatCardGeneration).ToList();
+        List<CardModel> list2 = CardFactory.GetDistinctForCombat(base.Owner, cards, DynamicVars.Cards.IntValue,
+            base.Owner.RunState.Rng.CombatCardGeneration).ToList();
 
         if (list2.Count == 0) return;
 
@@ -79,7 +76,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
                  ))
         {
             await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
-            _selectedCardInstance.Add(cardModel);
+            _selectedCardModel.Add(cardModel);
         }
     }
 
@@ -89,55 +86,72 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
     /// </summary>
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (_selectedCardInstance.Contains(cardPlay.Card))
-        {
-            Flash();
-            _rewardedCardInstance.Add(cardPlay.Card);
-            Status = RelicStatus.Active;
+        if (base.Owner.Creature.CombatState == null) return Task.CompletedTask;
+        if (!_selectedCardModel.Contains(cardPlay.Card)) return Task.CompletedTask;
+        Flash();
+        Status = RelicStatus.Active;
+
+        AbstractRoom currentRoom = base.Owner.Creature.CombatState!.RunState.CurrentRoom;
+        if (currentRoom is CombatRoom combatRoom)
+        { 
+            var card = ModelDb.GetById<CardModel>(cardPlay.Card.Id).ToMutable();
+            if (cardPlay.Card.IsUpgraded)
+            {
+                CardCmd.Upgrade(card);
+            }
+            IRunState runState = base.Owner.RunState;
+            runState.AddCard(card, base.Owner);
+            SpecialCardReward specialCardReward = new SpecialCardReward(card, base.Owner);
+            combatRoom.AddExtraReward(base.Owner, specialCardReward);
+            // var newCard = ModelDb.GetById<CardModel>(cardPlay.Card.Id);
+            // var options = new CardCreationOptions([newCard], CardCreationSource.Other, CardRarityOddsType.Uniform)
+            //     .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
+            // combatRoom.AddExtraReward(base.Owner, new CardReward(options, 1, base.Owner));
         }
 
         return Task.CompletedTask;
     }
-
-    /// <summary>
-    /// 将打出的牌复制加入卡牌奖励选项。
-    /// </summary>
-    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
-        CardCreationOptions creationOptions)
-    {
-        if (player != base.Owner) return false;
-        if (_rewardedCardInstance.Count <= 0) return false;
-
-        return false;
-    }
-
-
-    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
-    {
-        if (player != base.Owner)
-        {
-            return false;
-        }
-
-        if (room == null)
-        {
-            return false;
-        }
-
-        if (_rewardedCardInstance.Count <= 0) return false;
-
-        Status = RelicStatus.Normal;
-        var cards = _rewardedCardInstance.Where(x => x != null).Cast<CardModel>().Select(x => ModelDb.GetById<CardModel>(x.Id)).ToList();
-
-        _selectedCardInstance.Clear();
-        _rewardedCardInstance.Clear();
-
-        if (cards.Count <= 0) return false;
-        var options = new CardCreationOptions(cards, CardCreationSource.Other, CardRarityOddsType.Uniform)
-            .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
-        rewards.Add(new CardReward(options, cards.Count, player));
-        Flash();
-
-        return true;
-    }
+    //
+    // /// <summary>
+    // /// 将打出的牌复制加入卡牌奖励选项。
+    // /// </summary>
+    // public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
+    //     CardCreationOptions creationOptions)
+    // {
+    //     if (player != base.Owner) return false;
+    //     if (_rewardedCardInstance.Count <= 0) return false;
+    //
+    //     return false;
+    // }
+    //
+    //
+    // public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
+    // {
+    //     if (player != base.Owner)
+    //     {
+    //         return false;
+    //     }
+    //
+    //     if (room == null)
+    //     {
+    //         return false;
+    //     }
+    //
+    //     if (_rewardedCardInstance.Count <= 0) return false;
+    //
+    //     Status = RelicStatus.Normal;
+    //     var cards = _rewardedCardInstance.Where(x => x != null).Cast<CardModel>()
+    //         .Select(x => ModelDb.GetById<CardModel>(x.Id)).ToList();
+    //
+    //     _selectedCardInstance.Clear();
+    //     _rewardedCardInstance.Clear();
+    //
+    //     if (cards.Count <= 0) return false;
+    //     var options = new CardCreationOptions(cards, CardCreationSource.Other, CardRarityOddsType.Uniform)
+    //         .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
+    //     rewards.Add(new CardReward(options, cards.Count, player));
+    //     Flash();
+    //
+    //     return true;
+    // }
 }
