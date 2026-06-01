@@ -106,9 +106,10 @@ public class ChildhoodBag : TouhouAncientRelics
         AbstractRoom? room)
     {
         if (player != base.Owner) return false;
+        if (room is not CombatRoom) return false;
 
         var modified = false;
-        for (var i = rewards.Count - 1; i >= 0; i--)
+        for (var i = 0; i < rewards.Count; i++)
         {
             if (rewards[i] is GoldReward)
             {

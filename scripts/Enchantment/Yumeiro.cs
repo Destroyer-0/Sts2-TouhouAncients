@@ -29,7 +29,9 @@ public class Yumeiro : CustomEnchantmentModel
     {
         if (!HasCard) return;
         if (Card.EnergyCost.CostsX) return;
-        Card.EnergyCost.SetUntilPlayed(-1);
+        
+        base.Card.EnergyCost.AddUntilPlayed(-1);
+        //Card.EnergyCost.SetUntilPlayed(-1);
     }
 
     private static List<EnchantmentModel>? s_allEnchantments;

@@ -311,6 +311,10 @@
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": "带着这个并不会招来外星人或女高中生。",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "打出这张牌时失去{energyPrefix:energyIcons(1)}。",
 
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "天壤梦弓",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，并对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "",
+
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "童忆书包",
   "TOUHOUANCIENTS-CHILDHOOD_BAG.description": "拾起时，用[purple]污浊药水[/purple]填满你的药水栏。将战斗结束时的[gold]金币奖励[/gold]替换为[blue]{PotionCount}[/blue]瓶[purple]污浊药水[/purple]。你投掷的[purple]污浊药水[/purple]只会对敌人造成伤害。",
   "TOUHOUANCIENTS-CHILDHOOD_BAG.eventDescription": "用[purple]污浊药水[/purple]填满你的药水栏。将战斗结束时的[gold]金币奖励[/gold]替换为[blue]{PotionCount}[/blue]瓶[purple]污浊药水[/purple]。你投掷的[purple]污浊药水[/purple]只会对敌人造成伤害。",
@@ -469,5 +473,9 @@
 
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
-  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。"
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
+
+  "TOUHOUANCIENTS-JUNKO_TEST.title": "纯粹的自信（测试）",
+  "TOUHOUANCIENTS-JUNKO_TEST.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。",
+  "TOUHOUANCIENTS-JUNKO_TEST.flavor": "会赢的。"
 }

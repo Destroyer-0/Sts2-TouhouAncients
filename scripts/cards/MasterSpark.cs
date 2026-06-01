@@ -78,12 +78,12 @@ public class MasterSpark : TouhouAncientCards
             Player player = owner.Player;
             if (player is { Character: Defect })
                 vfxSpawnPosition += Defect.EyelineOffset;
-            NHyperbeamVfx nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition, creatureNode2.VfxSpawnPosition);
-            if (nHyperbeamVfx != null)
-            {
-                NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
-                await Cmd.Wait(0.5f);
-            }
+            // NHyperbeamVfx nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition, creatureNode2.VfxSpawnPosition);
+            // if (nHyperbeamVfx != null)
+            // {
+            //     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
+            //     await Cmd.Wait(0.5f);
+            // }
         }
 
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this)
