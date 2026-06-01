@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// <summary>
 /// 彷徨：如果打出的上一张牌是攻击牌，则打出后回到你的手中并获得10格挡。
 /// </summary>
-public class Wandering : CustomEnchantmentModel
+public class Wandering : TouhouAncientEnchantmentModel
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -35,8 +35,8 @@ public class Wandering : CustomEnchantmentModel
 
     public override bool ShouldGlowGold =>
         CombatManager.Instance.History.CardPlaysFinished.LastOrDefault(x =>
-                x.HappenedThisTurn(Card.Owner.Creature.CombatState)) is
-            { CardPlay.Card.Type: CardType.Attack } or && base.DynamicVars["RemainingChance"].IntValue > 0;
+                x.Actor == Card.Owner.Creature && x.HappenedThisTurn(Card.Owner.Creature.CombatState)) is
+            { CardPlay.Card.Type: CardType.Attack }  && base.DynamicVars["RemainingChance"].IntValue > 0;
 
     // public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     // {
@@ -69,7 +69,8 @@ public class Wandering : CustomEnchantmentModel
 
         var shouldBack = DynamicVars["RemainingChance"].IntValue > 0 &&
                          CombatManager.Instance.History.CardPlaysFinished
-                                 .Where(x => x.HappenedThisTurn(Card.Owner.Creature.CombatState))
+                                 .Where(x => x.Actor == Card.Owner.Creature &&
+                                             x.HappenedThisTurn(Card.Owner.Creature.CombatState))
                                  .SkipLast(1)
                                  .LastOrDefault() is
                              { CardPlay.Card.Type: CardType.Attack };
@@ -91,6 +92,7 @@ public class Wandering : CustomEnchantmentModel
     {
         if (player != Card.Owner) return Task.CompletedTask;
         base.Status = EnchantmentStatus.Normal;
+        DynamicVars["RemainingChance"].BaseValue = DynamicVars["BaseRemainingChance"].IntValue;
         return Task.CompletedTask;
     }
 }
