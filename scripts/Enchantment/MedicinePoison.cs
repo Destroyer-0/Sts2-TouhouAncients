@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// <summary>
 /// 蛊毒：回合结束时，如果这张牌在手中，其费用降低1直至打出，本局游戏中给予的中毒层数+5。
 /// </summary>
-public class MedicinePoison : CustomEnchantmentModel
+public class MedicinePoison : TouhouAncientEnchantmentModel
 {
     //   public override bool HasExtraCardText => true;
 
@@ -26,6 +26,11 @@ public class MedicinePoison : CustomEnchantmentModel
     // ];
     public override bool ShowAmount => true;
     public override bool IsStackable => true;
+
+    public override bool CanEnchant(CardModel card)
+    {
+        return card.DynamicVars.ContainsKey("PoisonPower");
+    }
 
     protected override void OnEnchant()
     {

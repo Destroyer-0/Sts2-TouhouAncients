@@ -8,8 +8,8 @@ anchors_preset = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -377.0
-offset_top = -115.0
-offset_right = 2183.0
-offset_bottom = 1321.0
+offset_left = -412.0
+offset_top = -406.0
+offset_right = 2148.0
+offset_bottom = 1404.0
 texture = ExtResource("1_h0oxu")

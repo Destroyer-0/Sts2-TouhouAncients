@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using TouhouAncients.Scripts;
 
 //namespace TouhouAncients.Scripts.relics;
 
@@ -14,10 +15,7 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     protected override string PackedIconOutlinePath => $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png";
 
     // 大图标（原版256x256）
-    protected override string BigIconPath =>
-        HasBigIcon
-            ? $"res://images/icon/relics/IconLarge/{GetType().Name.ToLowerInvariant()}.png"
-            : $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png";
-
-    protected virtual bool HasBigIcon => false;
+    protected override string BigIconPath => TouhouAncientCmd.CheckPathExistsWithFallback(
+        $"res://images/icon/relics/IconLarge/{GetType().Name.ToLowerInvariant()}.png",
+        $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png");
 }

@@ -1,29 +1,29 @@
 {
-  "VIGOR_ON_BLOCK_POWER.title": "化劲",
-  "VIGOR_ON_BLOCK_POWER.description": "本回合将格挡掉的攻击伤害转化为一半的[gold]活力[/gold]。",
-  "VIGOR_ON_BLOCK_POWER.smartDescription": "本回合将格挡掉的攻击伤害的[blue]{Amount}%[/blue]转化为[gold]活力[/gold]。",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.title": "化劲",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.description": "本回合将格挡掉的攻击伤害转化为一半的[gold]活力[/gold]。",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "本回合将格挡掉的攻击伤害的[blue]{Amount}%[/blue]转化为[gold]活力[/gold]。",
 
-  "LUCKY_RABBIT_POWER.title": "幸运白兔",
-  "LUCKY_RABBIT_POWER.description": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold]。",
-  "LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold][blue]{Amount}[/blue]。",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "幸运白兔",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold]。",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold][blue]{Amount}[/blue]。",
 
-  "KEYSTONE_POWER.title": "要石",
-  "KEYSTONE_POWER.description": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成伤害。",
-  "KEYSTONE_POWER.smartDescription": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.title": "要石",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成伤害。",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
 
-  "ALL_CREATION_HISOU_POWER.title": "全人类的绯想天",
-  "ALL_CREATION_HISOU_POWER.description": "获得的正面效果层数增加[gold]1[/gold]。",
-  "ALL_CREATION_HISOU_POWER.smartDescription": "获得的正面效果层数增加[gold]{Amount}[/gold]。",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "全人类的绯想天",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "获得的正面效果层数增加[gold]1[/gold]。",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "获得的正面效果层数增加[gold]{Amount}[/gold]。",
 
-  "MAGIC_WALLET_POWER.title": "魔力暴走",
-  "MAGIC_WALLET_POWER.description": "下[gold]1[/gold]张牌免费打出。",
-  "MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "魔力暴走",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "下[gold]1[/gold]张牌免费打出。",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "下[gold]{Amount}[/gold]张牌免费打出。",
 
-  "LIFE_MUST_PERISH_POWER.title": "生者必灭之理",
-  "LIFE_MUST_PERISH_POWER.description": "[blue]4[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
-  "LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长1回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "生者必灭之理",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "[blue]4[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。受到敌人伤害时，延长1回合倒计时并给予自身[blue]8[/blue]层[gold]灾厄[/gold]。",
 
-  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "给蛇花小姐减少8点力量",
-  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "玩家打出牌时获得1点力量，最多8次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。",
-  "GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "玩家打出牌时获得1点力量，还可获得{Amount}次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。"
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "给蛇花小姐减少8点力量",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "玩家打出牌时获得1点力量，最多8次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "玩家打出牌时获得1点力量，还可获得{Amount}次。\n觉得自己还可以战斗而不跑，殊不知自己已经虚弱到一点伤害也没有了。"
 }

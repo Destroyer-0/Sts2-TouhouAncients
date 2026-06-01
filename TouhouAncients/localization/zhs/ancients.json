@@ -45,7 +45,7 @@
 
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.title": "博丽 灵梦",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.epithet": "高塔的不可思议巫女",
-  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.firstVisitEver.0-0.ancient": "有参拜者？啊……是要去塔顶啊，带上东西走吧，如果能塞钱的话就更好了。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.firstVisitEver.0-0.ancient": "有参拜者？啊……是要去塔顶啊，带上东西走吧，如果能赛钱的话就更好了。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.ANY.0-0r.ancient": "赶紧去把塔顶的麻烦解决掉吧，我才能让[u]那家伙[/u]放我回幻想乡去喝茶。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.ANY.1-0r.ancient": "哼，要不是[u]那家伙[/u]……我早就自己去退治麻烦了。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.ANY.2-0r.ancient": "[i][font_size=22]<困惑的哈欠>[/font_size][/i]",
@@ -91,7 +91,7 @@
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.IRONCLAD.0-0.char": "恶魔……杀戮……",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.IRONCLAD.0-0.next": "继续",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.IRONCLAD.0-1.ancient": "哎呀，你是不是认错人了？毕竟像我这么[sine]威严[/sine]的吸血鬼可不多见呢~",
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.DEFECT.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.DEFECT.0-0.ancient": "机器人吗？我还从来没有尝试过，逆转机器人的命运呢。",
 
   "TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT.title": "古明地 觉",
   "TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT.epithet": "荒疫也为之惧怯的少女",
@@ -211,7 +211,7 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.title": "蓬莱山 辉夜",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.epithet": "永恒的先古罪人",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.firstVisitEver.0-0.ancient": "贵安，欢迎来到永远亭。",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.0-0r.ancient": "……",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.0-0r.ancient": "占位符",
 
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.title": "射命丸 文",
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.epithet": "不传统的非幻想记者",

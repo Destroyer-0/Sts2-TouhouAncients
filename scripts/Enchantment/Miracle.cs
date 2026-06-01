@@ -18,7 +18,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
-public class Miracle : CustomEnchantmentModel
+public class Miracle : TouhouAncientEnchantmentModel
 {
     public override bool HasExtraCardText => true;
 

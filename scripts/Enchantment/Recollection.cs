@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// 回忆：首次进入弃牌堆时（非正常打出），返回手牌，本回合免费。
 /// 仅在回合结束弃牌阶段被弃置时暂存，回合结束时回手并免费。
 /// </summary>
-public class Recollection : CustomEnchantmentModel
+public class Recollection : TouhouAncientEnchantmentModel
 {
     private CardModel? _pendingRecall;
     private bool isWaitingForFree;

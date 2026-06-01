@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// 抽牌阶段结束后，如果手牌中没有带付丧之力的牌，
 /// 将随机一张带付丧之力的牌从抽牌堆/弃牌堆移动到手牌中。
 /// </summary>
-public class Tsukumogami : CustomEnchantmentModel
+public class Tsukumogami : TouhouAncientEnchantmentModel
 {
     public override bool CanEnchantCardType(CardType cardType)
     {

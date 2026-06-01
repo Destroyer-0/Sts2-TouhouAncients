@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -14,7 +15,7 @@ namespace TouhouAncients.Scripts.powers;
 /// 罡气：在本回合将格挡掉的攻击伤害转化为等量活力。
 /// 多次获得时转化倍率叠加，回合数始终为1。
 /// </summary>
-public class VigorOnBlockPower : PowerModel
+public class VigorOnBlockPower : CustomPowerModel
 {
     public override PowerType Type => PowerType.Buff;
 

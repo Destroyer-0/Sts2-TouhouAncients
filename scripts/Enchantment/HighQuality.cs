@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
-public class HighQuality : CustomEnchantmentModel
+public class HighQuality : TouhouAncientEnchantmentModel
 {
     /// <summary>
     /// 上次计算出的费用减量，通过 [SavedProperty] 持久化存档。

@@ -14,8 +14,10 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// 诈术：打出后，获得1层缓冲，这张牌的费用在本场战斗中增加1。
 /// 只能附魔在耗能至少为1的卡牌上。
 /// </summary>
-public class Trick : CustomEnchantmentModel
+public class Trick : TouhouAncientEnchantmentModel
 {
+    public override bool CanBeRandomSelected => false;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
         HoverTipFactory.FromPower<BufferPower>()

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,7 +22,7 @@ namespace TouhouAncients.Scripts.powers;
 /// 4个回合后，清除所有敌人的人工制品并给予9999层灾厄。
 /// 每次受到伤害，延长1回合触发时机并给予自身10灾厄。
 /// </summary>
-public class LifeMustPerishPower : PowerModel
+public class LifeMustPerishPower : TouhouAncientPowerModel
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -31,7 +32,7 @@ public class LifeMustPerishPower : PowerModel
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("DoomAmount", 9999m),
-        new DynamicVar("SelfDoomAmount", 10m)
+        new DynamicVar("SelfDoomAmount", 8m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

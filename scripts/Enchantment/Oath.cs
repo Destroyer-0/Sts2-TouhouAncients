@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// 誓约：此牌被打出后，同时打出其它所有"誓约"牌。
 /// 此牌被消耗时，消耗其他所有"誓约"牌。
 /// </summary>
-public class Oath : CustomEnchantmentModel
+public class Oath : TouhouAncientEnchantmentModel
 {
     /// <summary>
     /// 防止连锁打出时无限循环。

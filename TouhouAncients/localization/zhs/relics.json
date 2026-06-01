@@ -424,8 +424,8 @@
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "",
 
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "永远亭座药",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "拾起时，用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。每回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。每回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "拾起时，用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "辉夜姬秘宝",

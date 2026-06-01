@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -7,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TouhouAncients.Scripts.powers;
 
-public class GeishehuaxiaojiejianshaoliliangPower : PowerModel
+public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

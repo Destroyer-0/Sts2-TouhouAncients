@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
-public class SnakeBiteUpgrade : CustomEnchantmentModel
+public class SnakeBiteUpgrade : TouhouAncientEnchantmentModel
 {
     public override bool HasExtraCardText => true;
     private int _shouldResetNum;

@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// <summary>
 /// 喋血：每次打出恢复3生命。每场战斗这张牌第一次造成伤害时，额外恢复等同于造成伤害的生命值。
 /// </summary>
-public class Bloodshed : CustomEnchantmentModel
+public class Bloodshed : TouhouAncientEnchantmentModel
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
