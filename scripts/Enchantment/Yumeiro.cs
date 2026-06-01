@@ -29,7 +29,7 @@ public class Yumeiro : CustomEnchantmentModel
     {
         if (!HasCard) return;
         if (Card.EnergyCost.CostsX) return;
-        Card.EnergyCost.UpgradeBy(-1);
+        Card.EnergyCost.SetUntilPlayed(-1);
     }
 
     private static List<EnchantmentModel>? s_allEnchantments;
@@ -67,6 +67,40 @@ public class Yumeiro : CustomEnchantmentModel
         }
     }
 
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay?.Card != base.Card) return;
+        if (Card.HasBeenRemovedFromState) return;
+
+        var player = base.Card.Owner;
+        var card = Card;
+        var cardType = card.Type;
+
+        //Card.EnergyCost.ResetForDowngrade();
+        CardCmd.ClearEnchantment(Card);
+        // 失去梦色附魔并变化为其他附魔
+        var availableEnchantments = AllEnchantments
+            .Where(e =>
+            {
+                if (e is Bloodshed) return false;
+                if (e is DeprecatedEnchantment) return false;
+                if (e is Yumeiro) return false;
+                if (e is Goopy) return false;
+                if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;
+                if (e is Inky && cardType != CardType.Attack) return false;
+                return e.CanEnchant(card);
+            })
+            .ToList();
+
+        if (availableEnchantments.Count > 0)
+        {
+            var randomEnchantment =
+                availableEnchantments.UnstableShuffle(player.RunState.Rng.CombatCardGeneration).First();
+            // 附加新的随机附魔
+            CardCmd.Enchant(randomEnchantment.ToMutable(), card, 3m);
+        }
+    }
+
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
         if (cardPlay?.Card != base.Card) return;
@@ -76,32 +110,5 @@ public class Yumeiro : CustomEnchantmentModel
 
         // 抽一张牌
         await CardPileCmd.Draw(choiceContext, 1, player);
-
-        base.Status = EnchantmentStatus.Disabled;
-        if (Card.HasBeenRemovedFromState) return;
-
-        var card = Card;
-        var cardType = card.Type;
-
-        Card.EnergyCost.FinalizeUpgrade();
-        CardCmd.ClearEnchantment(card);
-        // 失去梦色附魔并变化为其他附魔
-        var availableEnchantments = AllEnchantments
-            .Where(e =>
-            {
-                if (e is Bloodshed) return false;
-                if (e is Yumeiro) return false;
-                if (e is Inky && cardType != CardType.Attack) return false;
-                return e.CanEnchant(Card);
-            })
-            .ToList();
-
-        if (availableEnchantments.Count > 0)
-        {
-            var randomEnchantment =
-                availableEnchantments.UnstableShuffle(player.RunState.Rng.CombatCardGeneration).First();
-            // 附加新的随机附魔
-            CardCmd.Enchant(randomEnchantment.ToMutable(), Card, 1m);
-        }
     }
 }
