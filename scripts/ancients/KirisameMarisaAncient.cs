@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public class KirisameMarisaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.9f, 0.75f, 0.1f, 0.5f);
+    public override Color ButtonColor => new(0.3f, 0.3f, 0.3f, 0.5f);
     public override Color DialogueColor => new(0.9f, 0.75f, 0.1f, 1f);
 
     public override bool IsValidForAct(ActModel act)

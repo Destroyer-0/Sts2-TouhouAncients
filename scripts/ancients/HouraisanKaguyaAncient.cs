@@ -9,7 +9,7 @@ namespace TouhouAncients.Scripts;
 
 public class HouraisanKaguyaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.9f, 0.3f, 0.5f, 0.5f);
+    public override Color ButtonColor => new(0.1f, 0.1f, 0.1f, 0.5f);
     public override Color DialogueColor => new(0.9f, 0.3f, 0.5f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
