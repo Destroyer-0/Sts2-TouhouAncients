@@ -8,6 +8,10 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
+using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Unlocks;
+
 
 namespace TouhouAncients.Scripts.Patches;
 
@@ -24,6 +28,12 @@ namespace TouhouAncients.Scripts.Patches;
 public static class BanAncientPatch
 {
     private static readonly List<(Type type, string? title)> AllEntries = new();
+
+    /// <summary>
+    /// GenerateRooms Prefix 和 Postfix 之间的通信字段
+    /// </summary>
+    private static Rng _savedRng = null!;
+    private static UnlockState _savedUnlockState = null!;
 
     /// <summary>
     /// 扫描所有 AncientEventModel 子类（排除 Neow），仅填充类型列表。
@@ -113,6 +123,54 @@ public static class BanAncientPatch
         {
             // LocManager 尚未就绪，下次调用时重试
             _locEntriesInjected = false;
+        }
+    }
+
+    /// <summary>
+    /// Prefix 拦截 ActModel.GenerateRooms：保存 rng 和 unlockState 供 Postfix 使用
+    /// </summary>
+    [HarmonyPrefix]
+    [HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
+    private static void Prefix_GenerateRooms(ActModel __instance, Rng rng, UnlockState unlockState)
+    {
+        _savedRng = rng;
+        _savedUnlockState = unlockState;
+    }
+
+    /// <summary>
+    /// Postfix 拦截 ActModel.GenerateRooms：若选中的 Ancient 被禁用，从候选池排除后重新选取
+    /// </summary>
+    [HarmonyPostfix]
+    [HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
+    private static void Postfix_GenerateRooms(ActModel __instance)
+    {
+        try
+        {
+            var roomsField = AccessTools.Field(typeof(ActModel), "_rooms");
+            if (roomsField?.GetValue(__instance) is not RoomSet rooms) return;
+
+            AncientEventModel ancient;
+            try { ancient = rooms.Ancient; } catch { return; }
+
+            if (ancient != null && IsBanned(ancient.GetType()))
+            {
+                var sharedSubsetField = AccessTools.Field(typeof(ActModel), "_sharedAncientSubset");
+                var sharedSubset = sharedSubsetField?.GetValue(__instance) as List<AncientEventModel>;
+
+                var pool = __instance.GetUnlockedAncients(_savedUnlockState)
+                    .Concat(sharedSubset ?? new List<AncientEventModel>())
+                    .Where(a => !IsBanned(a.GetType()))
+                    .ToList();
+
+                if (pool.Count > 0)
+                {
+                    rooms.Ancient = _savedRng.NextItem(pool)!;
+                }
+            }
+        }
+        catch
+        {
+            // 静默失败，不影响房间生成
         }
     }
 

@@ -6,8 +6,8 @@
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将[blue]4[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将[blue]4[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
@@ -313,7 +313,7 @@
 
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "天壤梦弓",
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，并对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "请务必反握弓臂和弓弦，因为弓箭会反向发出。",
 
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "童忆书包",
   "TOUHOUANCIENTS-CHILDHOOD_BAG.description": "拾起时，用[purple]污浊药水[/purple]填满你的药水栏。将战斗结束时的[gold]金币奖励[/gold]替换为[blue]{PotionCount}[/blue]瓶[purple]污浊药水[/purple]。你投掷的[purple]污浊药水[/purple]只会对敌人造成伤害。",
@@ -433,7 +433,7 @@
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "辉夜姬秘宝",
-  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "每场战斗开始时，从[blue]{Cards}[/blue]张其它角色的牌库中选择一张加入[gold]手牌[/gold]。打出这张牌后，其原始复制会额外出现在[gold]战斗奖励[/gold]中。",
+  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "每场战斗开始时，从[blue]{Cards}[/blue]张[green]升级过的[/green]其它角色的牌库中选择一张加入[gold]手牌[/gold]。打出这张牌后，其原始复制会额外出现在[gold]战斗奖励[/gold]中。",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "选择一张牌",
 

@@ -19,15 +19,16 @@ public class Bileihaopaiduozhua : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("EnchantmentName", ModelDb.Enchantment<HighQuality>().Title.GetFormattedText())];
     
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Barricade>()
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Barricade>(true)
         .Concat(HoverTipFactory.FromEnchantment<HighQuality>());
 
     public override async Task AfterObtained()
     {
         List<CardPileAddResult> results = new List<CardPileAddResult>();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             CardModel card = base.Owner.RunState.CreateCard(ModelDb.Card<Barricade>(), base.Owner);
+            CardCmd.Upgrade(card);
             CardCmd.Enchant<HighQuality>(card, 1m);
 			results.Add(await CardPileCmd.Add(card, PileType.Deck));
         }

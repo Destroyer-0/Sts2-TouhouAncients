@@ -113,6 +113,7 @@ public class TouhouAncientsConfig : SimpleModConfig
         // 注意：不从 BannedAncientData 同步到 BannedTypeNames，
         // 避免清除已在 Toggled 事件中设置的条目。
         // 复选框使用 BannedTypeNames 的当前状态。
+        SyncBannedFromData();
 
         var entries = BanAncientPatch.GetAllAncientEntries();
         if (entries.Count == 0) return;

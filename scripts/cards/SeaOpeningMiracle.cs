@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class SeaOpeningMiracle : TouhouAncientCards
 {
-    private const int energyCost = 2;
+    private const int energyCost = 3;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.AllEnemies;
@@ -47,6 +47,6 @@ public class SeaOpeningMiracle : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -59,11 +59,16 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
             list.Remove(base.Owner.Character.CardPool);
         }
 
-        IEnumerable<CardModel> cards = from c in list.SelectMany((CardPoolModel c) =>
-                c.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint))
-            select c;
+        IEnumerable<CardModel> cards = list.SelectMany((CardPoolModel c) => c.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)).Select(c => c);
         List<CardModel> list2 = CardFactory.GetDistinctForCombat(base.Owner, cards, DynamicVars.Cards.IntValue,
-            base.Owner.RunState.Rng.CombatCardGeneration).ToList();
+            base.Owner.RunState.Rng.CombatCardGeneration).Select(x =>
+        {
+            if (x.IsUpgradable)
+            {
+                CardCmd.Upgrade(x);
+            }
+            return x;
+        }).ToList();
 
         if (list2.Count == 0) return;
 
