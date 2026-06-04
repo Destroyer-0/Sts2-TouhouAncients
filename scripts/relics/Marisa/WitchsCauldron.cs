@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Entities.RestSite;
 using MegaCrit.Sts2.Core.Factories;
@@ -57,15 +58,15 @@ public class WitchsCauldron : TouhouAncientRelics
     {
         Flash();
 
-        var potionList = new List<PotionModel>();
-        // 获得3瓶随机药水
-        for (int i = 0; i < 3; i++)
-        {
-            var potion = PotionFactory.CreateRandomPotionOutOfCombat(base.Owner, base.Owner.PlayerRng.Rewards);
-            potionList.Add(potion.ToMutable());
-        }
-        var rewards = potionList.Select(r => new PotionReward(r, base.Owner)).ToList<Reward>();
-        await new RewardsSet(base.Owner).WithCustomRewards(rewards).Offer();
+        var potionRewards = new List<Reward>();
+        //var potionList = new List<PotionModel>();
+        // 获得3瓶随机药水,其中一定有一瓶稀有药水
+        potionRewards.Add(new PotionReward(base.Owner));
+        potionRewards.Add(new PotionReward(base.Owner));
+        var rarePotion = PotionFactory.GetPotionOptions(base.Owner, ModelDb.AllPotions.Where((PotionModel p) => p.Rarity == PotionRarity.Rare));
+        potionRewards.Add(new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(),base.Owner));
+        //var rewards = potionList.Select(r => new PotionReward(r.ToMutable(), base.Owner)).ToList<Reward>();
+        await new RewardsSet(base.Owner).WithCustomRewards(potionRewards).Offer();
         // 变化至多一张牌
         var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_TRANSFORM"), 0, 1);
         var selected = (await CardSelectCmd.FromDeckForTransformation(base.Owner, prefs)).ToList();

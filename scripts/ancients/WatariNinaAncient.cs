@@ -19,7 +19,7 @@ public class WatariNinaAncient : CustomAncientModel
     // 自定义地图图标和轮廓的路径
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/WatariNina_MapNode.png";
 
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/WatariNina.png";
