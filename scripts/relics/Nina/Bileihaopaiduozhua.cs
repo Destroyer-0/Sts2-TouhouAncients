@@ -29,9 +29,17 @@ public class Bileihaopaiduozhua : TouhouAncientRelics
         {
             CardModel card = base.Owner.RunState.CreateCard(ModelDb.Card<Barricade>(), base.Owner);
             CardCmd.Upgrade(card);
-            CardCmd.Enchant<HighQuality>(card, 1m);
+            CardCmd.Enchant<HighQuality>(card, 1);
 			results.Add(await CardPileCmd.Add(card, PileType.Deck));
         }
+
+        foreach (var result in results)
+        {
+            if(result.cardAdded.Enchantment is not HighQuality highQuality)
+                continue;
+            highQuality.RecalculateSameCardCount();
+        }
+        
         CardCmd.PreviewCardPileAdd(results, 2f);
     }
 
@@ -59,7 +67,7 @@ public class Bileihaopaiduozhua : TouhouAncientRelics
 
         var highQuality = ModelDb.Enchantment<HighQuality>();
         if (!highQuality.CanEnchant(card)) return false;
-        if (!Owner.Deck.Cards.Any(x => x.Id.Entry == card.Id.Entry)) return false;
+        if (Owner.Deck.Cards.All(x => x.Id.Entry != card.Id.Entry)) return false;
 
         newCard = EnchantCard(card);
         return true;
@@ -73,7 +81,7 @@ public class Bileihaopaiduozhua : TouhouAncientRelics
             var card = option.Card;
             if (!highQuality.CanEnchant(card)) continue;
             if (card.Enchantment != null) continue;
-            if (!Owner.Deck.Cards.Any(x => x.Id.Entry == card.Id.Entry)) continue;
+            if (Owner.Deck.Cards.All(x => x.Id.Entry != card.Id.Entry)) continue;
 
             option.ModifyCard(EnchantCard(card), this);
         }

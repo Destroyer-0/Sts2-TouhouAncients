@@ -51,8 +51,10 @@ public class HighQuality : TouhouAncientEnchantmentModel
     {
         // 直接用 SetCustomBaseCost 设置最终费用，不经过 UpgradeBy，
         // 避免 WasJustUpgraded 被设为 true 导致 UI 显示绿色费用文本。
-        var newBase = Math.Max(0, Card.EnergyCost.Canonical - delta);
-        Card.EnergyCost.SetCustomBaseCost(newBase);
+        //var newBase = Math.Max(0, Card.EnergyCost.Canonical - delta);
+        Card.EnergyCost.UpgradeBy(-delta);
+        // Card.EnergyCost.UpgradeBy(-delta);
+        // Card.InvokeEnergyCostChanged();
     }
 
     protected override void OnEnchant()
@@ -91,5 +93,11 @@ public class HighQuality : TouhouAncientEnchantmentModel
         {
             TryEnchantEnergyCost(-1);
         }
+    }
+
+    public void RecalculateSameCardCount()
+    {
+        if(!HasCard)return;
+        TryEnchantEnergyCost(0);
     }
 }
