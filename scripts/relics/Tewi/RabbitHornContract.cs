@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 兔角契约：拾起时获得200金币并将一张债务加入牌组。
 /// 每场战斗结束时获得当前金币20%的金币。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RabbitHornContract : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;
@@ -30,7 +30,7 @@ public class RabbitHornContract : TouhouAncientRelics
     public override async Task AfterObtained()
     {
         Flash();
-        await PlayerCmd.GainGold(200, base.Owner);
+        await PlayerCmd.GainGold(150, base.Owner);
         await CardPileCmd.AddCurseToDeck<Debt>(base.Owner);
     }
 
