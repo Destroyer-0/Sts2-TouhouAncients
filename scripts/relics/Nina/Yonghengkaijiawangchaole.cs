@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -16,7 +17,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Yonghengkaijiawangchaole : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -28,24 +29,55 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
     [
         HoverTipFactory.FromPower<PlatingPower>(),
         HoverTipFactory.ForEnergy(this),
-    ]; 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
-	{
-		if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)
-		{
-			Flash();
+    ];
+
+    private int _shouldAddEnergyAfterReset;
+    private bool _canAddEnergy;
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is CombatRoom)
+        {
+            _canAddEnergy = false;
+            Flash();
             await PowerCmd.Apply<PlatingPower>(base.Owner.Creature, base.DynamicVars["PlatingPower"].BaseValue, base.Owner.Creature, null);
-		}
-	}
+        }
+    }
+
+    public override async Task AfterEnergyReset(Player player)
+    {
+        if (player != Owner) return;
+        if (_canAddEnergy) return;
+        if (_shouldAddEnergyAfterReset <= 0) return;
+        _canAddEnergy = true;
+        Flash();
+        await PlayerCmd.GainEnergy(_shouldAddEnergyAfterReset, base.Owner);
+        _shouldAddEnergyAfterReset = 0;
+    }
+
+ //    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+	// {
+	// 	if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)
+	// 	{
+ //            //await PowerCmd.Apply<PlatingPower>(base.Owner.Creature, base.DynamicVars["PlatingPower"].BaseValue, base.Owner.Creature, null);
+	// 	}
+	// }
 
     public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
-        GD.PrintErr($"获得{power.Id.Entry}/{amount}，类型={power.GetType().Name}，Owner={power.Owner?.Name}，OwnerIsPlayer={power.Owner?.IsPlayer}");
         if (power is PlatingPower platingPower && power.Owner == base.Owner.Creature && amount > 0)
         {
             GD.PrintErr($"获得覆甲{amount}，当前层数={platingPower.Amount}");
-            Flash();
-            await PlayerCmd.GainEnergy(1m, base.Owner);
+            if (_canAddEnergy)
+            {
+                Flash();
+                await PlayerCmd.GainEnergy(1m, base.Owner);
+            }
+            else
+            {
+                GD.PrintErr($"战斗还未开始，改为存储。");
+                _shouldAddEnergyAfterReset++;
+            }
         }
     }
 }
