@@ -9,7 +9,7 @@ namespace TouhouAncients.Scripts;
 
 public class KotiyaSanaeAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.5f);
+    public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.6f);
     public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
@@ -47,11 +47,13 @@ public class KotiyaSanaeAncient : CustomAncientModel
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MoriyaGohei>(),
-            AncientOption<DayKakusei>()
+            AncientOption<DayKakusei>(),
+            AncientOption<WindPriestessWine>()
         ),
         MakePool(
             AncientOption<SnakeAmulet>(),
-            AncientOption<FrogAmulet>()
+            AncientOption<FrogAmulet>(),
+            AncientOption<HisoutensokuModel>()
         ),
         MakePool(
             AncientOption<SailorSuit>(),

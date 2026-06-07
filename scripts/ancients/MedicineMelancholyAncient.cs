@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public class MedicineMelancholyAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.5f);
+    public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.7f);
     public override Color DialogueColor => new(0.8f, 0.4f, 0.6f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";

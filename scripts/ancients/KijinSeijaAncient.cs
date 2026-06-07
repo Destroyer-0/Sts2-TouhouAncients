@@ -9,7 +9,7 @@ namespace TouhouAncients.Scripts;
 
 public class KijinSeijaAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.588f, 0.173f, 0.165f, 0.5f);
+    public override Color ButtonColor => new(0.588f, 0.173f, 0.165f, 0.7f);
     public override Color DialogueColor => new(0.588f, 0.173f, 0.165f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
@@ -38,7 +38,8 @@ public class KijinSeijaAncient : CustomAncientModel
             AncientOption<MagicMallet>(),
             AncientOption<FoldingUmbrella>(),
             AncientOption<FakeSpiritOrb>(),
-            AncientOption<HungryBackpack>()
+            AncientOption<HungryBackpack>(),
+            AncientOption<DreamHeavenBow>()
         )
     );
 }

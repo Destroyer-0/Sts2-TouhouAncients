@@ -9,7 +9,7 @@ namespace TouhouAncients.Scripts;
 
 public class InabaTewiAncient : CustomAncientModel
 {
-    public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.5f);
+    public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.7f);
     public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/InabaTewi_MapNode.png";
@@ -35,6 +35,7 @@ public class InabaTewiAncient : CustomAncientModel
             AncientOption<RabbitHornContract>(),
             AncientOption<RabbitsFoot>(),
             AncientOption<LuckyTreasureChest>(),
-            AncientOption<RabbitsCage>()
+            AncientOption<RabbitsCage>(),
+            AncientOption<OokunineshiProtrayal>()
         ));
 }
