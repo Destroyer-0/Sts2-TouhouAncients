@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -17,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 封魔针：你造成伤害时，给予1虚弱。你对处于虚弱状态的敌人造成伤害增加等同于其虚弱层数的伤害。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SealingNeedle : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -64,11 +65,20 @@ public class SealingNeedle : TouhouAncientRelics
     /// </summary>
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (dealer != base.Owner?.Creature) return 0m;
         if (cardSource == null) return 0m;
         if (target == null || !target.IsAlive || !target.IsEnemy) return 0m;
         if (!target.HasPower<WeakPower>()) return 0m;
+        if (!props.IsPoweredAttack())
+        {
+            return 0m;
+        }
 
-        return target.GetPowerAmount<WeakPower>();
+        if (dealer == base.Owner?.Creature||(dealer?.Monster is Osty&& Owner?.Creature == dealer.PetOwner?.Creature))
+        {
+            return target.GetPowerAmount<WeakPower>();
+        }
+
+        return 0m;
+        
     }
 }
