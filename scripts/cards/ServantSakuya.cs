@@ -84,6 +84,7 @@ public class ServantSakuya : TouhouAncientCards
 
             foreach (var (card,target) in _target)
             {
+                if (CombatManager.Instance.IsOverOrEnding) return;
                 if (target == null || !target.IsEnemy || !target.IsAlive) continue;
                 await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
                     .WithHitCount(exhaustedCount)

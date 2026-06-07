@@ -72,9 +72,11 @@ public class MasterSpark : TouhouAncientCards
         NCreature creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
         var shouldSpawnSpark = creatureNode2 != null && creatureNode1 != null;
         Vector2 vfxSpawnPosition = Vector2.Zero;
+        Vector2 vfxSpawnPosition2 = Vector2.Zero;
         if (shouldSpawnSpark)
         { 
             vfxSpawnPosition = creatureNode1.VfxSpawnPosition;
+            vfxSpawnPosition2 = creatureNode2.VfxSpawnPosition;
             Player player = owner.Player;
             if (player is { Character: Defect })
                 vfxSpawnPosition += Defect.EyelineOffset;
@@ -95,13 +97,14 @@ public class MasterSpark : TouhouAncientCards
             {
                 if (shouldSpawnSpark)
                 {
-                    //List<Creature> enemies = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList();
-                    NHyperbeamVfx nHyperbeamVfx2 = NHyperbeamVfx.Create(vfxSpawnPosition, creatureNode2.VfxSpawnPosition);
-                    if (nHyperbeamVfx2 != null)
-                    {
-                        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx2);
-                        //await Cmd.Wait(0.5f);
-                    }
+                        //List<Creature> enemies = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList();
+                        NHyperbeamVfx nHyperbeamVfx2 = NHyperbeamVfx.Create(vfxSpawnPosition, vfxSpawnPosition2);
+                        if (nHyperbeamVfx2 != null)
+                        {
+                            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx2);
+                            //await Cmd.Wait(0.5f);
+                        }
+                    
                     //
                     // foreach (Creature item in enemies)
                     // {

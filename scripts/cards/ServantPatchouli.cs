@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -29,14 +30,12 @@ public class ServantPatchouli : TouhouAncientCards
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(2)
+        new EnergyVar(2),
+        new CardsVar(2)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromKeyword(CardKeyword.Ethereal),
-        base.EnergyHoverTip
-    ];
+        HoverTipFactory.FromCardWithCardHoverTips<Dazed>().Append(HoverTipFactory.FromKeyword(CardKeyword.Ethereal));
 
     public ServantPatchouli() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -45,6 +44,7 @@ public class ServantPatchouli : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (Owner.PlayerCombatState == null) return;
+        if (base.Owner.Creature.CombatState == null) return;
         List<CardModel> list = base.Owner.PlayerCombatState.Hand.Cards.ToList();
         foreach (var cardModel in list)
         {
@@ -55,18 +55,21 @@ public class ServantPatchouli : TouhouAncientCards
         // 获得能量
         await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
         
-        AddKeyword(CardKeyword.Unplayable);
+        List<CardModel> selected = new List<CardModel>();
+        for (int index = 0; index < DynamicVars.Cards.IntValue; ++index)
+            selected.Add(base.Owner.Creature.CombatState.CreateCard<Dazed>(Owner));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Hand, addedByPlayer: true));
+        //AddKeyword(CardKeyword.Unplayable);
     }
-
-
+    
     protected override void OnUpgrade()
     {
         base.DynamicVars.Energy.UpgradeValueBy(1m);
     }
 
-    public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-    {
-        RemoveKeyword(CardKeyword.Unplayable);
-        return base.AfterTurnEnd(choiceContext, side);
-    }
+    // public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    // {
+    //     RemoveKeyword(CardKeyword.Unplayable);
+    //     return base.AfterTurnEnd(choiceContext, side);
+    // }
 }

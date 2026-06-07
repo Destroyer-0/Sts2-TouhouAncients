@@ -18,7 +18,10 @@ namespace TouhouAncients.Scripts.cards;
 public class Tribute : TouhouAncientCards
 {
     private const int RequiredGold = 250;
-    
+
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
+
     // BaseLib 的 [SavedProperty] 需要放在属性上，不能放在字段上。
     [SavedProperty]
     private int SavedGoldContributed { get; set; }
