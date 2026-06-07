@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbx8j6ylsdsu7"
-path="res://.godot/imported/InabaTewi_MapNode.png-4344e1969810858082bedef83873711e.ctex"
+uid="uid://b16epqk5dr7am"
+path="res://.godot/imported/InabaTewi_MapNode.png-22c78fe26460fcdf93b4637384d45c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/InabaTewi_MapNode.png"
-dest_files=["res://.godot/imported/InabaTewi_MapNode.png-4344e1969810858082bedef83873711e.ctex"]
+source_file="res://images/icon/MapNode/Outline/InabaTewi_MapNode.png"
+dest_files=["res://.godot/imported/InabaTewi_MapNode.png-22c78fe26460fcdf93b4637384d45c9c.ctex"]
 
 [params]
 
