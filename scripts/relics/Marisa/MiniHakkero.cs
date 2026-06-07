@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 迷你八卦炉：回合结束时，消耗1~3张手牌。
 /// 若消耗的牌不小于2张，下个回合开始时获得1能量。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MiniHakkero : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];

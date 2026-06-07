@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 极夜侍仆：你的卡牌奖励会额外包含随机一张仆从牌（时间侍从、魔法侍从、罡气侍从）。
 /// 参照 LastingCandy 的 TryModifyCardRewardOptions 实现。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class NightServant : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

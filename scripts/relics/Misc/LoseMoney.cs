@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 破财消灾：每当你打出3张牌，消耗4金币获得1能量。
 /// 金币不足4时后续效果不触发。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class LoseMoney : TouhouAncientRelics
 {
     public override RelicRarity Rarity => RelicRarity.Event;

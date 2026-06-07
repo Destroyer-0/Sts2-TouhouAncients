@@ -21,7 +21,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 绀珠之药：每场战斗开始时，将一张绀珠之药置入手牌。
 /// 死亡拦截逻辑在 KonshiiNoKusuriCard 中处理。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class KonshiiNoKusuri : TouhouAncientRelics
 {
     /// <summary>

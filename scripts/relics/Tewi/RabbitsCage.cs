@@ -13,7 +13,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 兔笼：拾起时，将一张幸运白兔加入你的牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RabbitsCage : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

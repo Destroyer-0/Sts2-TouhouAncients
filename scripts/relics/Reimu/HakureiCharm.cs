@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 博丽御札：战斗开始时，选择一个选项进行祈愿。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HakureiCharm : TouhouAncientRelics
 {
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)

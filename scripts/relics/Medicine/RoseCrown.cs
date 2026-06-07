@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 蔷薇皇冠：
 /// 在每场战斗开始时，获得 ThornsAmount 层荆棘与 PlatingAmount 层覆甲。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RoseCrown : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

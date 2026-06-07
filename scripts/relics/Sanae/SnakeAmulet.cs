@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SnakeAmulet : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

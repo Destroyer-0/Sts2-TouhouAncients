@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 心灵探测仪：若敌人造成的伤害与你的格挡值相差绝对值小于等于2，使其下回合眩晕。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MindProbe : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Threshold", 2m)];

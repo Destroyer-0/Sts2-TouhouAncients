@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 亚空穴：每场战斗你首次失去生命值时，获得2层无实体。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SubspaceHole : TouhouAncientRelics
 {
     private bool _usedThisCombat;

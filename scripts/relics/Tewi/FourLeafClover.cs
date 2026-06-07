@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 四十叶草：每2次卡牌奖励额外出现一张稀有卡牌，第二次以此法出现的稀有卡牌升级。
 /// 参照 LastingCandy 实现。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class FourLeafClover : TouhouAncientRelics
 {
     private int rewardsSinceLastRare;

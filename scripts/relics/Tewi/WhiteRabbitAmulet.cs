@@ -12,7 +12,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 白兔御守：拾起时移除牌组中所有诅咒，之后阻止诅咒加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class WhiteRabbitAmulet : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

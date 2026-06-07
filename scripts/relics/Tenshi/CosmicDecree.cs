@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 天宇诏令：拾起时，获得天赋君权。查看15张来自储君的升级过的牌，选择任意数量加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CosmicDecree : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

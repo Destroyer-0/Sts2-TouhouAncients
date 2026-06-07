@@ -17,7 +17,7 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Zhangeweilaiba : TouhouAncientRelics
 {
     // 遗物的数值。替换本地化中的{Cards}。

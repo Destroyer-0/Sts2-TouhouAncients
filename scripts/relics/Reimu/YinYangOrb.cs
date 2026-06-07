@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 阴阳玉：转换。阴：每当你打出一张技能牌时，获得1临时力量。
 /// 阳：每当你打出一张攻击牌时，获得1临时敏捷。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class YinYangOrb : TouhouAncientRelics
 {
 

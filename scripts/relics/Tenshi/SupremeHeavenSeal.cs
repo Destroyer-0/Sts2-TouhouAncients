@@ -22,7 +22,7 @@
 // /// <summary>
 // /// 至尊天印：拾起时选择一张升级后的先古之民卡牌加入牌组。不再掉落卡牌奖励。
 // /// </summary>
-// [Pool(typeof(SharedRelicPool))]
+// [Pool(typeof(EventRelicPool))]
 // public class SupremeHeavenSeal : TouhouAncientRelics
 // {
 //     public override bool HasUponPickupEffect => true;

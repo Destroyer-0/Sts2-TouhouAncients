@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 沥血阴阳玉：每个回合开始时获得1能量。休息处恢复的生命值减少25点。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class BloodYinYangOrb : TouhouAncientRelics
 {
 

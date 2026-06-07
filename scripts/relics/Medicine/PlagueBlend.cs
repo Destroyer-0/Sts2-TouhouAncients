@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 荒疫特调：在每个回合开始时获得1能量。第3回合开始时，给予自身4层中毒。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class PlagueBlend : TouhouAncientRelics
 {
     private const int TriggerTurn = 3;

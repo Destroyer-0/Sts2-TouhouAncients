@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Zhihuijizhongbing : TouhouAncientRelics
 {
     private bool _anyCardsPlayedThisTurn;

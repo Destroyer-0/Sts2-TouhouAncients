@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 墨染的樱花：每回合获得1费并失去1最大生命。你可以在休息处赏樱。
 /// 赏樱：恢复因为此遗物失去的生命上限。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class InkDyedCherryBlossoms : TouhouAncientRelics
 {
     private int _lostMaxHpTotal;

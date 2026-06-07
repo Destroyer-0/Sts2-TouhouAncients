@@ -25,7 +25,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 每场战斗开始时，从7张其它角色的牌库中选择一张加入手牌。
 /// 当你打出这张牌时，其原始复制会加入本次的掉落奖励。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class KaguyaSecretTreasure : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -99,6 +99,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
         AbstractRoom currentRoom = base.Owner.Creature.CombatState!.RunState.CurrentRoom;
         if (currentRoom is CombatRoom combatRoom)
         { 
+            _selectedCardModel.Remove(cardPlay.Card);
             var card = ModelDb.GetById<CardModel>(cardPlay.Card.Id).ToMutable();
             if (cardPlay.Card.IsUpgraded)
             {

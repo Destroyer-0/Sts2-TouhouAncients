@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 人魂灯：有任意角色的生命值低于50%时，获得1死神形态，每场战斗只触发一次。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SoulLattern : TouhouAncientRelics
 {
     private bool hasTriggeredThisCombat = false;

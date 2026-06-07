@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 恋色手电筒：将一张极限火花（MasterSpark）加入你的牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class LoveColorFlashlight : TouhouAncientRelics
 {
 

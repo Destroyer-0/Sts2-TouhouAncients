@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 领主防晒霜：卡牌奖励掉落的牌一定为稀有牌，且你可以选择全都要。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class LordsSunscreenCream : TouhouAncientRelics
 {
     private const string _takeAllKey = "TAKE_ALL";

@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 不稳定魔瓶：在每个回合开始时，随机为抽牌堆中的两张牌附魔华彩（GLAM）。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class UnstableBottle : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];

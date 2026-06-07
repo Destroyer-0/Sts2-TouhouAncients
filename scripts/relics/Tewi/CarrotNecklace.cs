@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 萝卜项链：拾起时移除三张牌，商人移除卡牌服务价格翻倍。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CarrotNecklace : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

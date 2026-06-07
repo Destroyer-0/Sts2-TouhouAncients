@@ -24,7 +24,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 第三只眼：战斗开始时，自身获得2层易伤、脆弱。第一次抽牌阶段开始前，预见5。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class TheThirdEye : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

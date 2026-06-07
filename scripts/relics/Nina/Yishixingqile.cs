@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Yishixingqile : TouhouAncientRelics
 {
     private const int StartingGold = 112;

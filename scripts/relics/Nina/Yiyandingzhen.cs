@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.TestSupport;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Yiyandingzhen: TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [(HoverTipFactory.FromPower<ConfusedPower>())];

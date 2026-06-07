@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 天穹裙带：受到来自敌人的伤害时减少10，并记录实际减少量。
 /// 下回合结束时受到记录层数的伤害并清空计数。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class FirmamentSash : TouhouAncientRelics
 {
     private int mitigationTotal;

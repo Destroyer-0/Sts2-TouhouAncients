@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 蛊毒魔盒：
 /// 拾起时，将你牌组中的所有"打击"替换为蛇咬（SnakeBite）并附魔：蛊毒。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MedicinePoisonBox : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Snakebite>().Concat(HoverTipFactory.FromEnchantment<MedicinePoison>(3));

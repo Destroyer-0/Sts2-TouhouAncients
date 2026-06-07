@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 丝带蝴蝶结：
 /// 拾起时，从你的牌组选择2张非能力牌，为它们附魔"誓约"。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RibbonBow : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

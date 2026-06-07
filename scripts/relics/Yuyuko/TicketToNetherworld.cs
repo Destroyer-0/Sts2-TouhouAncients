@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 黄泉期票：将一张生者必灭之理加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class TicketToNetherworld : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<LifeMustPerish>();

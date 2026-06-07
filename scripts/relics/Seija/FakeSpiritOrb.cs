@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 伪灵异珠：每个回合开始时获得1能量。
 /// 抽牌阶段抽到的牌中，有随机两张牌获得沉重（Weighted）。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class FakeSpiritOrb : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

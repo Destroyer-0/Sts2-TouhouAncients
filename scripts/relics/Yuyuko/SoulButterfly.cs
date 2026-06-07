@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SoulButterfly : TouhouAncientRelics
 {
     private int _dormantRemaining;

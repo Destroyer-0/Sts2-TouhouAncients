@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 天罚石柱：使用技能牌时插下要石，使用攻击牌时拔出要石，对所有敌人造成伤害，并使要石本场战斗伤害提高。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class KeystoneFloatingCannon : TouhouAncientRelics
 {
     private bool _keystoneInserted;

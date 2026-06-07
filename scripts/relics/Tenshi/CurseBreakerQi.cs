@@ -58,7 +58,7 @@ public static class CurseBreakerQiPatchs
 /// <summary>
 /// 破厄真气：拾起时获得9张随机诅咒。可以打出诅咒牌，打出诅咒时获得1力量、1能量并抽2张牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CurseBreakerQi : TouhouAncientRelics
 {
     private bool _firstCursePlayedThisTurn;

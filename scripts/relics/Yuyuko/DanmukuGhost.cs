@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 弹幕的亡灵：敌人的回合结束时，若其进行过攻击但未造成伤害，使其获得2回合缩小。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class DanmukuGhost : TouhouAncientRelics
 {
     /// <summary>

@@ -21,7 +21,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 金平糖罐：你的卡牌奖励中将额外出现一张升级过的能力牌，选取3张后失效。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class KompeitoPot : TouhouAncientRelics
 {
     private const int MaxUses = 3;

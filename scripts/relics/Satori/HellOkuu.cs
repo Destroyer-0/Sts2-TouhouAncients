@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 地狱鸦羽：在每个回合开始时获得1能量。如果你结束回合时能量为0，将一张灼伤置入抽牌堆，并获得2力量。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HellOkuu : TouhouAncientRelics
 {
     private bool _endedWithZeroEnergy;

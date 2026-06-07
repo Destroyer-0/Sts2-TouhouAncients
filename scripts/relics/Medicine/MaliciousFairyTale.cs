@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 恶毒的童话书：
 /// 在你的回合开始时，获得 Power 点力量。所有敌人初始获得 ThornsAmount 层荆棘。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MaliciousFairyTale : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

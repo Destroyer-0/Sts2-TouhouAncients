@@ -24,7 +24,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 亡灵提灯：从15张无色牌中选择任意张加入牌组，这些牌拥有附魔：付丧之力。
 /// 回合结束时，将弃牌堆中所有带付丧之力的牌移回手牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class GhostLantern : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

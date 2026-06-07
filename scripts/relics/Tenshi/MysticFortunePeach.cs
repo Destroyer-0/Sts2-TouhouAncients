@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 奇运桃子：每当你打出攻击牌、技能牌、能力牌各一张时，清除负面效果并恢复1能量。
 /// 可多次触发。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MysticFortunePeach : TouhouAncientRelics
 {
     private int _attacksPlayedThisTurn;

@@ -12,7 +12,7 @@ using TouhouAncients.Scripts.Enchantment;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MoriyaGohei : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("EnchantmentName", ModelDb.Enchantment<Miracle>().Title.GetFormattedText())]; 

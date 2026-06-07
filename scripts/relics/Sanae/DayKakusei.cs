@@ -16,7 +16,7 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class DayKakusei : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

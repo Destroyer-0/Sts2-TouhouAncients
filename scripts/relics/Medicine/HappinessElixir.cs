@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 幸福的秘药：
 /// 获得一瓶卡米莉亚。第二幕的Boss战结束后额外掉落一瓶。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HappinessElixir : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

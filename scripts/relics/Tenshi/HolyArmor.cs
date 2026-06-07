@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 天赐甲胄：在每个回合开始时获得{Energy:energyIcons()}。每回合第一次从卡牌中获得的格挡值减半。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HolyArmor : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

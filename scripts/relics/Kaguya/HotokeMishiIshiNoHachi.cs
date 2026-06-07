@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 佛御石之钵：拾起时，失去30最大生命；战斗开始时，获得5敏捷与30格挡。
 /// 当你受到伤害后，下回合获得10格挡。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HotokeMishiIshiNoHachi : TouhouAncientRelics
 {
     private const decimal MaxHpLoss = 30m;

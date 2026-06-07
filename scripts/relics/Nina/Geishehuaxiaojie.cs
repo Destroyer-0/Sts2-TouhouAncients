@@ -15,7 +15,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Geishehuaxiaojie : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("StrengthLose", 8)];

@@ -12,7 +12,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 反叛号角：拾起时，升级所有普通牌与初始牌。
 /// 普通牌 = CardRarity.Common，初始牌 = CardRarity.Basic
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RebellionHorn : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

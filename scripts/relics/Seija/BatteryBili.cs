@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 哔哩电池：每场战斗第一回合开始时，从抽牌堆中选择至多3张能力牌置入手牌，
 /// 这些牌本回合费用降至1，并拥有流电（Galvanized）。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class BatteryBili : TouhouAncientRelics
 {
     private bool _activated;

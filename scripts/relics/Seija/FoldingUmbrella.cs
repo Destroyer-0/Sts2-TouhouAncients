@@ -10,7 +10,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 折叠伞：战斗开始时，获得5层倒映（ReflectPower）。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class FoldingUmbrella : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

@@ -13,7 +13,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 万宝槌：拾起时，将一张小槌的魔力加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MagicMallet : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("MagicCount", 1)];

@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 白旗：拾起时，从牌组中选择一张耗能不为X的牌，为它附魔：诈术。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class WhiteFlag : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

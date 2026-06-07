@@ -13,7 +13,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 地狱猫车：有敌人死亡时，恢复4点生命。每当你洗牌时，若恢复生命的数值不为0，抽一张牌并使该效果-2。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HellOrin : TouhouAncientRelics
 {
     private const decimal DefaultHeal = 5m;

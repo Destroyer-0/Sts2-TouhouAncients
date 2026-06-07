@@ -66,7 +66,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 火鼠的皮衣：在战斗开始时，将3张灼伤放入你的抽牌堆。
 /// 你可以打出原本不能被打出的灼伤，抽一张牌、获得6格挡与1荆棘。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HinezumiNoKawagoromo : TouhouAncientRelics
 {
     private const int DrawCount = 1;

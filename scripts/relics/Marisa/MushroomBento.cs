@@ -21,7 +21,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 将一张孢子心灵（SporeMind）加入抽牌堆。
 /// 彩蛋：替换你所有的遗物：面包
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MushroomBento : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(3)];

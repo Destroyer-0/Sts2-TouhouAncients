@@ -18,7 +18,7 @@ using TouhouAncients.Scripts.Enchantment;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Sheyaotebieqiang : TouhouAncientRelics
 {
     private static readonly string _snakeKeywords = 

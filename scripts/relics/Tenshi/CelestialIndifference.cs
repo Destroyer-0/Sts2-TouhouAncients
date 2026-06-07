@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 天界冷漠：回合结束时，升级你本回合获得过的牌与牌堆顶的牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CelestialIndifference : TouhouAncientRelics
 {
     private readonly HashSet<CardModel> _cardsGainedThisTurn = new();

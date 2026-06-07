@@ -75,7 +75,7 @@ public static class ChildhoodBagPatch
 /// 将战斗结束时的金币奖励替换为1瓶污浊药水（不再掉落金币奖励，并掉落1瓶污浊药水）。
 /// 自身免疫污浊药水造成的伤害。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class ChildhoodBag : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

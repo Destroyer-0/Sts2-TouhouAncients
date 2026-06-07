@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 地球仪：以保留升级的状态变化5张牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Globe : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];

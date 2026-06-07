@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 蓬莱的玉枝：每场战斗开始时，为你的随机7张牌附魔"梦色"。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HouraiNoTamae : TouhouAncientRelics
 {
     private const int EnchantCount = 7;

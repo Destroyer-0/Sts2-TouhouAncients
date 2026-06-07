@@ -19,7 +19,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SkyHat : TouhouAncientRelics
 {
     public override bool ShowCounter => DisplayAmount > -1;

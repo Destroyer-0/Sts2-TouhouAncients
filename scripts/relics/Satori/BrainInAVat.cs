@@ -24,7 +24,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 缸中之脑：从25张本职业的牌中选择任意张牌，使其不会出现在后续的卡牌奖励与商店中。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class BrainInAVat : TouhouAncientRelics
 {
     private static readonly int MaxChoices = 25;

@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 赛钱箱：当你进入休息处时，获得一组卡牌奖励与金币。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class DonateMoneyBox : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

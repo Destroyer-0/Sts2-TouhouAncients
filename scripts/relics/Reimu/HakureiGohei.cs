@@ -12,7 +12,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 博丽御币：拾起时，将一张梦想封印加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HakureiGohei : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<DreamSeal>();

@@ -38,7 +38,7 @@ public static class DraculaLegacyPatch
     }
 }
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class DraculaLegacy : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13m, ValueProp.Unblockable | ValueProp.Unpowered)];

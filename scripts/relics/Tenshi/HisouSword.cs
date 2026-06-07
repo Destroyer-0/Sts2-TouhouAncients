@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 绯想之剑：拾起时，将一张全人类的绯想天加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HisouSword : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class Baibaixiangxiangruanruan : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

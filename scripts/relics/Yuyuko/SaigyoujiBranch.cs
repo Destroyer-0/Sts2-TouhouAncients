@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 西行妖枯枝：每当你消耗一张牌，增加一张带有虚无的随机卡牌到你的手牌并获得1格挡。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SaigyoujiBranch : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

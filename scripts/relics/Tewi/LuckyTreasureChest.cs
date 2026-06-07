@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 幸运宝盒：拾起时获得3个药水栏位，用幸运补剂填满你的药水栏。
 /// 参照 PotionBelt 实现。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class LuckyTreasureChest : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

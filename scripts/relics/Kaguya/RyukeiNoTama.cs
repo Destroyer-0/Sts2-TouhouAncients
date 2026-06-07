@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 龙颈之玉：
 /// 你每打出5张牌，将一张带有虚无、辉星费用为0的七星放入手牌。此计数跨战斗保留。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RyukeiNoTama : TouhouAncientRelics
 {
     /// <summary>

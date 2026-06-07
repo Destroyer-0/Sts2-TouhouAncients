@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 兔脚：你可以以40金币的价格出售卡牌奖励。
 /// 参照 PaelsWing / Driftwood 实现。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class RabbitsFoot : TouhouAncientRelics
 {
     private const string _sellKey = "SELL_CARD";

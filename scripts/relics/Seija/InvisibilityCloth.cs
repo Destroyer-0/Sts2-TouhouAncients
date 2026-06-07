@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 隐身布：战斗开始时，获得壁垒与15格挡。首次受伤时，失去壁垒进入昏眩。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class InvisibilityCloth : TouhouAncientRelics
 {
     private bool _firstDamageTaken;

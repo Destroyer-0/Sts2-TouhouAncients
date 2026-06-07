@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CrimsonChalice : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(0)];

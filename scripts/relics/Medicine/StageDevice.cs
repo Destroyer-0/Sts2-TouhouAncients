@@ -21,7 +21,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 你的回合开始时，给予所有敌人1层易伤，如果已存在拥有易伤的敌人，失去1点生命。
 /// 你的回合结束时，给予所有敌人1层虚弱，如果已存在拥有虚弱的敌人，失去1点生命。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class StageDevice : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

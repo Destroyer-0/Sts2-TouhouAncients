@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 燕之子安贝：拾起时，获得15最大生命；进入新的房间时，若你的生命值少于40%则回复到40%。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class TsubameNoKoyasugai : TouhouAncientRelics
 {
     private const decimal HealThresholdPercent = 0.4m;

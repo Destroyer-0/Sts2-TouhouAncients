@@ -12,7 +12,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 奇迹圣约：拾起时，将一张开海的奇迹加入牌组。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MiracleNoble : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<SeaOpeningMiracle>();

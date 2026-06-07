@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 铃色的日记本：
 /// 在每场战斗开始时，将 CardCount 张铃兰加入你的手牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class LilyBellDiary : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<LilyBell>();

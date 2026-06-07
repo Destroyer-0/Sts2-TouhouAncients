@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 天壤梦弓：战斗开始时，对所有敌人造成8点伤害，
 /// 对生命值最高的敌人额外造成200%伤害并给予2层虚弱。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class DreamHeavenBow : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

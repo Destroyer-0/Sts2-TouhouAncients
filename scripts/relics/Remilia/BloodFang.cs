@@ -13,7 +13,7 @@ using TouhouAncients.Scripts.Enchantment;
 
 namespace TouhouAncients.Scripts.relics;
 
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class BloodFang : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 

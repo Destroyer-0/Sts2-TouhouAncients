@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 星尘扫帚：初始充能2，最大充能3。你可以消耗一层充能无视当前的路线选择下一层的房间，
 /// 每经过3个房间获得1充能。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class StardustBroom : TouhouAncientRelics
 {
     private const int MaxCharges = 3;

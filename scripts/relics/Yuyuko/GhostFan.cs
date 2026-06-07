@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 幽灵折扇：拾起时，选择至多三张技能牌，附魔：彷徨。
 /// 彷徨：如果打出的上一张牌是攻击牌，则打出后回到你的手中并获得10格挡。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class GhostFan : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>

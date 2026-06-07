@@ -25,7 +25,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 永远亭座药：拾起时，用随机药水填满你的药水栏位。
 /// 每回合开始时，你每拥有一瓶药水，对随机一个敌人造成8点伤害。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class EienteiZakushi : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;

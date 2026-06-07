@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 彗星加速器：在每个回合开始时，额外抽2张牌，并将2张晕眩加入弃牌堆。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class CometAccelerator : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("DazeNum", 2)];

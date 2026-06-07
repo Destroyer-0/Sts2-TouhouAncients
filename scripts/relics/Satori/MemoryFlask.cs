@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 记忆烧瓶：选择一张牌，为其附魔：回忆。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class MemoryFlask : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
