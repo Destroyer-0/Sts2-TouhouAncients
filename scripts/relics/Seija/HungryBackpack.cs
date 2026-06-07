@@ -25,7 +25,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 额外抽到的牌在本回合获得吞噬（Devoured）。
 /// 每个回合开始时，额外抽牌数减少1。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class HungryBackpack : TouhouAncientRelics
 {
     private int _currentExtraDraw;
@@ -33,7 +33,7 @@ public class HungryBackpack : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(4),
+        new CardsVar(3),
         new DynamicVar("ReduceCardDraw", 1m)
     ];
 
