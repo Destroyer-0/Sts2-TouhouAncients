@@ -12,13 +12,13 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 幽魂酒盅：获得80最大生命，将生命值降低至60。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class SoulSakeCup : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("MaxHpGain", 80m),
-        new DynamicVar("SetHp", 60m)
+        new DynamicVar("SetHp", 65m)
     ];
 
     public override bool HasUponPickupEffect => true;
