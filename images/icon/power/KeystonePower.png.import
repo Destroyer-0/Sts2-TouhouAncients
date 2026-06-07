@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://ddi3qv2fh2swi"
+path="res://.godot/imported/KeystonePower.png-12a6f8ff5e13f792623b8fd496abeca1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/power/KeystonePower.png"
+dest_files=["res://.godot/imported/KeystonePower.png-12a6f8ff5e13f792623b8fd496abeca1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://d24bxxjtfswds"
+path="res://.godot/imported/TheKoishiEye.png-3ce8c4ec0b973731452e280228d1c1d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/cards/TheKoishiEye.png"
+dest_files=["res://.godot/imported/TheKoishiEye.png-3ce8c4ec0b973731452e280228d1c1d6.ctex"]
 
 [params]
 

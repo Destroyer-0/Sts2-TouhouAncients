@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://20vvas07rk1m"
+path="res://.godot/imported/Bloodshed.png-8ec51cb959e6bb61231fbce0b28ff697.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/enchantment/Bloodshed.png"
+dest_files=["res://.godot/imported/Bloodshed.png-8ec51cb959e6bb61231fbce0b28ff697.ctex"]
 
 [params]
 

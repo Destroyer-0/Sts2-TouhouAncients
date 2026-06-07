@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://dt4e28k0t85ac"
+path="res://.godot/imported/Wandering.png-ca8b162571077a43b6f94aa8697ceeb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/enchantment/Wandering.png"
+dest_files=["res://.godot/imported/Wandering.png-ca8b162571077a43b6f94aa8697ceeb5.ctex"]
 
 [params]
 

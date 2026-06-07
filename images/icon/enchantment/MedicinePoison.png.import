@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://ddwbn6dlsk0do"
+path="res://.godot/imported/MedicinePoison.png-3b196bdddeaa45aac233f4f544694ebf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/enchantment/MedicinePoison.png"
+dest_files=["res://.godot/imported/MedicinePoison.png-3b196bdddeaa45aac233f4f544694ebf.ctex"]
 
 [params]
 

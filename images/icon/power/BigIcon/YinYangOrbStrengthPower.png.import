@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://kjc4j2p0x3r1"
+path="res://.godot/imported/YinYangOrbStrengthPower.png-317d2f6571794adfb8f518df5d9893bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/power/BigIcon/YinYangOrbStrengthPower.png"
+dest_files=["res://.godot/imported/YinYangOrbStrengthPower.png-317d2f6571794adfb8f518df5d9893bd.ctex"]
 
 [params]
 

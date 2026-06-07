@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://r4yfuaqlo88v"
+path="res://.godot/imported/CamelliaPotion.png-6d0de82bce4491858d5b103d87bcea05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/potion/CamelliaPotion.png"
+dest_files=["res://.godot/imported/CamelliaPotion.png-6d0de82bce4491858d5b103d87bcea05.ctex"]
 
 [params]
 

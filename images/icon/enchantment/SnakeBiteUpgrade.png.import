@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://w1uwh873mrpw"
+path="res://.godot/imported/SnakeBiteUpgrade.png-6e6eaad52a400e93dbe690c8290432ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/enchantment/SnakeBiteUpgrade.png"
+dest_files=["res://.godot/imported/SnakeBiteUpgrade.png-6e6eaad52a400e93dbe690c8290432ae.ctex"]
 
 [params]
 

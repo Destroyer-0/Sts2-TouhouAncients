@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4sgvmk3eu0en"
-path="res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"
+uid="uid://tu1ekcrvc7iw"
+path="res://.godot/imported/Oath.png-e83252e156a17833e22ebd6fdfb8b82c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/MapNode/outline/WatariNina_MapNode.png"
-dest_files=["res://.godot/imported/WatariNina_MapNode.png-ecff8985921026fcf169ff14ccaeb445.ctex"]
+source_file="res://images/icon/enchantment/Oath.png"
+dest_files=["res://.godot/imported/Oath.png-e83252e156a17833e22ebd6fdfb8b82c.ctex"]
 
 [params]
 
