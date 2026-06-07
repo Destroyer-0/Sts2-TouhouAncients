@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -26,7 +27,7 @@ namespace TouhouAncients.Scripts.relics;
 /// 魔女的炼药锅：拾起时获得2个药水栏位。你可以在休息处炼药。
 /// 炼药：获得3瓶药。变化至多一张牌。
 /// </summary>
-[Pool(typeof(SharedRelicPool))]
+[Pool(typeof(EventRelicPool))]
 public class WitchsCauldron : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
@@ -63,8 +64,10 @@ public class WitchsCauldron : TouhouAncientRelics
         // 获得3瓶随机药水,其中一定有一瓶稀有药水
         potionRewards.Add(new PotionReward(base.Owner));
         potionRewards.Add(new PotionReward(base.Owner));
-        var rarePotion = PotionFactory.GetPotionOptions(base.Owner, ModelDb.AllPotions.Where((PotionModel p) => p.Rarity == PotionRarity.Rare));
-        potionRewards.Add(new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(),base.Owner));
+        var rarePotion = PotionFactory.GetPotionOptions(base.Owner,
+            ModelDb.AllPotions.Where((PotionModel p) => p.Rarity != PotionRarity.Rare)).ToList();
+        var potion = new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(), base.Owner);
+        potionRewards.Add(potion);
         //var rewards = potionList.Select(r => new PotionReward(r.ToMutable(), base.Owner)).ToList<Reward>();
         await new RewardsSet(base.Owner).WithCustomRewards(potionRewards).Offer();
         // 变化至多一张牌
