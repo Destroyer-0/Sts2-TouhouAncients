@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.powers;
 /// 罡气：在本回合将格挡掉的攻击伤害转化为等量活力。
 /// 多次获得时转化倍率叠加，回合数始终为1。
 /// </summary>
-public class VigorOnBlockPower : CustomPowerModel
+public class VigorOnBlockPower : TouhouAncientPowerModel
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -38,6 +38,7 @@ public class VigorOnBlockPower : CustomPowerModel
         var vigorAmount = (int)(result.BlockedDamage * base.Amount / 100);
         if (vigorAmount > 0)
         {
+            Flash();
             await PowerCmd.Apply<VigorPower>(base.Owner, vigorAmount, base.Owner, null);
         }
     }

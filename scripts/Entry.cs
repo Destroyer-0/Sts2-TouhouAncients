@@ -31,6 +31,7 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(RyukeiNoTama));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(WindPriestessWine));
         
         // 初始化 Ancient 禁用配置扫描
         BanAncientPatch.Initialize();

@@ -8,4 +8,6 @@ public static class TouhouAncientCmd
 
     public static string CheckPathExistsWithFallback(string path, string alternative) =>
         ResourceLoader.Exists(path) ? path : alternative;
+    public static string? CheckPathExistsWithFallback2(string path, string? alternative) =>
+        ResourceLoader.Exists(path) ? path : alternative;
 }

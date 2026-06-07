@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// <summary>
 /// 梦色：费用-1，打出后抽一张牌，失去梦色附魔并变化为其他附魔。
 /// </summary>
-public class Yumeiro : CustomEnchantmentModel
+public class Yumeiro : TouhouAncientEnchantmentModel
 {
     public override bool HasExtraCardText => false;
 

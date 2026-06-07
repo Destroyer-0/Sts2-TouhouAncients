@@ -25,6 +25,9 @@ public sealed class CamelliaPotion : CustomPotionModel
     public override PotionUsage Usage => PotionUsage.AnyTime;
 
     public override TargetType TargetType => TargetType.Self;
+    public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
+    public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
+
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {

@@ -110,9 +110,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     {
         GenerateOptionsForAllProperties(optionContainer);
 
-        // 注意：不从 BannedAncientData 同步到 BannedTypeNames，
-        // 避免清除已在 Toggled 事件中设置的条目。
-        // 复选框使用 BannedTypeNames 的当前状态。
+        // 从持久化数据同步到运行时集合，确保复选框反映最新配置
         SyncBannedFromData();
 
         var entries = BanAncientPatch.GetAllAncientEntries();

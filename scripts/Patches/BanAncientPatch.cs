@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BaseLib.Abstracts;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
@@ -30,14 +31,13 @@ public static class BanAncientPatch
     private static readonly List<(Type type, string? title)> AllEntries = new();
 
     /// <summary>
-    /// GenerateRooms Prefix 和 Postfix 之间的通信字段
+    /// 确保 BannedTypeNames 至少从 BannedAncientData 同步过一次
     /// </summary>
-    private static Rng _savedRng = null!;
-    private static UnlockState _savedUnlockState = null!;
+    private static bool _bannedDataSynced;
 
     /// <summary>
     /// 扫描所有 AncientEventModel 子类（排除 Neow），仅填充类型列表。
-    /// 不依赖 LocManager，避免 Mod Init 时崩溃。
+    /// 同时主动从持久化数据同步禁用列表。
     /// </summary>
     public static void Initialize()
     {
@@ -62,6 +62,10 @@ public static class BanAncientPatch
         {
             AllEntries.Add((type, null!));
         }
+
+        // 主动从持久化数据同步禁用列表，确保后续 IsBanned 判断基于最新配置
+        TouhouAncientsConfig.SyncBannedFromData();
+        _bannedDataSynced = true;
     }
 
     /// <summary>
@@ -129,30 +133,43 @@ public static class BanAncientPatch
     /// <summary>
     /// Prefix 拦截 ActModel.GenerateRooms：保存 rng 和 unlockState 供 Postfix 使用
     /// </summary>
-    [HarmonyPrefix]
-    [HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
-    private static void Prefix_GenerateRooms(ActModel __instance, Rng rng, UnlockState unlockState)
+    [HarmonyPatch]
+    public static class ActModel_GenerateRooms_Patch
     {
-        _savedRng = rng;
-        _savedUnlockState = unlockState;
-    }
+        private static Rng _savedRng = null!;
+        private static UnlockState _savedUnlockState = null!;
 
-    /// <summary>
-    /// Postfix 拦截 ActModel.GenerateRooms：若选中的 Ancient 被禁用，从候选池排除后重新选取
-    /// </summary>
-    [HarmonyPostfix]
-    [HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
-    private static void Postfix_GenerateRooms(ActModel __instance)
-    {
-        try
+        private static MethodBase TargetMethod()
         {
+            return AccessTools.Method(typeof(ActModel), nameof(ActModel.GenerateRooms));
+        }
+
+        [HarmonyPrefix]
+        private static void Prefix(Rng rng, UnlockState unlockState, bool isMultiplayer)
+        {
+            _savedRng = rng;
+            _savedUnlockState = unlockState;
+        }
+
+        [HarmonyPostfix]
+        private static void Postfix(ActModel __instance)
+        {
+            //GD.Print("进入先古之民房间。");
+            if (_savedRng == null || _savedUnlockState == null) return;
+
             var roomsField = AccessTools.Field(typeof(ActModel), "_rooms");
             if (roomsField?.GetValue(__instance) is not RoomSet rooms) return;
 
             AncientEventModel ancient;
             try { ancient = rooms.Ancient; } catch { return; }
+            if (ancient == null) return;
 
-            if (ancient != null && IsBanned(ancient.GetType()))
+            // GD.Print("先古之民：" + ancient.GetType().Name);
+            // foreach (var bannedTypeName in TouhouAncientsConfig.BannedTypeNames)
+            // {
+            //     GD.Print("被禁用：" + bannedTypeName);
+            // }
+            if (IsBanned(ancient.GetType()))
             {
                 var sharedSubsetField = AccessTools.Field(typeof(ActModel), "_sharedAncientSubset");
                 var sharedSubset = sharedSubsetField?.GetValue(__instance) as List<AncientEventModel>;
@@ -168,48 +185,60 @@ public static class BanAncientPatch
                 }
             }
         }
-        catch
-        {
-            // 静默失败，不影响房间生成
-        }
     }
 
     /// <summary>
     /// Prefix 拦截 CustomAncientModel.IsValidForAct(ActModel)
     /// </summary>
-    [HarmonyPrefix]
-    [HarmonyPatch(typeof(CustomAncientModel), nameof(CustomAncientModel.IsValidForAct))]
-    private static bool Prefix_IsValidForAct(CustomAncientModel __instance, ref bool __result)
+    [HarmonyPatch]
+    public static class CustomAncientModel_IsValidForAct_Patch
     {
-        if (IsBanned(__instance.GetType()))
+        private static MethodBase TargetMethod()
         {
-            __result = false;
-            return false;
+            return AccessTools.Method(typeof(CustomAncientModel), nameof(CustomAncientModel.IsValidForAct));
         }
-        return true;
+
+        [HarmonyPrefix]
+        private static bool Prefix(CustomAncientModel __instance, ref bool __result)
+        {
+            if (IsBanned(__instance.GetType()))
+            {
+                __result = false;
+                return false;
+            }
+            return true;
+        }
     }
 
     /// <summary>
     /// Prefix 拦截 AbstractModel.ShouldAllowAncient(Player, AncientEventModel)
     /// </summary>
-    [HarmonyPrefix]
-    [HarmonyPatch(typeof(AbstractModel), nameof(AbstractModel.ShouldAllowAncient))]
-    private static bool Prefix_ShouldAllowAncient(AbstractModel __instance, AncientEventModel ancient, ref bool __result)
+    [HarmonyPatch]
+    public static class AbstractModel_ShouldAllowAncient_Patch
     {
-        if (IsBanned(ancient.GetType()))
+        private static MethodBase TargetMethod()
         {
-            __result = false;
-            return false;
+            return AccessTools.Method(typeof(AbstractModel), nameof(AbstractModel.ShouldAllowAncient));
         }
-        return true;
+
+        [HarmonyPrefix]
+        private static bool Prefix(AbstractModel __instance, AncientEventModel ancient, ref bool __result)
+        {
+            if (IsBanned(ancient.GetType()))
+            {
+                __result = false;
+                return false;
+            }
+            return true;
+        }
     }
 
     private static bool IsBanned(Type type)
     {
-        // 惰性同步：如果运行时集合为空但持久化数据有内容，则从持久化数据同步
-        if (TouhouAncientsConfig.BannedTypeNames.Count == 0
-            && !string.IsNullOrEmpty(TouhouAncientsConfig.BannedAncientData))
+        // 惰性同步：确保至少从持久化数据同步过一次
+        if (!_bannedDataSynced)
         {
+            _bannedDataSynced = true;
             TouhouAncientsConfig.SyncBannedFromData();
         }
 
