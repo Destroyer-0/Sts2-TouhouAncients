@@ -32,7 +32,7 @@
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
   "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "异眼顶真，鉴定为大费物。",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其免费。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其在本回合可以免费打出。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
   "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机1~2件商店出售的物品价格将会被降至0。",
@@ -53,7 +53,7 @@
   "TOUHOUANCIENTS-MORIYA_GOHEI.flavor": "可不能被常识束缚哦？",
 
   "TOUHOUANCIENTS-DAY_KAKUSEI.title": "白昼新星",
-  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "每场战斗开始时，获得一瓶能力药水。升级你生成的[gold]能力牌[/gold]。",
+  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "在每场战斗开始时，获得一瓶能力药水。升级你生成的[gold]能力牌[/gold]。",
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "将它变成伽马射线怎么样？",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "蛇之护符",
@@ -65,7 +65,7 @@
   "TOUHOUANCIENTS-FROG_AMULET.flavor": "据说带着这个护身符便能平安回家。",
 
   "TOUHOUANCIENTS-SAILOR_SUIT.title": "水手服",
-  "TOUHOUANCIENTS-SAILOR_SUIT.description": "战斗开始时，获得[blue]1[/blue][gold]人工制品[/gold]。进入[gold]脆弱[/gold]、[gold]虚弱[/gold]与[gold]易伤[/gold]状态时，免疫之并对给予所有敌人等量回合的对应效果。",
+  "TOUHOUANCIENTS-SAILOR_SUIT.description": "在每场战斗开始时，获得[blue]1[/blue][gold]人工制品[/gold]。进入[gold]脆弱[/gold]、[gold]虚弱[/gold]与[gold]易伤[/gold]状态时，免疫之并给予所有敌人等量回合的对应效果。",
   "TOUHOUANCIENTS-SAILOR_SUIT.flavor": "没有人能抵挡少女与水手服组合的魅力！",
 
   "TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN.title": "神山的谢礼",
@@ -76,7 +76,16 @@
   "TOUHOUANCIENTS-MIRACLE_NOBLE.title": "奇迹圣约",
   "TOUHOUANCIENTS-MIRACLE_NOBLE.description": "拾起时，将[blue]1[/blue]张[gold]开海的奇迹[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-MIRACLE_NOBLE.eventDescription": "将[blue]1[/blue]张[gold]开海的奇迹[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "",
+  "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "想要知道海的另一边是什么？走过去看看就知道了。",
+
+  "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.title": "风祝酒",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.description": "你每获得[blue]{Energy}[/blue]点{energyPrefix:energyIcons(1)}，抽[blue]{Cards}[/blue]张牌。",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.flavor": "轻松愉快的餐后酒。薄荷和奶油为主的口感，比起酒精饮料更像甜品。",
+
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.title": "非想天则模型",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.description": "在每场战斗开始时，从[blue]{Cards}[/blue]张[green]升级过的[/green][gold]故障机器人[/gold]的卡牌中选择[blue]{SelectCount}[/blue]张加入[gold]抽牌堆[/gold]。这些牌在本场战斗中可以免费打出。",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.selectionScreenPrompt": "选择[blue]{SelectCount}[/blue]张牌。",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "警告：严禁任何妖精把玩！！！",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
@@ -151,6 +160,10 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "拾起时，获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
+
+  "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入你的手牌。",
+  "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
   "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
@@ -261,6 +274,10 @@
   "TOUHOUANCIENTS-RABBITS_CAGE.eventDescription": "将[blue]1[/blue]张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-RABBITS_CAGE.flavor": "这些小家伙不是很可爱吗？就连仙人都这么认为——可要记得好好善待它们哦~——因幡帝",
 
+  "TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL.title": "大国主画像",
+  "TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL.description": "兔子们将为你带来额外的战斗奖励。",
+  "TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL.flavor": "所有兔子的梦中情人。",
+
   "TOUHOUANCIENTS-WHITE_FLAG.title": "白旗",
   "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
@@ -312,7 +329,7 @@
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "打出这张牌时失去{energyPrefix:energyIcons(1)}。",
 
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "天壤梦弓",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，并对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "请务必反握弓臂和弓弦，因为弓箭会反向发出。",
 
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "童忆书包",

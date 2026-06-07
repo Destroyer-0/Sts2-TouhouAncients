@@ -278,7 +278,7 @@
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.IRONCLAD.0-0.ancient": "哦——好优秀的铠甲，勇士！不知道你对魔法有没有兴趣！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.SILENT.0-0.ancient": "嘿！我看到你了！要什么就直接跟我说，不要偷偷摸摸的嘛！我去红魔馆的时候从来都是光明正大的走大门Da☆Ze！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.DEFECT.0-0.ancient": "一个机器人？想要修好你的朋友？恩……我有个认识的家伙就是个机械工程师，说不定能帮上忙Da☆Ze！",
-  "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.DEFECT.1-0r.ancient": "荷取那家伙也不知道在忙什么……总之有机会的话，我会把她介绍给你的啦。",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.DEFECT.1-0r.ancient": "荷取那家伙也不知道在忙什么……总之有机会的话，我会把你介绍给她的啦。",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.REGENT.0-0.ancient": "嘿，真是稀奇的访客！我做了不少蘑菇料理，你也要一起来吃吗？",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.REGENT.0-0.next": "思索",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.REGENT.0-1.char": "地上的料理……按之前的经验，作为王家菜肴来说实在是难以恭维。",
@@ -288,6 +288,7 @@
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-0r.char": "我对你的那本魔导书颇有兴趣……你有意向出售吗？",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-0r.next": "继续",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-1r.ancient": "哦！好眼光！虽然只是个普通的小本子，不过确实记录了我至今为止的实验记录心血哦！",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-1r.next": "继续",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-2r.ancient": "虽然不能出售……不过现在借给你看看也无妨Da☆Ze！顺便收下这个吧！",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.title": "蓬莱山 辉夜",
@@ -298,10 +299,6 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.2-0r.ancient": "难得找到了点自己想做的事情呢，不知道优昙花在我回去的时候会不会已经开放了呢。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.3-0r.ancient": "可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.4-0r.ancient": "那只火鸡……现在在哪里呢？",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.IRONCLAD.0-0.ancient": "占位符",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.DEFECT.0-0.ancient": "占位符",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-0.ancient": "占位符",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.NECROBINDER.0-0.ancient": "占位符",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.REGENT.1-0.ancient": "外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。",
 
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.title": "射命丸 文",

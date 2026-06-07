@@ -15,8 +15,7 @@
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "将{Cards:diff()}张[gold]小刀[/gold]添加到你的[gold]手牌[/gold]。\n回合结束时，本回合每[gold]消耗[/gold]过一张牌，对目标造成{Damage:diff()}点伤害。",
 
     "TOUHOUANCIENTS-SERVANT_PATCHOULI.title": "魔法仆从",
-    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "为你的所有非仆从手牌添加[gold]虚无[/gold]。\n获得{Energy:energyIcons()}。\n本回合不能再打出。",
-    "TOUHOUANCIENTS-SERVANT_PATCHOULI.selectionScreenPrompt": "选择[blue]2[/blue]张牌[gold]消耗[/gold]",
+    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "为你的所有非仆从手牌添加[gold]虚无[/gold]。\n获得{Energy:energyIcons()}。\n将{Cards}张[gold]眩晕[/gold]添加到你的[gold]手牌[/gold]。",
 
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.title": "罡气仆从",
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n在本回合将你格挡掉的攻击伤害的一半转化为[gold]活力[/gold]。",
@@ -43,5 +42,8 @@
     "TOUHOUANCIENTS-MASTER_SPARK.description": "对所有敌人造成{Damage:diff()}点伤害X+{ExtraHit}次。\n如果X的最终数值为{Need:diff()}或以上，则将X的数值{IfUpgraded:show:翻三倍|翻倍}并获得{Energy:energyIcons()}。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]",
 
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.title": "开海的奇迹",
-    "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "对所有敌人造成等同于其当前生命值一半的伤害。"
+    "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "对所有敌人造成等同于其当前生命值一半的伤害。",
+
+    "TOUHOUANCIENTS-THE_KOISHI_EYE.title": "禁闭之眼",
+    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "随机打出[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]中的{Cards:diff()}张牌。\n为其中随机一张攻击牌[gold]附魔[/gold][purple]本能[/purple]，为其中随机一张牌添加[red]不能被打出[/red]。"
 }
