@@ -49,10 +49,10 @@ public class FirmamentSash : TouhouAncientRelics
             return amount;
         }
         
-        if (!props.IsCardOrMonsterMove())
-        {
-            return amount;
-        }
+        // if (!props.IsCardOrMonsterMove())
+        // {
+        //     return amount;
+        // }
 
         if (dealer == Owner.Creature)
         {
