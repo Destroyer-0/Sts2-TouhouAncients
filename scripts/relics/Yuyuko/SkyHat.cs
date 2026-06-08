@@ -60,7 +60,7 @@ public class SkyHat : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Soul>(true);
 
-    public override Task AfterRoomEntered(AbstractRoom room)
+    public override Task BeforeCombatStart()
     {
         AccumulatedBlock = 0;
         return Task.CompletedTask;

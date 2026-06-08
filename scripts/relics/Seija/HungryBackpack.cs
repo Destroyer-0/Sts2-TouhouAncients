@@ -54,8 +54,6 @@ public class HungryBackpack : TouhouAncientRelics
         base.Status = RelicStatus.Active;
         InvokeDisplayAmountChanged();
         _affectedCards.Clear();
-
-
         return Task.CompletedTask;
     }
 
@@ -144,14 +142,21 @@ public class HungryBackpack : TouhouAncientRelics
         return Task.CompletedTask;
     }
     
-    public override Task AfterRoomEntered(AbstractRoom room)
+    public override Task AfterCombatEnd(CombatRoom _)
     {
-        if (!(room is CombatRoom))
-        {
-            return Task.CompletedTask;
-        }
+        _affectedCards.Clear();
         base.Status = RelicStatus.Normal;
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
+    // public override Task AfterRoomEntered(AbstractRoom room)
+    // {
+    //     if (!(room is CombatRoom))
+    //     {
+    //         return Task.CompletedTask;
+    //     }
+    //     base.Status = RelicStatus.Normal;
+    //     InvokeDisplayAmountChanged();
+    //     return Task.CompletedTask;
+    // }
 }

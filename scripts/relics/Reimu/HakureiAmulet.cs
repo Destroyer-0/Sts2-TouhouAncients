@@ -12,17 +12,33 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 博丽御札：受到不高于10的伤害时，将伤害降低至1，
+/// 博丽御札：受到不高于8的未被格挡伤害时，将伤害降低至1，
 /// 并在本场战斗中减少1触发阈值，最低降低至5。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class HakureiAmulet : TouhouAncientRelics
 {
-    private const int _initialThreshold = 10;
+    private const int _initialThreshold = 8;
     private const int _minThreshold = 5;
 
-    public override bool ShowCounter => true;
-    public override int DisplayAmount => _currentThreshold;
+    public override bool ShowCounter => DisplayAmount >-1;
+
+    public override int DisplayAmount
+    {
+        get
+        {
+            if (!CombatManager.Instance.IsInProgress)
+            {
+                return -1;
+            }
+
+            if (base.IsCanonical)
+            {
+                return -1;
+            }
+            return _currentThreshold;
+        }
+    }
 
     /// <summary>
     /// 当前触发阈值，每触发一次减少1，最低降至5。每场战斗重置。
@@ -34,7 +50,26 @@ public class HakureiAmulet : TouhouAncientRelics
         new DynamicVar("Threshold", _initialThreshold),
         new DynamicVar("MinThreshold", _minThreshold)
     ];
+    
 
+    public override Task BeforeCombatStart()
+    {
+        _currentThreshold = _initialThreshold;
+        InvokeDisplayAmountChanged();
+        return base.BeforeCombatStart();
+    }
+
+    public override Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    {
+        if (side != base.Owner.Creature.Side)
+        {
+            return Task.CompletedTask;
+        }
+        _currentThreshold = _initialThreshold;
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
+    }
+    
     /// <summary>
     /// 受到的实际HP损失（破格挡后的伤害）不高于当前阈值时，将伤害降低至1，
     /// 并减少1点触发阈值（最低5）。
@@ -44,6 +79,8 @@ public class HakureiAmulet : TouhouAncientRelics
         if (target != base.Owner?.Creature) return amount;
         if (!CombatManager.Instance.IsInProgress) return amount;
         if (amount <= 0) return amount;
+        //if (!props.IsCardOrMonsterMove()) return amount;
+        if (props.HasFlag(ValueProp.Unblockable)) return amount;
         if (amount > _currentThreshold) return amount;
 
         Flash();

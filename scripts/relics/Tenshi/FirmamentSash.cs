@@ -23,24 +23,47 @@ public class FirmamentSash : TouhouAncientRelics
 {
     private int mitigationTotal;
 
-    public int MitigationTotal
+    private int MitigationTotal
     {
         get => mitigationTotal;
         set
         {
             AssertMutable();
             mitigationTotal = value;
+            base.Status = mitigationTotal > 0 ? RelicStatus.Active : RelicStatus.Normal;
             InvokeDisplayAmountChanged();
         }
     }
 
-    public override bool ShowCounter => true;
-    public override int DisplayAmount => MitigationTotal;
+    public override bool ShowCounter => DisplayAmount > -1;
+    
+    public override int DisplayAmount
+    {
+        get
+        {
+            if (!CombatManager.Instance.IsInProgress)
+            {
+                return -1;
+            }
+
+            if (base.IsCanonical)
+            {
+                return -1;
+            }
+            return MitigationTotal;
+        }
+    }
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Mitigation", 10)
     ];
+    
+    public override Task BeforeCombatStart()
+    {
+        MitigationTotal = 0;
+        return base.BeforeCombatStart();
+    }
     
     public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {

@@ -18,15 +18,6 @@ public class Huoyantuxi : TouhouAncientRelics
 {
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlameBarrierPower>(8)];
-    
-    // public override async Task AfterRoomEntered(AbstractRoom room)
-    // {
-    //     if (room is CombatRoom)
-    //     {
-    //         Flash();
-    //         await PowerCmd.Apply<ThornsPower>(base.Owner.Creature, base.DynamicVars["FlameBarrierPower"].BaseValue, base.Owner.Creature, null);
-    //     }
-    // }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {

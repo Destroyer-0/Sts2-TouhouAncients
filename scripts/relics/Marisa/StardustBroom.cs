@@ -26,8 +26,7 @@ public class StardustBroom : TouhouAncientRelics
     [SavedProperty]
     public int TouhouAncients_Charges { get; set; } = InitialCharges;
 
-    [SavedProperty]
-    public int TouhouAncients_RoomsSinceLastCharge { get; set; }
+    [SavedProperty] public int TouhouAncients_RoomsSinceLastCharge { get; set; } = 0;
 
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_Charges;
