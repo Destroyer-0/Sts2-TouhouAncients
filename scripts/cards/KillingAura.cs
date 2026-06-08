@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -37,6 +38,9 @@ public class KillingAura : TouhouAncientCards
         new BlockVar(0m,ValueProp.Move)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.Static(StaticHoverTip.Block)];
+
     public KillingAura() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
@@ -46,6 +50,7 @@ public class KillingAura : TouhouAncientCards
     /// </summary>
     public void AddDamage(decimal amount)
     {
+        amount += IsUpgraded ? 1 : 0;
         TouhouAncients_StoredDamage += amount;
         base.DynamicVars.Damage.BaseValue = TouhouAncients_StoredDamage;
     }
@@ -55,6 +60,7 @@ public class KillingAura : TouhouAncientCards
     /// </summary>
     public void AddBlock(decimal amount)
     {
+        amount += IsUpgraded ? 1 : 0;
         TouhouAncients_StoredBlock += amount;
         base.DynamicVars.Block.BaseValue = TouhouAncients_StoredBlock;
     }

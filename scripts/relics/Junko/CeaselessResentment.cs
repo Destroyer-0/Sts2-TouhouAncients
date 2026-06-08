@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -25,6 +26,8 @@ public class CeaselessResentment : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromPowerWithPowerHoverTips<YuanChouPower>();
     /// <summary>
     /// 受到伤害后，为攻击者施加怨仇
     /// </summary>

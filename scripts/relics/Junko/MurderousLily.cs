@@ -47,7 +47,7 @@ public class MurderousLily : TouhouAncientRelics
         var player = base.Owner;
         var results = new List<CardPileAddResult>();
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             var card = player.RunState.CreateCard(ModelDb.Card<KillingAura>(), player);
             results.Add(await CardPileCmd.Add(card, PileType.Deck));

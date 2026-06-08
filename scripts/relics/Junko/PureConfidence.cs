@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -9,12 +10,15 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
-public class JunkoTest: TouhouAncientRelics
+public class PureConfidence: TouhouAncientRelics
 {
     private int _goldenPathAct = -1;
 
     public override bool HasUponPickupEffect => true;
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.ForEnergy(this)];
+    
     [SavedProperty]
     public int GoldenPathAct
     {

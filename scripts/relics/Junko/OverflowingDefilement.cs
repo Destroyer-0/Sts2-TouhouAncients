@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -27,7 +28,9 @@ public class OverflowingDefilement : TouhouAncientRelics
         new EnergyVar(2),
         new CardsVar(2)
     ];
-    public override bool ShowCounter => true;
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromCardWithCardHoverTips<Debris>().Concat(HoverTipFactory.FromCardWithCardHoverTips<MegaCrit.Sts2.Core.Models.Cards.Void>());
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
@@ -51,7 +54,7 @@ public class OverflowingDefilement : TouhouAncientRelics
     /// <summary>
     /// 回合结束时向抽牌堆加入碎屑和虚空
     /// </summary>
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
         if (side != base.Owner.Creature.Side) return;
         if (base.Owner.Creature.CombatState == null) return;
@@ -66,21 +69,21 @@ public class OverflowingDefilement : TouhouAncientRelics
         if (debrisCount <= 0 && voidCount <= 0) return;
 
         Flash();
-
+        List<CardPileAddResult> cardPileAddResults = new();
         // 加入碎屑 = 剩余手牌数
         for (int i = 0; i < debrisCount; i++)
         {
             var debris = player.Creature.CombatState.CreateCard<Debris>(player);
-            await CardPileCmd.Add(debris, PileType.Draw);
+            cardPileAddResults.Add(await CardPileCmd.Add(debris, PileType.Draw));
         }
 
         // 加入虚空 = 剩余能量数（使用全局限定名称避免与 System.Void 冲突）
-        var voidModel = ModelDb.Card<MegaCrit.Sts2.Core.Models.Cards.Void>();
         for (int i = 0; i < voidCount; i++)
         {
-            var voidCard = player.Creature.CombatState.CreateCard(voidModel, player);
-            await CardPileCmd.Add(voidCard, PileType.Draw);
+            var voidCard = player.Creature.CombatState.CreateCard<MegaCrit.Sts2.Core.Models.Cards.Void>(player);
+            cardPileAddResults.Add(await CardPileCmd.Add(voidCard, PileType.Draw));
         }
+        CardCmd.PreviewCardPileAdd(cardPileAddResults);
     }
 
     public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom _)

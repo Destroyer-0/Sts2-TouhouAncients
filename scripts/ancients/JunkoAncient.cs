@@ -36,7 +36,8 @@ public class JunkoAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<MurderousLily>(),
-            AncientOption<IllusoryProjection>()
+            AncientOption<IllusoryProjection>(),
+            AncientOption<PureConfidence>()
         ),
         MakePool(
             AncientOption<HellOfBullets>(),

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -26,6 +27,8 @@ public class IllusoryProjection : TouhouAncientRelics
         new DynamicVar("CostThree", 3)
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromPowerWithPowerHoverTips<ConfusedPower>();
     public override async Task BeforeCombatStart()
     {
         // 获得混乱效果（参照 SneckoEye）
@@ -36,6 +39,8 @@ public class IllusoryProjection : TouhouAncientRelics
     {
         if (card.Owner != base.Owner) return playCount;
 
+        if (card.EnergyCost.CostsX) return playCount;
+        
         // 获取解析后的费用（混乱随机化后的最终费用）
         var cost = card.EnergyCost.GetResolved();
 

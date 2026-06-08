@@ -22,9 +22,7 @@ public class HellOfBullets : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromCard<PureHellOfBullets>()
-    ];
+        HoverTipFactory.FromCardWithCardHoverTips<PureHellOfBullets>();
 
     public override bool HasUponPickupEffect => true;
 
