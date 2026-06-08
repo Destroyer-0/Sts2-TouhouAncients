@@ -20,7 +20,7 @@ public class JunkoAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        return act.ActNumber() == 3;
+        return false; //act.ActNumber() == 3;
     }
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)

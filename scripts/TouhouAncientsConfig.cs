@@ -26,7 +26,7 @@ public enum ForcedAncientOption
     Yuyuko幽幽子,
     Kaguya辉夜,
     Marisa魔理沙,
-    Junko纯狐
+    //Junko纯狐
 }
 
 /// <summary>
@@ -72,7 +72,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Yuyuko幽幽子 when name == nameof(SaigyoujiYuyukoAncient) => true,
             ForcedAncientOption.Marisa魔理沙 when name == nameof(KirisameMarisaAncient) => true,
             ForcedAncientOption.Kaguya辉夜 when name == nameof(HouraisanKaguyaAncient) => true,
-            ForcedAncientOption.Junko纯狐 when name == nameof(JunkoAncient) => true,
+            //ForcedAncientOption.Junko纯狐 when name == nameof(JunkoAncient) => true,
             _ => false
         };
     }
