@@ -30,7 +30,6 @@ public class StardustBroom : TouhouAncientRelics
 
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_Charges;
-    public override bool IsUsedUp => TouhouAncients_Charges <= 0;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
