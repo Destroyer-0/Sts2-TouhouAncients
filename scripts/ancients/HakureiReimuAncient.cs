@@ -34,7 +34,8 @@ public class HakureiReimuAncient : CustomAncientModel
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<HakureiGohei>(),
-            AncientOption<SubspaceHole>()
+            AncientOption<SubspaceHole>(),
+            AncientOption<HakureiAmulet>()
         ),
         MakePool(
             AncientOption<MiniShrine>(),
@@ -42,7 +43,8 @@ public class HakureiReimuAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<YinYangOrb>(),
-            AncientOption<SealingNeedle>()
+            AncientOption<SealingNeedle>(),
+            AncientOption<DuplexBarrier>()
         )
     );
 }
