@@ -500,7 +500,37 @@
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
 
-  "TOUHOUANCIENTS-JUNKO_TEST.title": "纯粹的自信（测试）",
-  "TOUHOUANCIENTS-JUNKO_TEST.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。",
-  "TOUHOUANCIENTS-JUNKO_TEST.flavor": "会赢的。"
+  "TOUHOUANCIENTS-JUNKO_TEST.title": "纯粹的自信",
+  "TOUHOUANCIENTS-JUNKO_TEST.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。在每个回合开始时，获得{Energy:energyIcons()}",
+  "TOUHOUANCIENTS-JUNKO_TEST.flavor": "会赢的。",
+
+  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.title": "不休的恚恨",
+  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.description": "受到敌人的伤害时，结算后为该敌人施加等同于伤害量的来源于你的[gold]怨仇[/gold]。",
+  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.flavor": "",
+
+  "TOUHOUANCIENTS-MURDEROUS_LILY.title": "杀意的百合",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.description": "将[blue]2[/blue]张[gold]杀戮灵气[/gold]加入牌组。如果战斗结束时，没有任何单位死于[gold]杀戮灵气[/gold]，将两张[gold]杀戮灵气[/gold]加入你的牌组。",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.eventDescription": "将[blue]2[/blue]张[gold]杀戮灵气[/gold]加入牌组。如果战斗结束时，没有任何单位死于[gold]杀戮灵气[/gold]，将两张[gold]杀戮灵气[/gold]加入你的牌组。",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "",
+
+  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.title": "死黑的冠冕",
+  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.description": "每回合你打出的前[blue]2[/blue]张牌造成的伤害翻倍。",
+  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.flavor": "",
+
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.title": "弹幕的地狱",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.description": "拾起时，将[blue]1[/blue]张[gold]纯粹的弹幕地狱[/gold]加入牌组。",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.eventDescription": "将[blue]1[/blue]张[gold]纯粹的弹幕地狱[/gold]加入牌组。",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
+
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "战栗的冻星",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "每打出[blue]3[/blue]张攻击牌，生成一个[gold]冰霜[/gold]充能球，并交替将一张带有[gold]虚无[/gold]的[gold]战栗[/gold]/[gold]主宰[/gold]加入手牌。",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
+
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "迷幻的投影",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "在每场战斗开始时，获得[red]混乱[/red]效果。费用为[blue]2[/blue]的卡牌打出[blue]2[/blue]次，费用大于等于[blue]3[/blue]的卡牌打出[blue]3[/blue]次。",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
+
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢出的暇秽",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "在每个回合开始时，获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。回合结束时，向抽牌堆加入等同于剩余手牌数量张[gold]碎屑[/gold]、等同于剩余能量张[gold]虚空[/gold]。",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": ""
 }

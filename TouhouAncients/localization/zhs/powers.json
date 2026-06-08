@@ -25,5 +25,13 @@
 
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "幸运白兔",
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold]。",
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold][blue]{Amount}[/blue]。"
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold][blue]{Amount}[/blue]。",
+
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "怨仇",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "对来源造成的伤害降低[blue]25%[/blue]。来源打出攻击牌时，受到等同于层数的伤害。",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "对来源造成的伤害降低[blue]25%[/blue]。来源打出攻击牌时，受到[blue]{Amount}[/blue]点伤害。",
+
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "弹幕地狱",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "本回合攻击牌免费打出。打出攻击牌时抽一张牌。",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "本回合攻击牌免费打出。打出攻击牌时抽一张牌。"
 }
