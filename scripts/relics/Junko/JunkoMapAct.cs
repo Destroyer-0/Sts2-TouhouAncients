@@ -5,25 +5,25 @@ namespace TouhouAncients.Scripts.relics;
 
 public class JunkoMapAct : ActMap
 {
-    private readonly MapPointType[] _defaultPointTypes = new MapPointType[16]
-    {
-        MapPointType.Elite,
-        MapPointType.RestSite,
-        MapPointType.Elite,
+    private readonly MapPointType[] _defaultPointTypes =
+    [
         MapPointType.Treasure,
+        MapPointType.Treasure,
+        MapPointType.Elite,
         MapPointType.Unknown,
+        MapPointType.RestSite,
+        MapPointType.Elite,
+        MapPointType.Treasure,
         MapPointType.Elite,
         MapPointType.RestSite,
         MapPointType.Elite,
         MapPointType.Treasure,
         MapPointType.Elite,
-        MapPointType.Treasure,
         MapPointType.Shop,
-        MapPointType.Elite,
         MapPointType.RestSite,
         MapPointType.Elite,
         MapPointType.RestSite
-    };
+    ];
 
     private const int _width = 7;
 
