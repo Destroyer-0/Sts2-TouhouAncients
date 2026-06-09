@@ -1,16 +1,21 @@
 ﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Map;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
+
 [Pool(typeof(EventRelicPool))]
-public class PureConfidence: TouhouAncientRelics
+public class PureConfidence : TouhouAncientRelics
 {
     private int _goldenPathAct = -1;
 
@@ -18,14 +23,11 @@ public class PureConfidence: TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.ForEnergy(this)];
-    
+
     [SavedProperty]
     public int GoldenPathAct
     {
-        get
-        {
-            return _goldenPathAct;
-        }
+        get { return _goldenPathAct; }
         set
         {
             AssertMutable();
@@ -38,25 +40,26 @@ public class PureConfidence: TouhouAncientRelics
         GoldenPathAct = base.Owner.RunState.CurrentActIndex;
         await RunManager.Instance.GenerateMap();
     }
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1),
+        new EnergyVar(1)
     ];
-    
+
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner)
             return amount;
         return amount + base.DynamicVars.Energy.IntValue;
     }
-
+    
     public override ActMap ModifyGeneratedMap(IRunState runState, ActMap map, int actIndex)
     {
         if (GoldenPathAct != actIndex)
         {
             return map;
         }
+
         return new JunkoMapAct(runState);
     }
 
@@ -66,6 +69,7 @@ public class PureConfidence: TouhouAncientRelics
         {
             return roomTypes;
         }
+
         return new HashSet<RoomType> { RoomType.Event };
     }
 }

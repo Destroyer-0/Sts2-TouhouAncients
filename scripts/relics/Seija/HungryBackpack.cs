@@ -68,7 +68,7 @@ public class HungryBackpack : TouhouAncientRelics
         {
             return count;
         }
-
+        
         return count + _currentExtraDraw;
     }
     
