@@ -532,5 +532,10 @@
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢出的暇秽",
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "在每个回合开始时，获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。回合结束时，向抽牌堆加入等同于剩余手牌数量张[gold]碎屑[/gold]、等同于剩余能量张[gold]虚空[/gold]。",
-  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": ""
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
+
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初的神灵",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{Energy:energyIcons()}。\n[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷[/red]。",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{Energy:energyIcons()}。[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷[/red]。",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": ""
 }

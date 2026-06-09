@@ -54,5 +54,11 @@
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "选择任意张手牌，变化为[gold]无名的弹幕[/gold]。\n在这个回合，你的攻击牌可以免费打出，且打出后抽一张牌；当你手中没有攻击牌时，结束你的回合。",
 
     "TOUHOUANCIENTS-NAMELESS_BULLETS.title": "无名的弹幕",
-    "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "造成{Damage:diff()}点伤害。"
+    "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "造成{Damage:diff()}点伤害。",
+
+    "TOUHOUANCIENTS-RICHEST_FORM.title": "极奢形态",
+    "TOUHOUANCIENTS-RICHEST_FORM.description": "获得[blue]{StartingCapital:diff()}[/blue]点[gold]启动资金[/gold]。\n打出非X费牌不再消耗能量，改为以[blue]1:10[/blue]的比例消耗[gold]启动资金[/gold]，[gold]启动资金[/gold]不足时改为消耗等量[gold]金币[/gold]。",
+
+    "TOUHOUANCIENTS-POOREST_FORM.title": "至贫形态",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。"
 }

@@ -41,7 +41,8 @@ public class JunkoAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<HellOfBullets>(),
-            AncientOption<TremblingFrozenStar>()
+            AncientOption<TremblingFrozenStar>(),
+            AncientOption<PrimalSpirit>()
         )
     );
 }
