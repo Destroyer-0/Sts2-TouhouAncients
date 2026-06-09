@@ -51,6 +51,16 @@ public class OverflowingDefilement : TouhouAncientRelics
         await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: true);
     }
 
+    public override decimal ModifyHandDraw(Player player, decimal count)
+    {
+        if (player != base.Owner)
+        {
+            return count;
+        }
+
+        return count + DynamicVars.Cards.IntValue;
+    }
+
     /// <summary>
     /// 回合结束时向抽牌堆加入碎屑和虚空
     /// </summary>
@@ -63,7 +73,7 @@ public class OverflowingDefilement : TouhouAncientRelics
         var hand = PileType.Hand.GetPile(player).Cards;
         var remainingEnergy = player.PlayerCombatState.Energy;
 
-        int debrisCount = hand.Count;
+        int debrisCount = hand.Count(x => x.Type != CardType.Status);
         int voidCount = (int)Math.Floor((decimal)remainingEnergy);
 
         if (debrisCount <= 0 && voidCount <= 0) return;
