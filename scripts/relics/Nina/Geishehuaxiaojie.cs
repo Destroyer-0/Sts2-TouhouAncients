@@ -24,14 +24,14 @@ public class Geishehuaxiaojie : TouhouAncientRelics
         [HoverTipFactory.FromPower<StrengthPower>()];
 
     private readonly List<GeishehuaxiaojiejianshaoliliangPower> _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
-
+    
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, CombatState combatState)
     {
         if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)
         {
             _powers.Clear();
             Flash();
-            _powers.AddRange(await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, null, null));
+            _powers.AddRange(await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, Owner.Creature, null));
         }
     }
 
@@ -44,6 +44,7 @@ public class Geishehuaxiaojie : TouhouAncientRelics
         {
             if (power.Owner == null) continue;
             if (!power.Owner.IsAlive) continue;
+            if (power.Amount <= 0) continue;
 
             await PowerCmd.ModifyAmount(power, -1, null, null);
             await PowerCmd.Apply<StrengthPower>(power.Owner, 1, null, null);

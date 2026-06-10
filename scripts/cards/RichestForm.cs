@@ -27,7 +27,7 @@ public class RichestForm : TouhouAncientCards
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.None;
-    private const bool shouldShowInCardLibrary = true;
+    private const bool shouldShowInCardLibrary = false;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
         CardKeyword.Eternal
