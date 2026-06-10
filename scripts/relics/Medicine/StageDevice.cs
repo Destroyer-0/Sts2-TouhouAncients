@@ -5,14 +5,13 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -28,60 +27,39 @@ public class StageDevice : TouhouAncientRelics
     [
         new DynamicVar("VulnAmount", 1),
         new DynamicVar("WeakAmount", 1),
-        new HpLossVar(1)
+        new DynamicVar("TempStr", 2),
+        new DynamicVar("TempDex", 2)
     ];
-
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<WeakPower>(),
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.FromPower<DexterityPower>()
     ];
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player != base.Owner) return;
-
-        Flash();
-
-        var enemies = player.Creature.CombatState?.GetOpponentsOf(player.Creature).Where(c => c.IsAlive).ToList();
-        if (enemies == null || enemies.Count == 0) return;
-
-        // 检查是否已有易伤的敌人
-        var anyVulnerable = enemies.Any(e => e.HasPower<VulnerablePower>());
-
-        // 给予所有敌人 VulnAmount 层易伤
-        await PowerCmd.Apply<VulnerablePower>(enemies, base.DynamicVars["VulnAmount"].BaseValue, player.Creature, null);
-
-        // 如果已有易伤的敌人，失去 StartHpLoss 点生命
-        if (anyVulnerable)
-        {
-            await CreatureCmd.Damage(choiceContext, base.Owner.Creature, base.DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, base.Owner.Creature);
-            SfxCmd.Play("event:/sfx/characters/ironclad/ironclad_bloodwall");
-        }
-    }
-
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != base.Owner.Creature.Side) return;
 
         Flash();
 
-        var player = base.Owner;
-        var enemies = player.Creature.CombatState?.GetOpponentsOf(player.Creature).Where(c => c.IsAlive).ToList();
-        if (enemies == null || enemies.Count == 0) return;
+        var playerCreature = base.Owner.Creature;
+        var enemies = combatState.GetOpponentsOf(playerCreature).Where(c => c.IsAlive).ToList();
+        if (enemies.Count == 0) return;
 
-        // 检查是否已有虚弱的敌人
-        var anyWeak = enemies.Any(e => e.HasPower<WeakPower>());
+        int round = combatState.RoundNumber;
 
-        // 给予所有敌人 WeakAmount 层虚弱
-        await PowerCmd.Apply<WeakPower>(enemies, base.DynamicVars["WeakAmount"].BaseValue, player.Creature, null);
-
-        // 如果已有虚弱的敌人，失去 EndHpLoss 点生命
-        if (anyWeak)
+        if (round % 2 == 1) // 奇数回合：临时力量 + 易伤
         {
-            await CreatureCmd.Damage(choiceContext, base.Owner.Creature, base.DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, base.Owner.Creature);
-            SfxCmd.Play("event:/sfx/characters/ironclad/ironclad_bloodwall");
+            await PowerCmd.Apply<StageDeviceStrengthPower>(playerCreature, base.DynamicVars["TempStr"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<VulnerablePower>(enemies, base.DynamicVars["VulnAmount"].BaseValue, playerCreature, null);
+        }
+        else // 偶数回合：临时敏捷 + 虚弱
+        {
+            await PowerCmd.Apply<StageDeviceDexterityPower>(playerCreature, base.DynamicVars["TempDex"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<WeakPower>(enemies, base.DynamicVars["WeakAmount"].BaseValue, playerCreature, null);
         }
     }
 }
