@@ -307,7 +307,7 @@
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
   "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
   "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌加入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 

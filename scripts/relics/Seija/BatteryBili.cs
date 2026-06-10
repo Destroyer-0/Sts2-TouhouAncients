@@ -56,7 +56,7 @@ public class BatteryBili : TouhouAncientRelics
         var drawPile = PileType.Draw.GetPile(player);
 
         Flash();
-        await CardPileCmd.ShuffleIfNecessary(choiceContext, player);
+        //await CardPileCmd.ShuffleIfNecessary(choiceContext, player);
         var selected = (await CardSelectCmd.FromSimpleGrid(choiceContext,
             (from c in PileType.Draw.GetPile(player).Cards
                 where c.Type == CardType.Power
@@ -105,6 +105,7 @@ public class BatteryBili : TouhouAncientRelics
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
+        if (cardPlay.Card.Owner != base.Owner) return;
         if (!_affectedCards.Contains(cardPlay.Card)) return;
         if (cardPlay.Card.Affliction is Galvanized)
         {
