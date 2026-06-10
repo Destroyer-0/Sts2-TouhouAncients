@@ -36,7 +36,8 @@ public class MedicineMelancholyAncient : CustomAncientModel
         MakePool(
             AncientOption<ChildhoodBag>(),
             AncientOption<RoseCrown>(),
-            AncientOption<LilyBellDiary>()
+            AncientOption<LilyBellDiary>(),
+            AncientOption<SilenceDoll>()
         ),
         MakePool(
             AncientOption<PlagueBlend>(),
@@ -45,8 +46,8 @@ public class MedicineMelancholyAncient : CustomAncientModel
         ),
         MakePool(
             AncientOption<HappinessElixir>(),
-            AncientOption<RibbonBow>()
-            //AncientOption<StageDevice>()
+            AncientOption<RibbonBow>(),
+            AncientOption<StageDevice>()
         )
     );
 }

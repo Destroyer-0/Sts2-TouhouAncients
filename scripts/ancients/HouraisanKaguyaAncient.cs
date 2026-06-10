@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -38,4 +39,18 @@ public class HouraisanKaguyaAncient : CustomAncientModel
             AncientOption<EienteiZakushi>(),
             AncientOption<KaguyaSecretTreasure>()
         ));
+
+    public override IEnumerable<EventOption> AllPossibleOptions => BaseOptionPool;
+
+    private IEnumerable<EventOption> BaseOptionPool =>
+    [
+        RelicOption<KonshiiNoKusuri>(),
+        RelicOption<RyukeiNoTama>(),
+        RelicOption<HinezumiNoKawagoromo>(),
+        RelicOption<TsubameNoKoyasugai>(),
+        RelicOption<HotokeMishiIshiNoHachi>().ThatDecreasesMaxHp(30),
+        RelicOption<HouraiNoTamae>(),
+        RelicOption<EienteiZakushi>(),
+        RelicOption<KaguyaSecretTreasure>()
+    ];
 }

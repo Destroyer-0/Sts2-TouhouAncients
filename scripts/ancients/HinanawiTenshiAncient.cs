@@ -34,7 +34,8 @@ public class HinanawiTenshiAncient : CustomAncientModel
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MysticFortunePeach>(),
-            AncientOption<HolyArmor>()
+            AncientOption<HolyArmor>(),
+            AncientOption<HeavenlyRevelation>()
             //, AncientOption<CurseBreakerQi>()
         ),
         MakePool(

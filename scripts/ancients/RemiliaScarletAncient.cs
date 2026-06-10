@@ -33,8 +33,9 @@ public class RemiliaScarletAncient : CustomAncientModel
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
-            AncientOption<DraculaLegacy>(),
-            AncientOption<NobleBrooch>()
+            AncientOption<NobleBrooch>(),
+            AncientOption<CrimsonCrystal>(),
+            AncientOption<NightServant>()
         ),
         MakePool(
             AncientOption<CrimsonChalice>(),
@@ -42,7 +43,7 @@ public class RemiliaScarletAncient : CustomAncientModel
             AncientOption<PreservedRedFog>()
         ),
         MakePool(
-            AncientOption<NightServant>(),
+            AncientOption<DraculaLegacy>(),
             AncientOption<LordsSunscreenCream>()
         )
         // MakePool(
