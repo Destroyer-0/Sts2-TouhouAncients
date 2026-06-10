@@ -106,6 +106,10 @@
   "TOUHOUANCIENTS-BLOOD_FANG.eventDescription": "失去最大生命的一半，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "她吸血时总会洒出很多血液，结果将衣服染成了一片[red]赤红[/red]。",
 
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "绯红晶石",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "在每个回合开始时，如果你的生命值不低于[blue]{HpThreshold}%[/blue]，获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "",
+
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
@@ -239,6 +243,10 @@
   "TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE.description": "回合结束时，[green]升级[/green]你本回合获得过的牌与抽牌堆顶的牌。",
   "TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE.flavor": "天界冷漠是妖怪最大的恐惧。",
 
+  "TOUHOUANCIENTS-HEAVENLY_REVELATION.title": "天启万象",
+  "TOUHOUANCIENTS-HEAVENLY_REVELATION.description": "在[blue]第三[/blue]回合开始时，翻倍你的所有[gold]正面状态[/gold]。",
+  "TOUHOUANCIENTS-HEAVENLY_REVELATION.flavor": "",
+
   "TOUHOUANCIENTS-COSMIC_DECREE.title": "天宇诏令",
   "TOUHOUANCIENTS-COSMIC_DECREE.description": "拾起时，获得遗物：[gold]天赋君权[/gold]。查看[blue]{Cards}[/blue]张来自[gold]{Character}[/gold]的[green]升级过的卡牌[/green]。从中选择任意数量的卡牌加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-COSMIC_DECREE.eventDescription": "获得遗物：[gold]天赋君权[/gold]。查看[blue]{Cards}[/blue]张来自[gold]{Character}[/gold]的[green]升级过的卡牌[/green]。从中选择任意数量的卡牌加入你的[gold]牌组[/gold]。",
@@ -273,9 +281,9 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
-  "TOUHOUANCIENTS-RABBITS_FOOT.title": "兔脚",
+  "TOUHOUANCIENTS-RABBITS_FOOT.title": "仿制兔脚",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]70[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
-  "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给兔角同盟了！顺带一提，这个是仿品。",
+  "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给兔角同盟了！",
 
   "TOUHOUANCIENTS-RABBITS_CAGE.title": "兔笼",
   "TOUHOUANCIENTS-RABBITS_CAGE.description": "拾起时，将[blue]1[/blue]张[gold]幸运白兔[/gold]加入你的[gold]牌组[/gold]。",
@@ -346,7 +354,7 @@
   "TOUHOUANCIENTS-CHILDHOOD_BAG.flavor": "",
 
   "TOUHOUANCIENTS-STAGE_DEVICE.title": "舞台装置",
-  "TOUHOUANCIENTS-STAGE_DEVICE.description": "在你的回合开始时，给予所有敌人[blue]{VulnAmount}[/blue]层[gold]易伤[/gold]。在你的回合结束时，给予所有敌人[blue]{WeakAmount}[/blue]层[gold]虚弱[/gold]。如果已存在拥有对应状态的敌人，你失去[blue]{HpLoss}[/blue]点生命。",
+  "TOUHOUANCIENTS-STAGE_DEVICE.description": "在奇数回合开始时，给予所有敌人[blue]{VulnAmount}[/blue]层[gold]易伤[/gold]并在本回合内获得[blue]{TempStr}[/blue]点[gold]力量[/gold]。在偶数回合开始时，给予所有敌人[blue]{WeakAmount}[/blue]层[gold]虚弱[/gold]并在本回合内获得[blue]{TempDex}[/blue]点[gold]敏捷[/gold]。",
   "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
@@ -381,6 +389,11 @@
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "荒疫特调",
   "TOUHOUANCIENTS-PLAGUE_BLEND.description": "在每个回合开始时获得{Energy:energyIcons()}。第[blue]{TriggerTurn}[/blue]回合开始时，给予自身[blue]{PoisonAmount}[/blue]层[gold]中毒[/gold]。",
   "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "",
+
+  "TOUHOUANCIENTS-SILENCE_DOLL.title": "缄默魔偶",
+  "TOUHOUANCIENTS-SILENCE_DOLL.description": "每回合开始时，选择一张上回合进入过[gold]弃牌堆[/gold]的卡牌放入[gold]手牌[/gold]，这张牌直到打出前获得[gold]保留[/gold]。",
+  "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "选择一张牌加入你的手牌。",
+  "TOUHOUANCIENTS-SILENCE_DOLL.flavor": "",
 
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.title": "弘川之骨",
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.description": "回合结束时，如果你本回合只打出过[gold]能力牌[/gold]，获得[blue]{BufferAmount}[/blue]层[gold]缓冲[/gold]。",

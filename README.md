@@ -44,6 +44,9 @@
 | 蛙之护符 | `TOUHOUANCIENTS-FROG_AMULET` | 通过卡牌造成伤害后，2回合后对所有敌人造成75%造成伤害值的伤害。 | — |
 | 水手服 | `TOUHOUANCIENTS-SAILOR_SUIT` | 战斗开始时，获得1人工制品。进入脆弱、虚弱与易伤状态时，免疫之并对所有敌人附加等量回合的对应效果。 | — |
 | 神山的谢礼 | `TOUHOUANCIENTS-GIFT_FROM_MOUNTAIN` | 拾起时，获得300金币、一组普通、一组罕见和一组稀有卡牌奖励。 | — |
+| 非想天则模型 | `TOUHOUANCIENTS-HISOUTENSOKU_MODEL` | 每场战斗开始时，从10张升级过的故障机器人卡牌中选择5张加入抽牌堆，这些牌本场战斗免费打出。 | — |
+| 奇迹圣约 | `TOUHOUANCIENTS-MIRACLE_NOBLE` | 拾起时，将1张开海的奇迹加入牌组。 | 开海的奇迹：0费技能。获得1能量，抽3张牌。消耗。 |
+| 风祝酒 | `TOUHOUANCIENTS-WIND_PRIESTESS_WINE` | 每累计获得9能量，抽2张牌。 | — |
 
 #### 博丽灵梦（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -53,6 +56,9 @@
 | 迷你神龛 | `TOUHOUANCIENTS-MINI_SHRINE` | 在每个回合开始时获得1能量。拾起时，将一张供奉加入你的牌组。你持有的金币会被自动转化为供奉的进度。 | 供奉：永恒，不可打出。累计供奉250金币后自动从牌组移除。 |
 | 阴阳玉 | `TOUHOUANCIENTS-YIN_YANG_ORB` | 每当你打出一张技能牌时，获得1临时力量。每当你打出一张攻击牌时，获得1临时敏捷。 | — |
 | 封魔针 | `TOUHOUANCIENTS-SEALING_NEEDLE` | 使用攻击牌后额外给予目标1层虚弱。你对处于虚弱状态的敌人造成伤害时，增加等同于其当前虚弱层数的伤害。 | — |
+| 赛钱箱 | `TOUHOUANCIENTS-DONATE_MONEY_BOX` | 进入休息处时，获得1组卡牌奖励与100~150金币。 | — |
+| 二重结界 | `TOUHOUANCIENTS-DUPLEX_BARRIER` | 有2次机会无视路线选择下一层房间，以无视路线方式进入战斗时敌人仅剩1生命（对首领无效）。 | — |
+| 博丽灵札 | `TOUHOUANCIENTS-HAKUREI_AMULET` | 受到不高于8的未被格挡伤害时降低至1点，并在本场战斗中减少1触发阈值，最低降低至5。 | — |
 
 #### 古明地觉（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -64,6 +70,7 @@
 | 记忆烧瓶 | `TOUHOUANCIENTS-MEMORY_FLASK` | 拾起时，从牌组中选择一张牌，为其附魔：**回忆**。 | 回忆：首次进入弃牌堆时自动打出。 |
 | 缸中之脑 | `TOUHOUANCIENTS-BRAIN_IN_A_VAT` | 拾起时，从25张当前角色牌中指定任意张，使其不出现在后续卡牌奖励与商店中。 | — |
 | 遗忘残片 | `TOUHOUANCIENTS-OBLIVION_FRAGMENT` | 拾起时，获得随机3个涅奥的初始遗物。 | — |
+| 尘封蔷薇 | `TOUHOUANCIENTS-DUSTY_ROSE` | 在你的回合开始时，将1张禁闭之眼放入你的手牌。 | — |
 
 #### 渡里贝子（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -114,6 +121,7 @@
 | 折叠伞 | `TOUHOUANCIENTS-FOLDING_UMBRELLA` | 战斗开始时，获得5层倒映。 | — |
 | 饥饿背包 | `TOUHOUANCIENTS-HUNGRY_BACKPACK` | 每回合开始时额外抽4张牌，使随机4张抽牌阶段抽到的牌获得吞噬(获得消耗)，然后数值减少1。 | — |
 | 伪灵异珠 | `TOUHOUANCIENTS-FAKE_SPIRIT_ORB` | 每回合开始时获得1能量。随机2张抽牌阶段抽到的牌获得沉重。(打出这张牌时失去1能量) | — |
+| 天壤梦弓 | `TOUHOUANCIENTS-DREAM_HEAVEN_BOW` | 战斗开始时，对所有敌人造成7点伤害，对生命最高的敌人额外造成200%伤害并给予2层虚弱。 | — |
 
 #### 因幡帝（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -122,9 +130,10 @@
 | 萝卜项链 | `TOUHOUANCIENTS-CARROT_NECKLACE` | 拾起时从牌组中移除至多3张牌。商人移除卡牌服务价格翻倍。 | — |
 | 兔角契约 | `TOUHOUANCIENTS-RABBIT_HORN_CONTRACT` | 拾起时获得200金币，将一张债务加入牌组。每场战斗结束获得当前金币20%。 | — |
 | 幸运宝盒 | `TOUHOUANCIENTS-LUCKY_TREASURE_CHEST` | 拾起时获得3个药水栏位，用幸运补剂填满药水栏。 | — |
-| 四十叶草 | `TOUHOUANCIENTS-FOUR_LEAF_CLOVER` | 每2场战斗卡牌奖励额外包含一张稀有卡牌。第二次以此法出现时升级。 | — |
-| 兔脚 | `TOUHOUANCIENTS-RABBITS_FOOT` | 可以以70金币的价格出售卡牌奖励。 | — |
+| 四叶草 | `TOUHOUANCIENTS-FOUR_LEAF_CLOVER` | 每2场战斗卡牌奖励额外包含一张稀有卡牌。第二次以此法出现时升级。 | — |
+| 仿制兔脚 | `TOUHOUANCIENTS-RABBITS_FOOT` | 可以以70金币的价格出售卡牌奖励。 | — |
 | 兔笼 | `TOUHOUANCIENTS-RABBITS_CAGE` | 拾起时，将一张幸运白兔加入你的牌组。 | 幸运白兔：0费技能。消耗。抽2张牌，在本回合随机化你手牌中所有牌的耗能，并为其中费用为0的牌在本场战斗添加重放。 |
+| 大国主画像 | `TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL` | 兔子们将为你带来额外的战斗奖励。 | — |
 
 #### 梅蒂欣·梅兰可莉（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -137,6 +146,8 @@
 | 蔷薇皇冠 | `TOUHOUANCIENTS-ROSE_CROWN` | 战斗开始时获得5层荆棘与5层覆甲。 | — |
 | 恶毒的童话书 | `TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE` | 回合开始时获得2力量。所有敌人初始获得1层荆棘。 | — |
 | 荒疫特调 | `TOUHOUANCIENTS-PLAGUE_BLEND` | 每回合开始时获得1能量。第3回合开始时，给予自身4层中毒。 | — |
+| 舞台装置 | `TOUHOUANCIENTS-STAGE_DEVICE` | 奇数回合开始时获得2临时力量并给予所有敌人1易伤；偶数回合开始时获得2临时敏捷并给予所有敌人1虚弱。 | — |
+| 缄默魔偶 | `TOUHOUANCIENTS-SILENCE_DOLL` | 每回合开始时，选择一张上回合进入弃牌堆的卡牌放入手牌，打出前拥有保留。 | — |
 
 #### 蓬莱山辉夜（三层）
 | 遗物 | 代号 | 效果 | 衍生 |
@@ -148,6 +159,33 @@
 | 佛御石之钵 | `TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI` | 拾起时，失去30最大生命。每场战斗开始时，获得5敏捷与30格挡。 | — |
 | 永远亭座药 | `TOUHOUANCIENTS-EIENTEI_ZAKUSHI` | 拾起时，用随机药水填满药水栏位。每回合开始时，每拥有一瓶药水对随机敌人造成8点伤害。 | — |
 | 辉夜姬秘宝 | `TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE` | 每场战斗开始时，从12张其他角色的卡牌中选择一张加入手牌。打出后，其原始复制会加入战斗奖励。 | — |
+| 蓬莱的玉枝 | `TOUHOUANCIENTS-HOURAI_NO_TAMAE` | 每场战斗开始时，为随机7张牌附魔：梦色。 | — |
+
+#### 纯狐（三层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 纯粹的自信 | `TOUHOUANCIENTS-PURE_CONFIDENCE` | 拾起时，将第3阶段地图替换为一条极为凶险的直道。每回合开始时获得1能量。 | — |
+| 不休的恚恨 | `TOUHOUANCIENTS-CEASELESS_RESENTMENT` | 受到敌人伤害时，为其施加等同于失去生命值的怨仇。 | — |
+| 杀意的百合 | `TOUHOUANCIENTS-MURDEROUS_LILY` | 拾起时，将1张杀戮灵气加入牌组。战斗结束时如果没有单位死于杀戮灵气，将2张杀戮灵气加入牌组。 | — |
+| 死黑的冠冕 | `TOUHOUANCIENTS-DEATH_BLACK_CROWN` | 每回合你打出的前2张牌造成的伤害翻倍。 | — |
+| 弹幕的地狱 | `TOUHOUANCIENTS-HELL_OF_BULLETS` | 拾起时，将1张纯粹的弹幕地狱加入牌组。 | — |
+| 战栗的冻星 | `TOUHOUANCIENTS-TREMBLING_FROZEN_STAR` | 每打出3张攻击牌，生成一个冰霜充能球，并交替将带有虚无的战栗/主宰加入手牌。 | — |
+| 迷幻的投影 | `TOUHOUANCIENTS-ILLUSORY_PROJECTION` | 战斗开始时获得混乱。费用为2的卡牌打出2次，费用大于等于3的卡牌打出3次。 | — |
+| 溢出的暇秽 | `TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT` | 每回合开始时获得2能量，额外抽2张牌。回合结束时每有一张非状态手牌加入一张碎屑到抽牌堆，每有一点能量加入一张虚空到抽牌堆。 | — |
+| 原初的神灵 | `TOUHOUANCIENTS-PRIMAL_SPIRIT` | 战斗开始时获得1层无实体。每回合开始时获得等同于当前回合数的能量。第5回合开始时获得孤注一掷。 | — |
+
+#### 雾雨魔理沙（二层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 迷你八卦炉 | `TOUHOUANCIENTS-MINI_HAKKERO` | 回合结束时消耗1~3张手牌。若消耗不少于2张，下回合开始时获得1能量。 | — |
+| 恋色手电筒 | `TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT` | 拾起时，将1张极限火花加入牌组。 | 极限火花：2费攻击。对所有敌人造成30点伤害。 |
+| 彗星加速器 | `TOUHOUANCIENTS-COMET_ACCELERATOR` | 每回合开始时额外抽2张牌，并将2张晕眩加入弃牌堆。 | — |
+| 金平糖罐 | `TOUHOUANCIENTS-KOMPEITO_POT` | 卡牌奖励中将额外出现一张升级过的能力牌，选取3张后失效。 | — |
+| 星尘扫帚 | `TOUHOUANCIENTS-STARDUST_BROOM` | 初始2充能(最大3)。消耗充能无视路线选择，每3个房间获得1充能。 | — |
+| 魔女的炼药锅 | `TOUHOUANCIENTS-WITCHS_CAULDRON` | 拾起时获得2个药水栏位。可在休息处炼药。 | — |
+| 不稳定魔瓶 | `TOUHOUANCIENTS-UNSTABLE_BOTTLE` | 每回合开始时，随机为抽牌堆与弃牌堆中各1张牌附魔：华彩。 | — |
+| 太阳系仪 | `TOUHOUANCIENTS-GLOBE` | 以保留升级的状态变化5张牌。 | — |
+| 蘑菇便当 | `TOUHOUANCIENTS-MUSHROOM_BENTO` | 每回合开始时获得1能量。回合结束时若手牌数不小于3，将孢子心灵加入抽牌堆。 | — |
 
 #### 西行寺幽幽子（三层）
 | 遗物 | 代号 | 效果 | 衍生 |
