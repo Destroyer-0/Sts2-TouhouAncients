@@ -5,6 +5,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,17 +25,18 @@ public sealed class CamelliaPotion : CustomPotionModel
 
     public override PotionUsage Usage => PotionUsage.AnyTime;
 
-    public override TargetType TargetType => TargetType.Self;
+    public override TargetType TargetType => TargetType.AnyPlayer;
     public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
     public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
 
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        var player = base.Owner;
+        if (target == null) return;
+        var player = base.Owner.RunState.Players.First(x => x.Creature == target);
 
         // 1. 恢复所有生命
-        await CreatureCmd.Heal(player.Creature, player.Creature.MaxHp);
+        await CreatureCmd.Heal(target, target.MaxHp);
 
         // 2. 用随机药水填满空药水栏位
         var rng = player.RunState.Rng.CombatPotionGeneration;
@@ -46,11 +48,11 @@ public sealed class CamelliaPotion : CustomPotionModel
                 break;
             }
         }
-
+        
         // 3. 如果处于战斗中，升级你的全部卡牌（参照神化）
-        if (MegaCrit.Sts2.Core.Combat.CombatManager.Instance.IsInProgress && base.Owner.PlayerCombatState != null)
+        if (MegaCrit.Sts2.Core.Combat.CombatManager.Instance.IsInProgress && player.PlayerCombatState != null)
         {
-            foreach (var card in base.Owner.PlayerCombatState.AllCards)
+            foreach (var card in player.PlayerCombatState.AllCards)
             {
                 if (card.IsUpgradable)
                 {
