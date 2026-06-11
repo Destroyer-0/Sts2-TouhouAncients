@@ -268,8 +268,8 @@
   "TOUHOUANCIENTS-CARROT_NECKLACE.flavor": "带上这个项链，就能变的像兔子一样敏捷与狡猾。",
 
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.title": "兔角契约",
-  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.description": "拾起时，获得[blue]200[/blue][gold]金币[/gold]并将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
-  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.eventDescription": "获得[blue]200[/blue][gold]金币[/gold]，将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
+  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.description": "拾起时，获得[blue]150[/blue][gold]金币[/gold]并将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
+  "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.eventDescription": "获得[blue]150[/blue][gold]金币[/gold]，将一张[red]债务[/red]加入牌组。每场战斗结束时，获得当前[gold]金币[/gold]的[blue]20%[/blue]。",
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.flavor": "禁止红白色的家伙和黑白色的家伙签署。",
 
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.title": "幸运宝盒",
@@ -476,7 +476,7 @@
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "迷你八卦炉",
-  "TOUHOUANCIENTS-MINI_HAKKERO.description": "回合结束时，消耗[blue]1~3[/blue]张手牌。若消耗的牌不小于[blue]2[/blue]张，下个回合开始时获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-MINI_HAKKERO.description": "回合结束时，消耗[blue]1~3[/blue]张手牌。若消耗的牌不小于[blue]{Cards}[/blue]张，下个回合开始时获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "能将魔法的波纹集中一处朝前方发射的魔法武器。",
 
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.title": "恋色手电筒",

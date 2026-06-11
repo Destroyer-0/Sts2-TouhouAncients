@@ -1,6 +1,6 @@
 ﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸运白兔",
-    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌在本场战斗添加[gold]重放[/gold]。",
+    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌添加[gold]重放[/gold]。",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]",
@@ -27,7 +27,7 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
 
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌的魔力",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount}[/blue]张其它牌免费打出。\n每次打出后此牌本场战斗耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount}[/blue]张其它牌免费打出。\n每次打出后耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "铃兰",
     "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽{Cards}张牌。给予自身{PoisonSelf}层[gold]中毒[/gold]。\n回合结束时，如果这张牌在你的手中，给予所有敌人{PoisonPower:diff()}层[gold]中毒[/gold]，获得的能量增加{energyPrefix:energyIcons(1)}，给予自身的中毒层数增加[blue]1[/blue]。",
@@ -45,7 +45,7 @@
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "对所有敌人造成等同于其当前生命值一半的伤害。",
 
     "TOUHOUANCIENTS-THE_KOISHI_EYE.title": "禁闭之眼",
-    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "随机打出[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]中的{Cards:diff()}张牌。\n为其中随机一张攻击牌[gold]附魔[/gold][purple]本能[/purple]，为其中随机一张牌添加[red]不能被打出[/red]。",
+    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "随机打出[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]中的{Cards:diff()}张牌。\n为其中随机一张攻击牌[gold]附魔[/gold][purple]本能[/purple]，为其中随机一张牌添加[red]无意识[/red]。",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "杀戮灵气",
     "TOUHOUANCIENTS-KILLING_AURA.description": "造成{Damage:diff()}点伤害。\n获得{Block:diff()}点[gold]格挡[/gold]。\n你打出带有攻击/格挡的牌时，如果这张牌在你的[gold]手牌[/gold]中，消耗该牌并将其对应数值{IfUpgraded:show:增加1|}添加到这张牌上。",
