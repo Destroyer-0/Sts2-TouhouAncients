@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Enchantments;
+using TouhouAncients.Scripts.cardTags;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -30,7 +31,7 @@ public class TheKoishiEye : TouhouAncientCards
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromEnchantment<Instinct>()
-        .Append(HoverTipFactory.FromKeyword(CardKeyword.Unplayable));
+        .Append(HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientKoishiUnplayable));
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
 
@@ -78,7 +79,7 @@ public class TheKoishiEye : TouhouAncientCards
 
         // 6. 为随机一张牌添加不能被打出
         var unplayableTarget = inGameCards[rng.Shuffle.NextInt(inGameCards.Count)];
-        unplayableTarget.AddKeyword(CardKeyword.Unplayable);
+        unplayableTarget.AddKeyword(TouhouAncientKeywords.TouhouAncientKoishiUnplayable);
     }
 
     protected override void OnUpgrade()

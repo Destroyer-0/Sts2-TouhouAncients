@@ -1,4 +1,5 @@
 using BaseLib.Patches.Content;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 
@@ -12,6 +13,10 @@ public class TouhouAncientKeywords
     [CustomEnum("TouhouAncientSatoriScry")]
     [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword TouhouAncientSatoriScry;
+    
+    [CustomEnum("TouhouAncientKoishiUnplayable")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword TouhouAncientKoishiUnplayable;
 
     
     [CustomEnum("TouhouAncientYinYangTranslation")]
@@ -38,5 +43,24 @@ public class TouhouAncientKeywords
     public static bool IsScry(CardModel card)
     {
         return card.Keywords.Contains(TouhouAncientSatoriScry);
+    }
+    public static bool IsKoishi(CardModel card)
+    {
+        return card.Keywords.Contains(TouhouAncientKoishiUnplayable);
+    }
+}
+
+//Patch: 带有无意识的牌不能被玩家打出。
+[HarmonyPatch(typeof(CardModel))]
+public static class TouhouAncientKoishiUnplayablePatch
+{
+    [HarmonyPatch("get_IsPlayable")]
+    [HarmonyPostfix]
+    private static void ApplyKoishiUnplayable(CardModel __instance, ref bool __result)
+    {
+        if (__result && TouhouAncientKeywords.IsKoishi(__instance))
+        {
+            __result = false;
+        }
     }
 }
