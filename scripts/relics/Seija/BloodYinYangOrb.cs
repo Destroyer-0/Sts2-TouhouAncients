@@ -24,7 +24,7 @@ public class BloodYinYangOrb : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new DynamicVar("HealPenalty", 25m)
+        new DynamicVar("HealPenalty", 21m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
