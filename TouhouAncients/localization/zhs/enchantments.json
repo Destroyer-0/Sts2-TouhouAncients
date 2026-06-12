@@ -36,5 +36,8 @@
     "TOUHOUANCIENTS-WANDERING.title": "彷徨",
 
     "TOUHOUANCIENTS-YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
-    "TOUHOUANCIENTS-YUMEIRO.title": "梦色"
+    "TOUHOUANCIENTS-YUMEIRO.title": "梦色",
+
+    "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]1[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
+    "TOUHOUANCIENTS-GREED.title": "贪欲"
 }

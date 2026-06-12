@@ -33,6 +33,10 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(RyukeiNoTama));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(WindPriestessWine));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DuplexBarrier));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottomlessStomach));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BloodlickingTongue));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(SkySwallowingSpoon));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(EstrangedHeart));
         
         // 初始化 Ancient 禁用配置扫描
         BanAncientPatch.Initialize();

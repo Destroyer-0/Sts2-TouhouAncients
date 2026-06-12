@@ -34,6 +34,7 @@ public class HeavenlyRevelation : TouhouAncientRelics
             .Where(p => p is { Type: PowerType.Buff, Amount: > 0 ,StackType: PowerStackType.Counter })
             .ToList();
 
+        await PlayerCmd.GainStars(Owner.PlayerCombatState.Stars, Owner);
         foreach (var buff in buffs)
         {
             await PowerCmd.ModifyAmount(buff, buff.Amount, creature, null);

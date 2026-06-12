@@ -478,6 +478,7 @@
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "迷你八卦炉",
   "TOUHOUANCIENTS-MINI_HAKKERO.description": "回合结束时，消耗[blue]1~3[/blue]张手牌。若消耗的牌不小于[blue]{Cards}[/blue]张，下个回合开始时获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "能将魔法的波纹集中一处朝前方发射的魔法武器。",
+  "TOUHOUANCIENTS-MINI_HAKKERO.selectionScreenPrompt": "选择1~3张牌消耗",
 
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.title": "恋色手电筒",
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.description": "拾起时，将[blue]1[/blue]张[gold]极限火花[/gold]加入你的[gold]牌组[/gold]。",
@@ -550,5 +551,51 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初的神灵",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。\n[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": ""
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
+
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
+"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "吞噬你初始遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
+
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.description": "拾起时，将[blue]1[/blue]张[gold]狂飨[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.eventDescription": "将[blue]1[/blue]张[gold]狂飨[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.flavor": "",
+
+  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.title": "舐血之舌",
+  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "你每失去[blue]{Threshold}[/blue]生命，就获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]与[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
+
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "吞天之勺",
+"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]。",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
+
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每个回合开始时获得{Energy:energyIcons()}。你不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
+
+  "TOUHOUANCIENTS-GREEDY_EYE.title": "贪婪之瞳",
+  "TOUHOUANCIENTS-GREEDY_EYE.description": "拾起时，将[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]贪欲[/purple]的[gold]未掘宝石[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-GREEDY_EYE.eventDescription": "将[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]贪欲[/purple]的[gold]未掘宝石[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-GREEDY_EYE.flavor": "",
+
+  "TOUHOUANCIENTS-CURSED_BLOOD.title": "诅咒之血",
+  "TOUHOUANCIENTS-CURSED_BLOOD.description": "拾起时，将一张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
+  "TOUHOUANCIENTS-CURSED_BLOOD.eventDescription": "将一张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
+  "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
+
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "炼狱之烬",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "在你的回合开始时，从[gold]消耗堆[/gold]中选择任意张牌放入[gold]手牌[/gold]，并向[gold]抽牌堆[/gold]中加入等量张[gold]灼伤[/gold]。",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
+
+  "TOUHOUANCIENTS-GUILTLESS_FACE.title": "无疚之面",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.description": "拾起时，选择你[gold]牌组[/gold]中的一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.eventDescription": "选择你[gold]牌组[/gold]中的一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.selectionScreenPrompt": "选择一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "",
+
+  "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": ""
 }

@@ -1,6 +1,6 @@
 ﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸运白兔",
-    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌添加[gold]重放[/gold]。",
+    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌在本场战斗添加[gold]重放[/gold]。",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]",
@@ -60,5 +60,9 @@
     "TOUHOUANCIENTS-RICHEST_FORM.description": "获得[blue]{StartingCapital:diff()}[/blue]点[gold]启动资金[/gold]。\n打出非X费牌不再消耗能量，改为以[blue]1:10[/blue]的比例消耗[gold]启动资金[/gold]，[gold]启动资金[/gold]不足时改为消耗等量[gold]金币[/gold]。",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "至贫形态",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。"
+    "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。",
+
+    "TOUHOUANCIENTS-THE_FEAST.title": "狂飨",
+    "TOUHOUANCIENTS-THE_FEAST.description": "消耗{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张这张牌的复制品加入你的[gold]弃牌堆[/gold]。",
+    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌消耗"
 }

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://sxc661d8nn2"]
+
+[ext_resource type="Texture2D" uid="uid://bjsjvrf45vmh0" path="res://images/ToutetsuYuuma.png" id="1_wyjou"]
+
+[node name="WatariNinaAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -350.0
+offset_top = -60.0
+offset_right = 2248.0
+offset_bottom = 1140.0
+texture = ExtResource("1_wyjou")

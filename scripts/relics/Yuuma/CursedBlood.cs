@@ -1,0 +1,72 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Models.PotionPools;
+using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+
+namespace TouhouAncients.Scripts.relics;
+
+/// <summary>
+/// 诅咒之血：拾起时，获得一张腐朽。在你的每个回合开始时，炼制两瓶药水并喝下。
+/// </summary>
+[Pool(typeof(EventRelicPool))]
+public class CursedBlood : TouhouAncientRelics
+{
+    public override string DefaultFileName => "yuuma_default";
+    public override bool HasUponPickupEffect => true;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("PotionCount", 2)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromCardWithCardHoverTips<Decay>();
+
+    public override async Task AfterObtained()
+    {
+        var player = base.Owner;
+        var decay = player.RunState.CreateCard<Decay>(player);
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(decay, PileType.Deck), 2f);
+    }
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != base.Owner) return;
+        var rng = player.RunState.Rng.CombatPotionGeneration;
+
+        // 获取所有可解锁的自指向药水
+        var selfTargetPotions = PotionFactory.GetPotionOptions(player, System.Array.Empty<PotionModel>())
+            .Where(p => p.TargetType is TargetType.Self or TargetType.AnyPlayer)
+            .ToList();
+
+        if (selfTargetPotions.Count == 0) return;
+
+        int count = DynamicVars["PotionCount"].IntValue;
+        for (int i = 0; i < count; i++)
+        {
+            var selected = selfTargetPotions[rng.NextInt(selfTargetPotions.Count)].ToMutable();
+            selected.Owner = player;
+
+            // 直接入栏并立即使用
+            var procResult = await PotionCmd.TryToProcure(selected, player);
+            if (!procResult.success) continue;
+
+            Flash();
+            // 使用药水（以自身为目标）
+            procResult.potion.EnqueueManualUse(player.Creature);
+
+            // 等待药水效果完成
+            await Cmd.Wait(0.5f);
+        }
+    }
+}
