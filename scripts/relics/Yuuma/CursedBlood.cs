@@ -46,7 +46,7 @@ public class CursedBlood : TouhouAncientRelics
 
         // 获取所有可解锁的自指向药水
         var selfTargetPotions = PotionFactory.GetPotionOptions(player, System.Array.Empty<PotionModel>())
-            .Where(p => p.TargetType is TargetType.Self or TargetType.AnyPlayer)
+            .Where(p => p is { CanBeGeneratedInCombat: true, TargetType: TargetType.Self or TargetType.AnyPlayer })
             .ToList();
 
         if (selfTargetPotions.Count == 0) return;
@@ -63,7 +63,7 @@ public class CursedBlood : TouhouAncientRelics
 
             Flash();
             // 使用药水（以自身为目标）
-            procResult.potion.EnqueueManualUse(player.Creature);
+            await selected.OnUseWrapper(choiceContext, player.Creature);
 
             // 等待药水效果完成
             await Cmd.Wait(0.5f);
