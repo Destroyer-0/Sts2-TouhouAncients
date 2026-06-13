@@ -1,0 +1,23 @@
+{
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "预见",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "检视你抽牌堆顶部的X张牌。你可以选择丢弃其中的任意张。",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "选择任意张牌丢弃。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTYINYANGTRANSLATION.title": "转换",
+  "TOUHOUANCIENTS-TOUHOUANCIENTYINYANGTRANSLATION.description": "每场战斗开始时，处于[blue]阴[/blue]状态。每当你触发[blue]阴[/blue]效果或[gold]阳[/gold]效果时，切换到另一个状态。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.title": "募捐",
+  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.description": "获得200金币与一组卡牌奖励。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "赏樱",
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "恢复你因为[purple]墨染的樱花[/purple]而失去的最大生命。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "储君",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "来自天上的，群星王座的继承人。因此也是天人。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "污秽",
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "即使能无限次的重生并净化，污秽亦会无法避免的累积。随着污秽累积，绀珠之药复活的副作用会逐渐增强。",
+  
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "无意识",
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "无法以自动打出以外的方式打出。"
+}

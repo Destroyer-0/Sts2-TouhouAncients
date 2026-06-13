@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -39,13 +40,20 @@ public class TheFeast : TouhouAncientCards
         new DynamicVar("Copies", 2),
     ];
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.ForEnergy(this)
+    ];
+    
     public TheFeast() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["Strength"].BaseValue+=1;
+        DynamicVars["Strength"].UpgradeValueBy(1);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
