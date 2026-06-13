@@ -24,8 +24,8 @@ public class CarrotNecklace : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, 1, 3);
-        var selected = (await CardSelectCmd.FromDeckGeneric(base.Owner, prefs)).ToList();
+        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, 0, 3);
+        var selected = (await CardSelectCmd.FromDeckGeneric(base.Owner, prefs, x => x.IsRemovable)).ToList();
 
         if (selected.Count > 0)
         {

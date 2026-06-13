@@ -1,0 +1,235 @@
+---
+name: translate
+description: Translate TouhouAncients mod localization files from Chinese (zhs/) to English (eng/). Use when the user wants to translate enchantments, cards, relics, powers, potions, ancients, or other localization text.
+---
+
+# Translate — TouhouAncients 本地化英译
+
+将 `TouhouAncients/localization/zhs/` 中的中文文本翻译为英文，输出到 `TouhouAncients/localization/eng/`。
+
+## 前置参考
+
+1. 先读取对应的 `zhs/` 源文件获取完整上下文
+2. 参考 STS2 原版英文术语表：`e:\STS2\localization\eng\card_keywords.json`（关键字对照）、`e:\STS2\localization\eng\relics.json`（遗物描述范式）、`e:\STS2\localization\eng\enchantments.json`（附魔描述范式）、`e:\STS2\localization\eng\cards.json`（卡牌描述范式）
+3. 参考 `e:\STS2\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
+
+## 核心翻译规则
+
+### 1. 富文本标记与动态变量 — 原样保留
+所有 STS2 标记和变量**不得翻译、不得修改、不得遗漏**：
+- 颜色标记：`[gold]`、`[purple]`、`[blue]`、`[red]`、`[green]`、`[pink]`、`[b]`
+- 动画标记：`[jitter]`、`[sine]`、`[fade_in]`
+- 动态变量：`{Damage}`、`{Block}`、`{Energy:energyIcons()}`、`{Amount:diff()}`、`{IfUpgraded:show:...|...}`、`{InCombat:...|}` 等
+- 图标：`{singleStarIcon}`、`{energyPrefix:energyIcons(1)}` 等
+
+### 2. 术语对照表（以 STS2 原版英文为准）
+
+#### 2.1 卡牌 Keywords（官方 — `e:\STS2\localization\eng\card_keywords.json`）
+
+| 中文（zhs） | English（eng） | 说明 |
+|-------------|----------------|------|
+| 消耗 | **Exhaust** | `[gold]Exhaust[/gold]` |
+| 保留 | **Retain** | `[gold]Retain[/gold]` |
+| 虚无 | **Ethereal** | `[gold]Ethereal[/gold]` |
+| 永恒 | **Eternal** | `[gold]Eternal[/gold]` — 不能从牌组移除/变化 |
+| 固有 | **Innate** | `[gold]Innate[/gold]` — 战斗开始到手牌 |
+| 奇巧 | **Sly** | `[gold]Sly[/gold]` — 回合结束前丢弃则免费打出 |
+| 不能被打出 | **Unplayable** | `[gold]Unplayable[/gold]` |
+| 重放 | **Replay** | `[gold]Replay[/gold]` — 自定义关键字，参考 Glam/Spiral 附魔 |
+
+#### 2.2 状态效果 / Powers（官方 — `e:\STS2\localization\eng\powers.json` 中 `XXX_POWER.title` 字段）
+
+| 中文（zhs） | English（eng） |
+|-------------|----------------|
+| 易伤 | **Vulnerable** |
+| 虚弱 | **Weak** |
+| 脆弱 | **Frail** |
+| 中毒 | **Poison** |
+| 灾厄 | **Doom** |
+| 人工制品 | **Artifact** |
+| 缓冲 | **Buffer** |
+| 力量 | **Strength** |
+| 敏捷 | **Dexterity** |
+| 集中 | **Focus** |
+| 活力 | **Vigor** |
+| 荆棘 | **Thorns** |
+| 覆甲 | **Plating** |
+| 无实体 | **Intangible** |
+
+#### 2.3 牌堆与位置
+
+| 中文（zhs） | English（eng） |
+|-------------|----------------|
+| 牌组 | **Deck** |
+| 手牌 | **Hand** |
+| 抽牌堆 | **Draw Pile** |
+| 弃牌堆 | **Discard Pile** |
+| 消耗堆 | **Exhaust Pile** |
+| 抽牌堆顶 | **top of your Draw Pile** |
+
+#### 2.4 卡牌类型与操作
+
+| 中文（zhs） | English（eng） |
+|-------------|----------------|
+| 攻击牌 | **Attack** |
+| 技能牌 | **Skill** |
+| 能力牌 | **Power** |
+| 诅咒牌 | **Curse** |
+| 状态牌 | **Status** |
+| 打出 | **Play** |
+| 消耗（动词/名词） | **Exhaust** |
+| 抽（牌） | **Draw** |
+| 弃（牌） | **Discard** |
+| 保留（动词/名词） | **Retain** |
+| 升级 | **Upgrade** |
+| 铸造 | **Smith**（休息处升级操作） |
+| 召唤 | **Summon** |
+| 变化 | **Transform** |
+| 添加 | **Add** |
+| 移出 | **Remove** |
+| 复制 / 复制品 | **Copy / copies** |
+| 仆从 | **Minion** |
+
+#### 2.5 战斗与回合
+
+| 中文（zhs） | English（eng） |
+|-------------|----------------|
+| 战斗 | **Combat** |
+| 回合 | **Turn** |
+| 本回合 | **this turn** |
+| 下回合 | **next turn** |
+| 每场战斗 | **each combat / per combat** |
+| 回合结束时 | **at the end of your turn** |
+| 回合开始 | **at the start of your turn** |
+| 抽牌阶段 | **Draw Phase** |
+| 能量 | **Energy** |
+| 费用 / 耗能 | **Cost** |
+| 意图 | **intent** |
+| 格挡 | **Block** |
+| 伤害 | **Damage** |
+| 额外（造成/获得） | **additional** |
+| 层 / 层数 | **stack(s)**（取决于上下文） |
+
+#### 2.6 通用游戏概念
+
+| 中文（zhs） | English（eng） |
+|-------------|----------------|
+| 生命 | **HP** |
+| 最大生命 | **Max HP** |
+| 金币 | **Gold** |
+| 药水 | **Potion** |
+| 药水栏位 | **Potion Slot(s)** |
+| 先古之民 | **Ancient** |
+| 事件 | **Event** |
+| 休息处 | **Rest Site** |
+| 商店 | **Merchant**（Merchant Room） |
+| 精英 | **Elite** |
+| Boss | **Boss** |
+| 附魔 | **Enchantment** |
+| 充能 | **Energy**（星数系统的星能） |
+| 随机 | **random** |
+| 随机化 | **randomize** |
+| 同名牌 | **card with the same name** |
+| 预见 | **Scry** |
+
+#### 2.7 动作句式参考（从 STS2 原版附魔/遗物/卡牌英文描述中提取）
+
+| 句式（中文） | 句式（英文） | 来源参考 |
+|-------------|-------------|---------|
+| 获得[N]点[gold]格挡[/gold] | Gain [blue]{N}[/blue] [gold]Block[/gold]. | Nimble / Block Potion |
+| 造成[N]点（额外）伤害 | Deal [blue]{N}[/blue] (additional) damage. | Sharp / Vigorous |
+| 造成[N]层[gold]中毒[/gold] | Apply [blue]{N}[/blue] [gold]Poison[/gold]. | — |
+| 对所有敌人 | to ALL enemies | Inky / Bag of Marbles |
+| 这张牌获得[gold]保留[/gold] | This card gains [gold]Retain[/gold]. | Steady |
+| 回合结束时，如果这张牌在你的手牌中 | If this card is in your hand at the end of turn | Slumbering Essence |
+| 每场战斗第一次打出 | The first time you play this card each combat | Sown / Swift |
+| 费用为[N] | Costs [blue]{N}[/blue] | Tezcatara's Ember |
+| 给一张随机牌添加[red]关键词[/red] | Gain [red]Keyword[/red] on a random card. | Closed Eye（禁闭之眼） — 自定义关键词句式 |
+| 为一张随机攻击牌附魔[purple]附魔名[/purple] | [gold]Enchant[/gold] a random Attack with [purple]EnchantmentName[/purple]. | Closed Eye（禁闭之眼） — 引用附魔句式 |
+| 获得{Amount:energyIcons()} | Gain {Amount:energyIcons()}. | Sown |
+| 抽[N]张牌 | Draw [blue]{N}[/blue] {N:plural:card\|cards}. | Swift |
+| 在本场战斗中 | this combat | Momentum |
+| 从牌组中移除 | Remove from your [gold]Deck[/gold]. | Soul's Power |
+| 被复制 | be duplicated | Clone |
+| 失去[N]点生命 | lose [blue]{N}[/blue] HP | Corrupted |
+| 回复[N]点生命 | Heal for [blue]{N}[/blue] HP. | Blood Potion |
+
+#### 2.8 附魔专用字段格式（参考原版 `e:\STS2\localization\eng\enchantments.json`）
+
+| 字段 | 句式惯例 |
+|------|---------|
+| `.description` | This card ... / Gains ... / When played, ... / Increases ... / The first time ... |
+| `.title` | 单个形容词或名词短语，首字母大写 |
+| `.extraCardText` | 卡面额外简短文本，祈使句不加定冠词，如 `"Gain X Block."` |
+| `.dialogue` | 角色台词，如 `"Power..."` |
+
+### 2.9 卡牌描述参考源（翻译具体条目时对照的 STS2 原版卡牌/附魔）
+
+> 翻译时遇到类似句式，优先返回这些源文件查找对应英文描述，确保与 STS2 标准一致。
+
+| 参考源（英文键名） | 中文名 | 英文描述 | 用于参照 |
+|-------------------|--------|---------|---------|
+| `SLUMBERING_ESSENCE` | 沉眠精华 | `If this card is in your hand at the end of turn, reduce its cost by [blue]1[/blue] until it is played.` | 蛇！！前半段：回合结束手牌降费 |
+| `HEAVENLY_DRILL` | 天际钻头 | `Deal {Damage:diff()} damage X times.\nDouble X if it's {Energy:diff()} or more.` | 极限火花：X费+翻倍条件句式 |
+| `TRANSFIGURE` | 重构 | `Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIt costs an extra {Energy:energyIcons()}.` | 添加重放句式 |
+| `GUILTY` | 愧疚 | `Removed from your [gold]Deck[/gold] after {Combats:diff()} {Combats:plural:combat\|combats}.` | 从牌组移除句式 |
+| `GLAM` (附魔) | 华彩 | `This card has [gold]Replay[/gold] once per combat.` | 重放关键词句式 |
+| `SPIRAL` (附魔) | 涡旋 | `This card gains [gold]Replay[/gold] [blue]1[/blue].` | 重放+次数句式 |
+| `SOWN` (附魔) | 播种 | `The first time you play this card each combat, gain {Amount:energyIcons()}.` | 每战首次打出句式 |
+| `SWIFT` (附魔) | 迅速 | `The first time you play this card, draw [blue]{Amount}[/blue] {Amount:plural:card\|cards}.` | 首次打出+抽牌句式 |
+| `NIMBLE` (附魔) | 灵巧 | `Increases [gold]Block[/gold] gained from this card by [blue]{Amount}[/blue].` | 格挡递增句式 |
+| `GOOPY` (附魔) | 黏糊 | `This card gains [gold]Exhaust[/gold]. When played, permanently increase this card's [gold]Block[/gold] by [blue]1[/blue].` | 获得消耗句式 |
+| `ROYALLY_APPROVED` (附魔) | 王室认证 | `This card has [gold]Innate[/gold] and [gold]Retain[/gold].` | 同时拥有多个关键字句式 |
+| `SHARP` (附魔) | 锋利 | `Increases damage on this card by [blue]{Amount}[/blue].` | 伤害递增句式 |
+
+### 2.10 自定义关键词翻译
+
+| 中文（zhs） | English（eng） | 备注 |
+|-------------|----------------|------|
+| 无意识 | **Unconscious** | 古明地恋相关，禁闭之眼使用。句式：`Gain [red]Unconscious[/red] on a random card.` |
+| 污秽 | **Filth** | 绀珠之药计数机制。句式：`gain [pink]Filth[/pink] count.` |
+
+### 3. Touhou 特色台词 — 英文意译
+- 保留台词风味，但不逐字直译日文梗
+- 用自然英语传达角色语气（如 Marisa 的 `Da☆Ze` 保留）
+- 格式标记如 `[purple][sine]...[/sine][/purple]` 原样保留
+
+### 4. 格式规则
+- 保持 JSON 结构与源文件完全一致
+- 键名不变，仅翻译值
+- 换行符 `\n` 保留
+- 标点：中文句号 `。` → 英文句号 `.`，中文逗号 `、` → `,`
+
+## 翻译流程
+
+### 按文件优先级顺序翻译
+
+1. `enchantments.json` — 附魔文本（条目少，术语密集）
+2. `cards.json` — 卡牌文本（条目多，含台词）
+3. `powers.json` — Power 文本
+4. `relics.json` — 遗物文本（条目最多）
+5. `potions.json` — 药水文本
+6. `ancients.json` — 先古之民对话
+7. `rest_site_ui.json` / `settings_ui.json` — UI 文本
+8. `card_keywords.json` — 自定义关键字说明
+9. `card_reward_ui.json` — 卡牌奖励 UI
+
+### 单文件翻译操作
+
+1. 读取 `zhs/{filename}` 获取全部待翻译条目
+2. 读取 `eng/{filename}` 查看当前已翻译状态
+3. 针对每个未翻译的条目（值仍为中文的），逐条生成英文翻译
+4. 使用 `replace_string_in_file` 或 `multi_replace_string_in_file` 替换为英文值
+5. 翻译完成后告知用户翻译了哪些条目
+
+### 术语一致性检查
+- 同一中文术语在所有文件中必须翻译为同一个英文词
+- 遇到新术语时，优先查找 STS2 原版 `eng/` 中的用法
+- 若 STS2 原版无对应术语，在翻译后告知用户新增术语的翻译选择
+
+## 常用操作
+
+```powershell
+# 对比中英文文件差异（找出未翻译条目）
+code --diff TouhouAncients/localization/zhs/cards.json TouhouAncients/localization/eng/cards.json
+```
