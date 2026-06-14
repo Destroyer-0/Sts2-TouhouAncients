@@ -26,7 +26,7 @@ public class RebellionHorn : TouhouAncientRelics
         var targets = player.Deck.Cards
             .Where(c => c.Rarity is CardRarity.Common or CardRarity.Basic)
             .ToList();
-
+t
         if (targets.Count <= 0) return;
 
         Flash();

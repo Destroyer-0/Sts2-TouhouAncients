@@ -27,7 +27,7 @@ public class CursedBlood : TouhouAncientRelics
     public override string DefaultFileName => "yuuma_default";
     public override bool HasUponPickupEffect => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("PotionCount", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("PotionCount", 2), new CardsVar(2)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Decay>();

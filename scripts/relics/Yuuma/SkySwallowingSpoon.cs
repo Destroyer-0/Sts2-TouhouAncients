@@ -42,49 +42,17 @@ public class SkySwallowingSpoon : TouhouAncientRelics
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_SwallowedCards;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(4)];
-}
-
-/// <summary>
-/// 吞天之勺 Harmony 补丁
-/// </summary>
-[HarmonyPatch]
-public static class SkySwallowingSpoonPatchs
-{
-    private static MethodBase TargetMethod()
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(8)];
+    
+    
+    // 阻止诅咒加入牌组
+    public override bool ShouldAddToDeck(CardModel card)
     {
-        return typeof(CardPileCmd).GetMethod("Add", new[]
-        {
-            typeof(CardModel),
-            typeof(PileType),
-            typeof(CardPilePosition),
-            typeof(AbstractModel),
-            typeof(bool)
-        });
-    }
-
-    public static async void Postfix(CardModel card, PileType newPileType, Task<CardPileAddResult> __result)
-    {
-        try
-        {
-            if (newPileType != PileType.Deck) return;
-            if (card?.Owner == null) return;
-
-            var spoon = card.Owner.GetRelic<SkySwallowingSpoon>();
-            if (spoon == null) return;
-
-            var addResult = await __result;
-            if (!addResult.success) return;
-
-            // 立即从牌组中移除
-            await CardPileCmd.RemoveFromDeck(card, showPreview: false);
-            spoon.TouhouAncients_SwallowedCards++;
-            spoon.Flash();
-            await CreatureCmd.GainMaxHp(card.Owner.Creature, spoon.DynamicVars["MaxHp"].IntValue);
-        }
-        catch (System.Exception e)
-        {
-            Log.Error(e.ToString());
-        }
+        if (card.Owner != base.Owner) return true;
+        TouhouAncients_SwallowedCards++;
+        Flash();
+        CreatureCmd.GainMaxHp(card.Owner.Creature, base.DynamicVars["MaxHp"].IntValue);
+        return false;
+        return true;
     }
 }

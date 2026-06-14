@@ -48,7 +48,7 @@ public class KillingAura : TouhouAncientCards
     /// <summary>
     /// 累积伤害到这张牌上
     /// </summary>
-    public void AddDamage(decimal amount)
+    public void AddDamage(int amount)
     {
         amount += IsUpgraded ? 1 : 0;
         TouhouAncients_StoredDamage += amount;
@@ -58,7 +58,7 @@ public class KillingAura : TouhouAncientCards
     /// <summary>
     /// 累积格挡到这张牌上
     /// </summary>
-    public void AddBlock(decimal amount)
+    public void AddBlock(int amount)
     {
         amount += IsUpgraded ? 1 : 0;
         TouhouAncients_StoredBlock += amount;
@@ -83,8 +83,26 @@ public class KillingAura : TouhouAncientCards
         }
     }
 
-    protected override void OnUpgrade()
+
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 杀戮灵气无法升级
+        if (cardPlay.Card.Owner != Owner) return;
+        if(cardPlay.Card==this)return;
+        if (cardPlay.Card.GainsBlock)
+        {
+            await CardCmd.Exhaust(choiceContext,cardPlay.Card);
+            AddBlock(cardPlay.Card.DynamicVars.Block.IntValue);
+            if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
+            {
+                AddBlock(cardPlay.Card.DynamicVars.Damage.IntValue);
+            }
+            return;
+        }
+
+        if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
+        {
+            await CardCmd.Exhaust(choiceContext, cardPlay.Card);
+            AddDamage(cardPlay.Card.DynamicVars.Damage.IntValue);
+        }
     }
 }

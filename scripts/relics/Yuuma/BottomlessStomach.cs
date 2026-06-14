@@ -5,9 +5,11 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -66,10 +68,12 @@ public class BottomlessStomach : TouhouAncientRelics
 
         // 获取初始遗物列表
         var startingRelicIds = player.Character.StartingRelics.Select(r => r.Id).ToHashSet();
-
+        var ancientRelics= ModelDb.AllAncients.SelectMany(x=>x.AllPossibleOptions).Select((EventOption o) => o.Relic?.CanonicalInstance).OfType<RelicModel>().Select(x=>x.Id).ToHashSet();
+        
+        
         // 收集要吞噬的遗物（排除初始遗物和自身）
         var toConsume = player.Relics
-            .Where(r => !startingRelicIds.Contains(r.Id) && r != this)
+            .Where(r => !startingRelicIds.Contains(r.Id) && r != this && !ancientRelics.Contains(r.Id))
             .ToList();
 
         int count = toConsume.Count;

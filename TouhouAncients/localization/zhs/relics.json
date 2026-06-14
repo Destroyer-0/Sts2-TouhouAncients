@@ -108,7 +108,7 @@
 
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "绯红晶石",
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "在每个回合开始时，如果你的生命值不低于[blue]{HpThreshold}%[/blue]，获得{Energy:energyIcons()}。",
-  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "蕾米莉亚的藏品之一，拥有比世界上任何红宝石都鲜艳的血色，不过到目前为止，还没有哪个盯上过。",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
@@ -136,11 +136,11 @@
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
   "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值大于[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
-  "TOUHOUANCIENTS-HELL_ORIN.flavor": "杀掉这些家伙，业火之车也会变重的哦～♪",
+  "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
   "TOUHOUANCIENTS-HELL_OKUU.description": "在每个回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
-  "TOUHOUANCIENTS-HELL_OKUU.flavor": "用这究极之力，把一切都焚烧殆尽吧！",
+  "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
   "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的剩余格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，[gold]击晕[/gold]该敌人。",
@@ -196,11 +196,11 @@
 
   "TOUHOUANCIENTS-DUPLEX_BARRIER.title": "二重结界",
   "TOUHOUANCIENTS-DUPLEX_BARRIER.description": "你有[blue]{Rooms}[/blue]次机会无视路线选择下一层的房间。当你通过无视路线的方式进入战斗时，敌人将只有[blue]1[/blue]点生命。",
-  "TOUHOUANCIENTS-DUPLEX_BARRIER.flavor": "",
+  "TOUHOUANCIENTS-DUPLEX_BARRIER.flavor": "不可思议的力量，连空间也能翻转。",
 
   "TOUHOUANCIENTS-HAKUREI_AMULET.title": "博丽灵札",
   "TOUHOUANCIENTS-HAKUREI_AMULET.description": "受到不高于[blue]{Threshold}[/blue]的未被格挡伤害时，将伤害降低至[blue]1[/blue]点，并在本场战斗中减少[blue]1[/blue]触发阈值，最低降低至[blue]{MinThreshold}[/blue]。",
-  "TOUHOUANCIENTS-HAKUREI_AMULET.flavor": "",
+  "TOUHOUANCIENTS-HAKUREI_AMULET.flavor": "灵梦亲手绘制的一大批护身灵札，但是因为没有参拜客来导致完全积压了。",
 
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "博丽御币",
   "TOUHOUANCIENTS-HAKUREI_GOHEI.description": "拾起时，将[blue]1[/blue]张[gold]梦想封印[/gold]加入你的[gold]牌组[/gold]。",
@@ -245,7 +245,7 @@
 
   "TOUHOUANCIENTS-HEAVENLY_REVELATION.title": "天启万象",
   "TOUHOUANCIENTS-HEAVENLY_REVELATION.description": "在[blue]第三[/blue]回合开始时，翻倍你的所有[gold]正面状态[/gold]。",
-  "TOUHOUANCIENTS-HEAVENLY_REVELATION.flavor": "",
+  "TOUHOUANCIENTS-HEAVENLY_REVELATION.flavor": "就该让地上的贱民们都试试这天上的难吃的要死的料理！这样他们再也不会羡慕天界的生活了！——比那名居天子",
 
   "TOUHOUANCIENTS-COSMIC_DECREE.title": "天宇诏令",
   "TOUHOUANCIENTS-COSMIC_DECREE.description": "拾起时，获得遗物：[gold]天赋君权[/gold]。查看[blue]{Cards}[/blue]张来自[gold]{Character}[/gold]的[green]升级过的卡牌[/green]。从中选择任意数量的卡牌加入你的[gold]牌组[/gold]。",
@@ -554,7 +554,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
-"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "吞噬你初始遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
@@ -580,8 +580,8 @@
   "TOUHOUANCIENTS-GREEDY_EYE.flavor": "",
 
   "TOUHOUANCIENTS-CURSED_BLOOD.title": "诅咒之血",
-  "TOUHOUANCIENTS-CURSED_BLOOD.description": "拾起时，将一张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
-  "TOUHOUANCIENTS-CURSED_BLOOD.eventDescription": "将一张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
+  "TOUHOUANCIENTS-CURSED_BLOOD.description": "拾起时，将[blue]{Cards}[/blue]张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
+  "TOUHOUANCIENTS-CURSED_BLOOD.eventDescription": "将[blue]{Cards}[/blue]张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "炼狱之烬",
@@ -597,5 +597,5 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": ""
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "尤魔对任何食物都来之不拒，但唯独油豆腐会让这只贪婪的猛兽停下进食的利齿。"
 }

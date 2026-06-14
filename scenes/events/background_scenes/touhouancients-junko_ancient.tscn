@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://0lmbhwei8eh5"]
+
+[ext_resource type="Texture2D" uid="uid://b87vophlgybr0" path="res://images/Junko.png" id="1_lhb68"]
+
+[node name="JunkoAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -505.0
+offset_top = -87.0
+offset_right = 2055.0
+offset_bottom = 1210.0
+texture = ExtResource("1_lhb68")

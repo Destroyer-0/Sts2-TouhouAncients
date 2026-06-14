@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -54,24 +55,24 @@ public class BloodlickingTongue : TouhouAncientRelics
         HoverTipFactory.FromPower<StrengthPower>(),
     ];
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override async Task AfterCurrentHpChanged(Creature creature, decimal delta)
     {
-        if (target != base.Owner.Creature) return;
-        int damageTaken = result.TotalDamage;
-        if (damageTaken <= 0) return;
+        if (creature != base.Owner.Creature) return;
+        if (delta >= 0) return;
 
-        int previousMilestone = TouhouAncients_TotalHpLost / Threshold;
-        TouhouAncients_TotalHpLost += damageTaken;
-        int newMilestone = TouhouAncients_TotalHpLost / Threshold;
-
-        int triggers = newMilestone - previousMilestone;
-        if (triggers <= 0) return;
-
-        Flash();
-        for (int i = 0; i < triggers; i++)
+        var damage = -(int)delta;
+        TouhouAncients_TotalHpLost += damage;
+        for (int i = 0; i < TouhouAncients_TotalHpLost / Threshold; i++)
         {
+            Flash();
             await CreatureCmd.GainMaxHp(base.Owner.Creature, DynamicVars["MaxHp"].IntValue);
-            await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, DynamicVars["Strength"].BaseValue, base.Owner.Creature, null);
+            if (CombatManager.Instance.IsInProgress)
+            {
+                await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, DynamicVars["Strength"].BaseValue, base.Owner.Creature, null);
+            }
         }
+
+        TouhouAncients_TotalHpLost %= Threshold;
+        
     }
 }
