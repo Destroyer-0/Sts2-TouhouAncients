@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
@@ -23,6 +24,35 @@ public class ToutetsuYuumaAncient : CustomAncientModel
         return act.ActNumber() == 3;
     }
 
+    protected override AncientDialogueSet DefineDialogues()
+    {
+        var dialogs = base.DefineDialogues();
+        var keys = dialogs.CharacterDialogues.Keys.ToList();
+        var universal = dialogs.AgnosticDialogues;
+        foreach (var characterDialogue in keys)
+        {
+            var list = dialogs.CharacterDialogues[characterDialogue];
+            var list2 = new List<AncientDialogue>(list);
+            var index = Mathf.Max(1, list2.Count);
+            if (list2.Count == 0)
+            {
+                list2.Add(universal[1]);
+                list2.Add(universal[2]);
+                list2.Add(universal[3]);
+                list2.Add(universal[4]);
+            }
+            else
+            {
+                list2.Insert(index++, universal[1]);
+                list2.Insert(index++, universal[2]);
+                list2.Insert(index++, universal[3]);
+                list2.Insert(index, universal[4]);
+            }
+            dialogs.CharacterDialogues[characterDialogue] = list2;
+        }
+        return dialogs;
+    }
+
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
         return TouhouAncientsConfig.IsAncientForced<ToutetsuYuumaAncient>(act.ActNumber());
@@ -31,14 +61,18 @@ public class ToutetsuYuumaAncient : CustomAncientModel
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<BottomlessStomach>(),
-            AncientOption<GluttonousFang>(),
-            AncientOption<BloodlickingTongue>(),
             AncientOption<SkySwallowingSpoon>(),
-            AncientOption<RigidDesireProof>(),
+            AncientOption<GuiltlessFace>()
+        ),
+        MakePool(
+            AncientOption<GluttonousFang>(),
             AncientOption<GreedyEye>(),
-            AncientOption<CursedBlood>(),
+            AncientOption<RigidDesireProof>(),
+            AncientOption<CursedBlood>()
+        ),
+        MakePool(
+            AncientOption<BloodlickingTongue>(),
             AncientOption<PurgatoryEmbers>(),
-            AncientOption<GuiltlessFace>(),
-            AncientOption<EstrangedHeart>()
-        ));
+            AncientOption<EstrangedHeart>())
+    );
 }
