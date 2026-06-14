@@ -15,12 +15,12 @@ public class JunkoAncient : CustomAncientModel
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KomejiSatori.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KomejiSatori.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/Junko.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/Junko.png";
 
     public override bool IsValidForAct(ActModel act)
     {
-        return false; //act.ActNumber() == 3;
+        return act.ActNumber() == 3;
     }
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
