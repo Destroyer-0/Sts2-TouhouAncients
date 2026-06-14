@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
@@ -51,8 +52,8 @@ public class BottomlessStomach : TouhouAncientRelics
         new EnergyVar(1),
         new DynamicVar("CardsPerTurn", 1),
         new DynamicVar("StrengthTrigger", 4),
-        new DynamicVar("EnergyTrigger", 8),
-        new DynamicVar("DrawTrigger", 12),
+        new DynamicVar("EnergyTrigger", 6),
+        new DynamicVar("DrawTrigger", 8),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -91,13 +92,6 @@ public class BottomlessStomach : TouhouAncientRelics
         // 每1个：+8 最大生命
         await CreatureCmd.GainMaxHp(player.Creature, count * DynamicVars["MaxHp"].IntValue);
 
-        // 每4个：+1 力量、+1 敏捷
-        int strDexCount = count / 4;
-        if (strDexCount > 0)
-        {
-            await PowerCmd.Apply<StrengthPower>(player.Creature, strDexCount * DynamicVars["Strength"].BaseValue, player.Creature, null);
-            await PowerCmd.Apply<DexterityPower>(player.Creature, strDexCount * DynamicVars["Dexterity"].BaseValue, player.Creature, null);
-        }
 
         // 每8个：+1 能量上限（通过 ModifyMaxEnergy 已在下面处理）
         // 每12个：+1 每回合抽牌
@@ -106,18 +100,33 @@ public class BottomlessStomach : TouhouAncientRelics
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner) return amount;
-        int energyBonus = TouhouAncients_ConsumedCount / 8;
+        int energyBonus = TouhouAncients_ConsumedCount / DynamicVars["EnergyTrigger"].IntValue;
         return amount + energyBonus * DynamicVars.Energy.IntValue;
     }
 
-    public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
+    public override decimal ModifyHandDraw(Player player, decimal count)
     {
-        if (player != base.Owner) return;
-        int drawBonus = TouhouAncients_ConsumedCount / 12;
+        int drawBonus = TouhouAncients_ConsumedCount / DynamicVars["DrawTrigger"].IntValue;
         if (drawBonus > 0)
         {
             Flash();
-            await CardPileCmd.Draw(choiceContext, drawBonus * DynamicVars["CardsPerTurn"].IntValue, player);
+            return count + drawBonus;
+        }
+        return count;
+    }
+    
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is CombatRoom)
+        {
+            // 每4个：+1 力量、+1 敏捷
+            int strDexCount = TouhouAncients_ConsumedCount / DynamicVars["StrengthTrigger"].IntValue;
+            if (strDexCount > 0)
+            {
+                Flash();
+                await PowerCmd.Apply<StrengthPower>(Owner.Creature, strDexCount * DynamicVars["Strength"].BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<DexterityPower>(Owner.Creature, strDexCount * DynamicVars["Dexterity"].BaseValue, Owner.Creature, null);
+            }
         }
     }
 }

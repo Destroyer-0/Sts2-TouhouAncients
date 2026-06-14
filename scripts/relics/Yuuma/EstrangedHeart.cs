@@ -27,29 +27,27 @@ public class EstrangedHeart : TouhouAncientRelics
     public override string DefaultFileName => "yuuma_default";
     private const int Threshold = 30;
 
-    private int cardsTakenThisCombat;
+    private int cardsTaken;
     private bool hitThresholdThisCombat;
 
     [SavedProperty]
-    public bool TouhouAncients_IsPermanentlyUsedUp
+    public int TouhouAncients_CardTaken
     {
-        get => isPermanentlyUsedUp;
+        get => cardsTaken;
         set
         {
             AssertMutable();
-            isPermanentlyUsedUp = value;
+            cardsTaken = value;
             InvokeDisplayAmountChanged();
         }
     }
-
-    private bool isPermanentlyUsedUp;
-
-    public override bool HasUponPickupEffect => false;
-    public override bool IsUsedUp => TouhouAncients_IsPermanentlyUsedUp;
     
+
+    public override bool IsUsedUp => TouhouAncients_CardTaken >= Threshold;
+
     public override bool ShowCounter => !IsUsedUp;
-    
-    public override int DisplayAmount => TouhouAncients_IsPermanentlyUsedUp ? 0 : Threshold - cardsTakenThisCombat;
+
+    public override int DisplayAmount => Math.Max(0, Threshold - TouhouAncients_CardTaken);
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -82,25 +80,25 @@ public class EstrangedHeart : TouhouAncientRelics
         foreach (var card in selected)
         {
             await CardPileCmd.Add(card, PileType.Hand);
-            cardsTakenThisCombat++;
         }
 
+        TouhouAncients_CardTaken += selected.Count;
+
         // 检查是否达到阈值
-        if (cardsTakenThisCombat >= Threshold && !hitThresholdThisCombat)
+        if (TouhouAncients_CardTaken >= Threshold)
         {
-            hitThresholdThisCombat = true;
+            base.Status = RelicStatus.Active;
             InvokeDisplayAmountChanged();
         }
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (hitThresholdThisCombat)
+        if (TouhouAncients_CardTaken>=Threshold)
         {
-            TouhouAncients_IsPermanentlyUsedUp = true;
+            base.Status = RelicStatus.Disabled;
+            InvokeDisplayAmountChanged();
         }
-        cardsTakenThisCombat = 0;
-        hitThresholdThisCombat = false;
         return Task.CompletedTask;
     }
 }
