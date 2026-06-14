@@ -7,6 +7,10 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.powers;
@@ -20,36 +24,18 @@ namespace TouhouAncients.Scripts.powers;
 public class HellOfBulletsPower : TouhouAncientPowerModel
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
-    /// <summary>
-    /// BeforeFlush 阶段：让所有攻击牌免费打出
-    /// 并检测手中无攻击牌时结束回合
-    /// </summary>
-    public override async Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
+    public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
-        if (player != base.Owner.Player) return;
-        if (base.Owner.CombatState == null) return;
-
-        var hand = PileType.Hand.GetPile(player).Cards;
-
-        // 所有攻击牌免费打出
-        foreach (var card in hand)
+        modifiedCost = originalCost;
+        if (card.Owner.Creature != Owner || card.Type is not CardType.Attack)
         {
-            if (card.Type == CardType.Attack)
-            {
-                card.EnergyCost.SetThisTurn(0);
-            }
+            return false;
         }
 
-        // 手中没有攻击牌时结束回合
-        bool hasAttackCard = hand.Any(c => c.Type == CardType.Attack);
-        if (!hasAttackCard)
-        {
-            // 移除自身后再结束回合，避免重复触发
-            await PowerCmd.Remove(this);
-            PlayerCmd.EndTurn(player, canBackOut: true);
-        }
+        modifiedCost = default(decimal);
+        return true;
     }
 
     /// <summary>
@@ -60,7 +46,22 @@ public class HellOfBulletsPower : TouhouAncientPowerModel
         if (cardPlay.Card.Owner != base.Owner.Player) return;
         if (cardPlay.Card.Type != CardType.Attack) return;
 
-        await CardPileCmd.Draw(choiceContext, 1, base.Owner.Player, fromHandDraw: true);
+        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner,
+            VfxColor.Purple));
+        await CardPileCmd.Draw(choiceContext, Amount, base.Owner.Player, fromHandDraw: true);
+    }
+
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (Owner.Player == null)
+        {
+            return;
+        }
+
+        if (PileType.Hand.GetPile(Owner.Player).Cards.Count(x => x.Type == CardType.Attack) == 0)
+        {
+            PlayerCmd.EndTurn(Owner.Player, false);
+        }
     }
 
     /// <summary>
