@@ -3,7 +3,6 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Ancients;
-using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -28,29 +27,41 @@ public class ToutetsuYuumaAncient : CustomAncientModel
     {
         var dialogs = base.DefineDialogues();
         var keys = dialogs.CharacterDialogues.Keys.ToList();
-        var universal = dialogs.AgnosticDialogues;
         foreach (var characterDialogue in keys)
         {
             var list = dialogs.CharacterDialogues[characterDialogue];
-            var list2 = new List<AncientDialogue>(list);
-            var index = Mathf.Max(1, list2.Count);
-            if (list2.Count == 0)
+            var list2 = new List<AncientDialogue>();
+            var index = 5;
+            if (list.Count >= 1)
             {
-                list2.Add(universal[1]);
-                list2.Add(universal[2]);
-                list2.Add(universal[3]);
-                list2.Add(universal[4]);
+                var sfxPathLength = list[0].Lines.Count;
+                list2.Add(new AncientDialogue(Enumerable.Repeat("", sfxPathLength).ToArray()) { VisitIndex = 0 });
             }
-            else
+
+            for (var i = 1; i < list.Count; i++)
             {
-                list2.Insert(index++, universal[1]);
-                list2.Insert(index++, universal[2]);
-                list2.Insert(index++, universal[3]);
-                list2.Insert(index, universal[4]);
+                var sfxPathLength = list[i].Lines.Count;
+                list2.Add(new AncientDialogue(Enumerable.Repeat("", sfxPathLength).ToArray())
+                    { VisitIndex = index + i - 1 });
             }
+
             dialogs.CharacterDialogues[characterDialogue] = list2;
         }
-        return dialogs;
+
+        return new AncientDialogueSet
+        {
+            FirstVisitEverDialogue = dialogs.FirstVisitEverDialogue,
+            CharacterDialogues = dialogs.CharacterDialogues,
+            AgnosticDialogues = new[]
+            {
+                new AncientDialogue(""),
+                new AncientDialogue("") { VisitIndex = 1 },
+                new AncientDialogue("") { VisitIndex = 2 },
+                new AncientDialogue("") { VisitIndex = 3 },
+                new AncientDialogue("") { VisitIndex = 4 },
+                new AncientDialogue(""),
+            }
+        };
     }
 
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)

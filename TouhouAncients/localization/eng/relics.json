@@ -561,7 +561,7 @@
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "Gouyoku Proof",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "At the start of each turn, gain {Energy:energyIcons()}. You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "At the start of each turn, gain {Energy:energyIcons()}. You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row per turn.",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "Greedy Eye",

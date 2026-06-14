@@ -571,7 +571,7 @@
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每个回合开始时获得{Energy:energyIcons()}。你不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每个回合开始时获得{Energy:energyIcons()}。你在同一回合不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "贪婪之瞳",
