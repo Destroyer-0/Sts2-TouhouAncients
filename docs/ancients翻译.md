@@ -560,7 +560,7 @@
 | `talk.ANY.1-0.ancient` | 挖一桶是为了钱财—— | Dig one bucket for riches— |
 | `talk.ANY.2-0.ancient` | 挖二桶是为了国家—— | Dig two buckets for the nation— |
 | `talk.ANY.3-0.ancient` | 挖三桶是为了憎恨…… | Dig three buckets for hatred... |
-| `talk.ANY.4-0r.ancient` | 作为[jitter]未来的畜生界之王[/jitter]，让你安全通过这里并得到我的支援，可是你莫大的荣幸哦？呵呵呵。 | As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and my support is your great honor, you know? Heheheh. |
+| `talk.ANY.4-0r.ancient` | 作为[jitter]未来的畜生界之王[/jitter]，让你安全通过这里并得到我的支援，可是你莫大的荣幸哦？呵呵呵。 | As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and my support is your great honor, ya know? Heheheh. |
 | `talk.ANY.8-0r.ancient` | 这座塔的荒疫就如同石油一般美味呢，真是绝品。 | The blight in this tower is as delicious as oil. Truly a delicacy. |
 | `talk.ANY.9-0r.ancient` | 纠缠在这里的喜悦、便利、诅咒、憎恶和欲望，一瓢一滴全都是我的……呵呵呵。 | The joy, convenience, curses, hatred, and desire tangled up in here—every drop and scoop is all mine... Heheheh. |
 | `talk.IRONCLAD.0-0.ancient` | 啊——我闻到了被诅咒的血液的味道，让我怀念起石油的香气了，真是充满了不甘与憎恨呢……呵呵呵。 | Ah—I smell the scent of cursed blood. It reminds me of the aroma of oil, so full of resentment and hatred... Heheheh. |
