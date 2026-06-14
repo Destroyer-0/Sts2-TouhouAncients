@@ -592,10 +592,10 @@
   "TOUHOUANCIENTS-GUILTLESS_FACE.description": "拾起时，选择你[gold]牌组[/gold]中的一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
   "TOUHOUANCIENTS-GUILTLESS_FACE.eventDescription": "选择你[gold]牌组[/gold]中的一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
   "TOUHOUANCIENTS-GUILTLESS_FACE.selectionScreenPrompt": "选择一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
-  "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "刚欲同盟的成员多半都是些各行其是的家伙。",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "尤魔对任何食物都来之不拒，但唯独油豆腐会让这只贪婪的猛兽停下进食的利齿。"
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她收起撕咬的尖牙。"
 }

@@ -24,7 +24,7 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。\n[red]空中的天气、大地的安定、人的气质，全都在我手掌之上！[/red]",
 
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌的魔力",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount}[/blue]张其它牌免费打出。\n每次打出后耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount:diff()}[/blue]张其它牌免费打出。\n每次打出后耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "铃兰",
     "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽{Cards}张牌。给予自身{PoisonSelf}层[gold]中毒[/gold]。\n回合结束时，如果这张牌在你的手中，给予所有敌人{PoisonPower:diff()}层[gold]中毒[/gold]，获得的能量增加{energyPrefix:energyIcons(1)}，给予自身的中毒层数增加[blue]1[/blue]。",
@@ -49,6 +49,7 @@
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "纯粹的弹幕地狱",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "选择任意张手牌，变化为[gold]无名的弹幕[/gold]。\n在这个回合，你的攻击牌可以免费打出，且打出后抽一张牌；当你手中没有攻击牌时，结束你的回合。",
+    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.selectionScreenPrompt": "选择要[gold]变化[/gold]的牌。",
 
     "TOUHOUANCIENTS-NAMELESS_BULLETS.title": "无名的弹幕",
     "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "造成{Damage:diff()}点伤害。",
