@@ -9,11 +9,18 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 ## 前置参考
 
+0. **查阅术语表**：`docs/翻译术语表.md` — 所有已收录的术语、句式模板、专有名词英译，每次翻译前先查阅。
 1. 先读取对应的 `zhs/` 源文件获取完整上下文
-2. 参考 STS2 原版英文术语表：`e:\STS2\localization\eng\card_keywords.json`（关键字对照）、`e:\STS2\localization\eng\relics.json`（遗物描述范式）、`e:\STS2\localization\eng\enchantments.json`（附魔描述范式）、`e:\STS2\localization\eng\cards.json`（卡牌描述范式）
-3. 参考 `e:\STS2\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
+2. 参考 STS2 原版英文术语表：`d:\STS2Code\localization\eng\card_keywords.json`（关键字对照）、`d:\STS2Code\localization\eng\relics.json`（遗物描述范式）、`d:\STS2Code\localization\eng\enchantments.json`（附魔描述范式）、`d:\STS2Code\localization\eng\cards.json`（卡牌描述范式）、`d:\STS2Code\localization\eng\potions.json`（药水描述范式）、`d:\STS2Code\localization\eng\events.json`（事件描述范式）
+3. 参考 `d:\STS2Code\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
 
 ## 核心翻译规则
+
+### 0. 黄金法则 — 始终使用 STS2 原版精确表述
+**禁止自创句式。** 任何中文描述对应的英文，必须先在 `d:\STS2Code\localization\eng\` 中找到 STS2 原版中完全相同的功能/句式，直接复制其英文文本。
+- 例如："恢复所有生命" → 查找原版事件中的 `[green]Heal to full HP.[/green]`，不可自创 `"Restore all HP."` 等变体
+- "用随机药水填满药水栏位" → 查找原版药水 `ENTROPIC_BREW`，不可自创 `"Fill your empty potion slots with random potions."`
+- "这张牌在本回合免费打出" → 查找原版药水 `ATTACK_POTION` / `LIQUID_MEMORIES` 中的 `It's free to play this turn.`，不可自创 `"This card costs 0 this turn."` 等变体
 
 ### 1. 富文本标记与动态变量 — 原样保留
 所有 STS2 标记和变量**不得翻译、不得修改、不得遗漏**：
@@ -24,7 +31,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 ### 2. 术语对照表（以 STS2 原版英文为准）
 
-#### 2.1 卡牌 Keywords（官方 — `e:\STS2\localization\eng\card_keywords.json`）
+#### 2.1 卡牌 Keywords（官方 — `d:\STS2Code\localization\eng\card_keywords.json`）
 
 | 中文（zhs） | English（eng） | 说明 |
 |-------------|----------------|------|
@@ -37,7 +44,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 | 不能被打出 | **Unplayable** | `[gold]Unplayable[/gold]` |
 | 重放 | **Replay** | `[gold]Replay[/gold]` — 自定义关键字，参考 Glam/Spiral 附魔 |
 
-#### 2.2 状态效果 / Powers（官方 — `e:\STS2\localization\eng\powers.json` 中 `XXX_POWER.title` 字段）
+#### 2.2 状态效果 / Powers（官方 — `d:\STS2Code\localization\eng\powers.json` 中 `XXX_POWER.title` 字段）
 
 | 中文（zhs） | English（eng） |
 |-------------|----------------|
@@ -55,6 +62,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 | 荆棘 | **Thorns** |
 | 覆甲 | **Plating** |
 | 无实体 | **Intangible** |
+| 荒疫 | **Blight** |
 
 #### 2.3 牌堆与位置
 
@@ -153,8 +161,16 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 | 被复制 | be duplicated | Clone |
 | 失去[N]点生命 | lose [blue]{N}[/blue] HP | Corrupted |
 | 回复[N]点生命 | Heal for [blue]{N}[/blue] HP. | Blood Potion |
+| 恢复所有生命 | [green]Heal to full HP.[/green] | ROUND_TEA_PARTY / UNREST_SITE（事件） |
+| 用随机药水填满药水栏位 | Fill all your empty potion slots with random potions. | ENTROPIC_BREW |
+| 这张牌在本回合免费打出 | It's free to play this turn. | ATTACK_POTION / LIQUID_MEMORIES |
+| 将一张随机XX卡牌加入到手牌，这张牌在本回合免费打出 | Add a random XX card into your [gold]Hand[/gold]. It's free to play this turn. | ATTACK_POTION |
+| 将一张[牌堆]的牌加入到手牌 | Put a card from your [gold]Pile[/gold] into your [gold]Hand[/gold]. | LIQUID_MEMORIES / DROPLET_OF_PRECOGNITION |
+| 任意张 | any of them | Scry（预见） |
+| 消耗一层充能无视当前的路线选择下一层的房间 | You may ignore paths when choosing the next rooms to travel to, consuming [blue]1[/blue] charge per use. | STARDUST_BROOM（星尘扫帚） |
+| 当[单位]的生命值将要降低至[blue]0[/blue] | When [unit]'s HP would be reduced to [blue]0[/blue] | LIZARD_TAIL（蜥蜴尾巴） |
 
-#### 2.8 附魔专用字段格式（参考原版 `e:\STS2\localization\eng\enchantments.json`）
+#### 2.8 附魔专用字段格式（参考原版 `d:\STS2Code\localization\eng\enchantments.json`）
 
 | 字段 | 句式惯例 |
 |------|---------|
@@ -188,6 +204,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 |-------------|----------------|------|
 | 无意识 | **Unconscious** | 古明地恋相关，禁闭之眼使用。句式：`Gain [red]Unconscious[/red] on a random card.` |
 | 污秽 | **Filth** | 绀珠之药计数机制。句式：`gain [pink]Filth[/pink] count.` |
+| 辉星 | **Stars** | STS2 费用系统专有名词 |
 
 ### 3. Touhou 特色台词 — 英文意译
 - 保留台词风味，但不逐字直译日文梗
@@ -199,6 +216,42 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 - 键名不变，仅翻译值
 - 换行符 `\n` 保留
 - 标点：中文句号 `。` → 英文句号 `.`，中文逗号 `、` → `,`
+
+### 5. ⚠️ 跨文件术语一致 — 以中文文本为准，键名仅作参考
+
+> **🚨 这是最常犯的错误，必须牢记！🚨**
+> **翻译标题时，必须以 `zhs/` 里的实际中文文本为准，键名/类名仅可用于参考。**
+
+- **✅ 正确做法：以 `zhs/` 中的实际中文文本为准进行翻译**。中文写的是什么，就翻译什么。键名可用于辅助理解中文含义。
+- **❌ 错误做法：根据键名/类名直接翻译标题**。键名（如 `MYSTIC_FORTUNE_PEACH`）可用于参考线索，但**最终译名必须从中文字面出发**。
+- **📋 示例：**
+  - 中文 `"天馔仙桃"` → 译为 **"Celestial Peach"**，❌ 而非键名直译的 `"Mystic Fortune Peach"`（键名仅供参考，不能代替中文文本）
+  - 中文 `"守矢御币"` → 译为 **"Moriya Gohei"**，❌ 而非键名 `MORIYA_GOHEI` 的拆字翻译
+  - 中文 `"赏樱"` → 译为 **"Hanami"**，❌ 而非键名 `CHERRYBLOSSOMS` 的 `"Cherry Blossoms"`
+- **同一中文名跨文件出现时必须保持一致**。例如 `"墨染的樱花"` 同时出现在 `relics.json`、`card_keywords.json`、`rest_site_ui.json` 中，英文翻译必须统一。
+- 翻译新文件前，先在已翻译的 `eng/` 文件中搜索同一中文名，确保复用已有译名。
+
+### 6. 遗物描述中的卡牌名 — 必须与 cards.json 一致
+- 遗物描述中引用的卡牌名称（`[gold]卡牌名[/gold]`），必须使用 `cards.json` 中对应键的英译名称，**不得自行翻译**。
+- 翻译遗物前，先在 `zhs/cards.json` 中搜索中文卡牌名找到对应键，再查 `eng/cards.json` 获取已确定的英译名。
+- 例如：遗物中引用 `[gold]开海的奇迹[/gold]`，查 `cards.json` 得 `"Miracle of the Sea Opening"`，则遗物中写 `[gold]Miracle of the Sea Opening[/gold]`。
+
+### 7. 🌏 人名顺序 — 名前姓后（西方顺序）
+- 所有角色人名在英文中使用 **西方顺序（Given Name + Family Name）**，即名前姓后。
+- **✅ 正确**：`Tenshi Hinanawi`、`Tewi Inaba`、`Reimu Hakurei`、`Marisa Kirisame`
+- **❌ 错误**：`Hinanawi Tenshi`、`Inaba Tewi`、`Hakurei Reimu`
+- 此规则适用于所有文本中的署名（flavor、台词、签名等），无论中文原文是姓前名后还是名前姓后。
+
+### 8. 📝 专有名词即时入表
+- **用户明确指出"这是专有名词"的内容，必须立即追加到 `docs/翻译术语表.md`**，不得遗漏。
+- 例如：`马萨雷斯 → Mazaleth`、`咔咔 → Caaaaw`、`我饥饿…… → I Hunger……`
+- 新增条目放在术语表末节"十二、专有名词"中，注明中文原文和英文译名。
+- 此规则优先级高于其他翻译规则：专有名词即使看似是普通词汇，一旦用户指定即为专有名词。
+
+### 9. 🚫 未入翻译记录的文件须先经确认
+- **`docs/relic翻译.md`、`docs/ancients翻译.md` 等翻译记录文件未收录的条目，不得擅自翻译**。
+- 例如：`relic翻译.md` 中未记录的遗物条目（如渡里贝子的遗物），必须先通过 plan 模式向用户展示翻译方案，获得确认后才能实施。
+- 此规则适用于所有未出现在翻译记录文件中的条目，无论其来源如何。
 
 ## 翻译流程
 
