@@ -24,7 +24,6 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(LoseMoney));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(FourLeafClover));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
