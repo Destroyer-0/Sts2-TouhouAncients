@@ -60,7 +60,7 @@ public class MagicWallet : TouhouAncientCards
         // 该 Power 负责拦截下一张牌的消耗
         await PowerCmd.Apply<MagicWalletPower>(player.Creature, DynamicVars["CurrentFreeCount"].BaseValue, player.Creature, this);
         EnergyCost.AddThisCombat(DynamicVars.Energy.IntValue);
-        base.DynamicVars["CurrentFreeCount"].BaseValue += 1;
+        base.DynamicVars["CurrentFreeCount"].UpgradeValueBy(1);;
         ExtraPowerNum += 1;
     }
 }

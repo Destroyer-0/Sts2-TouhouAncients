@@ -3,13 +3,18 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -28,14 +33,11 @@ public class KillingAura : TouhouAncientCards
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
-    // 运行时累积的额外伤害和格挡
-    private decimal TouhouAncients_StoredDamage { get; set; }
-    private decimal TouhouAncients_StoredBlock { get; set; }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(0m, ValueProp.Move),
-        new BlockVar(0m,ValueProp.Move)
+        new BlockVar(0m, ValueProp.Move)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -51,8 +53,7 @@ public class KillingAura : TouhouAncientCards
     public void AddDamage(int amount)
     {
         amount += IsUpgraded ? 1 : 0;
-        TouhouAncients_StoredDamage += amount;
-        base.DynamicVars.Damage.BaseValue = TouhouAncients_StoredDamage;
+        base.DynamicVars.Damage.UpgradeValueBy(amount);
     }
 
     /// <summary>
@@ -61,47 +62,63 @@ public class KillingAura : TouhouAncientCards
     public void AddBlock(int amount)
     {
         amount += IsUpgraded ? 1 : 0;
-        TouhouAncients_StoredBlock += amount;
-        base.DynamicVars.Block.BaseValue = TouhouAncients_StoredBlock;
+        base.DynamicVars.Block.UpgradeValueBy(amount);
     }
-    
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 造成累积的伤害
-        if (TouhouAncients_StoredDamage > 0)
+        if (cardPlay.Target != null)
         {
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .FromCard(this)
-                .Targeting(cardPlay.Target)
-                .Execute(choiceContext);
+            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(cardPlay.Target,
+                VfxColor.Purple));
         }
 
+        // 造成累积的伤害
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this)
+            .Targeting(cardPlay.Target)
+            .Execute(choiceContext);
         // 获得累积的格挡
-        if (TouhouAncients_StoredBlock > 0)
-        {
-            await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block.BaseValue, ValueProp.Unpowered, null);
-        }
+        await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block.BaseValue, ValueProp.Unpowered, null);
     }
 
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner) return;
-        if(cardPlay.Card==this)return;
+        if (cardPlay.Card == this) return;
+        if (!PileType.Hand.GetPile(Owner).Cards.Contains(this))
+        {
+            return;
+        }
+
         if (cardPlay.Card.GainsBlock)
         {
-            await CardCmd.Exhaust(choiceContext,cardPlay.Card);
+            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
+                VfxColor.Purple));
+            await CardCmd.Exhaust(
+                choiceContext,
+                cardPlay.Card,
+                skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
+            );
             AddBlock(cardPlay.Card.DynamicVars.Block.IntValue);
             if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
             {
-                AddBlock(cardPlay.Card.DynamicVars.Damage.IntValue);
+                AddDamage(cardPlay.Card.DynamicVars.Damage.IntValue);
             }
+
             return;
         }
 
         if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
         {
-            await CardCmd.Exhaust(choiceContext, cardPlay.Card);
+            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
+                VfxColor.Purple));
+            await CardCmd.Exhaust(
+                choiceContext,
+                cardPlay.Card,
+                skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
+            );
             AddDamage(cardPlay.Card.DynamicVars.Damage.IntValue);
         }
     }
