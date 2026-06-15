@@ -440,7 +440,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Blight Blend` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -730,7 +730,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Robe of Fire Rat` |
-| `.description` | `At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], then draw [blue]1[/blue] extra card next turn.` |
+| `.description` | `At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], next turn, draw [blue]1[/blue] extra card.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1026,7 +1026,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Mushroom Bento` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1046,7 +1046,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Pure Confidence` |
-| `.description` | `Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. At the start of each turn, gain {Energy:energyIcons()}.` |
+| `.description` | `Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. Gain {Energy:energyIcons()} at the start of each turn. ` |
 | `.flavor` | `I will prevail.` |
 
 ---
@@ -1326,7 +1326,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Gouyoku Proof` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.` |
 | `.flavor` | `""`（留空） |
 
 ### 备注
@@ -1393,7 +1393,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Purgatory Embers` |
-| `.description` | `At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add an equal number of [gold]Burn[/gold] to your [gold]Draw Pile[/gold].` |
+| `.description` | `At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].` |
 | `.flavor` | `""`（留空） |
 
 ---

@@ -39,7 +39,7 @@
   "TOUHOUANCIENTS-YISHIXINGQILE.eventDescription": "Upon pickup, gain [blue]{Gold}[/blue] [gold]Gold[/gold]. After spending at the Merchant, [blue]1~2[/blue] random items for sale have their price reduced to [blue]0[/blue].",
   "TOUHOUANCIENTS-YISHIXINGQILE.flavor": "Spend money to make... more spending money!",
 
-  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "The Ethernal Armor",
+  "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.title": "Eternal Ethernal Armor",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "At the start of each combat, gain {PlatingPower} [gold]Plating[/gold]. Whenever you gain [gold]Plating[/gold], gain {Energy:energyIcons()}.",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.flavor": "Who wouldn't love Eternal Armor?",
   
@@ -99,7 +99,7 @@
   "TOUHOUANCIENTS-CRIMSON_CHALICE.title": "Crimson Chalice",
   "TOUHOUANCIENTS-CRIMSON_CHALICE.description": "Upon pickup, double your Max HP. Add [blue]4[/blue] [gold]Decay[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-CRIMSON_CHALICE.eventDescription": "Double your Max HP. Add [blue]4[/blue] [gold]Decay[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "The young mistress only drinks [red]Type B blood[/red]. —Sakuya Izayoi",
+  "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "Mistress only drinks [red]Type B blood[/red]. —Sakuya Izayoi",
 
   "TOUHOUANCIENTS-BLOOD_FANG.title": "Blood Fang",
   "TOUHOUANCIENTS-BLOOD_FANG.description": "Upon pickup, lose half of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
@@ -136,10 +136,10 @@
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "Hell's Cat Cart",
   "TOUHOUANCIENTS-HELL_ORIN.description": "When an enemy dies, heal [blue]{HealAmount}[/blue] HP. Whenever an [gold]enemy dies[/gold] or you [gold]Shuffle[/gold], if the heal amount is greater than [blue]0[/blue], draw [blue]1[/blue] card and reduce this effect by [blue]2[/blue].",
-  "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Old Hell, ferrying the bodies and souls of the departed on their final journey.",
+  "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "At the start of each turn, gain {Energy:energyIcons()}. If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "The empty-headed hell crow accepted the mountain's energy, her delusions swelling her ignorant ambitions before they could cool.",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "Mind Probe",
@@ -170,8 +170,8 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]You... shouldn't.. remember.... this...[/sine]",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "Mini Shrine",
-  "TOUHOUANCIENTS-MINI_SHRINE.description": "At the start of each turn, gain {Energy:energyIcons()}. Upon pickup, add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
-  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "At the start of each turn, gain {Energy:energyIcons()}. Add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
+  "TOUHOUANCIENTS-MINI_SHRINE.description": "Gain {Energy:energyIcons()} at the start of each turn.  Upon pickup, add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
+  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "Gain {Energy:energyIcons()} at the start of each turn.  Add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
   "TOUHOUANCIENTS-MINI_SHRINE.flavor": "No one knows what deity is enshrined within.",
 
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "Offerings Box",
@@ -230,7 +230,7 @@
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "Used to suppress the Oo-Namazu that causes earthquakes... not that Gensokyo has any of those.",
   
   "TOUHOUANCIENTS-HOLY_ARMOR.title": "Heavenly Armor",
-  "TOUHOUANCIENTS-HOLY_ARMOR.description": "At the start of each turn, gain {Energy:energyIcons()}. The first [gold]Block[/gold] gained from cards each turn is [purple]halved[/purple].",
+  "TOUHOUANCIENTS-HOLY_ARMOR.description": "Gain {Energy:energyIcons()} at the start of each turn.  The first [gold]Block[/gold] gained from cards each turn is [purple]halved[/purple].",
   "TOUHOUANCIENTS-HOLY_ARMOR.flavor": "Wearing it lets you enter a state of no thought, feeling no pain... or so they say.",
 
   "TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE.title": "Heavenly Indifference",
@@ -290,17 +290,17 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Fortress[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take damage each combat, lose [gold]Fortress[/gold] and enter [purple]Ringing[/purple] for 1 turn.",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Barricade[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take damage each combat, lose [gold]Barricade[/gold] and enter [purple]Ringing[/purple] for 1 turn.",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "Although it can conceal one's form, the cloth itself remains visible.",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "Blood Yin-Yang Orb",
-  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "At the start of each turn, gain {Energy:energyIcons()}. [gold]Rest[/gold] at [gold]Rest Sites[/gold] heals [blue]{HealPenalty}[/blue] less HP.",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "Gain {Energy:energyIcons()} at the start of each turn.  [gold]Rest[/gold] at [gold]Rest Sites[/gold] heals [blue]{HealPenalty}[/blue] less HP.",
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.flavor": "A small inscription on the back reads: This relic give you more chance to Upgrade cards.",
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.additionalRestSiteHealText": "[red]Blood Yin-Yang Orb reduces healing by {HealPenalty}.[/red]",
 
   "TOUHOUANCIENTS-REBELLION_HORN.title": "Rebellion Horn",
-  "TOUHOUANCIENTS-REBELLION_HORN.description": "Upon pickup, [green]Upgrade[/green] all [gold]Starter[/gold] and [gold]Common[/gold] cards in your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-REBELLION_HORN.eventDescription": "[green]Upgrade[/green] all [gold]Starter[/gold] and [gold]Common[/gold] cards in your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-REBELLION_HORN.description": "Upon pickup, [green]Upgrade[/green] ALL [gold]Starter[/gold] and [gold]Common[/gold] cards in your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-REBELLION_HORN.eventDescription": "[green]Upgrade[/green] ALL [gold]Starter[/gold] and [gold]Common[/gold] cards in your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "Seija once tried to recruit Mazaleth's followers to join her rebel army, but was rejected because the horn couldn't make a 'Caaaaw' sound.",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "Zap Battery",
@@ -330,7 +330,7 @@
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.hungry": "I Hunger……",
 
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.title": "Fake Occult Ball",
-  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "At the start of each turn, gain {Energy:energyIcons()}. [blue]{Amount}[/blue] random cards drawn during the [gold]Draw Phase[/gold] gain [purple]Weighted[/purple] this turn.",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "Gain {Energy:energyIcons()} at the start of each turn.  [blue]{Amount}[/blue] random cards drawn during the [gold]Draw Phase[/gold] gain [purple]Weighted[/purple] this turn.",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": "Wearing this won't attract aliens or high school girls.",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "Lose {energyPrefix:energyIcons(1)} when you play this card.",
 
@@ -377,7 +377,7 @@
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "",
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "Blight Blend",
-  "TOUHOUANCIENTS-PLAGUE_BLEND.description": "At the start of each turn, gain {Energy:energyIcons()}. At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.description": "Gain {Energy:energyIcons()} at the start of each turn.  At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.",
   "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "",
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "Silence Doll",
@@ -438,7 +438,7 @@
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
-  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], then draw [blue]1[/blue] extra card next turn.",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], next turn, draw [blue]1[/blue] extra card.",
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "Swallow's Cowrie Shell",
@@ -501,11 +501,11 @@
   "TOUHOUANCIENTS-GLOBE.flavor": "The night stretches cool as water, as I sit and watch the Weaver and the Cowherd stars.",
 
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "Mushroom Bento",
-  "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "At the start of each turn, gain {Energy:energyIcons()}. At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "Gain {Energy:energyIcons()} at the start of each turn.  At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "",
 
   "TOUHOUANCIENTS-PURE_CONFIDENCE.title": "Pure Confidence",
-  "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. At the start of each turn, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. Gain {Energy:energyIcons()} at the start of each turn. ",
   "TOUHOUANCIENTS-PURE_CONFIDENCE.flavor": "I will prevail.",
 
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.title": "Ceaseless Resentment",
@@ -514,7 +514,7 @@
 
   "TOUHOUANCIENTS-MURDEROUS_LILY.title": "Murderous Lily",
   "TOUHOUANCIENTS-MURDEROUS_LILY.description": "Upon pickup, add [blue]1[/blue] [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold]. At the end of combat, if no unit died from [gold]Killing Lunacy[/gold], add [blue]{Cards}[/blue] [gold]Killing Aura[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-MURDEROUS_LILY.eventDescription": "Add [blue]1[/blue] [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold]. At the end of combat, if no unit died from [gold]Killing Lunacy[/gold], add {Cards} [gold]Killing Aura[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.eventDescription": "Add [blue]1[/blue] [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold]. At the end of combat, if no unit died from [gold]Killing Lunacy[/gold], add {Cards} [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "",
 
   "TOUHOUANCIENTS-DEATH_BLACK_CROWN.title": "Death Black Crown",
@@ -561,7 +561,7 @@
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "Gouyoku Proof",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "At the start of each turn, gain {Energy:energyIcons()}. You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row per turn.",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "Gain {Energy:energyIcons()} at the start of each turn.  You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row per turn.",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "Greedy Eye",
@@ -575,7 +575,7 @@
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add an equal number of [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "Guiltless Face",
