@@ -386,5 +386,8 @@
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.0-1.next": "继续",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.0-2.ancient": "宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.1-0r.ancient": "带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵……",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.2-0r.ancient": "虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter]"
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.2-0r.ancient": "虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter]",
+
+  "TOUHOUANCIENTS_ANCIENT_FIGHT.title": "战斗",
+  "TOUHOUANCIENTS_ANCIENT_FIGHT.description": "挑战这位先古之民的守卫，获取丰厚的奖励。"
 }

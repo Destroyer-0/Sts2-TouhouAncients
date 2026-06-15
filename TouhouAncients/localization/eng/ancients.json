@@ -385,5 +385,8 @@
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.5-1.next": "Continue",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.5-2.ancient": "A treasure trove lies before you, yet you're blind to it, heheheh... How about experiencing the power of desire here yourself?",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.6-0r.ancient": "Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh...",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.7-0r.ancient": "While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter]"
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.7-0r.ancient": "While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter]",
+
+  "TOUHOUANCIENTS_ANCIENT_FIGHT.title": "Fight",
+  "TOUHOUANCIENTS_ANCIENT_FIGHT.description": "Challenge this ancient's guardian for greater rewards."
 }
