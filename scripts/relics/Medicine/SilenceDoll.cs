@@ -28,6 +28,8 @@ public class SilenceDoll : TouhouAncientRelics
     // 被缄默魔偶捞起的牌 → 是否原本就有保留
     private readonly Dictionary<CardModel, bool> _trackedCards = new();
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
+
     public override Task BeforeCombatStart()
     {
         _currentTurnDiscards.Clear();
