@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -22,21 +23,38 @@ namespace TouhouAncients.Scripts.relics;
 /// 删一
 /// 药水
 /// 遗物
-/// 蜡质遗物
+/// 假遗物
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class OokunineshiProtrayal : TouhouAncientRelics
 {
+    public static readonly RelicModel[] _fakeRelics = new RelicModel[10]
+    {
+        ModelDb.Relic<FakeAnchor>(),
+        ModelDb.Relic<FakeBloodVial>(),
+        ModelDb.Relic<FakeHappyFlower>(),
+        ModelDb.Relic<FakeLeesWaffle>(),
+        ModelDb.Relic<FakeMango>(),
+        ModelDb.Relic<FakeOrichalcum>(),
+        ModelDb.Relic<FakeSneckoEye>(),
+        ModelDb.Relic<FakeStrikeDummy>(),
+        ModelDb.Relic<FakeVenerableTeaSet>(),
+        ModelDb.Relic<FakeMerchantsRug>()
+    };
+
+
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (player != base.Owner)
         {
             return false;
         }
+
         if (room == null)
         {
             return false;
         }
+
         if (!room.RoomType.IsCombatRoom())
         {
             return false;
@@ -50,7 +68,7 @@ public class OokunineshiProtrayal : TouhouAncientRelics
         //rewards.Add(new GoldReward(base.DynamicVars.Gold.IntValue, player));
         if (room is CombatRoom combatRoom)
         {
-            var num = Owner.PlayerRng.Rewards.NextInt(10);
+            var num = Owner.PlayerRng.Rewards.NextInt(13);
             switch (num)
             {
                 case 0:
@@ -68,19 +86,33 @@ public class OokunineshiProtrayal : TouhouAncientRelics
                     rewards.Add(new PotionReward(base.Owner));
                     break;
                 case 6:
-                    rewards.Add(new RelicReward(RelicRarity.Common, base.Owner));
+                    var relic = RelicFactory.PullNextRelicFromFront(player, RelicRarity.Common).ToMutable();
+                    rewards.Add(new RelicReward(relic, base.Owner));
                     break;
                 case 7:
                     rewards.Add(new PotionReward(ModelDb.Potion<BloodPotion>().ToMutable(), base.Owner));
+                    break;
+                case 8:
+                    rewards.Add(new PotionReward(ModelDb.Potion<FoulPotion>().ToMutable(), base.Owner));
+                    break;
+                case 9:
+                    rewards.Add(new RelicReward(ModelDb.Relic<WongoCustomerAppreciationBadge>().ToMutable(), base.Owner));
+                    break;
+                case 10:
+                    var playerRelic = player.Relics.Select(x => x.Id.Entry).ToList();
+                    var remain = _fakeRelics.Where(x => !playerRelic.Contains(x.Id.Entry)).ToList();
+                    var fake = remain.Count > 0 ? remain.TakeRandom(1, player.PlayerRng.Rewards) : _fakeRelics.TakeRandom(1, player.PlayerRng.Rewards);
+                    rewards.Add(new RelicReward(fake.First().ToMutable(), base.Owner));
                     break;
                 default:
                     return false;
             }
         }
+
         Flash();
         return true;
     }
-    
+
     //
     // public override Task AfterCombatVictory(CombatRoom room)
     // {
