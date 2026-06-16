@@ -1019,7 +1019,8 @@
 ```json
 "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
 "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
-"TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": ""
+"TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
+"TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "借助魔理沙的蘑菇料理技巧好好料理了，不会受到负面影响。"
 ```
 
 ### 英文翻译
@@ -1027,7 +1028,8 @@
 |------|------|
 | `.title` | `Mushroom Bento` |
 | `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].` |
-| `.flavor` | `""`（留空） |
+| `.flavor` | `Rice cooked with Hakkero firepower, topped with a soup made from days of secret-recipe-brewed (massive amounts of) edible mushrooms. A feast for both the eyes and the palate.` |
+| `.mushroom` | `Marisa's mushroom cooking has been put to good use—no negative effects will occur.` |
 
 ---
 
@@ -1298,7 +1300,7 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "吞天之勺",
-"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]。",
+"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，其费用与[gold]辉星[/gold]消耗降至0并获得重放1，下一场战斗结束后，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻倍。",
 "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": ""
 ```
 
@@ -1306,7 +1308,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Sky-Swallowing Spoon` |
-| `.description` | `Whenever you add a card to your [gold]Deck[/gold], devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold].` |
+| `.description` | `Whenever you add a card to your [gold]Deck[/gold], set its cost and [gold]Stars[/gold] cost to [blue]0[/blue] and give it [gold]Replay[/gold] 1. After the next combat ends, devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], the effect is doubled.` |
 | `.flavor` | `""`（留空） |
 
 ---
