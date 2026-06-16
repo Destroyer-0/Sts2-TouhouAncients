@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -17,6 +18,7 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
@@ -88,6 +90,10 @@ public static class BigMushroomHoverTipPatch
     {
         try
         {
+            if (!__instance.IsMutable)
+            {
+                return;
+            }
             if (__instance.Owner?.GetRelic<MushroomBento>() != null && __result is List<IHoverTip> list)
             {
                 list.Add(new HoverTip(
@@ -154,6 +160,10 @@ public static class FragrantMushroomHoverTipPatch
     {
         try
         {
+            if (!__instance.IsMutable)
+            {
+                return;
+            }
             if (__instance.Owner?.GetRelic<MushroomBento>() != null && __result is List<IHoverTip> list)
             {
                 list.Add(new HoverTip(
@@ -206,5 +216,53 @@ public static class FragrantMushroomHpLossPatch
             Log.Error(e.ToString());
         }
         return true;
+    }
+}
+
+/// <summary>
+/// 持有 MushroomBento 时，HungryForMushrooms 事件中 FragrantMushroom 选项不再显示扣血警告，
+/// 并在悬浮提示中追加蘑菇便当说明。
+/// </summary>
+[HarmonyPatch]
+public static class HungryForMushroomsPatch
+{
+    private static MethodBase TargetMethod()
+    {
+        return typeof(HungryForMushrooms).GetMethod("GenerateInitialOptions", BindingFlags.Instance | BindingFlags.NonPublic);
+    }
+
+    [HarmonyPostfix]
+    public static void Postfix(HungryForMushrooms __instance, ref IReadOnlyList<EventOption> __result)
+    {
+        try
+        {
+            if (__instance.Owner?.GetRelic<MushroomBento>() == null)
+                return;
+
+            foreach (var option in __result)
+            {
+                if (option.Relic is FragrantMushroom)
+                {
+                    // 清除扣血警告（ThatDoesDamage 设置的 WillKillPlayer）
+                    AccessTools.Field(typeof(EventOption), "<WillKillPlayer>k__BackingField")
+                        ?.SetValue(option, null);
+                }
+
+                if (option.Relic is FragrantMushroom or BigMushroom)
+                {
+                    // 追加蘑菇便当说明悬浮提示
+                    var tips = option.HoverTips?.ToList() ?? new List<IHoverTip>();
+                    tips.Add(new HoverTip(
+                        new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.title"),
+                        new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom")
+                    ));
+                    option.HoverTips = tips;
+                }
+            }
+        }
+        catch (System.Exception e)
+        {
+            Log.Error(e.ToString());
+        }
     }
 }
