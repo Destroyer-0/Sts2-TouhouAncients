@@ -39,15 +39,11 @@ public class TouhouAncientKeywords
     [CustomEnum("TouhouAncientFilth")]
     [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword TouhouAncientFilth;
+    
+    [CustomEnum("TouhouAncientDropToBloodPond")]
+    [KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword TouhouAncientDropToBloodPond;
 
-    public static bool IsScry(CardModel card)
-    {
-        return card.Keywords.Contains(TouhouAncientSatoriScry);
-    }
-    public static bool IsKoishi(CardModel card)
-    {
-        return card.Keywords.Contains(TouhouAncientKoishiUnplayable);
-    }
 }
 
 //Patch: 带有无意识的牌不能被玩家打出。
@@ -58,7 +54,7 @@ public static class TouhouAncientKoishiUnplayablePatch
     [HarmonyPostfix]
     private static void ApplyKoishiUnplayable(CardModel __instance, ref bool __result)
     {
-        if (__result && TouhouAncientKeywords.IsKoishi(__instance))
+        if (__result && TouhouAncientCmd.IsKoishi(__instance))
         {
             __result = false;
         }
