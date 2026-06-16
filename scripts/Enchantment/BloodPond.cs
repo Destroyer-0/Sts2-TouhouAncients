@@ -1,5 +1,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.cardTags;
 
@@ -14,8 +15,9 @@ public class BloodPond : TouhouAncientEnchantmentModel
     public override bool CanBeRandomSelected => false;
     public override bool HasExtraCardText => true;
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Times", 1m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.Static(StaticHoverTip.ReplayStatic)];
+        [HoverTipFactory.Static(StaticHoverTip.ReplayDynamic,DynamicVars["Times"])];
 
     /// <summary>
     /// 允许诅咒牌被附魔，供 SkySwallowingSpoon 作为标记用。

@@ -38,10 +38,10 @@
     "TOUHOUANCIENTS-YUMEIRO.description": "Costs [blue]1[/blue] less. When played, draw [blue]1[/blue] card, lose [purple]Dreamy[/purple] and transform into a different enchantment.",
     "TOUHOUANCIENTS-YUMEIRO.title": "Dreamy",
 
-    "TOUHOUANCIENTS-GREED.description": "Gains [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]1[/blue]. The card with this enchantment in your [gold]Hand[/gold] must be played before other cards.",
+    "TOUHOUANCIENTS-GREED.description": "Gains [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. The card with this enchantment in your [gold]Hand[/gold] must be played before other cards.",
     "TOUHOUANCIENTS-GREED.title": "Obsession",
 
-    "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]1[/blue].\n[red]This card will be Swallowed by Yuuma Toutetsu at the end of combat.[/red]",
+    "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]{Times}[/blue].\n[red]This card will be Swallowed by Yuuma Toutetsu at the end of combat.[/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "Black Water",
     "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Organic Matter with Resentment"
 }

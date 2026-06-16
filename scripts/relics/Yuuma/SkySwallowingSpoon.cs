@@ -20,7 +20,6 @@ namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 吞天之勺：向牌组中加入卡牌时，吞噬之（不加入牌组）并获得4最大生命。
-/// 通过 Harmony Patch 在卡牌加入牌组后立即移除。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class SkySwallowingSpoon : TouhouAncientRelics
@@ -78,11 +77,16 @@ public class SkySwallowingSpoon : TouhouAncientRelics
                 await CreatureCmd.GainMaxHp(Owner.Creature, time * base.DynamicVars["MaxHp"].IntValue);
             }
 
-            NCombatRoom.Instance?.GetCreatureNode(base.Owner.Creature)
-                ?.ScaleTo(MathF.Min(2.5f, 1 + TouhouAncients_SwallowedCards * 0.05f), 0f);
+            Grow();
         }
 
         return;
+    }
+
+    private void Grow()
+    {
+        NCombatRoom.Instance?.GetCreatureNode(base.Owner.Creature)
+            ?.ScaleTo(MathF.Min(2.5f, 1 + TouhouAncients_SwallowedCards * 0.04f), 0f);
     }
 
 
@@ -135,5 +139,10 @@ public class SkySwallowingSpoon : TouhouAncientRelics
         var enchanted = base.Owner.RunState.CloneCard(card);
         CardCmd.Enchant<BloodPond>(enchanted, 1m);
         return enchanted;
+    }
+    public override Task AfterRoomEntered(AbstractRoom _)
+    {
+        Grow();
+        return Task.CompletedTask;
     }
 }

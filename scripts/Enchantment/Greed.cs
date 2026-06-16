@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Enchantment;
@@ -12,10 +13,9 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Greed : TouhouAncientEnchantmentModel
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Times", 1m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromKeyword(CardKeyword.Eternal),
-    ];
+        [HoverTipFactory.FromKeyword(CardKeyword.Eternal),HoverTipFactory.Static(StaticHoverTip.ReplayDynamic,DynamicVars["Times"])];
 
     //public override bool HasExtraCardText => true;
     public override bool ShouldGlowRed => true;
