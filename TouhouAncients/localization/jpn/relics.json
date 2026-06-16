@@ -558,7 +558,7 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "Sky-Crafting Spoon",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "Whenever you add a card to your [gold]Deck[/gold], set its cost and [gold]Stars[/gold] cost to [blue]0[/blue] and give it [gold]Replay[/gold] 1. After the next combat ends, devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], double effect.",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "Whenever you add a card to your [gold]Deck[/gold], [gold]enchant[/gold] that card with [purple]{EnchantmentName}[/purple]. After the next combat ends, [red]Swallowed[/red] it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], triple effect.",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "Gouyoku Proof",

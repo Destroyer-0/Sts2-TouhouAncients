@@ -568,7 +568,7 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "剜天之勺",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，其费用与[gold]辉星[/gold]消耗降至0并获得[gold]重放[/gold]1。下一场战斗结束后，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻倍。",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。战斗结束后，[red]吞噬[/red]之并获得[blue]{MaxHp}[/blue][gold]点最大生命[/gold]，若为[red]诅咒[/red]则效果翻三倍。",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",

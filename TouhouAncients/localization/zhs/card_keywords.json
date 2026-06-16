@@ -17,10 +17,7 @@
 
   "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "污秽",
   "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "即使能无限次的重生并净化，污秽亦会无法避免的累积。随着污秽累积，绀珠之药复活的副作用会逐渐增强。",
-  
-  "TOUHOUANCIENTS-TOUHOUANCIENTDROPTOBLOODPOND.title": "血池的有机物",
-  "TOUHOUANCIENTS-TOUHOUANCIENTDROPTOBLOODPOND.description": "费用与[gold]辉星[/gold]消耗变为0，获得重放1。\n[red]战斗结束时，被尤魔吞噬。[/red]",
-  
+
   "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "无意识",
   "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "无法以自动打出以外的方式打出。"
 }
