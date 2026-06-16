@@ -25,6 +25,7 @@
 | 鬼人正邪（二层） | `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT` |
 | 梅蒂欣·梅兰可莉（二层） | `TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT` |
 | 蓬莱山辉夜（三层） | `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT` |
+| 饕餮尤魔（三层） | `TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT` |
 | 西行寺幽幽子（三层） | `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT` |
 
 ## 获得对应遗物
@@ -173,6 +174,20 @@
 | 迷幻的投影 | `TOUHOUANCIENTS-ILLUSORY_PROJECTION` | 战斗开始时获得混乱。费用为2的卡牌打出2次，费用大于等于3的卡牌打出3次。 | — |
 | 溢出的暇秽 | `TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT` | 每回合开始时获得2能量，额外抽2张牌。回合结束时每有一张非状态手牌加入一张碎屑到抽牌堆，每有一点能量加入一张虚空到抽牌堆。 | — |
 | 原初的神灵 | `TOUHOUANCIENTS-PRIMAL_SPIRIT` | 战斗开始时获得1层无实体。每回合开始时获得等同于当前回合数的能量。第5回合开始时获得孤注一掷。 | — |
+
+#### 饕餮尤魔（三层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 无底之胃 | `TOUHOUANCIENTS-BOTTOMLESS_STOMACH` | 吞噬初始遗物与先古遗物以外的全部遗物，每个提供8最大生命，每4个提供1力量1敏捷，每8个提供1能量，每12个提供额外抽1张牌。 | — |
+| 剜天之勺 | `TOUHOUANCIENTS-SKY_SWALLOWING_SPOON` | 将卡牌加入牌组时为其附魔：吞噬。战斗结束后吞噬之并获得4(诅咒8)最大生命。 | 吞噬：战斗结束后从牌组移除，提供加成。 |
+| 无疚之面 | `TOUHOUANCIENTS-GUILTLESS_FACE` | 拾起时选择一张牌，将牌组中所有同类型牌变化为其。 | — |
+| 暴食之齿 | `TOUHOUANCIENTS-GLUTTONOUS_FANG` | 拾起时，将1张狂飨加入牌组。 | — |
+| 贪婪之瞳 | `TOUHOUANCIENTS-GREEDY_EYE` | 拾起时，将2张带有贪欲附魔的未掘宝石加入牌组。 | — |
+| 刚欲之证 | `TOUHOUANCIENTS-RIGID_DESIRE_PROOF` | 每回合获得1能量。不能连续打出3张同类型牌。 | — |
+| 诅咒之血 | `TOUHOUANCIENTS-CURSED_BLOOD` | 拾起时将2张腐朽加入牌组。每回合炼制2瓶药水并喝下。 | — |
+| 舐血之舌 | `TOUHOUANCIENTS-BLOODLICKING_TONGUE` | 每失去30生命，获得10最大生命与3力量。 | — |
+| 炼狱之烬 | `TOUHOUANCIENTS-PURGATORY_EMBERS` | 回合开始时从消耗堆选择任意张牌入手牌，加入等量灼伤至抽牌堆。 | — |
+| 陌路之心 | `TOUHOUANCIENTS-ESTRANGED_HEART` | 抽牌阶段后选任意张抽牌堆的牌入手牌。累计获得16张后此战失效。 | — |
 
 #### 雾雨魔理沙（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
