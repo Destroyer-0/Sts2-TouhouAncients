@@ -502,7 +502,8 @@
 
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "Mushroom Bento",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "Gain {Energy:energyIcons()} at the start of each turn.  At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].",
-  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "Rice cooked with Hakkero firepower, topped with a soup made from days of secret-recipe-brewed (massive amounts of) edible mushrooms. A feast for both the eyes and the palate.",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "Marisa's mushroom cooking has been put to good use—no negative effects will occur.",
 
   "TOUHOUANCIENTS-PURE_CONFIDENCE.title": "Pure Confidence",
   "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. Gain {Energy:energyIcons()} at the start of each turn. ",
@@ -544,7 +545,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
-  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Devour all relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, Devour all relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "Gluttonous Jaws",
@@ -556,8 +557,8 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "Whenever you lose [blue]{Threshold}[/blue] HP, gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold] and [blue]{Strength}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "Sky-Swallowing Spoon",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "Whenever you add a card to your [gold]Deck[/gold], devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold].",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "Sky-Crafting Spoon",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "Whenever you add a card to your [gold]Deck[/gold], set its cost and [gold]Stars[/gold] cost to [blue]0[/blue] and give it [gold]Replay[/gold] 1. After the next combat ends, devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], double effect.",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "Gouyoku Proof",

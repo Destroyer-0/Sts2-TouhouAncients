@@ -39,5 +39,8 @@
     "TOUHOUANCIENTS-YUMEIRO.title": "Dreamy",
 
     "TOUHOUANCIENTS-GREED.description": "Gains [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]1[/blue]. The card with this enchantment in your [gold]Hand[/gold] must be played before other cards.",
-    "TOUHOUANCIENTS-GREED.title": "Obsession"
+    "TOUHOUANCIENTS-GREED.title": "Obsession",
+
+    "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] 1.\n[red]Devoured by Yuuma at the end of combat.[/red]",
+    "TOUHOUANCIENTS-BLOOD_POND.title": "Bloody Organic Matter"
 }

@@ -513,6 +513,7 @@
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "借助魔理沙的蘑菇料理技巧好好料理了，不再受到负面影响。",
 
   "TOUHOUANCIENTS-PURE_CONFIDENCE.title": "纯粹的自信",
   "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。在每个回合开始时获得{Energy:energyIcons()}。",
@@ -554,7 +555,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
-"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
@@ -566,8 +567,8 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "你每失去[blue]{Threshold}[/blue]生命，就获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]与[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "吞天之勺",
-"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]。",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "剜天之勺",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，其费用与[gold]辉星[/gold]消耗降至0并获得[gold]重放[/gold]1。下一场战斗结束后，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻倍。",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
