@@ -165,6 +165,11 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
 
+  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "侦探小说集",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "你的攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外最多保留[blue]{RetainCard}[/blue]张手牌。",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"方法和顺序，加上灰色小细胞的精细运用，是解决问题的关键。那些思维如果不被激活，就会逐渐钝化。\"——赫尔克里·波洛",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
+
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
   "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入你的手牌。",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
@@ -187,7 +192,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "可不是[u]那家伙[/u]的能力。",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数的伤害。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "攻击牌对处于[gold]虚弱[/gold]状态的敌人额外造成[blue]等同于其当前虚弱层数[/blue]的伤害并额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",

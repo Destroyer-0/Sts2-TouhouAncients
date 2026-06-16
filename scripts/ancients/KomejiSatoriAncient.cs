@@ -41,6 +41,7 @@ public class KomejiSatoriAncient : CustomAncientModel
             AncientOption<MindProbe>(),
             AncientOption<MemoryFlask>(),
             AncientOption<BrainInAVat>(),
-            AncientOption<OblivionFragment>()
+            AncientOption<OblivionFragment>(),
+            AncientOption<DetectiveStory>()
         ));
 }

@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-TRIBUTE.description": "Removed from your [gold]Deck[/gold] after accumulating [blue]{Remaining}[/blue] [gold]Gold[/gold] in tribute.\n[fade_in]I'm adorable, give me money![/fade_in]",
 
     "TOUHOUANCIENTS-DREAM_SEAL.title": "Dream Seal",
-    "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf an enemy's intent is to attack, apply [blue]1[/blue] [gold]Vulnerable[/gold] and reduce its [gold]Strength[/gold] by {StrengthLoss:diff()} this turn.\n[b]Extermination, decided.[/b]",
+    "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf the enemy intends to attack, apply [blue]1[/blue] [gold]Vulnerable[/gold] and reduce its [gold]Strength[/gold] by {StrengthLoss:diff()} this turn.\n[b]Extermination, decided.[/b]",
 
     "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "Time Minion",
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "Add {Cards:diff()} [gold]Shiv[/gold] into your [gold]Hand[/gold].\nAt the end of turn, deal {Damage:diff()} damage to the target for each card [gold]Exhausted[/gold] this turn.",

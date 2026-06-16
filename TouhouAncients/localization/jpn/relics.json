@@ -169,6 +169,11 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "Gain [blue]{Relics}[/blue] random [sine][blue]Neow's Starting Relics[/blue][/sine].",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]You... shouldn't.. remember.... this...[/sine]",
 
+  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Detective Story Collection",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy intending to Attack.",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"It is the brain, the little gray cells on which one must rely. One must seek the truth within——not without.\"——Hercule Poirot",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
+
   "TOUHOUANCIENTS-MINI_SHRINE.title": "Mini Shrine",
   "TOUHOUANCIENTS-MINI_SHRINE.description": "Gain {Energy:energyIcons()} at the start of each turn.  Upon pickup, add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
   "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "Gain {Energy:energyIcons()} at the start of each turn.  Add [blue]1[/blue] [gold]Tribute[/gold] to your [gold]Deck[/gold]. Your [gold]Gold[/gold] is automatically converted into [gold]Tribute[/gold] progress.",
@@ -187,7 +192,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "Not [u]Her[/u] ability.",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "Sealing Needle",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "After playing an Attack, apply [blue]1[/blue] additional [gold]Weak[/gold] to the target. When you deal damage to a [gold]Weak[/gold] enemy, increase the damage by the enemy's [gold]Weak[/gold] stacks.",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "Attacks deal [blue]additional[/blue] damage to [gold]Weak[/gold] enemies equal to their [gold]Weak[/gold] stacks, and apply [blue]1[/blue] [gold]Weak[/gold] to the target.",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "It's said to also be good for promoting blood circulation.",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "Yin-Yang Orb",

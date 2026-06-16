@@ -1475,3 +1475,52 @@
 
 ---
 
+## 封魔针
+
+**键名**: `TOUHOUANCIENTS-SEALING_NEEDLE`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
+"TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。攻击牌对处于[gold]虚弱[/gold]状态的敌人额外造成[blue]等同于其当前虚弱层数[/blue]的伤害。",
+"TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Sealing Needle` |
+| `.description` | `Attacks deal [blue]additional[/blue] damage to [gold]Weak[/gold] enemies equal to their [gold]Weak[/gold] stacks, and apply [blue]1[/blue] [gold]Weak[/gold] to the target.` |
+| `.flavor` | `It's said to also be good for promoting blood circulation.` |
+
+### Neta / 文化梗说明
+- 描述采用原版 STS2 的标准措辞模式：`Attacks deal [blue]additional[/blue] damage` → `攻击牌额外造成[blue]XX[/blue]的伤害`
+- 英文 description 使用了 `Attacks deal additional damage to [gold]Weak[/gold] enemies` 句式，遵循原版遗物中同类效果的描述范式
+- `ModifyDamageAdditive` 运行时返回目标当前的虚弱层数作为额外伤害值
+
+---
+
+## 侦探小说集
+
+**键名**: `TOUHOUANCIENTS-DETECTIVE_STORY`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DETECTIVE_STORY.title": "侦探小说集",
+"TOUHOUANCIENTS-DETECTIVE_STORY.description": "你的攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外保留[blue]{RetainCard}[/blue]张牌。",
+"TOUHOUANCIENTS-DETECTIVE_STORY.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Detective Story Collection` |
+| `.description` | `Attacks deal [blue]{Damage}[/blue] additional damage to enemies who do not intend to [gold]Attack[/gold]. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy who intends to [gold]Attack[/gold].` |
+
+### 设计说明
+- 标题 `Detective Story Collection` 直接对应「侦探小说集」
+- 描述使用 `do not intend to Attack` / `intends to Attack` 区分敌人意图，参考原版 Go for the Eyes 的描述风格
+- 数值 `{Damage}` 和 `{RetainCard}` 使用动态变量，方便以后平衡调整
+
+---
+
