@@ -38,6 +38,10 @@ public class DetectiveStory : TouhouAncientRelics
         var attackingCount = base.Owner.Creature.CombatState
             .GetCreaturesOnSide(CombatSide.Enemy)
             .Count(c => c.IsAlive && c.IsEnemy && c.Monster?.NextMove?.Intents.Any(i => i.IntentType == IntentType.Attack) == true);
+        if (attackingCount <= 0)
+        {
+            return;
+        }
         var prefLoc = base.SelectionScreenPrompt;
         prefLoc.Add("Amount",attackingCount);
         List<CardModel> list = (await CardSelectCmd.FromHand(prefs: new CardSelectorPrefs(prefLoc, 0, attackingCount), context: choiceContext, player: base.Owner, filter: RetainFilter, source: this)).ToList();

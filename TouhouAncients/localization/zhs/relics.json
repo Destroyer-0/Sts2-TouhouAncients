@@ -166,7 +166,7 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
 
   "TOUHOUANCIENTS-DETECTIVE_STORY.title": "侦探小说集",
-  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "你的攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外最多保留[blue]{RetainCard}[/blue]张手牌。",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外最多保留[blue]{RetainCard}[/blue]张手牌。",
   "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"方法和顺序，加上灰色小细胞的精细运用，是解决问题的关键。那些思维如果不被激活，就会逐渐钝化。\"——赫尔克里·波洛",
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
