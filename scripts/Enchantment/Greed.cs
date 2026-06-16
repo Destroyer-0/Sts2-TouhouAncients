@@ -17,17 +17,20 @@ public class Greed : TouhouAncientEnchantmentModel
         HoverTipFactory.FromKeyword(CardKeyword.Eternal),
     ];
 
-    public override bool CanEnchantCardType(CardType cardType) => true;
-
     //public override bool HasExtraCardText => true;
     public override bool ShouldGlowRed => true;
 
     protected override void OnEnchant()
     {
         base.Card.AddKeyword(CardKeyword.Eternal);
-        base.Card.BaseReplayCount += 1;
     }
 
+
+    public override int EnchantPlayCount(int originalPlayCount)
+    {
+        return originalPlayCount + 1;
+    }
+    
     public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
     {
         if (!HasCard) return true;

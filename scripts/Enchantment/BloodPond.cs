@@ -11,25 +11,46 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class BloodPond : TouhouAncientEnchantmentModel
 {
+    public override bool CanBeRandomSelected => false;
     public override bool HasExtraCardText => true;
 
-    public override bool CanBeRandomSelected => false;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.Static(StaticHoverTip.ReplayStatic)];
+
+    /// <summary>
+    /// 允许诅咒牌被附魔，供 SkySwallowingSpoon 作为标记用。
+    /// </summary>
+    public override bool CanEnchant(CardModel card)
+    {
+        CardPile pile = card.Pile;
+        return (pile != null ? (pile.Type == PileType.Deck ? 1 : 0) : 0) == 0 && card.Enchantment == null;
+    }
 
     protected override void OnEnchant()
     {
+        // if (Card.Type == CardType.Curse)
+        //     return;
         // 费用降至0
-        Card.EnergyCost.UpgradeBy(-10000);
+        if (Card.EnergyCost.Canonical >= 0)
+        {
+            Card.EnergyCost.UpgradeBy(-10000);
+        }
 
         // 辉星消耗降至0
-        if (Card.CurrentStarCost > 0)
+        if (Card.CanonicalStarCost > 0)
         {
             Card.TryModifyStarCost(Card, 0, out _);
         }
 
-        // 获得重放1
-        Card.BaseReplayCount += 1;
+    }
 
-        // 添加血池关键词（用于UI显示）
-        Card.AddKeyword(TouhouAncientKeywords.TouhouAncientDropToBloodPond);
+    public override int EnchantPlayCount(int originalPlayCount)
+    {
+        if (!Card.CanonicalKeywords.Contains(CardKeyword.Unplayable))
+        {
+            return originalPlayCount + 1;
+        }
+
+        return originalPlayCount;
     }
 }

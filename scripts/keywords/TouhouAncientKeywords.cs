@@ -40,9 +40,6 @@ public class TouhouAncientKeywords
     [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword TouhouAncientFilth;
     
-    [CustomEnum("TouhouAncientDropToBloodPond")]
-    [KeywordProperties(AutoKeywordPosition.Before)]
-    public static CardKeyword TouhouAncientDropToBloodPond;
 
 }
 
