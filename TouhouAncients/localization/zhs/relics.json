@@ -165,6 +165,11 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "获得随机[blue]{Relics}[/blue]个[sine][blue]涅奥的初始遗物[/blue][/sine]。",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]你... 不该.. 想起 ....这个...[/sine]",
 
+  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "侦探小说集",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外最多保留[blue]{RetainCard}[/blue]张手牌。",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"方法和顺序，加上灰色小细胞的精细运用，是解决问题的关键。那些思维如果不被激活，就会逐渐钝化。\"——赫尔克里·波洛",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
+
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
   "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入你的手牌。",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
@@ -187,7 +192,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "可不是[u]那家伙[/u]的能力。",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。你对处于[gold]虚弱[/gold]状态的敌人造成伤害时，增加等同于其当前[gold]虚弱[/gold]层数的伤害。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "攻击牌对处于[gold]虚弱[/gold]状态的敌人额外造成[blue]等同于其当前虚弱层数[/blue]的伤害并额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",
@@ -513,6 +518,7 @@
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "借助魔理沙的蘑菇料理技巧好好料理了，不再受到负面影响。",
 
   "TOUHOUANCIENTS-PURE_CONFIDENCE.title": "纯粹的自信",
   "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。在每个回合开始时获得{Energy:energyIcons()}。",
@@ -554,7 +560,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
-"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
@@ -566,8 +572,8 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "你每失去[blue]{Threshold}[/blue]生命，就获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]与[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "吞天之勺",
-"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]。",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "剜天之勺",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。战斗结束后，[red]吞噬[/red]之并获得[blue]{MaxHp}[/blue][gold]点最大生命[/gold]，若为[red]诅咒[/red]则效果翻三倍。",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
@@ -597,5 +603,5 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她收起撕咬的尖牙。"
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。"
 }

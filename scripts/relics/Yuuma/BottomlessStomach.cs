@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -92,11 +93,17 @@ public class BottomlessStomach : TouhouAncientRelics
         // 每1个：+8 最大生命
         await CreatureCmd.GainMaxHp(player.Creature, count * DynamicVars["MaxHp"].IntValue);
 
+        Grow();
 
         // 每8个：+1 能量上限（通过 ModifyMaxEnergy 已在下面处理）
         // 每12个：+1 每回合抽牌
     }
 
+    private void Grow()
+    {
+        NCombatRoom.Instance?.GetCreatureNode(base.Owner.Creature)
+            ?.ScaleTo(1 + TouhouAncients_ConsumedCount * 0.1f, 0f);
+    }
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner) return amount;
@@ -128,5 +135,6 @@ public class BottomlessStomach : TouhouAncientRelics
                 await PowerCmd.Apply<DexterityPower>(Owner.Creature, strDexCount * DynamicVars["Dexterity"].BaseValue, Owner.Creature, null);
             }
         }
+        Grow();
     }
 }

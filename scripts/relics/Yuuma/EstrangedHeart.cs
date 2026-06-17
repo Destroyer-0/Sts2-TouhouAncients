@@ -19,13 +19,13 @@ namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 陌路之心：在你的回合开始时（在抽牌阶段开始前），选择任意张抽牌堆的牌加入手牌。
-/// 累计使用此方式获得30张牌后，此遗物在本场战斗结束后失效（永久标记为已用尽）。
+/// 累计使用此方式获得16张牌后，此遗物在本场战斗结束后失效（永久标记为已用尽）。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class EstrangedHeart : TouhouAncientRelics
 {
     public override string DefaultFileName => "yuuma_default";
-    private const int Threshold = 30;
+    private const int Threshold = 16;
 
     private int cardsTaken;
     private bool hitThresholdThisCombat;

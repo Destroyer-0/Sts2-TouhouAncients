@@ -17,7 +17,7 @@ namespace TouhouAncients.Scripts.potions;
 /// <summary>
 /// 超ZUN啤酒：将一张随机东方先古之民卡牌加入到手牌，这张牌在这回合免费打出。
 /// </summary>
-[Pool(typeof(EventPotionPool))]
+[Pool(typeof(SharedPotionPool))]
 public sealed class SuperZunBeerPotion : CustomPotionModel
 {
     public override PotionRarity Rarity => PotionRarity.Rare;

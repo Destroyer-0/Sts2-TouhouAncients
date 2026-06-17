@@ -1,4 +1,7 @@
 ﻿using Godot;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.cardTags;
 
 namespace TouhouAncients.Scripts;
 
@@ -10,4 +13,13 @@ public static class TouhouAncientCmd
         ResourceLoader.Exists(path) ? path : alternative;
     public static string? CheckPathExistsWithFallback2(string path, string? alternative) =>
         ResourceLoader.Exists(path) ? path : alternative;
+    
+    public static bool IsScry(CardModel card)
+    {
+        return card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientSatoriScry);
+    }
+    public static bool IsKoishi(CardModel card)
+    {
+        return card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientKoishiUnplayable);
+    }
 }

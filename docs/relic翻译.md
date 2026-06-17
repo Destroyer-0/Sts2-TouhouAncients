@@ -440,7 +440,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Blight Blend` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -730,7 +730,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Robe of Fire Rat` |
-| `.description` | `At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], then draw [blue]1[/blue] extra card next turn.` |
+| `.description` | `At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], next turn, draw [blue]1[/blue] extra card.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1019,15 +1019,17 @@
 ```json
 "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
 "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
-"TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": ""
+"TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
+"TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "借助魔理沙的蘑菇料理技巧好好料理了，不会受到负面影响。"
 ```
 
 ### 英文翻译
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Mushroom Bento` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].` |
-| `.flavor` | `""`（留空） |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  At the end of your turn, if you have at least [blue]{Cards}[/blue] cards in your [gold]Hand[/gold], add a [gold]Spore Mind[/gold] to your [gold]Draw Pile[/gold].` |
+| `.flavor` | `Rice cooked with Hakkero firepower, topped with a soup made from days of secret-recipe-brewed (massive amounts of) edible mushrooms. A feast for both the eyes and the palate.` |
+| `.mushroom` | `Marisa's mushroom cooking has been put to good use—no negative effects will occur.` |
 
 ---
 
@@ -1046,7 +1048,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Pure Confidence` |
-| `.description` | `Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. At the start of each turn, gain {Energy:energyIcons()}.` |
+| `.description` | `Upon pickup, replace the Act [blue]3[/blue] map with a [red]perilous[/red] straight path filled with Elites and treasure. Gain {Energy:energyIcons()} at the start of each turn. ` |
 | `.flavor` | `I will prevail.` |
 
 ---
@@ -1298,7 +1300,7 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "吞天之勺",
-"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]。",
+"TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，其费用与[gold]辉星[/gold]消耗降至0并获得重放1，下一场战斗结束后，吞噬之并获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻倍。",
 "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": ""
 ```
 
@@ -1306,7 +1308,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Sky-Swallowing Spoon` |
-| `.description` | `Whenever you add a card to your [gold]Deck[/gold], devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold].` |
+| `.description` | `Whenever you add a card to your [gold]Deck[/gold], set its cost and [gold]Stars[/gold] cost to [blue]0[/blue] and give it [gold]Replay[/gold] 1. After the next combat ends, devour it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], the effect is doubled.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1326,7 +1328,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Gouyoku Proof` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.` |
 | `.flavor` | `""`（留空） |
 
 ### 备注
@@ -1393,7 +1395,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Purgatory Embers` |
-| `.description` | `At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add an equal number of [gold]Burn[/gold] to your [gold]Draw Pile[/gold].` |
+| `.description` | `At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1470,6 +1472,55 @@
   - **冰** = **Frost Orb**
   - 意为只会堆 Focus 和 Frost Orb，自嘲只会玩冰系构筑
 - 英文 `"Focused entirely on frost."` 保留 Focus/Frost 双关
+
+---
+
+## 封魔针
+
+**键名**: `TOUHOUANCIENTS-SEALING_NEEDLE`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
+"TOUHOUANCIENTS-SEALING_NEEDLE.description": "使用攻击牌后额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。攻击牌对处于[gold]虚弱[/gold]状态的敌人额外造成[blue]等同于其当前虚弱层数[/blue]的伤害。",
+"TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Sealing Needle` |
+| `.description` | `Attacks deal [blue]additional[/blue] damage to [gold]Weak[/gold] enemies equal to their [gold]Weak[/gold] stacks, and apply [blue]1[/blue] [gold]Weak[/gold] to the target.` |
+| `.flavor` | `It's said to also be good for promoting blood circulation.` |
+
+### Neta / 文化梗说明
+- 描述采用原版 STS2 的标准措辞模式：`Attacks deal [blue]additional[/blue] damage` → `攻击牌额外造成[blue]XX[/blue]的伤害`
+- 英文 description 使用了 `Attacks deal additional damage to [gold]Weak[/gold] enemies` 句式，遵循原版遗物中同类效果的描述范式
+- `ModifyDamageAdditive` 运行时返回目标当前的虚弱层数作为额外伤害值
+
+---
+
+## 侦探小说集
+
+**键名**: `TOUHOUANCIENTS-DETECTIVE_STORY`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DETECTIVE_STORY.title": "侦探小说集",
+"TOUHOUANCIENTS-DETECTIVE_STORY.description": "你的攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个意图是攻击的敌人，额外保留[blue]{RetainCard}[/blue]张牌。",
+"TOUHOUANCIENTS-DETECTIVE_STORY.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Detective Story Collection` |
+| `.description` | `Attacks deal [blue]{Damage}[/blue] additional damage to enemies who do not intend to [gold]Attack[/gold]. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy who intends to [gold]Attack[/gold].` |
+
+### 设计说明
+- 标题 `Detective Story Collection` 直接对应「侦探小说集」
+- 描述使用 `do not intend to Attack` / `intends to Attack` 区分敌人意图，参考原版 Go for the Eyes 的描述风格
+- 数值 `{Damage}` 和 `{RetainCard}` 使用动态变量，方便以后平衡调整
 
 ---
 

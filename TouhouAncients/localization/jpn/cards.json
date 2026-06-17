@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-TRIBUTE.description": "Removed from your [gold]Deck[/gold] after accumulating [blue]{Remaining}[/blue] [gold]Gold[/gold] in tribute.\n[fade_in]I'm adorable, give me money![/fade_in]",
 
     "TOUHOUANCIENTS-DREAM_SEAL.title": "Dream Seal",
-    "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf an enemy's intent is to attack, apply [blue]1[/blue] [gold]Vulnerable[/gold] and reduce its [gold]Strength[/gold] by {StrengthLoss:diff()} this turn.\n[b]Extermination, decided.[/b]",
+    "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf the enemy intends to attack, apply [blue]1[/blue] [gold]Vulnerable[/gold] and reduce its [gold]Strength[/gold] by {StrengthLoss:diff()} this turn.\n[b]Extermination, decided.[/b]",
 
     "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "Time Minion",
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "Add {Cards:diff()} [gold]Shiv[/gold] into your [gold]Hand[/gold].\nAt the end of turn, deal {Damage:diff()} damage to the target for each card [gold]Exhausted[/gold] this turn.",
@@ -63,6 +63,6 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "The Feast",
-    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} copies of this card to your [gold]Discard Pile[/gold].",
+    "TOUHOUANCIENTS-THE_FEAST.description": "Select and [gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} copies of this card to your [gold]Discard Pile[/gold].",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to Exhaust."
 }

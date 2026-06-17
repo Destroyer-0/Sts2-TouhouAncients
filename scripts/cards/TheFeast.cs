@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -89,18 +90,24 @@ public class TheFeast : TouhouAncientCards
             await PowerCmd.Apply<StrengthPower>(player.Creature, DynamicVars["Strength"].BaseValue, player.Creature, null);
             await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, player);
         }
+        
     }
 
     public override async Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Owner) return;
+
+        if (!PileType.Hand.GetPile(player).Cards.Contains(this))
+        {
+            return;
+        }
         
         // 回合结束时，如果在手牌中，将2张复制品加入弃牌堆
         var copies = new List<CardModel>();
         var combatState = Owner.Creature.CombatState;
         for (int i = 0; i < DynamicVars["Copies"].IntValue; i++)
         {
-            copies.Add(combatState.CreateCard(this, Owner));
+            copies.Add(CreateClone());
         }
         var results = await CardPileCmd.AddGeneratedCardsToCombat(copies, PileType.Discard, addedByPlayer: true, CardPilePosition.Random);
         CardCmd.PreviewCardPileAdd(results);

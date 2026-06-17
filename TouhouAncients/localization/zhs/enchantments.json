@@ -38,6 +38,10 @@
     "TOUHOUANCIENTS-YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
     "TOUHOUANCIENTS-YUMEIRO.title": "梦色",
 
-    "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]1[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
-    "TOUHOUANCIENTS-GREED.title": "贪欲"
+    "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]{Times}[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
+    "TOUHOUANCIENTS-GREED.title": "贪欲",
+
+    "TOUHOUANCIENTS-BLOOD_POND.description": "费用与[gold]辉星[/gold]消耗变为[blue]0[/blue]，获得[gold]重放[/gold][blue]{Times}[/blue]。\n[red]战斗结束时，这张牌将被饕餮尤魔吞噬。[/red]",
+    "TOUHOUANCIENTS-BLOOD_POND.title": "黑水",
+    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎恶的有机物"
 }

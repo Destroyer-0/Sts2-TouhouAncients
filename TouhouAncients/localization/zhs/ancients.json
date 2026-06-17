@@ -84,7 +84,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.NECROBINDER.0-2.ancient": "……拿走你要的东西吧，希望神明会庇佑你一路顺风。",
   
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.title": "蕾米莉亚·斯卡雷特",
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.epithet": "永远鲜红的幼月",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.epithet": "鲜红的荣耀女王",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.firstVisitEver.0-0.ancient": "欢迎来到红魔馆~我是这里的家主，蕾米莉亚·斯卡雷特。还请允许我的女仆向您介绍馆内的宏伟珍藏吧。",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.ANY.0-0r.ancient": "呵呵，你我的命运又于此相汇了。",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.talk.ANY.1-0r.ancient": "吸血鬼的力量，可是能够轻易扭转命运的噢。",
@@ -248,6 +248,7 @@
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.SILENT.0-2.ancient": "去塔顶找父亲吧，他一定能做出解药！",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.SILENT.1-0r.ancient": "父亲讨厌无礼的客人，所以这次……好好和他谈谈怎么样？",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.SILENT.2-0r.ancient": "你的小蛇好可爱呀。想给它系个小小的蝴蝶结！",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.SILENT.3-0r.ancient": "你身上的这种叫荒疫的毒素……我和铃铃还从没见过这么强力的毒药呢……",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.REGENT.0-0.char": "我到来！让我看看这里的居民……人呢？",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.REGENT.0-0.next": "继续",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.REGENT.0-1.ancient": "喂——我在这里——",
@@ -329,17 +330,17 @@
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT.talk.REGENT.0-4.ancient": "妖梦~还没开饭吗？",
 
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.title": "射命丸 文",
-  "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.epithet": "不传统的非幻想记者",
+  "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.epithet": "奔走在高塔中的幻想记者",
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
   "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.talk.ANY.0-0r.ancient": "……",
 
   "TOUHOUANCIENTS-JUNKO_ANCIENT.title": "纯狐",
   "TOUHOUANCIENTS-JUNKO_ANCIENT.epithet": "无名的先古存在",
-  "TOUHOUANCIENTS-JUNKO_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-JUNKO_ANCIENT.talk.firstVisitEver.0-0.ancient": "我的名字是纯狐，就让我来招待一下，努力至今的你吧。",
   "TOUHOUANCIENTS-JUNKO_ANCIENT.talk.ANY.0-0r.ancient": "……",
 
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.title": "依神 紫苑&依神 女苑",
-  "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.epithet": "最凶最恶的荒疫神",
+  "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.epithet": "最凶最恶的双子荒疫神",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-0r.ancient": "……",
 

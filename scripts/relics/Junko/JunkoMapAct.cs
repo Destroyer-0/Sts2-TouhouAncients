@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Map;
+﻿using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
@@ -32,6 +33,7 @@ public class JunkoMapAct : ActMap
     public override MapPoint BossMapPoint { get; }
 
     public override MapPoint StartingMapPoint { get; }
+    public override MapPoint? SecondBossMapPoint { get; }
 
     protected override MapPoint?[,] Grid { get; }
 
@@ -52,6 +54,14 @@ public class JunkoMapAct : ActMap
         {
             PointType = MapPointType.Ancient
         };
+        if (runState.AscensionLevel>= (int)AscensionLevel.DoubleBoss)
+        {
+            SecondBossMapPoint = runState.Map.SecondBossMapPoint;
+        }
+        else
+        {
+            SecondBossMapPoint = null;
+        }
         for (int i = 0; i < list.Count; i++)
         {
             MapPoint mapPoint = new MapPoint(3, i + 1);
