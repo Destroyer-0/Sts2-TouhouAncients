@@ -603,15 +603,5 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。",
-
-  "TOUHOUANCIENTS-SHION_A.title": "石油期货",
-  "TOUHOUANCIENTS-SHION_A.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。每[blue]4[/blue]个回合，从3张[red]诅咒牌[/red]中选择一张加入抽牌堆。",
-  "TOUHOUANCIENTS-SHION_A.flavor": "",
-
-  "TOUHOUANCIENTS-SHION_B.title": "黑猫玩偶",
-  "TOUHOUANCIENTS-SHION_B.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。战斗开始时，随机[blue]8[/blue]张卡牌被侵蚀为[purple]抵押物[/purple]。",
-  "TOUHOUANCIENTS-SHION_B.flavor": "",
-  "TOUHOUANCIENTS-SHION_B.test1": "抵押物",
-  "TOUHOUANCIENTS-SHION_B.test2": "获得[gold]保留[/gold]与[gold]无法被打出[/gold]。保留[blue]2[/blue]回合后移除此效果。"
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。"
 }
