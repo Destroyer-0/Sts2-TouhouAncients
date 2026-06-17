@@ -21,7 +21,7 @@
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "Gain {Block:diff()} [gold]Block[/gold].\nThis turn, convert half of the attack damage you blocked into [gold]Vigor[/gold].",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "All Creation's Hisou",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:Upgrade, |}Play and [gold]Exhaust[/gold] all cards in your [gold]Hand and Exhaust Pile[/gold].\n[red]The sky's weather, the earth's stability, the heart of man—all within my grasp![/red]",
+    "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:Upgrade, |}Play and [gold]Exhaust[/gold] all cards in your [gold]Hand and Exhaust Pile[/gold].\n[red]The sky's weather, the earth's stability, the heart of people—all within my grasp![/red]",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",

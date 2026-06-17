@@ -115,7 +115,7 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "Add [blue]1[/blue] [gold]Gungnir's Spear[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
   
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen Cream",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "All [gold]Card Rewards[/gold] are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "Only immature vampires use parasols. Mature vampires have their maids apply sunscreen first.",
   
@@ -169,7 +169,7 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "Gain [blue]{Relics}[/blue] random [sine][blue]Neow's Starting Relics[/blue][/sine].",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]You... shouldn't.. remember.... this...[/sine]",
 
-  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Detective Story Collection",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Mystery Novel",
   "TOUHOUANCIENTS-DETECTIVE_STORY.description": "Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy intending to Attack.",
   "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"It is the brain, the little gray cells on which one must rely. One must seek the truth within——not without.\"——Hercule Poirot",
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
@@ -425,12 +425,12 @@
   "TOUHOUANCIENTS-SOUL_LATTERN.description": "The first time any unit's HP drops below [blue]50%[/blue] each combat, enter [gold]Reaper Form[/gold].",
   "TOUHOUANCIENTS-SOUL_LATTERN.flavor": "Death is a cool summer night, where one may sleep without a care.",
 
-  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "Ticket to Netherworld",
+  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "Netherworld Ticket",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.description": "Upon pickup, add [blue]1[/blue] [gold]All Living Things Must Perish[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.eventDescription": "Add [blue]1[/blue] [gold]All Living Things Must Perish[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.flavor": "",
 
-  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "Saigyouji's Withered Branch",
+  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "Saigyouji Withered Branch",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.description": "Whenever you [gold]Exhaust[/gold] a card, add a random card with [gold]Ethereal[/gold] to your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "Do not use as kindling.",
 
