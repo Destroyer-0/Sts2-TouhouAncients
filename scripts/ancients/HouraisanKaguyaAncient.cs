@@ -1,9 +1,14 @@
+using System.Linq;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Encounters;
+using MegaCrit.Sts2.Core.Rewards;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -53,4 +58,39 @@ public class HouraisanKaguyaAncient : CustomAncientModel
         RelicOption<EienteiZakushi>(),
         RelicOption<KaguyaSecretTreasure>()
     ];
+
+    protected override IReadOnlyList<EventOption> GenerateInitialOptions()
+    {
+        var current = base.GenerateInitialOptions().ToList();
+        var textKey = "PUNCH_OFF.pages.INITIAL.options.I_CAN_TAKE_THEM";
+        current.Add(new EventOption(this, TakeThem,
+            L10NLookup(textKey + ".title"),
+            L10NLookup(textKey + ".description"),
+            textKey,
+            Enumerable.Empty<IHoverTip>()));
+        return current;
+    }
+
+    private Task TakeThem()
+    {
+        var fightKey = "PUNCH_OFF.pages.I_CAN_TAKE_THEM.options.FIGHT";
+        var fightOption = new EventOption(this, Fight,
+            L10NLookup(fightKey + ".title"),
+            L10NLookup(fightKey + ".description"),
+            fightKey,
+            Enumerable.Empty<IHoverTip>());
+        SetEventState(L10NLookup("PUNCH_OFF.pages.I_CAN_TAKE_THEM.description"), new List<EventOption> { fightOption });
+        return Task.CompletedTask;
+    }
+
+    private Task Fight()
+    {
+        base.Owner.CanRemovePotions = true;
+        EnterCombatWithoutExitingEvent<PunchOffEventEncounter>(new List<Reward>(new Reward[2]
+        {
+            new RelicReward(base.Owner),
+            new PotionReward(base.Owner)
+        }), shouldResumeAfterCombat: false);
+        return Task.CompletedTask;
+    }
 }
