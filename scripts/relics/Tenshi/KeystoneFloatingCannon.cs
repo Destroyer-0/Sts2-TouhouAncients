@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -69,14 +70,20 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
 
             foreach (var enemy in enemies)
             {
-                await CreatureCmd.Damage(
-                    new BlockingPlayerChoiceContext(),
-                    enemy,
-                    damage,
-                    ValueProp.Unpowered,
-                    base.Owner.Creature,
-                    null);
+                if (enemy.HasPower<BurrowedPower>())
+                {
+                    await CreatureCmd.LoseBlock(enemy, enemy.Block);
+                }
             }
+            
+            await CreatureCmd.Damage(
+                new BlockingPlayerChoiceContext(),
+                enemies,
+                damage,
+                ValueProp.Unpowered,
+                base.Owner.Creature,
+                null);
+            
             await PowerCmd.ModifyAmount(keystonePower, base.DynamicVars["ExtraDamage"].BaseValue, Owner.Creature, null);
             Flash();
             base.Status = RelicStatus.Normal;

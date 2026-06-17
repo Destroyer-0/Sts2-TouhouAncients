@@ -108,7 +108,7 @@
 
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "Crimson Crystal",
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "At the start of each turn, if your HP is at least [blue]{HpThreshold}%[/blue], gain {Energy:energyIcons()}.",
-  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "One of Remilia's treasures, with a blood-red color more vivid than any ruby in the world — though no one has ever set their sights on it.",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "One of Remilia's treasures, with a blood-red color more vivid than any ruby in the world — though no phantom thief has ever set their sights on it.",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "Gungnir",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "Upon pickup, add [blue]1[/blue] [gold]Gungnir's Spear[/gold] to your [gold]Deck[/gold].",

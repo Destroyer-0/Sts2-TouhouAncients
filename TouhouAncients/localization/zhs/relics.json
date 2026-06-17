@@ -107,8 +107,8 @@
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "她吸血时总会洒出很多血液，结果将衣服染成了一片[red]赤红[/red]。",
 
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "绯红晶石",
-  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "在每个回合开始时，如果你的生命值不低于[blue]{HpThreshold}%[/blue]，获得{Energy:energyIcons()}。",
-  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "蕾米莉亚的藏品之一，拥有比世界上任何红宝石都鲜艳的血色，不过到目前为止，还没有哪个盯上过。",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "在每回合开始时，如果你的生命值不低于[blue]{HpThreshold}%[/blue]，获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "蕾米莉亚的藏品之一，拥有比世界上任何红宝石都鲜艳的血色，不过到目前为止，还没有哪个怪盗盯上过。",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
@@ -139,7 +139,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "在每个回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -175,8 +175,8 @@
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
-  "TOUHOUANCIENTS-MINI_SHRINE.description": "在每个回合开始时获得{Energy:energyIcons()}。拾起时，将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
-  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "在每个回合开始时获得{Energy:energyIcons()}。将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-MINI_SHRINE.description": "在每回合开始时获得{Energy:energyIcons()}。拾起时，将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
+  "TOUHOUANCIENTS-MINI_SHRINE.eventDescription": "在每回合开始时获得{Energy:energyIcons()}。将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
   "TOUHOUANCIENTS-MINI_SHRINE.flavor": "谁也不知道里面供奉的是什么神明。",
 
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "赛钱箱",
@@ -241,7 +241,7 @@
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "用来镇压引发地震的大鲶鱼……虽然先子星并没有这种东西。",
   
   "TOUHOUANCIENTS-HOLY_ARMOR.title": "天赐甲胄",
-  "TOUHOUANCIENTS-HOLY_ARMOR.description": "在每个回合开始时获得{Energy:energyIcons()}。每回合第一次从卡牌中获得的[gold]格挡[/gold]值[purple]减半[/purple]。",
+  "TOUHOUANCIENTS-HOLY_ARMOR.description": "在每回合开始时获得{Energy:energyIcons()}。每回合第一次从卡牌中获得的[gold]格挡[/gold]值[purple]减半[/purple]。",
   "TOUHOUANCIENTS-HOLY_ARMOR.flavor": "穿上后就能进入无念无想的境界，让人感觉不到任何痛楚……真的是这样吗？",
 
   "TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE.title": "天界冷漠",
@@ -309,7 +309,7 @@
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "虽然能隐去人的身形，但布本身的身形没有被隐去。",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
-  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。在[gold]休息处[/gold]恢复的生命值减少[blue]{HealPenalty}[/blue]点。",
+  "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.description": "在每回合开始时获得{Energy:energyIcons()}。在[gold]休息处[/gold]恢复的生命值减少[blue]{HealPenalty}[/blue]点。",
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.flavor": "背面写着一行小字：这个遗物能让你把好牌都敲起来。",
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.additionalRestSiteHealText": "[red]沥血阴阳玉导致减少{HealPenalty}点回复量。[/red]",
 
@@ -340,12 +340,12 @@
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.flavor": "怪谈：请不要以大于17的格挡结束回合。",
 
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.title": "饥饿背包",
-  "TOUHOUANCIENTS-HUNGRY_BACKPACK.description": "在每个回合开始时，额外抽[blue]{Cards}[/blue]张牌并使随机[blue]{Cards}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]吞噬[/purple]，然后这两个数值减少[blue]{ReduceCardDraw}[/blue]。",
+  "TOUHOUANCIENTS-HUNGRY_BACKPACK.description": "在每回合开始时，额外抽[blue]{Cards}[/blue]张牌并使随机[blue]{Cards}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]吞噬[/purple]，然后这两个数值减少[blue]{ReduceCardDraw}[/blue]。",
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.flavor": "似乎能隐约从背包中听到“我饥饿……”的声响。",
   "TOUHOUANCIENTS-HUNGRY_BACKPACK.hungry": "我饥饿……",
 
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.title": "伪灵异珠",
-  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每个回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]沉重[/purple]。",
+  "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.description": "在每回合开始时获得{Energy:energyIcons()}。随机[blue]{Amount}[/blue]张[gold]抽牌阶段[/gold]抽到的牌在本回合获得[purple]沉重[/purple]。",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.flavor": "带着这个并不会招来外星人或女高中生。",
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "打出这张牌时失去{energyPrefix:energyIcons(1)}。",
 
@@ -392,7 +392,7 @@
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "",
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "荒疫特调",
-  "TOUHOUANCIENTS-PLAGUE_BLEND.description": "在每个回合开始时获得{Energy:energyIcons()}。第[blue]{TriggerTurn}[/blue]回合开始时，给予自身[blue]{PoisonAmount}[/blue]层[gold]中毒[/gold]。",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.description": "在每回合开始时获得{Energy:energyIcons()}。第[blue]{TriggerTurn}[/blue]回合开始时，给予自身[blue]{PoisonAmount}[/blue]层[gold]中毒[/gold]。",
   "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "",
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "缄默魔偶",
@@ -423,7 +423,7 @@
   "TOUHOUANCIENTS-GHOST_FAN.flavor": "",
 
   "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.title": "墨染的樱花",
-  "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.description": "在每个回合开始时获得{Energy:energyIcons()}并失去[blue]1[/blue]点[gold]最大生命值[/gold]。你可以在[gold]休息处[/gold][pink]赏樱[/pink]。",
+  "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.description": "在每回合开始时获得{Energy:energyIcons()}并失去[blue]1[/blue]点[gold]最大生命值[/gold]。你可以在[gold]休息处[/gold][pink]赏樱[/pink]。",
   "TOUHOUANCIENTS-INK_DYED_CHERRY_BLOSSOMS.flavor": "",
 
   "TOUHOUANCIENTS-SOUL_SAKE_CUP.title": "幽魂酒盅",
@@ -491,7 +491,7 @@
   "TOUHOUANCIENTS-LOVE_COLOR_FLASHLIGHT.flavor": "不华丽就不是魔法了！弹幕最重要的是火力Da☆Ze！",
 
   "TOUHOUANCIENTS-COMET_ACCELERATOR.title": "彗星加速器",
-  "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每个回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]{DazeNum}[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
+  "TOUHOUANCIENTS-COMET_ACCELERATOR.description": "在每回合开始时，额外抽[blue]2[/blue]张牌，并将[blue]{DazeNum}[/blue]张[gold]晕眩[/gold]加入弃牌堆。",
   "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "携带书本逃离红魔馆的速度是每秒11.2米。",
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "金平糖罐",
@@ -508,7 +508,7 @@
   "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "炼药锅里有股洗不掉的蘑菇味。",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
-  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每个回合开始时，随机为[gold]抽牌堆[/gold]与[gold]弃牌堆[/gold]中的各[blue]1[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每回合开始时，随机为[gold]抽牌堆[/gold]与[gold]弃牌堆[/gold]中的各[blue]1[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",
@@ -516,12 +516,12 @@
   "TOUHOUANCIENTS-GLOBE.flavor": "天阶夜色凉如水，坐看牵牛织女星。",
 
   "TOUHOUANCIENTS-MUSHROOM_BENTO.title": "蘑菇便当",
-  "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每个回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
+  "TOUHOUANCIENTS-MUSHROOM_BENTO.description": "在每回合开始时获得{Energy:energyIcons()}。在你的回合结束时，如果你的手牌数不小于[blue]{Cards}[/blue]，将一张[gold]孢子心灵[/gold]加入抽牌堆。",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.flavor": "用八卦炉的火力烧熟米饭，并把经过数日独方调配煮熬的（超大量的）各种品类的可食用蘑菇煮成汤汁浇在上面，无论是外观还是口味都是一绝。",
   "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom": "借助魔理沙的蘑菇料理技巧好好料理了，不再受到负面影响。",
 
   "TOUHOUANCIENTS-PURE_CONFIDENCE.title": "纯粹的自信",
-  "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。在每个回合开始时获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-PURE_CONFIDENCE.description": "拾起时，将第[blue]3[/blue][gold]阶段[/gold]的地图替换为一条[red]极为凶险[/red]的充满精英与宝藏的直道。在每回合开始时获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-PURE_CONFIDENCE.flavor": "会赢的。",
 
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.title": "不休的恚恨",
@@ -551,7 +551,7 @@
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢出的暇秽",
-  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "在每个回合开始时，获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。在你的回合结束时，每有一张非状态[gold]手牌[/gold]，就向抽牌堆加入一张[gold]碎屑[/gold]，每有一点能量，就向抽牌堆加入一张[gold]虚空[/gold]。",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "在每回合开始时，获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。在你的回合结束时，每有一张非状态[gold]手牌[/gold]，就向抽牌堆加入一张[gold]碎屑[/gold]，每有一点能量，就向抽牌堆加入一张[gold]虚空[/gold]。",
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初的神灵",
@@ -577,7 +577,7 @@
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每个回合开始时获得{Energy:energyIcons()}。你在同一回合不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每回合开始时获得{Energy:energyIcons()}。你在同一回合不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "贪婪之瞳",
@@ -603,5 +603,15 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。"
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。",
+
+  "TOUHOUANCIENTS-SHION_A.title": "石油期货",
+  "TOUHOUANCIENTS-SHION_A.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。每[blue]4[/blue]个回合，从3张[red]诅咒牌[/red]中选择一张加入抽牌堆。",
+  "TOUHOUANCIENTS-SHION_A.flavor": "",
+
+  "TOUHOUANCIENTS-SHION_B.title": "黑猫玩偶",
+  "TOUHOUANCIENTS-SHION_B.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。战斗开始时，随机[blue]8[/blue]张卡牌被侵蚀为[purple]抵押物[/purple]。",
+  "TOUHOUANCIENTS-SHION_B.flavor": "",
+  "TOUHOUANCIENTS-SHION_B.test1": "抵押物",
+  "TOUHOUANCIENTS-SHION_B.test2": "获得[gold]保留[/gold]与[gold]无法被打出[/gold]。保留[blue]2[/blue]回合后移除此效果。"
 }
