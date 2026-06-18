@@ -1,7 +1,9 @@
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
@@ -33,5 +35,24 @@ public class YuanChouPower : TouhouAncientPowerModel
         if (target != Source) return 1m;
         if (!props.IsPoweredAttack()) return 1m;
         return 0.75m;
+    }
+
+    /// <summary>
+    /// 来源（玩家）打出攻击牌时，所有有怨仇的敌人受到伤害
+    /// </summary>
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner.Creature != base.Applier) return;
+        if (cardPlay.Card.Type != CardType.Attack) return;
+
+        Flash();
+
+        // 造成等同于怨仇层数的伤害，然后层数 -1
+        await DamageCmd.Attack(Amount)
+            .FromCard(cardPlay.Card)
+            .Targeting(Owner)
+            .Execute(choiceContext);
+
+        await PowerCmd.Decrement(this);
     }
 }

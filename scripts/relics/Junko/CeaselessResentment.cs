@@ -35,58 +35,25 @@ public class CeaselessResentment : TouhouAncientRelics
     {
         if (dealer == null) return;
         if (dealer == base.Owner.Creature) return; // 不是自己打自己
-        if (result.TotalDamage <= 0) return;
+        if (result.UnblockedDamage <= 0) return;
 
-        // 结算后，为攻击者施加怨仇（层数 = 伤害量）
-        var existingPower = dealer.GetPower<YuanChouPower>();
-        if (existingPower != null)
-        {
-            // 已有怨仇→增加层数
-            existingPower.Source = base.Owner.Creature;
-            await PowerCmd.ModifyAmount(existingPower, result.TotalDamage, null, null);
-        }
-        else
-        {
-            // 新建怨仇
-            var power = (YuanChouPower)ModelDb.Power<YuanChouPower>().ToMutable();
-            power.Source = base.Owner.Creature;
-            await PowerCmd.Apply(power, dealer, result.TotalDamage, base.Owner.Creature, null);
-        }
+
+        await PowerCmd.Apply<YuanChouPower>(dealer, result.UnblockedDamage, base.Owner.Creature, null);
+        
+        // var existingPower = dealer.GetPower<YuanChouPower>();
+        // if (existingPower != null)
+        // {
+        //     // 已有怨仇→增加层数
+        //     existingPower.Source = base.Owner.Creature;
+        //     await PowerCmd.ModifyAmount(existingPower, result.TotalDamage, null, null);
+        // }
+        // else
+        // {
+        //     // 新建怨仇
+        //     var power = (YuanChouPower)ModelDb.Power<YuanChouPower>().ToMutable();
+        //     power.Source = base.Owner.Creature;
+        //     await PowerCmd.Apply(power, dealer, result.TotalDamage, base.Owner.Creature, null);
+        // }
     }
 
-    /// <summary>
-    /// 来源（玩家）打出攻击牌时，所有有怨仇的敌人受到伤害
-    /// </summary>
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner != base.Owner) return;
-        if (cardPlay.Card.Type != CardType.Attack) return;
-
-        var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature)
-            .Where(c => c.IsAlive);
-
-        foreach (var enemy in enemies)
-        {
-            var yuanChou = enemy.GetPower<YuanChouPower>();
-            if (yuanChou == null || yuanChou.Amount <= 0) continue;
-            if (yuanChou.Source != base.Owner.Creature) continue;
-
-            var amount = yuanChou.Amount;
-            Flash();
-
-            // 造成等同于怨仇层数的伤害，然后层数 -1
-            await DamageCmd.Attack(amount)
-                .FromCard(cardPlay.Card)
-                .Targeting(enemy)
-                .Execute(choiceContext);
-
-            await PowerCmd.ModifyAmount(yuanChou, -1m, null, null);
-
-            // 如果归零则移除
-            if (yuanChou.Amount <= 0)
-            {
-                await PowerCmd.Remove(yuanChou);
-            }
-        }
-    }
 }
