@@ -22,6 +22,9 @@ public class RabbitsFoot : TouhouAncientRelics
 {
     private const string _sellKey = "SELL_CARD";
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new GoldVar(75)];
+
     public override bool TryModifyCardRewardAlternatives(Player player, CardReward cardReward, List<CardRewardAlternative> alternatives)
     {
         if (base.Owner != player) return false;
@@ -35,8 +38,7 @@ public class RabbitsFoot : TouhouAncientRelics
 
     private async Task OnSellCard()
     {
-        // 出售时获得 70 金币
         Flash();
-        await PlayerCmd.GainGold(70, base.Owner);
+        await PlayerCmd.GainGold(DynamicVars.Gold.IntValue, base.Owner);
     }
 }
