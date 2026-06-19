@@ -97,7 +97,7 @@ public abstract class TouhouAncientTemporaryStrengthPower : TouhouAncientTempora
         }
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         var power = this;
         if (side != power.Owner.Side)

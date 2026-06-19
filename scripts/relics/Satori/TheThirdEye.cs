@@ -58,6 +58,6 @@ public class TheThirdEye : TouhouAncientRelics
         await SatoriScryCmd.SatoriScry(player, 5, choiceContext);
         // 加入觉之眼卡
         await CardPileCmd.AddGeneratedCardsToCombat([base.Owner.Creature.CombatState.CreateCard<SatoriEye>(base.Owner)],
-            PileType.Hand, addedByPlayer: true);
+            PileType.Hand, creator: base.Owner);
     }
 }

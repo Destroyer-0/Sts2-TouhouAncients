@@ -70,7 +70,7 @@ public class LilyBell : TouhouAncientCards
     /// <summary>
     /// 回合结束时若在手牌中：给所有敌人中毒，能量+1，自身上毒量+1
     /// </summary>
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return;
         if (Pile is not { Type: PileType.Hand }) return;

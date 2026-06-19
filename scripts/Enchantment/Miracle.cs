@@ -83,7 +83,7 @@ public class Miracle : TouhouAncientEnchantmentModel
                 }
 
                 CardCmd.Enchant<Miracle>(cardModel, 1m);
-                CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+                CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, creator: player, CardPilePosition.Random));
                 break;
             }
 

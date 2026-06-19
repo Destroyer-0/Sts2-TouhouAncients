@@ -83,7 +83,7 @@ public class SkyHat : TouhouAncientRelics
                 CardModel card = creature.CombatState.CreateCard(ModelDb.Card<Soul>(), base.Owner);
                 CardCmd.Upgrade(card);
                 CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw,
-                    addedByPlayer: true, CardPilePosition.Random));
+                    creator: base.Owner, CardPilePosition.Random));
             }
         }
     }

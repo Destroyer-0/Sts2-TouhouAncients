@@ -5,6 +5,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -20,14 +21,14 @@ public class CelestialIndifference : TouhouAncientRelics
 {
     private readonly HashSet<CardModel> _cardsGainedThisTurn = new();
 
-    public override Task AfterCardGeneratedForCombat(CardModel card, bool addedByPlayer)
+    public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
     {
         if (card.Owner != base.Owner) return Task.CompletedTask;
         _cardsGainedThisTurn.Add(card);
         return Task.CompletedTask;
     }
 
-    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (card.Owner != base.Owner) return Task.CompletedTask;
         if (base.Owner.PlayerCombatState == null) return Task.CompletedTask;
@@ -40,7 +41,7 @@ public class CelestialIndifference : TouhouAncientRelics
         return Task.CompletedTask;
     }
     
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return;
         if (base.Owner.PlayerCombatState == null) return;

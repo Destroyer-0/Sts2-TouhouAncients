@@ -77,6 +77,6 @@ public class HisoutensokuModel : TouhouAncientRelics
             card.SetToFreeThisCombat();
         }
         
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Draw, creator: base.Owner, CardPilePosition.Random));
     }
 }

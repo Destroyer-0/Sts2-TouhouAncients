@@ -44,6 +44,6 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         // 创建战斗实例，设为这回合免费，加入手牌
         var card = base.Owner.Creature.CombatState.CreateCard(canonical, base.Owner);
         card.SetToFreeThisTurn();
-        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, addedByPlayer: true);
+        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, creator: base.Owner);
     }
 }

@@ -72,7 +72,7 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
         return amount + (decimal)base.DynamicVars.Energy.IntValue;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side != base.Owner.Creature.Side) return;
         // 每回合失去1最大生命

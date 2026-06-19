@@ -58,7 +58,7 @@ public class ServantPatchouli : TouhouAncientCards
         List<CardModel> selected = new List<CardModel>();
         for (int index = 0; index < DynamicVars.Cards.IntValue; ++index)
             selected.Add(base.Owner.Creature.CombatState.CreateCard<Dazed>(Owner));
-        await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Hand, addedByPlayer: true);
+        await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Hand, creator: base.Owner);
         //AddKeyword(CardKeyword.Unplayable);
     }
     

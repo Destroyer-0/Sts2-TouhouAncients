@@ -61,7 +61,7 @@ public class RyukeiNoTama : TouhouAncientRelics
 
             // 放入手牌
             CardCmd.PreviewCardPileAdd(
-                await CardPileCmd.AddGeneratedCardsToCombat([card], PileType.Hand, addedByPlayer: true, CardPilePosition.Random));
+                await CardPileCmd.AddGeneratedCardsToCombat([card], PileType.Hand, creator: base.Owner, CardPilePosition.Random));
         }
     }
 }

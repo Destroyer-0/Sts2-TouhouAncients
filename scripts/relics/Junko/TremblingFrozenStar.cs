@@ -80,7 +80,7 @@ public class TremblingFrozenStar : TouhouAncientRelics
             // 交替加入战栗/主宰（带虚无）
             var tremble = base.Owner.Creature.CombatState.CreateCard<Tremble>(base.Owner);
             tremble.AddKeyword(CardKeyword.Ethereal);
-            await CardPileCmd.AddGeneratedCardToCombat(tremble, PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardToCombat(tremble, PileType.Hand, creator: base.Owner);
         }
 
         if (AttackCount == 6)
@@ -91,7 +91,7 @@ public class TremblingFrozenStar : TouhouAncientRelics
             await OrbCmd.Channel<FrostOrb>(context, base.Owner);
             var dominate = base.Owner.Creature.CombatState.CreateCard<Dominate>(base.Owner);
             dominate.AddKeyword(CardKeyword.Ethereal);
-            await CardPileCmd.AddGeneratedCardToCombat(dominate, PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardToCombat(dominate, PileType.Hand, creator: base.Owner);
         }
 
     }

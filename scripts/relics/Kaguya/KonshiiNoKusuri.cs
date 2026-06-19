@@ -89,6 +89,6 @@ public class KonshiiNoKusuri : TouhouAncientRelics
 
         await CardPileCmd.AddGeneratedCardsToCombat(
             [base.Owner.Creature.CombatState.CreateCard<KonshiiNoKusuriCard>(base.Owner)],
-            PileType.Hand, addedByPlayer: true);
+            PileType.Hand, creator: base.Owner);
     }
 }

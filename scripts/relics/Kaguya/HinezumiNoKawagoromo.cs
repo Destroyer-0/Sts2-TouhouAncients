@@ -100,7 +100,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
                 list.Add(combatState.CreateCard<Burn>(base.Owner));
             }
 
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Draw, addedByPlayer: true, CardPilePosition.Random));
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Draw, creator: base.Owner, CardPilePosition.Random));
             await Cmd.Wait(2f);
         }
     }

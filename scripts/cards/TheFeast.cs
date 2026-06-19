@@ -109,7 +109,7 @@ public class TheFeast : TouhouAncientCards
         {
             copies.Add(CreateClone());
         }
-        var results = await CardPileCmd.AddGeneratedCardsToCombat(copies, PileType.Discard, addedByPlayer: true, CardPilePosition.Random);
+        var results = await CardPileCmd.AddGeneratedCardsToCombat(copies, PileType.Discard, creator: base.Owner, CardPilePosition.Random);
         CardCmd.PreviewCardPileAdd(results);
     }
 }

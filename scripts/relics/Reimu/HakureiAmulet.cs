@@ -59,7 +59,7 @@ public class HakureiAmulet : TouhouAncientRelics
         return base.BeforeCombatStart();
     }
 
-    public override Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side != base.Owner.Creature.Side)
         {

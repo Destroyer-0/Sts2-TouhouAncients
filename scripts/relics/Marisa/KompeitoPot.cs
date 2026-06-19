@@ -83,7 +83,7 @@ public class KompeitoPot : TouhouAncientRelics
         return cardModel != null;
     }
 
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (card.Owner != base.Owner) return;
         if (spawnedCard == null) return;

@@ -53,7 +53,7 @@ public class PoorestFormPower : TouhouAncientPowerModel
     /// <summary>
     /// 回合结束时，若剩余能量为 0 则触发
     /// </summary>
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Side) return;
         if (base.Owner.Player == null) return;

@@ -40,7 +40,7 @@ public class SaigyoujiBranch : TouhouAncientRelics
 
         List<CardModel> cards = CardFactory.GetForCombat(base.Owner, base.Owner.Character.CardPool.GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint), 1, base.Owner.RunState.Rng.CombatCardGeneration).ToList();
 
-        foreach (var cardResult in await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, addedByPlayer: true))
+        foreach (var cardResult in await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, creator: base.Owner))
         {
             cardResult.cardAdded.AddKeyword(CardKeyword.Ethereal);
         }

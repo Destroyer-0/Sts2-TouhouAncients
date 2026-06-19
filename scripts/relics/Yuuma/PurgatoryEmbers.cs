@@ -66,6 +66,6 @@ public class PurgatoryEmbers : TouhouAncientRelics
         {
             burns.Add(combatState.CreateCard<Burn>(player));
         }
-        await CardPileCmd.AddGeneratedCardsToCombat(burns, PileType.Draw, addedByPlayer: true, CardPilePosition.Random);
+        await CardPileCmd.AddGeneratedCardsToCombat(burns, PileType.Draw, creator: base.Owner, CardPilePosition.Random);
     }
 }

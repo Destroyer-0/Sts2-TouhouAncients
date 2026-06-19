@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -49,10 +50,10 @@ public class DayKakusei : TouhouAncientRelics
     /// <param name="card"></param>
     /// <param name="addedByPlayer"></param>
     /// <returns></returns>
-    public override Task AfterCardGeneratedForCombat(CardModel card, bool addedByPlayer)
+    public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
     {
         if (card.Owner != base.Owner) return Task.CompletedTask;
-        if (addedByPlayer&&card.Type is CardType.Power)
+        if (creator != null && card.Type is CardType.Power)
         {
             CardCmd.Upgrade(card);
         }

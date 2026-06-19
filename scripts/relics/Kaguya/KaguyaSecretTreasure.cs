@@ -80,7 +80,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
                      prefs: new CardSelectorPrefs(base.SelectionScreenPrompt, 1)
                  ))
         {
-            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, addedByPlayer: true);
+            await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Hand, creator: base.Owner);
             _selectedCardModel.Add(cardModel);
         }
     }

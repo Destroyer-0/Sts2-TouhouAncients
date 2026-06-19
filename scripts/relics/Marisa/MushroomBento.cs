@@ -199,17 +199,13 @@ public static class FragrantMushroomHpLossPatch
             if (player?.GetRelic<MushroomBento>() != null)
             {
                 // 跳过 CreatureCmd.Damage，仅执行升级部分
-                var upgradable = PileType.Deck.GetPile(player).Cards
-                    .Where(c => c?.IsUpgradable ?? false)
-                    .ToList()
-                    .StableShuffle(player.RunState.Rng.Niche)
-                    .Take(__instance.DynamicVars.Cards.IntValue);
-                foreach (var card in upgradable)
-                {
+                
+                foreach (CardModel card in PileType.Deck.GetPile(__instance.Owner).Cards.Where<CardModel>((Func<CardModel, bool>) (c => c != null && c.IsUpgradable)).ToList<CardModel>().StableShuffle<CardModel>(__instance.Owner.RunState.Rng.Niche).Take<CardModel>(__instance.DynamicVars.Cards.IntValue))
                     CardCmd.Upgrade(card, CardPreviewStyle.MessyLayout);
-                }
                 return false; // 跳过原方法（不执行扣血）
             }
+
+            return true;
         }
         catch (System.Exception e)
         {

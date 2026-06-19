@@ -19,7 +19,7 @@ public class Recollection : TouhouAncientEnchantmentModel
     private CardModel? _pendingRecall;
     private bool isWaitingForFree;
 
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? source)
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (!HasCard) return;
         if (card != base.Card) return;

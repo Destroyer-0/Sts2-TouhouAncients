@@ -27,6 +27,6 @@ public class DustyRose : TouhouAncientRelics
         if (player.Creature.CombatState == null) return;
         var koishiEye = player.Creature.CombatState.CreateCard<TheKoishiEye>(player);
         Flash();
-        await CardPileCmd.AddGeneratedCardsToCombat([koishiEye], PileType.Hand, addedByPlayer: true);
+        await CardPileCmd.AddGeneratedCardsToCombat([koishiEye], PileType.Hand, creator: base.Owner);
     }
 }

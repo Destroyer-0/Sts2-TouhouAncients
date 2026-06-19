@@ -45,6 +45,6 @@ public class Exorcism : TouhouAncientEnchantmentModel
 
         // 放入手牌
         CardCmd.PreviewCardPileAdd(
-            await CardPileCmd.AddGeneratedCardsToCombat([dreamSeal], PileType.Hand, addedByPlayer: true, CardPilePosition.Random));
+            await CardPileCmd.AddGeneratedCardsToCombat([dreamSeal], PileType.Hand, creator: player, CardPilePosition.Random));
     }
 }
