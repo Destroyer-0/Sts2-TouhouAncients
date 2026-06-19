@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using TouhouAncients.Scripts.Afflictions;
 
 namespace TouhouAncients.Scripts.relics;
 

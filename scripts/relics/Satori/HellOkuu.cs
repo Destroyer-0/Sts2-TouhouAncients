@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -29,14 +30,15 @@ public class HellOkuu : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Burn>().Append(HoverTipFactory.FromPower<StrengthPower>());
 
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Player) return;
         if (base.Owner.PlayerCombatState == null) return;
         if (base.Owner.PlayerCombatState.Energy > 0) return;
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, true);
-        await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, base.DynamicVars["Strength"].BaseValue,
+        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars["Strength"].BaseValue,
             base.Owner.Creature, null);
         await Cmd.Wait(0.5f);
     }

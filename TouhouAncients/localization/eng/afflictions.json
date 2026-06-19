@@ -1,0 +1,7 @@
+{
+  "DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
+  "DEVOURED.title": "Devoured",
+  "WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
+  "WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
+  "WEIGHTED.title": "Weighted"
+}

@@ -37,7 +37,7 @@ public class HeavenlyRevelation : TouhouAncientRelics
         await PlayerCmd.GainStars(Owner.PlayerCombatState.Stars, Owner);
         foreach (var buff in buffs)
         {
-            await PowerCmd.ModifyAmount(buff, buff.Amount, creature, null);
+            await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), buff, buff.Amount, creature, null);
         }
     }
 }

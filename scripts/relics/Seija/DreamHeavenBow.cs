@@ -56,10 +56,13 @@ public class DreamHeavenBow : TouhouAncientRelics
         VfxCmd.PlayOnCreatureCenters(enemies, "vfx/vfx_attack_slash");
         if (enemies.Count > highestHpEnemies.Count)
         {
-            await CreatureCmd.Damage(choiceContext, enemies.Except(highestHpEnemies), baseDamage, ValueProp.Unpowered, base.Owner.Creature);
+            await CreatureCmd.Damage(choiceContext, enemies.Except(highestHpEnemies), baseDamage, ValueProp.Unpowered,
+                base.Owner.Creature);
         }
 
-        await CreatureCmd.Damage(choiceContext, highestHpEnemies, bonusDamage, ValueProp.Unpowered, base.Owner.Creature);
-        await PowerCmd.Apply<WeakPower>(highestHpEnemies, base.DynamicVars["Weak"].BaseValue, base.Owner.Creature, null);
+        await CreatureCmd.Damage(choiceContext, highestHpEnemies, bonusDamage, ValueProp.Unpowered,
+            base.Owner.Creature);
+        await PowerCmd.Apply<WeakPower>(choiceContext, highestHpEnemies, base.DynamicVars["Weak"].BaseValue,
+            base.Owner.Creature, null);
     }
 }

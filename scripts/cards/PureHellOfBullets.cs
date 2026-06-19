@@ -76,7 +76,7 @@ public class PureHellOfBullets : TouhouAncientCards
         }
 
         // 应用弹幕地狱 Power（让攻击牌免费 + 抽牌 + 检测无攻击牌结束回合）
-        await PowerCmd.Apply<HellOfBulletsPower>(player.Creature, 1m, player.Creature, this);
+        await PowerCmd.Apply<HellOfBulletsPower>(choiceContext, player.Creature, 1m, player.Creature, this);
     }
 
     protected override void OnUpgrade()

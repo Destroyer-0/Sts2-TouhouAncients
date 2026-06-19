@@ -89,7 +89,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
     /// <summary>
     /// 战斗开始时，将3张灼伤放入抽牌堆。
     /// </summary>
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player == base.Owner && combatState.RoundNumber == 1)
         {
@@ -117,7 +117,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
         Flash();
         await CardPileCmd.Draw(context, DrawCount, base.Owner);
         await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<ThornsPower>(base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
+        await PowerCmd.Apply<ThornsPower>(context,base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
     }
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
@@ -126,8 +126,8 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
         if (cardSource is Burn)
         {
             await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, null);
-            await PowerCmd.Apply<ThornsPower>(base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
-            await PowerCmd.Apply<DrawCardsNextTurnPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+            await PowerCmd.Apply<ThornsPower>(choiceContext, base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
+            await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
     }
 

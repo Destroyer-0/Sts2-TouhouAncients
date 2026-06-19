@@ -27,7 +27,7 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -78,13 +78,13 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
         // 延长1回合（增加层数即延长）
         RemainingTurns++;
         // 给予自身灾厄
-        await PowerCmd.Apply<DoomPower>(base.Owner, base.DynamicVars["SelfDoomAmount"].BaseValue, base.Owner, null);
+        await PowerCmd.Apply<DoomPower>(choiceContext, base.Owner, base.DynamicVars["SelfDoomAmount"].BaseValue, base.Owner, null);
     }
 
     /// <summary>
     /// 在玩家回合开始时减少计数
     /// </summary>
-    public override async Task AfterTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Side) return;
         if (Owner.CombatState == null) return;
@@ -105,7 +105,7 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
                 }
 
                 // 给予灾厄
-                await PowerCmd.Apply<DoomPower>(enemy, base.DynamicVars["DoomAmount"].BaseValue, base.Owner, null);
+                await PowerCmd.Apply<DoomPower>(choiceContext, enemy, base.DynamicVars["DoomAmount"].BaseValue, base.Owner, null);
             }
 
             // 移除自身

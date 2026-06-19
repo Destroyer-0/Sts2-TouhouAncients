@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Rooms;
+using TouhouAncients.Scripts.Afflictions;
 
 namespace TouhouAncients.Scripts.relics;
 

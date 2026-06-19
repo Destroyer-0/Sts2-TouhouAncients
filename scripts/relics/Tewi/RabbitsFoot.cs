@@ -32,7 +32,7 @@ public class RabbitsFoot : TouhouAncientRelics
         alternatives.Add(new CardRewardAlternative(
             _sellKey,
             OnSellCard,
-            PostAlternateCardRewardAction.DismissScreenAndRemoveReward));
+            PostAlternateCardRewardAction.EndSelectionAndCompleteReward));
         return true;
     }
 

@@ -70,7 +70,7 @@ public class SoulLattern : TouhouAncientRelics
         if (hasTriggeredThisCombat) return;
         Flash();
         hasTriggeredThisCombat = true;
-        await PowerCmd.Apply<ReaperFormPower>(base.Owner.Creature, base.DynamicVars["ReaperFormAmount"].BaseValue,
+        await PowerCmd.Apply<ReaperFormPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["ReaperFormAmount"].BaseValue,
             base.Owner.Creature, null);
     }
 

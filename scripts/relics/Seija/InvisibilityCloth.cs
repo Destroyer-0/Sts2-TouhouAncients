@@ -47,13 +47,15 @@ public class InvisibilityCloth : TouhouAncientRelics
         Flash();
         base.Status = RelicStatus.Active;
 
+        await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m,
+            base.Owner.Creature, null);
         // 给予壁垒状态
-        await PowerCmd.Apply<BarricadePower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<BarricadePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m,
+            base.Owner.Creature, null);
 
         // 获得15格挡
         await CreatureCmd.GainBlock(base.Owner.Creature, 15m, ValueProp.Unpowered, null, fast: false);
 
-        await PowerCmd.Apply<DexterityPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
         _firstDamageTaken = false;
     }
 
@@ -78,6 +80,6 @@ public class InvisibilityCloth : TouhouAncientRelics
             await PowerCmd.Remove(barricade);
         }
 
-        await PowerCmd.Apply<RingingPower>(target, 1m, target, null);
+        await PowerCmd.Apply<RingingPower>(choiceContext, target, 1m, target, null);
     }
 }

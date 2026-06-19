@@ -7,6 +7,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -61,7 +62,7 @@ public class MushroomBento : TouhouAncientRelics
         return amount + base.DynamicVars.Energy.IntValue;
     }
 
-    public override async Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return;
         if (base.Owner.PlayerCombatState == null) return;
@@ -70,7 +71,7 @@ public class MushroomBento : TouhouAncientRelics
         if (hand.Cards.Count < 3) return;
 
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<SporeMind>(base.Owner.Creature, PileType.Draw, 1, true);
+        await CardPileCmd.AddToCombatAndPreview<SporeMind>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner);
     }
 }
 
@@ -191,7 +192,7 @@ public static class FragrantMushroomHpLossPatch
     }
 
     [HarmonyPrefix]
-    public static bool Prefix(FragrantMushroom __instance)
+    public static bool Prefix(FragrantMushroom __instance, ref Task __result)
     {
         try
         {
@@ -202,6 +203,7 @@ public static class FragrantMushroomHpLossPatch
                 
                 foreach (CardModel card in PileType.Deck.GetPile(__instance.Owner).Cards.Where<CardModel>((Func<CardModel, bool>) (c => c != null && c.IsUpgradable)).ToList<CardModel>().StableShuffle<CardModel>(__instance.Owner.RunState.Rng.Niche).Take<CardModel>(__instance.DynamicVars.Cards.IntValue))
                     CardCmd.Upgrade(card, CardPreviewStyle.MessyLayout);
+                __result = Task.CompletedTask; // 返回已完成 Task，避免 await null 引发 NullReferenceException
                 return false; // 跳过原方法（不执行扣血）
             }
 

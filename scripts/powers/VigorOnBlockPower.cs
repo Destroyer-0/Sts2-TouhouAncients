@@ -40,7 +40,7 @@ public class VigorOnBlockPower : TouhouAncientPowerModel
         if (vigorAmount > 0)
         {
             Flash();
-            await PowerCmd.Apply<VigorPower>(base.Owner, vigorAmount, base.Owner, null);
+            await PowerCmd.Apply<VigorPower>(choiceContext, base.Owner, vigorAmount, base.Owner, null);
         }
     }
 

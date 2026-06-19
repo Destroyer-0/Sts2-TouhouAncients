@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -19,6 +20,7 @@ public class FoldingUmbrella : TouhouAncientRelics
     public override async Task BeforeCombatStart()
     {
         Flash();
-        await PowerCmd.Apply<ReflectPower>(base.Owner.Creature, 5m, base.Owner.Creature, null);
+        await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 5m,
+            base.Owner.Creature, null);
     }
 }

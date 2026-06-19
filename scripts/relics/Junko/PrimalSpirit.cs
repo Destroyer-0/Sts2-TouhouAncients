@@ -86,7 +86,7 @@ public class PrimalSpirit : TouhouAncientRelics
     public override async Task BeforeCombatStart()
     {
         HasTriggered = false;
-        await PowerCmd.Apply<IntangiblePower>(base.Owner.Creature, base.DynamicVars["IntangibleAmount"].BaseValue, base.Owner.Creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["IntangibleAmount"].BaseValue, base.Owner.Creature, null);
     }
 
     /// <summary>
@@ -116,7 +116,7 @@ public class PrimalSpirit : TouhouAncientRelics
         // 第五回合开始时获得孤注一掷
         if (round == triggerTurn)
         {
-            await PowerCmd.Apply<TheGambitPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+            await PowerCmd.Apply<TheGambitPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
     }
 

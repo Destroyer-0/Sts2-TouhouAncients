@@ -30,7 +30,8 @@ public class SubspaceHole : TouhouAncientRelics
         HoverTipFactory.FromPower<IntangiblePower>()
     ];
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
+        DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target != base.Owner.Creature) return;
         if (!CombatManager.Instance.IsInProgress) return;
@@ -39,7 +40,8 @@ public class SubspaceHole : TouhouAncientRelics
 
         _usedThisCombat = true;
         Flash();
-        await PowerCmd.Apply<IntangiblePower>(target, base.DynamicVars["IntangiblePower"].BaseValue, target, null);
+        await PowerCmd.Apply<IntangiblePower>(choiceContext, target, base.DynamicVars["IntangiblePower"].BaseValue,
+            target, null);
     }
 
     public override Task AfterCombatEnd(CombatRoom _)

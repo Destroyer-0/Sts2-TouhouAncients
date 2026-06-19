@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -23,7 +24,7 @@ public class SailorSuit : TouhouAncientRelics
     public override async Task BeforeCombatStart()
     {
         Flash();
-        await PowerCmd.Apply<ArtifactPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<ArtifactPower>(new ThrowingPlayerChoiceContext(),base.Owner.Creature, 1m, base.Owner.Creature, null);
     }
 
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier, CardModel? cardSource)
@@ -56,9 +57,11 @@ public class SailorSuit : TouhouAncientRelics
 
         foreach (var enemy in enemies)
         {
-            await PowerCmd.Apply<T>(enemy, amount, base.Owner.Creature, null);
+            await PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), enemy, amount, base.Owner.Creature, null);
         }
     }
+
+    private bool _preventArtifactDecrement;
 
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
@@ -68,21 +71,43 @@ public class SailorSuit : TouhouAncientRelics
         out Decimal modifiedAmount)
     {
         modifiedAmount = amount;
-        
+
         if (target != Owner.Creature)
         {
-            modifiedAmount = amount;
             return false;
         }
         if (Owner.Creature.CombatState == null)
         {
             return false;
         }
+
+        // When ArtifactPower tries to decrement itself after blocking a debuff we handle,
+        // prevent the decrement to save Artifact stacks.
+        if (canonicalPower is ArtifactPower && amount < 0 && _preventArtifactDecrement)
+        {
+            modifiedAmount = 0;
+            _preventArtifactDecrement = false;
+            return true;
+        }
+
+        // Nullify Frail/Vulnerable/Weak on self, and set flag to protect ArtifactPower
         if (canonicalPower is FrailPower or VulnerablePower or WeakPower)
         {
             modifiedAmount = 0;
+            _preventArtifactDecrement = true;
             return true;
         }
+
         return false;
+    }
+
+    public override async Task AfterModifyingPowerAmountReceived(PowerModel power)
+    {
+        // Safety: clear flag after the debuff processing cycle ends,
+        // in case ArtifactPower decrement was somehow skipped.
+        if (power is FrailPower or VulnerablePower or WeakPower)
+        {
+            _preventArtifactDecrement = false;
+        }
     }
 }

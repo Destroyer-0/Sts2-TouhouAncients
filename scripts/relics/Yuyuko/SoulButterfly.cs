@@ -46,7 +46,7 @@ public class SoulButterfly : TouhouAncientRelics
         Flash();
         _wasUsed = true;
         await CreatureCmd.Heal(creature, base.DynamicVars["ReviveHp"].BaseValue);
-        await PowerCmd.Apply<IntangiblePower>(creature, base.DynamicVars["IntangibleAmount"].BaseValue, creature, null);
+        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), creature, base.DynamicVars["IntangibleAmount"].BaseValue, creature, null);
         _dormantRemaining = (int)base.DynamicVars["DormantTurns"].BaseValue;
         InvokeDisplayAmountChanged();
     }

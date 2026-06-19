@@ -9,7 +9,7 @@ public class AllCreationHisouPower : PowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyPowerAmountGiven(PowerModel power, Creature giver, decimal amount, Creature? target,
+    public override decimal ModifyPowerAmountGivenAdditive(PowerModel power, Creature giver, decimal amount, Creature? target,
         CardModel? cardSource)
     {
         if (target != null && target == Owner && power is not AllCreationHisouPower && power.Type is PowerType.Buff &&
@@ -18,6 +18,6 @@ public class AllCreationHisouPower : PowerModel
             amount++;
         }
 
-        return base.ModifyPowerAmountGiven(power, giver, amount, target, cardSource);
+        return base.ModifyPowerAmountGivenAdditive(power, giver, amount, target, cardSource);
     }
 }

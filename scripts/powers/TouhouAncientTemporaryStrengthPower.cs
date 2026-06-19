@@ -73,11 +73,12 @@ public abstract class TouhouAncientTemporaryStrengthPower : TouhouAncientTempora
         else
         {
             StrengthPower? strengthPower =
-                await PowerCmd.Apply<StrengthPower>(target, (Decimal)this.Sign * amount, applier, cardSource, true);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), target, (Decimal)this.Sign * amount, applier, cardSource, true);
         }
     }
 
     public override async Task AfterPowerAmountChanged(
+        PlayerChoiceContext choiceContext,
         PowerModel power,
         Decimal amount,
         Creature? applier,
@@ -92,7 +93,7 @@ public abstract class TouhouAncientTemporaryStrengthPower : TouhouAncientTempora
         }
         else
         {
-            StrengthPower? strengthPower = await PowerCmd.Apply<StrengthPower>(temporaryStrengthPower.Owner,
+            StrengthPower? strengthPower = await PowerCmd.Apply<StrengthPower>(choiceContext, temporaryStrengthPower.Owner,
                 (Decimal)temporaryStrengthPower.Sign * amount, applier, cardSource, true);
         }
     }
@@ -104,7 +105,7 @@ public abstract class TouhouAncientTemporaryStrengthPower : TouhouAncientTempora
             return;
         power.Flash();
         await PowerCmd.Remove((PowerModel)power);
-        StrengthPower strengthPower = await PowerCmd.Apply<StrengthPower>(power.Owner,
+        StrengthPower strengthPower = await PowerCmd.Apply<StrengthPower>(choiceContext, power.Owner,
             (Decimal)(-power.Sign * power.Amount), power.Owner, (CardModel)null);
     }
 }

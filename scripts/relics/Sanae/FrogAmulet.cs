@@ -33,8 +33,9 @@ public class FrogAmulet : TouhouAncientRelics
         if (_bombPower == null)
         {
             _bombPower = (TheBombPower?)await PowerCmd.Apply<TheBombPower>(
-                base.Owner.Creature, 2m, base.Owner.Creature, null);
+                choiceContext, base.Owner.Creature, 2m, base.Owner.Creature, null);
         }
+
         _bombPower?.SetDamage(damageDealtThisTurn);
     }
 

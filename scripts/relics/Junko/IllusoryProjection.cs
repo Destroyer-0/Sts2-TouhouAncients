@@ -32,7 +32,7 @@ public class IllusoryProjection : TouhouAncientRelics
     public override async Task BeforeCombatStart()
     {
         // 获得混乱效果（参照 SneckoEye）
-        await PowerCmd.Apply<ConfusedPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<ConfusedPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, base.Owner.Creature, null);
     }
 
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)

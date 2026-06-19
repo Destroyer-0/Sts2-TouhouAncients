@@ -46,7 +46,7 @@ public class Yishixingqile : TouhouAncientRelics
         {
             for (int i = 0; i < player.RunState.Rng.Shuffle.NextInt(1, 3); i++)
             {
-                var candidates = merchantRoom.Inventory.AllEntries
+                var candidates = merchantRoom.Inventories.SelectMany(x=>x.AllEntries)
                     .Where(e => e.IsStocked
                                 && e != itemPurchased
                                 && !_freeEntries.Contains(e))

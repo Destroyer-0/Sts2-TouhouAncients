@@ -52,6 +52,7 @@ public class LifeMustPerish : TouhouAncientCards
         }
         // 应用自定义计数 Power
         var power = await PowerCmd.Apply<LifeMustPerishPower>(
+            choiceContext,
             base.Owner.Creature,
             9999,
             base.Owner.Creature,

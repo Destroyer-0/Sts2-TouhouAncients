@@ -22,7 +22,6 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class YinYangOrb : TouhouAncientRelics
 {
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(),
@@ -40,13 +39,13 @@ public class YinYangOrb : TouhouAncientRelics
         {
             // 阴：获得1临时力量
             Flash();
-            await PowerCmd.Apply<YinYangOrbStrengthPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+            await PowerCmd.Apply<YinYangOrbStrengthPower>(context, base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
         else if (cardPlay.Card.Type == CardType.Attack)
         {
             // 阳：获得1临时敏捷
             Flash();
-            await PowerCmd.Apply<YinYangOrbDexterityPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+            await PowerCmd.Apply<YinYangOrbDexterityPower>(context, base.Owner.Creature, 1m, base.Owner.Creature, null);
         }
     }
 }

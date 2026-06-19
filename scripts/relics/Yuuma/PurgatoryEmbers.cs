@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -31,12 +32,14 @@ public class PurgatoryEmbers : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Burn>();
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (player != base.Owner) return;
-        if (player.Creature.CombatState == null) return;
+        if (side != base.Owner.Creature.Side) return;
+        if (!participants.Contains(base.Owner.Creature)) return;
+        if (base.Owner.Creature.CombatState == null) return;
 
-        var exhaustPile = PileType.Exhaust.GetPile(player);
+        var exhaustPile = PileType.Exhaust.GetPile(Owner);
         if (exhaustPile.IsEmpty) return;
 
         var exhaustCards = exhaustPile.Cards.ToList();
@@ -46,7 +49,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
         var selected = (await CardSelectCmd.FromSimpleGrid(
             choiceContext,
             exhaustCards,
-            player,
+            Owner,
             prefs
             )).ToList();
 
@@ -64,7 +67,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
         var burns = new List<CardModel>();
         for (int i = 0; i < selected.Count; i++)
         {
-            burns.Add(combatState.CreateCard<Burn>(player));
+            burns.Add(combatState.CreateCard<Burn>(Owner));
         }
         await CardPileCmd.AddGeneratedCardsToCombat(burns, PileType.Draw, creator: base.Owner, CardPilePosition.Random);
     }

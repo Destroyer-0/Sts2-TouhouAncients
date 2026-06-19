@@ -31,7 +31,7 @@ public class Geishehuaxiaojie : TouhouAncientRelics
         {
             _powers.Clear();
             Flash();
-            _powers.AddRange(await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, Owner.Creature, null));
+            _powers.AddRange(await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(choiceContext, combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, Owner.Creature, null));
         }
     }
 
@@ -46,8 +46,8 @@ public class Geishehuaxiaojie : TouhouAncientRelics
             if (!power.Owner.IsAlive) continue;
             if (power.Amount <= 0) continue;
 
-            await PowerCmd.ModifyAmount(power, -1, null, null);
-            await PowerCmd.Apply<StrengthPower>(power.Owner, 1, null, null);
+            await PowerCmd.ModifyAmount(context, power, -1, null, null);
+            await PowerCmd.Apply<StrengthPower>(context, power.Owner, 1, null, null);
         }
     }
 }

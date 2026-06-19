@@ -39,7 +39,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
     {
         var creature = base.Owner.Creature;
         _keystoneInserted = false;
-        await PowerCmd.Apply<KeystonePower>(creature, base.DynamicVars.Damage.BaseValue, creature, null);
+        await PowerCmd.Apply<KeystonePower>(new ThrowingPlayerChoiceContext(),creature, base.DynamicVars.Damage.BaseValue, creature, null);
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -84,7 +84,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
                 base.Owner.Creature,
                 null);
             
-            await PowerCmd.ModifyAmount(keystonePower, base.DynamicVars["ExtraDamage"].BaseValue, Owner.Creature, null);
+            await PowerCmd.ModifyAmount(choiceContext, keystonePower, base.DynamicVars["ExtraDamage"].BaseValue, Owner.Creature, null);
             Flash();
             base.Status = RelicStatus.Normal;
         }

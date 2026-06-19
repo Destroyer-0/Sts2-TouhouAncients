@@ -39,7 +39,8 @@ public class StageDevice : TouhouAncientRelics
         HoverTipFactory.FromPower<DexterityPower>()
     ];
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (side != base.Owner.Creature.Side) return;
 
@@ -53,13 +54,17 @@ public class StageDevice : TouhouAncientRelics
 
         if (round % 2 == 1) // 奇数回合：临时力量 + 易伤
         {
-            await PowerCmd.Apply<StageDeviceStrengthPower>(playerCreature, base.DynamicVars["TempStr"].BaseValue, playerCreature, null);
-            await PowerCmd.Apply<VulnerablePower>(enemies, base.DynamicVars["VulnAmount"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<StageDeviceStrengthPower>(new ThrowingPlayerChoiceContext(), playerCreature,
+                base.DynamicVars["TempStr"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), enemies,
+                base.DynamicVars["VulnAmount"].BaseValue, playerCreature, null);
         }
         else // 偶数回合：临时敏捷 + 虚弱
         {
-            await PowerCmd.Apply<StageDeviceDexterityPower>(playerCreature, base.DynamicVars["TempDex"].BaseValue, playerCreature, null);
-            await PowerCmd.Apply<WeakPower>(enemies, base.DynamicVars["WeakAmount"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<StageDeviceDexterityPower>(new ThrowingPlayerChoiceContext(), playerCreature,
+                base.DynamicVars["TempDex"].BaseValue, playerCreature, null);
+            await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), enemies,
+                base.DynamicVars["WeakAmount"].BaseValue, playerCreature, null);
         }
     }
 }

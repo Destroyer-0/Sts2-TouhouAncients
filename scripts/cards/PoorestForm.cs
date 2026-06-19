@@ -58,7 +58,7 @@ public class PoorestForm : TouhouAncientCards
         var creature = base.Owner.Creature;
 
         // 至贫形态可叠加
-        await PowerCmd.Apply<PoorestFormPower>(creature, base.DynamicVars["FormAmount"].BaseValue, creature, this);
+        await PowerCmd.Apply<PoorestFormPower>(choiceContext, creature, base.DynamicVars["FormAmount"].BaseValue, creature, this);
     }
 
     protected override void OnUpgrade()

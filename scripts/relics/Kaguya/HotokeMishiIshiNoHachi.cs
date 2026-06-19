@@ -55,7 +55,7 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
         var creature = base.Owner?.Creature;
         if (creature == null) return;
 
-        await PowerCmd.Apply<DexterityPower>(creature, DexterityAmount, creature, null);
+        await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), creature, DexterityAmount, creature, null);
         await CreatureCmd.GainBlock(creature, DynamicVars["StartBlock"].BaseValue, ValueProp.Unpowered, null);
     }
 

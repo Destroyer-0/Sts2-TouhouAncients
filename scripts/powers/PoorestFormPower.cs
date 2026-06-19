@@ -94,16 +94,16 @@ public class PoorestFormPower : TouhouAncientPowerModel
             switch (debuffType)
             {
                 case 0:
-                    await PowerCmd.Apply<WeakPower>(target, 1m, base.Owner, null);
+                    await PowerCmd.Apply<WeakPower>(context, target, 1m, base.Owner, null);
                     break;
                 case 1:
-                    await PowerCmd.Apply<VulnerablePower>(target, 1m, base.Owner, null);
+                    await PowerCmd.Apply<VulnerablePower>(context, target, 1m, base.Owner, null);
                     break;
                 case 2:
-                    await PowerCmd.Apply<PoisonPower>(target, 3m, base.Owner, null);
+                    await PowerCmd.Apply<PoisonPower>(context, target, 3m, base.Owner, null);
                     break;
                 case 3:
-                    await PowerCmd.Apply<DoomPower>(target, 8m, base.Owner, null);
+                    await PowerCmd.Apply<DoomPower>(context, target, 8m, base.Owner, null);
                     break;
             }
         }

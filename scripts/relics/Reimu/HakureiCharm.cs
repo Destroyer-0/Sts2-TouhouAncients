@@ -21,7 +21,8 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class HakureiCharm : TouhouAncientRelics
 {
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
         if (player != base.Owner) return;
         if (combatState.RoundNumber != 1) return;
@@ -77,9 +78,9 @@ public class HakureiCharm : TouhouAncientRelics
             await CardPileCmd.Draw(choiceContext, 1, player, fromHandDraw: true);
             // 获得1力量、1敏捷、1集中、3费
             var creature = player.Creature;
-            await PowerCmd.Apply<StrengthPower>(creature, 1m, creature, null);
-            await PowerCmd.Apply<DexterityPower>(creature, 1m, creature, null);
-            await PowerCmd.Apply<FocusPower>(creature, 1m, creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, creature, 1m, creature, null);
+            await PowerCmd.Apply<DexterityPower>(choiceContext, creature, 1m, creature, null);
+            await PowerCmd.Apply<FocusPower>(choiceContext, creature, 1m, creature, null);
             await PlayerCmd.GainEnergy(3, player);
         }
     }

@@ -95,7 +95,7 @@ public class Oath : TouhouAncientEnchantmentModel
                 continue;
             }
 
-            await CardCmd.Exhaust(new ThrowingPlayerChoiceContext(), oathCard);//, //skipVisuals: true);
+            await CardCmd.Exhaust(choiceContext, oathCard);//, //skipVisuals: true);
             //protectedCards.Add(oathCard); // 记录已经被保护过的牌，避免重复触发消耗效果
         }
         //protectedCards.Clear();

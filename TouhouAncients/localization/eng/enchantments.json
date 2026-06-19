@@ -5,7 +5,7 @@
     "TOUHOUANCIENTS-HIGH_QUALITY.description": "Reduce this card's cost by [blue]1[/blue] for each card in your [gold]Deck[/gold] with the same name.",
     "TOUHOUANCIENTS-HIGH_QUALITY.title": "High Quality",
     
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "If this card is in your [gold]Hand[/gold] at the end of turn, reduce its cost by [blue]1[/blue] until it leaves your [gold]Hand[/gold]. When played, return to your [gold]Hand[/gold] and randomize its cost this turn.",
+    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "If this card is in your [gold]Hand[/gold] at the end of turn, reduce its cost by [blue]1[/blue] until it leaves your [gold]Hand[/gold]. When played, return this card to your [gold]Hand[/gold] and randomize its cost this turn.",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.extraCardText": "Snake bite reigns supreme!",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "Snake!!",
     
@@ -31,7 +31,7 @@
     "TOUHOUANCIENTS-OATH.description": "When this card is played, play all other [purple]Oath[/purple] cards. When this card is Exhausted, Exhaust all other [purple]Oath[/purple] cards.",
     "TOUHOUANCIENTS-OATH.title": "Oath",
 
-    "TOUHOUANCIENTS-WANDERING.description": "[blue]{BaseRemainingChance}[/blue] times per turn, if the last card you played was an [gold]Attack[/gold], return this card to your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
+    "TOUHOUANCIENTS-WANDERING.description": "[blue]{BaseRemainingChance}[/blue] times per turn, if the last card you played was an [gold]Attack[/gold], after play this card, put this card into your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
     "TOUHOUANCIENTS-WANDERING.extraCardText": "Guiding lost souls {RemainingChance}",
     "TOUHOUANCIENTS-WANDERING.title": "Linger",
 

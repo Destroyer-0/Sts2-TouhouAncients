@@ -56,17 +56,30 @@ public class SnakeBiteUpgrade : TouhouAncientEnchantmentModel
             base.Card.EnergyCost.AddUntilPlayed(_shouldResetNum);
             _shouldResetNum = 0;
         }
-
-        if (oldPileType == PileType.Play && card.Pile != null && card.Pile.Type != PileType.None)
-        {
-            await CardPileCmd.Add(Card, PileType.Hand, source: this);
-
-            // 本回合随机化耗能（0-3）
-            var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
-            Card.EnergyCost.SetThisTurn(randomCost);
-        }
+        //
+        // if (oldPileType == PileType.Play && card.Pile != null && card.Pile.Type != PileType.None)
+        // {
+        //     await CardPileCmd.Add(Card, PileType.Hand, clonedBy: this);
+        //
+        //     // 本回合随机化耗能（0-3）
+        // }
         
         return;
+    }
+
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    {
+        if (card != Card)
+            return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
+        var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
+        Card.EnergyCost.SetThisTurn(randomCost);
+        if (pileType == PileType.Discard)
+        {
+            return (PileType.Hand, CardPilePosition.Bottom);
+        }
+        return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
     }
 
     // public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)

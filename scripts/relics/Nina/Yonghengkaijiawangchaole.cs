@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -40,7 +41,7 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
         {
             _canAddEnergy = false;
             Flash();
-            await PowerCmd.Apply<PlatingPower>(base.Owner.Creature, base.DynamicVars["PlatingPower"].BaseValue, base.Owner.Creature, null);
+            await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(),base.Owner.Creature, base.DynamicVars["PlatingPower"].BaseValue, base.Owner.Creature, null);
         }
     }
 
@@ -63,7 +64,7 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
 	// 	}
 	// }
 
-    public override async Task AfterPowerAmountChanged(PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         if (power is PlatingPower platingPower && power.Owner == base.Owner.Creature && amount > 0)
         {

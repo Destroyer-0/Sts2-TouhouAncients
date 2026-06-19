@@ -42,7 +42,7 @@ public class RepositoryOfHirokawa : TouhouAncientRelics
         if (playedPowerThisTurn.Count > 0 && playedPowerThisTurn.All(x => x))
         {
             Flash();
-            await PowerCmd.Apply<BufferPower>(base.Owner.Creature, base.DynamicVars["BufferAmount"].BaseValue,
+            await PowerCmd.Apply<BufferPower>(choiceContext, base.Owner.Creature, base.DynamicVars["BufferAmount"].BaseValue,
                 base.Owner.Creature, null);
         }
 

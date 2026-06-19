@@ -16,14 +16,14 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class Huoyantuxi : TouhouAncientRelics
 {
-    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlameBarrierPower>(8)];
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Owner) return;
         Flash();
-        await PowerCmd.Apply<FlameBarrierPower>(base.Owner.Creature, base.DynamicVars["FlameBarrierPower"].BaseValue,
+        await PowerCmd.Apply<FlameBarrierPower>(choiceContext, base.Owner.Creature,
+            base.DynamicVars["FlameBarrierPower"].BaseValue,
             base.Owner.Creature, null);
     }
 }

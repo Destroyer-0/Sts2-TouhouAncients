@@ -66,6 +66,7 @@ public class Zhihuijizhongbing : TouhouAncientRelics
         // 没有打出任何牌 → 获得临时集中，生成冰霜充能球
         Flash();
         await PowerCmd.Apply<HotfixPower>(
+            choiceContext,
             base.Owner.Creature,
             base.DynamicVars["FocusPower"].BaseValue,
             base.Owner.Creature,

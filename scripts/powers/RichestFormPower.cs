@@ -112,7 +112,7 @@ public class RichestFormPower : TouhouAncientPowerModel
         if (capital != null && capital.Amount > 0)
         {
             var deductFromCapital = System.Math.Min(capital.Amount, costInCapital);
-            await PowerCmd.ModifyAmount(capital, -deductFromCapital, null, null);
+            await PowerCmd.ModifyAmount(context, capital, -deductFromCapital, null, null);
 
             var remainder = costInCapital - deductFromCapital;
             if (remainder > 0m)

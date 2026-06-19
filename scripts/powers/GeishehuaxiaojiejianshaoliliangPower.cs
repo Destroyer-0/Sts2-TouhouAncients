@@ -18,7 +18,7 @@ public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Applier")];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];
@@ -26,6 +26,6 @@ public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         ((StringVar)base.DynamicVars["Applier"]).StringValue = applier.Name;
-       return PowerCmd.Apply<StrengthPower>(Owner, -Amount, null, null);
+       return PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, -Amount, null, null);
     }
 }

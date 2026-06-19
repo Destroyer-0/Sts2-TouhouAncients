@@ -30,7 +30,7 @@ public class HisoutensokuModel : TouhouAncientRelics
     /// <summary>
     /// 战斗开始时，从10张升级过的故障机器人卡牌中选择5张加入抽牌堆，这些牌免费。
     /// </summary>
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
         if (combatState != player.Creature.CombatState) return;

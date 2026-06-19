@@ -101,7 +101,7 @@ public class FirmamentSash : TouhouAncientRelics
         {
             Flash();
             await CreatureCmd.Damage(
-                new ThrowingPlayerChoiceContext(),
+                choiceContext,
                 base.Owner.Creature,
                 MitigationTotal,
                 ValueProp.Unpowered,

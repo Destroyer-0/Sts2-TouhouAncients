@@ -87,7 +87,7 @@ public class TheFeast : TouhouAncientCards
             // 消耗牌并移至消耗堆
             await CardCmd.Exhaust(choiceContext,card);
             // 获得2力量与1费
-            await PowerCmd.Apply<StrengthPower>(player.Creature, DynamicVars["Strength"].BaseValue, player.Creature, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, player.Creature, DynamicVars["Strength"].BaseValue, player.Creature, null);
             await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, player);
         }
         

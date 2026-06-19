@@ -32,11 +32,11 @@ public class CometAccelerator : TouhouAncientRelics
         return amount + 2m;
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
 
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<Dazed>(base.Owner.Creature, PileType.Discard, DynamicVars["DazeNum"].IntValue, true);
+        await CardPileCmd.AddToCombatAndPreview<Dazed>(base.Owner.Creature, PileType.Discard, DynamicVars["DazeNum"].IntValue, creator: base.Owner);
     }
 }

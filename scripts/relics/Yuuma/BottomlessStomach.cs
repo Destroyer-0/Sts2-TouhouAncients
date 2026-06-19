@@ -27,6 +27,7 @@ namespace TouhouAncients.Scripts.relics;
 public class BottomlessStomach : TouhouAncientRelics
 {
     public override string DefaultFileName => "yuuma_default";
+
     [SavedProperty]
     public int TouhouAncients_ConsumedCount
     {
@@ -70,9 +71,10 @@ public class BottomlessStomach : TouhouAncientRelics
 
         // 获取初始遗物列表
         var startingRelicIds = player.Character.StartingRelics.Select(r => r.Id).ToHashSet();
-        var ancientRelics= ModelDb.AllAncients.SelectMany(x=>x.AllPossibleOptions).Select((EventOption o) => o.Relic?.CanonicalInstance).OfType<RelicModel>().Select(x=>x.Id).ToHashSet();
-        
-        
+        var ancientRelics = ModelDb.AllAncients.SelectMany(x => x.AllPossibleOptions)
+            .Select((EventOption o) => o.Relic?.CanonicalInstance).OfType<RelicModel>().Select(x => x.Id).ToHashSet();
+
+
         // 收集要吞噬的遗物（排除初始遗物和自身）
         var toConsume = player.Relics
             .Where(r => !startingRelicIds.Contains(r.Id) && r != this && !ancientRelics.Contains(r.Id))
@@ -104,6 +106,7 @@ public class BottomlessStomach : TouhouAncientRelics
         NCombatRoom.Instance?.GetCreatureNode(base.Owner.Creature)
             ?.ScaleTo(1 + TouhouAncients_ConsumedCount * 0.1f, 0f);
     }
+
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner) return amount;
@@ -119,9 +122,10 @@ public class BottomlessStomach : TouhouAncientRelics
             Flash();
             return count + drawBonus;
         }
+
         return count;
     }
-    
+
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
         if (room is CombatRoom)
@@ -131,10 +135,13 @@ public class BottomlessStomach : TouhouAncientRelics
             if (strDexCount > 0)
             {
                 Flash();
-                await PowerCmd.Apply<StrengthPower>(Owner.Creature, strDexCount * DynamicVars["Strength"].BaseValue, Owner.Creature, null);
-                await PowerCmd.Apply<DexterityPower>(Owner.Creature, strDexCount * DynamicVars["Dexterity"].BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+                    strDexCount * DynamicVars["Strength"].BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+                    strDexCount * DynamicVars["Dexterity"].BaseValue, Owner.Creature, null);
             }
         }
+
         Grow();
     }
 }

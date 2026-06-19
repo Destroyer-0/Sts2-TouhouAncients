@@ -36,7 +36,8 @@ public class DanmukuGhost : TouhouAncientRelics
     /// <summary>
     /// 敌人回合开始时，记录所有意图攻击的敌人
     /// </summary>
-    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (side == base.Owner.Creature.Side)
         {
@@ -70,7 +71,8 @@ public class DanmukuGhost : TouhouAncientRelics
     /// <summary>
     /// 敌人回合结束时，给攻击未造成伤害的敌人上缩小
     /// </summary>
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
         if (side == base.Owner.Creature.Side) return; // 只处理敌人回合结束
 
@@ -79,7 +81,8 @@ public class DanmukuGhost : TouhouAncientRelics
         if (attackingEnemiesThisTurn.IsAlive)
         {
             Flash();
-            await PowerCmd.Apply<ShrinkPower>(attackingEnemiesThisTurn, base.DynamicVars["ShrinkAmount"].BaseValue,
+            await PowerCmd.Apply<ShrinkPower>(choiceContext, attackingEnemiesThisTurn,
+                base.DynamicVars["ShrinkAmount"].BaseValue,
                 base.Owner.Creature, null);
         }
     }

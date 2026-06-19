@@ -21,24 +21,26 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 
 namespace TouhouAncients.Scripts.relics;
 
-
 [HarmonyPatch]
 public static class CurseBreakerQiPatchs
 {
     private static MethodBase TargetMethod()
     {
         return
-            typeof(CardModel).GetMethod("CanPlay", new[] {
+            typeof(CardModel).GetMethod("CanPlay", new[]
+            {
                 typeof(UnplayableReason).MakeByRefType(),
                 typeof(AbstractModel).MakeByRefType()
             });
     }
 
-    public static void Postfix(CardModel __instance, ref bool __result, ref UnplayableReason reason, ref AbstractModel preventer)
+    public static void Postfix(CardModel __instance, ref bool __result, ref UnplayableReason reason,
+        ref AbstractModel preventer)
     {
         try
         {
-            if (__instance.Owner != null && __instance.Owner.GetRelic<CurseBreakerQi>() != null && __instance.Type == CardType.Curse)
+            if (__instance.Owner != null && __instance.Owner.GetRelic<CurseBreakerQi>() != null &&
+                __instance.Type == CardType.Curse)
             {
                 if (!__result && reason.HasFlag(UnplayableReason.HasUnplayableKeyword))
                 {
@@ -56,6 +58,7 @@ public static class CurseBreakerQiPatchs
         }
     }
 }
+
 /// <summary>
 /// 破厄真气：拾起时获得9张随机诅咒。可以打出诅咒牌，打出诅咒时获得1力量、1能量并抽2张牌。
 /// </summary>
@@ -73,15 +76,17 @@ public class CurseBreakerQi : TouhouAncientRelics
         HoverTipFactory.FromKeyword(CardKeyword.Unplayable),
         HoverTipFactory.ForEnergy(this),
     ];
-    
+
     public override async Task AfterObtained()
     {
         var player = base.Owner;
 
         // 获得9张随机诅咒
-        HashSet<CardModel> availableCurses = (from c in ModelDb.CardPool<CurseCardPool>().GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)
-            where c.CanBeGeneratedByModifiers
-            select c).ToHashSet();
+        HashSet<CardModel> availableCurses =
+            (from c in ModelDb.CardPool<CurseCardPool>()
+                    .GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)
+                where c.CanBeGeneratedByModifiers
+                select c).ToHashSet();
         var rng = player.RunState.Rng.Shuffle;
         var cursesToAdd = availableCurses.ToList().UnstableShuffle(rng).Take(9);
         await CardPileCmd.AddCursesToDeck(cursesToAdd, player);
@@ -93,6 +98,7 @@ public class CurseBreakerQi : TouhouAncientRelics
         {
             card.RemoveKeyword(CardKeyword.Unplayable);
         }
+
         return base.AfterCardEnteredCombat(card);
     }
 
@@ -105,12 +111,13 @@ public class CurseBreakerQi : TouhouAncientRelics
 
         _firstCursePlayedThisTurn = true;
         Flash();
-        await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(context, base.Owner.Creature, 1m, base.Owner.Creature, null);
         await PlayerCmd.GainEnergy(1, base.Owner);
         await CardPileCmd.Draw(context, 3, base.Owner);
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (side == base.Owner.Creature.Side)
         {

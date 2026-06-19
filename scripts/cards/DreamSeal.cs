@@ -81,8 +81,8 @@ public class DreamSeal : TouhouAncientCards
         {
             if (enemy.Monster?.IntendsToAttack ?? false)
             {
-                await PowerCmd.Apply<VulnerablePower>(enemy, 1m, creature, this);
-                await PowerCmd.Apply<DreamSealStrengthDownPower>(enemy, strengthLoss, creature, this);
+                await PowerCmd.Apply<VulnerablePower>(choiceContext, enemy, 1m, creature, this);
+                await PowerCmd.Apply<DreamSealStrengthDownPower>(choiceContext, enemy, strengthLoss, creature, this);
             }
         }
     }

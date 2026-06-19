@@ -55,7 +55,7 @@ public class RichestForm : TouhouAncientCards
         var existingForm = creature.GetPower<RichestFormPower>();
         if (existingForm == null)
         {
-            await PowerCmd.Apply<RichestFormPower>(creature, 1m, creature, this);
+            await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, 1m, creature, this);
         }
 
         // 设置启动资金（覆盖已有资金）
@@ -63,11 +63,11 @@ public class RichestForm : TouhouAncientCards
         var existingCapital = creature.GetPower<CapitalPower>();
         if (existingCapital != null)
         {
-            await PowerCmd.ModifyAmount(existingCapital, startingCapital - existingCapital.Amount, null, null);
+            await PowerCmd.ModifyAmount(choiceContext, existingCapital, startingCapital - existingCapital.Amount, null, null);
         }
         else
         {
-            await PowerCmd.Apply<CapitalPower>(creature, startingCapital, creature, this);
+            await PowerCmd.Apply<CapitalPower>(choiceContext, creature, startingCapital, creature, this);
         }
     }
 

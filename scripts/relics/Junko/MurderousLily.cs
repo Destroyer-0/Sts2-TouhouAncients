@@ -66,7 +66,7 @@ public class MurderousLily : TouhouAncientRelics
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
-    public override async Task AfterAttack(AttackCommand command)
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
         if (command.Attacker != Owner.Creature)
         {
@@ -78,7 +78,7 @@ public class MurderousLily : TouhouAncientRelics
             return;
         }
 
-        if (command.Results.Any((DamageResult r) => r.WasTargetKilled))
+        if (command.Results.SelectMany(r => r).Any((DamageResult r) => r.WasTargetKilled))
         {
             killingAuraKilledThisCombat = true;
             base.Status = RelicStatus.Normal;

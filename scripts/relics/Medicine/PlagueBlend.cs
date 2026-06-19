@@ -65,7 +65,7 @@ public class PlagueBlend : TouhouAncientRelics
         if (side == base.Owner.Creature.Side && combatState.RoundNumber == TriggerTurn)
         {
             Flash();
-            await PowerCmd.Apply<PoisonPower>(Owner.Creature, PoisonAmount, Owner.Creature, null);
+            await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, PoisonAmount, Owner.Creature, null);
         }
     }
 }

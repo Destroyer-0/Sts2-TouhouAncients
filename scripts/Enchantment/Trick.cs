@@ -34,7 +34,7 @@ public class Trick : TouhouAncientEnchantmentModel
         if (cardPlay?.Card != base.Card) return;
         if (base.Status != EnchantmentStatus.Normal) return;
 
-        await PowerCmd.Apply<BufferPower>(base.Card.Owner.Creature, 1m, base.Card.Owner.Creature, base.Card);
+        await PowerCmd.Apply<BufferPower>(choiceContext, base.Card.Owner.Creature, 1m, base.Card.Owner.Creature, base.Card);
         base.Card.EnergyCost.AddThisCombat(1);
     }
 }

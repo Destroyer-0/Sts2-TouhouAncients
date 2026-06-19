@@ -63,7 +63,7 @@ public class LilyBell : TouhouAncientCards
         var selfPoison = base.DynamicVars["PoisonSelf"].BaseValue;
         if (selfPoison > 0)
         {
-            await PowerCmd.Apply<PoisonPower>(player.Creature, selfPoison, player.Creature, this);
+            await PowerCmd.Apply<PoisonPower>(choiceContext, player.Creature, selfPoison, player.Creature, this);
         }
     }
 
@@ -82,7 +82,7 @@ public class LilyBell : TouhouAncientCards
         var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature).Where(e => e.IsAlive);
         foreach (var enemy in enemies)
         {
-            await PowerCmd.Apply<PoisonPower>(enemy, poisonAmount, base.Owner.Creature, this);
+            await PowerCmd.Apply<PoisonPower>(choiceContext, enemy, poisonAmount, base.Owner.Creature, this);
         }
 
         // 获得的能量+1

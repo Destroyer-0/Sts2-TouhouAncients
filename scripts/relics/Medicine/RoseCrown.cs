@@ -39,9 +39,9 @@ public class RoseCrown : TouhouAncientRelics
         Flash();
 
         // ThornsAmount 层荆棘
-        await PowerCmd.Apply<ThornsPower>(creature, base.DynamicVars["ThornsAmount"].BaseValue, creature, null);
+        await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), creature, base.DynamicVars["ThornsAmount"].BaseValue, creature, null);
 
         // PlatingAmount 层覆甲
-        await PowerCmd.Apply<PlatingPower>(creature, base.DynamicVars["PlatingAmount"].BaseValue, creature, null);
+        await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), creature, base.DynamicVars["PlatingAmount"].BaseValue, creature, null);
     }
 }

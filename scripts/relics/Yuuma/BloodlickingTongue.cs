@@ -68,11 +68,11 @@ public class BloodlickingTongue : TouhouAncientRelics
             await CreatureCmd.GainMaxHp(base.Owner.Creature, DynamicVars["MaxHp"].IntValue);
             if (CombatManager.Instance.IsInProgress)
             {
-                await PowerCmd.Apply<StrengthPower>(base.Owner.Creature, DynamicVars["Strength"].BaseValue, base.Owner.Creature, null);
+                await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature,
+                    DynamicVars["Strength"].BaseValue, base.Owner.Creature, null);
             }
         }
 
         TouhouAncients_TotalHpLost %= Threshold;
-        
     }
 }

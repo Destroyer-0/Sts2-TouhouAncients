@@ -25,7 +25,7 @@ public class SealingNeedle : TouhouAncientRelics
     [
         HoverTipFactory.FromPower<WeakPower>()
     ];
-    
+
     // /// <summary>
     // /// 造成伤害后，给予目标1层虚弱（可叠加）。
     // /// </summary>
@@ -50,20 +50,21 @@ public class SealingNeedle : TouhouAncientRelics
             foreach (Creature enemy in base.Owner.Creature.CombatState.GetCreaturesOnSide(CombatSide.Enemy))
             {
                 if (enemy.IsAlive)
-                    await PowerCmd.Apply<WeakPower>(enemy, 1m, base.Owner.Creature, cardPlay.Card);
+                    await PowerCmd.Apply<WeakPower>(context, enemy, 1m, base.Owner.Creature, cardPlay.Card);
             }
         }
         else
         {
             if (cardPlay.Target == null || !cardPlay.Target.IsAlive || !cardPlay.Target.IsEnemy) return;
-            await PowerCmd.Apply<WeakPower>(cardPlay.Target, 1m, base.Owner.Creature, cardPlay.Card);
+            await PowerCmd.Apply<WeakPower>(context, cardPlay.Target, 1m, base.Owner.Creature, cardPlay.Card);
         }
     }
 
     /// <summary>
     /// 对处于虚弱状态的敌人，增加等同于其虚弱层数的伤害值。
     /// </summary>
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource)
     {
         if (cardSource == null) return 0m;
         if (target == null || !target.IsAlive || !target.IsEnemy) return 0m;
@@ -73,12 +74,11 @@ public class SealingNeedle : TouhouAncientRelics
             return 0m;
         }
 
-        if (dealer == base.Owner?.Creature||(dealer?.Monster is Osty&& Owner?.Creature == dealer.PetOwner?.Creature))
+        if (dealer == base.Owner?.Creature || (dealer?.Monster is Osty && Owner?.Creature == dealer.PetOwner?.Creature))
         {
             return target.GetPowerAmount<WeakPower>();
         }
 
         return 0m;
-        
     }
 }

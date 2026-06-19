@@ -79,7 +79,7 @@ public class Wandering : TouhouAncientEnchantmentModel
         {
             var blockAmount = base.DynamicVars["BlockAmount"].BaseValue;
             await CreatureCmd.GainBlock(card.Owner.Creature, blockAmount, ValueProp.Unpowered, null);
-            await CardPileCmd.Add(base.Card, PileType.Hand, source: this);
+            await CardPileCmd.Add(base.Card, PileType.Hand, clonedBy: this);
             DynamicVars["RemainingChance"].UpgradeValueBy(-1);
             if (DynamicVars["RemainingChance"].IntValue <= 0)
             {

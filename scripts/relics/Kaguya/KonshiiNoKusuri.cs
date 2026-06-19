@@ -77,7 +77,7 @@ public class KonshiiNoKusuri : TouhouAncientRelics
     /// <summary>
     /// 战斗开始时，将绀珠之药置入手牌。
     /// </summary>
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
         if (Owner.Creature.CombatState == null) return;

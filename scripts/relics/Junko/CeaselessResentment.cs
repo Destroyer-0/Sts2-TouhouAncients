@@ -39,7 +39,7 @@ public class CeaselessResentment : TouhouAncientRelics
         if (result.UnblockedDamage <= 0) return;
 
 
-        await PowerCmd.Apply<YuanChouPower>(dealer, result.UnblockedDamage, base.Owner.Creature, null);
+        await PowerCmd.Apply<YuanChouPower>(choiceContext, dealer, result.UnblockedDamage, base.Owner.Creature, null);
         
         // var existingPower = dealer.GetPower<YuanChouPower>();
         // if (existingPower != null)

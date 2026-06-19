@@ -42,7 +42,7 @@ public class MaliciousFairyTale : TouhouAncientRelics
         Flash();
 
         // 获得 Power 点力量
-        await PowerCmd.Apply<StrengthPower>(player.Creature, base.DynamicVars["Power"].BaseValue, player.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, player.Creature, base.DynamicVars["Power"].BaseValue, player.Creature, null);
         
         //await PowerCmd.Apply<ThornsPower>(player.Creature.CombatState.Enemies, base.DynamicVars["ThornsAmount"].BaseValue, player.Creature, null);
     }
@@ -56,7 +56,7 @@ public class MaliciousFairyTale : TouhouAncientRelics
         var enemies = creature.CombatState.GetOpponentsOf(creature).Where(c => c.IsAlive);
         foreach (var enemy in enemies)
         {
-            await PowerCmd.Apply<ThornsPower>(enemy, base.DynamicVars["ThornsAmount"].BaseValue, enemy, null);
+            await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), enemy, base.DynamicVars["ThornsAmount"].BaseValue, enemy, null);
         }
     }
     

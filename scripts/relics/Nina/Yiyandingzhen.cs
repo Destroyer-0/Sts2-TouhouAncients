@@ -13,10 +13,10 @@ using MegaCrit.Sts2.Core.TestSupport;
 namespace TouhouAncients.Scripts.relics;
 
 [Pool(typeof(EventRelicPool))]
-public class Yiyandingzhen: TouhouAncientRelics
+public class Yiyandingzhen : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [(HoverTipFactory.FromPower<ConfusedPower>())];
-    
+
     public override async Task AfterObtained()
     {
         if (CombatManager.Instance.IsInProgress)
@@ -32,7 +32,8 @@ public class Yiyandingzhen: TouhouAncientRelics
 
     private async Task ApplyPower()
     {
-        await PowerCmd.Apply<ConfusedPower>(base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<ConfusedPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m,
+            base.Owner.Creature, null);
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

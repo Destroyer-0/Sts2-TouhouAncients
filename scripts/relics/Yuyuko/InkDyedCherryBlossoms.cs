@@ -108,20 +108,18 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
 /// <summary>
 /// 赏樱休息处选项
 /// </summary>
-public class InkDyedCherryBlossomsRestSiteOption : RestSiteOption
+public class InkDyedCherryBlossomsRestSiteOption(Player owner, InkDyedCherryBlossoms relic) : RestSiteOption(owner)
 {
-    private readonly InkDyedCherryBlossoms _relic;
-
     public override string OptionId => "INK_DYED_CHERRY_BLOSSOMS";
 
     public override LocString Description
     {
         get
         {
-            if (base.IsEnabled && _relic.LostMaxHpTotal > 0)
+            if (base.IsEnabled && relic.LostMaxHpTotal > 0)
             {
                 LocString locString = new LocString("rest_site_ui", "OPTION_" + OptionId + ".description");
-                locString.Add("MaxHpGain", _relic.LostMaxHpTotal);
+                locString.Add("MaxHpGain", relic.LostMaxHpTotal);
                 return locString;
             }
 
@@ -129,17 +127,13 @@ public class InkDyedCherryBlossomsRestSiteOption : RestSiteOption
         }
     }
 
-    public InkDyedCherryBlossomsRestSiteOption(Player owner, InkDyedCherryBlossoms relic) : base(owner)
-    {
-        _relic = relic;
-        base.IsEnabled = _relic.DisplayAmount > 0;
-    }
+    public override bool IsEnabled => relic.DisplayAmount > 0;
 
     public override async Task<bool> OnSelect()
     {
-        if (_relic != null)
+        if (relic != null)
         {
-            await _relic.RestoreLostMaxHp();
+            await relic.RestoreLostMaxHp();
             return true;
         }
 

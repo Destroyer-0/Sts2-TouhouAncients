@@ -46,7 +46,7 @@ public class MiniHakkero : TouhouAncientRelics
         if (selected.Count >= 2)
         {
             Flash();
-            await PowerCmd.Apply<EnergyNextTurnPower>(base.Owner.Creature,
+            await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, base.Owner.Creature,
                 base.DynamicVars.Energy.BaseValue, base.Owner.Creature, null);
         }
     }
