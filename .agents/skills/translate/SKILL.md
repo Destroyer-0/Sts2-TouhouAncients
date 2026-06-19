@@ -5,7 +5,17 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 # Translate — TouhouAncients 本地化英译
 
-将 `TouhouAncients/localization/zhs/` 中的中文文本翻译为英文，输出到 `TouhouAncients/localization/eng/`。
+将 `TouhouAncients/localization/zhs/` 中的中文文本翻译为英文，输出到 `TouhouAncients/localization/eng/` 和 `TouhouAncients/localization/jpn/`（jpn 用英语填充）。
+
+## 增量翻译规则
+
+> **翻译基准线**：`bdd0435`（2026-06-17 记录）
+> 此后调用 `/translate` 时，**只翻译自该基准提交之后新增或变更的本地化内容**。
+>
+> 操作步骤：
+> 1. 运行 `git diff bdd0435 -- TouhouAncients/localization/zhs/` 查看新增/变更的条目
+> 2. 只处理这些新增或变更条目的翻译
+> 3. 已有译文的条目不动
 
 ## 前置参考
 
@@ -273,7 +283,9 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 2. 读取 `eng/{filename}` 查看当前已翻译状态
 3. 针对每个未翻译的条目（值仍为中文的），逐条生成英文翻译
 4. 使用 `replace_string_in_file` 或 `multi_replace_string_in_file` 替换为英文值
-5. 翻译完成后告知用户翻译了哪些条目
+5. **同步到 jpn**：将 eng 中的相同内容同步写入 `jpn/{filename}`（jpn 使用英语，与 eng 完全一致）
+6. **更新翻译记录**：在对应的翻译记录文档（如 `docs/relic翻译.md`、`docs/ancients翻译.md`）中记录翻译结果
+7. 翻译完成后告知用户翻译了哪些条目
 
 ### 术语一致性检查
 - 同一中文术语在所有文件中必须翻译为同一个英文词

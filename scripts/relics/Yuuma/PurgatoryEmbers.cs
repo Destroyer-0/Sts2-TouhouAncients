@@ -30,9 +30,13 @@ public class PurgatoryEmbers : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<Burn>();
+        HoverTipFactory.FromCardWithCardHoverTips<Burn>().Append(
+            HoverTipFactory.FromKeyword(CardKeyword.Exhaust)).Append(
+            HoverTipFactory.FromKeyword(CardKeyword.Ethereal));
 
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
+
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+        IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
         if (side != base.Owner.Creature.Side) return;
@@ -51,7 +55,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
             exhaustCards,
             Owner,
             prefs
-            )).ToList();
+        )).ToList();
 
         if (selected.Count == 0) return;
 
@@ -60,6 +64,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
         // 将选中的牌移入手牌
         foreach (var card in selected)
         {
+            card.AddKeyword(CardKeyword.Ethereal);
             await CardPileCmd.Add(card, PileType.Hand);
         }
 
@@ -69,6 +74,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
         {
             burns.Add(combatState.CreateCard<Burn>(Owner));
         }
+
         await CardPileCmd.AddGeneratedCardsToCombat(burns, PileType.Draw, creator: base.Owner, CardPilePosition.Random);
     }
 }

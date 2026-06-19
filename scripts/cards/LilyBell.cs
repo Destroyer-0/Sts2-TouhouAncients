@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,7 +12,9 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Afflictions;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -33,20 +38,44 @@ public class LilyBell : TouhouAncientCards
     [
         new EnergyVar(1),
         new CardsVar(2),
-        new DynamicVar("PoisonPower", 2),
-        new DynamicVar("PoisonSelf", 0)
+        new DynamicVar("Multiplier", 3),
+        new DynamicVar("ExtraAmount", 2),
+        new CalculationBaseVar(0m),
+        new CalculationExtraVar(1m),
+        new CalculatedVar("CalculatePoison").WithMultiplier((CardModel card, Creature? my) =>
+            card.Affliction is not Tainted tainted
+                ? 0
+                : (tainted.Amount + card.Owner.Creature.GetPowerAmount<TaintedPower>()) * (card.IsUpgraded ? 4 : 3))
     ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>(), HoverTipFactory.ForEnergy(this)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Tainted>()
+        .Append(HoverTipFactory.FromPower<PoisonPower>());
 
     public LilyBell() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
 
+    public override async Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (card != this) return;
+        await TryAfflictTainted(0);
+    }
+
+    private async Task TryAfflictTainted(int amount)
+    {
+        if (this.Affliction is Tainted tainted)
+        {
+            tainted.Amount += amount;
+        }
+        else
+        {
+            await CardCmd.Afflict<Tainted>(this, amount);
+        }
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (cardPlay.Card != this) return;
         var player = base.Owner;
 
         // 获得能量
@@ -58,38 +87,40 @@ public class LilyBell : TouhouAncientCards
 
         // 抽2张牌
         await CardPileCmd.Draw(choiceContext, base.DynamicVars["Cards"].IntValue, player, fromHandDraw: true);
+    }
 
-        // 给予自身中毒（初始为0，后续回合递增）
-        var selfPoison = base.DynamicVars["PoisonSelf"].BaseValue;
-        if (selfPoison > 0)
+    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    {
+        if (card != this) return;
+        if (base.CombatState == null) return;
+        await TryAfflictTainted(DynamicVars["ExtraAmount"].IntValue);
+    }
+
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card != this) return;
+        if (base.CombatState == null) return;
+        if (CombatState.Creatures.All(x => !x.HasPower<VitalSparkPower>()))
         {
-            await PowerCmd.Apply<PoisonPower>(choiceContext, player.Creature, selfPoison, player.Creature, this);
+            if (cardPlay.Card.Affliction is Tainted tainted)
+            {
+                await PowerCmd.Apply<TaintedPower>(choiceContext, cardPlay.Card.Owner.Creature, tainted.Amount, null,
+                    null);
+            }
         }
     }
 
-    /// <summary>
-    /// 回合结束时若在手牌中：给所有敌人中毒，能量+1，自身上毒量+1
-    /// </summary>
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (side != base.Owner.Creature.Side) return;
-        if (Pile is not { Type: PileType.Hand }) return;
-
-        CardCmd.Preview(this, 1);
-
-        // 给予所有敌人中毒
-        var poisonAmount = base.DynamicVars["PoisonPower"].BaseValue;
-        var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature).Where(e => e.IsAlive);
-        foreach (var enemy in enemies)
+        if (cardPlay.Card != this) return;
+        if (base.CombatState == null) return;
+        await TryAfflictTainted(DynamicVars["ExtraAmount"].IntValue);
+        var enemies = base.CombatState.HittableEnemies.ToList();
+        var totalPoison = Owner.Creature.GetPowerAmount<TaintedPower>() * base.DynamicVars["Multiplier"].IntValue;
+        if (totalPoison > 0)
         {
-            await PowerCmd.Apply<PoisonPower>(choiceContext, enemy, poisonAmount, base.Owner.Creature, this);
+            await PowerCmd.Apply<PoisonPower>(choiceContext, enemies, totalPoison, Owner.Creature, this);
         }
-
-        // 获得的能量+1
-        base.DynamicVars.Energy.BaseValue += 1;
-
-        // 给予自身的中毒层数+1
-        base.DynamicVars["PoisonSelf"].BaseValue += 1;
     }
 
     /// <summary>
@@ -97,7 +128,50 @@ public class LilyBell : TouhouAncientCards
     /// </summary>
     protected override void OnUpgrade()
     {
-        base.DynamicVars["PoisonPower"].UpgradeValueBy(1m);
-        AddKeyword(CardKeyword.Innate);
+        base.DynamicVars["Multiplier"].UpgradeValueBy(1m);
+    }
+}
+
+/// <summary>
+/// Patch VitalSparkPower 的 AfterCardPlayed，使其在打出带有 Tainted（苦恼症）的牌时，
+/// 基于 Tainted 的层数（而非 VitalSparkPower 自身的层数）施加 TaintedPower。
+/// </summary>
+[HarmonyPatch]
+public static class VitalSparkPatch
+{
+    private static MethodBase TargetMethod()
+    {
+        return typeof(VitalSparkPower).GetMethod("AfterCardPlayed");
+    }
+
+    [HarmonyPrefix]
+    private static bool Postfix(VitalSparkPower __instance, ref Task __result, PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        try
+        {
+
+            if (cardPlay.Card.Affliction is not Tainted a)
+            {
+                __result = Task.CompletedTask;
+                return true;
+            }
+
+            var originalTask = __result;
+            GD.PrintErr($"铃兰： {a.Amount}");
+            __result = ContinueAsync(__instance, choiceContext, cardPlay.Card.Owner.Creature, a.Amount);
+            return false;
+        }
+        catch (System.Exception e)
+        {
+            Log.Error(e.ToString());
+        }
+        return true;
+    }
+
+    private static async Task ContinueAsync(AbstractModel instance,
+        PlayerChoiceContext choiceContext, Creature target, int amount)
+    {
+        AccessTools.Method(typeof(PowerModel), "Flash").Invoke(instance, null);
+        await PowerCmd.Apply<TaintedPower>(choiceContext, target, amount, null, null);
     }
 }

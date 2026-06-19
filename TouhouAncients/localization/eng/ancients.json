@@ -313,6 +313,11 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.2-0r.ancient": "I've finally found something I want to do. I wonder if the udumbara flower will have bloomed by the time I return.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.3-0r.ancient": "Too bad Gensokyo doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.4-0r.ancient": "That turkey... where is she now?",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-0.ancient": "Awooo—aah, I'm alive. Your poison tastes terrible, you know.",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-0.next": "Respond",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-1.char": "...",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-1.next": "Continue",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-2.ancient": "I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.REGENT.1-0.ancient": "An alien? Heheh, I too came from beyond Gensokyo—from a planet called the moon.",
 
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT.title": "Yuyuko Saigyouji",

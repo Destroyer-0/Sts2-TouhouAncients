@@ -115,7 +115,7 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "Add [blue]1[/blue] [gold]Gungnir's Spear[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
   
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen Cream",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "All [gold]Card Rewards[/gold] are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "Only immature vampires use parasols. Mature vampires have their maids apply sunscreen first.",
   
@@ -139,11 +139,11 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to bottom of your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "The empty-headed hell crow accepted the mountain's energy, her delusions swelling her ignorant ambitions before they could cool.",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "Mind Probe",
-  "TOUHOUANCIENTS-MIND_PROBE.description": "If the difference between an enemy's attack damage and your current [gold]Block[/gold] is at most [blue]{Threshold}[/blue], [gold]Stun[/gold] that enemy.",
+  "TOUHOUANCIENTS-MIND_PROBE.description": "After an enemy's attack is fully blocked by you, [gold]Stun[/gold] that enemy. Once per enemy per combat.",
   "TOUHOUANCIENTS-MIND_PROBE.flavor": "Your next words will be...?",
 
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "Memory Flask",
@@ -169,7 +169,7 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.eventDescription": "Gain [blue]{Relics}[/blue] random [sine][blue]Neow's Starting Relics[/blue][/sine].",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]You... shouldn't.. remember.... this...[/sine]",
 
-  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Detective Story Collection",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Mystery Novel",
   "TOUHOUANCIENTS-DETECTIVE_STORY.description": "Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy intending to Attack.",
   "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"It is the brain, the little gray cells on which one must rely. One must seek the truth within——not without.\"——Hercule Poirot",
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
@@ -435,12 +435,12 @@
   "TOUHOUANCIENTS-SOUL_LATTERN.description": "The first time any unit's HP drops below [blue]50%[/blue] each combat, enter [gold]Reaper Form[/gold].",
   "TOUHOUANCIENTS-SOUL_LATTERN.flavor": "Death is a cool summer night, where one may sleep without a care.",
 
-  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "Ticket to Netherworld",
+  "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.title": "Netherworld Ticket",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.description": "Upon pickup, add [blue]1[/blue] [gold]All Living Things Must Perish[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.eventDescription": "Add [blue]1[/blue] [gold]All Living Things Must Perish[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-TICKET_TO_NETHERWORLD.flavor": "",
 
-  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "Saigyouji's Withered Branch",
+  "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.title": "Saigyouji Withered Branch",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.description": "Whenever you [gold]Exhaust[/gold] a card, add a random card with [gold]Ethereal[/gold] to your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "Do not use as kindling.",
 
@@ -591,8 +591,9 @@
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold] and add [gold]Ethernal[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to add to your Hand",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "Guiltless Face",
   "TOUHOUANCIENTS-GUILTLESS_FACE.description": "Upon pickup, choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.",

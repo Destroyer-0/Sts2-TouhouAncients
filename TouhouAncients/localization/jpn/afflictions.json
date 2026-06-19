@@ -1,7 +1,7 @@
 {
-  "DEVOURED.description": "为这张牌添加[gold]消耗[/gold]。",
-  "DEVOURED.title": "吞噬",
-  "WEIGHTED.description": "打出这张牌时失去{Amount:energyIcons()}。",
-  "WEIGHTED.extraCardText": "失去{Amount:energyIcons()}。",
-  "WEIGHTED.title": "沉重"
+  "DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
+  "DEVOURED.title": "Devoured",
+  "WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
+  "WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
+  "WEIGHTED.title": "Weighted"
 }

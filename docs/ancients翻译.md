@@ -420,6 +420,7 @@
 | `talk.ANY.2-0r.ancient` | 放心吧，这些东西都是我的魔法结晶！不是借来的啦！ | Don't worry, all these are my magical creations! They're not borrowed, you know! |
 | `talk.ANY.3-0r.ancient` | 你有见到灵梦吗？记得帮我向她问个好！这个就当我的感谢礼吧！ | Have you seen Reimu? Remember to say hi to her for me! This can be my thanks! |
 | `talk.ANY.4-0r.ancient` | 最近这里的蘑菇生长规律也越来越奇怪了…… | Lately the mushroom growth patterns here have been getting weirder and weirder... |
+| `talk.ANY.5-0r.ancient` | 我为什么要帮你？嘿嘿，因为大家都是我的翅膀Da☆Ze！ | Why would I help you? Hehe, because you're all precious to me, Da☆Ze! |
 | `talk.IRONCLAD.0-0.ancient` | 哦——好优秀的铠甲，勇士！不知道你对魔法有没有兴趣！ | Oh—what fine armor, warrior! I wonder if you have any interest in magic! |
 | `talk.SILENT.0-0.ancient` | 嘿！我看到你了！要什么就直接跟我说，不要偷偷摸摸的嘛！我去红魔馆的时候从来都是光明正大的走大门Da☆Ze！ | Hey! I see you! If you want something, just tell me directly. No need to sneak around! When I go to the Scarlet Devil Mansion, I always walk right through the front door Da☆Ze! |
 | `talk.DEFECT.0-0.ancient` | 一个机器人？想要修好你的朋友？恩……我有个认识的家伙就是个机械工程师，说不定能帮上忙Da☆Ze！ | A robot? Want to fix your friend? Hmm... I know someone who's a mechanical engineer. Maybe she can help Da☆Ze! |
@@ -457,6 +458,11 @@
 | `talk.ANY.2-0r.ancient` | 难得找到了点自己想做的事情呢，不知道优昙花在我回去的时候会不会已经开放了呢。 | I've finally found something I want to do. I wonder if the udumbara flower will have bloomed by the time I return. |
 | `talk.ANY.3-0r.ancient` | 可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。 | Too bad Gensokyo doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it. |
 | `talk.ANY.4-0r.ancient` | 那只火鸡……现在在哪里呢？ | That turkey... where is she now? |
+| `talk.SILENT.0-0.ancient` | 啊呜哦哦哦哦——啊，活过来了，你这毒素的味道可真差。 | Awooo—aah, I'm alive. Your poison tastes terrible, you know. |
+| `talk.SILENT.0-0.next` | 什么都不说 | Respond |
+| `talk.SILENT.0-1.char` | …… | ... |
+| `talk.SILENT.0-1.next` | 继续 | Continue |
+| `talk.SILENT.0-2.ancient` | 我可没有因为被毒死而生气哦？这种死法在我经历过的这么多中，要评价的话也就是人上人的水平吧。不过，下次下毒前还是记得要打声招呼哦。 | I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first. |
 | `talk.REGENT.1-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Gensokyo—from a planet called the moon. |
 
 ---
@@ -497,7 +503,7 @@
 | 字段 | 中文 | English |
 |------|------|---------|
 | `.title` | 射命丸 文 | Aya Shameimaru |
-| `.epithet` | 不传统的非幻想记者 | Untraditional Un-Phantastic Reporter |
+| `.epithet` | 奔走在高塔中的幻想记者 | Fantasy Reporter Roaming the Tower |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
@@ -533,7 +539,7 @@
 | 字段 | 中文 | English |
 |------|------|---------|
 | `.title` | 依神 紫苑&依神 女苑 | Shion Yorigami & Joon Yorigami |
-| `.epithet` | 最凶最恶的荒疫神 | The Most Wicked and Malevolent Blight Gods |
+| `.epithet` | 最凶最恶的双子荒疫神 | The Most Wicked and Malevolent Twin Blight Gods |
 
 ### 对话翻译
 | 对话键 | 中文 | English |

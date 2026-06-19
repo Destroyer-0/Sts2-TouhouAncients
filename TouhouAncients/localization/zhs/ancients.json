@@ -313,6 +313,11 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.2-0r.ancient": "难得找到了点自己想做的事情呢，不知道优昙花在我回去的时候会不会已经开放了呢。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.3-0r.ancient": "可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.ANY.4-0r.ancient": "那只火鸡……现在在哪里呢？",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-0.ancient": "啊呜哦哦哦哦——啊，活过来了，你这毒素的味道可真差。",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-0.next": "什么都不说",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-1.char": "……",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-1.next": "继续",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.SILENT.0-2.ancient": "我可没有因为被毒死而生气哦？这种死法在我经历过的这么多中，要评价的话也就是人上人的水平吧。不过，下次下毒前还是记得要打声招呼哦。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.talk.REGENT.1-0.ancient": "外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。",
 
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT.title": "西行寺 幽幽子",

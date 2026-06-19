@@ -139,7 +139,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆底，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -591,7 +591,8 @@
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "炼狱之烬",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "在你的回合开始时，从[gold]消耗堆[/gold]中选择任意张牌放入[gold]手牌[/gold]，并向[gold]抽牌堆[/gold]中加入等量张[gold]灼伤[/gold]。",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "在你的回合开始时，从[gold]消耗堆[/gold]中选择任意张牌放入[gold]手牌[/gold]，为这些牌添加[gold]虚无[/gold]并向[gold]抽牌堆[/gold]中加入等量张[gold]灼伤[/gold]。",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "选择任意张牌加入手牌",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "无疚之面",

@@ -139,7 +139,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to bottom of your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "The empty-headed hell crow accepted the mountain's energy, her delusions swelling her ignorant ambitions before they could cool.",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "Mind Probe",
@@ -591,8 +591,9 @@
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold] and add [gold]Ethernal[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to add to your Hand",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "Guiltless Face",
   "TOUHOUANCIENTS-GUILTLESS_FACE.description": "Upon pickup, choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.",

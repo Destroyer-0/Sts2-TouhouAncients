@@ -30,7 +30,7 @@
     "TOUHOUANCIENTS-MAGIC_WALLET.description": "Your next [blue]{CurrentFreeCount}[/blue] other cards are free to play.\nAfter each play, cost increases by {Energy:energyIcons()} and free uses increase by [blue]1[/blue].\n[purple][sine]Sound a Requiem for the Revolutionaries![/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "Lily Bell",
-    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw {Cards} cards. Apply {PoisonSelf} [gold]Poison[/gold] to yourself.\nAt end of turn, if this card is in your [gold]Hand[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to ALL enemies, increase Energy gained by {energyPrefix:energyIcons(1)}, and increase self-Poison by [blue]1[/blue].",
+    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, this card is [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "All Living Things Must Perish",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive attack damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",
