@@ -143,7 +143,7 @@
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "The empty-headed hell crow accepted the mountain's energy, her delusions swelling her ignorant ambitions before they could cool.",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "Mind Probe",
-  "TOUHOUANCIENTS-MIND_PROBE.description": "If the difference between an enemy's attack damage and your current [gold]Block[/gold] is at most [blue]{Threshold}[/blue], [gold]Stun[/gold] that enemy.",
+  "TOUHOUANCIENTS-MIND_PROBE.description": "After an enemy's attack is fully blocked by you, [gold]Stun[/gold] that enemy. Once per enemy per combat.",
   "TOUHOUANCIENTS-MIND_PROBE.flavor": "Your next words will be...?",
 
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "Memory Flask",
@@ -225,6 +225,12 @@
   "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "Whenever you take unblocked damage not caused by yourself, reduce it by up to [blue]{Mitigation}[/blue] and record the amount reduced. At the end of your turn, deal damage equal to the recorded amount to yourself and reset it.",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "It's said to reflect different weather depending on her mood.",
   
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "Supreme Golden Circlet",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "Upon pickup, choose an [green]Upgraded[/green] Ancient card and add it to your [gold]Deck[/gold]. [gold]Card Rewards[/gold] no longer drop.",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.eventDescription": "Choose an [green]Upgraded[/green] Ancient card and add it to your [gold]Deck[/gold]. [gold]Card Rewards[/gold] no longer drop.",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
+  "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "Choose an [green]Upgraded[/green] Ancient card to add to your [gold]Deck[/gold]",
+  
   "TOUHOUANCIENTS-HISOU_SWORD.title": "Hisou Sword",
   "TOUHOUANCIENTS-HISOU_SWORD.description": "Upon pickup, add [blue]1[/blue] [gold]All Creation's Hisou[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "Add [blue]1[/blue] [gold]All Creation's Hisou[/gold] to your [gold]Deck[/gold].",
@@ -251,6 +257,10 @@
   "TOUHOUANCIENTS-COSMIC_DECREE.eventDescription": "Gain the relic: [gold]Divine Right[/gold]. See [blue]{Cards}[/blue] [green]Upgraded[/green] cards from [gold]{Character}[/gold]. Choose any number of them to add to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-COSMIC_DECREE.flavor": "Deigning to keep company with ordinary mortals is also a celestial's duty, after all.",
   "TOUHOUANCIENTS-COSMIC_DECREE.selectionScreenPrompt": "Select any number of cards to add to your [gold]Deck[/gold].",
+
+  "TOUHOUANCIENTS-LOSE_MONEY.title": "Gold for Luck",
+  "TOUHOUANCIENTS-LOSE_MONEY.description": "Whenever you play [blue]{CardsNeeded}[/blue] cards, spend [blue]{GoldCost}[/blue] [gold]Gold[/gold] to gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-LOSE_MONEY.flavor": "Shion & Joon relic test 1.",
 
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "Inaba Amulet",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "Upon pickup, remove all non-Eternal [red]Curses[/red] from your [gold]Deck[/gold]. Prevent [red]Curses[/red] from being added to your [gold]Deck[/gold] afterwards.",

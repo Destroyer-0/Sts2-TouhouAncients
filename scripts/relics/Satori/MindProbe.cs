@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -24,21 +25,44 @@ public class MindProbe : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Threshold", 2m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [StunIntent.GetStaticHoverTip()];
 
-    public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    private List<Creature> _stunedEnemyCreature = new();
+
+    public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (target != base.Owner.Creature) return;
-        if (dealer == null) return;
-        if (!dealer.IsEnemy) return; // 只对敌人有效
-
-        if (amount <= 0) return;
-
-        var block = target.Block;
-        var diff = Math.Abs(amount - block);
-
-        if (diff <= 2m)
-        {
-            Flash();
-            await CreatureCmd.Stun(dealer);
-        }
+        _stunedEnemyCreature.Clear();
+        return base.AfterCombatEnd(room);
     }
+
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
+        DamageResult result, ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        if (dealer == null) return;
+        if (dealer == base.Owner.Creature) return; // 不是自己打自己
+        if (!result.WasFullyBlocked) return;
+        if (!dealer.IsEnemy || _stunedEnemyCreature.Contains(dealer)) return;
+        
+        Flash();
+        await CreatureCmd.Stun(dealer);
+        _stunedEnemyCreature.Add(dealer);
+    }
+
+    // public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount,
+    //     ValueProp props, Creature? dealer, CardModel? cardSource)
+    // {
+    //     if (target != base.Owner.Creature) return;
+    //     if (dealer == null) return;
+    //     if (!dealer.IsEnemy) return; // 只对敌人有效
+    //
+    //     if (amount <= 0) return;
+    //
+    //     var block = target.Block;
+    //     var diff = Math.Abs(amount - block);
+    //
+    //     if (diff <= 2m)
+    //     {
+    //         Flash();
+    //         await CreatureCmd.Stun(dealer);
+    //     }
+    // }
 }

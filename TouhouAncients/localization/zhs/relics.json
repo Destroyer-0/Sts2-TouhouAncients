@@ -143,7 +143,7 @@
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
-  "TOUHOUANCIENTS-MIND_PROBE.description": "若敌人造成的伤害与你的剩余格挡值相差绝对值小于等于[blue]{Threshold}[/blue]，[gold]击晕[/gold]该敌人。",
+  "TOUHOUANCIENTS-MIND_PROBE.description": "成功完全格挡敌人的攻击后，[gold]击晕[/gold]该敌人，每个敌人限一次。",
   "TOUHOUANCIENTS-MIND_PROBE.flavor": "你的下一句话是……？",
 
   "TOUHOUANCIENTS-MEMORY_FLASK.title": "记忆烧瓶",

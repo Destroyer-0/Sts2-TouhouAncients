@@ -35,6 +35,7 @@ public class CeaselessResentment : TouhouAncientRelics
     {
         if (dealer == null) return;
         if (dealer == base.Owner.Creature) return; // 不是自己打自己
+        if (!props.IsCardOrMonsterMove()) return;
         if (result.UnblockedDamage <= 0) return;
 
 

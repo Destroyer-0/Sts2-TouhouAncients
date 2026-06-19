@@ -1524,3 +1524,122 @@
 
 ---
 
+## 绯红晶石
+
+**键名**: `TOUHOUANCIENTS-CRIMSON_CRYSTAL`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "绯红晶石",
+"TOUHOUANCIENTS-CRIMSON_CRYSTAL.description": "在每个回合开始时，如果你的生命值不低于[blue]{HpThreshold}%[/blue]，获得{Energy:energyIcons()}。",
+"TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "蕾米莉亚的藏品之一，拥有比世界上任何红宝石都鲜艳的血色，不过到目前为止，还没有哪个怪盗盯上过。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Crimson Crystal` |
+| `.description` | `At the start of each turn, if your HP is at least [blue]{HpThreshold}%[/blue], gain {Energy:energyIcons()}.` |
+| `.flavor` | `One of Remilia's treasures, with a blood-red color more vivid than any ruby in the world — though no phantom thief has ever set their sights on it.` |
+
+### 变更记录
+- **flavor 原文修正**：`"还没有哪个盯上过"` → `"还没有哪个怪盗盯上过"`，英文同步更新 `no one` → `no phantom thief`
+
+---
+
+## 石油期货
+
+**键名**: `TOUHOUANCIENTS-SHION_A`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SHION_A.title": "石油期货",
+"TOUHOUANCIENTS-SHION_A.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。每[blue]4[/blue]个回合，从3张[red]诅咒牌[/red]中选择一张加入抽牌堆。",
+"TOUHOUANCIENTS-SHION_A.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Oil Futures` |
+| `.description` | `Gain {energyPrefix:energyIcons(1)} at the start of each turn. Every [blue]4[/blue] turns, choose 1 of [blue]3[/blue] [red]Curses[/red] to add to your [gold]Draw Pile[/gold].` |
+| `.flavor` | `""`（留空） |
+
+### 备注
+- 英文翻译已完成，待同步写入 eng/jpn 文件
+
+---
+
+## 黑猫玩偶
+
+**键名**: `TOUHOUANCIENTS-SHION_B`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SHION_B.title": "黑猫玩偶",
+"TOUHOUANCIENTS-SHION_B.description": "在每回合开始时获得{energyPrefix:energyIcons(1)}。战斗开始时，随机[blue]8[/blue]张卡牌被侵蚀为[purple]抵押物[/purple]。",
+"TOUHOUANCIENTS-SHION_B.flavor": "",
+"TOUHOUANCIENTS-SHION_B.test1": "抵押物",
+"TOUHOUANCIENTS-SHION_B.test2": "获得[gold]保留[/gold]与[gold]无法被打出[/gold]。保留[blue]2[/blue]回合后移除此效果。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Black Cat Doll` |
+| `.description` | `Gain {energyPrefix:energyIcons(1)} at the start of each turn. At the start of combat, [blue]8[/blue] random cards are corrupted into [purple]Collateral[/purple].` |
+| `.flavor` | `""`（留空） |
+| `.test1` | `Collateral` |
+| `.test2` | `Gain [gold]Retain[/gold] and [gold]Unplayable[/gold]. Remove this effect after [blue]2[/blue] turns of being retained.` |
+
+### 备注
+- **抵押物 → Collateral**: 自定义关键字，抵押物的英文译名
+- 英文翻译已完成，待同步写入 eng/jpn 文件
+- `test1`/`test2` 字段为 Power 名称与描述键，用于悬浮提示
+
+---
+
+## 至尊金箍
+
+**键名**: `TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",
+"TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "拾起时，选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组。不再掉落[gold]卡牌奖励[/gold]。",
+"TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.eventDescription": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组。不再掉落[gold]卡牌奖励[/gold]。",
+"TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
+"TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Supreme Golden Circlet` |
+| `.description` | `Upon pickup, choose an [green]Upgraded[/green] Ancient card and add it to your [gold]Deck[/gold]. [gold]Card Rewards[/gold] no longer drop.` |
+| `.eventDescription` | `Choose an [green]Upgraded[/green] Ancient card and add it to your [gold]Deck[/gold]. [gold]Card Rewards[/gold] no longer drop.` |
+| `.flavor` | `""`（留空） |
+| `.selectionScreenPrompt` | `Choose an [green]Upgraded[/green] Ancient card to add to your [gold]Deck[/gold]` |
+
+---
+
+## 破财消灾
+
+**键名**: `TOUHOUANCIENTS-LOSE_MONEY`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-LOSE_MONEY.title": "破财消灾",
+"TOUHOUANCIENTS-LOSE_MONEY.description": "每当你打出[blue]{CardsNeeded}[/blue]张牌，消耗[blue]{GoldCost}[/blue][gold]金币[/gold]获得{Energy:energyIcons()}。",
+"TOUHOUANCIENTS-LOSE_MONEY.flavor": "紫苑女苑遗物测试1."
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Gold for Luck` |
+| `.description` | `Whenever you play [blue]{CardsNeeded}[/blue] cards, spend [blue]{GoldCost}[/blue] [gold]Gold[/gold] to gain {Energy:energyIcons()}.` |
+| `.flavor` | `Shion & Joon relic test 1.` |
+
+---
+

@@ -45,7 +45,6 @@ public class JunkoMapAct : ActMap
             list.RemoveAt(2);
         }
 
-        Grid = new MapPoint[7, list.Count + 1];
         BossMapPoint = new MapPoint(GetColumnCount() / 2, GetRowCount())
         {
             PointType = MapPointType.Boss
@@ -54,14 +53,19 @@ public class JunkoMapAct : ActMap
         {
             PointType = MapPointType.Ancient
         };
-        if (runState.AscensionLevel>= (int)AscensionLevel.DoubleBoss)
+        if (runState.AscensionLevel >= (int)AscensionLevel.DoubleBoss)
         {
-            SecondBossMapPoint = runState.Map.SecondBossMapPoint;
+            SecondBossMapPoint = new MapPoint(GetColumnCount() / 2, GetRowCount() + 1)
+            {
+                PointType = MapPointType.Boss,
+            };
         }
         else
         {
             SecondBossMapPoint = null;
         }
+
+        Grid = new MapPoint[7, list.Count + (SecondBossMapPoint == null ? 1 : 2)];
         for (int i = 0; i < list.Count; i++)
         {
             MapPoint mapPoint = new MapPoint(3, i + 1);
@@ -75,6 +79,11 @@ public class JunkoMapAct : ActMap
 
         startMapPoints.Add(Grid[3, 1]);
         Grid[3, GetRowCount() - 1].AddChildPoint(BossMapPoint);
+        if (SecondBossMapPoint != null)
+        {
+            BossMapPoint.AddChildPoint(SecondBossMapPoint);
+        }
+
         StartingMapPoint.AddChildPoint(Grid[3, 1]);
     }
 }
