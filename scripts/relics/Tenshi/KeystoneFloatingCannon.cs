@@ -31,7 +31,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8m, ValueProp.Unpowered),
+        new DamageVar(6m, ValueProp.Unpowered),
         new DynamicVar("ExtraDamage", 2)
     ];
 
@@ -60,10 +60,10 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
             _keystoneInserted = false;
 //
             var buffs = Owner.Creature.Powers.Where(p => p is KeystonePower).ToList();
-            if(buffs.Count<=0)return;
+            if (buffs.Count <= 0) return;
             var keystonePower = buffs[0];
             var damage = keystonePower.Amount;
-            
+
             var enemies = base.Owner.Creature.CombatState.GetOpponentsOf(base.Owner.Creature)
                 .Where(c => c.IsAlive)
                 .ToList();
