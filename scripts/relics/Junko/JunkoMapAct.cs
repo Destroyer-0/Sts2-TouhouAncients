@@ -16,8 +16,8 @@ public class JunkoMapAct : ActMap
         MapPointType.Elite,
         MapPointType.Treasure,
         MapPointType.Elite,
+        MapPointType.Shop,
         MapPointType.RestSite,
-        MapPointType.Elite,
         MapPointType.Elite,
         MapPointType.RestSite,
         MapPointType.Elite,
@@ -42,11 +42,11 @@ public class JunkoMapAct : ActMap
         List<MapPointType> list = _defaultPointTypes.ToList();
         if (runState.Players.Count > 1)
         {
-            list.RemoveAt(2);
+            list.RemoveAt(1);
         }
 
         var secondBoss = runState.AscensionLevel >= (int)AscensionLevel.DoubleBoss;
-        Grid = new MapPoint[7, list.Count + (secondBoss? 1 : 2)];
+        Grid = new MapPoint[7, list.Count + (secondBoss? 2 : 1)];
         BossMapPoint = new MapPoint(GetColumnCount() / 2, GetRowCount())
         {
             PointType = MapPointType.Boss
@@ -79,7 +79,7 @@ public class JunkoMapAct : ActMap
         }
 
         startMapPoints.Add(Grid[3, 1]);
-        Grid[3, GetRowCount() - 1].AddChildPoint(BossMapPoint);
+        Grid[3, GetRowCount() - (secondBoss ? 2 : 1)].AddChildPoint(BossMapPoint);
         if (SecondBossMapPoint != null)
         {
             BossMapPoint.AddChildPoint(SecondBossMapPoint);
