@@ -3,21 +3,35 @@
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "Ban Ancients",
 
+  "TOUHOUANCIENTS-BAN_ALL_BASEGAME.title": "Ban ALL Base Game Ancients",
+  "TOUHOUANCIENTS-BAN_ALL_BASEGAME_ACTION.title": "Ban ALL",
+
+  "TOUHOUANCIENTS-BANNED_ANCIENTS_BASEGAME.title": "Ban ALL Base Game Ancients",
+
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "Force Ancient in Act 2",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "Force Ancient in Act 3",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_NONE.title": "None",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_REIMU.title": "Reimu",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SANAE.title": "Sanae",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_REMILIA.title": "Remilia",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SATORI.title": "Satori",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_NINA.title": "Nina",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_TENSHI.title": "Tenshi",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_TEWI.title": "Tewi",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SEIJA.title": "Seija",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_MEDICINE.title": "Medicine",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_YUYUKO.title": "Yuyuko",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_KAGUYA.title": "Kaguya",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_MARISA.title": "Marisa",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_JUNKO.title": "Junko",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_YUUMA.title": "Yuuma"
+
+  "TOUHOUANCIENTS-BAN_NONUPEIPE.title": "Ban Nonupeipe (Base Game)",
+  "TOUHOUANCIENTS-BAN_VAKUU.title": "Ban Vakuu (Base Game)",
+  "TOUHOUANCIENTS-BAN_TANX.title": "Ban Tanx (Base Game)",
+  "TOUHOUANCIENTS-BAN_OROBUS.title": "Ban Orobas (Base Game)",
+  "TOUHOUANCIENTS-BAN_PAERL.title": "Ban Pael (Base Game)",
+  "TOUHOUANCIENTS-BAN_TEZCATARAS.title": "Ban Tezcatara (Base Game)",
+  "TOUHOUANCIENTS-BAN_DARV.title": "Ban Darv (Base Game)",
+
+  "TOUHOUANCIENTS-BAN_REIMU.title": "Ban Reimu (Act 2)",
+  "TOUHOUANCIENTS-BAN_SANAE.title": "Ban Sanae (Act 2/3)",
+  "TOUHOUANCIENTS-BAN_REMILIA.title": "Ban Remilia (Act 3)",
+  "TOUHOUANCIENTS-BAN_SATORI.title": "Ban Satori (Act 2)",
+  "TOUHOUANCIENTS-BAN_NINA.title": "Ban Nina (Act 2)",
+  "TOUHOUANCIENTS-BAN_TENSHI.title": "Ban Tenshi (Act 3)",
+  "TOUHOUANCIENTS-BAN_TEWI.title": "Ban Tewi (Act 2)",
+  "TOUHOUANCIENTS-BAN_SEIJA.title": "Ban Seija (Act 2)",
+  "TOUHOUANCIENTS-BAN_MEDICINE.title": "Ban Medicine (Act 2)",
+  "TOUHOUANCIENTS-BAN_YUYUKO.title": "Ban Yuyuko (Act 3)",
+  "TOUHOUANCIENTS-BAN_KAGUYA.title": "Ban Kaguya (Act 3)",
+  "TOUHOUANCIENTS-BAN_MARISA.title": "Ban Marisa (Act 2/3)",
+  "TOUHOUANCIENTS-BAN_JUNKO.title": "Ban Junko (Act 3)",
+  "TOUHOUANCIENTS-BAN_YUUMA.title": "Ban Yuuma (Act 3)"
+
 }

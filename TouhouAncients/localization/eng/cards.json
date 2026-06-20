@@ -27,16 +27,16 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
 
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "Magic Mallet",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Your next [blue]{CurrentFreeCount}[/blue] other cards are free to play.\nAfter each play, cost increases by {Energy:energyIcons()} and free uses increase by [blue]1[/blue].\n[purple][sine]Sound a Requiem for the Revolutionaries![/sine][/purple]",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Your next [blue]{CurrentFreeCount}[/blue] other {CurrentFreeCount:plural:card|cards} are free to play.\nAfter each play, cost increases by {Energy:energyIcons()} and free uses increase by [blue]1[/blue].\n[purple][sine]Sound a Requiem for the Revolutionaries![/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "Lily Bell",
-    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, this card is [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
+    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, it will be [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "All Living Things Must Perish",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive attack damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "Ultramarine Orb Elixir",
-    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "When your HP would drop to [blue]0[/blue] or below, if this card is in your [gold]Hand[/gold], discard it and heal [green]{HealPercent}%[/green] HP, gain [pink]Impurity[/pink] count, and lose [blue]{BaseMaxHpLoss}[/blue] × [pink]Impurity[/pink] count Max HP.{InCombat:\n(Lose [red]{ShouldLose}[/red] Max HP)|}",
+    "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "When your HP would drop to [blue]0[/blue] or below, if this card is in your [gold]Hand[/gold], discard it and heal [green]{HealPercent}%[/green] HP, gain [pink]Impurity[/pink], and lose [blue]{BaseMaxHpLoss}[/blue] × [pink]Impurity[/pink] Max HP.{InCombat:\n(Lose [red]{ShouldLose}[/red] Max HP)|}",
 
     "TOUHOUANCIENTS-MASTER_SPARK.title": "Master Spark",
     "TOUHOUANCIENTS-MASTER_SPARK.description": "Deal {Damage:diff()} damage X+{ExtraHit} times to ALL enemies.\n{IfUpgraded:show:Triple|Double} X and gain {Energy:energyIcons()} if it's {Need:diff()} or more.\n[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]！[/gold]",
@@ -48,7 +48,7 @@
     "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "Randomly play {Cards:diff()} cards from your [gold]Draw Pile[/gold], [gold]Hand[/gold], and [gold]Discard Pile[/gold].\n[gold]Enchant[/gold] a random Attack among them with [purple]Instinct[/purple]. Gain [red]Unconscious[/red] on a random card among them.",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "Killing Lunacy",
-    "TOUHOUANCIENTS-KILLING_AURA.description": "Deal {Damage:diff()} damage.\nGain {Block:diff()} [gold]Block[/gold].\nWhenever you play a card with Attack or Block, if this card is in your [gold]Hand[/gold], [gold]Exhaust[/gold] it and add those values{IfUpgraded:show: plus [blue]1[/blue]|} to this card.",
+    "TOUHOUANCIENTS-KILLING_AURA.description": "Deal {Damage:diff()} damage.\nGain {Block:diff()} [gold]Block[/gold].\nWhenever you play a card with Damage or Block, [gold]Exhaust[/gold] it if this card is in your [gold]Hand[/gold] and add those values{IfUpgraded:show: plus [blue]1[/blue]|} to this card.",
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "A Pristine Danmaku Hell",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "Choose any number of cards from your [gold]Hand[/gold] and [gold]Transform[/gold] them into [gold]Nameless Bullets[/gold].\nThis turn, your Attack cards are free to play and draw a card when played. When you have no Attack cards in your [gold]Hand[/gold], end your turn.",
@@ -63,6 +63,6 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "The Feast",
-    "TOUHOUANCIENTS-THE_FEAST.description": "Select and [gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} copies of this card to your [gold]Discard Pile[/gold].",
+    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} copies of this card to your [gold]Discard Pile[/gold].",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to Exhaust."
 }

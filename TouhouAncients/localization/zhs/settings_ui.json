@@ -2,22 +2,35 @@
   "TOUHOUANCIENTS.mod_title":"东方先古之民",
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "禁用先古之民",
+  
+  "TOUHOUANCIENTS-BAN_ALL_BASEGAME.title": "一键禁用所有原版先古之民",
+  "TOUHOUANCIENTS-BAN_ALL_BASEGAME_ACTION.title": "一键禁用",
+
+  "TOUHOUANCIENTS-BANNED_ANCIENTS_BASEGAME.title": "禁用所有原版先古之民",
 
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "二层强制出现先古之民（单选）",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "三层强制出现先古之民（单选）",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_NONE.title": "无（不强制）",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_REIMU.title": "博丽灵梦",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SANAE.title": "东风谷早苗",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_REMILIA.title": "蕾米莉亚·斯卡雷特",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SATORI.title": "古明地觉",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_NINA.title": "渡里贝子",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_TENSHI.title": "比那名居天子",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_TEWI.title": "因幡帝",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_SEIJA.title": "鬼人正邪",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_MEDICINE.title": "梅蒂欣·梅兰可莉",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_YUYUKO.title": "西行寺幽幽子",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_KAGUYA.title": "蓬莱山辉夜",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_MARISA.title": "雾雨魔理沙",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_JUNKO.title": "纯狐",
-  "TOUHOUANCIENTS-FORCED_ANCIENT_YUUMA.title": "饕餮尤魔"
+  
+  "TOUHOUANCIENTS-BAN_NONUPEIPE.title": "禁用 诺奴佩普（原版）",
+  "TOUHOUANCIENTS-BAN_VAKUU.title": "禁用 瓦库（原版）",
+  "TOUHOUANCIENTS-BAN_TANX.title": "禁用 坦克斯(原版)",
+  "TOUHOUANCIENTS-BAN_OROBUS.title": "禁用 欧罗巴斯（原版）",
+  "TOUHOUANCIENTS-BAN_PAERL.title": "禁用 佩尔（原版）",
+  "TOUHOUANCIENTS-BAN_TEZCATARAS.title": "禁用 特兹卡塔拉（原版）",
+  "TOUHOUANCIENTS-BAN_DARV.title": "禁用 达弗（原版）",
+
+  "TOUHOUANCIENTS-BAN_REIMU.title": "禁用 博丽灵梦（2层）",
+  "TOUHOUANCIENTS-BAN_SANAE.title": "禁用 东风谷早苗（2/3层）",
+  "TOUHOUANCIENTS-BAN_REMILIA.title": "禁用 蕾米莉亚·斯卡雷特（3层）",
+  "TOUHOUANCIENTS-BAN_SATORI.title": "禁用 古明地觉（2层）",
+  "TOUHOUANCIENTS-BAN_NINA.title": "禁用 渡里贝子（2层）",
+  "TOUHOUANCIENTS-BAN_TENSHI.title": "禁用 比那名居天子（3层）",
+  "TOUHOUANCIENTS-BAN_TEWI.title": "禁用 因幡帝（2层）",
+  "TOUHOUANCIENTS-BAN_SEIJA.title": "禁用 鬼人正邪（2层）",
+  "TOUHOUANCIENTS-BAN_MEDICINE.title": "禁用 梅蒂欣·梅兰可莉（2层）",
+  "TOUHOUANCIENTS-BAN_YUYUKO.title": "禁用 西行寺幽幽子（3层）",
+  "TOUHOUANCIENTS-BAN_KAGUYA.title": "禁用 蓬莱山辉夜（3层）",
+  "TOUHOUANCIENTS-BAN_MARISA.title": "禁用 雾雨魔理沙（2/3层）",
+  "TOUHOUANCIENTS-BAN_JUNKO.title": "禁用 纯狐（3层）",
+  "TOUHOUANCIENTS-BAN_YUUMA.title": "禁用 饕餮尤魔（3层）"
 }

@@ -30,7 +30,7 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "Snake",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "Snecko's True Gaze",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "At the start of each combat, gain [red]Confusion[/red]. At the start of your turn, choose a card. It is free to play this turn.",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of your turn, choose a card. It is free to play this turn.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "One True Gaze confirms it: way too costly.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "Choose a card to make it free this turn.",
 
@@ -170,7 +170,7 @@
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.flavor": "[sine]You... shouldn't.. remember.... this...[/sine]",
 
   "TOUHOUANCIENTS-DETECTIVE_STORY.title": "Mystery Novel",
-  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy intending to Attack.",
+  "TOUHOUANCIENTS-DETECTIVE_STORY.description": "Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, [gold]Retain[/gold] [blue]{RetainCard}[/blue] additional card for each enemy intending to Attack.",
   "TOUHOUANCIENTS-DETECTIVE_STORY.flavor": "\"It is the brain, the little gray cells on which one must rely. One must seek the truth within——not without.\"——Hercule Poirot",
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
 
@@ -305,7 +305,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Barricade[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take damage each combat, lose [gold]Barricade[/gold] and enter [purple]Ringing[/purple] for 1 turn.",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Barricade[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take unblocked damage each combat, lose [gold]Barricade[/gold] and enter [purple]Ringing[/purple] for 1 turn.",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "Although it can conceal one's form, the cloth itself remains visible.",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "Blood Yin-Yang Orb",
@@ -319,15 +319,15 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "Seija once tried to recruit Mazaleth's followers to join her rebel army, but was rejected because the horn couldn't make a 'Caaaaw' sound.",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "Zap Battery",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and become [purple]Galvanized[/purple].",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and become [purple]Galvanized[/purple].",
-  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] Power cards to add to your Hand, making them free to play this turn and become [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] Power cards to add to your Hand, making them free to play this turn and gain [purple]Galvanized[/purple].",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "Bad news, the battery is leaking. Good news, at least batteries can't cast [gold]Voltaic[/gold].",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "Ghost Lantern",
-  "TOUHOUANCIENTS-GHOST_LANTERN.description": "Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold]. These cards have [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold]. These cards have [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "Choose up to [blue]{SelectNum}[/blue] cards to add to your Deck.",
+  "TOUHOUANCIENTS-GHOST_LANTERN.description": "Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards with [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple] to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards with [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple] to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "Choose up to [blue]{SelectNum}[/blue] cards to add to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "The souls dwelling within [jitter]stir[/jitter]. In every way, a ghost surpasses the physical body... no, I'm not referring to anyone in particular.",
 
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "Magic Mallet",
@@ -481,7 +481,7 @@
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "Choose a card",
 
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "Mini Hakkero",
-  "TOUHOUANCIENTS-MINI_HAKKERO.description": "At end of turn, [gold]Exhaust[/gold] [blue]1~3[/blue] cards from your [gold]Hand[/gold]. If at least [blue]{Cards}[/blue] card(s) were exhausted, gain {Energy:energyIcons()} at the start of next turn.",
+  "TOUHOUANCIENTS-MINI_HAKKERO.description": "At end of turn, [gold]Exhaust[/gold] [blue]1~3[/blue] cards from your [gold]Hand[/gold]. If at least [blue]{Cards}[/blue] card(s) were exhausted, gain {Energy:energyIcons()} next turn.",
   "TOUHOUANCIENTS-MINI_HAKKERO.flavor": "A magical weapon that focuses magical waves into one point and fires them forward.",
   "TOUHOUANCIENTS-MINI_HAKKERO.selectionScreenPrompt": "Choose 1~3 cards to Exhaust",
 
@@ -503,8 +503,8 @@
   "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "There was never a magic broom in this world, but when enough people ride it, it becomes one.",
 
   "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "Witch's Cauldron",
-  "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "Upon pickup, gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may brew potions at [gold]Rest Sites[/gold].",
-  "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "Gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may brew potions at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "Upon pickup, gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may [gold]Brew[/gold] at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "Gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may [gold]Brew[/gold] at [gold]Rest Sites[/gold].",
   "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "The cauldron has a lingering smell of mushrooms that just won't wash off.",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "Unstable Bottle",
@@ -547,7 +547,7 @@
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "Illusory Projection",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "At the start of each combat, gain [red]Confusion[/red]. Cards costing [blue]{CostTwo}[/blue] are played [blue]{CostTwo}[/blue] times, and cards costing [blue]{CostThree}[/blue] or more are played [blue]{CostThree}[/blue] times.",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "Start each combat [red]Confused[/red]. Cards costing [blue]{CostTwo}[/blue] are played [blue]{CostTwo}[/blue] times, and cards costing [blue]{CostThree}[/blue] or more are played [blue]{CostThree}[/blue] times.",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "Overflowing Defilement",
