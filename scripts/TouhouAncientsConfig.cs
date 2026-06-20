@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
 using BaseLib.Config;
-using Godot;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
-using TouhouAncients.Scripts.Patches;
+using MegaCrit.Sts2.Core.Models.Events;
 
 namespace TouhouAncients.Scripts;
 
@@ -37,6 +34,24 @@ public class TouhouAncientsConfig : SimpleModConfig
 {
 
     /// <summary>
+    /// 检查某个基础游戏 Ancient（原版先古之民）是否被配置为禁用
+    /// </summary>
+    public static bool IsBaseGameAncientBanned(AncientEventModel ancient)
+    {
+        return ancient switch
+        {
+            Nonupeipe => BanNonupeipe,
+            Vakuu => BanVakuu,
+            Orobas => BanOrobus,
+            Pael => BanPaerl,
+            Tezcatara => BanTezcataras,
+            Darv => BanDarv,
+            Tanx => BanTanx,
+            _ => false
+        };
+    }
+    
+    /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
     /// </summary>
     [ConfigSection("ForcedAncient_2")]
@@ -44,15 +59,82 @@ public class TouhouAncientsConfig : SimpleModConfig
 
     [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
 
-    // Medicine 使用 ForcedAncient_2（Act 2 角色）
+    /// <summary>
+    /// 检查某个 Touhou Ancient 是否被禁止（实例模式匹配版本）
+    /// </summary>
+    public static bool IsAncientBanned(TouhouAncientBase type)
+    {
+        return type switch
+        {
+            HakureiReimuAncient  => BanReimu,
+            KotiyaSanaeAncient  => BanSanae,
+            RemiliaScarletAncient  => BanRemilia,
+            KomejiSatoriAncient  => BanSatori,
+            WatariNinaAncient  => BanNina,
+            MedicineMelancholyAncient  => BanMedicine,
+            HinanawiTenshiAncient  => BanTenshi,
+            InabaTewiAncient  => BanTewi,
+            KijinSeijaAncient  => BanSeija,
+            SaigyoujiYuyukoAncient  => BanYuyuko,
+            HouraisanKaguyaAncient  => BanKaguya,
+            KirisameMarisaAncient  => BanMarisa,
+            JunkoAncient  => BanJunko,
+            ToutetsuYuumaAncient  => BanYuuma,
+            _ => false
+        };
+    }
 
     /// <summary>
-    /// 检查某个 Ancient 是否被强制出现
+    /// 检查某个 Ancient 是否被禁止（Type 版本，供 Patch 使用）
     /// </summary>
-    public static bool IsAncientForced<T>(int actNumber) where T : AncientEventModel
+    public static bool IsAncientBanned(Type type)
     {
-        var name = typeof(T).Name;
-        var option = actNumber switch
+        var name = type.Name;
+        return name switch
+        {
+            nameof(HakureiReimuAncient) => BanReimu,
+            nameof(KotiyaSanaeAncient) => BanSanae,
+            nameof(RemiliaScarletAncient) => BanRemilia,
+            nameof(KomejiSatoriAncient) => BanSatori,
+            nameof(WatariNinaAncient) => BanNina,
+            nameof(MedicineMelancholyAncient) => BanMedicine,
+            nameof(HinanawiTenshiAncient) => BanTenshi,
+            nameof(InabaTewiAncient) => BanTewi,
+            nameof(KijinSeijaAncient) => BanSeija,
+            nameof(SaigyoujiYuyukoAncient) => BanYuyuko,
+            nameof(HouraisanKaguyaAncient) => BanKaguya,
+            nameof(KirisameMarisaAncient) => BanMarisa,
+            nameof(JunkoAncient) => BanJunko,
+            nameof(ToutetsuYuumaAncient) => BanYuuma,
+            _ => false
+        };
+    }
+
+    /// <summary>
+    /// 检查某个基础游戏 Ancient 是否被禁止（Type 版本，供 Patch 使用）
+    /// </summary>
+    public static bool IsBaseGameAncientBanned(Type type)
+    {
+        var name = type.Name;
+        return name switch
+        {
+            nameof(Nonupeipe) => BanNonupeipe,
+            nameof(Vakuu) => BanVakuu,
+            nameof(Orobas) => BanOrobus,
+            nameof(Pael) => BanPaerl,
+            nameof(Tezcatara) => BanTezcataras,
+            nameof(Darv) => BanDarv,
+            nameof(Tanx) => BanTanx,
+            _ => false
+        };
+    }
+    
+    /// <summary>
+    /// 检查某个 Ancient 是否被强制出现（运行时类型版本）
+    /// </summary>
+    public static bool IsAncientForced(TouhouAncientBase type, int actNumber)
+    {
+        var option= actNumber switch
         {
             2 => ForcedAncient_2,
             3 => ForcedAncient_3,
@@ -61,88 +143,65 @@ public class TouhouAncientsConfig : SimpleModConfig
 
         return option switch
         {
-            ForcedAncientOption.Reimu灵梦 when name == nameof(HakureiReimuAncient) => true,
-            ForcedAncientOption.Sanae早苗 when name == nameof(KotiyaSanaeAncient) => true,
-            ForcedAncientOption.Remilia蕾米 when name == nameof(RemiliaScarletAncient) => true,
-            ForcedAncientOption.Satori小五 when name == nameof(KomejiSatoriAncient) => true,
-            ForcedAncientOption.Nina贝子 when name == nameof(WatariNinaAncient) => true,
-            ForcedAncientOption.Tenshi天子 when name == nameof(HinanawiTenshiAncient) => true,
-            ForcedAncientOption.Tewi帝 when name == nameof(InabaTewiAncient) => true,
-            ForcedAncientOption.Medicine梅蒂欣 when name == nameof(MedicineMelancholyAncient) => true,
-            ForcedAncientOption.Seija正邪 when name == nameof(KijinSeijaAncient) => true,
-            ForcedAncientOption.Yuyuko幽幽子 when name == nameof(SaigyoujiYuyukoAncient) => true,
-            ForcedAncientOption.Marisa魔理沙 when name == nameof(KirisameMarisaAncient) => true,
-            ForcedAncientOption.Kaguya辉夜 when name == nameof(HouraisanKaguyaAncient) => true,
-            ForcedAncientOption.Yuuma饕餮 when name == nameof(ToutetsuYuumaAncient) => true,
-            ForcedAncientOption.Junko纯狐 when name == nameof(JunkoAncient) => true,
+            ForcedAncientOption.Reimu灵梦 when type is HakureiReimuAncient => true,
+            ForcedAncientOption.Sanae早苗 when type is KotiyaSanaeAncient => true,
+            ForcedAncientOption.Remilia蕾米 when type is RemiliaScarletAncient => true,
+            ForcedAncientOption.Satori小五 when type is KomejiSatoriAncient => true,
+            ForcedAncientOption.Nina贝子 when type is WatariNinaAncient => true,
+            ForcedAncientOption.Tenshi天子 when type is HinanawiTenshiAncient => true,
+            ForcedAncientOption.Tewi帝 when type is InabaTewiAncient => true,
+            ForcedAncientOption.Medicine梅蒂欣 when type is MedicineMelancholyAncient => true,
+            ForcedAncientOption.Seija正邪 when type is KijinSeijaAncient => true,
+            ForcedAncientOption.Yuyuko幽幽子 when type is SaigyoujiYuyukoAncient => true,
+            ForcedAncientOption.Marisa魔理沙 when type is KirisameMarisaAncient => true,
+            ForcedAncientOption.Kaguya辉夜 when type is HouraisanKaguyaAncient => true,
+            ForcedAncientOption.Yuuma饕餮 when type is ToutetsuYuumaAncient => true,
+            ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
             _ => false
         };
     }
-
+    
+    
+    
     /// <summary>
-    /// 持久化存储被禁用的 Ancient 类型全名列表（逗号分隔），由 SimpleModConfig 自动序列化。
-    /// 设置界面中的复选框由 SetupConfigUI 重写动态生成。
+    /// 配置该列表中先古之民不出现
     /// </summary>
-    [ConfigHideInUI]
-    public static string BannedAncientData { get; set; } = "";
-
+    [ConfigSection("BannedAncients")]
+    
     /// <summary>
-    /// 运行时被禁用的 Ancient Type.FullName 集合，由 BannedAncientData 同步。
+    /// 一键禁用所有原版先古之民（点击后自动将6个原版Ancient的禁用开关打开）
     /// </summary>
-    internal static readonly HashSet<string> BannedTypeNames = new();
-
-    internal static void SyncBannedFromData()
+    [ConfigButton("BanAllBasegameAction")]
+    public void BanAllBasegame()
     {
-        BannedTypeNames.Clear();
-        if (string.IsNullOrEmpty(BannedAncientData)) return;
-        foreach (var name in BannedAncientData.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
-        {
-            BannedTypeNames.Add(name);
-        }
+        BanNonupeipe = true;
+        BanVakuu = true;
+        BanOrobus = true;
+        BanPaerl = true;
+        BanTezcataras = true;
+        BanDarv = true;
+        BanTanx = true;
     }
+    public static bool BanOrobus { get; set; } = false;
+    public static bool BanTezcataras { get; set; } = false;
+    public static bool BanPaerl { get; set; } = false;
+    public static bool BanDarv { get; set; } = false;
+    public static bool BanVakuu { get; set; } = false;
+    public static bool BanNonupeipe { get; set; } = false;
+    public static bool BanTanx { get; set; } = false;
+    public static bool BanReimu { get; set; } = false;
+    public static bool BanSanae { get; set; } = false;
+    public static bool BanMarisa { get; set; } = false;
+    public static bool BanSatori { get; set; } = false;
+    public static bool BanTewi { get; set; } = false;
+    public static bool BanSeija { get; set; } = false;
+    public static bool BanMedicine { get; set; } = false;
+    public static bool BanNina { get; set; } = false;
+    public static bool BanRemilia { get; set; } = false;
+    public static bool BanTenshi { get; set; } = false;
+    public static bool BanYuyuko { get; set; } = false;
+    public static bool BanKaguya { get; set; } = false;
+    public static bool BanJunko { get; set; } = false;
+    public static bool BanYuuma { get; set; } = false;
 
-    private static void SyncDataFromBanned()
-    {
-        BannedAncientData = string.Join(",", BannedTypeNames);
-    }
-
-    /// <summary>
-    /// 重写设置界面 UI 生成：先让基类自动生成 ForcedAncient 等属性，
-    /// 再动态创建"禁用先古之民"分区，为每个扫描到的 Ancient 类型生成复选框。
-    /// </summary>
-    public override void SetupConfigUI(Control optionContainer)
-    {
-        GenerateOptionsForAllProperties(optionContainer);
-
-        // 从持久化数据同步到运行时集合，确保复选框反映最新配置
-        SyncBannedFromData();
-
-        var entries = BanAncientPatch.GetAllAncientEntries();
-        if (entries.Count == 0) return;
-
-        var section = CreateCollapsibleSection("BannedAncients");
-        optionContainer.AddChild(section);
-
-        foreach (var (type, title) in entries)
-        {
-            var fullName = type.FullName!;
-            var checkBox = new CheckBox
-            {
-                Text = "禁用" + title,
-                ButtonPressed = BannedTypeNames.Contains(fullName)
-            };
-            checkBox.Toggled += (pressed) =>
-            {
-                if (pressed)
-                    BannedTypeNames.Add(fullName);
-                else
-                    BannedTypeNames.Remove(fullName);
-                SyncDataFromBanned();
-            };
-            section.ContentContainer.AddChild(checkBox);
-        }
-
-        AddRestoreDefaultsButton(optionContainer);
-        SetupFocusNeighbors(optionContainer);
-    }
 }

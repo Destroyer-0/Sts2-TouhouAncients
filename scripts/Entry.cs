@@ -37,8 +37,6 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(SkySwallowingSpoon));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(EstrangedHeart));
         
-        // 初始化 Ancient 禁用配置扫描
-        BanAncientPatch.Initialize();
         
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可
