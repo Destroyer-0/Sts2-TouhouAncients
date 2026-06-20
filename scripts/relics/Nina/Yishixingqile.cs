@@ -39,7 +39,7 @@ public class Yishixingqile : TouhouAncientRelics
         Flash();
 
         // 移除已购买的商品（如果它在免费列表中）
-        _freeEntries.Remove(itemPurchased);
+        //_freeEntries.Remove(itemPurchased);
 
         // 从库存中随机选一个未被标记为免费的其他商品
         if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
@@ -54,7 +54,9 @@ public class Yishixingqile : TouhouAncientRelics
 
                 if (candidates.Count > 0)
                 {
-                    _freeEntries.Add(candidates.UnstableShuffle(player.RunState.Rng.Niche).First());
+                    var chosen = candidates.UnstableShuffle(player.RunState.Rng.Niche).First();
+                    _freeEntries.Add(chosen);
+                    chosen.OnMerchantInventoryUpdated();
                 }
             }
         }
