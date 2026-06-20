@@ -184,7 +184,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Snecko's True Gaze` |
-| `.description` | `At the start of each combat, gain [red]Confusion[/red]. At the start of your turn, choose a card. It is free to play this turn.` |
+| `.description` | `Start each combat [red]Confused[/red]. At the start of your turn, choose a card. It is free to play this turn.` |
 | `.flavor` | `One True Gaze confirms it: way too costly.` |
 | `.selectionScreenPrompt` | `Choose a card to make it free this turn.` |
 
@@ -964,8 +964,8 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Witch's Cauldron` |
-| `.description` | `Upon pickup, gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may brew potions at [gold]Rest Sites[/gold].` |
-| `.eventDescription` | `Gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may brew potions at [gold]Rest Sites[/gold].` |
+| `.description` | `Upon pickup, gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may [gold]Brew[/gold] at [gold]Rest Sites[/gold].` |
+| `.eventDescription` | `Gain [blue]2[/blue] [gold]Potion Slots[/gold]. You may [gold]Brew[/gold] at [gold]Rest Sites[/gold].` |
 | `.flavor` | `The cauldron has a lingering smell of mushrooms that just won't wash off.` |
 
 ---
@@ -1178,7 +1178,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Illusory Projection` |
-| `.description` | `At the start of each combat, gain [red]Confusion[/red]. Cards costing [blue]{CostTwo}[/blue] are played [blue]{CostTwo}[/blue] times, and cards costing [blue]{CostThree}[/blue] or more are played [blue]{CostThree}[/blue] times.` |
+| `.description` | `Start each combat [red]Confused[/red]. Cards costing [blue]{CostTwo}[/blue] are played [blue]{CostTwo}[/blue] times, and cards costing [blue]{CostThree}[/blue] or more are played [blue]{CostThree}[/blue] times.` |
 | `.flavor` | `""`（留空） |
 
 ---
@@ -1515,7 +1515,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Detective Story Collection` |
-| `.description` | `Attacks deal [blue]{Damage}[/blue] additional damage to enemies who do not intend to [gold]Attack[/gold]. At the end of your turn, retain [blue]{RetainCard}[/blue] additional card for each enemy who intends to [gold]Attack[/gold].` |
+| `.description` | `Attacks deal [blue]{Damage}[/blue] additional damage to enemies who do not intend to [gold]Attack[/gold]. At the end of your turn, [gold]Retain[/gold] [blue]{RetainCard}[/blue] additional card for each enemy who intends to [gold]Attack[/gold].` |
 
 ### 设计说明
 - 标题 `Detective Story Collection` 直接对应「侦探小说集」
