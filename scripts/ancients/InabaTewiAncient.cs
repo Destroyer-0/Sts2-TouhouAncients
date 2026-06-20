@@ -7,8 +7,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class InabaTewiAncient : CustomAncientModel
+public class InabaTewiAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.7f);
     public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
 
@@ -16,16 +17,6 @@ public class InabaTewiAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/InabaTewi_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/InabaTewi.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/InabaTewi.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 2;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<InabaTewiAncient>(act.ActNumber());
-    }
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

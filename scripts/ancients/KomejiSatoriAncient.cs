@@ -8,20 +8,11 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class KomejiSatoriAncient : CustomAncientModel
+public class KomejiSatoriAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.85f, 0.35f, 0.75f, 0.7f);
     public override Color DialogueColor => new(0.85f, 0.35f, 0.75f, 1f);
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 2;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<KomejiSatoriAncient>(act.ActNumber());
-    }
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";

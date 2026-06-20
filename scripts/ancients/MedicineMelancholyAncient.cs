@@ -12,8 +12,9 @@ namespace TouhouAncients.Scripts;
 /// 称号：小小的孤独之药
 /// Act 2 可选先古之民
 /// </summary>
-public class MedicineMelancholyAncient : CustomAncientModel
+public class MedicineMelancholyAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.8f, 0.4f, 0.6f, 0.7f);
     public override Color DialogueColor => new(0.8f, 0.4f, 0.6f, 1f);
 
@@ -21,16 +22,6 @@ public class MedicineMelancholyAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/MedicineMelancholy.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/MedicineMelancholy.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 2;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<MedicineMelancholyAncient>(act.ActNumber());
-    }
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

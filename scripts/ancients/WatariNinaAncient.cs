@@ -9,8 +9,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class WatariNinaAncient : CustomAncientModel
+public class WatariNinaAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 2;
     public override Color ButtonColor => new Color(0.05f, 0.07f, 0.2f, 0.5f);
     public override Color DialogueColor => new Color(0.05f, 0.07f, 0.2f, 1f);
 
@@ -24,16 +25,6 @@ public class WatariNinaAncient : CustomAncientModel
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/WatariNina.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/WatariNina.png";
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 2;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<WatariNinaAncient>(act.ActNumber());
-    }
-
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<Zhangeweilaiba>(),

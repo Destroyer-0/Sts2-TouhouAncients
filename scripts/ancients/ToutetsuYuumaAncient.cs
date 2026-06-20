@@ -8,8 +8,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class ToutetsuYuumaAncient : CustomAncientModel
+public class ToutetsuYuumaAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 3;
     public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.9f, 0.2f, 0.2f, 1f);
 
@@ -17,11 +18,6 @@ public class ToutetsuYuumaAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/ToutetsuYuuma.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/ToutetsuYuuma.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 3;
-    }
 
     protected override AncientDialogueSet DefineDialogues()
     {
@@ -62,11 +58,6 @@ public class ToutetsuYuumaAncient : CustomAncientModel
                 new AncientDialogue(""),
             }
         };
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<ToutetsuYuumaAncient>(act.ActNumber());
     }
 
     protected override OptionPools MakeOptionPools => new OptionPools(

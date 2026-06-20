@@ -7,8 +7,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class KotiyaSanaeAncient : CustomAncientModel
+public class KotiyaSanaeAncient : TouhouAncientBase
 {
+    public override int? ShowAct => null;
     public override Color ButtonColor => new(0.2275f, 0.6157f, 0.2078f, 0.6f);
     public override Color DialogueColor => new(0.2275f, 0.6157f, 0.2078f, 1f);
 
@@ -19,16 +20,6 @@ public class KotiyaSanaeAncient : CustomAncientModel
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KotiyaSanae.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KotiyaSanae.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return base.IsValidForAct(act);
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<KotiyaSanaeAncient>(act.ActNumber());
-    }
 
     // protected override OptionPools MakeOptionPools => new OptionPools(
     //     MakePool(

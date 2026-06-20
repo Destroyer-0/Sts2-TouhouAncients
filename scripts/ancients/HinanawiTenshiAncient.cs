@@ -8,8 +8,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class HinanawiTenshiAncient : CustomAncientModel
+public class HinanawiTenshiAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 3;
     public override Color ButtonColor => new(0.0f, 0.63f, 1f, 0.7f);
     public override Color DialogueColor => new(0.0f, 0.63f, 1f, 1f);
 
@@ -17,16 +18,6 @@ public class HinanawiTenshiAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HinanawiTenshi.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HinanawiTenshi.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 3;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<HinanawiTenshiAncient>(act.ActNumber());
-    }
 
     /// <summary>
     /// 池子2依照玩家是否是储君选择给予 天界冷漠（储君权重3，其他人权重1）/天宇诏令（储君权重0，其他人权重2）

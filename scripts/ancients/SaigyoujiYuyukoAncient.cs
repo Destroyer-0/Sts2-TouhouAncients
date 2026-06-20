@@ -7,8 +7,9 @@ using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
-public class SaigyoujiYuyukoAncient : CustomAncientModel
+public class SaigyoujiYuyukoAncient : TouhouAncientBase
 {
+    public override int? ShowAct => 3;
     public override Color ButtonColor => new Color(1f, 0.5f, 0.95f, 0.7f);
     public override Color DialogueColor => new Color(1f, 0.5f, 0.95f, 1f);
 
@@ -16,16 +17,6 @@ public class SaigyoujiYuyukoAncient : CustomAncientModel
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/SaigyoujiYuyuko.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/SaigyoujiYuyuko.png";
-
-    public override bool IsValidForAct(ActModel act)
-    {
-        return act.ActNumber() == 3;
-    }
-
-    public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
-    {
-        return TouhouAncientsConfig.IsAncientForced<SaigyoujiYuyukoAncient>(act.ActNumber());
-    }
 
     /// <summary>
     /// 第一行（推进）：弘川之骨、天冠、反魂蝶
