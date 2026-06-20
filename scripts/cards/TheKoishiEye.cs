@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using TouhouAncients.Scripts.cardTags;
+using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -65,7 +66,7 @@ public class TheKoishiEye : TouhouAncientCards
         }
 
         // 4. 过滤出仍在游戏中的卡牌（未被消耗/移出游戏）
-        var inGameCards = toPlay.Where(c => c is { IsInCombat: true, HasBeenRemovedFromState: false }).ToList();
+        var inGameCards = toPlay.Where(c => c is { IsInCombat: true, HasBeenRemovedFromState: false } and not SatoriEye).ToList();
         if (inGameCards.Count == 0) return;
 
         // 5. 为随机一张攻击牌附魔本能

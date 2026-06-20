@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Enchantments;
@@ -71,6 +72,7 @@ public class Yumeiro : TouhouAncientEnchantmentModel
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatManager.Instance.IsOverOrEnding) return;
         if (cardPlay?.Card != base.Card) return;
         if (Card.HasBeenRemovedFromState) return;
 

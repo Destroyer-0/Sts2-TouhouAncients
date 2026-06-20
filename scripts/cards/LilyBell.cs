@@ -112,20 +112,21 @@ public class LilyBell : TouhouAncientCards
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatManager.Instance.IsOverOrEnding) return;
         if (cardPlay.Card != this) return;
         if (base.CombatState == null) return;
         await TryAfflictTainted(DynamicVars["ExtraAmount"].IntValue);
-        var enemies = base.CombatState.HittableEnemies.ToList();
         var totalPoison = Owner.Creature.GetPowerAmount<TaintedPower>() * base.DynamicVars["Multiplier"].IntValue;
         if (totalPoison > 0)
         {
-            await PowerCmd.Apply<PoisonPower>(choiceContext, enemies, totalPoison, Owner.Creature, this);
+            var enemies = base.CombatState.HittableEnemies.ToList();
+            if (enemies.Count > 0)
+            {
+                await PowerCmd.Apply<PoisonPower>(choiceContext, enemies, totalPoison, Owner.Creature, this);
+            }
         }
     }
 
-    /// <summary>
-    /// 升级：对敌中毒+1，获得固有（通过CanonicalKeywords处理）。
-    /// </summary>
     protected override void OnUpgrade()
     {
         base.DynamicVars["Multiplier"].UpgradeValueBy(1m);
@@ -145,11 +146,11 @@ public static class VitalSparkPatch
     }
 
     [HarmonyPrefix]
-    private static bool Postfix(VitalSparkPower __instance, ref Task __result, PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    private static bool Postfix(VitalSparkPower __instance, ref Task __result, PlayerChoiceContext choiceContext,
+        CardPlay cardPlay)
     {
         try
         {
-
             if (cardPlay.Card.Affliction is not Tainted a)
             {
                 __result = Task.CompletedTask;
@@ -165,6 +166,7 @@ public static class VitalSparkPatch
         {
             Log.Error(e.ToString());
         }
+
         return true;
     }
 

@@ -52,8 +52,7 @@ public class DreamSeal : TouhouAncientCards
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<StrengthPower>(),
-        base.EnergyHoverTip
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
 
     public DreamSeal() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

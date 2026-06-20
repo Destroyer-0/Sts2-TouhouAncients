@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -85,6 +86,7 @@ public class KillingAura : TouhouAncientCards
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatManager.Instance.IsOverOrEnding) return;
         if (cardPlay.Card.Owner != Owner) return;
         if (cardPlay.Card == this) return;
         if (!PileType.Hand.GetPile(Owner).Cards.Contains(this))

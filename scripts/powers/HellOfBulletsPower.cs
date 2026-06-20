@@ -38,6 +38,18 @@ public class HellOfBulletsPower : TouhouAncientPowerModel
         return true;
     }
 
+    public override bool TryModifyStarCost(CardModel card, decimal originalCost, out decimal modifiedCost)
+    {
+        modifiedCost = originalCost;
+        if (card.Owner.Creature != Owner || card.Type is not CardType.Attack)
+        {
+            return false;
+        }
+
+        modifiedCost = default(decimal);
+        return true;
+    }
+
     /// <summary>
     /// 打出攻击牌后抽一张牌
     /// </summary>
@@ -53,6 +65,7 @@ public class HellOfBulletsPower : TouhouAncientPowerModel
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatManager.Instance.IsOverOrEnding) return;
         if (Owner.Player == null)
         {
             return;
