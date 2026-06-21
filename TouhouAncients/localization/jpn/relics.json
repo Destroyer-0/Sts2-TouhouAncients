@@ -85,7 +85,7 @@
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.title": "Hisoutensoku Model",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.description": "At the start of each combat, choose [blue]{SelectCount}[/blue] of [blue]{Cards}[/blue] [green]Upgraded[/green] [gold]The Defect[/gold] cards to add to your [gold]Draw Pile[/gold]. They are free to play this combat.",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.selectionScreenPrompt": "Choose [blue]{SelectCount}[/blue] {SelectCount:plural:card|cards}.",
-  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "Caution: Absolutely no fairies allowed to play with this!!!",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "A lone hero bearing everyone's expectations, standing alone against great evil. When it swings its righteous iron fist, the Spire is bathed in the light of hope. Let us call out its name——\"Defect\"!",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "Dracula's Legacy",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "Upon pickup, gain [blue]6[/blue] random relics. For each relic not gained this way, lose [blue]{Damage}[/blue] HP (minimum [blue]1[/blue] HP).",
@@ -238,7 +238,7 @@
 
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "Heavenly Punishment Pillar",
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.description": "Whenever you play a Skill, plant a [gold]Keystone[/gold]. Whenever you play an Attack, uproot the [gold]Keystone[/gold], dealing [blue]{Damage}[/blue] damage to ALL enemies and increasing the [gold]Keystone[/gold]'s damage by [blue]{ExtraDamage}[/blue] this combat.",
-  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "Used to suppress the Oo-Namazu that causes earthquakes... not that Gensokyo has any of those.",
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "Used to suppress the Oo-Namazu that causes earthquakes... not that Preon has any of those.",
   
   "TOUHOUANCIENTS-HOLY_ARMOR.title": "Heavenly Armor",
   "TOUHOUANCIENTS-HOLY_ARMOR.description": "Gain {Energy:energyIcons()} at the start of each turn.  The first [gold]Block[/gold] gained from cards each turn is [purple]halved[/purple].",
@@ -249,7 +249,7 @@
   "TOUHOUANCIENTS-CELESTIAL_INDIFFERENCE.flavor": "Heavenly indifference is the greatest fear of youkai.",
 
   "TOUHOUANCIENTS-HEAVENLY_REVELATION.title": "Heavenly Revelation",
-  "TOUHOUANCIENTS-HEAVENLY_REVELATION.description": "At the start of the [blue]3rd[/blue] turn, double all your [gold]positive statuses[/gold].",
+  "TOUHOUANCIENTS-HEAVENLY_REVELATION.description": "At the start of the [blue]3rd[/blue] turn, double all your [gold]positive powers[/gold].",
   "TOUHOUANCIENTS-HEAVENLY_REVELATION.flavor": "Let the lowly mortals on earth taste the terrible food of heaven! Then they'll never envy the celestial life again! —Tenshi Hinanawi",
 
   "TOUHOUANCIENTS-COSMIC_DECREE.title": "Heavenly Decree",
@@ -359,7 +359,7 @@
   "TOUHOUANCIENTS-CHILDHOOD_BAG.flavor": "",
 
   "TOUHOUANCIENTS-STAGE_DEVICE.title": "Stage Device",
-  "TOUHOUANCIENTS-STAGE_DEVICE.description": "At the start of odd-numbered turns, apply [blue]{VulnAmount}[/blue] [gold]Vulnerable[/gold] to ALL enemies and gain [blue]{TempStr}[/blue] [gold]Strength[/gold] this turn. At the start of even-numbered turns, apply [blue]{WeakAmount}[/blue] [gold]Weak[/gold] to ALL enemies and gain [blue]{TempDex}[/blue] [gold]Dexterity[/gold] this turn.",
+  "TOUHOUANCIENTS-STAGE_DEVICE.description": "At the start of odd-numbered turns, apply [blue]{VulnAmount}[/blue] [gold]Vulnerable[/gold] to ALL enemies and gain [blue]{TempStr}[/blue] temporary [gold]Strength[/gold]. At the start of even-numbered turns, apply [blue]{WeakAmount}[/blue] [gold]Weak[/gold] to ALL enemies and gain [blue]{TempDex}[/blue] temporary [gold]Dexterity[/gold].",
   "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "Toxic Chemical Box",

@@ -2,13 +2,17 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
@@ -34,12 +38,14 @@ public class Yishixingqile : TouhouAncientRelics
     public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
         if (player != base.Owner) return;
+        
+        // 移除已购买的商品（如果它在免费列表中）
+        _freeEntries.Remove(itemPurchased);
+        
         if (goldSpent <= 0) return; // 购买 0 价格商品不算消费
 
         Flash();
 
-        // 移除已购买的商品（如果它在免费列表中）
-        //_freeEntries.Remove(itemPurchased);
 
         // 从库存中随机选一个未被标记为免费的其他商品
         if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
@@ -57,6 +63,15 @@ public class Yishixingqile : TouhouAncientRelics
                     var chosen = candidates.UnstableShuffle(player.RunState.Rng.Niche).First();
                     _freeEntries.Add(chosen);
                     chosen.OnMerchantInventoryUpdated();
+                    
+                    var room = NMerchantRoom.Instance;
+                    if (LocalContext.IsMe(base.Owner) &&  room!=null )
+                    {
+                        var inventory = room.Inventory;
+                        NMerchantSlot slot = inventory.GetAllSlots().FirstOrDefault(s => s.Entry == chosen);
+                        VfxCmd.PlayNonCombatVfx(room, slot.GlobalPosition,
+                            "vfx/vfx_starry_impact");
+                    }
                 }
             }
         }

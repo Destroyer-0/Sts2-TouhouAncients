@@ -21,7 +21,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class OblivionFragment : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Relics", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Relics", 4)];
 
     public override bool HasUponPickupEffect => true;
 
@@ -31,7 +31,7 @@ public class OblivionFragment : TouhouAncientRelics
 
         // 获取所有涅奥初始遗物，排除自身
         var neowRelics = ModelDb.Event<Neow>().AllPossibleOptions
-            .Where(o => o.Relic != null && o.Relic.IsAllowed(state) && o.Relic is not OblivionFragment or LavaRock &&
+            .Where(o => o.Relic != null && o.Relic.IsAllowed(state) && o.Relic is not OblivionFragment && o.Relic is not LavaRock &&
                         Owner.Relics.All(x => x.Id.Entry != o.Relic.Id.Entry))
             .Select(o => o.Relic).OfType<RelicModel>()
             .ToList();

@@ -27,7 +27,7 @@ public class SilenceDoll : TouhouAncientRelics
     private readonly List<CardModel> _currentTurnDiscards = new();
 
     // 被缄默魔偶捞起的牌 → 是否原本就有保留
-    private readonly Dictionary<CardModel, bool> _trackedCards = new();
+    private readonly List<CardModel> _trackedCards = new();
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
 
@@ -72,28 +72,29 @@ public class SilenceDoll : TouhouAncientRelics
         )).FirstOrDefault();
 
         if (selected == null) return;
-
-        // 检查该牌原本是否已有保留关键字
-        bool hadRetain = selected.CanonicalKeywords?.Contains(CardKeyword.Retain) ?? false;
-        _trackedCards[selected] = hadRetain;
+        _trackedCards.Add(selected);
 
         // 添加保留并放入手牌
-        selected.AddKeyword(CardKeyword.Retain);
+        // selected.AddKeyword(CardKeyword.Retain);
         await CardPileCmd.Add(selected, PileType.Hand);
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var card = cardPlay.Card;
-        if (!_trackedCards.TryGetValue(card, out bool hadRetain)) return;
+        if (!_trackedCards.Contains(card)) return;
+        _trackedCards.Remove(card);
+    }
 
-        // 如果该牌原本没有保留，打出后移除保留
-        if (!hadRetain)
+    public override bool TryModifyKeywordsInCombat(CardModel card, ISet<CardKeyword> keywords)
+    {
+        if (card.Owner != base.Owner)
         {
-            card.RemoveKeyword(CardKeyword.Retain);
+            return false;
         }
 
-        _trackedCards.Remove(card);
+        if (!_trackedCards.Contains(card)) return false;
+        return keywords.Add(CardKeyword.Retain);
     }
 
     public override Task AfterCombatEnd(CombatRoom room)

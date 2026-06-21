@@ -53,6 +53,8 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
             Flash();
             base.Status = RelicStatus.Active;
             _keystoneInserted = true;
+            InvokeDisplayAmountChanged();
+            VfxCmd.PlayOnCreature(Owner.Creature, VfxCmd.sandyImpactPath);
         }
         else if (cardPlay.Card.Type == CardType.Attack && _keystoneInserted)
         {
@@ -68,6 +70,8 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
                 .Where(c => c.IsAlive)
                 .ToList();
 
+            VfxCmd.PlayOnCreature(Owner.Creature, VfxCmd.sandyImpactPath);
+            VfxCmd.PlayOnCreatures(enemies, VfxCmd.rockShatterPath );
             foreach (var enemy in enemies)
             {
                 if (enemy.HasPower<BurrowedPower>())
@@ -87,6 +91,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
             await PowerCmd.ModifyAmount(choiceContext, keystonePower, base.DynamicVars["ExtraDamage"].BaseValue, Owner.Creature, null);
             Flash();
             base.Status = RelicStatus.Normal;
+            InvokeDisplayAmountChanged();
         }
     }
 

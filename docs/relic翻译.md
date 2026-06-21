@@ -346,8 +346,8 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-HAPPINESS_ELIXIR.title": "幸福的秘药",
-"TOUHOUANCIENTS-HAPPINESS_ELIXIR.description": "拾起时，获得一瓶[green]卡米莉亚[/green]。第二幕的[gold]Boss[/gold]战结束后额外掉落一瓶。",
-"TOUHOUANCIENTS-HAPPINESS_ELIXIR.eventDescription": "获得一瓶[green]卡米莉亚[/green]。第二幕的[gold]Boss[/gold]战结束后额外掉落一瓶。",
+"TOUHOUANCIENTS-HAPPINESS_ELIXIR.description": "拾起时，获得一瓶[green]卡米莉亚[/green]。",
+"TOUHOUANCIENTS-HAPPINESS_ELIXIR.eventDescription": "获得一瓶[green]卡米莉亚[/green]。",
 "TOUHOUANCIENTS-HAPPINESS_ELIXIR.flavor": ""
 ```
 
@@ -355,8 +355,8 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Happiness Elixir` |
-| `.description` | `Upon pickup, obtain a [green]Camellia[/green]. After defeating the Act [blue]2[/blue] [gold]Boss[/gold], an extra [green]Camellia[/green] drops.` |
-| `.eventDescription` | `Obtain a [green]Camellia[/green]. After defeating the Act [blue]2[/blue] [gold]Boss[/gold], an extra [green]Camellia[/green] drops.` |
+| `.description` | `Upon pickup, obtain a [green]Camellia[/green]. ` |
+| `.eventDescription` | `Obtain a [green]Camellia[/green]. ` |
 | `.flavor` | `""`（留空） |
 
 ---

@@ -26,6 +26,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class DetectiveStory : TouhouAncientRelics
 {
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 3m), new DynamicVar("RetainCard", 1m)];
 
     public override async Task BeforeFlushLate(PlayerChoiceContext choiceContext, Player player)
