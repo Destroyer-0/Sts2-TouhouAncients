@@ -34,10 +34,9 @@ public class CeaselessResentment : TouhouAncientRelics
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (dealer == null) return;
-        if (dealer == base.Owner.Creature) return; // 不是自己打自己
+        if (dealer.IsPlayer || dealer.IsPet) return; // 不是自己打自己
         if (!props.IsCardOrMonsterMove()) return;
         if (result.UnblockedDamage <= 0) return;
-
 
         await PowerCmd.Apply<YuanChouPower>(choiceContext, dealer, result.UnblockedDamage, base.Owner.Creature, null);
         
