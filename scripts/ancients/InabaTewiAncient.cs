@@ -27,6 +27,8 @@ public class InabaTewiAncient : TouhouAncientBase
             AncientOption<RabbitsFoot>(),
             AncientOption<LuckyTreasureChest>(),
             AncientOption<RabbitsCage>(),
-            AncientOption<OokunineshiProtrayal>()
+            AncientOption<OokunineshiProtrayal>(),
+            AncientOption<SuspiciousToken>(),
+            AncientOption<GlowingBamboo>()
         ));
 }

@@ -287,7 +287,7 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未被升级的牌将在战斗结束后被升级。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未升级的牌将在战斗结束后[green]升级[/green]。",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "仿制兔脚",

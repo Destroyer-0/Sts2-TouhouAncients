@@ -82,29 +82,6 @@ public static class BanAncientPatch
         }
     }
 
-    /// <summary>
-    /// Prefix 拦截 AbstractModel.ShouldAllowAncient(Player, AncientEventModel)
-    /// </summary>
-    [HarmonyPatch]
-    public static class AbstractModel_ShouldAllowAncient_Patch
-    {
-        private static MethodBase TargetMethod()
-        {
-            return AccessTools.Method(typeof(AbstractModel), nameof(AbstractModel.ShouldAllowAncient));
-        }
-
-        [HarmonyPrefix]
-        private static bool Prefix(AbstractModel __instance, AncientEventModel ancient, ref bool __result)
-        {
-            if (IsBanned(ancient.GetType()))
-            {
-                __result = false;
-                return false;
-            }
-            return true;
-        }
-    }
-
     private static bool IsBanned(Type type)
     {
         return TouhouAncientsConfig.IsAncientBanned(type) || TouhouAncientsConfig.IsBaseGameAncientBanned(type);

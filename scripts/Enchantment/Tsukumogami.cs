@@ -19,12 +19,6 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Tsukumogami : TouhouAncientEnchantmentModel
 {
-    public override bool CanEnchantCardType(CardType cardType)
-    {
-        // 只能附魔攻击、技能、能力
-        return (uint)(cardType - 1) <= 2u;
-    }
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Ethereal)];
 
     protected override void OnEnchant()
@@ -36,7 +30,7 @@ public class Tsukumogami : TouhouAncientEnchantmentModel
     {
         if (!HasCard) return;
         if (player != Card.Owner) return;
-        if (player.Creature.CombatState==null) return;
+        if (player.Creature.CombatState == null) return;
         if (PileType.Hand.GetPile(player).Cards.Count(x => x.Enchantment is Tsukumogami) == 0)
         {
             var allTsukumogami = player.Piles

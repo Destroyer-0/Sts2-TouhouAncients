@@ -393,5 +393,10 @@
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.0-1.next": "继续",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.0-2.ancient": "宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.1-0r.ancient": "带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵……",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.2-0r.ancient": "虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter]"
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.NECROBINDER.2-0r.ancient": "虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter]",
+
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.title": "二岩 猯藏",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.epithet": "外来的外来妖怪狸",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.firstVisitEver.0-0.ancient": "占位符",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.0-0r.ancient": "……"
 }

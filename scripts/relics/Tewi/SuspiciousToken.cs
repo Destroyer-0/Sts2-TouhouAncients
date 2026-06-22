@@ -64,16 +64,30 @@ public class SuspiciousToken : TouhouAncientRelics
         NMerchantInventory uiInventory,
         Player player)
     {
-        // 1. 刷新角色卡牌
-        foreach (var entry in merchantInventory.CharacterCardEntries)
+        // 1. 刷新角色卡牌（数据 + UI）
+        var charCardContainer = uiInventory.GetNodeOrNull<Control>("%CharacterCards");
+        if (charCardContainer != null)
         {
-            entry.Populate();
+            var charCardSlots = charCardContainer.GetChildren().OfType<NMerchantCard>().ToList();
+            for (int i = 0; i < merchantInventory.CharacterCardEntries.Count && i < charCardSlots.Count; i++)
+            {
+                var entry = merchantInventory.CharacterCardEntries[i];
+                entry.Populate();
+                charCardSlots[i].FillSlot(entry);
+            }
         }
 
-        // 2. 刷新无色卡牌
-        foreach (var entry in merchantInventory.ColorlessCardEntries)
+        // 2. 刷新无色卡牌（数据 + UI）
+        var colorlessCardContainer = uiInventory.GetNodeOrNull<Control>("%ColorlessCards");
+        if (colorlessCardContainer != null)
         {
-            entry.Populate();
+            var colorlessCardSlots = colorlessCardContainer.GetChildren().OfType<NMerchantCard>().ToList();
+            for (int i = 0; i < merchantInventory.ColorlessCardEntries.Count && i < colorlessCardSlots.Count; i++)
+            {
+                var entry = merchantInventory.ColorlessCardEntries[i];
+                entry.Populate();
+                colorlessCardSlots[i].FillSlot(entry);
+            }
         }
 
         // 3. 刷新遗物

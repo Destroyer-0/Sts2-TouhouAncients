@@ -17,6 +17,7 @@ public class Greed : TouhouAncientEnchantmentModel
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Eternal),HoverTipFactory.Static(StaticHoverTip.ReplayDynamic,DynamicVars["Times"])];
 
+    public override bool CanBeRandomSelected => false;
     //public override bool HasExtraCardText => true;
     public override bool ShouldGlowRed => true;
 
@@ -24,8 +25,7 @@ public class Greed : TouhouAncientEnchantmentModel
     {
         base.Card.AddKeyword(CardKeyword.Eternal);
     }
-
-
+    
     public override int EnchantPlayCount(int originalPlayCount)
     {
         return originalPlayCount + 1;

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -22,6 +23,8 @@ public class GlowingBamboo : TouhouAncientRelics
     public override Task BeforeCombatStart()
     {
         _trackedCard = null;
+        base.Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 
@@ -29,21 +32,30 @@ public class GlowingBamboo : TouhouAncientRelics
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (_trackedCard != null) return;
-        if (cardPlay.Card.IsUpgraded || !cardPlay.Card.IsUpgradable) return;
+        var deckVersion = _trackedCard?.DeckVersion;
+        if (deckVersion == null || deckVersion.IsUpgraded || !deckVersion.IsUpgradable || deckVersion.HasBeenRemovedFromState) return;
 
-        _trackedCard = cardPlay.Card;
+        Flash();
+        _trackedCard = deckVersion;
+        base.Status = RelicStatus.Disabled;
+        InvokeDisplayAmountChanged();
+        (await PowerCmd.Apply<GlowingBambooPower>(choiceContext,base.Owner.Creature, 1, base.Owner.Creature, null))?.SetSelectedCard(_trackedCard);
     }
 
-    public override async Task AfterCombatEnd(CombatRoom room)
+    public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (_trackedCard != null
-            && !_trackedCard.IsUpgraded
-            && !_trackedCard.HasBeenRemovedFromState)
+        var deckVersion = _trackedCard?.DeckVersion;
+        if (deckVersion != null
+            && PileType.Deck.GetPile(Owner).Cards.Contains(deckVersion)
+            && deckVersion is { IsUpgraded: false, IsUpgradable: true, HasBeenRemovedFromState: false })
         {
-            CardCmd.Upgrade(_trackedCard);
             Flash();
+            CardCmd.Upgrade(deckVersion);
         }
 
+        base.Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
         _trackedCard = null;
+        return Task.CompletedTask;
     }
 }

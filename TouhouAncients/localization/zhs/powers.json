@@ -35,6 +35,10 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "弹幕地狱",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "本回合攻击牌可以免费打出。打出攻击牌时抽[blue]1[/blue]张牌。",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "本回合攻击牌可以免费打出。打出攻击牌时抽[blue]{Amount}[/blue]张牌。",
+  
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.title": "竹林秘宝",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.description": "对应牌将在战斗结束后[green]升级[/green]。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold]将在战斗结束后[green]升级[/green]。",
 
   "TOUHOUANCIENTS-CAPITAL_POWER.title": "启动资金",
   "TOUHOUANCIENTS-CAPITAL_POWER.description": "可用于[purple]极奢形态[/purple]的特殊消耗。",
