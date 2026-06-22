@@ -1643,3 +1643,47 @@
 
 ---
 
+## 可疑信物
+
+**键名**: `TOUHOUANCIENTS-SUSPICIOUS_TOKEN`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
+"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
+"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "因幡商会的特别赠品，据说能带来好运……或者让人更加怀疑？"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Suspicious Token` |
+| `.description` | `At each shop, you may refresh the merchant's wares once for free.` |
+| `.flavor` | `A special gift from the Inaba Trading Company, said to bring good luck... or perhaps just more suspicion?` |
+
+### Neta / 文化梗说明
+- **因幡商会（Inaba Trading Company）** — 捏他因幡帝（Inaba Tewi）在幻想乡经营的商业网络，暗示这个"信物"来自她的渠道
+- **"可疑"** — 帝本身就是以狡诈、捉弄人著称的妖怪兔，她的赠品自然值得怀疑
+
+---
+
+## 发光竹子
+
+**键名**: `TOUHOUANCIENTS-GLOWING_BAMBOO`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
+"TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未被升级的牌将在战斗结束后被升级。",
+"TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Glowing Bamboo` |
+| `.description` | `The first unupgraded card you play each combat will be upgraded after the combat ends.` |
+| `.flavor` | `""`（留空） |
+
+---
+

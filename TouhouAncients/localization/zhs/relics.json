@@ -286,6 +286,10 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未被升级的牌将在战斗结束后被升级。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "",
+
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "仿制兔脚",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]{Gold}[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给兔角同盟了！",
@@ -303,6 +307,10 @@
   "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
+
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "因幡商会的特别赠品，据说能带来好运……或者让人更加怀疑？",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]、[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",

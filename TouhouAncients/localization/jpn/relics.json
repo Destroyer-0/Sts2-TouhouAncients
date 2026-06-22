@@ -285,7 +285,9 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "Four-Leaf Clover",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "Every [blue]2[/blue] combats, your [gold]Card Rewards[/gold] additionally contain a [gold]Rare[/gold] card. The second [gold]Rare[/gold] card obtained this way will be [green]Upgraded[/green].",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "Those who meet her become lucky, but only the fortunate can meet her.",
-
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "Glowing Bamboo",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The first unupgraded card you play each combat will be upgraded after the combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "",
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "Fake Rabbit's Foot",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "You may sell [gold]Card Rewards[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "Oh no, my card rewards are pretty lousy! Well... why not sell them to the Rabbit Horn Alliance!",
@@ -303,6 +305,10 @@
   "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
+
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "Suspicious Token",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the merchant's wares once for free.",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "A special gift from the Inaba Trading Company, said to bring good luck... or perhaps just more suspicion?",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Barricade[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take unblocked damage each combat, lose [gold]Barricade[/gold] and enter [purple]Ringing[/purple] for 1 turn.",
@@ -359,7 +365,7 @@
   "TOUHOUANCIENTS-CHILDHOOD_BAG.flavor": "",
 
   "TOUHOUANCIENTS-STAGE_DEVICE.title": "Stage Device",
-  "TOUHOUANCIENTS-STAGE_DEVICE.description": "At the start of odd-numbered turns, apply [blue]{VulnAmount}[/blue] [gold]Vulnerable[/gold] to ALL enemies and gain [blue]{TempStr}[/blue] temporary [gold]Strength[/gold]. At the start of even-numbered turns, apply [blue]{WeakAmount}[/blue] [gold]Weak[/gold] to ALL enemies and gain [blue]{TempDex}[/blue] temporary [gold]Dexterity[/gold].",
+  "TOUHOUANCIENTS-STAGE_DEVICE.description": "At the start of odd turns, apply [blue]{VulnAmount}[/blue] [gold]Vulnerable[/gold] to ALL enemies and gain [blue]{TempStr}[/blue] temporary [gold]Strength[/gold]. At the start of even turns, apply [blue]{WeakAmount}[/blue] [gold]Weak[/gold] to ALL enemies and gain [blue]{TempDex}[/blue] temporary [gold]Dexterity[/gold].",
   "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "Toxic Chemical Box",
