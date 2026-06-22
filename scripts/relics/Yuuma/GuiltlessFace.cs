@@ -48,15 +48,24 @@ public class GuiltlessFace : TouhouAncientRelics
         Flash();
 
         // 将所有同类型牌变换为选中的牌
-        var results = new List<CardPileAddResult>();
         List<CardTransformation> transformations = new();
-        
-        foreach (var card in sameTypeCards)
+
+        foreach (var original in sameTypeCards)
         {
-            var transform = new CardTransformation(card, base.Owner.RunState.CloneCard(chosen));
+            var cardModel = base.Owner.RunState.CloneCard(chosen);
+            if (original.Enchantment != null)
+            {
+                EnchantmentModel enchantmentModel = (EnchantmentModel)original.Enchantment.MutableClone();
+                if (enchantmentModel.CanEnchant(cardModel))
+                {
+                    CardCmd.Enchant(enchantmentModel, cardModel, enchantmentModel.Amount);
+                }
+            }
+
+            var transform = new CardTransformation(original, cardModel);
             transformations.Add(transform);
         }
 
-        await CardCmd.Transform(transformations,null,CardPreviewStyle.GridLayout);
+        await CardCmd.Transform(transformations, null, CardPreviewStyle.GridLayout);
     }
 }
