@@ -1,6 +1,8 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -17,10 +19,15 @@ public class FoldingUmbrella : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<ReflectPower>()];
 
-    public override async Task BeforeCombatStart()
+
+    public override async Task AfterSideTurnStartLate(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        Flash();
-        await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 5m,
-            base.Owner.Creature, null);
+        if (side == Owner.Creature.Side && participants.Contains(Owner.Creature))
+        {
+            Flash();
+            await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 5m,
+                base.Owner.Creature, null);
+        }
     }
 }
