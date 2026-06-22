@@ -59,6 +59,7 @@ public class BloodlickingTongue : TouhouAncientRelics
     public override async Task AfterCurrentHpChanged(Creature creature, decimal delta)
     {
         if (creature.IsDead) return;
+        if (RunManager.Instance.IsGameOver) return;
         if (creature != base.Owner.Creature) return;
         if (delta >= 0) return;
 
