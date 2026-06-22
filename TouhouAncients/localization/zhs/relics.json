@@ -543,7 +543,7 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
 
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "战栗的冻星",
-  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "每打出[blue]{AttackThreshold}[/blue]张攻击牌，生成一个[gold]冰霜[/gold]充能球，并交替将一张带有[gold]虚无[/gold]的[gold]战栗[/gold]/[gold]主宰[/gold]添加到你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "每打出[blue]{AttackThreshold}[/blue]张攻击牌，[gold]生成[/gold]一个[gold]冰霜[/gold]充能球，并交替将一张带有[gold]虚无[/gold]的[gold]战栗[/gold]/[gold]主宰[/gold]添加到你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "迷幻的投影",

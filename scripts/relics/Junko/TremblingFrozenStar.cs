@@ -49,6 +49,7 @@ public class TremblingFrozenStar : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new []{ HoverTipFactory.FromOrb<FrostOrb>(),HoverTipFactory.FromKeyword(CardKeyword.Ethereal)}
+            .Append(HoverTipFactory.Static(StaticHoverTip.Channeling))
             .Concat(HoverTipFactory.FromCardWithCardHoverTips<Tremble>())
             .Concat(HoverTipFactory.FromCardWithCardHoverTips<Dominate>());
 

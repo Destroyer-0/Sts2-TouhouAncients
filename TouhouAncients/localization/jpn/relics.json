@@ -543,7 +543,7 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
 
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "Trembling Frozen Star",
-  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "Every [blue]{AttackThreshold}[/blue] Attacks played, evoke a [gold]Frost[/gold] Orb, and alternately add a [gold]Tremble[/gold] / [gold]Dominate[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "Every [blue]{AttackThreshold}[/blue] Attacks played, [gold]Channel[/gold] a [gold]Frost[/gold] Orb, and alternately add a [gold]Tremble[/gold] / [gold]Dominate[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "Illusory Projection",
