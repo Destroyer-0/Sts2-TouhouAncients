@@ -85,7 +85,7 @@
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.title": "非想天则模型",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.description": "在每场战斗开始时，从[blue]{Cards}[/blue]张[green]升级过的[/green][gold]故障机器人[/gold]的卡牌中选择[blue]{SelectCount}[/blue]张加入[gold]抽牌堆[/gold]。这些牌在本场战斗中可以免费打出。",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.selectionScreenPrompt": "选择[blue]{SelectCount}[/blue]张牌。",
-  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "肩负大家的期待，只身抵抗强大邪恶势力的孤高英雄。当它挥下正义的铁拳，尖塔便被希望之光笼罩。让我们呼唤他的名字——“故障机器人”！",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "肩负大家的期待，只身抵抗地精大块头的孤高英雄。当它挥下正义的铁拳，尖塔便被希望之光笼罩。让我们呼唤他的名字——“故障机器人”！",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "德古拉之遗",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "拾起时，随机获得[blue]6[/blue]个遗物。不以此方式获得遗物时，失去[blue]{Damage}[/blue]生命（至少保留1生命）。",
@@ -286,10 +286,6 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未升级的牌将在战斗结束后[green]升级[/green]。",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "",
-
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "仿制兔脚",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "你可以以[blue]{Gold}[/blue][gold]金币[/gold]的价格出售[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "掉了卡牌，但是有不要的卡牌怎么办？那就上……当然是卖给兔角同盟了！",
@@ -310,7 +306,11 @@
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
-  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "因幡商会的特别赠品，据说能带来好运……或者让人更加怀疑？",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？",
+
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未升级的牌将在战斗结束后[green]升级[/green]。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "自然现象？……还是月球科技？嘘！这可是商业机密。",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]、[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",

@@ -85,7 +85,7 @@
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.title": "Hisoutensoku Model",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.description": "At the start of each combat, choose [blue]{SelectCount}[/blue] of [blue]{Cards}[/blue] [green]Upgraded[/green] [gold]The Defect[/gold] cards to add to your [gold]Draw Pile[/gold]. They are free to play this combat.",
   "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.selectionScreenPrompt": "Choose [blue]{SelectCount}[/blue] {SelectCount:plural:card|cards}.",
-  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "A lone hero bearing everyone's expectations, standing alone against great evil. When it swings its righteous iron fist, the Spire is bathed in the light of hope. Let us call out its name——\"Defect\"!",
+  "TOUHOUANCIENTS-HISOUTENSOKU_MODEL.flavor": "A lone hero bearing everyone's expectations, standing alone against Gremlin Nob. When it swings its righteous iron fist, the Spire is bathed in the light of hope. Let us call out its name——\"Defect\"!",
 
   "TOUHOUANCIENTS-DRACULA_LEGACY.title": "Dracula's Legacy",
   "TOUHOUANCIENTS-DRACULA_LEGACY.description": "Upon pickup, gain [blue]6[/blue] random relics. For each relic not gained this way, lose [blue]{Damage}[/blue] HP (minimum [blue]1[/blue] HP).",
@@ -287,7 +287,7 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "Those who meet her become lucky, but only the fortunate can meet her.",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "Glowing Bamboo",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The first unupgraded card you play each combat will be upgraded after the combat ends.",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "A natural phenomenon... or lunar technology? Shh! That's a trade secret.",
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "Fake Rabbit's Foot",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "You may sell [gold]Card Rewards[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "Oh no, my card rewards are pretty lousy! Well... why not sell them to the Rabbit Horn Alliance!",
@@ -308,7 +308,7 @@
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "Suspicious Token",
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the merchant's wares once for free.",
-  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "A special gift from the Inaba Trading Company, said to bring good luck... or perhaps just more suspicion?",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "Hand this to the merchant for a special service—when you think Tewi Inaba has tricked you, but actually hasn't, does that still count as being tricked?",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "At the start of each combat, gain [gold]Barricade[/gold], [blue]{Block}[/blue] [gold]Block[/gold], and [blue]1[/blue] [gold]Dexterity[/gold]. The first time you take unblocked damage each combat, lose [gold]Barricade[/gold] and enter [purple]Ringing[/purple] for 1 turn.",

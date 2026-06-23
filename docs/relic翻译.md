@@ -1651,7 +1651,7 @@
 ```json
 "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
 "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
-"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "因幡商会的特别赠品，据说能带来好运……或者让人更加怀疑？"
+"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？"
 ```
 
 ### 英文翻译
@@ -1659,11 +1659,11 @@
 |------|------|
 | `.title` | `Suspicious Token` |
 | `.description` | `At each shop, you may refresh the merchant's wares once for free.` |
-| `.flavor` | `A special gift from the Inaba Trading Company, said to bring good luck... or perhaps just more suspicion?` |
+| `.flavor` | `Hand this to the merchant for a special service—when you think Tewi Inaba has tricked you, but actually hasn't, does that still count as being tricked?` |
 
 ### Neta / 文化梗说明
-- **因幡商会（Inaba Trading Company）** — 捏他因幡帝（Inaba Tewi）在幻想乡经营的商业网络，暗示这个"信物"来自她的渠道
-- **"可疑"** — 帝本身就是以狡诈、捉弄人著称的妖怪兔，她的赠品自然值得怀疑
+- **因幡帝（Tewi Inaba）** — 以狡诈、捉弄人著称的妖怪兔，这个"信物"是否真的能换取服务，或者只是她的又一个恶作剧？
+- **"可疑"** — 文本玩了一个哲学悖论：如果你觉得被骗了但实际上没被骗，这算不算被骗？
 
 ---
 
@@ -1675,7 +1675,7 @@
 ```json
 "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
 "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未被升级的牌将在战斗结束后被升级。",
-"TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": ""
+"TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "自然现象？……还是月球科技？嘘！这可是商业机密。"
 ```
 
 ### 英文翻译
@@ -1683,7 +1683,11 @@
 |------|------|
 | `.title` | `Glowing Bamboo` |
 | `.description` | `The first unupgraded card you play each combat will be upgraded after the combat ends.` |
-| `.flavor` | `""`（留空） |
+| `.flavor` | `A natural phenomenon... or lunar technology? Shh! That's a trade secret.` |
+
+### Neta / 文化梗说明
+- **月球科技** — 捏他永夜抄的因幡竹（月兔/月球科技）背景，暗示发光竹子可能是月之都的技术产物
+- **商业机密** — 俏皮地拒绝透露竹子发光的真正原因
 
 ---
 
