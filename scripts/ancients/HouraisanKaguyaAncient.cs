@@ -14,8 +14,8 @@ public class HouraisanKaguyaAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.1f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.9f, 0.3f, 0.5f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/HouraisanKaguya_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HouraisanKaguya_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HouraisanKaguya.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HouraisanKaguya.png";
 
