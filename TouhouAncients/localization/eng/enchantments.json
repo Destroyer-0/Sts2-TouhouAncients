@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.extraCardText": "Snake bite reigns supreme!",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "Snake!!",
     
-    "TOUHOUANCIENTS-MIRACLE.description": "Gains [gold]Exhaust[/gold].\nWhen played, gain {Amount:energyIcons()}, then add a random card [gold]enchanted[/gold] with [purple]Miracle[/purple] to your [gold]Draw Pile[/gold].",
+    "TOUHOUANCIENTS-MIRACLE.description": "Gains [gold]Exhaust[/gold].\nWhen played, gain {energyPrefix:energyIcons(1)}, then add a random card [gold]enchanted[/gold] with [purple]Miracle[/purple] to your [gold]Draw Pile[/gold].",
     "TOUHOUANCIENTS-MIRACLE.extraCardText": "A miracle awakens.",
     "TOUHOUANCIENTS-MIRACLE.title": "Miracle",
 

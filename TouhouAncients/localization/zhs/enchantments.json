@@ -9,7 +9,7 @@
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.extraCardText": "蛇咬王朝了",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "蛇！！",
     
-    "TOUHOUANCIENTS-MIRACLE.description": "获得消耗。\n打出后，获得{Amount:energyIcons()}，然后将一张带有[purple]奇迹[/purple][gold]附魔[/gold]的随机颜色牌加入抽牌堆。",
+    "TOUHOUANCIENTS-MIRACLE.description": "获得消耗。\n打出后，获得{energyPrefix:energyIcons(1)}，然后将一张带有[purple]奇迹[/purple][gold]附魔[/gold]的随机颜色牌加入抽牌堆。",
     "TOUHOUANCIENTS-MIRACLE.extraCardText": "引发奇迹之力。",
     "TOUHOUANCIENTS-MIRACLE.title": "奇迹",
 
