@@ -22,6 +22,8 @@ public class Tribute : TouhouAncientCards
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;
 
+    public override int MaxUpgradeLevel => 0;
+
     // BaseLib 的 [SavedProperty] 需要放在属性上，不能放在字段上。
     [SavedProperty]
     private int SavedGoldContributed { get; set; }

@@ -95,7 +95,7 @@ public class DraculaLegacy : TouhouAncientRelics
         // 非战斗状态：至少保留 1 点生命
         if (Owner.Creature.CombatState == null && damage.IntValue >= Owner.Creature.CurrentHp)
         {
-            damage.UpgradeValueBy(Owner.Creature.CurrentHp - damage.IntValue - 1);
+            damage.BaseValue = Math.Min(damage.IntValue, Owner.Creature.CurrentHp - 1);
         }
 
         if (damage.IntValue > 0)
