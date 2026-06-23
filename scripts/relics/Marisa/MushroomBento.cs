@@ -76,27 +76,23 @@ public class MushroomBento : TouhouAncientRelics
 }
 
 /// <summary>
-/// 持有 MushroomBento 时，在 BigMushroom 悬浮提示中追加蘑菇便当说明
+/// 持有 MushroomBento 时，在 BigMushroom 和 FragrantMushroom 的悬浮提示中追加蘑菇便当说明
 /// </summary>
-[HarmonyPatch]
-public static class BigMushroomHoverTipPatch
+[HarmonyPatch(typeof(RelicModel), "get_HoverTips")]
+public static class MushroomRelicHoverTipPatch
 {
-    private static MethodBase TargetMethod()
-    {
-        return typeof(BigMushroom).GetMethod("get_HoverTips");
-    }
-
     [HarmonyPostfix]
-    public static void Postfix(BigMushroom __instance, ref IEnumerable<IHoverTip> __result)
+    public static void Postfix(object __instance, ref IEnumerable<IHoverTip> __result)
     {
         try
         {
-            if (!__instance.IsMutable)
+            if (__instance is RelicModel mushroomRelic)
             {
-                return;
-            }
-            if (__instance.Owner?.GetRelic<MushroomBento>() != null && __result is List<IHoverTip> list)
-            {
+                if (mushroomRelic is not (BigMushroom or FragrantMushroom)) return;
+                if (!mushroomRelic.IsMutable) return;
+                if (mushroomRelic.Owner?.GetRelic<MushroomBento>() == null) return;
+                if (__result is not List<IHoverTip> list) return;
+
                 list.Add(new HoverTip(
                     new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.title"),
                     new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom")
@@ -145,40 +141,7 @@ public static class BigMushroomDrawPatch
     }
 }
 
-/// <summary>
-/// 持有 MushroomBento 时，在 FragrantMushroom 悬浮提示中追加蘑菇便当说明
-/// </summary>
-[HarmonyPatch]
-public static class FragrantMushroomHoverTipPatch
-{
-    private static MethodBase TargetMethod()
-    {
-        return typeof(FragrantMushroom).GetMethod("get_HoverTips");
-    }
 
-    [HarmonyPostfix]
-    public static void Postfix(FragrantMushroom __instance, ref IEnumerable<IHoverTip> __result)
-    {
-        try
-        {
-            if (!__instance.IsMutable)
-            {
-                return;
-            }
-            if (__instance.Owner?.GetRelic<MushroomBento>() != null && __result is List<IHoverTip> list)
-            {
-                list.Add(new HoverTip(
-                    new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.title"),
-                    new LocString("relics", "TOUHOUANCIENTS-MUSHROOM_BENTO.mushroom")
-                ));
-            }
-        }
-        catch (System.Exception e)
-        {
-            Log.Error(e.ToString());
-        }
-    }
-}
 
 /// <summary>
 /// 持有 MushroomBento 时，FragrantMushroom 拾起时失去生命效果失效（升级效果保留）
