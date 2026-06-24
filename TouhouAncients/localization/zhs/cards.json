@@ -45,7 +45,7 @@
     "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "随机打出[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]中的{Cards:diff()}张牌。\n为其中随机一张攻击牌[gold]附魔[/gold][purple]本能[/purple]，为其中随机一张牌添加[red]无意识[/red]。",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "杀戮灵气",
-    "TOUHOUANCIENTS-KILLING_AURA.description": "造成{Damage:diff()}点伤害。\n获得{Block:diff()}点[gold]格挡[/gold]。\n你打出带有攻击/格挡的牌时，如果这张牌在你的[gold]手牌[/gold]中，消耗该牌并将其对应数值{IfUpgraded:show:增加1|}添加到这张牌上。",
+    "TOUHOUANCIENTS-KILLING_AURA.description": "造成{Damage:diff()}点伤害。\n获得{Block:diff()}点[gold]格挡[/gold]。\n你打出带有攻击/格挡的牌时，如果这张牌在你的[gold]手牌[/gold]中，[gold]消耗[/gold]该牌并将其对应数值{IfUpgraded:show:增加1|}添加到这张牌上。",
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "纯粹的弹幕地狱",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "选择任意张手牌，变化为[gold]无名的弹幕[/gold]。\n在这个回合，你的攻击牌可以免费打出，且打出后抽一张牌；当你手中没有攻击牌时，结束你的回合。",
@@ -62,5 +62,5 @@
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂飨",
     "TOUHOUANCIENTS-THE_FEAST.description": "选择并[gold]消耗[/gold]{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张此牌的复制品加入你的[gold]弃牌堆[/gold]。",
-    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌消耗"
+    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌[gold]消耗[/gold]"
 }
