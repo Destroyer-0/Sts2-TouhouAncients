@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class PureConfidence : TouhouAncientRelics
 {
-    private int _goldenPathAct = -1;
+    private int _touhouAncientJunkoPathAct = -1;
 
     public override bool HasUponPickupEffect => true;
 
@@ -26,19 +26,19 @@ public class PureConfidence : TouhouAncientRelics
         [HoverTipFactory.ForEnergy(this)];
 
     [SavedProperty]
-    public int GoldenPathAct
+    public int TouhouAncient_JunkoPathAct
     {
-        get { return _goldenPathAct; }
+        get { return _touhouAncientJunkoPathAct; }
         set
         {
             AssertMutable();
-            _goldenPathAct = value;
+            _touhouAncientJunkoPathAct = value;
         }
     }
 
     public override async Task AfterObtained()
     {
-        GoldenPathAct = base.Owner.RunState.CurrentActIndex;
+        TouhouAncient_JunkoPathAct = base.Owner.RunState.CurrentActIndex;
         await RunManager.Instance.GenerateMap();
     }
 
@@ -56,7 +56,7 @@ public class PureConfidence : TouhouAncientRelics
     
     public override ActMap ModifyGeneratedMap(IRunState runState, ActMap map, int actIndex)
     {
-        if (GoldenPathAct != actIndex)
+        if (TouhouAncient_JunkoPathAct != actIndex)
         {
             return map;
         }
@@ -65,7 +65,7 @@ public class PureConfidence : TouhouAncientRelics
 
     public override IReadOnlySet<RoomType> ModifyUnknownMapPointRoomTypes(IReadOnlySet<RoomType> roomTypes)
     {
-        if (GoldenPathAct != base.Owner.RunState.CurrentActIndex)
+        if (TouhouAncient_JunkoPathAct != base.Owner.RunState.CurrentActIndex)
         {
             return roomTypes;
         }

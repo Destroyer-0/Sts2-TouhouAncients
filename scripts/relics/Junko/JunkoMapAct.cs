@@ -17,7 +17,6 @@ public class JunkoMapAct : ActMap
         MapPointType.Treasure,
         MapPointType.Elite,
         MapPointType.Shop,
-        MapPointType.RestSite,
         MapPointType.Elite,
         MapPointType.RestSite,
         MapPointType.Elite,
