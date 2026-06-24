@@ -23,17 +23,17 @@ public class JunkoAncient : TouhouAncientBase
         MakePool(
             AncientOption<CeaselessResentment>(),
             AncientOption<DeathBlackCrown>(),
-            AncientOption<OverflowingDefilement>()
+            AncientOption<TremblingFrozenStar>()
         ),
         MakePool(
             AncientOption<MurderousLily>(),
-            AncientOption<IllusoryProjection>(),
+            AncientOption<HellOfBullets>(),
             AncientOption<PureConfidence>()
         ),
         MakePool(
-            AncientOption<HellOfBullets>(),
-            AncientOption<TremblingFrozenStar>(),
-            AncientOption<PrimalSpirit>()
+            AncientOption<IllusoryProjection>(),
+            AncientOption<PrimalSpirit>(),
+            AncientOption<OverflowingDefilement>()
         )
     );
 }
