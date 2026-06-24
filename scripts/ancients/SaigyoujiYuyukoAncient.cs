@@ -10,7 +10,8 @@ namespace TouhouAncients.Scripts;
 public class SaigyoujiYuyukoAncient : TouhouAncientBase
 {
     public override int? ShowAct => 3;
-    public override Color ButtonColor => new Color(1f, 0.5f, 0.95f, 0.7f);
+    public override Color ButtonColor => new Color(0.3f, 0.3f, 0.6f, 0.6f);
+    //public override Color ButtonColor => new Color(1f, 0.5f, 0.95f, 1f);
     public override Color DialogueColor => new Color(1f, 0.5f, 0.95f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";

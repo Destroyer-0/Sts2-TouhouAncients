@@ -10,7 +10,7 @@ namespace TouhouAncients.Scripts;
 public class InabaTewiAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
-    public override Color ButtonColor => new(0.5f, 0.5f, 0.5f, 0.7f);
+    public override Color ButtonColor => new(0.3f, 0.3f, 0.3f, 0.7f);
     public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/InabaTewi_MapNode.png";

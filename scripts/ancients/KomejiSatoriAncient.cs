@@ -11,7 +11,7 @@ namespace TouhouAncients.Scripts;
 public class KomejiSatoriAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
-    public override Color ButtonColor => new(0.85f, 0.35f, 0.75f, 0.7f);
+    public override Color ButtonColor => new(0.65f, 0.25f, 0.55f, 0.7f);
     public override Color DialogueColor => new(0.85f, 0.35f, 0.75f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
