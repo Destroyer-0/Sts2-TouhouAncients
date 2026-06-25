@@ -25,7 +25,7 @@ public class HellOkuu : TouhouAncientRelics
 {
     private bool _endedWithZeroEnergy;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Strength", 2m), new EnergyVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Strength", 1m), new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Burn>().Append(HoverTipFactory.FromPower<StrengthPower>());
@@ -37,8 +37,7 @@ public class HellOkuu : TouhouAncientRelics
         if (base.Owner.PlayerCombatState == null) return;
         if (base.Owner.PlayerCombatState.Energy > 0) return;
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner,
-            position: CardPilePosition.Bottom);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner);
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars["Strength"].BaseValue,
             base.Owner.Creature, null);
         await Cmd.Wait(0.5f);
