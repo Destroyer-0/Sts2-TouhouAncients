@@ -275,6 +275,7 @@
   "TOUHOUANCIENTS-CARROT_NECKLACE.description": "Upon pickup, remove up to [blue]3[/blue] cards from your [gold]Deck[/gold]. The Merchant's card removal fee is doubled.",
   "TOUHOUANCIENTS-CARROT_NECKLACE.eventDescription": "Remove up to [blue]3[/blue] cards from your [gold]Deck[/gold]. The Merchant's card removal fee is doubled.",
   "TOUHOUANCIENTS-CARROT_NECKLACE.flavor": "Wearing this necklace makes you as agile and cunning as a rabbit.",
+  "TOUHOUANCIENTS-CARROT_NECKLACE.selectionScreenPrompt": "Choose up to [blue]3[/blue] cards to [gold]Remove[/gold].",
 
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.title": "Rabbit Horn Contract",
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.description": "Upon pickup, gain [blue]150[/blue] [gold]Gold[/gold] and add a [red]Debt[/red] to your [gold]Deck[/gold]. At the end of each combat, gain [blue]20%[/blue] of your current [gold]Gold[/gold].",
@@ -290,7 +291,7 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "Every [blue]2[/blue] combats, your [gold]Card Rewards[/gold] additionally contain a [gold]Rare[/gold] card. The second [gold]Rare[/gold] card obtained this way will be [green]Upgraded[/green].",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "Those who meet her become lucky, but only the fortunate can meet her.",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "Glowing Bamboo",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The first unupgraded card you play each combat will be upgraded after the combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The first unupgraded card you play each combat will be [green]Upgraded[/green] after the combat ends.",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "A natural phenomenon... or lunar technology? Shh! That's a trade secret.",
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "Fake Rabbit's Foot",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "You may sell [gold]Card Rewards[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].",
@@ -311,7 +312,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "Suspicious Token",
-  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the merchant's wares once for free.",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the [gold]Merchant's[/gold] wares once for free.",
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "Hand this to the merchant for a special service—when you think Tewi Inaba has tricked you, but actually hasn't, does that still count as being tricked?",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",

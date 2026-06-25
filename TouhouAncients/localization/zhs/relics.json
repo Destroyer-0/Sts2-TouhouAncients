@@ -274,6 +274,7 @@
   "TOUHOUANCIENTS-CARROT_NECKLACE.title": "萝卜项链",
   "TOUHOUANCIENTS-CARROT_NECKLACE.description": "拾起时，从[gold]牌组[/gold]中移除至多[blue]3[/blue]张牌。商人移除卡牌服务的价格翻倍。",
   "TOUHOUANCIENTS-CARROT_NECKLACE.eventDescription": "从[gold]牌组[/gold]中移除至多[blue]3[/blue]张牌。商人移除卡牌服务的价格翻倍。",
+  "TOUHOUANCIENTS-CARROT_NECKLACE.selectionScreenPrompt": "选择至多[blue]3[/blue]张牌删除。",
   "TOUHOUANCIENTS-CARROT_NECKLACE.flavor": "带上这个项链，就能变的像兔子一样敏捷与狡猾。",
 
   "TOUHOUANCIENTS-RABBIT_HORN_CONTRACT.title": "兔角契约",
@@ -309,7 +310,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
-  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次[gold]商人[/gold]出售的物品。",
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？",
 
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
