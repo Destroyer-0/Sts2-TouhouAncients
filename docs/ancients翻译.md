@@ -135,7 +135,7 @@
 | 字段 | 中文 | English |
 |------|------|---------|
 | `.title` | 蕾米莉亚·斯卡雷特 | Remilia Scarlet |
-| `.epithet` | 永远鲜红的幼月 | Eternally Crimson Young Moon |
+| `.epithet` | 鲜红的荣耀女王 | Scarlet Queen of Glory |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
@@ -495,7 +495,7 @@
 
 ---
 
-## [射命丸 文] — 占位符
+## [射命丸 文]
 
 **键名**: `TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT`
 
@@ -509,11 +509,11 @@
 | 对话键 | 中文 | English |
 |--------|------|---------|
 | `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | …… | ... |
+| `talk.ANY.0-0r.ancient` | 女苑：世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | Joon: The greatest thing in the world is living the high life where you can afford anything. Don't you agree? |
 
 ---
 
-## [纯狐] — 占位符
+## [纯狐]
 
 **键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
 
@@ -522,6 +522,90 @@
 |------|------|---------|
 | `.title` | 纯狐| Junko|
 | `.epithet` | 无名的先古存在 | Nameless Ancient Existence |
+
+### 对话翻译
+| 对话键 | 中文 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 我的名字是纯狐，就让我来招待一下，努力至今的你吧。 | My name is Junko. Let me extend my hospitality to you, who have struggled so far to get here. |
+| `talk.ANY.0-0r.ancient` | …… | ... |
+
+---
+
+## [鬼人正邪] — 新增对话
+
+**键名**: `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English |
+|--------|------|---------|
+| `talk.ANY.3-0r.ancient` | 公主那家伙……居然说要自己去讨伐建筑师，真是拿她没办法…… | That princess... she insists on going to take down the Architect herself. I just can't do anything with her... |
+| `talk.ANY.4-0r.ancient` | 哼，马萨雷斯的信徒真是一群没有远见的井底之蛙，你应该比他们更有志气吧？ | Hmph, those Mazaleth worshippers are nothing but narrow-minded frogs in a well. You've got more ambition than them, don't you? |
+| `talk.IRONCLAD.0-0.ancient` | 又一个涅奥的傀儡来到了这里，真希望你是个能理解当前处境的家伙。 | Another puppet of Neow has arrived. I hope you're someone who can understand the situation. |
+| `talk.IRONCLAD.0-0.next` | 继续 | Continue |
+| `talk.IRONCLAD.0-1.char` | 建筑师……杀戮…… | Architect... slaughter... |
+| `talk.IRONCLAD.0-1.next` | 继续 | Continue |
+| `talk.IRONCLAD.0-2.ancient` | 很好，我们这些人被欺压的痛苦与耻辱，就带上这个十倍奉还给建筑师吧！ | Good. Take this and repay the Architect tenfold for the pain and humiliation we've suffered! |
+| `talk.IRONCLAD.1-0.ancient` | 我已经知道大恶魔的事情了，身负如此悲惨的命运，你却还要无所作为吗？ | I already know about the Great Demon. With such a tragic fate upon you, will you still do nothing? |
+| `talk.REGENT.0-0.ancient` | 你这残忍的暴君！看看你对座椅下的小人做了什么？ | You cruel tyrant! Look at what you've done to the little people beneath your throne! |
+| `talk.REGENT.0-0.next` | 疑惑 | Confused |
+| `talk.REGENT.0-1.char` | 你说我的仆从？他们对此没有意见。而且，他们是我创造的，我对此享有一切解释权。 | You mean my minions? They have no complaints. Besides, I created them—I have the final say in everything. |
+| `talk.REGENT.0-1.next` | 继续 | Continue |
+| `talk.REGENT.0-2.ancient` | 呵！无趣的借口！我会等到你的小人们起义推翻你的那一刻到来的！ | Hah! Boring excuse! I'll be here waiting for the day your little people rise up and overthrow you! |
+| `talk.REGENT.0-2.next` | 沉思 | Pondering |
+| `talk.REGENT.0-3.char` | 嗯……在那之前，你能提供点帮我上去的帮助吗？ | Hmm... Until then, can you spare some help to get me up there? |
+| `talk.REGENT.1-0r.ancient` | 外星人，我们又见面了！ | Alien, we meet again! |
+| `talk.REGENT.1-0r.next` | 继续 | Continue |
+| `talk.REGENT.1-1r.char` | 我原谅你的无礼，所以除了这些以外，你还可以多给我找些有用的道具来吗？ | I forgive your rudeness. So, on top of all this, can you scrounge up some more useful items for me? |
+| `talk.REGENT.1-1r.next` | 继续 | Continue |
+| `talk.REGENT.1-2r.ancient` | 呵，既然你这么说了……某种程度上也不是不行…… | Hmph, since you put it that way... I suppose it's not entirely out of the question... |
+| `talk.REGENT.1-2r.next` | 继续 | Continue |
+| `talk.REGENT.1-3r.ancient` | 但是我拒绝！我鬼人正邪最喜欢做的事之一，就是对自认为很强的家伙说「NO」！ | But I refuse! One of my favorite things to do, Seija Kijin, is saying "NO" to those who think they're so tough! |
+| `talk.ANY.5-0r.ancient` | 和我一起来下克上吧—— | Join me in the revolt from below— |
+| `talk.ANY.6-0r.ancient` | 贤者把大伙都带到这里，究竟是有什么阴谋？呵，也罢，无论在哪，我的逆袭与颠覆都不会停止！ | What's the sage's scheme, bringing everyone here? Hah, whatever. My rebellion and upheaval will never stop, no matter where I am! |
+| `talk.IRONCLAD.2-0r.ancient` | 我和只会用在文书里下套的恶魔不同。天邪鬼可从不尝试操纵你，我说的话字字珠玑，难道你能反驳吗？ | I'm different from that demon who only knows how to set traps in fine print. An amanojaku never tries to manipulate you—every word I say is gospel. Can you argue with that? |
+| `talk.SILENT.0-0.ancient` | 很好，我喜欢你这种冷漠无情，把一切都当做猎物的眼神，简直是天选的起义军成员啊。 | Good. I like that cold, merciless look in your eyes—like everything is prey. You're a born rebel. |
+| `talk.SILENT.0-0.next` | 什么也不说 | Respond |
+| `talk.SILENT.0-1.char` | ……（亮出匕首） | ... *(brandishes a dagger)* |
+| `talk.SILENT.0-1.next` | 继续 | Continue |
+| `talk.SILENT.0-2.ancient` | 等等等等……你要东西我给你就是，把利刃朝向友军算什么本事！ | Wait, wait... I'll give you what you want, but how can you point your blade at your own allies? |
+| `talk.SILENT.1-0r.ancient` | 看起来你没有什么朋友呢，呵呵，不用担心，做大事的人自然是孤独的。 | Seems like you don't have many friends. Heheh, don't worry—those who do great things are naturally alone. |
+| `talk.SILENT.2-0r.ancient` | 有兴趣让你的匕首自己动起来吗？倘若给予它们咽喉，它们自然能够言语。 | Interested in making your dagger move on its own? Give them a throat, and they shall speak. |
+| `talk.NECROBINDER.0-0.ancient` | 这位女士看起来有点苦大仇深呢。呵呵，是建筑师对你做了什么吗？ | This lady seems to carry quite a grudge. Heheh, did the Architect do something to you? |
+| `talk.NECROBINDER.0-0.next` | 愤怒 | Anger |
+| `talk.NECROBINDER.0-1.char` | [jitter]他杀死了我的至爱！！！[/jitter] | [jitter]He killed my beloved!!![/jitter] |
+| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 很好，反抗与革命正需要你这样的决心…… | Good. Rebellion and revolution need determination like yours... |
+| `talk.NECROBINDER.1-0r.ancient` | 你想看看万宝槌的力量？呵，虽然公主的东西就是我的东西……不过万宝槌的魔力现在很不稳定，我可不希望现在就透支太多的代价。 | You want to see the power of the Malleus Malleus? Hah, though what's the princess's is mine... but its magic is unstable right now. I don't want to incur too much of a cost yet. |
+| `talk.NECROBINDER.1-0r.next` | 回答 | Reply |
+| `talk.NECROBINDER.1-1r.char` | 我不介意由我来支付代价。 | I don't mind paying the cost myself. |
+| `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
+| `talk.NECROBINDER.1-2r.ancient` | 你这么说的话，我就偏不给你用了！等公主回来再说吧，先试试别的东西…… | Since you said that, now I'm definitely not letting you use it! We'll see when the princess gets back. Try something else for now... |
+| `talk.NECROBINDER.2-0r.ancient` | 也许我也该学习点魔法召唤点什么…… | Maybe I should learn some magic and summon something too... |
+| `talk.DEFECT.0-0.ancient` | 嗯？我可没找来过什么构装体！难道坏掉的构装体也自己动起来了吗？ | Huh? I didn't summon any constructs! Are broken constructs moving on their own now? |
+| `talk.DEFECT.0-0.next` | 继续 | Continue |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<疑惑的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 继续 | Continue |
+| `talk.DEFECT.0-2.ancient` | 居然是个有自主意识的家伙……看来关于构装体的付丧神化还需要更多的样本…… | So it has a will of its own... It seems I need more samples for my research on tsukumogami-fication of constructs... |
+| `talk.DEFECT.1-0r.ancient` | 修好你？哼，以前有个靠我的魔力才醒过来的[jitter]道具[/jitter]，得到自己的身体后二话不说就溜了还反过来追杀我！我才不上当呢！ | Repair you? Hmph, there was once a [jitter]tool[/jitter] that woke up thanks to my magic, got its own body, and immediately ran off—then came back to hunt me! I'm not falling for that again! |
+| `talk.DEFECT.2-0r.ancient` | 你这家伙体内的潜力可不小呢，未来一定能成大事业，所以现在就加入我的起义军吧！ | You've got quite a lot of potential in you—you're bound for great things. So join my rebel army right now! |
+
+---
+
+## [二岩 猯藏] — 占位符
+
+**键名**: `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT`
+
+### 字段翻译
+| 字段 | 中文 | English |
+|------|------|---------|
+| `.title` | 二岩 猯藏 | Mamizou Futatsuiwa |
+| `.epithet` | 外来的外来妖怪狸 | Bake-danuki Outsider From Outside |
+
+### 对话翻译
+| 对话键 | 中文 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
+| `talk.ANY.0-0r.ancient` | …… | ... |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
