@@ -9,7 +9,6 @@ public class JunkoMapAct : ActMap
     private readonly MapPointType[] _defaultPointTypes =
     [
         MapPointType.Treasure,
-        MapPointType.Treasure,
         MapPointType.Elite,
         MapPointType.Unknown,
         MapPointType.RestSite,
@@ -18,6 +17,7 @@ public class JunkoMapAct : ActMap
         MapPointType.Elite,
         MapPointType.Shop,
         MapPointType.Elite,
+        MapPointType.Treasure,
         MapPointType.RestSite,
         MapPointType.Elite,
         MapPointType.Shop,
