@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -31,6 +32,10 @@ public class BitterCoffee : TouhouAncientRelics
         var combatState = base.Owner.PlayerCombatState;
         if (combatState == null) return Task.CompletedTask;
         combatState.EnergyChanged += CheckRemainingEnergy;
+
+        base.Status = RelicStatus.Active;
+        InvokeDisplayAmountChanged();
+        
         return Task.CompletedTask;
     }
 
@@ -42,6 +47,8 @@ public class BitterCoffee : TouhouAncientRelics
 
         _triggeredThisTurn = true;
         Flash();
+        base.Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
         _ = PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
     }
 
