@@ -34,7 +34,8 @@ public class KomejiSatoriAncient : TouhouAncientBase
             AncientOption<MemoryFlask>(),
             AncientOption<BrainInAVat>(),
             AncientOption<OblivionFragment>(),
-            AncientOption<DetectiveStory>()
+            AncientOption<DetectiveStory>(),
+            AncientOption<BitterCoffee>()
         ));
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
@@ -66,7 +67,8 @@ public class KomejiSatoriAncient : TouhouAncientBase
     private IEnumerable<EventOption> Pool2 =>
     [
         RelicOption<MindProbe>(),
-        RelicOption<DetectiveStory>()
+        RelicOption<DetectiveStory>(),
+        RelicOption<BitterCoffee>(),
     ];
 
     private IEnumerable<EventOption> Pool3 =>
