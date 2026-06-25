@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -11,7 +12,7 @@ namespace TouhouAncients.Scripts;
 public class KomejiSatoriAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
-    public override Color ButtonColor => new(0.65f, 0.25f, 0.55f, 0.7f);
+    public override Color ButtonColor => new(0.75f, 0.25f, 0.55f, 0.7f);
     public override Color DialogueColor => new(0.85f, 0.35f, 0.75f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
@@ -35,4 +36,43 @@ public class KomejiSatoriAncient : TouhouAncientBase
             AncientOption<OblivionFragment>(),
             AncientOption<DetectiveStory>()
         ));
+
+    protected override IReadOnlyList<EventOption> GenerateInitialOptions()
+    {
+        List<EventOption> list = Pool1.ToList();
+        List<EventOption> list2 = Pool2.ToList();
+        List<EventOption> list3 = Pool3.ToList();
+        list.UnstableShuffle(base.Rng);
+        list2.UnstableShuffle(base.Rng);
+        list3.UnstableShuffle(base.Rng);
+        return
+        [
+            RelicOption<TheThirdEye>(),
+            list[0],
+            list2[0],
+            list3[0]
+        ];
+    }
+
+    public override IEnumerable<EventOption> AllPossibleOptions => Pool1.Concat(Pool2).Concat(Pool3);
+
+    private IEnumerable<EventOption> Pool1 =>
+    [
+        RelicOption<HellOrin>(),
+        RelicOption<HellOkuu>(),
+        RelicOption<DustyRose>()
+    ];
+
+    private IEnumerable<EventOption> Pool2 =>
+    [
+        RelicOption<MindProbe>(),
+        RelicOption<DetectiveStory>()
+    ];
+
+    private IEnumerable<EventOption> Pool3 =>
+    [
+        RelicOption<OblivionFragment>(),
+        RelicOption<BrainInAVat>(),
+        RelicOption<MemoryFlask>()
+    ];
 }
