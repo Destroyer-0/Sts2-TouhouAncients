@@ -55,8 +55,12 @@ public class KomejiSatoriAncient : TouhouAncientBase
         ];
     }
 
-    public override IEnumerable<EventOption> AllPossibleOptions => Pool1.Concat(Pool2).Concat(Pool3);
+    public override IEnumerable<EventOption> AllPossibleOptions => Pool0.Concat(Pool1).Concat(Pool2).Concat(Pool3);
 
+    private IEnumerable<EventOption> Pool0 =>
+    [
+        RelicOption<TheThirdEye>(),
+    ];
     private IEnumerable<EventOption> Pool1 =>
     [
         RelicOption<HellOrin>(),
