@@ -57,7 +57,7 @@
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "How about turning it into gamma rays?",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "Snake Amulet",
-  "TOUHOUANCIENTS-SNAKE_AMULET.description": "If you have [blue]1[/blue] or fewer cards in your [gold]Hand[/gold] at the end of your turn, gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]1[/blue] [gold]Dexterity[/gold]. Next turn, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-SNAKE_AMULET.description": "If you have [blue]1[/blue] or fewer cards in your [gold]Hand[/gold] at the end of your turn, gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]1[/blue] [gold]Dexterity[/gold], gain {Energy:energyIcons()} next turn.",
   "TOUHOUANCIENTS-SNAKE_AMULET.flavor": "They say carrying this charm keeps you healthy and strong.",
 
   "TOUHOUANCIENTS-FROG_AMULET.title": "Frog Amulet",
