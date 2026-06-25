@@ -139,7 +139,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to bottom of your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "Gain {Energy:energyIcons()} at the start of each turn.  If you end your turn with [blue]0[/blue] {energyPrefix:energyIcons(1)}, add a [gold]Burn[/gold] to your [gold]Draw Pile[/gold] and gain [blue]{Strength}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "The empty-headed hell crow accepted the mountain's energy, her delusions swelling her ignorant ambitions before they could cool.",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "Mind Probe",
@@ -163,6 +163,10 @@
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "Dusty Rose",
   "TOUHOUANCIENTS-DUSTY_ROSE.description": "At the start of your turn, add [blue]1[/blue] [gold]Closed Eye[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "The door to her room in the Palace of the Earth Spirits is never closed, yet even as the roses wilt and dust gathers, her lively yet hazy figure never appears.",
+
+  "TOUHOUANCIENTS-BITTER_COFFEE.title": "Energizing Coffee",
+  "TOUHOUANCIENTS-BITTER_COFFEE.description": "The first time your {energyPrefix:energyIcons(1)} reaches [blue]0[/blue] each turn, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-BITTER_COFFEE.flavor": "Bitter work calls for something sweet — hence, coffee with sugar.",
 
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.title": "Oblivion Fragment",
   "TOUHOUANCIENTS-OBLIVION_FRAGMENT.description": "Upon pickup, gain [blue]{Relics}[/blue] random [sine][blue]Neow's Starting Relics[/blue][/sine].",

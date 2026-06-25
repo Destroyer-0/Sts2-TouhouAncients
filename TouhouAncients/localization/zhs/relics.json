@@ -139,7 +139,7 @@
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
-  "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆底，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
+  "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入抽牌堆，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
   "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
@@ -173,6 +173,10 @@
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
   "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入你的手牌。",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
+
+  "TOUHOUANCIENTS-BITTER_COFFEE.title": "提神咖啡",
+  "TOUHOUANCIENTS-BITTER_COFFEE.description": "每回合首次{energyPrefix:energyIcons(1)}为0时，获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-BITTER_COFFEE.flavor": "苦涩的工作也要带点甜——于是便有了加糖的咖啡。",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
   "TOUHOUANCIENTS-MINI_SHRINE.description": "在每回合开始时获得{Energy:energyIcons()}。拾起时，将[blue]1[/blue]张[gold]供奉[/gold]加入你的[gold]牌组[/gold]。你持有的[gold]金币[/gold]会被自动转化为[gold]供奉[/gold]的进度。",
