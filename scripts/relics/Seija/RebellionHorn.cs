@@ -5,6 +5,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -32,7 +33,7 @@ public class RebellionHorn : TouhouAncientRelics
         Flash();
         foreach (var cardModel in targets)
         {
-            CardCmd.Upgrade(cardModel);
+            CardCmd.Upgrade(cardModel,CardPreviewStyle.GridLayout);
         }
     }
 }
