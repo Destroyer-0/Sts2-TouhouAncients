@@ -43,7 +43,7 @@ public class MurderousLily : TouhouAncientRelics
     public override bool HasUponPickupEffect => true;
 
     /// <summary>
-    /// 拾起时，将两张杀戮灵气加入牌组
+    /// 拾起时，将1张杀戮灵气加入牌组
     /// </summary>
     public override async Task AfterObtained()
     {

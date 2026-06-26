@@ -175,7 +175,7 @@
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "提神咖啡",
-  "TOUHOUANCIENTS-BITTER_COFFEE.description": "每回合首次{energyPrefix:energyIcons(1)}为0时，获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-BITTER_COFFEE.description": "每回合{energyPrefix:energyIcons(1)}首次为0时，获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-BITTER_COFFEE.flavor": "苦涩的工作也要带点甜——于是便有了加糖的咖啡。",
 
   "TOUHOUANCIENTS-MINI_SHRINE.title": "迷你神龛",
@@ -524,6 +524,10 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每回合开始时，随机为[gold]抽牌堆[/gold]与[gold]弃牌堆[/gold]中的各[blue]1[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "瓶装银河",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "每当你使用[gold]药水[/gold]时，随机一张[gold]手牌[/gold]在本场战斗中额外获得此药水的效果。",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "将银河装进瓶中之前，请先确认瓶塞足够结实。",
+
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",
   "TOUHOUANCIENTS-GLOBE.description": "以保留[green]升级[/green]的状态变化[blue]{Cards}[/blue]张牌。",
   "TOUHOUANCIENTS-GLOBE.flavor": "天阶夜色凉如水，坐看牵牛织女星。",
@@ -586,7 +590,7 @@
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
 
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "剜天之勺",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。战斗结束后，[red]吞噬[/red]之并获得[blue]{MaxHp}[/blue][gold]点最大生命[/gold]，若为[red]诅咒[/red]则效果翻三倍。",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。战斗结束后，[red]吞噬[/red]之并获得[blue]{MaxHp}[/blue]点[gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻三倍。",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",

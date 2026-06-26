@@ -34,7 +34,8 @@ public class KirisameMarisaAncient : TouhouAncientBase
         MakePool(
             AncientOption<KompeitoPot>(),
             AncientOption<StardustBroom>(),
-            AncientOption<WitchsCauldron>()
+            AncientOption<WitchsCauldron>(),
+            AncientOption<BottledGalaxy>()
         ),
         MakePool(
             AncientOption<UnstableBottle>(),

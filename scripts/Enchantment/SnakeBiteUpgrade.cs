@@ -67,6 +67,7 @@ public class SnakeBiteUpgrade : TouhouAncientEnchantmentModel
         return;
     }
 
+    
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card,
         bool isAutoPlay,
         ResourceInfo resources, PileType pileType, CardPilePosition position)

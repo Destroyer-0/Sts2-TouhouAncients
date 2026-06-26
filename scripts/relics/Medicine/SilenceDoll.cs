@@ -26,7 +26,6 @@ public class SilenceDoll : TouhouAncientRelics
     // 当前回合进入弃牌堆的牌
     private readonly List<CardModel> _currentTurnDiscards = new();
 
-    // 被缄默魔偶捞起的牌 → 是否原本就有保留
     private readonly List<CardModel> _trackedCards = new();
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
@@ -49,9 +48,9 @@ public class SilenceDoll : TouhouAncientRelics
         }
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (side != base.Owner.Creature.Side) return;
+        if (player != base.Owner) return;
 
         // 上一回合进入弃牌堆的牌（当前还在弃牌堆中的）作为候选
         var available = _currentTurnDiscards
@@ -65,7 +64,7 @@ public class SilenceDoll : TouhouAncientRelics
         Flash();
 
         var selected = (await CardSelectCmd.FromSimpleGrid(
-            new BlockingPlayerChoiceContext(),
+            choiceContext,
             available,
             base.Owner,
             new CardSelectorPrefs(base.SelectionScreenPrompt, 1, 1)
@@ -78,6 +77,36 @@ public class SilenceDoll : TouhouAncientRelics
         // selected.AddKeyword(CardKeyword.Retain);
         await CardPileCmd.Add(selected, PileType.Hand);
     }
+
+    // public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    // {
+    //     if (side != base.Owner.Creature.Side) return;
+    //
+    //     // 上一回合进入弃牌堆的牌（当前还在弃牌堆中的）作为候选
+    //     var available = _currentTurnDiscards
+    //         .Where(c => c is { HasBeenRemovedFromState: false, Pile: not null } && c.Owner == base.Owner)
+    //         .Distinct()
+    //         .ToList();
+    //     _currentTurnDiscards.Clear();
+    //
+    //     if (available.Count == 0) return;
+    //
+    //     Flash();
+    //
+    //     var selected = (await CardSelectCmd.FromSimpleGrid(
+    //         new BlockingPlayerChoiceContext(),
+    //         available,
+    //         base.Owner,
+    //         new CardSelectorPrefs(base.SelectionScreenPrompt, 1, 1)
+    //     )).FirstOrDefault();
+    //
+    //     if (selected == null) return;
+    //     _trackedCards.Add(selected);
+    //
+    //     // 添加保留并放入手牌
+    //     // selected.AddKeyword(CardKeyword.Retain);
+    //     await CardPileCmd.Add(selected, PileType.Hand);
+    // }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

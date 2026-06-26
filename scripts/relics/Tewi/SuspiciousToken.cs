@@ -38,20 +38,6 @@ public class SuspiciousToken : TouhouAncientRelics
     }
 
     /// <summary>
-    /// 进入商店后创建MerchantRefreshEntry（若补丁已在Initialize时创建则跳过）。
-    /// </summary>
-    public override async Task AfterRoomEntered(AbstractRoom room)
-    {
-        if (room is not MerchantRoom) return;
-        if (base.Owner == null) return;
-
-        // 补丁已在 NMerchantInventory.Initialize 中创建了入口，无需重复创建
-        if (RefreshEntry != null) return;
-
-        RefreshEntry = new MerchantRefreshEntry(base.Owner, this);
-    }
-
-    /// <summary>
     /// 执行商店物品刷新（仅数据层）。由 MerchantRefreshEntry 在购买时调用。
     /// </summary>
     public async Task DoRefresh(MerchantInventory merchantInventory)
@@ -71,7 +57,7 @@ public class SuspiciousToken : TouhouAncientRelics
             entry.Populate();
 
         // 3. 刷新遗物
-        var blacklist = merchantInventory.RelicEntries
+        var relicBlacklist = merchantInventory.RelicEntries
             .Select(e => e.Model?.CanonicalInstance)
             .OfType<RelicModel>()
             .ToHashSet();
@@ -84,8 +70,18 @@ public class SuspiciousToken : TouhouAncientRelics
         {
             foreach (var entry in merchantInventory.RelicEntries)
             {
+                if (entry.Model?.CanonicalInstance is RelicModel oldRelic)
+                {
+                    relicBlacklist.Remove(oldRelic);
+                }
+
                 var rarity = RelicFactory.RollRarity(player);
-                fillRelic.Invoke(entry, new object[] { rarity, blacklist });
+                fillRelic.Invoke(entry, new object[] { rarity, relicBlacklist });
+
+                if (entry.Model?.CanonicalInstance is RelicModel newRelic)
+                {
+                    relicBlacklist.Add(newRelic);
+                }
             }
         }
 
@@ -96,8 +92,25 @@ public class SuspiciousToken : TouhouAncientRelics
             new[] { typeof(IEnumerable<PotionModel>) });
         if (fillPotion != null)
         {
+            var potionBlacklist = merchantInventory.PotionEntries
+                .Select(e => e.Model?.CanonicalInstance)
+                .OfType<PotionModel>()
+                .ToHashSet();
+
             foreach (var entry in merchantInventory.PotionEntries)
-                fillPotion.Invoke(entry, new object[] { System.Array.Empty<PotionModel>() });
+            {
+                if (entry.Model?.CanonicalInstance is PotionModel oldPotion)
+                {
+                    potionBlacklist.Remove(oldPotion);
+                }
+
+                fillPotion.Invoke(entry, new object[] { potionBlacklist });
+
+                if (entry.Model?.CanonicalInstance is PotionModel newPotion)
+                {
+                    potionBlacklist.Add(newPotion);
+                }
+            }
         }
 
         // 5. 通知所有条目更新 UI

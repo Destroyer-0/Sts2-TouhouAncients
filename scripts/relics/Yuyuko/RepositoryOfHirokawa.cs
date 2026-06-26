@@ -23,6 +23,12 @@ public class RepositoryOfHirokawa : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BufferPower>()];
 
 
+    public override Task BeforeCombatStart()
+    {
+        playedPowerThisTurn.Clear();
+        return base.BeforeCombatStart();
+    }
+
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner) return;

@@ -18,7 +18,7 @@ public class WindPriestessWine : TouhouAncientRelics
     [SavedProperty]
     private int TouhouAncients_EnergyGainedCounter
     {
-        get=>_pendingGain;
+        get => _pendingGain;
         set
         {
             AssertMutable();
@@ -68,7 +68,6 @@ public class WindPriestessWine : TouhouAncientRelics
     // {
     //     await base.AfterModifyingEnergyGain();
     // }
-
     private async Task TryDraw()
     {
         while (TouhouAncients_EnergyGainedCounter >= DynamicVars.Energy.IntValue)

@@ -33,7 +33,7 @@ public class Sheyaotebieqiang : TouhouAncientRelics
     {
         if (string.IsNullOrEmpty(_snakeKeywords)) return false;
         
-        var title = card.TitleLocString.GetFormattedText();
+        var title = card.Title;
         return title.Contains(_snakeKeywords, StringComparison.OrdinalIgnoreCase);
     }
 

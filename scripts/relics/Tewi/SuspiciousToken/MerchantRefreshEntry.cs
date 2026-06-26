@@ -13,6 +13,8 @@ public sealed class MerchantRefreshEntry : MerchantEntry
 {
     private readonly SuspiciousToken _relic;
 
+    public SuspiciousToken Relic => _relic;
+
     /// <summary>是否已被使用过（同一商店内）。</summary>
     public bool Used => _used;
     private bool _used;

@@ -100,7 +100,6 @@ public class Yumeiro : TouhouAncientEnchantmentModel
         {
             var randomEnchantment =
                 availableEnchantments.UnstableShuffle(player.RunState.Rng.CombatCardGeneration).First();
-            // 附加新的随机附魔
             CardCmd.Enchant(randomEnchantment.ToMutable(), card, 3m);
         }
     }

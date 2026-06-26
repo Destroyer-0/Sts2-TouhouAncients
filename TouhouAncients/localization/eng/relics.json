@@ -524,6 +524,10 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "At the start of each turn, randomly [gold]enchant[/gold] [blue]1[/blue] card in your [gold]Draw Pile[/gold] and [blue]1[/blue] card in your [gold]Discard Pile[/gold] with [purple]Glam[/purple].",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "Please don't go poking around under a maiden's skirt, okay?",
 
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "瓶装银河",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "每当你使用[gold]药水[/gold]时，随机一张[gold]手牌[/gold]在本场战斗中额外获得此药水的效果。",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "将银河装进瓶中之前，请先确认瓶塞足够结实。",
+
   "TOUHOUANCIENTS-GLOBE.title": "Globe",
   "TOUHOUANCIENTS-GLOBE.description": "Transform [blue]{Cards}[/blue] cards, keeping their [green]Upgrades[/green].",
   "TOUHOUANCIENTS-GLOBE.flavor": "The night stretches cool as water, as I sit and watch the Weaver and the Cowherd stars.",
