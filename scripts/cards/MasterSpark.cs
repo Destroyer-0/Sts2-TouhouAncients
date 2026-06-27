@@ -68,13 +68,13 @@ public class MasterSpark : TouhouAncientCards
 
         var target = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList().Last();
         var owner = base.Owner.Creature;
-        NCreature creatureNode1 = NCombatRoom.Instance?.GetCreatureNode(owner);
-        NCreature creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
+        var creatureNode1 = NCombatRoom.Instance?.GetCreatureNode(owner);
+        var creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
         var shouldSpawnSpark = creatureNode2 != null && creatureNode1 != null;
         Vector2 vfxSpawnPosition = Vector2.Zero;
         Vector2 vfxSpawnPosition2 = Vector2.Zero;
         if (shouldSpawnSpark)
-        { 
+        {
             vfxSpawnPosition = creatureNode1.VfxSpawnPosition;
             vfxSpawnPosition2 = creatureNode2.VfxSpawnPosition;
             Player player = owner.Player;
@@ -104,16 +104,16 @@ public class MasterSpark : TouhouAncientCards
                             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx2);
                             //await Cmd.Wait(0.5f);
                         }
-                    
-                    //
-                    // foreach (Creature item in enemies)
-                    // {
-                    //     NHyperbeamImpactVfx nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
-                    //     if (nHyperbeamImpactVfx != null)
-                    //     {
-                    //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
-                    //     }
-                    // }
+
+                        //
+                        // foreach (Creature item in enemies)
+                        // {
+                        //     NHyperbeamImpactVfx nHyperbeamImpactVfx = NHyperbeamImpactVfx.Create(base.Owner.Creature, item);
+                        //     if (nHyperbeamImpactVfx != null)
+                        //     {
+                        //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
+                        //     }
+                        // }
                 }
             })
             .Execute(choiceContext);

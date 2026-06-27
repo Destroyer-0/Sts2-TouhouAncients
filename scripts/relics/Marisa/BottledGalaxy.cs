@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,6 +28,39 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class BottledGalaxy : TouhouAncientRelics
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [];
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != base.Owner) return;
+        if (base.Owner.PlayerCombatState == null) return;
+        if (!CombatManager.Instance.IsInProgress) return;
+
+        var hand = base.Owner.PlayerCombatState.Hand.Cards;
+        var drawPile = PileType.Draw.GetPile(base.Owner).Cards;
+        var discardPile = PileType.Discard.GetPile(base.Owner).Cards;
+
+        var typesToCheck = new[] { CardType.Attack, CardType.Skill, CardType.Power };
+
+        foreach (var cardType in typesToCheck)
+        {
+            if (hand.Any(c => c.Type == cardType)) continue;
+
+            var candidates = drawPile.Concat(discardPile)
+                .Where(c => c.Type == cardType)
+                .ToList();
+
+            if (candidates.Count == 0) continue;
+
+            var chosen = candidates
+                .UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection)
+                .First();
+
+            Flash();
+            await CardPileCmd.Add(chosen, PileType.Hand);
+        }
+    }
+
     // private static readonly ConditionalWeakTable<CardModel, BottledGalaxyCardData> CardData = new();
     //
     // protected override IEnumerable<DynamicVar> CanonicalVars => [];

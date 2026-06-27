@@ -54,6 +54,9 @@
 | `talk.ANY.0-0r.ancient` | 在这座塔里，也不能被常识束缚呢。 | Even in this tower, you can't be bound by common sense. |
 | `talk.ANY.1-0r.ancient` | 如果我也能去降伏高塔里的怪物，说不定也挺欢乐的…啊，这话可不能被神奈子大人听到！ | If I could go subdue the monsters in the tower too, that might be fun... Ah, Lady Kanako mustn't hear that! |
 | `talk.ANY.2-0r.ancient` | 诹访子大人说，为你提供帮助能收集信仰，所以你也要加油哦~ | Lady Suwako says that helping you can gather faith, so you'd better do your best too~ |
+| `talk.ANY.3-0r.ancient` | 下一次去哪里宣传好呢？ | Where should I go to spread the word next? |
+| `talk.ANY.4-0r.ancient` | 无论是怀着什么目的的参拜客，对神社而言都是有用的！ | No matter what motives a worshipper may have, they're all useful to the shrine! |
+| `talk.ANY.5-0r.ancient` | 呼呼~好处可不能都被博丽神社抢走了！咱们守矢的支援不比她差呐！ | Fufu~ We can't let the Hakurei Shrine hog all the benefits! Moriya's support is every bit as good as hers! |
 | `talk.IRONCLAD.0-0.ancient` | 好邪恶的气场！你是被什么东西凭依了吗？恶魔？那太糟糕了！你应该来信仰我们[aqua][jitter]守矢神社[/jitter][/aqua]！ | Such an evil aura! Are you possessed by something? A demon? That's terrible! You should come have faith in our [aqua][jitter]Moriya Shrine[/jitter][/aqua]! |
 | `talk.DEFECT.0-0.ancient` | 唔哦哦！一个能自己行走的机器人！ | Uwoooh! A robot that can walk on its own! |
 | `talk.DEFECT.0-0.next` | 继续 | Continue |
@@ -92,6 +95,7 @@
 | `talk.ANY.1-0r.ancient` | 哼，要不是[u]那家伙[/u]……我早就自己去退治麻烦了。 | Hmph, if it weren't for [u]her[/u]... I'd have gone and dealt with the trouble myself. |
 | `talk.ANY.2-0r.ancient` | [i][font_size=22]<困惑的哈欠>[/font_size][/i] | [i][font_size=22]<Confused yawn>[/font_size][/i] |
 | `talk.ANY.3-0r.ancient` | 所谓努力就会有回报，只是无聊的说教罢了。 | That whole "effort will be rewarded" thing is just boring preaching. |
+| `talk.ANY.4-0r.ancient` | 这种破地方，除了烦人的虫子和叽叽喳喳的蓝鸟怪人根本没多少参拜客，完全收不到什么香火钱啊。 | A rundown place like this barely gets any worshippers—just annoying bugs and a chattering blue bird freak. I can barely scrape together any offering money at all. |
 | `talk.IRONCLAD.0-0.ancient` | 我可警告你，别在这里撒野。 | I'm warning you—don't cause trouble here. |
 | `talk.IRONCLAD.1-0r.ancient` | 你背后又是个大家伙在罩着你吗？啧，这世道真是没救了。 | You've got some bigshot backing you too? Tsk, this world is hopeless. |
 | `talk.IRONCLAD.2-0r.ancient` | 信仰恶魔也算是信仰吗？既然来神社，好歹也要摆出点虔诚的态度吧。 | Is believing in a demon even considered faith? If you're visiting a shrine, at least show some reverence. |
@@ -594,7 +598,7 @@
 | `talk.NECROBINDER.1-1r.char` | 我不介意由我来支付代价。 | I don't mind paying the cost myself. |
 | `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
 | `talk.NECROBINDER.1-2r.ancient` | 你这么说的话，我就偏不给你用了！等公主回来再说吧，先试试别的东西…… | Since you said that, now I'm definitely not letting you use it! We'll see when the princess gets back. Try something else for now... |
-| `talk.NECROBINDER.2-0r.ancient` | 也许我也该学习点魔法召唤点什么…… | Maybe I should learn some magic and summon something too... |
+| `talk.NECROBINDER.2-0r.ancient` | 嗯哼，看来死灵魔法比等待道具付丧神化更适合作为招纳新人的手段…… | Heh, seems like necromancy is a better way to bring in new recruits than waiting for items to turn into tsukumogami... |
 | `talk.DEFECT.0-0.ancient` | 嗯？我可没找来过什么构装体！难道坏掉的构装体也自己动起来了吗？ | Huh? I didn't summon any constructs! Are broken constructs moving on their own now? |
 | `talk.DEFECT.0-0.next` | 继续 | Continue |
 | `talk.DEFECT.0-1.char` | [i][font_size=22]<疑惑的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
