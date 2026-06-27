@@ -426,6 +426,15 @@
 | `talk.ANY.3-0r.ancient` | 你有见到灵梦吗？记得帮我向她问个好！这个就当我的感谢礼吧！ | Have you seen Reimu? Remember to say hi to her for me! This can be my thanks! |
 | `talk.ANY.4-0r.ancient` | 最近这里的蘑菇生长规律也越来越奇怪了…… | Lately the mushroom growth patterns here have been getting weirder and weirder... |
 | `talk.ANY.5-0r.ancient` | 我为什么要帮你？嘿嘿，因为大家都是我的翅膀Da☆Ze！ | Why would I help you? Hehe, because you're all precious to me, Da☆Ze! |
+| `talk.ANY.6-0r.ancient` | 啊——这里的东西坏了全都得自己修！有点想念香霖那家伙了…… | Ahh—when things break here, I have to fix them all myself! Kinda miss that Kourin... |
+| `talk.ANY.7-0r.ancient` | 建筑师到底做了什么让你们这么想杀掉他？好吧，也许我也得找个时间亲自去调查看看。 | What did the Architect even do to make you all want to kill him? Well, maybe I should go investigate myself sometime. |
+| `talk.ANY.8-0r.ancient` | 为什么涅奥要躲在塔底呢？越是强大的家伙越喜欢把自己藏起来呢。 | Why's Neow hiding at the bottom of the tower? The stronger you are, the more you like to hide yourself away. |
+| `talk.ANY.9-0r.ancient` | 之后有机会来打一场轰轰烈烈的弹幕战吧Da☆Ze！和那只大狮子对战的手感还热乎着呢！ | Let's have a spectacular danmaku battle sometime Da☆Ze! I've still got that fight with Tanx fresh in my hands! |
+| `talk.ANY.10-0r.ancient` | 特兹卡塔拉老奶奶的热可可和饼干味道很不错——可惜我是和食主义者Da☆Ze！。 | Granny Tezcatara's hot cocoa and cookies were pretty good—too bad I'm a Washoku-ist Da☆Ze! |
+| `talk.ANY.11-0r.ancient` | 嘿嘿，那位叫欧洛巴斯的伙计的亮晶晶小玩意可不少，大丰收大丰收~ | Heheh, that Orobas fella's got plenty of shiny trinkets—what a haul! |
+| `talk.ANY.12-0r.ancient` | 达弗那家伙的收藏品居然比我还多！可恶输了一手啊！ | That Darv guy's collection is even bigger than mine! Darn, I lost this round! |
+| `talk.ANY.13-0r.ancient` | 嘿，你有见过诺奴佩普吗？虽然她的赠礼确实很不错啦……但是我还是觉得不太自在。 | Hey, have you met Nonupeipe? Her gifts are pretty nice and all... but I still feel a bit uneasy. |
+| `talk.ANY.14-0r.ancient` | [sine]秘神[/sine]的邀请我都没答应~谁会和那个看着就没安好心的大恶魔签契约啊？ | I didn't even accept the [sine]The Secret God[/sine]'s invitation~ Who'd sign a contract with that evil-looking demon? |
 | `talk.IRONCLAD.0-0.ancient` | 哦——好优秀的铠甲，勇士！不知道你对魔法有没有兴趣！ | Oh—what fine armor, warrior! I wonder if you have any interest in magic! |
 | `talk.SILENT.0-0.ancient` | 嘿！我看到你了！要什么就直接跟我说，不要偷偷摸摸的嘛！我去红魔馆的时候从来都是光明正大的走大门Da☆Ze！ | Hey! I see you! If you want something, just tell me directly. No need to sneak around! When I go to the Scarlet Devil Mansion, I always walk right through the front door Da☆Ze! |
 | `talk.DEFECT.0-0.ancient` | 一个机器人？想要修好你的朋友？恩……我有个认识的家伙就是个机械工程师，说不定能帮上忙Da☆Ze！ | A robot? Want to fix your friend? Hmm... I know someone who's a mechanical engineer. Maybe she can help Da☆Ze! |

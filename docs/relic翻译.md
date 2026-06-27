@@ -1417,8 +1417,8 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Guiltless Face` |
-| `.description` | `Upon pickup, choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.` |
-| `.eventDescription` | `Choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.` |
+| `.description` | `Upon pickup, choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.` |
+| `.eventDescription` | `Choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.` |
 | `.selectionScreenPrompt` | `Choose a card to Transform all cards of the same type in your Deck into it.` |
 | `.flavor` | `""`（留空） |
 

@@ -171,7 +171,7 @@
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入你的手牌。",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "提神咖啡",
@@ -332,9 +332,9 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪曾经想拉拢马萨雷斯的信徒加入自己的起义军，但是因为号角发不出“咔咔”声而被拒绝了。",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]加入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌加入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌放入手牌，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
@@ -410,7 +410,7 @@
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "缄默魔偶",
   "TOUHOUANCIENTS-SILENCE_DOLL.description": "每回合开始时，选择一张上回合进入过[gold]弃牌堆[/gold]的卡牌放入[gold]手牌[/gold]，这张牌直到打出前获得[gold]保留[/gold]。",
-  "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "选择一张牌加入你的手牌。",
+  "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "选择一张牌放入你的手牌。",
   "TOUHOUANCIENTS-SILENCE_DOLL.flavor": "",
 
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.title": "弘川之骨",
@@ -458,11 +458,11 @@
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "请勿用作添柴。",
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]放入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "你每打出[blue]{Card}[/blue]张牌，将一张带有[gold]虚无[/gold]、辉星费用为[blue]0[/blue]的[gold]七星[/gold]放入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "你每打出[blue]{Card}[/blue]张牌，将一张带有[gold]虚无[/gold]、辉星费用为[blue]0[/blue]的[gold]七星[/gold]加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
@@ -524,9 +524,9 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "在每回合开始时，随机为[gold]抽牌堆[/gold]与[gold]弃牌堆[/gold]中的各[blue]1[/blue]张牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "瓶装银河",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "每当你使用[gold]药水[/gold]时，随机一张[gold]手牌[/gold]在本场战斗中额外获得此药水的效果。",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "将银河装进瓶中之前，请先确认瓶塞足够结实。",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "微缩银河",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "抽牌阶段结束后，如果你的[gold]手牌[/gold]中没有[gold]攻击牌[/gold]/[gold]技能牌[/gold]/[gold]能力牌[/gold]，将随机一张对应类型的卡牌从[gold]抽牌堆[/gold]或[gold]弃牌堆[/gold]中放入[gold]手牌[/gold]",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "星之沙是如此绚丽多彩。",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",
   "TOUHOUANCIENTS-GLOBE.description": "以保留[green]升级[/green]的状态变化[blue]{Cards}[/blue]张牌。",
@@ -609,7 +609,7 @@
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "炼狱之烬",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "在你的回合开始时，从[gold]消耗堆[/gold]中选择任意张牌放入[gold]手牌[/gold]，为这些牌添加[gold]虚无[/gold]并向[gold]抽牌堆[/gold]中加入等量张[gold]灼伤[/gold]。",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "选择任意张牌加入手牌",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "选择任意张牌放入手牌",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "无疚之面",
@@ -619,7 +619,7 @@
   "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "刚欲同盟的成员多半都是些各行其是的家伙。",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌加入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌加入手牌",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌放入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌放入手牌",
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。"
 }

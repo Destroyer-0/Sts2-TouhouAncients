@@ -330,9 +330,9 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "Seija once tried to recruit Mazaleth's followers to join her rebel army, but was rejected because the horn couldn't make a 'Caaaaw' sound.",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "Zap Battery",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
-  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] Power cards to add to your Hand, making them free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] Power cards to put into your Hand, making them free to play this turn and gain [purple]Galvanized[/purple].",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "Bad news, the battery is leaking. Good news, at least batteries can't cast [gold]Voltaic[/gold].",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "Ghost Lantern",
@@ -408,7 +408,7 @@
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "Silence Doll",
   "TOUHOUANCIENTS-SILENCE_DOLL.description": "At the start of each turn, choose a card that entered [gold]Discard Pile[/gold] last turn and put it into your [gold]Hand[/gold]. It gains [gold]Retain[/gold] until played.",
-  "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "Choose a card to add to your Hand.",
+  "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "Choose a card to put into your Hand.",
   "TOUHOUANCIENTS-SILENCE_DOLL.flavor": "",
 
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.title": "Repository of Hirokawa",
@@ -460,7 +460,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "Jewel from the Dragon's Neck",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "Every [blue]{Card}[/blue] cards you play, put a [gold]Seven Stars[/gold] with [gold]Ethereal[/gold] and [blue]0[/blue] Stars cost into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "Every [blue]{Card}[/blue] cards you play, add a [gold]Seven Stars[/gold] with [gold]Ethereal[/gold] and [blue]0[/blue] Stars cost to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
@@ -522,9 +522,9 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.description": "At the start of each turn, randomly [gold]enchant[/gold] [blue]1[/blue] card in your [gold]Draw Pile[/gold] and [blue]1[/blue] card in your [gold]Discard Pile[/gold] with [purple]Glam[/purple].",
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "Please don't go poking around under a maiden's skirt, okay?",
 
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "瓶装银河",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "每当你使用[gold]药水[/gold]时，随机一张[gold]手牌[/gold]在本场战斗中额外获得此药水的效果。",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "将银河装进瓶中之前，请先确认瓶塞足够结实。",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "Miniature Milky Way",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "After the Draw Phase, if there's no Attack/Skill/Power in your [gold]Hand[/gold], put 1 random card of the same type from [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "The stardust is so colorful.",
 
   "TOUHOUANCIENTS-GLOBE.title": "Globe",
   "TOUHOUANCIENTS-GLOBE.description": "Transform [blue]{Cards}[/blue] cards, keeping their [green]Upgrades[/green].",
@@ -608,16 +608,16 @@
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold] and add [gold]Ethernal[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to add to your Hand",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "Guiltless Face",
-  "TOUHOUANCIENTS-GUILTLESS_FACE.description": "Upon pickup, choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.",
-  "TOUHOUANCIENTS-GUILTLESS_FACE.eventDescription": "Choose a card in your [gold]Deck[/gold]. Transform all cards of the same type in your [gold]Deck[/gold] into it.",
-  "TOUHOUANCIENTS-GUILTLESS_FACE.selectionScreenPrompt": "Choose a card to Transform all cards of the same type in your Deck into it.",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.description": "Upon pickup, choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.eventDescription": "Choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.selectionScreenPrompt": "Choose a card to Transform ALL cards of the same type in your Deck into it.",
   "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "Estranged Heart",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "After the Draw Phase, choose any number of cards from your [gold]Draw Pile[/gold] to add to your [gold]Hand[/gold]. After accumulating [blue]{Threshold}[/blue] cards obtained this way, this relic expires at the end of this combat.",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "Choose any number of cards to add to your Hand",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "After the Draw Phase, choose any number of cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. After accumulating [blue]{Threshold}[/blue] cards obtained this way, this relic expires at the end of this combat.",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs."
 }
