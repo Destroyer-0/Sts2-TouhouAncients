@@ -1,14 +1,14 @@
 {
-  "TOUHOUANCIENTS-CAMELLIA_POTION.title": "Camellia",
-  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "[green]Heal to full HP.[/green] Fill all your empty potion slots with random potions. If in combat, [green]Upgrade[/green] ALL cards for the rest of combat.",
+  "TOUHOUANCIENTS-CAMELLIA_POTION.title": "カメリア",
+  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "HPを全回復する。すべての空き[gold]ポーションスロット[/gold]をランダムな[gold]ポーション[/gold]で満たす。戦闘中に使用した場合、この戦闘中すべてのカードを[green]アップグレード[/green]する。",
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "Super ZUN Beer",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add a random Touhou Ancient card into your [gold]Hand[/gold]. It's free to play this turn.\n[jitter][b]Wow, what an opportunity![/b][/jitter]",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "Wow, what an opportunity!",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUNビール",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "ンダムな東方先古の民カード1枚を[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "ミームコインは素晴らしい投資チャンスです！",
 
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "Shi Ra Nai Milk",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "Put a card from your [gold]Exhaust Pile[/gold] into your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "Choose a card from your [gold]Exhaust Pile[/gold].",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "Couldn't think of a flavor text for this potion, so this will have to do (lol)."
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "しらなイチゴミルク",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "廃棄されたカード1枚を[gold]手札[/gold]に加える。",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "カードを1枚選択する",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "いちごミルク味らしい。しらないけど。"
 }
