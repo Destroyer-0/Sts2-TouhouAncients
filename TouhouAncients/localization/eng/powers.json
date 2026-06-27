@@ -1,49 +1,49 @@
 {
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.title": "Vigor on Block",
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.description": "Convert half of the attack damage blocked this turn into [gold]Vigor[/gold].",
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "Convert [blue]{Amount}%[/blue] of the attack damage blocked this turn into [gold]Vigor[/gold].",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.title": "Counterblow",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.description": "This turn, gain [gold]Vigor[/gold] equal to half the Attack damage prevented by [gold]Block[/gold].",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "This turn, gain [gold]Vigor[/gold] equal to [blue]{Amount}%[/blue] of Attack damage prevented by [gold]Block[/gold].",
 
   "TOUHOUANCIENTS-KEYSTONE_POWER.title": "Keystone",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "Planted when a Skill is played, uprooted when an Attack is played, dealing damage to ALL enemies.",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "Planted when a Skill is played, uprooted when an Attack is played, dealing [blue]{Amount}[/blue] damage to ALL enemies.",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "Whenever you play a Skill, plant the Keystone. Whenever you play an Attack, pull it out and deal damage to ALL enemies.",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "Whenever you play a Skill, plant the Keystone. Whenever you play an Attack, pull it out and deal [blue]{Amount}[/blue] damage to ALL enemies.",
 
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "Mana Surge",
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "The next [gold]1[/gold] card is free to play.",
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "The next [gold]{Amount}[/gold] cards are free to play.",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "Arcane Overload",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "The next card you play cost 0 {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "The next [gold]{Amount}[/gold] cards you play cost 0 {Energy:energyIcons()}.",
 
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "All Living Things Must Perish",
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "After [blue]4[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "All Life Must Perish",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "After [blue]4[/blue] turns, remove all [gold]Artifact[/gold] from ALL enemies and apply [blue]9999[/blue] [gold]Doom[/gold]. When you receive attack damage, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
   "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "After [blue]{Amount}[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
 
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "Reduce Miss Snake Plant's Strength",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], up to [blue]8[/blue] times.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "Whenever [gold]{Applier}[/gold] plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "My Little Snake Plant's Strength Can't Be This Low!",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "Whenever you play a card, gain [blue]1[/blue] [gold]Strength[/gold], triggers up to [blue]8[/blue] times.\nBro thinks he deals any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "Whenever you play a card, gain [blue]1[/blue] [gold]Strength[/gold], triggers up to {Amount} more times.\nBro thinks he deals any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "Whenever [gold]{Applier}[/gold] plays a card, gain [blue]1[/blue] [gold]Strength[/gold], triggers up to {Amount} more times.\nBro thinks he deals any damage.",
 
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "All Creation's Hisou",
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "Positive status stacks are increased by [gold]1[/gold].",
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "Positive status stacks are increased by [gold]{Amount}[/gold].",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "Heaven of Scarlet Perception for All Humankind",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "Whenever you gain a buff, gain [gold]1[/gold] additional stack.",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "Whenever you gain a positive effect, gain [gold]{Amount}[/gold] additional stack.",
 
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "Lucky Rabbit",
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] this turn.",
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] [blue]{Amount}[/blue] this turn.",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "Bare White Rabbit of Good Fortune",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "This turn, cards that cost [blue]0[/blue] {Energy:energyIcons()} gain [gold]Replay[/gold].",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "This turn, cards that cost [blue]0[/blue] {Energy:energyIcons()} gain [gold]Replay[/gold] [blue]{Amount}[/blue]."
 
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Resentment",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes damage equal to the stack count and the stack count is reduced by 1.",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Grudge",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Deal [blue]25%[/blue] less damage to the source of this effect. Whenever the source plays an Attack, take damage equal to this effect's amount and [gold]Grudge[/gold] is reduced by [blue]1[/blue].",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Deal [blue]25%[/blue] less damage to the source of this effect. Whenever the source plays an Attack, take　[blue]{Amount}[/blue] damage and [gold]Grudge[/gold] is reduced by [blue]1[/blue].",
 
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Hell of Bullets",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "Attacks are free to play this turn. When you play an Attack, draw [blue]{Amount}[/blue] cards.",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Danmaku Hell",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "This turn, Attacks are free to play. Whenever you play an Attack, draw [blue]1[/blue] card.",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "This turn, Attacks are free to play. Whenever you play an Attack, draw [blue]{Amount}[/blue] cards.",
 
-  "TOUHOUANCIENTS-CAPITAL_POWER.title": "启动资金",
-  "TOUHOUANCIENTS-CAPITAL_POWER.description": "可用于[purple]极奢形态[/purple]的特殊消耗。",
-  "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[blue]{Amount}[/blue]点[gold]启动资金[/gold]，可用于[purple]极奢形态[/purple]的特殊消耗。",
+  "TOUHOUANCIENTS-CAPITAL_POWER.title": "Funds",
+  "TOUHOUANCIENTS-CAPITAL_POWER.description": "Can be spent to play cards during [purple]Opulent Form[/purple].",
+  "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[blue]{Amount}[/blue] [gold]Funds[/gold]. Can be spent to play cards during [purple]Opulent Form[/purple].",
 
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "极奢形态",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "打出非X费牌不再消耗能量，改为消耗[gold]启动资金[/gold]，不足则改为消耗[gold]金币[/gold]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "Opulent Form",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "Non X-cost cards no longer cost Energy to play. Spend [gold]Funds[/gold] instead. If you don't have enough, spend [gold]Gold[/gold] instead.",
 
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "打出耗能为0的牌或以0能量结束回合时，给予敌人负面效果。",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "打出耗能为0的牌或以0能量结束回合时，给予敌人[blue]{Amount}[/blue]次负面效果。"
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "Destitute Form",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "Whenever you play a card that costs [blue]0[/blue]{Energy:energyIcons()}, or end your turn with [blue]0[/blue]{Energy:energyIcons()}, apply a debuff to a random enemy.",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "Whenever you play a card that costs [blue]0[/blue]{Energy:energyIcons()}, or end your turn with [blue]0[/blue]{Energy:energyIcons()}, apply [blue]{Amount}[/blue] debuffs to a random enemy."
 }
