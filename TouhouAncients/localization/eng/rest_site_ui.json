@@ -1,8 +1,8 @@
 {
   "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "Hanami",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "Restore the Max HP lost due to [pink]Ink-Dyed Cherry Blossoms[/pink] ({MaxHpGain}).",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "It is not yet time for the [pink][sine]cherry blossoms to fall[/sine][/pink].",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "Restore the Max HP you lost due to [purple]Ink-Dyed Cherry Blossoms[/purple]. ({MaxHpGain}).",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "It is not yet time for the [pink][sine]cherry blossoms to bloom[/sine][/pink].",
 
   "OPTION_WITCHS_CAULDRON.name": "Brew",
-  "OPTION_WITCHS_CAULDRON.description": "Gain [blue]3[/blue] random potions. [gold]Transform[/gold] up to [blue]1[/blue] card."
+  "OPTION_WITCHS_CAULDRON.description": "Procure [blue]3[/blue] random Potions. [gold]Transform[/gold] up to [blue]1[/blue] card."
 }
