@@ -1,49 +1,49 @@
 {
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.title": "Vigor on Block",
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.description": "Convert half of the attack damage blocked this turn into [gold]Vigor[/gold].",
-  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "Convert [blue]{Amount}%[/blue] of the attack damage blocked this turn into [gold]Vigor[/gold].",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.title": "返し技",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.description": "このターン、[gold]ブロック[/gold]で防いだアタックダメージの半分に等しい[gold]活力[/gold]を得る。",
+  "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "このターン、[gold]ブロック[/gold]で防いだアタックダメージの[blue]{Amount}%[/blue]に等しい[gold]活力[/gold]を得る。",
 
-  "TOUHOUANCIENTS-KEYSTONE_POWER.title": "Keystone",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "Planted when a Skill is played, uprooted when an Attack is played, dealing damage to ALL enemies.",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "Planted when a Skill is played, uprooted when an Attack is played, dealing [blue]{Amount}[/blue] damage to ALL enemies.",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.title": "要石",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "スキルを使用するたび、要石を突き立てる。アタックを使用するたび、要石を引き抜き、敵全体にダメージを与える。",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "スキルを使用するたび、要石を突き立てる。アタックを使用するたび、要石を引き抜き、敵全体に[blue]{Amount}[/blue]ダメージを与える。",
 
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "Mana Surge",
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "The next [gold]1[/gold] card is free to play.",
-  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "The next [gold]{Amount}[/gold] cards are free to play.",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "魔力暴走",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "次にプレイするカードのコストは[blue]0[/blue]{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "次にプレイする[gold]{Amount}[/gold]枚のカードのコストは[blue]0[/blue]{Energy:energyIcons()}。",
 
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "All Living Things Must Perish",
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "After [blue]4[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "After [blue]{Amount}[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "生者必滅の理",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "[blue]4[/blue]ターン後、敵全体の[gold]アーティファクト[/gold]を取り除き、[gold]破滅[/gold][blue]9999[/blue]を付与する。\n敵から攻撃ダメージを受けるたび、カウントダウンを[blue]1[/blue]ターン延長し、自身に[gold]破滅[/gold][blue]8[/blue]を付与する。",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "[blue]{Amount}[/blue]ターン後、敵全体の[gold]アーティファクト[/gold]を取り除き、[gold]破滅[/gold][blue]9999[/blue]を付与する。\n敵から攻撃ダメージを受けるたび、カウントダウンを[blue]1[/blue]ターン延長し、自身に[gold]破滅[/gold][blue]8[/blue]を付与する。",
 
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "Reduce Miss Snake Plant's Strength",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], up to [blue]8[/blue] times.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "Whenever [gold]{Applier}[/gold] plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "うちのスネークプラントちゃんの筋力がこんなに低いわけがない",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "カードをプレイするたび、[gold]筋力[/gold][blue]1[/blue]を得る。 最大[blue]8[/blue]回まで。\n貧弱！貧弱ゥ！",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "カードをプレイするたび、[gold]筋力[/gold][blue]1[/blue]を得る。あと[blue]{Amount}[/blue]回まで。\n貧弱！貧弱ゥ！",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "[gold]{Applier}[/gold]がカードをプレイするたび、[gold]筋力[/gold][blue]1[/blue]を得る。あと[blue]{Amount}[/blue]回まで。\n貧弱！貧弱ゥ！",
 
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "All Creation's Hisou",
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "Positive status stacks are increased by [gold]1[/gold].",
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "Positive status stacks are increased by [gold]{Amount}[/gold].",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "全人類の緋想天",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "得るバフのスタック数が[gold]1[/gold]増加する。",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "得るバフのスタック数が[gold]{Amount}[/gold]増加する。",
 
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "Lucky Rabbit",
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] this turn.",
-  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] [blue]{Amount}[/blue] this turn.",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "幸運の素兎",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "このターン、コストが[blue]0[/blue]{Energy:energyIcons()}のカードが[gold]リプレイ[/gold]を得る。",
+  "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "このターン、コストが[blue]0[/blue]{Energy:energyIcons()}のカードが[gold]リプレイ[/gold][blue]{Amount}[/blue]を得る。",
 
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Resentment",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes damage equal to the stack count and the stack count is reduced by 1.",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "怨念",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "この効果の付与者に与えるダメージが[blue]25%[/blue]減少する。付与者がアタックをプレイするたび、この効果の数値に等しいダメージを受け、[gold]怨念[/gold]が[blue]1[/blue]減少する。",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "この効果の付与者に与えるダメージが[blue]25%[/blue]減少する。付与者がアタックをプレイするたび、[blue]{Amount}[/blue]ダメージを受け、[gold]怨念[/gold]が[blue]1[/blue]減少する。",
 
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Hell of Bullets",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "Attacks are free to play this turn. When you play an Attack, draw [blue]{Amount}[/blue] cards.",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "弾幕地獄",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "このターン、アタックのコストは[blue]0[/blue]{Energy:energyIcons()}になる。アタックをプレイするたび、カードを[blue]1[/blue]枚引く。",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "このターン、アタックのコストは[blue]0[/blue]{Energy:energyIcons()}になる。アタックをプレイするたび、カードを[blue]{Amount}[/blue]枚引く。"
 
-  "TOUHOUANCIENTS-CAPITAL_POWER.title": "启动资金",
-  "TOUHOUANCIENTS-CAPITAL_POWER.description": "可用于[purple]极奢形态[/purple]的特殊消耗。",
-  "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[blue]{Amount}[/blue]点[gold]启动资金[/gold]，可用于[purple]极奢形态[/purple]的特殊消耗。",
+  "TOUHOUANCIENTS-CAPITAL_POWER.title": "資金",
+  "TOUHOUANCIENTS-CAPITAL_POWER.description": "[purple]豪奢化[/purple]中、エナジーの代わりとして消費される。",
+  "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[gold]資金[/gold][blue]{Amount}[/blue]。[purple]豪奢化[/purple]中、エナジーの代わりとして消費される。",
 
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "极奢形态",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "打出非X费牌不再消耗能量，改为消耗[gold]启动资金[/gold]，不足则改为消耗[gold]金币[/gold]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "豪奢化",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "Xコスト以外のカードはプレイ時にエナジーを消費しない。代わりに[gold]資金[/gold]を消費し、足りない場合[gold]ゴールド[/gold]を消費する。",
 
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "打出耗能为0的牌或以0能量结束回合时，给予敌人负面效果。",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "打出耗能为0的牌或以0能量结束回合时，给予敌人[blue]{Amount}[/blue]次负面效果。"
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "極貧化",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "コストが[blue]0[/blue]{Energy:energyIcons()}のカードをプレイするたび、またはエナジーが[blue]0[/blue]{Energy:energyIcons()}でターンを終了した時、ランダムな敵1体にデバフを付与する。",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "コストが[blue]0[/blue]{Energy:energyIcons()}のカードをプレイするたび、または残るエナジーが[blue]0[/blue]{Energy:energyIcons()}でターンを終了した時、ランダムな敵1体にデバフを[blue]{Amount}[/blue]回付与する。"
 }
