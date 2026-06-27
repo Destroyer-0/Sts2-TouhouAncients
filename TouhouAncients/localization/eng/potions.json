@@ -1,14 +1,14 @@
 {
   "TOUHOUANCIENTS-CAMELLIA_POTION.title": "Camellia",
-  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "[green]Heal to full HP.[/green] Fill all your empty potion slots with random potions. If in combat, [green]Upgrade[/green] ALL cards for the rest of combat.",
+  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "Heal to full HP. Fill your [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. If used in combat, [green]Upgrade[/green] all cards for this combat.",
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "Super ZUN Beer",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add a random Touhou Ancient card into your [gold]Hand[/gold]. It's free to play this turn.\n[jitter][b]Wow, what an opportunity![/b][/jitter]",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "Wow, what an opportunity!",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add 1 random Touhou Ancients card to your hand. It can be played for free this turn.\n[jitter][b]My crypto meme coin is a great investment opportunity![/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "My crypto meme coin is a great investment opportunity!",
 
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "Shi Ra Nai Milk",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "WakaraNo idea",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "Put a card from your [gold]Exhaust Pile[/gold] into your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "Choose a card from your [gold]Exhaust Pile[/gold].",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "Couldn't think of a flavor text for this potion, so this will have to do (lol)."
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "The pun died during translation. Pretend this being a potion called Bone Apple Tea that gives you 3 copies of Ironclad's Feed."
 }
