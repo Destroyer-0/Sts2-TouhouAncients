@@ -1,8 +1,8 @@
 {
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "Hanami",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "Restore the Max HP lost due to [pink]Ink-Dyed Cherry Blossoms[/pink] ({MaxHpGain}).",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "It is not yet time for the [pink][sine]cherry blossoms to fall[/sine][/pink].",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "花見",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "[purple]墨染の桜[/purple]によって失った最大HPを回復する。({MaxHpGain})。",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "まだ[pink][sine]桜は咲いていない[/sine][/pink]。",
 
-  "OPTION_WITCHS_CAULDRON.name": "Brew",
-  "OPTION_WITCHS_CAULDRON.description": "Gain [blue]3[/blue] random potions. [gold]Transform[/gold] up to [blue]1[/blue] card."
+  "OPTION_WITCHS_CAULDRON.name": "調合",
+  "OPTION_WITCHS_CAULDRON.description": "ランダムなポーションを[blue]3[/blue]個得る。カードを最大[blue]1[/blue]枚[gold]変化[/gold]させる。"
 }
