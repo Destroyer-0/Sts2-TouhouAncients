@@ -1,47 +1,47 @@
 {
-    "TOUHOUANCIENTS-TRICK.description": "When played, gain [blue]1[/blue] [gold]Buffer[/gold]. This card's cost increases by [blue]1[/blue] this combat.",
-    "TOUHOUANCIENTS-TRICK.title": "Trick",
+    "TOUHOUANCIENTS-TRICK.description": "When played, gain [blue]1[/blue] [gold]Buffer[/gold]. This card's cost increases by [blue]1[/blue]{Amount:energyIcons()} this combat.",
+    "TOUHOUANCIENTS-TRICK.title": "Trickery",
 
-    "TOUHOUANCIENTS-HIGH_QUALITY.description": "Reduce this card's cost by [blue]1[/blue] for each card in your [gold]Deck[/gold] with the same name.",
-    "TOUHOUANCIENTS-HIGH_QUALITY.title": "High Quality",
+    "TOUHOUANCIENTS-HIGH_QUALITY.description": "Reduce this card's cost by [blue]1[/blue]{Amount:energyIcons()} for each card in your [gold]Deck[/gold] with the same name.",
+    "TOUHOUANCIENTS-HIGH_QUALITY.title": "Premium",
     
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "If this card is in your [gold]Hand[/gold] at the end of turn, reduce its cost by [blue]1[/blue] until it leaves your [gold]Hand[/gold]. When played, return this card to your [gold]Hand[/gold] and randomize its cost this turn.",
+    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "If this card is in your [gold]Hand[/gold] at the end of turn, reduce its cost by [blue]1[/blue] until it leaves your [gold]Hand[/gold]. When played, return to your [gold]Hand[/gold] and randomize its cost this turn.",
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.extraCardText": "Snake bite reigns supreme!",
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "Snake!!",
+    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "SNAKE!!",
     
-    "TOUHOUANCIENTS-MIRACLE.description": "Gains [gold]Exhaust[/gold].\nWhen played, gain {energyPrefix:energyIcons(1)}, then add a random card [gold]enchanted[/gold] with [purple]Miracle[/purple] to your [gold]Draw Pile[/gold].",
-    "TOUHOUANCIENTS-MIRACLE.extraCardText": "A miracle awakens.",
+    "TOUHOUANCIENTS-MIRACLE.description": "Gain [gold]Exhaust[/gold].\nWhen played, gain {Amount:energyIcons()}, then add a random coloured card [gold]Enchanted[/gold] with [purple]Miracle[/purple] to your [gold]Draw Pile[/gold].",
+    "TOUHOUANCIENTS-MIRACLE.extraCardText": "The power to invoke Miracles.",
     "TOUHOUANCIENTS-MIRACLE.title": "Miracle",
 
-    "TOUHOUANCIENTS-BLOODSHED.description": "Heal {Heal:diff()} HP. The first time this card deals unblocked damage each combat, additionally heal for the unblocked damage dealt.",
+    "TOUHOUANCIENTS-BLOODSHED.description": "Heal {Heal:diff()} HP. The first time each combat this card deals unblocked damage, additionally heal equal to the unblocked damage dealt.",
     "TOUHOUANCIENTS-BLOODSHED.title": "Bloodshed",
 
-    "TOUHOUANCIENTS-RECOLLECTION.description": "The first time this card enters your [gold]Discard Pile[/gold], play it automatically.",
+    "TOUHOUANCIENTS-RECOLLECTION.description": "Play this card the first time it enters your [gold]Discard Pile[/gold].",
     "TOUHOUANCIENTS-RECOLLECTION.title": "Recollection",
 
     "TOUHOUANCIENTS-EXORCISM.description": "When played, add a [gold]Dream Seal[/gold] to your [gold]Hand[/gold].",
     "TOUHOUANCIENTS-EXORCISM.title": "Exorcism",
 
-    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "Gains [gold]Ethereal[/gold]. After your Draw Phase, if no card with [purple]Tsukumogami[/purple] is in your [gold]Hand[/gold], move a random card with this enchantment to your [gold]Hand[/gold].",
+    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "Gain [gold]Ethereal[/gold].\nAt the start of your turn, if there are no cards with [purple]Tsukumogami[/purple] in your [gold]Hand[/gold], move a random card with [purple]Tsukumogami[/purple] to your [gold]Hand[/gold].",
     "TOUHOUANCIENTS-TSUKUMOGAMI.title": "Tsukumogami",
 
-    "TOUHOUANCIENTS-MEDICINE_POISON.description": "Gains [gold]Eternal[/gold]. Applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold]. If this card is in your [gold]Hand[/gold] at end of turn, it applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold] this combat.",
-    "TOUHOUANCIENTS-MEDICINE_POISON.title": "Toxic",
+    "TOUHOUANCIENTS-MEDICINE_POISON.description": "Gains [gold]Eternal[/gold]. Applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold]. If this card is in your [gold]Hand[/gold] at end of the turn, it applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold] this combat.",
+    "TOUHOUANCIENTS-MEDICINE_POISON.title": "Melancholy Medicine",
 
-    "TOUHOUANCIENTS-OATH.description": "When this card is played, play all other [purple]Oath[/purple] cards. When this card is Exhausted, Exhaust all other [purple]Oath[/purple] cards.",
-    "TOUHOUANCIENTS-OATH.title": "Oath",
+    "TOUHOUANCIENTS-OATH.description": "When this card is played, play all other [purple]Covenant[/purple] cards. When this card is [gold]Exhausted[/gold], [gold]Exhaust[/gold] all other [purple]Covenant[/purple] cards.",
+    "TOUHOUANCIENTS-OATH.title": "Covenant",
 
-    "TOUHOUANCIENTS-WANDERING.description": "[blue]{BaseRemainingChance}[/blue] times per turn, if the last card you played was an [gold]Attack[/gold], after play this card, put this card into your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
-    "TOUHOUANCIENTS-WANDERING.extraCardText": "Guiding lost souls {RemainingChance}",
-    "TOUHOUANCIENTS-WANDERING.title": "Linger",
+    "TOUHOUANCIENTS-WANDERING.description": "Up to [blue]{BaseRemainingChance}[/blue] times each turn, if the last card played was an [gold]Attack[/gold], return this card to your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
+	"TOUHOUANCIENTS-WANDERING.extraCardText": "Lingering Regrets: {RemainingChance} left",
+    "TOUHOUANCIENTS-WANDERING.title": "Lingering Regrets",
 
-    "TOUHOUANCIENTS-YUMEIRO.description": "Costs [blue]1[/blue] less. When played, draw [blue]1[/blue] card, lose [purple]Dreamy[/purple] and transform into a different enchantment.",
-    "TOUHOUANCIENTS-YUMEIRO.title": "Dreamy",
+    "TOUHOUANCIENTS-YUMEIRO.title": "Dream Colored",
+    "TOUHOUANCIENTS-YUMEIRO.description": "Costs [blue]1[/blue] less. When played, draw [blue]1[/blue] card, replace [purple]Dream Colored[/purple] with a different enchantment.",
 
-    "TOUHOUANCIENTS-GREED.description": "Gains [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. The card with this enchantment in your [gold]Hand[/gold] must be played before other cards.",
-    "TOUHOUANCIENTS-GREED.title": "Obsession",
-
-    "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]{Times}[/blue].\n[red]This card will be Swallowed by Yuuma Toutetsu at the end of combat.[/red]",
+    "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]1[/blue]. If there is any card with [purple]Greed[/purple] in your [gold]Hand[/gold], they must be played before other cards.",
+    "TOUHOUANCIENTS-GREED.title": "Greed"
+	
+    "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]{Times}[/blue].\n[red]At the end of combat, this card will be devoured by Yuuma Toutetsu.[/red][/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "Black Water",
-    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Organic Matter with Resentment"
+    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Every last one of these hatred-soaked organisms is combustible fuel!"
 }

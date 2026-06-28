@@ -1,17 +1,17 @@
 {
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "Scry",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "Look at the top X cards of your draw pile. You may discard any of them.",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "Discard any of them",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "占術",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "山札の上からX枚見て、その中から好きなだけカードを捨てる。",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "捨てる",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "Hanami",
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "Restore the Max HP you lost due to [purple]Ink-Dyed Cherry Blossoms[/purple].",
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "花見",
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "[purple]墨染の桜[/purple]によって失った最大HPを回復する。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "The Regent",
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "His Majesty, who is heir to the Throne of Stars, hails from space. Thus, His Majesty is something of a Celestial.",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "リージェント",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "星の王座の継承者。 宇宙の力を行使するが、面倒はミニオン任せ。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "Impurity",
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "Even with infinite rebirths and purification, Impurity inevitably accumulates. As Impurity builds up, the side effects of resurrection via the Ultramarine Orb Elixir grow stronger.",
-
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "Unconscious",
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play[/purple]."
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "穢れ",
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "たとえ無限に蘇生と浄化を繰り返せても、穢れは避けがたく蓄積する。穢れが蓄積するほど、紺珠の薬による蘇生の副作用は徐々に強まる。",
+  
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "無意識",
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "手札からはプレイ不可。他のカードや効果でのみプレイされる。"
 }
