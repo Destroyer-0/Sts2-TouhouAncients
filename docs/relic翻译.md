@@ -1691,3 +1691,34 @@
 
 ---
 
+## 微缩银河
+
+**键名**: `TOUHOUANCIENTS-BOTTLED_GALAXY`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-BOTTLED_GALAXY.title": "微缩银河",
+"TOUHOUANCIENTS-BOTTLED_GALAXY.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，回合开始时随机将其中的一张牌放置在牌堆顶，并使其耗能在本回合减少当前回合数。",
+"TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "星之沙是如此绚丽多彩。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Miniature Milky Way` |
+| `.description` | `Upon pickup, remove [blue]{Cards}[/blue] cards from your [gold]Deck[/gold]. For the first 3 turns of each combat, at the start of your turn, put 1 random removed card on top of your [gold]Draw Pile[/gold] and reduce its energy cost by the current turn number this turn.` |
+| `.flavor` | `The stardust is so colorful.` |
+
+### 日文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Miniature Milky Way` |
+| `.description` | `Upon pickup, remove [blue]{Cards}[/blue] cards from your [gold]Deck[/gold]. For the first 3 turns of each combat, at the start of your turn, put 1 random removed card on top of your [gold]Draw Pile[/gold] and reduce its energy cost by the current turn number this turn.` |
+| `.flavor` | `The stardust is so colorful.` |
+
+### Neta / 文化梗说明
+- **效果说明** — 重做前为「抽牌阶段结束后根据手牌类型从抽/弃牌堆补牌」；重做后改为「拾起时移除牌、战斗中前三回合随机拿回一张到牌堆顶并减费」，参照佩尔之牙的模式
+- **星之沙** — 保留原有的 flavor 文本
+
+---
+

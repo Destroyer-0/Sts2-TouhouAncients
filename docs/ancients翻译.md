@@ -479,14 +479,14 @@
 | `talk.ANY.0-0r.ancient` | 不要期待超过自己劳动所得的回报，因为那肯定会招致不幸。 | Don't expect rewards beyond what you've earned through your own labor, for that will surely bring misfortune. |
 | `talk.ANY.1-0r.ancient` | 永无止境、一次又一次地尝试登上塔顶，说不定也挺有趣的……呵呵。 | Endlessly trying to reach the top of the tower, over and over again... that might be rather amusing too... heheh. |
 | `talk.ANY.2-0r.ancient` | 难得找到了点自己想做的事情呢，不知道优昙花在我回去的时候会不会已经开放了呢。 | I've finally found something I want to do. I wonder if the udumbara flower will have bloomed by the time I return. |
-| `talk.ANY.3-0r.ancient` | 可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。 | Too bad Gensokyo doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it. |
+| `talk.ANY.3-0r.ancient` | 可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。 | Too bad Preon doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it. |
 | `talk.ANY.4-0r.ancient` | 那只火鸡……现在在哪里呢？ | That turkey... where is she now? |
 | `talk.SILENT.0-0.ancient` | 啊呜哦哦哦哦——啊，活过来了，你这毒素的味道可真差。 | Awooo—aah, I'm alive. Your poison tastes terrible, you know. |
 | `talk.SILENT.0-0.next` | 什么都不说 | Respond |
 | `talk.SILENT.0-1.char` | …… | ... |
 | `talk.SILENT.0-1.next` | 继续 | Continue |
 | `talk.SILENT.0-2.ancient` | 我可没有因为被毒死而生气哦？这种死法在我经历过的这么多中，要评价的话也就是人上人的水平吧。不过，下次下毒前还是记得要打声招呼哦。 | I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first. |
-| `talk.REGENT.0-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Gensokyo—from a planet called the moon. |
+| `talk.REGENT.0-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Preon—from a planet called the moon. |
 
 ---
 
@@ -723,5 +723,61 @@
 | `talk.NECROBINDER.0-2.ancient` | 宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？ | A treasure trove lies before you, yet you're blind to it, heheheh... How about experiencing the power of desire here yourself? |
 | `talk.NECROBINDER.1-0r.ancient` | 带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵…… | Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh... |
 | `talk.NECROBINDER.2-0r.ancient` | 虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter] | While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter] |
+
+---
+
+## [蓬莱山 辉夜] — 新增对话
+
+**键名**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English |
+|--------|------|---------|
+| `talk.ANY.5-0r.ancient` | 你有见到我家在下层经商的兔子吗？呵呵，别被她的外表骗了，她可精明的很，别不小心落入陷阱哦。 | Have you seen my rabbit merchant downstairs? Heheh, don't let her looks fool you—she's quite sharp. Best not to fall into her trap. |
+| `talk.ANY.6-0r.ancient` | 唔姆……这样算不算永琳说的，稍微过的充实了一点呢？ | Hmm... would Eirin say this counts as living a bit more fulfilled, I wonder? |
+| `talk.ANY.7-0r.ancient` | 这趟旅途能给月都万象展加不少帮助呢。啊呀，是不是月都的东西对幻想乡的人来说也不重要吧。 | I could add what I've gathered here to the Lunar Capital's Banquet of Diversity. It's not like Gensokyo folks can tell what's actually from the Lunar anyway. |
+| `talk.IRONCLAD.0-0.ancient` | 你的身上沾满了鲜血与污秽。\n杀死建筑师并不能净化掉这一切。 | You're drenched in blood and filth.\nKilling the Architect won't cleanse any of it. |
+| `talk.IRONCLAD.1-0r.ancient` | 一次次的复活来到我的面前的火焰战士。\n你让我想起了某个烦人的家伙。 | A warrior of flame, coming back to life and standing before me time and again.\nYou remind me of someone annoying. |
+| `talk.IRONCLAD.2-0r.ancient` | 如果你是百年一遇的勇士的话，能找到我要求的宝物，解开我的谜题吗？ | If you're a once-in-a-century hero, can you find the treasures I seek and solve my riddles? |
+| `talk.NECROBINDER.0-0.char` | 我需要你的秘宝，帮我彻底消灭掉建筑师。 | I need your secret treasure to destroy the Architect completely. |
+| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
+| `talk.NECROBINDER.0-1.ancient` | 哎呀，虽然不是不行啦。不过你这股复仇劲倒是和那位很像呢。 | Oh my, it's not impossible. Though your drive for revenge... it reminds me of someone. |
+| `talk.NECROBINDER.1-0r.ancient` | 啊呀，何必那么着急？进来坐会儿吧，我让铃仙去泡茶。 | Oh my, why the rush? Come in and sit for a while. I'll have Inaba brew some tea. |
+| `talk.NECROBINDER.1-0r.next` | 继续 | Continue |
+| `talk.NECROBINDER.1-1r.char` | 在杀死他之前，我连一秒都不想耽搁。 | I don't want to waste a single second before killing him. |
+| `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
+| `talk.NECROBINDER.1-2r.ancient` | 在这里的时间与历史是不会向前流逝的，偶尔也平静下自己的怒火与理智吧。 | Time and history don't flow forward here. Calm your fury and reason every now and then. |
+| `talk.SILENT.1-0r.ancient` | 荒疫并不存在解药。哪怕是永琳，也会被这个难题难住的吧。 | There is no antidote for Blight. Even Eirin would be stumped by this one. |
+| `talk.REGENT.1-0r.ancient` | 听说阁下是太阳的继承人，也就是王子殿下喽？ | I hear you're the heir of the sun—a prince, then? |
+| `talk.REGENT.1-0r.next` | 骄傲 | Proud |
+| `talk.REGENT.1-1r.char` | 没错，在下就是未来的[orange]王[/orange]！ | That's right! I, the Regent, am the future [orange]King[/orange]! |
+| `talk.REGENT.1-1r.next` | 继续 | Continue |
+| `talk.REGENT.1-2r.ancient` | 这样的话，阁下要不要考虑向我这位月之公主求婚呢？我可以破例不让你破解我的谜题哦~ | In that case, would you consider proposing to me, the lunar princess? I could make an exception and let you skip my riddles~ |
+| `talk.REGENT.1-2r.next` | 继续 | Continue |
+| `talk.REGENT.1-3r.char` | 什，什么？！ | W-What?! |
+| `talk.REGENT.1-4r.ancient` | 呵呵，开个小玩笑~ | Heheh, just a little joke~ |
+| `talk.REGENT.1-4r.next` | 继续 | Continue |
+| `talk.DEFECT.0-0.ancient` | 你是永琳提到的建筑师的构装体吗？过来吧，我会给你些宝贝的。 | Are you the Architect's construct that Eirin mentioned? Come here, I'll give you some treasures. |
+| `talk.DEFECT.1-0r.ancient` | 最近电动有点打腻了，要不要也学点编程呢？说不定可以帮到你哦？ | I've grown a bit bored of video games lately. How about learning some programming? Maybe I could be of help to you? |
+| `talk.DEFECT.1-0r.next` | 继续 | Continue |
+| `talk.DEFECT.1-1r.char` | [i][font_size=22]<欣喜的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Joyful beep>[/font_size][/i] |
+| `talk.DEFECT.1-1r.next` | 继续 | Continue |
+| `talk.DEFECT.1-2r.ancient` | 哎呀，别那么着急，欲速则不达…… | My, don't be so impatient. Haste makes waste... |
+| `talk.DEFECT.2-0r.ancient` | 啊呀，你是来问进展的吧？反正时间有的是……明天再看也来得及的吧。 | Oh my, here to ask about progress? We've got plenty of time anyway... Tomorrow will be soon enough, won't it? |
+| `talk.DEFECT.2-0r.next` | 继续 | Continue |
+| `talk.DEFECT.2-1r.char` | [i][font_size=22]<生气的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
+| `talk.DEFECT.3-0r.char` | 现在的人工智能真是方便啊，当年的五道谜题放在现在，贵公子们怕是会争先恐后的去问AI谜底是什么吧。 | AI these days is so convenient. Those five riddles from back then—noble gentlemen would probably be falling over each other to ask an AI for the answers now. |
+
+## [纯狐] — 新增对话
+
+**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English |
+|--------|------|---------|
+| `talk.IRONCLAD.0-0.ancient` | 纯粹的火焰。有趣的铁甲战士。我会给予你力量的。 | Pure flames. An interesting Ironclad. I shall grant you power. |
+| `talk.SILENT.0-0.ancient` | 我看到了你眼里的杀意，就让她更纯粹一点吧。 | I see the killing intent in your eyes. Let it become even purer. |
+| `talk.DEFECT.0-0.ancient` | 畏惧死亡，惜视生命。哪怕是构装体也不应例外。如果你意识到你的生命之重，就接受我最纯粹的祝福。 | Fear death, cherish life. Even a construct should be no exception. If you recognize the weight of your existence, accept my purest blessing. |
+| `talk.REGENT.0-0.ancient` | （端详）不管你来自哪个星球，只要不是月球就行。 | (Examining) No matter which planet you're from, as long as it's not the moon. |
 
 ---
