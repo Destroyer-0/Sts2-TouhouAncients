@@ -6,12 +6,14 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Potions;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -19,46 +21,140 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Saves;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 瓶装银河：在你的抽牌阶段结束时，如果你的手牌中没有攻击牌/技能牌/能力牌，将随机一张对应类型的卡牌从抽牌堆或弃牌堆中放入手牌"
+/// 微缩银河：拾起时，从你的牌组中选择3张牌移除。在每场战斗的前三回合，回合开始时随机将其中的一张牌放置在牌堆顶，并使其耗能在下次打出前减少当前回合数。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class BottledGalaxy : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [];
+    private const string _cardTitlesKey = "CardTitles";
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    private List<SerializableCard> _serializableCards = new();
+
+    public override bool HasUponPickupEffect => true;
+
+    public override bool ShowCounter
+    {
+        get
+        {
+            if (base.IsMutable)
+            {
+                return _serializableCards.Count > 0;
+            }
+            return false;
+        }
+    }
+
+    public override int DisplayAmount
+    {
+        get
+        {
+            if (!base.IsMutable)
+            {
+                return 0;
+            }
+            return _serializableCards.Count;
+        }
+    }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(3),
+        new StringVar(_cardTitlesKey)
+    ];
+
+    [SavedProperty]
+    public List<SerializableCard> SerializableCards
+    {
+        get => _serializableCards;
+        private set
+        {
+            AssertMutable();
+            _serializableCards.Clear();
+            _serializableCards.AddRange(value);
+            UpdateCardList();
+        }
+    }
+
+    private HashSet<SerializableCard> combatCardsList = new();
+    
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _serializableCards = new List<SerializableCard>();
+    }
+
+    public override async Task AfterObtained()
+    {
+        var selected = (await CardSelectCmd.FromDeckForRemoval(
+                prefs: new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, base.DynamicVars.Cards.IntValue),
+                player: base.Owner,
+                filter: null))
+            .OrderBy(c => c.Id.Entry, StringComparer.Ordinal);
+
+        foreach (var card in selected)
+        {
+            var cloned = (CardModel)card.MutableClone();
+            SerializableCards.Add(cloned.ToSerializable());
+            await CardPileCmd.RemoveFromDeck(card);
+        }
+
+        UpdateCardList();
+    }
+
+    public override Task BeforeCombatStart()
+    {
+        combatCardsList = new HashSet<SerializableCard>(_serializableCards);
+        return base.BeforeCombatStart();
+    }
+
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
-        if (base.Owner.PlayerCombatState == null) return;
+        if (base.Owner.Creature?.CombatState == null) return;
         if (!CombatManager.Instance.IsInProgress) return;
+        if (combatCardsList.Count == 0) return;
 
-        var hand = base.Owner.PlayerCombatState.Hand.Cards;
-        var drawPile = PileType.Draw.GetPile(base.Owner).Cards;
-        var discardPile = PileType.Discard.GetPile(base.Owner).Cards;
+        var roundNumber = combatState.RoundNumber;
+        if (roundNumber > 3) return;
 
-        var typesToCheck = new[] { CardType.Attack, CardType.Skill, CardType.Power };
+        Flash();
+        await Cmd.CustomScaledWait(0.1f, 1f);
 
-        foreach (var cardType in typesToCheck)
+        var serializableCard = combatState.RunState.Rng.CombatCardSelection.NextItem(combatCardsList);
+        if (serializableCard == null) return;
+
+        var cardModel = CardModel.FromSerializable(serializableCard);
+        if (!combatState.ContainsCard(cardModel))
         {
-            if (hand.Any(c => c.Type == cardType)) continue;
-
-            var candidates = drawPile.Concat(discardPile)
-                .Where(c => c.Type == cardType)
-                .ToList();
-
-            if (candidates.Count == 0) continue;
-
-            var chosen = candidates
-                .UnstableShuffle(base.Owner.RunState.Rng.CombatCardSelection)
-                .First();
-
-            Flash();
-            await CardPileCmd.Add(chosen, PileType.Hand);
+            combatState.AddCard(cardModel, base.Owner);
         }
+
+        cardModel.EnergyCost.AddUntilPlayed(-roundNumber);
+
+        await CardPileCmd.Add(cardModel, PileType.Draw, CardPilePosition.Top);
+        combatCardsList.Remove(serializableCard);
+    }
+
+    private void UpdateCardList()
+    {
+        base.Status = _serializableCards.Count <= 0 ? RelicStatus.Disabled : RelicStatus.Normal;
+        var stringVar = (StringVar)base.DynamicVars[_cardTitlesKey];
+        if (_serializableCards.Count == 0)
+        {
+            stringVar.StringValue = string.Empty;
+        }
+        else
+        {
+            stringVar.StringValue = string.Join('\n', _serializableCards.Select(c => "- " + SaveUtil.CardOrDeprecated(c.Id!).Title));
+        }
+
+        InvokeDisplayAmountChanged();
     }
 
     // private static readonly ConditionalWeakTable<CardModel, BottledGalaxyCardData> CardData = new();
