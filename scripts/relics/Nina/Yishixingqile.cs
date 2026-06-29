@@ -52,7 +52,9 @@ public class Yishixingqile : TouhouAncientRelics
         {
             for (int i = 0; i < player.RunState.Rng.Shuffle.NextInt(1, 3); i++)
             {
-                var candidates = merchantRoom.Inventories.SelectMany(x=>x.AllEntries)
+                var candidates = merchantRoom.Inventories
+                    .Where(inv => inv.Player == player)
+                    .SelectMany(x=>x.AllEntries)
                     .Where(e => e.IsStocked
                                 && e != itemPurchased
                                 && !_freeEntries.Contains(e))
@@ -85,6 +87,7 @@ public class Yishixingqile : TouhouAncientRelics
         {
             return cost;
         }
+        
         if (_freeEntries.Contains(entry)) return 0m;
         return cost;
     }
