@@ -523,7 +523,7 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "Please don't go poking around under a maiden's skirt, okay?",
 
   "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "Miniature Milky Way",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "After the Draw Phase, if there's no Attack/Skill/Power in your [gold]Hand[/gold], put 1 random card of the same type from [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "Upon pickup, remove [blue]{Cards}[/blue] cards from your [gold]Deck[/gold]. For the first 3 turns of each combat, at the start of your turn, put 1 random removed card on top of your [gold]Draw Pile[/gold] and reduce its energy cost by the current turn number this turn.{CardTitles.StringValue:cond:\n\nMiniaturized cards:\n{}|}",
   "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "The stardust is so colorful.",
 
   "TOUHOUANCIENTS-GLOBE.title": "Globe",
