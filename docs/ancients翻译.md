@@ -175,6 +175,11 @@
 | `talk.NECROBINDER.1-2r.char` | （亡灵契约师和帕秋莉交流了魔法心得。） | (The NecroBinder and Patchouli exchange magical knowledge.) |
 | `talk.NECROBINDER.1-2r.next` | 继续 | Continue |
 | `talk.NECROBINDER.1-3r.ancient` | 作为和我们家帕琪聊天的谢礼，就带上这个吧。 | As thanks for chatting with our Patchouli, take this with you. |
+| `talk.NECROBINDER.2-0r.char` | 你和你的……家人们看上去感情真好。 | You and your... family seem to get along so well. |
+| `talk.NECROBINDER.2-0r.next` | 继续 | Continue |
+| `talk.NECROBINDER.2-1r.ancient` | 家人……吗？是啊，我们是感情很好的家人。 | Family... is it? Yes, we're a family that gets along very well. |
+| `talk.NECROBINDER.2-1r.next` | 继续 | Continue |
+| `talk.NECROBINDER.2-2r.char` | 我有点羡慕了。 | I'm a little envious. |
 | `talk.IRONCLAD.0-0.char` | 恶魔……杀戮…… | Demon... slaughter... |
 | `talk.IRONCLAD.0-0.next` | 继续 | Continue |
 | `talk.IRONCLAD.0-1.ancient` | 哎呀，你是不是认错人了？毕竟像我这么[sine]威严[/sine]的吸血鬼可不多见呢~ | Oh my, you must have mistaken me for someone else? After all, a vampire as [sine]dignified[/sine] as myself is quite rare~ |
@@ -481,7 +486,7 @@
 | `talk.SILENT.0-1.char` | …… | ... |
 | `talk.SILENT.0-1.next` | 继续 | Continue |
 | `talk.SILENT.0-2.ancient` | 我可没有因为被毒死而生气哦？这种死法在我经历过的这么多中，要评价的话也就是人上人的水平吧。不过，下次下毒前还是记得要打声招呼哦。 | I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first. |
-| `talk.REGENT.1-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Gensokyo—from a planet called the moon. |
+| `talk.REGENT.0-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Gensokyo—from a planet called the moon. |
 
 ---
 
@@ -545,7 +550,19 @@
 | 对话键 | 中文 | English |
 |--------|------|---------|
 | `talk.firstVisitEver.0-0.ancient` | 我的名字是纯狐，就让我来招待一下，努力至今的你吧。 | My name is Junko. Let me extend my hospitality to you, who have struggled so far to get here. |
-| `talk.ANY.0-0r.ancient` | …… | ... |
+| `talk.ANY.0-0r.ancient` | 先子星的旅途，只是我复仇人生中的无聊消遣罢了。 | The journey through Preon is merely a tedious diversion in my life of vengeance. |
+| `talk.ANY.1-0r.ancient` | 我与月之民之间的交战也正好陷入了僵局，最近也正为此感到厌倦了，来这里倒是个不错的选择呢。 | My conflict with the Lunarians has reached a stalemate anyway. I've grown weary of it lately—coming here is actually not a bad choice. |
+| `talk.ANY.2-0r.ancient` | 我对这里的事情很感兴趣。让我再多见识一点吧。 | I find the happenings here quite intriguing. Let me see more of it. |
+| `talk.ANY.3-0r.ancient` | 不共戴天之敌，嫦娥啊，你在看着吗？ | My sworn enemy, Chang'e... are you watching? |
+| `talk.NECROBINDER.0-0.char` | 我需要能杀死他的帮助。 | I need help to kill him. |
+| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
+| `talk.NECROBINDER.0-1.ancient` | 你也有不共戴天的敌人吗？ | You have a sworn enemy too? |
+| `talk.NECROBINDER.0-1.next` | 惊讶 | Startled |
+| `talk.NECROBINDER.0-2.char` | ……我还是第一次感受到复仇的火焰的温度。那是来自于你的吗？ | ...This is the first time I've felt the heat of vengeful flames. Does it come from you? |
+| `talk.NECROBINDER.0-2.next` | 继续 | Continue |
+| `talk.NECROBINDER.0-3.ancient` | 我即是最纯粹的复仇的化身。 | I am the purest incarnation of vengeance. |
+| `talk.NECROBINDER.1-0r.ancient` | 毋需焦躁、毋需惶恐。复仇的机会与时间是无限的，[b]我们[/b]有的是时间。 | No need for impatience, no need for fear. The opportunities and time for vengeance are limitless. [b]We[/b] have all the time we need. |
+| `talk.NECROBINDER.2-0r.ancient` | 复仇剧将会永远的重复下去，无论是你的，还是我的。 | The revenge drama will repeat for all eternity—be it yours, or mine. |
 
 ---
 
