@@ -48,15 +48,11 @@ public class SuspiciousToken : TouhouAncientRelics
         var player = base.Owner;
         if (player == null) return;
 
-        // 1. 刷新角色卡牌
-        foreach (var entry in merchantInventory.CharacterCardEntries)
+        // 1. 刷新所有卡牌（CardEntries 已包含角色+无色）
+        foreach (var entry in merchantInventory.CardEntries)
             entry.Populate();
 
-        // 2. 刷新无色卡牌
-        foreach (var entry in merchantInventory.ColorlessCardEntries)
-            entry.Populate();
-
-        // 3. 刷新遗物
+        // 2. 刷新遗物
         var relicBlacklist = merchantInventory.RelicEntries
             .Select(e => e.Model?.CanonicalInstance)
             .OfType<RelicModel>()
@@ -85,7 +81,7 @@ public class SuspiciousToken : TouhouAncientRelics
             }
         }
 
-        // 4. 刷新药水
+        // 3. 刷新药水
         var fillPotion = HarmonyLib.AccessTools.Method(
             typeof(MerchantPotionEntry),
             "FillSlot",
@@ -113,7 +109,7 @@ public class SuspiciousToken : TouhouAncientRelics
             }
         }
 
-        // 5. 通知所有条目更新 UI
+        // 4. 通知所有条目更新 UI
         foreach (var entry in merchantInventory.AllEntries)
             entry.OnMerchantInventoryUpdated();
 

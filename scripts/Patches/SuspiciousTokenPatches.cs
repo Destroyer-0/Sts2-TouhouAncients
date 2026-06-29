@@ -78,6 +78,48 @@ public static class SuspiciousTokenPatches
         }
     }
 
+    /// <summary>
+    /// 修复：NMerchantCard 购买后 Visible=false，刷新后未恢复。
+    /// </summary>
+    [HarmonyPatch(typeof(NMerchantCard), "UpdateVisual")]
+    [HarmonyPostfix]
+    private static void AfterCardUpdateVisual(NMerchantCard __instance)
+    {
+        if (__instance.Entry.IsStocked)
+        {
+            __instance.Visible = true;
+            __instance.MouseFilter = Control.MouseFilterEnum.Stop;
+        }
+    }
+
+    /// <summary>
+    /// 修复：NMerchantRelic 购买后 Visible=false，刷新后未恢复。
+    /// </summary>
+    [HarmonyPatch(typeof(NMerchantRelic), "UpdateVisual")]
+    [HarmonyPostfix]
+    private static void AfterRelicUpdateVisual(NMerchantRelic __instance)
+    {
+        if (__instance.Entry.IsStocked)
+        {
+            __instance.Visible = true;
+            __instance.MouseFilter = Control.MouseFilterEnum.Stop;
+        }
+    }
+
+    /// <summary>
+    /// 修复：NMerchantPotion 购买后 Visible=false，刷新后未恢复。
+    /// </summary>
+    [HarmonyPatch(typeof(NMerchantPotion), "UpdateVisual")]
+    [HarmonyPostfix]
+    private static void AfterPotionUpdateVisual(NMerchantPotion __instance)
+    {
+        if (__instance.Entry.IsStocked)
+        {
+            __instance.Visible = true;
+            __instance.MouseFilter = Control.MouseFilterEnum.Stop;
+        }
+    }
+
     private static MerchantRefreshEntry? EnsureRefreshEntry(MerchantInventory inventory, Player player)
     {
         if (RefreshEntries.TryGetValue(inventory, out var existing))

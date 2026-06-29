@@ -98,6 +98,8 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             _refreshEntry.PurchaseCompleted -= OnSuccessfulPurchase;
         }
 
+        _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
+
         _refreshEntry = refreshEntry;
         _refreshEntry.EntryUpdated += UpdateVisual;
         _refreshEntry.PurchaseFailed += base.OnPurchaseFailed;
@@ -112,6 +114,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
 
         if (!_refreshEntry.IsStocked)
         {
+            _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh_02.png");
             _hitbox.MouseFilter = MouseFilterEnum.Ignore;
             _isUnavailable = true;
             Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 0.45f);
@@ -122,6 +125,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             return;
         }
 
+        _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 1f);
         MouseFilter = MouseFilterEnum.Stop;
         _hitbox.MouseFilter = MouseFilterEnum.Stop;
