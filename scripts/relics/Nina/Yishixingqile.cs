@@ -80,8 +80,12 @@ public class Yishixingqile : TouhouAncientRelics
     public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal cost)
     {
         if (player != base.Owner) return cost;
-        if (_freeEntries.Contains(entry)) return 0m;
 
+        if (!LocalContext.IsMe(base.Owner))
+        {
+            return cost;
+        }
+        if (_freeEntries.Contains(entry)) return 0m;
         return cost;
     }
 
