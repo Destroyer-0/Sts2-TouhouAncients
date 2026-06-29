@@ -314,7 +314,7 @@
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "Suspicious Token",
-  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the [gold]Merchant's[/gold] wares once for free.",
+  "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "At each shop, you may refresh the [gold]Merchant's[/gold] wares once for free. Afterwards, all items are [blue]{Discount}% off[/blue]!",
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "Hand this to the merchant for a special service—when you think Tewi Inaba has tricked you, but actually hasn't, does that still count as being tricked?",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "Invisibility Cloth",
