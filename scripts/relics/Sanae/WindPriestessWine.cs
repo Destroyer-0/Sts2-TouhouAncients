@@ -57,17 +57,17 @@ public class WindPriestessWine : TouhouAncientRelics
     {
         if (player != base.Owner) return amount;
         TouhouAncients_EnergyGainedCounter += (int)amount;
-        _ = TryDraw();
         return amount;
     }
 
     /// <summary>
     /// ModifyEnergyGain 如果未修改获得的实际能量，此方法不会被调用。
     /// </summary>
-    // public override async Task AfterModifyingEnergyGain()
-    // {
-    //     await base.AfterModifyingEnergyGain();
-    // }
+    public override async Task AfterModifyingEnergyGain()
+    {
+        await TryDraw();
+        await base.AfterModifyingEnergyGain();
+    }
     private async Task TryDraw()
     {
         while (TouhouAncients_EnergyGainedCounter >= DynamicVars.Energy.IntValue)
