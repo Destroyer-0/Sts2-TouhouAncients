@@ -29,6 +29,7 @@ public class IllusoryProjection : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromPowerWithPowerHoverTips<ConfusedPower>();
+    
     public override async Task BeforeCombatStart()
     {
         // 获得混乱效果（参照 SneckoEye）
