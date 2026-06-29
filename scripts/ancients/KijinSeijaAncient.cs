@@ -13,8 +13,8 @@ public class KijinSeijaAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.5f, 0.173f, 0.165f, 0.6f);
     public override Color DialogueColor => new(0.588f, 0.173f, 0.165f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/KijinSeija_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/KijinSeija_MapNode.png";
 
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KijinSeija.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KijinSeija.png";

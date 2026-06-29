@@ -15,8 +15,9 @@ public class KomejiSatoriAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.75f, 0.25f, 0.55f, 0.7f);
     public override Color DialogueColor => new(0.85f, 0.35f, 0.75f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/KomejiSatori_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/KomejiSatori_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KomejiSatori.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KomejiSatori.png";
 
