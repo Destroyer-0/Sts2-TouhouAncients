@@ -1647,18 +1647,18 @@
 
 **键名**: `TOUHOUANCIENTS-SUSPICIOUS_TOKEN`
 
-### 中文原文
+### 中文原文（已更新）
 ```json
 "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "可疑信物",
-"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次商人出售的物品。",
+"TOUHOUANCIENTS-SUSPICIOUS_TOKEN.description": "在每个商店，你可以免费刷新一次[gold]商人[/gold]出售的物品，刷新后打折[blue]{Discount}%[/blue]！",
 "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？"
 ```
 
-### 英文翻译
+### 英文翻译（已更新）
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Suspicious Token` |
-| `.description` | `At each shop, you may refresh the merchant's wares once for free.` |
+| `.description` | `At each shop, you may refresh the [gold]Merchant's[/gold] wares once for free. Afterwards, all items are [blue]{Discount}% off[/blue]!` |
 | `.flavor` | `Hand this to the merchant for a special service—when you think Tewi Inaba has tricked you, but actually hasn't, does that still count as being tricked?` |
 
 ### Neta / 文化梗说明
