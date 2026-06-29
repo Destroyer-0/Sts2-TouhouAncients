@@ -38,6 +38,16 @@ public class BloodYinYangOrb : TouhouAncientRelics
         return amount + (decimal)base.DynamicVars.Energy.IntValue;
     }
     
+    public override Task AfterRestSiteHeal(Player player, bool isMimicked)
+    {
+        if (player != base.Owner)
+        {
+            return Task.CompletedTask;
+        }
+        Flash();
+        base.Status = RelicStatus.Normal;
+        return Task.CompletedTask;
+    }
     /// <summary>
     /// 休息处恢复的生命值减少25点。
     /// </summary>
@@ -47,7 +57,6 @@ public class BloodYinYangOrb : TouhouAncientRelics
         {
             return amount;
         }
-        Flash();
         return amount - base.DynamicVars["HealPenalty"].BaseValue;
     }
     
