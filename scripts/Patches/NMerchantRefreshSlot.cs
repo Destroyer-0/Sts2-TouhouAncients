@@ -42,6 +42,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             visual.UniqueNameInOwner = true;
             slot.AddChild(visual);
             AssignOwnerRecursive(visual, slot);
+
         }
 
         var templateCost = template.GetNodeOrNull<Control>("Cost");
@@ -98,7 +99,13 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             _refreshEntry.PurchaseCompleted -= OnSuccessfulPurchase;
         }
 
-        _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
+        // 保持图标原始大小，隐藏从模板继承的 outline
+        var refreshTexture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
+        _refreshVisual.Texture = refreshTexture;
+        
+        //_refreshVisual.Scale = refreshEntry.;
+        _refreshVisual.Material = null;
+        _hitbox.Size = refreshTexture.GetSize() * 0.5f;;
 
         _refreshEntry = refreshEntry;
         _refreshEntry.EntryUpdated += UpdateVisual;
@@ -129,10 +136,9 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 1f);
         MouseFilter = MouseFilterEnum.Stop;
         _hitbox.MouseFilter = MouseFilterEnum.Stop;
-        _costLabel.Visible = true;
-        _costLabel.SetTextAutoSize(_refreshEntry.Cost.ToString());
-        _costLabel.Modulate = StsColors.cream;
-        _costContainer.Visible = true;
+        // 刷新按钮不需要价格标签
+        _costLabel.Visible = false;
+        _costContainer.Visible = false;
         FocusMode = FocusModeEnum.All;
         ClearHoverTip();
     }
