@@ -62,8 +62,9 @@ public class EstrangedHeart : TouhouAncientRelics
 
         var drawPile = PileType.Draw.GetPile(player);
         if (drawPile.IsEmpty) return;
-
-        var drawCards = drawPile.Cards.ToList();
+        List<CardModel> drawCards = (from c in drawPile.Cards
+            orderby c.Rarity, c.Id
+            select c).ToList();
         if (drawCards.Count == 0) return;
 
         var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, 0, drawCards.Count);

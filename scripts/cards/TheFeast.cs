@@ -64,9 +64,10 @@ public class TheFeast : TouhouAncientCards
         if (drawPile.IsEmpty) return;
 
         // 找抽牌堆中不为狂飨的牌
-        var eligibleCards = drawPile.Cards
-            .Where(c => c is not TheFeast)
-            .ToList();
+        var eligibleCards =  (from c in drawPile.Cards
+            where c is not TheFeast
+            orderby c.Rarity, c.Id
+            select c).ToList();
 
         if (eligibleCards.Count == 0) return;
 
