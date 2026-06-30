@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -29,7 +30,7 @@ public class SuspiciousToken : TouhouAncientRelics
 {
     private const string DiscountKey = "Discount";
     public const float RefreshSlotXOffset = 180f;
-    public const float RefreshSlotYOffset = 40f;
+    public const float RefreshSlotYOffset = 32f;
     protected override IEnumerable<DynamicVar> CanonicalVars => new[] { new DynamicVar(DiscountKey, 50m) };
 
     /// <summary>本商店免费刷新是否已被使用。</summary>
@@ -312,12 +313,20 @@ public static class SuspiciousTokenPatches
             unavailableField.SetValue(cardRemovalNode, false);
         }
 
-        // 停止播放 "Used" 动画
-        var animator = cardRemovalNode.GetNodeOrNull<AnimationPlayer>("%Animation");
-        if (animator != null && animator.CurrentAnimation == "Used")
+        // 重置 _hitbox.MouseFilter → Stop，因为 UpdateVisual 的 else 分支不会恢复它
+        var hitbox = cardRemovalNode.GetNodeOrNull<NClickableControl>("%Hitbox");
+        if (hitbox != null)
         {
+            hitbox.MouseFilter = Control.MouseFilterEnum.Stop;
+        }
+
+        // 播放 RESET 动画恢复 Visual:texture（"Used" 动画会修改纹理，Stop+Seek 不能恢复）
+        var animator = cardRemovalNode.GetNodeOrNull<AnimationPlayer>("%Animation");
+        if (animator != null && animator.HasAnimation("RESET"))
+        {
+            animator.Play("RESET");
+            animator.Advance(0.0);
             animator.Stop();
-            animator.Seek(0.0, true);
         }
 
         // 通过触发 EntryUpdated 事件来间接调用 UpdateVisual（它是 protected 方法）

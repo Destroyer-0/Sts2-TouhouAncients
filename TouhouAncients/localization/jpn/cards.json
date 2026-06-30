@@ -48,7 +48,7 @@
     "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "Randomly play {Cards:diff()} cards from your [gold]Draw Pile[/gold], [gold]Hand[/gold], and [gold]Discard Pile[/gold].\n[gold]Enchant[/gold] a random Attack among them with [purple]Instinct[/purple]. Gain [red]Unconscious[/red] on a random card among them.",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "Killing Lunacy",
-    "TOUHOUANCIENTS-KILLING_AURA.description": "Deal {Damage:diff()} damage.\nGain {Block:diff()} [gold]Block[/gold].\nWhenever you play a card with Damage or Block, [gold]Exhaust[/gold] it if this card is in your [gold]Hand[/gold] and add those values{IfUpgraded:show: plus [blue]1[/blue]|} to this card.",
+    "TOUHOUANCIENTS-KILLING_AURA.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nWhenever you play a card with Damage or Block, [gold]Exhaust[/gold] it if this card is in your [gold]Hand[/gold] and add those values{IfUpgraded:show: plus [blue]1[/blue]|} to this card.",
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "A Pristine Danmaku Hell",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "Choose any number of cards from your [gold]Hand[/gold] and [gold]Transform[/gold] them into [gold]Nameless Bullets[/gold].\nThis turn, your Attack cards are free to play and draw a card when played. When you have no Attack cards in your [gold]Hand[/gold], end your turn.",

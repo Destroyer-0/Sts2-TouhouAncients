@@ -19,7 +19,7 @@ public class HakureiReimuAncient : TouhouAncientBase
     public override Color DialogueColor => new(0.9f, 0.25f, 0.25f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
     protected override OptionPools MakeOptionPools => new OptionPools(

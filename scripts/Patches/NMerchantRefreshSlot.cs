@@ -14,6 +14,7 @@ namespace TouhouAncients.Scripts.Patches;
 public partial class NMerchantRefreshSlot : NMerchantSlot
 {
     private Sprite2D _refreshVisual = null!;
+    private Sprite2D _refreshVisualOutline = null!;
     private Control _costContainer = null!;
     private MerchantRefreshEntry _refreshEntry = null!;
     private bool _isUnavailable;
@@ -21,6 +22,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
     public override MerchantEntry Entry => _refreshEntry;
 
     protected override CanvasItem Visual => _refreshVisual;
+    protected Sprite2D Outline => _refreshVisualOutline;
 
     public static NMerchantRefreshSlot CreateFromCardRemovalTemplate(NMerchantCardRemoval template)
     {
@@ -42,7 +44,6 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             visual.UniqueNameInOwner = true;
             slot.AddChild(visual);
             AssignOwnerRecursive(visual, slot);
-
         }
 
         var templateCost = template.GetNodeOrNull<Control>("Cost");
@@ -87,6 +88,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
     {
         ConnectSignals();
         _refreshVisual = GetNode<Sprite2D>("%Visual");
+        _refreshVisualOutline = _refreshVisual.GetChild(0) as Sprite2D;
         _costContainer = GetTemplateNode<Control>("Cost");
     }
 
@@ -102,6 +104,7 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
         // 保持图标原始大小，隐藏从模板继承的 outline
         var refreshTexture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
         _refreshVisual.Texture = refreshTexture;
+        _refreshVisualOutline.Texture = refreshTexture;
         
         //_refreshVisual.Scale = refreshEntry.;
         _refreshVisual.Material = null;
@@ -121,7 +124,9 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
 
         if (!_refreshEntry.IsStocked)
         {
-            _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh_02.png");
+            var refreshTexture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh_02.png");
+            _refreshVisual.Texture = refreshTexture;
+            _refreshVisualOutline.Texture = refreshTexture;
             _hitbox.MouseFilter = MouseFilterEnum.Ignore;
             _isUnavailable = true;
             Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 0.45f);
@@ -132,7 +137,9 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
             return;
         }
 
-        _refreshVisual.Texture = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
+        var refreshTexture2 = ResourceLoader.Load<Texture2D>("res://images/ui/misc/tewi_refresh.png");
+        _refreshVisual.Texture = refreshTexture2;
+        _refreshVisualOutline.Texture = refreshTexture2;
         Modulate = new Color(Modulate.R, Modulate.G, Modulate.B, 1f);
         MouseFilter = MouseFilterEnum.Stop;
         _hitbox.MouseFilter = MouseFilterEnum.Stop;

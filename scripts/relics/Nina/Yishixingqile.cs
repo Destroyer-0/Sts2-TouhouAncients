@@ -38,6 +38,7 @@ public class Yishixingqile : TouhouAncientRelics
     public override async Task AfterItemPurchased(Player player, MerchantEntry itemPurchased, int goldSpent)
     {
         if (player != base.Owner) return;
+        if(itemPurchased is MerchantRefreshEntry) return;
         
         // 移除已购买的商品（如果它在免费列表中）
         _freeEntries.Remove(itemPurchased);
@@ -57,6 +58,7 @@ public class Yishixingqile : TouhouAncientRelics
                     .SelectMany(x=>x.AllEntries)
                     .Where(e => e.IsStocked
                                 && e != itemPurchased
+                                && e is not MerchantRefreshEntry
                                 && !_freeEntries.Contains(e))
                     .ToList();
 
