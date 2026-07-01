@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,7 +16,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 罡气侍从：获得20（升级后25）格挡。本回合将格挡掉的攻击伤害转化为等量活力。
 /// 多次打出时转化倍率叠加。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class ServantHongmeiling : TouhouAncientCards
 {
     private const int energyCost = 2;
@@ -31,7 +29,7 @@ public class ServantHongmeiling : TouhouAncientCards
         new BlockVar(18m, ValueProp.Move)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromPower<VigorPower>()];
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
     public override bool GainsBlock => true;

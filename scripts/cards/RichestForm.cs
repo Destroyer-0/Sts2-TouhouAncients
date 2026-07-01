@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -20,7 +19,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 打出非X费牌不再消耗能量，改为 1:10 消耗启动资金。
 /// 启动资金不足时改为消耗金币。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class RichestForm : TouhouAncientCards
 {
     private const int energyCost = 3;
@@ -37,7 +35,7 @@ public class RichestForm : TouhouAncientCards
         new DynamicVar("StartingCapital", 120m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<CapitalPower>(),
         base.EnergyHoverTip

@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,7 +15,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 生者必灭之理：3费。能力。4个回合后，清除所有敌人的人工制品并给予9999层灾厄。
 /// 每次受到伤害，延长1回合触发时机并给予自身10灾厄。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class LifeMustPerish : TouhouAncientCards
 {
     private const int energyCost = 3;
@@ -32,7 +29,7 @@ public class LifeMustPerish : TouhouAncientCards
         new DynamicVar("SelfDoom", 8m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => 
         [
             HoverTipFactory.FromPower<ArtifactPower>(),
             HoverTipFactory.FromPower<DoomPower>()

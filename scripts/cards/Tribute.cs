@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,7 +13,6 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 供奉：Quest卡牌，不可打出。累计供奉300金币后从牌组中移除。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class Tribute : TouhouAncientCards
 {
     private const int RequiredGold = 250;

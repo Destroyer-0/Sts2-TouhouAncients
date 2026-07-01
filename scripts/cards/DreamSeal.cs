@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -19,7 +18,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 若其意图为攻击，给予1层易伤并使其在本回合失去8(升级后10)点力量。
 /// 意图检测参考：GoForTheEyes。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class DreamSeal : TouhouAncientCards
 {
     private const int energyCost = 1;
@@ -49,7 +47,7 @@ public class DreamSeal : TouhouAncientCards
         new DynamicVar("StrengthLoss", 6m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<VulnerablePower>(),
         HoverTipFactory.FromPower<StrengthPower>()

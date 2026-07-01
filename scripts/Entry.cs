@@ -1,10 +1,11 @@
-using BaseLib.Config;
-using Godot.Bridge;
+using System.Reflection;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
-using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using STS2RitsuLib;
+using STS2RitsuLib.Interop;
+using STS2RitsuLib.Settings;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.Enchantment;
 using TouhouAncients.Scripts.Patches;
@@ -16,9 +17,16 @@ namespace TouhouAncients.Scripts;
 [ModInitializer(nameof(Init))]
 public class Entry
 {
+    public const string ModId = "TouhouAncients";
+    public static readonly Logger Logger = RitsuLibFramework.CreateLogger(ModId);
+
     // 初始化函数
     public static void Init()
     {
+        var assembly = Assembly.GetExecutingAssembly();
+        RitsuLibFramework.EnsureGodotScriptsRegistered(assembly, Logger);
+        ModTypeDiscoveryHub.RegisterModAssembly(ModId, assembly);
+
         // 注册 Mod 中的 [SavedProperty] 类型到缓存中，
         // 否则读档时 SavedProperties 无法正确地序列化/反序列化这些属性。
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
@@ -43,10 +51,10 @@ public class Entry
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.TouhouAncients");
         harmony.PatchAll();
-        // 使得tscn可以加载自定义脚本
-        ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
-        // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册
-        Log.Info("Mod initialized!");
-        ModConfigRegistry.Register("TouhouAncients", new TouhouAncientsConfig());
+
+        // 注册 RitsuLib 反射式设置页面
+        RitsuLibFramework.RegisterModSettingsReflectionProvider<TouhouAncientsConfig>();
+        
+        Logger.Info("Mod initialized!");
     }
 }

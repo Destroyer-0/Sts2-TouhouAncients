@@ -26,30 +26,6 @@ public class PoorestFormPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromPower<WeakPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<PoisonPower>(),
-        HoverTipFactory.FromPower<DoomPower>()
-    ];
-    
-    /// <summary>
-    /// 打出耗能为 0 的牌时触发
-    /// </summary>
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner?.Creature != base.Owner) return;
-        if (cardPlay.IsAutoPlay) return;
-        if (!cardPlay.IsLastInSeries) return;
-
-        // 检查打出时最终费用是否为 0
-        var resolvedCost = cardPlay.Card.EnergyCost.GetResolved();
-        if (resolvedCost != 0m) return;
-
-        await ApplyDebuffs(context);
-    }
-
     /// <summary>
     /// 回合结束时，若剩余能量为 0 则触发
     /// </summary>

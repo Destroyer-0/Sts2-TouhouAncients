@@ -1,17 +1,17 @@
 {
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "Scry",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "Look at the top X cards of your draw pile. You may discard any of them.",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "Discard any of them",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTSATORISCRY.title": "Scry",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTSATORISCRY.description": "Look at the top X cards of your draw pile. You may discard any of them.",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "Discard any of them",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "Hanami",
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "Restore the Max HP you lost due to [purple]Ink-Dyed Cherry Blossoms[/purple].",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTCHERRYBLOSSOMS.title": "Hanami",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTCHERRYBLOSSOMS.description": "Restore the Max HP you lost due to [purple]Ink-Dyed Cherry Blossoms[/purple].",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "The Regent",
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "His Majesty, who is heir to the Throne of Stars, hails from space. Thus, His Majesty is something of a Celestial.",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTREGENT.title": "The Regent",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTREGENT.description": "His Majesty, who is heir to the Throne of Stars, hails from space. Thus, His Majesty is something of a Celestial.",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "Impurity",
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "Even with infinite rebirths and purification, Impurity inevitably accumulates. As Impurity builds up, the side effects of resurrection via the Ultramarine Orb Elixir grow stronger.",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTFILTH.title": "Impurity",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTFILTH.description": "Even with infinite rebirths and purification, Impurity inevitably accumulates. As Impurity builds up, the side effects of resurrection via the Ultramarine Orb Elixir grow stronger.",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "Unconscious",
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play[/purple]."
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTKOISHIUNPLAYABLE.title": "Unconscious",
+  "TOUHOUANCIENTS_KEYWORD_TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play[/purple]."
 }

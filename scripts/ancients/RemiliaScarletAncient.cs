@@ -1,45 +1,30 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
-using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Events;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
+[RegisterSharedAncient]
 public class RemiliaScarletAncient : TouhouAncientBase
 {
     public override int? ShowAct => 3;
     public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.5f);
     public override Color DialogueColor => new(0.6f, 0.1f, 0.1f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/RemiliaScarlet_MapNode.png";
 
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/RemiliaScarlet_MapNode.png";
 
-    // 历史记录图标路径
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/RemiliaScarlet.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/RemiliaScarlet.png";
-
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<NobleBrooch>(),
-            AncientOption<CrimsonCrystal>(),
-            AncientOption<NightServant>()
-        ),
-        MakePool(
-            AncientOption<CrimsonChalice>(),
-            AncientOption<BloodFang>(),
-            AncientOption<PreservedRedFog>()
-        ),
-        MakePool(
-            AncientOption<DraculaLegacy>(),
-            AncientOption<LordsSunscreenCream>()
-        )
-        // MakePool(
-        //     AncientOption<SpearGungnir>(),
-        //     AncientOption<NightServant>()
-        // )
-        );
+    public override IEnumerable<EventOption> AllPossibleOptions =>
+    [
+        CreateModRelicOption<NobleBrooch>(),
+        CreateModRelicOption<CrimsonCrystal>(),
+        CreateModRelicOption<NightServant>(),
+        CreateModRelicOption<CrimsonChalice>(),
+        CreateModRelicOption<BloodFang>(),
+        CreateModRelicOption<PreservedRedFog>(),
+        CreateModRelicOption<DraculaLegacy>(),
+        CreateModRelicOption<LordsSunscreenCream>()
+    ];
 }

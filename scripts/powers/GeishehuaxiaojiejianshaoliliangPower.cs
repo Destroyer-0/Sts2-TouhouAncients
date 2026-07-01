@@ -1,4 +1,3 @@
-﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -20,9 +19,7 @@ public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Applier")];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>()];
-    
+
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         ((StringVar)base.DynamicVars["Applier"]).StringValue = applier.Name;

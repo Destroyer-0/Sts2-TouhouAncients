@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
@@ -29,7 +28,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 选择任意张手牌，变化为无名的弹幕。
 /// 在这个回合，攻击牌免费打出并抽一张牌，当你手中没有攻击牌时，结束你的回合。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class PureHellOfBullets : TouhouAncientCards
 {
     private const int energyCost = 3;
@@ -40,7 +38,7 @@ public class PureHellOfBullets : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<NamelessBullets>(),
         base.EnergyHoverTip

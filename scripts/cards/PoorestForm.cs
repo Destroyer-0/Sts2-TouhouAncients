@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +20,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 每 1 层至贫形态给予随机一个敌人以下一个 Debuff：
 ///   1 虚弱 / 1 易伤 / 3 中毒 / 8 灾厄
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class PoorestForm : TouhouAncientCards
 {
     private const int energyCost = 3;
@@ -40,7 +38,7 @@ public class PoorestForm : TouhouAncientCards
         new DynamicVar("FormAmount", 1m)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromPower<WeakPower>(),
         HoverTipFactory.FromPower<VulnerablePower>(),

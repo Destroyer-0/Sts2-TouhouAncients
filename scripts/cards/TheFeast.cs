@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
@@ -23,7 +22,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 狂飨：技能，耗能1。消耗抽牌堆1~3张不为狂飨的牌，每消耗一张，获得2力量与1费。
 /// 回合结束时，如果这张牌在你的手牌中，将2张这张牌的复制品加入弃牌堆。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class TheFeast : TouhouAncientCards
 {
     private const int energyCost = 1;
@@ -41,7 +39,7 @@ public class TheFeast : TouhouAncientCards
         new DynamicVar("Copies", 2),
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
         HoverTipFactory.FromPower<StrengthPower>(),

@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,7 +10,6 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
-[Pool(typeof(EventCardPool))]
 public class MagicWallet : TouhouAncientCards
 {
     private const int energyCost = 0;

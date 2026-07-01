@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,7 +20,6 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 时间仆从：生成2把小刀。回合结束时，本回合每消耗过一张牌，对目标造成4（5）点伤害。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class ServantSakuya : TouhouAncientCards
 {
     private const int energyCost = 1;
@@ -33,7 +31,7 @@ public class ServantSakuya : TouhouAncientCards
 
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromCard<Shiv>(),
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust)

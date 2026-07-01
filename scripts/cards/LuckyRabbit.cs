@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using BaseLib.Utils;
+using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,7 +12,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 幸运白兔：0费技能。消耗（升级后去除）。
 /// 抽牌，随机化手牌耗能。为本场战斗中手牌里费用为0的卡牌永久添加重放。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class LuckyRabbit : TouhouAncientCards
 {
     private const int energyCost = 0;
@@ -29,7 +27,7 @@ public class LuckyRabbit : TouhouAncientCards
         new CardsVar(2)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.ReplayStatic)];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.Static(StaticHoverTip.ReplayStatic)];
     
 
     public LuckyRabbit() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

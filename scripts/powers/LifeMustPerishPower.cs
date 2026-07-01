@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -33,12 +31,6 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
     [
         new DynamicVar("DoomAmount", 9999m),
         new DynamicVar("SelfDoomAmount", 8m)
-    ];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromPower<ArtifactPower>(),
-        HoverTipFactory.FromPower<DoomPower>()
     ];
 
     private class Data

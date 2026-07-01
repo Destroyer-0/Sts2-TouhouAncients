@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.AutoSlay.Helpers;
 using MegaCrit.Sts2.Core.Combat;
@@ -26,7 +25,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 打出并消耗所有当前手牌与消耗堆里的牌。
 /// 升级后：升级、打出并消耗所有当前手牌与消耗堆里的牌。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class AllCreationHisou : TouhouAncientCards
 {
     private const int energyCost = 3;
@@ -39,7 +37,7 @@ public class AllCreationHisou : TouhouAncientCards
 
     //protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Amount", 5m)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust),];
 
 
     public AllCreationHisou() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

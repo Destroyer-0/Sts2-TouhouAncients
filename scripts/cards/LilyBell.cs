@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
@@ -25,7 +24,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 获得1能量，抽2张牌，给予自身0层中毒。
 /// 回合结束时，如果这张牌在你的手中，给予所有敌人2（升级后3）层中毒，获得的能量增加1，给予自身的中毒层数+1。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class LilyBell : TouhouAncientCards
 {
     private const int energyCost = 0;
@@ -48,7 +46,7 @@ public class LilyBell : TouhouAncientCards
                 : (tainted.Amount + card.Owner.Creature.GetPowerAmount<TaintedPower>()) * (card.IsUpgraded ? 4 : 3))
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromAffliction<Tainted>()
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => HoverTipFactory.FromAffliction<Tainted>()
         .Append(HoverTipFactory.FromPower<PoisonPower>());
 
     public LilyBell() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

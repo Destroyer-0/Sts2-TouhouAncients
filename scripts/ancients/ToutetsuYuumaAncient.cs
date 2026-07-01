@@ -1,23 +1,19 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Ancients;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
+[RegisterSharedAncient]
 public class ToutetsuYuumaAncient : TouhouAncientBase
 {
     public override int? ShowAct => 3;
     public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.9f, 0.2f, 0.2f, 1f);
-
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/ToutetsuYuuma.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/ToutetsuYuuma.png";
 
     protected override AncientDialogueSet DefineDialogues()
     {
@@ -60,21 +56,17 @@ public class ToutetsuYuumaAncient : TouhouAncientBase
         };
     }
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<BottomlessStomach>(),
-            AncientOption<SkySwallowingSpoon>(),
-            AncientOption<GuiltlessFace>()
-        ),
-        MakePool(
-            AncientOption<GluttonousFang>(),
-            AncientOption<GreedyEye>(),
-            AncientOption<RigidDesireProof>(),
-            AncientOption<CursedBlood>()
-        ),
-        MakePool(
-            AncientOption<BloodlickingTongue>(),
-            AncientOption<PurgatoryEmbers>(),
-            AncientOption<EstrangedHeart>())
-    );
+    public override IEnumerable<EventOption> AllPossibleOptions =>
+    [
+        CreateModRelicOption<BottomlessStomach>(),
+        CreateModRelicOption<SkySwallowingSpoon>(),
+        CreateModRelicOption<GuiltlessFace>(),
+        CreateModRelicOption<GluttonousFang>(),
+        CreateModRelicOption<GreedyEye>(),
+        CreateModRelicOption<RigidDesireProof>(),
+        CreateModRelicOption<CursedBlood>(),
+        CreateModRelicOption<BloodlickingTongue>(),
+        CreateModRelicOption<PurgatoryEmbers>(),
+        CreateModRelicOption<EstrangedHeart>()
+    ];
 }

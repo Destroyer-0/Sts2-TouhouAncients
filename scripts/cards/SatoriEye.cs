@@ -1,4 +1,3 @@
-﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -10,7 +9,6 @@ using TouhouAncients.Scripts.CmdUtils;
 
 namespace TouhouAncients.Scripts.cards;
 
-[Pool(typeof(EventCardPool))]
 public class SatoriEye : TouhouAncientCards
 {
     private const int energyCost = 0;
@@ -25,7 +23,7 @@ public class SatoriEye : TouhouAncientCards
         new EnergyVar(2)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
     [
         HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientSatoriScry),
         base.EnergyHoverTip

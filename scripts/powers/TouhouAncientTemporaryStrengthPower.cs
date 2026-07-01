@@ -31,33 +31,7 @@ public abstract class TouhouAncientTemporaryStrengthPower : TouhouAncientTempora
     }
     
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips
-    {
-        get
-        {
-            List<IHoverTip> items = new List<IHoverTip>();
-            List<IHoverTip> hoverTipList = items;
-            IEnumerable<IHoverTip> collection;
-            switch (this.OriginModel)
-            {
-                case CardModel card:
-                    collection = [HoverTipFactory.FromCard(card)];
-                    break;
-                case PotionModel model:
-                    collection = [HoverTipFactory.FromPotion(model)];
-                    break;
-                case RelicModel relic:
-                    collection = HoverTipFactory.FromRelic(relic);
-                    break;
-                default:
-                    throw new InvalidOperationException();
-            }
 
-            hoverTipList.AddRange(collection);
-            items.Add(HoverTipFactory.FromPower<StrengthPower>());
-            return items.ToArray();
-        }
-    }
     
     
     public override async Task BeforeApplied(

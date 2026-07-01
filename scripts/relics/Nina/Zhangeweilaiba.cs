@@ -1,5 +1,3 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;

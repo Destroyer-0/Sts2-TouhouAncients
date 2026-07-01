@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -26,7 +25,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 若其意图为攻击，给予1层易伤并使其在本回合失去8(升级后10)点力量。
 /// 意图检测参考：GoForTheEyes。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class MasterSpark : TouhouAncientCards
 {
     private const int energyCost = 0;

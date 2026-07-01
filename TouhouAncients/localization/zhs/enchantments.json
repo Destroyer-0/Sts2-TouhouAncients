@@ -1,47 +1,47 @@
 {
-    "TOUHOUANCIENTS-TRICK.description": "打出后，获得1层[gold]缓冲[/gold]，这张牌在本场战斗中费用增加[blue]1[/blue]。",
-    "TOUHOUANCIENTS-TRICK.title": "诈术",
+    "TOUHOUANCIENTS_ENCHANTMENT_TRICK.description": "打出后，获得1层[gold]缓冲[/gold]，这张牌在本场战斗中费用增加[blue]1[/blue]。",
+    "TOUHOUANCIENTS_ENCHANTMENT_TRICK.title": "诈术",
 
-    "TOUHOUANCIENTS-HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌费用减少[blue]1[/blue]。",
-    "TOUHOUANCIENTS-HIGH_QUALITY.title": "优质",
+    "TOUHOUANCIENTS_ENCHANTMENT_HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌费用减少[blue]1[/blue]。",
+    "TOUHOUANCIENTS_ENCHANTMENT_HIGH_QUALITY.title": "优质",
     
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "回合结束时，如果这张牌在你的手牌中，则将其费用降低[blue]1[/blue]点，直到其离开手牌。打出后返回你的手牌，在本回合随机化其耗能。",
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.extraCardText": "蛇咬王朝了",
-    "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.title": "蛇！！",
+    "TOUHOUANCIENTS_ENCHANTMENT_SNAKE_BITE_UPGRADE.description": "回合结束时，如果这张牌在你的手牌中，则将其费用降低[blue]1[/blue]点，直到其离开手牌。打出后返回你的手牌，在本回合随机化其耗能。",
+    "TOUHOUANCIENTS_ENCHANTMENT_SNAKE_BITE_UPGRADE.extraCardText": "蛇咬王朝了",
+    "TOUHOUANCIENTS_ENCHANTMENT_SNAKE_BITE_UPGRADE.title": "蛇！！",
     
-    "TOUHOUANCIENTS-MIRACLE.description": "获得消耗。\n打出后，获得{energyPrefix:energyIcons(1)}，然后将一张带有[purple]奇迹[/purple][gold]附魔[/gold]的随机颜色牌加入抽牌堆。",
-    "TOUHOUANCIENTS-MIRACLE.extraCardText": "引发奇迹之力。",
-    "TOUHOUANCIENTS-MIRACLE.title": "奇迹",
+    "TOUHOUANCIENTS_ENCHANTMENT_MIRACLE.description": "获得消耗。\n打出后，获得{energyPrefix:energyIcons(1)}，然后将一张带有[purple]奇迹[/purple][gold]附魔[/gold]的随机颜色牌加入抽牌堆。",
+    "TOUHOUANCIENTS_ENCHANTMENT_MIRACLE.extraCardText": "引发奇迹之力。",
+    "TOUHOUANCIENTS_ENCHANTMENT_MIRACLE.title": "奇迹",
 
-    "TOUHOUANCIENTS-BLOODSHED.description": "回复{Heal:diff()}生命。每场战斗这张牌首次造成未被格挡的伤害时，额外回复等量于未被格挡伤害的生命值。",
-    "TOUHOUANCIENTS-BLOODSHED.title": "喋血",
+    "TOUHOUANCIENTS_ENCHANTMENT_BLOODSHED.description": "回复{Heal:diff()}生命。每场战斗这张牌首次造成未被格挡的伤害时，额外回复等量于未被格挡伤害的生命值。",
+    "TOUHOUANCIENTS_ENCHANTMENT_BLOODSHED.title": "喋血",
 
-    "TOUHOUANCIENTS-RECOLLECTION.description": "首次进入弃牌堆时自动打出。",
-    "TOUHOUANCIENTS-RECOLLECTION.title": "回忆",
+    "TOUHOUANCIENTS_ENCHANTMENT_RECOLLECTION.description": "首次进入弃牌堆时自动打出。",
+    "TOUHOUANCIENTS_ENCHANTMENT_RECOLLECTION.title": "回忆",
 
-    "TOUHOUANCIENTS-EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
-    "TOUHOUANCIENTS-EXORCISM.title": "降伏",
+    "TOUHOUANCIENTS_ENCHANTMENT_EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
+    "TOUHOUANCIENTS_ENCHANTMENT_EXORCISM.title": "降伏",
 
-    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。抽牌阶段结束后，如果你的手牌中没有带有[purple]付丧之力[/purple]的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。",
-    "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力",
+    "TOUHOUANCIENTS_ENCHANTMENT_TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。抽牌阶段结束后，如果你的手牌中没有带有[purple]付丧之力[/purple]的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。",
+    "TOUHOUANCIENTS_ENCHANTMENT_TSUKUMOGAMI.title": "付丧之力",
 
-    "TOUHOUANCIENTS-MEDICINE_POISON.description": "获得[gold]永恒[/gold]。额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。回合结束时，如果这张牌在手中，本场战斗额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。",
-    "TOUHOUANCIENTS-MEDICINE_POISON.title": "蛊毒",
+    "TOUHOUANCIENTS_ENCHANTMENT_MEDICINE_POISON.description": "获得[gold]永恒[/gold]。额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。回合结束时，如果这张牌在手中，本场战斗额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。",
+    "TOUHOUANCIENTS_ENCHANTMENT_MEDICINE_POISON.title": "蛊毒",
 
-    "TOUHOUANCIENTS-OATH.description": "这张牌被打出后，打出其它所有[purple]誓约[/purple]牌。这张牌被消耗时，消耗其他所有[purple]誓约[/purple]牌。",
-    "TOUHOUANCIENTS-OATH.title": "誓约",
+    "TOUHOUANCIENTS_ENCHANTMENT_OATH.description": "这张牌被打出后，打出其它所有[purple]誓约[/purple]牌。这张牌被消耗时，消耗其他所有[purple]誓约[/purple]牌。",
+    "TOUHOUANCIENTS_ENCHANTMENT_OATH.title": "誓约",
 
-    "TOUHOUANCIENTS-WANDERING.description": "每回合限[blue]{BaseRemainingChance}[/blue]次，如果你打出的上一张牌是[gold]攻击牌[/gold]，这张牌打出后将放回到手牌并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
-    "TOUHOUANCIENTS-WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
-    "TOUHOUANCIENTS-WANDERING.title": "彷徨",
+    "TOUHOUANCIENTS_ENCHANTMENT_WANDERING.description": "每回合限[blue]{BaseRemainingChance}[/blue]次，如果你打出的上一张牌是[gold]攻击牌[/gold]，这张牌打出后将放回到手牌并获得[blue]{BlockAmount}[/blue][gold]格挡[/gold]。",
+    "TOUHOUANCIENTS_ENCHANTMENT_WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
+    "TOUHOUANCIENTS_ENCHANTMENT_WANDERING.title": "彷徨",
 
-    "TOUHOUANCIENTS-YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
-    "TOUHOUANCIENTS-YUMEIRO.title": "梦色",
+    "TOUHOUANCIENTS_ENCHANTMENT_YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
+    "TOUHOUANCIENTS_ENCHANTMENT_YUMEIRO.title": "梦色",
 
-    "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]{Times}[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
-    "TOUHOUANCIENTS-GREED.title": "贪欲",
+    "TOUHOUANCIENTS_ENCHANTMENT_GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]{Times}[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
+    "TOUHOUANCIENTS_ENCHANTMENT_GREED.title": "贪欲",
 
-    "TOUHOUANCIENTS-BLOOD_POND.description": "费用与[gold]辉星[/gold]消耗变为[blue]0[/blue]，获得[gold]重放[/gold][blue]{Times}[/blue]。\n[red]战斗结束时，这张牌将被饕餮尤魔吞噬。[/red]",
-    "TOUHOUANCIENTS-BLOOD_POND.title": "黑水",
-    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎恶的有机物"
+    "TOUHOUANCIENTS_ENCHANTMENT_BLOOD_POND.description": "费用与[gold]辉星[/gold]消耗变为[blue]0[/blue]，获得[gold]重放[/gold][blue]{Times}[/blue]。\n[red]战斗结束时，这张牌将被饕餮尤魔吞噬。[/red]",
+    "TOUHOUANCIENTS_ENCHANTMENT_BLOOD_POND.title": "黑水",
+    "TOUHOUANCIENTS_ENCHANTMENT_BLOOD_POND.extraCardText": "憎恶的有机物"
 }

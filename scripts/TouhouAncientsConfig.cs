@@ -1,7 +1,7 @@
 using System;
-using BaseLib.Config;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
+using STS2RitsuLib.Settings;
 
 namespace TouhouAncients.Scripts;
 
@@ -28,14 +28,100 @@ public enum ForcedAncientOption
 }
 
 /// <summary>
-/// TouhouAncients Mod 配置
+/// TouhouAncients Mod 配置（RitsuLib 反射式设置页）
 /// </summary>
-public class TouhouAncientsConfig : SimpleModConfig
+[ModSettingsPage(Entry.ModId)]
+[ModSettingsSection("BannedAncients_BaseGame")]
+[ModSettingsSection("BannedAncients_Mod")]
+[ModSettingsSection("ForcedAncient")]
+public static class TouhouAncientsConfig
 {
+    // ========== 原版先古之民禁用 ==========
+    [ModSettingsToggle("banOrobus", "BannedAncients_BaseGame")]
+    public static bool BanOrobus { get; set; } = false;
 
-    /// <summary>
-    /// 检查某个基础游戏 Ancient（原版先古之民）是否被配置为禁用
-    /// </summary>
+    [ModSettingsToggle("banTezcataras", "BannedAncients_BaseGame")]
+    public static bool BanTezcataras { get; set; } = false;
+
+    [ModSettingsToggle("banPaerl", "BannedAncients_BaseGame")]
+    public static bool BanPaerl { get; set; } = false;
+
+    [ModSettingsToggle("banDarv", "BannedAncients_BaseGame")]
+    public static bool BanDarv { get; set; } = false;
+
+    [ModSettingsToggle("banVakuu", "BannedAncients_BaseGame")]
+    public static bool BanVakuu { get; set; } = false;
+
+    [ModSettingsToggle("banNonupeipe", "BannedAncients_BaseGame")]
+    public static bool BanNonupeipe { get; set; } = false;
+
+    [ModSettingsToggle("banTanx", "BannedAncients_BaseGame")]
+    public static bool BanTanx { get; set; } = false;
+
+    [ModSettingsButton("banAllBasegame", "BannedAncients_BaseGame")]
+    public static void BanAllBasegame()
+    {
+        BanNonupeipe = true;
+        BanVakuu = true;
+        BanOrobus = true;
+        BanPaerl = true;
+        BanTezcataras = true;
+        BanDarv = true;
+        BanTanx = true;
+    }
+
+    // ========== Mod 先古之民禁用 ==========
+    [ModSettingsToggle("banReimu", "BannedAncients_Mod")]
+    public static bool BanReimu { get; set; } = false;
+
+    [ModSettingsToggle("banSanae", "BannedAncients_Mod")]
+    public static bool BanSanae { get; set; } = false;
+
+    [ModSettingsToggle("banMarisa", "BannedAncients_Mod")]
+    public static bool BanMarisa { get; set; } = false;
+
+    [ModSettingsToggle("banSatori", "BannedAncients_Mod")]
+    public static bool BanSatori { get; set; } = false;
+
+    [ModSettingsToggle("banTewi", "BannedAncients_Mod")]
+    public static bool BanTewi { get; set; } = false;
+
+    [ModSettingsToggle("banSeija", "BannedAncients_Mod")]
+    public static bool BanSeija { get; set; } = false;
+
+    [ModSettingsToggle("banMedicine", "BannedAncients_Mod")]
+    public static bool BanMedicine { get; set; } = false;
+
+    [ModSettingsToggle("banNina", "BannedAncients_Mod")]
+    public static bool BanNina { get; set; } = false;
+
+    [ModSettingsToggle("banRemilia", "BannedAncients_Mod")]
+    public static bool BanRemilia { get; set; } = false;
+
+    [ModSettingsToggle("banTenshi", "BannedAncients_Mod")]
+    public static bool BanTenshi { get; set; } = false;
+
+    [ModSettingsToggle("banYuyuko", "BannedAncients_Mod")]
+    public static bool BanYuyuko { get; set; } = false;
+
+    [ModSettingsToggle("banKaguya", "BannedAncients_Mod")]
+    public static bool BanKaguya { get; set; } = false;
+
+    [ModSettingsToggle("banJunko", "BannedAncients_Mod")]
+    public static bool BanJunko { get; set; } = false;
+
+    [ModSettingsToggle("banYuuma", "BannedAncients_Mod")]
+    public static bool BanYuuma { get; set; } = false;
+
+    // ========== 强制出现先古之民 ==========
+    [ModSettingsChoice("forcedAncient_2", "ForcedAncient")]
+    public static ForcedAncientOption ForcedAncient_2 { get; set; } = ForcedAncientOption.None;
+
+    [ModSettingsChoice("forcedAncient_3", "ForcedAncient")]
+    public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
+
+    // ========== 静态工具方法 ==========
+
     public static bool IsBaseGameAncientBanned(AncientEventModel ancient)
     {
         return ancient switch
@@ -50,18 +136,23 @@ public class TouhouAncientsConfig : SimpleModConfig
             _ => false
         };
     }
-    
-    /// <summary>
-    /// 强制出现的先古之民（单选，选中的一定会刷新）
-    /// </summary>
-    [ConfigSection("ForcedAncient_2")]
-    public static ForcedAncientOption ForcedAncient_2 { get; set; } = ForcedAncientOption.None;
 
-    [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
+    public static bool IsBaseGameAncientBanned(Type type)
+    {
+        var name = type.Name;
+        return name switch
+        {
+            nameof(Nonupeipe) => BanNonupeipe,
+            nameof(Vakuu) => BanVakuu,
+            nameof(Orobas) => BanOrobus,
+            nameof(Pael) => BanPaerl,
+            nameof(Tezcatara) => BanTezcataras,
+            nameof(Darv) => BanDarv,
+            nameof(Tanx) => BanTanx,
+            _ => false
+        };
+    }
 
-    /// <summary>
-    /// 检查某个 Touhou Ancient 是否被禁止（实例模式匹配版本）
-    /// </summary>
     public static bool IsAncientBanned(TouhouAncientBase type)
     {
         return type switch
@@ -84,9 +175,6 @@ public class TouhouAncientsConfig : SimpleModConfig
         };
     }
 
-    /// <summary>
-    /// 检查某个 Ancient 是否被禁止（Type 版本，供 Patch 使用）
-    /// </summary>
     public static bool IsAncientBanned(Type type)
     {
         var name = type.Name;
@@ -110,31 +198,9 @@ public class TouhouAncientsConfig : SimpleModConfig
         };
     }
 
-    /// <summary>
-    /// 检查某个基础游戏 Ancient 是否被禁止（Type 版本，供 Patch 使用）
-    /// </summary>
-    public static bool IsBaseGameAncientBanned(Type type)
-    {
-        var name = type.Name;
-        return name switch
-        {
-            nameof(Nonupeipe) => BanNonupeipe,
-            nameof(Vakuu) => BanVakuu,
-            nameof(Orobas) => BanOrobus,
-            nameof(Pael) => BanPaerl,
-            nameof(Tezcatara) => BanTezcataras,
-            nameof(Darv) => BanDarv,
-            nameof(Tanx) => BanTanx,
-            _ => false
-        };
-    }
-    
-    /// <summary>
-    /// 检查某个 Ancient 是否被强制出现（运行时类型版本）
-    /// </summary>
     public static bool IsAncientForced(TouhouAncientBase type, int actNumber)
     {
-        var option= actNumber switch
+        var option = actNumber switch
         {
             2 => ForcedAncient_2,
             3 => ForcedAncient_3,
@@ -160,48 +226,4 @@ public class TouhouAncientsConfig : SimpleModConfig
             _ => false
         };
     }
-    
-    
-    
-    /// <summary>
-    /// 配置该列表中先古之民不出现
-    /// </summary>
-    [ConfigSection("BannedAncients")]
-    
-    /// <summary>
-    /// 一键禁用所有原版先古之民（点击后自动将6个原版Ancient的禁用开关打开）
-    /// </summary>
-    [ConfigButton("BanAllBasegameAction")]
-    public void BanAllBasegame()
-    {
-        BanNonupeipe = true;
-        BanVakuu = true;
-        BanOrobus = true;
-        BanPaerl = true;
-        BanTezcataras = true;
-        BanDarv = true;
-        BanTanx = true;
-    }
-    public static bool BanOrobus { get; set; } = false;
-    public static bool BanTezcataras { get; set; } = false;
-    public static bool BanPaerl { get; set; } = false;
-    public static bool BanDarv { get; set; } = false;
-    public static bool BanVakuu { get; set; } = false;
-    public static bool BanNonupeipe { get; set; } = false;
-    public static bool BanTanx { get; set; } = false;
-    public static bool BanReimu { get; set; } = false;
-    public static bool BanSanae { get; set; } = false;
-    public static bool BanMarisa { get; set; } = false;
-    public static bool BanSatori { get; set; } = false;
-    public static bool BanTewi { get; set; } = false;
-    public static bool BanSeija { get; set; } = false;
-    public static bool BanMedicine { get; set; } = false;
-    public static bool BanNina { get; set; } = false;
-    public static bool BanRemilia { get; set; } = false;
-    public static bool BanTenshi { get; set; } = false;
-    public static bool BanYuyuko { get; set; } = false;
-    public static bool BanKaguya { get; set; } = false;
-    public static bool BanJunko { get; set; } = false;
-    public static bool BanYuuma { get; set; } = false;
-
 }

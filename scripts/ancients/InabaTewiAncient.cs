@@ -1,34 +1,30 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
+[RegisterSharedAncient]
 public class InabaTewiAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.3f, 0.3f, 0.3f, 0.7f);
     public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/InabaTewi_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/InabaTewi_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/InabaTewi.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/InabaTewi.png";
-
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<WhiteRabbitAmulet>(),
-            AncientOption<CarrotNecklace>(),
-            AncientOption<FourLeafClover>(),
-            AncientOption<RabbitHornContract>(),
-            AncientOption<RabbitsFoot>(),
-            AncientOption<LuckyTreasureChest>(),
-            AncientOption<RabbitsCage>(),
-            AncientOption<OokunineshiProtrayal>(),
-            AncientOption<SuspiciousToken>(),
-            AncientOption<GlowingBamboo>()
-        ));
+    public override IEnumerable<EventOption> AllPossibleOptions =>
+    [
+        CreateModRelicOption<WhiteRabbitAmulet>(),
+        CreateModRelicOption<CarrotNecklace>(),
+        CreateModRelicOption<FourLeafClover>(),
+        CreateModRelicOption<RabbitHornContract>(),
+        CreateModRelicOption<RabbitsFoot>(),
+        CreateModRelicOption<LuckyTreasureChest>(),
+        CreateModRelicOption<RabbitsCage>(),
+        CreateModRelicOption<OokunineshiProtrayal>(),
+        CreateModRelicOption<SuspiciousToken>(),
+        CreateModRelicOption<GlowingBamboo>()
+    ];
 }

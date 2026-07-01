@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,7 +15,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 无名的弹幕 (Nameless Bullets)
 /// 0c，消耗，造成 10/15 伤害。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class NamelessBullets : TouhouAncientCards
 {
     private const int energyCost = 0;

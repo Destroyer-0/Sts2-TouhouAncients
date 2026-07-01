@@ -1,41 +1,35 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
 
 /// <summary>
-/// 先古之民：博丽灵梦（Hakurei Reimu）
-/// 红白巫女，博丽神社的现任巫女，解决异变的专家。
-/// </summary>
+
+[RegisterSharedAncient]
 public class HakureiReimuAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.5f);
     public override Color DialogueColor => new(0.9f, 0.25f, 0.25f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<HakureiGohei>(),
-            AncientOption<SubspaceHole>(),
-            AncientOption<HakureiAmulet>()
-        ),
-        MakePool(
-            AncientOption<MiniShrine>(),
-            AncientOption<DonateMoneyBox>()
-        ),
-        MakePool(
-            AncientOption<YinYangOrb>(),
-            AncientOption<SealingNeedle>(),
-            AncientOption<DuplexBarrier>()
-        )
-    );
+    public override IEnumerable<EventOption> AllPossibleOptions =>
+    [
+        CreateModRelicOption<HakureiGohei>(),
+        CreateModRelicOption<SubspaceHole>(),
+        CreateModRelicOption<HakureiAmulet>(),
+        CreateModRelicOption<MiniShrine>(),
+        CreateModRelicOption<DonateMoneyBox>(),
+        CreateModRelicOption<YinYangOrb>(),
+        CreateModRelicOption<SealingNeedle>(),
+        CreateModRelicOption<DuplexBarrier>()
+    ];
+
+    protected override IReadOnlyList<EventOption> GenerateInitialOptions()
+    {
+        throw new NotImplementedException();
+    }
 }

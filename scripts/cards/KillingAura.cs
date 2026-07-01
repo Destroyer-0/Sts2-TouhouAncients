@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,7 +24,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 这张牌在你手牌中时，你打出带有攻击/格挡的牌时，消耗之，将其对应数值添加到这张牌上。
 /// （累积的伤害/格挡值通过 DynamicVars 存储）
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class KillingAura : TouhouAncientCards
 {
     private const int energyCost = 1;
@@ -41,7 +39,7 @@ public class KillingAura : TouhouAncientCards
         new BlockVar(0m, ValueProp.Move)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.Static(StaticHoverTip.Block)];
 
     public KillingAura() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

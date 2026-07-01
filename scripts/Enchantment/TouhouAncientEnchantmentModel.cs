@@ -1,10 +1,15 @@
-﻿using BaseLib.Abstracts;
+using STS2RitsuLib.Interop.AutoRegistration;
+using STS2RitsuLib.Scaffolding.Content;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
-public abstract class TouhouAncientEnchantmentModel : CustomEnchantmentModel
+[RegisterEnchantment(Inherit = true)]
+public abstract class TouhouAncientEnchantmentModel : ModEnchantmentTemplate
 {
     public virtual bool CanBeRandomSelected => true;
 
-    protected override string? CustomIconPath => TouhouAncientCmd.CheckPathExists($"res://images/icon/enchantment/{GetType().Name}.png");
+    public override EnchantmentAssetProfile AssetProfile => new()
+    {
+        IconPath = TouhouAncientCmd.CheckPathExists($"res://images/icon/enchantment/{GetType().Name}.png")
+    };
 }

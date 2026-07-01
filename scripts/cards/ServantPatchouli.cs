@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,7 +17,6 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 魔法侍从：消耗2张牌，获得2（升级后3）能量。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class ServantPatchouli : TouhouAncientCards
 {
     private const int energyCost = 1;
@@ -34,7 +32,7 @@ public class ServantPatchouli : TouhouAncientCards
         new CardsVar(2)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Dazed>().Append(HoverTipFactory.FromKeyword(CardKeyword.Ethereal));
 
     public ServantPatchouli() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

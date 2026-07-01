@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -21,7 +20,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 不可被打出，保留。此牌在手中时，生命值降至0时弃置此牌，回复一定比例生命值并失去最大生命，
 /// 每有一层污秽额外失去最大生命，然后获得一层污秽计数。
 /// </summary>
-[Pool(typeof(CurseCardPool))]
 public class KonshiiNoKusuriCard : TouhouAncientCards
 {
     public override bool CanBeGeneratedByModifiers => false;
@@ -48,7 +46,7 @@ public class KonshiiNoKusuriCard : TouhouAncientCards
 
     public override int MaxUpgradeLevel => 0;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientFilth)];
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => [HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientFilth)];
 
     public KonshiiNoKusuriCard() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {

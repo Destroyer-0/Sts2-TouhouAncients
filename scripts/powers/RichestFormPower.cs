@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -27,61 +26,6 @@ public class RichestFormPower : TouhouAncientPowerModel
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromPower<CapitalPower>()
-    ];
-
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        // 注册金币变化监听（获得或失去金币时刷新费用显示）
-        var player = base.Owner.Player;
-        if (player != null)
-        {
-            player.GoldChanged += OnGoldChanged;
-        }
-        return Task.CompletedTask;
-    }
-
-    public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
-    {
-        modifiedCost = originalCost;
-
-        if (card.Owner?.Creature != base.Owner) return false;
-        if (card.EnergyCost.CostsX) return false;
-
-        // 只修改手牌和打出区的牌
-        if (card.Pile?.Type != PileType.Hand && card.Pile?.Type != PileType.Play) return false;
-
-        // 耗能为 0 或负数的牌不需要修改
-        if (originalCost <= 0) return false;
-
-        // 检查能否支付原耗能 * 10 的费用（启动资金 + 金币）
-        var requiredCost = originalCost * 10m;
-        if (!CanAfford(requiredCost)) return false;
-
-        modifiedCost = 0m;
-        return true;
-    }
-
-    /// <summary>
-    /// 检查当前玩家是否有足够的资金（启动资金 + 金币）支付指定费用
-    /// </summary>
-    private bool CanAfford(decimal requiredCost)
-    {
-        var player = base.Owner.Player;
-        if (player == null) return false;
-
-        // 启动资金
-        var capital = base.Owner.GetPower<CapitalPower>();
-        var availableCapital = capital?.Amount ?? 0m;
-
-        // 玩家金币
-        var availableGold = player.Gold;
-
-        return (availableCapital + availableGold) >= requiredCost;
-    }
 
     /// <summary>
     /// 金币变化后重新检测 CanAfford（获得或失去金币时）

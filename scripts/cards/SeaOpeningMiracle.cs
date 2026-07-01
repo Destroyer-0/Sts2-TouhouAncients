@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Threading.Tasks;
-using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -16,7 +15,6 @@ namespace TouhouAncients.Scripts.cards;
 /// 开海的奇迹：3费攻击（升级后2费）。
 /// 对所有敌人造成等同于其当前生命值一半的伤害，该伤害不受易伤与力量影响。
 /// </summary>
-[Pool(typeof(EventCardPool))]
 public class SeaOpeningMiracle : TouhouAncientCards
 {
     private const int energyCost = 3;
