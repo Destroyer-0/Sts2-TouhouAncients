@@ -526,6 +526,7 @@
 
   "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "微缩银河",
   "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，回合开始时随机将其中的一张牌放置在牌堆顶，并使其耗能在本回合减少当前回合数。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.eventDescription": "从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，回合开始时随机将其中的一张牌放置在牌堆顶，并使其耗能在本回合减少当前回合数。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
   "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "星之沙是如此绚丽多彩。",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",

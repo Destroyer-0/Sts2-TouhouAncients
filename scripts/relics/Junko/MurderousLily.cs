@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 
 namespace TouhouAncients.Scripts.relics;
@@ -67,26 +68,43 @@ public class MurderousLily : TouhouAncientRelics
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
-    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    // public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    // {
+    //     if (command.Attacker != Owner.Creature)
+    //     {
+    //         return;
+    //     }
+    //
+    //     if (command.ModelSource is not KillingAura)
+    //     {
+    //         return;
+    //     }
+    //
+    //     if (command.Results.SelectMany(r => r).Any((DamageResult r) => r.WasTargetKilled))
+    //     {
+    //         killingAuraKilledThisCombat = true;
+    //         base.Status = RelicStatus.Normal;
+    //         InvokeDisplayAmountChanged();
+    //     }
+    //}
+
+    public override Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result,
+        ValueProp props,
+        Creature target, CardModel? cardSource)
     {
-        if (command.Attacker != Owner.Creature)
+        if (cardSource != null && cardSource.Owner == Owner && cardSource is KillingAura)
         {
-            return;
+            if (result.WasTargetKilled)
+            {
+                killingAuraKilledThisCombat = true;
+                base.Status = RelicStatus.Normal;
+                InvokeDisplayAmountChanged();
+            }
         }
 
-        if (command.ModelSource is not KillingAura)
-        {
-            return;
-        }
-
-        if (command.Results.SelectMany(r => r).Any((DamageResult r) => r.WasTargetKilled))
-        {
-            killingAuraKilledThisCombat = true;
-            base.Status = RelicStatus.Normal;
-            InvokeDisplayAmountChanged();
-        }
+        return Task.CompletedTask;
     }
-    
+
     public override async Task AfterCombatEnd(CombatRoom _)
     {
         if (killingAuraKilledThisCombat) return;
