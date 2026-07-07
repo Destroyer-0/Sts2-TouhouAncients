@@ -31,8 +31,7 @@ public class PoorestForm : TouhouAncientCards
     private const bool shouldShowInCardLibrary = false;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        CardKeyword.Eternal,
-        CardKeyword.Ethereal
+        CardKeyword.Eternal
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -42,11 +41,7 @@ public class PoorestForm : TouhouAncientCards
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<WeakPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<PoisonPower>(),
-        HoverTipFactory.FromPower<DoomPower>(),
-        HoverTipFactory.FromKeyword(CardKeyword.Ethereal)
+        HoverTipFactory.FromPower<DoomPower>()
     ];
 
     public PoorestForm() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)

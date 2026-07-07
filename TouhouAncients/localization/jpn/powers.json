@@ -27,6 +27,10 @@
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "Lucky Rabbit",
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] this turn.",
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] [blue]{Amount}[/blue] this turn.",
+  
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.title": "Bamboo Forest Treasure",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.description": "The targeted card will be [green]Upgraded[/green] after combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold] will be [green]Upgraded[/green] after combat ends.",
 
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Resentment",
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes damage equal to the stack count and the stack count is reduced by 1.",

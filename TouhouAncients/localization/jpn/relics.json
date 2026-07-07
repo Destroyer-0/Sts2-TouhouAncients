@@ -290,9 +290,11 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "Four-Leaf Clover",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "Every [blue]2[/blue] combats, your [gold]Card Rewards[/gold] additionally contain a [gold]Rare[/gold] card. The second [gold]Rare[/gold] card obtained this way will be [green]Upgraded[/green].",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "Those who meet her become lucky, but only the fortunate can meet her.",
+
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "Glowing Bamboo",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The first unupgraded card you play each combat will be [green]Upgraded[/green] after the combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The [gold]First[/gold] unupgraded card you play each combat will be [green]Upgraded[/green] after the combat ends.",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "A natural phenomenon... or lunar technology? Shh! That's a trade secret.",
+  
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "Fake Rabbit's Foot",
   "TOUHOUANCIENTS-RABBITS_FOOT.description": "You may sell [gold]Card Rewards[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].",
   "TOUHOUANCIENTS-RABBITS_FOOT.flavor": "Oh no, my card rewards are pretty lousy! Well... why not sell them to the Rabbit Horn Alliance!",

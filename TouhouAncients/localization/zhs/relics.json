@@ -314,7 +314,7 @@
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？",
 
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张未升级的牌将在战斗结束后[green]升级[/green]。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的[gold]首张[/gold]未升级的牌将在战斗结束后[green]升级[/green]。",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "自然现象？……还是月球科技？嘘！这可是商业机密。",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",

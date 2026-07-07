@@ -35,7 +35,10 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Hell of Bullets",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "Attacks are free to play this turn. When you play an Attack, draw [blue]{Amount}[/blue] cards.",
-
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.title": "Bamboo Forest Treasure",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.description": "The targeted card will be [green]Upgraded[/green] after combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold] will be [green]Upgraded[/green] after combat ends.",
+  
   "TOUHOUANCIENTS-CAPITAL_POWER.title": "启动资金",
   "TOUHOUANCIENTS-CAPITAL_POWER.description": "可用于[purple]极奢形态[/purple]的特殊消耗。",
   "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[blue]{Amount}[/blue]点[gold]启动资金[/gold]，可用于[purple]极奢形态[/purple]的特殊消耗。",

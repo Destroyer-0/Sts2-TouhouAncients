@@ -39,7 +39,6 @@ public class RichestForm : TouhouAncientCards
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<CapitalPower>(),
         base.EnergyHoverTip
     ];
 

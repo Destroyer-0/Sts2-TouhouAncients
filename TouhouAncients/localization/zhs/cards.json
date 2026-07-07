@@ -55,10 +55,13 @@
     "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "造成{Damage:diff()}点伤害。",
 
     "TOUHOUANCIENTS-RICHEST_FORM.title": "极奢形态",
-    "TOUHOUANCIENTS-RICHEST_FORM.description": "获得[blue]{StartingCapital:diff()}[/blue]点[gold]启动资金[/gold]。\n打出非X费牌不再消耗能量，改为以[blue]1:10[/blue]的比例消耗[gold]启动资金[/gold]，[gold]启动资金[/gold]不足时改为消耗等量[gold]金币[/gold]。",
+    "TOUHOUANCIENTS-RICHEST_FORM.description": "获得7能量。\n在你的回合开始时，获得7能量。\n你每打出一张牌，同类型牌在本回合能耗+1。",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "至贫形态",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "打出耗能为[blue]0[/blue]的牌或以[blue]0[/blue]能量结束回合时，给予随机一个敌人随机一种状态：\n[blue]1[/blue]层[gold]虚弱[/gold] / [blue]1[/blue]层[gold]易伤[/gold] / [blue]3[/blue]层[gold]中毒[/gold] / [blue]8[/blue]层[gold]灾厄[/gold]。",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "回合结束时，计算你的手牌总费用减去剩余能量，每1点给予随机一名敌人7层灾厄。",
+
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病支票",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "消耗你的所有[red]债务[/red]。\n如果这张牌在你的手中，你可以免费打出每回合的前2张牌，在回合结束时将一张[red]债务[/red]加入你的弃牌堆。",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂飨",
     "TOUHOUANCIENTS-THE_FEAST.description": "选择并[gold]消耗[/gold]{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张此牌的复制品加入你的[gold]弃牌堆[/gold]。",
