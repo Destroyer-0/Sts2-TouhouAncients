@@ -41,17 +41,17 @@ public class OverflowingDefilement : TouhouAncientRelics
         return amount + base.DynamicVars.Energy.IntValue;
     }
     
-    /// <summary>
-    /// 回合开始时获得2能量，额外抽两张牌
-    /// </summary>
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        if (side != base.Owner.Creature.Side) return;
-
-        Flash();
-        // 额外抽两张牌
-        await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: true);
-    }
+    // /// <summary>
+    // /// 回合开始时获得2能量，额外抽两张牌
+    // /// </summary>
+    // public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    // {
+    //     if (side != base.Owner.Creature.Side) return;
+    //
+    //     Flash();
+    //     // 额外抽两张牌
+    //     await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: true);
+    // }
 
     public override decimal ModifyHandDraw(Player player, decimal count)
     {
@@ -86,15 +86,16 @@ public class OverflowingDefilement : TouhouAncientRelics
         for (int i = 0; i < debrisCount; i++)
         {
             var debris = player.Creature.CombatState.CreateCard<Debris>(player);
-            cardPileAddResults.Add(await CardPileCmd.Add(debris, PileType.Draw));
+            cardPileAddResults.Add(await CardPileCmd.Add(debris, PileType.Draw,CardPilePosition.Random));
         }
 
         // 加入虚空 = 剩余能量数（使用全局限定名称避免与 System.Void 冲突）
         for (int i = 0; i < voidCount; i++)
         {
             var voidCard = player.Creature.CombatState.CreateCard<MegaCrit.Sts2.Core.Models.Cards.Void>(player);
-            cardPileAddResults.Add(await CardPileCmd.Add(voidCard, PileType.Draw));
+            cardPileAddResults.Add(await CardPileCmd.Add(voidCard, PileType.Draw, CardPilePosition.Random));
         }
+
         CardCmd.PreviewCardPileAdd(cardPileAddResults);
     }
 
