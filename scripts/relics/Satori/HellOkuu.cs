@@ -37,7 +37,7 @@ public class HellOkuu : TouhouAncientRelics
         if (base.Owner.PlayerCombatState == null) return;
         if (base.Owner.PlayerCombatState.Energy > 0) return;
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner);
+        await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner,CardPilePosition.Random);
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars["Strength"].BaseValue,
             base.Owner.Creature, null);
         await Cmd.Wait(0.5f);

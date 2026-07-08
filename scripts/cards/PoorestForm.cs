@@ -36,7 +36,7 @@ public class PoorestForm : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("FormAmount", 1m)
+        new DynamicVar("Amount", 5m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -51,14 +51,13 @@ public class PoorestForm : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var creature = base.Owner.Creature;
-
         // 至贫形态可叠加
-        await PowerCmd.Apply<PoorestFormPower>(choiceContext, creature, base.DynamicVars["FormAmount"].BaseValue, creature, this);
+        await PowerCmd.Apply<PoorestFormPower>(choiceContext, creature, base.DynamicVars["Amount"].BaseValue, creature,
+            this);
     }
 
     protected override void OnUpgrade()
     {
-        // 升级后去除虚无
-        RemoveKeyword(CardKeyword.Ethereal);
+        base.DynamicVars["Amount"].BaseValue += 1;
     }
 }

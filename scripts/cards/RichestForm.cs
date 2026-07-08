@@ -29,12 +29,16 @@ public class RichestForm : TouhouAncientCards
     private const TargetType targetType = TargetType.None;
     private const bool shouldShowInCardLibrary = false;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
         CardKeyword.Eternal
     ];
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("StartingCapital", 120m)
+        new EnergyVar(1),
+        new EnergyVar("Energy2", 5),
+        new EnergyVar("Energy3", 5),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -49,29 +53,16 @@ public class RichestForm : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var creature = base.Owner.Creature;
-
-        // 如果已有极奢形态，不再叠加
-        var existingForm = creature.GetPower<RichestFormPower>();
-        if (existingForm == null)
+        Owner.PlayerCombatState.GainEnergy(base.DynamicVars["Energy2"].IntValue);
+        var power = await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, DynamicVars.Energy.IntValue, creature, this);
+        if (power != null)
         {
-            await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, 1m, creature, this);
-        }
-
-        // 设置启动资金（覆盖已有资金）
-        var startingCapital = base.DynamicVars["StartingCapital"].BaseValue;
-        var existingCapital = creature.GetPower<CapitalPower>();
-        if (existingCapital != null)
-        {
-            await PowerCmd.ModifyAmount(choiceContext, existingCapital, startingCapital - existingCapital.Amount, null, null);
-        }
-        else
-        {
-            await PowerCmd.Apply<CapitalPower>(choiceContext, creature, startingCapital, creature, this);
+            power.ExtraEnergy = base.DynamicVars["Energy3"].IntValue;
         }
     }
-
     protected override void OnUpgrade()
     {
-        base.DynamicVars["StartingCapital"].UpgradeValueBy(30m);
+        base.DynamicVars["Energy2"].UpgradeValueBy(1m);
+        base.DynamicVars["Energy3"].UpgradeValueBy(1m);
     }
 }

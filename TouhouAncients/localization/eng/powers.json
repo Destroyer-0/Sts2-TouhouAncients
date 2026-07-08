@@ -27,7 +27,11 @@
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.title": "Lucky Rabbit",
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.description": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] this turn.",
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "[blue]0[/blue]-cost cards gain [gold]Recur[/gold] [blue]{Amount}[/blue] this turn.",
-
+  
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.title": "Bamboo Forest Treasure",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.description": "The targeted card will be [green]Upgraded[/green] after combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold] will be [green]Upgraded[/green] after combat ends.",
+  
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Resentment",
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes damage equal to the stack count and the stack count is reduced by 1.",
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Damage dealt to the source is reduced by [blue]25%[/blue]. When the source plays an Attack, it takes [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
@@ -35,18 +39,17 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Hell of Bullets",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "Attacks are free to play this turn. When you play an Attack, draw [blue]{Amount}[/blue] cards.",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.title": "Bamboo Forest Treasure",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.description": "The targeted card will be [green]Upgraded[/green] after combat ends.",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold] will be [green]Upgraded[/green] after combat ends.",
-  
-  "TOUHOUANCIENTS-CAPITAL_POWER.title": "启动资金",
-  "TOUHOUANCIENTS-CAPITAL_POWER.description": "可用于[purple]极奢形态[/purple]的特殊消耗。",
-  "TOUHOUANCIENTS-CAPITAL_POWER.smartDescription": "[blue]{Amount}[/blue]点[gold]启动资金[/gold]，可用于[purple]极奢形态[/purple]的特殊消耗。",
 
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "极奢形态",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "打出非X费牌不再消耗能量，改为消耗[gold]启动资金[/gold]，不足则改为消耗[gold]金币[/gold]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]1[/blue]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]{Amount}[/blue]。",
 
   "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "打出耗能为0的牌或以0能量结束回合时，给予敌人负面效果。",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "打出耗能为0的牌或以0能量结束回合时，给予敌人[blue]{Amount}[/blue]次负面效果。"
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人7层[gold]灾厄[/gold]1次。",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
+  
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "天堂智者",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!"
 }

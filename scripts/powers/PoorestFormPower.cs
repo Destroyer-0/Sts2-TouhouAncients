@@ -28,84 +28,27 @@ public class PoorestFormPower : TouhouAncientPowerModel
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<WeakPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>(),
-        HoverTipFactory.FromPower<PoisonPower>(),
         HoverTipFactory.FromPower<DoomPower>()
     ];
-    
-    /// <summary>
-    /// 打出耗能为 0 的牌时触发
-    /// </summary>
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner?.Creature != base.Owner) return;
-        if (cardPlay.IsAutoPlay) return;
-        if (!cardPlay.IsLastInSeries) return;
 
-        // 检查打出时最终费用是否为 0
-        var resolvedCost = cardPlay.Card.EnergyCost.GetResolved();
-        if (resolvedCost != 0m) return;
-
-        await ApplyDebuffs(context);
-    }
-
-    /// <summary>
-    /// 回合结束时，若剩余能量为 0 则触发
-    /// </summary>
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Side) return;
-        if (base.Owner.Player == null) return;
+        if (!base.Owner.IsPlayer || Owner.Player == null) return;
+        if (!participants.Contains(Owner)) return;
 
-        var combatState = base.Owner.CombatState;
-        if (combatState == null) return;
+        if (Owner.CombatState == null) return;
+        if (Owner.Player.PlayerCombatState == null) return;
 
-        // 检查是否0能量结束回合
-        var playerState = base.Owner.Player.PlayerCombatState;
-        if (playerState.Energy != 0) return;
+        IReadOnlyList<CardModel> cards = PileType.Hand.GetPile(Owner.Player).Cards;
+        var remainingEnergy = cards.Where(c=>!c.EnergyCost.CostsX&& c.EnergyCost.GetResolved()>0).Sum(c=>c.EnergyCost.GetResolved());
+        var doomPowerTime = remainingEnergy - Owner.Player.PlayerCombatState.Energy;
 
-        await ApplyDebuffs(choiceContext);
-    }
-
-    /// <summary>
-    /// 每层至贫形态给予 1 次随机 Debuff
-    /// </summary>
-    private async Task ApplyDebuffs(PlayerChoiceContext context)
-    {
-        var enemies = base.Owner.CombatState?.GetOpponentsOf(base.Owner)
-            .Where(c => c.IsAlive)
-            .ToList();
-
-        if (enemies == null || enemies.Count == 0) return;
-
-        var rng = base.Owner.Player?.RunState.Rng.CombatCardSelection;
-        if (rng == null) return;
-
-        var layerCount = (int)base.Amount;
-
-        for (int i = 0; i < layerCount; i++)
+        for (int i = 0; i < doomPowerTime; i++)
         {
-            // 随机选一个存活敌人
-            var target = enemies[rng.NextInt(enemies.Count)];
-
-            // 随机选一个 Debuff（4种）
-            var debuffType = rng.NextInt(4);
-            switch (debuffType)
-            {
-                case 0:
-                    await PowerCmd.Apply<WeakPower>(context, target, 1m, base.Owner, null);
-                    break;
-                case 1:
-                    await PowerCmd.Apply<VulnerablePower>(context, target, 1m, base.Owner, null);
-                    break;
-                case 2:
-                    await PowerCmd.Apply<PoisonPower>(context, target, 3m, base.Owner, null);
-                    break;
-                case 3:
-                    await PowerCmd.Apply<DoomPower>(context, target, 8m, base.Owner, null);
-                    break;
-            }
+            Creature creature = base.Owner.Player.RunState.Rng.CombatTargets.NextItem(base.Owner.CombatState.HittableEnemies);
+            await PowerCmd.Apply<DoomPower>(choiceContext, creature, Amount, Owner, null);
         }
     }
 }

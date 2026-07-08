@@ -135,7 +135,7 @@ public class BottledGalaxy : TouhouAncientRelics
             combatState.AddCard(cardModel, base.Owner);
         }
 
-        cardModel.EnergyCost.AddUntilPlayed(-roundNumber);
+        cardModel.EnergyCost.AddThisTurnOrUntilPlayed(-roundNumber);
 
         await CardPileCmd.Add(cardModel, PileType.Draw, CardPilePosition.Top);
         combatCardsList.Remove(serializableCard);
