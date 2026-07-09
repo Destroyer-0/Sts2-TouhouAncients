@@ -43,12 +43,6 @@ public class BloodPond : TouhouAncientEnchantmentModel
         {
             Card.EnergyCost.UpgradeBy(-10000);
         }
-
-        // 辉星消耗降至0
-        if (Card.CanonicalStarCost > 0)
-        {
-            Card.TryModifyStarCost(Card, 0, out _);
-        }
     }
 
     public override int EnchantPlayCount(int originalPlayCount)
