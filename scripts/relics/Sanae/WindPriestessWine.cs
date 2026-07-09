@@ -1,11 +1,16 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -39,28 +44,22 @@ public class WindPriestessWine : TouhouAncientRelics
         new CardsVar(2)
     ];
 
-    public override Task BeforeCombatStart()
+    public override async Task AfterEnergyReset(Player player)
     {
-        var combatState = base.Owner.PlayerCombatState;
-        if (combatState == null) return Task.CompletedTask;
-        combatState.EnergyChanged += OnEnergyChanged;
-        return Task.CompletedTask;
+        if (player != base.Owner) return;
+        await TryDraw();
     }
 
-    public override Task AfterCombatEnd(CombatRoom _)
+    public override decimal ModifyEnergyGain(Player player, decimal amount)
     {
-        if (base.Owner.PlayerCombatState != null)
-        {
-            base.Owner.PlayerCombatState.EnergyChanged -= OnEnergyChanged;
-        }
-        return Task.CompletedTask;
+        if (player == base.Owner) TouhouAncients_EnergyGainedCounter += (int)amount;
+        return amount;
     }
-
-    private void OnEnergyChanged(int oldEnergy, int newEnergy)
+    
+    // Patch 确保这个一定会被调用
+    public override async Task AfterModifyingEnergyGain()
     {
-        if (newEnergy <= oldEnergy) return;
-        TouhouAncients_EnergyGainedCounter += newEnergy - oldEnergy;
-        _ = TryDraw();
+        await TryDraw();
     }
 
     private async Task TryDraw()
@@ -69,7 +68,62 @@ public class WindPriestessWine : TouhouAncientRelics
         {
             TouhouAncients_EnergyGainedCounter -= DynamicVars.Energy.IntValue;
             Flash();
-            await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: false);
+            var ctx = new HookPlayerChoiceContext(
+                base.Owner, LocalContext.NetId.Value, GameActionType.CombatPlayPhaseOnly);
+
+            await CardPileCmd.Draw(ctx, DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: false);
         }
+    }
+
+    public void AddEnergyGain(int amount)
+    {
+        TouhouAncients_EnergyGainedCounter += amount;
+    }
+}
+
+[HarmonyPatch(typeof(Hook), nameof(Hook.ModifyEnergyGain))]
+public static class WindPriestessWine_ModifyEnergyGain_Patch
+{
+    [HarmonyPostfix]
+    private static void Postfix(Player player, ref IEnumerable<AbstractModel> modifiers)
+    {
+        var relic = player?.GetRelic<WindPriestessWine>();
+        if (relic != null && !modifiers.Contains(relic))
+            modifiers = modifiers.Append(relic).ToList();
+    }
+}
+
+[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.ResetEnergy))]
+public static class WindPriestessWine_ResetEnergy_Patch
+{
+    [HarmonyPrefix]
+    private static void Prefix(PlayerCombatState __instance, out int __state)
+        => __state = __instance.Energy;
+
+    [HarmonyPostfix]
+    private static void Postfix(PlayerCombatState __instance, int __state)
+    {
+        var player = (Player)AccessTools
+            .Field(typeof(PlayerCombatState), "_player")
+            .GetValue(__instance);
+        var relic = player?.GetRelic<WindPriestessWine>();
+        relic?.AddEnergyGain(__instance.MaxEnergy - __state);
+    }
+}
+[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.AddMaxEnergyToCurrent))]
+public static class WindPriestessWine_AddMaxEnergy_Patch
+{
+    [HarmonyPrefix]
+    private static void Prefix(PlayerCombatState __instance, out int __state)
+        => __state = __instance.Energy;
+
+    [HarmonyPostfix]
+    private static void Postfix(PlayerCombatState __instance, int __state)
+    {
+        var player = (Player)AccessTools
+            .Field(typeof(PlayerCombatState), "_player")
+            .GetValue(__instance);
+        var relic = player?.GetRelic<WindPriestessWine>();
+        relic?.AddEnergyGain(__instance.MaxEnergy);
     }
 }
