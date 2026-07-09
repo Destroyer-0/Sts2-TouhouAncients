@@ -14,8 +14,8 @@ public class SaigyoujiYuyukoAncient : TouhouAncientBase
     //public override Color ButtonColor => new Color(1f, 0.5f, 0.95f, 1f);
     public override Color DialogueColor => new Color(1f, 0.5f, 0.95f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/SaigyoujiYuyuko_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/SaigyoujiYuyuko_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/SaigyoujiYuyuko.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/SaigyoujiYuyuko.png";
 

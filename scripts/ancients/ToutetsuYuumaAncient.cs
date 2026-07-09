@@ -14,8 +14,8 @@ public class ToutetsuYuumaAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.6f, 0.1f, 0.1f, 0.7f);
     public override Color DialogueColor => new(0.9f, 0.2f, 0.2f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/ToutetsuYuuma_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/ToutetsuYuuma_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/ToutetsuYuuma.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/ToutetsuYuuma.png";
 
