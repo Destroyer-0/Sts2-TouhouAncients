@@ -48,9 +48,10 @@ public class BottomlessStomach : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(8),
+        new MaxHpVar(7),
         new DynamicVar("Strength", 1m),
         new DynamicVar("Dexterity", 1m),
+        new DynamicVar("Focus", 1m),
         new EnergyVar(1),
         new DynamicVar("CardsPerTurn", 1),
         new DynamicVar("StrengthTrigger", 4),
@@ -62,6 +63,7 @@ public class BottomlessStomach : TouhouAncientRelics
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<DexterityPower>(),
+        HoverTipFactory.FromPower<FocusPower>(),
         HoverTipFactory.ForEnergy(this),
     ];
 
@@ -130,7 +132,7 @@ public class BottomlessStomach : TouhouAncientRelics
     {
         if (room is CombatRoom)
         {
-            // 每4个：+1 力量、+1 敏捷
+            // 每4个：+1 力量、+1 敏捷、+1 集中
             int strDexCount = TouhouAncients_ConsumedCount / DynamicVars["StrengthTrigger"].IntValue;
             if (strDexCount > 0)
             {
@@ -139,6 +141,8 @@ public class BottomlessStomach : TouhouAncientRelics
                     strDexCount * DynamicVars["Strength"].BaseValue, Owner.Creature, null);
                 await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
                     strDexCount * DynamicVars["Dexterity"].BaseValue, Owner.Creature, null);
+                await PowerCmd.Apply<FocusPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
+                    strDexCount * DynamicVars["Focus"].BaseValue, Owner.Creature, null);
             }
         }
 

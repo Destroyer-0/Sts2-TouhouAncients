@@ -578,7 +578,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
-"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",

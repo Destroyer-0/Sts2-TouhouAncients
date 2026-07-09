@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -23,41 +25,29 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class SilenceDoll : TouhouAncientRelics
 {
-    // 当前回合进入弃牌堆的牌
-    private readonly List<CardModel> _currentTurnDiscards = new();
-
     private readonly List<CardModel> _trackedCards = new();
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
 
     public override Task BeforeCombatStart()
     {
-        _currentTurnDiscards.Clear();
         _trackedCards.Clear();
         return Task.CompletedTask;
-    }
-
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
-    {
-        if (card.Owner != base.Owner) return;
-
-        // 卡牌进入弃牌堆时追踪（包括正常打出的牌）
-        if (card.Pile?.Type == PileType.Discard)
-        {
-            _currentTurnDiscards.Add(card);
-        }
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner) return;
+        if (player.Creature.CombatState == null) return;
 
-        // 上一回合进入弃牌堆的牌（当前还在弃牌堆中的）作为候选
-        var available = _currentTurnDiscards
-            .Where(c => c is { HasBeenRemovedFromState: false, Pile: not null } && c.Owner == base.Owner)
+
+        // 使用战斗历史记录获取上回合进入弃牌堆的牌（联机兼容）
+        var available = CombatManager.Instance.History.Entries
+            .OfType<CardDiscardedEntry>()
+            .Where(e => e.HappenedLastPlayerTurn(player) && e.Card.Owner == base.Owner && e.Card is { HasBeenRemovedFromState: false, Pile: not null })
+            .Select(e => e.Card)
             .Distinct()
             .ToList();
-        _currentTurnDiscards.Clear();
 
         if (available.Count == 0) return;
 
@@ -74,45 +64,12 @@ public class SilenceDoll : TouhouAncientRelics
         _trackedCards.Add(selected);
 
         // 添加保留并放入手牌
-        // selected.AddKeyword(CardKeyword.Retain);
         await CardPileCmd.Add(selected, PileType.Hand);
     }
 
-    // public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    // {
-    //     if (side != base.Owner.Creature.Side) return;
-    //
-    //     // 上一回合进入弃牌堆的牌（当前还在弃牌堆中的）作为候选
-    //     var available = _currentTurnDiscards
-    //         .Where(c => c is { HasBeenRemovedFromState: false, Pile: not null } && c.Owner == base.Owner)
-    //         .Distinct()
-    //         .ToList();
-    //     _currentTurnDiscards.Clear();
-    //
-    //     if (available.Count == 0) return;
-    //
-    //     Flash();
-    //
-    //     var selected = (await CardSelectCmd.FromSimpleGrid(
-    //         new BlockingPlayerChoiceContext(),
-    //         available,
-    //         base.Owner,
-    //         new CardSelectorPrefs(base.SelectionScreenPrompt, 1, 1)
-    //     )).FirstOrDefault();
-    //
-    //     if (selected == null) return;
-    //     _trackedCards.Add(selected);
-    //
-    //     // 添加保留并放入手牌
-    //     // selected.AddKeyword(CardKeyword.Retain);
-    //     await CardPileCmd.Add(selected, PileType.Hand);
-    // }
-
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var card = cardPlay.Card;
-        if (!_trackedCards.Contains(card)) return;
-        _trackedCards.Remove(card);
+        _trackedCards.Remove(cardPlay.Card);
     }
 
     public override bool TryModifyKeywordsInCombat(CardModel card, ISet<CardKeyword> keywords)
@@ -128,7 +85,6 @@ public class SilenceDoll : TouhouAncientRelics
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        _currentTurnDiscards.Clear();
         _trackedCards.Clear();
         return Task.CompletedTask;
     }

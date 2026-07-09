@@ -28,6 +28,12 @@ public class BloodPond : TouhouAncientEnchantmentModel
         return (pile != null ? (pile.Type == PileType.Deck ? 1 : 0) : 0) == 0 && card.Enchantment == null;
     }
 
+    public override Task BeforeCombatStart()
+    {
+        Card.SetToFreeThisCombat();
+        return base.BeforeCombatStart();
+    }
+
     protected override void OnEnchant()
     {
         // if (Card.Type == CardType.Curse)
@@ -43,7 +49,6 @@ public class BloodPond : TouhouAncientEnchantmentModel
         {
             Card.TryModifyStarCost(Card, 0, out _);
         }
-
     }
 
     public override int EnchantPlayCount(int originalPlayCount)

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -38,36 +39,30 @@ public class WindPriestessWine : TouhouAncientRelics
         new CardsVar(2)
     ];
 
-    /// <summary>
-    /// 追踪回合开始时获得的能量（最大能量）。
-    /// </summary>
-    public override async Task AfterEnergyReset(Player player)
+    public override Task BeforeCombatStart()
     {
-        if (player != base.Owner) return;
-        if (player.PlayerCombatState == null) return;
-
-        TouhouAncients_EnergyGainedCounter += player.PlayerCombatState.MaxEnergy;
-        await TryDraw();
+        var combatState = base.Owner.PlayerCombatState;
+        if (combatState == null) return Task.CompletedTask;
+        combatState.EnergyChanged += OnEnergyChanged;
+        return Task.CompletedTask;
     }
 
-    /// <summary>
-    /// 追踪战斗中通过命令获得的能量（如肾上腺素、遗物等）。
-    /// </summary>
-    public override decimal ModifyEnergyGain(Player player, decimal amount)
+    public override Task AfterCombatEnd(CombatRoom _)
     {
-        if (player != base.Owner) return amount;
-        TouhouAncients_EnergyGainedCounter += (int)amount;
-        return amount;
+        if (base.Owner.PlayerCombatState != null)
+        {
+            base.Owner.PlayerCombatState.EnergyChanged -= OnEnergyChanged;
+        }
+        return Task.CompletedTask;
     }
 
-    /// <summary>
-    /// ModifyEnergyGain 如果未修改获得的实际能量，此方法不会被调用。
-    /// </summary>
-    public override async Task AfterModifyingEnergyGain()
+    private void OnEnergyChanged(int oldEnergy, int newEnergy)
     {
-        await TryDraw();
-        await base.AfterModifyingEnergyGain();
+        if (newEnergy <= oldEnergy) return;
+        TouhouAncients_EnergyGainedCounter += newEnergy - oldEnergy;
+        _ = TryDraw();
     }
+
     private async Task TryDraw()
     {
         while (TouhouAncients_EnergyGainedCounter >= DynamicVars.Energy.IntValue)

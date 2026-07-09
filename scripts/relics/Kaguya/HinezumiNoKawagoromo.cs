@@ -78,7 +78,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("BurnCount", 3m),
-        new BlockVar(BlockAmount, ValueProp.Move),
+        new BlockVar(BlockAmount, ValueProp.Move| ValueProp.Unpowered),
         new DynamicVar("Thorns", ThornsAmount),
     ];
 
@@ -117,7 +117,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
         Flash();
         await CardPileCmd.Draw(context, DrawCount, base.Owner);
         await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, cardPlay);
-        await PowerCmd.Apply<ThornsPower>(context,base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
+        await PowerCmd.Apply<ThornsPower>(context, base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
     }
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)

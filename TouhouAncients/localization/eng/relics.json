@@ -578,7 +578,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
-  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, Devour all relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, Devour all relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "Gluttonous Jaws",

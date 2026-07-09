@@ -55,7 +55,7 @@
     "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "造成{Damage:diff()}点伤害。",
 
     "TOUHOUANCIENTS-RICHEST_FORM.title": "极奢形态",
-    "TOUHOUANCIENTS-RICHEST_FORM.description": "(BETA)获得{Energy2:energyIcons()}能量。\n在你的回合开始时，获得{Energy3:energyIcons()}能量。\n你每打出一张牌，同类型牌在本回合耗能增加{Energy:energyIcons()}。",
+    "TOUHOUANCIENTS-RICHEST_FORM.description": "(BETA)获得{Energy2:energyIcons()}。\n在你的回合开始时，获得{Energy3:energyIcons()}。\n你每打出一张牌，同类型牌在本回合耗能增加{Energy:energyIcons()}。",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "至贫形态",
     "TOUHOUANCIENTS-POOREST_FORM.description": "(BETA)在你的回合结束时，依照你的手牌总耗能与剩余能量之差，每一点给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
