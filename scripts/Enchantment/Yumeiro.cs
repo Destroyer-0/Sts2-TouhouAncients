@@ -91,7 +91,7 @@ public class Yumeiro : TouhouAncientEnchantmentModel
                 if (e is Yumeiro) return false;
                 if (e is Goopy) return false;
                 if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;
-                if (e is Inky && cardType != CardType.Attack) return false;
+                if (e is Inky && cardType != CardType.Attack && card.TargetType is TargetType.AllEnemies or TargetType.AnyEnemy) return false;
                 return e.CanEnchant(card);
             })
             .ToList();
