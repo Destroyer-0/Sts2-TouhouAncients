@@ -175,7 +175,7 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
-"TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
+"TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张手牌，其在本回合可以免费打出。",
 "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "异眼顶真，鉴定为大费物。",
 "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其在本回合可以免费打出。"
 ```
@@ -184,7 +184,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Snecko's True Gaze` |
-| `.description` | `Start each combat [red]Confused[/red]. At the start of your turn, choose a card. It is free to play this turn.` |
+| `.description` | `Start each combat [red]Confused[/red]. At the start of your turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.` |
 | `.flavor` | `One True Gaze confirms it: way too costly.` |
 | `.selectionScreenPrompt` | `Choose a card to make it free this turn.` |
 

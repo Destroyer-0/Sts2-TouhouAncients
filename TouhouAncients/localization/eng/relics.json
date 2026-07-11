@@ -30,7 +30,7 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "Snake",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "Snecko's True Gaze",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of your turn, choose a card. It is free to play this turn.",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of your turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "One True Gaze confirms it: way too costly.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "Choose a card to make it free this turn.",
 

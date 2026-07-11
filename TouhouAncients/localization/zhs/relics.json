@@ -30,9 +30,9 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "异眼顶真的蛇瞳",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张卡，其在本回合可以免费打出。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "每场战斗开始时获得[red]混乱[/red]效果。在你的回合开始时，选择一张手牌，其在本回合可以免费打出。",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "异眼顶真，鉴定为大费物。",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张牌使其在本回合可以免费打出。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "选择一张手牌使其在本回合可以免费打出。",
 
   "TOUHOUANCIENTS-YISHIXINGQILE.title": "一时兴起的消费",
   "TOUHOUANCIENTS-YISHIXINGQILE.description": "拾起时，获得[blue]{Gold}[/blue][gold]金币[/gold]。在商店消费后，随机1~2件商店出售的物品价格将会被降至0。",
