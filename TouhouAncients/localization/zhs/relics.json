@@ -579,39 +579,39 @@
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
 "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
-  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "无论实体还是灵体，有机物还是无机物，任何事物都会被她囫囵吞入肚中。",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.description": "拾起时，将[blue]1[/blue]张[gold]狂飨[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.eventDescription": "将[blue]1[/blue]张[gold]狂飨[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-GLUTTONOUS_FANG.flavor": "",
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.flavor": "除了金苹果以外，来者不拒。",
 
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.title": "舐血之舌",
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "你每失去[blue]{Threshold}[/blue]生命，就获得[blue]{MaxHp}[/blue][gold]最大生命[/gold]与[blue]{Strength}[/blue][gold]力量[/gold]。",
-  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
+  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "不够、不够、不够！还需要更多……",
 
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "剜天之勺",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "每当你将一张卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。战斗结束后，[red]吞噬[/red]之并获得[blue]{MaxHp}[/blue]点[gold]最大生命[/gold]，若为[red]诅咒[/red]则效果翻三倍。",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "只挖一勺。",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "刚欲之证",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "在每回合开始时获得{Energy:energyIcons()}。你在同一回合不能连续打出[blue]{TypeLimit}[/blue]张同类型牌。",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "力量即为正义，弱肉强食才是畜生的法则。",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "贪婪之瞳",
   "TOUHOUANCIENTS-GREEDY_EYE.description": "拾起时，将[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]贪欲[/purple]的[gold]未掘宝石[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-GREEDY_EYE.eventDescription": "将[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]贪欲[/purple]的[gold]未掘宝石[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-GREEDY_EYE.flavor": "",
+  "TOUHOUANCIENTS-GREEDY_EYE.flavor": "举世无双的贪婪之徒可是很顶饱的呢。",
 
   "TOUHOUANCIENTS-CURSED_BLOOD.title": "诅咒之血",
   "TOUHOUANCIENTS-CURSED_BLOOD.description": "拾起时，将[blue]{Cards}[/blue]张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
   "TOUHOUANCIENTS-CURSED_BLOOD.eventDescription": "将[blue]{Cards}[/blue]张[gold]腐朽[/gold]加入你的[gold]牌组[/gold]。在你的每个回合开始时，炼制[blue]{PotionCount}[/blue]瓶药水并喝下。",
-  "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
+  "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "生命的恐惧、悲喜、憎恶和怨叹，这一切就是石油——地球的血液的本质。",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "炼狱之烬",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "在你的回合开始时，从[gold]消耗堆[/gold]中选择任意张牌放入[gold]手牌[/gold]，为这些牌添加[gold]虚无[/gold]并向[gold]抽牌堆[/gold]中加入等量张[gold]灼伤[/gold]。",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "选择任意张牌放入手牌",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "“（哈欠——）说是要称霸世界，结果却天天和我一样宅在这里呢。”——天火人血枪",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "无疚之面",
   "TOUHOUANCIENTS-GUILTLESS_FACE.description": "拾起时，选择你[gold]牌组[/gold]中的一张牌，将你[gold]牌组[/gold]中所有同类型牌变化为其。",
