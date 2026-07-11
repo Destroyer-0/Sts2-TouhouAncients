@@ -32,11 +32,11 @@ public class GlowingBamboo : TouhouAncientRelics
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (_trackedCard != null) return;
-        var deckVersion = _trackedCard?.DeckVersion;
+        var deckVersion = cardPlay.Card?.DeckVersion;
         if (deckVersion == null || deckVersion.IsUpgraded || !deckVersion.IsUpgradable || deckVersion.HasBeenRemovedFromState) return;
 
         Flash();
-        _trackedCard = deckVersion;
+        _trackedCard = cardPlay.Card;
         base.Status = RelicStatus.Disabled;
         InvokeDisplayAmountChanged();
         (await PowerCmd.Apply<GlowingBambooPower>(choiceContext,base.Owner.Creature, 1, base.Owner.Creature, null))?.SetSelectedCard(_trackedCard);
