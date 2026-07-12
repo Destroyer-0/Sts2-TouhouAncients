@@ -31,6 +31,7 @@ public class KompeitoPot : TouhouAncientRelics
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_UsesRemaining;
 
+    public override bool IsUsedUp => TouhouAncients_UsesRemaining <= 0;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("UsesRemaining", MaxUses)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -48,14 +49,14 @@ public class KompeitoPot : TouhouAncientRelics
         if (creationOptions.Source != CardCreationSource.Encounter) return false;
 
         // 找一张能力牌
-        IEnumerable<CardModel> enumerable = from c in creationOptions.GetPossibleCards(player)
+        var enumerable = (from c in creationOptions.GetPossibleCards(player)
             where c.Type == CardType.Power && options.TrueForAll((CardCreationResult o) => o.originalCard.Id != c.Id)
-            select c;
+            select c).ToList();
         if (!enumerable.Any())
         {
-            enumerable = from c in creationOptions.GetPossibleCards(player)
+            enumerable = (from c in creationOptions.GetPossibleCards(player)
                 where c.Type == CardType.Power
-                select c;
+                select c).ToList();
         }
 
         if (!enumerable.Any())
@@ -64,8 +65,9 @@ public class KompeitoPot : TouhouAncientRelics
         }
 
         CardCreationOptions options2 =
-            new CardCreationOptions(enumerable, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(
-                CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
+            new CardCreationOptions(creationOptions.CardPools, CardCreationSource.Other, creationOptions.RarityOdds)
+                .WithFilter(x => enumerable.Contains(x))
+                .WithFlags(CardCreationFlags.NoModifyHooks);
         CardModel cardModel = CardFactory.CreateForReward(base.Owner, 1, options2).FirstOrDefault()?.Card;
         if (cardModel != null)
         {
@@ -96,7 +98,7 @@ public class KompeitoPot : TouhouAncientRelics
 
             if (TouhouAncients_UsesRemaining <= 0)
             {
-                base.Status = MegaCrit.Sts2.Core.Entities.Relics.RelicStatus.Disabled;
+                base.Status = RelicStatus.Disabled;
             }
         }
     }

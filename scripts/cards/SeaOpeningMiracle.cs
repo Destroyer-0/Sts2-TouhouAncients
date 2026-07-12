@@ -41,7 +41,7 @@ public class SeaOpeningMiracle : TouhouAncientCards
             if (CombatManager.Instance.IsOverOrEnding) break;
 
             var halfHp = Math.Floor(enemy.CurrentHp / 2m);
-            await CreatureCmd.Damage(choiceContext, [enemy], halfHp, ValueProp.Unpowered, creature, this);
+            await CreatureCmd.Damage(choiceContext, [enemy], halfHp, ValueProp.Unpowered, creature, this, cardPlay);
         }
     }
 

@@ -129,9 +129,9 @@ public class BrainInAVat : TouhouAncientRelics
         // 如果非屏蔽卡足够，则直接返回非屏蔽池
         if (nonBlocked.Count >= 3)
         {
-            return options.WithCustomPool(nonBlocked);
+            return options.WithFilter(c => !blockedSet.Contains(c.Id.Entry));
         }
-
+        
         // 否则，补回一些被屏蔽卡来凑够 3 张（按原 possibleCards 的顺序或随机）
         var result = new List<CardModel>(nonBlocked);
         foreach (var c in possibleCards.StableShuffle(player.PlayerRng.Rewards))
@@ -142,7 +142,8 @@ public class BrainInAVat : TouhouAncientRelics
                 result.Add(c); // 这里包含被屏蔽的卡以补足数量
             }
         }
-        return options.WithCustomPool(result);
+
+        return options.WithFilter(c => result.Select(x => x.Id.Entry).Contains(c.Id.Entry));
     }
 
     public override IEnumerable<CardModel> ModifyMerchantCardPool(Player player, IEnumerable<CardModel> options)

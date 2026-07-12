@@ -43,15 +43,15 @@ public class SatoriEye : TouhouAncientCards
         EnergyCost.AddThisTurn(DynamicVars.Energy.IntValue);
     }
 
-    protected override PileType GetResultPileTypeForCardPlay()
+    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        PileType resultPileType = base.GetResultPileTypeForCardPlay();
+        (PileType resultPileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
         if (resultPileType != PileType.Discard)
         {
-            return resultPileType;
+            return (resultPileType, pilePosition);
         }
 
-        return PileType.Hand;
+        return (PileType.Hand, CardPilePosition.Top);
     }
 
     protected override void OnUpgrade()

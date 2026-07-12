@@ -48,50 +48,70 @@ public class FourLeafClover : TouhouAncientRelics
         if (TouhouAncients_RewardsSinceLastRare % 2 == 0)
         {
             Flash();
-            // 从当前选项中获取一张稀有卡牌
-            var rareCards = creationOptions.GetPossibleCards(player)
-                .Where(c => c.Rarity == CardRarity.Rare)
-                .ToList();
-            if (!rareCards.Any()) return false;
 
-            var rareOptions = new CardCreationOptions(rareCards, CardCreationSource.Other, CardRarityOddsType.Uniform)
-                .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
-
-            var created = CardFactory.CreateForReward(base.Owner, 1, rareOptions).FirstOrDefault();
-            if (created?.Card == null) return false;
-
-            Flash();
-            var result = new CardCreationResult(created.Card);
-            result.ModifyCard(created.Card, this);
-            options.Add(result);
-        }
-
-        return true;
-    }
-
-    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> options,
-        CardCreationOptions creationOptions)
-    {
-        if (base.Owner != player) return false;
-        if (TouhouAncients_RewardsSinceLastRare % 4 == 0)
-        {
-            TouhouAncients_RewardsSinceLastRare = 0;
-            // 第二次稀有卡牌升级
-            var ourCards = options.Where(o => o.ModifyingRelics.Contains(this)).ToList();
-            foreach (var result in ourCards)
+            var enumerable = (from c in creationOptions.GetPossibleCards(player)
+                where c.Rarity == CardRarity.Rare &&
+                      options.TrueForAll((CardCreationResult o) => o.originalCard.Id != c.Id)
+                select c).ToList();
+            if (!enumerable.Any())
             {
-                var card = result.Card;
-                if (card.IsUpgradable)
-                {
-                    var cloned = base.Owner.RunState.CloneCard(card);
-                    CardCmd.Upgrade(cloned);
-                    result.ModifyCard(cloned, this);
-                }
+                enumerable = (from c in creationOptions.GetPossibleCards(player)
+                    where c.Rarity == CardRarity.Rare
+                    select c).ToList();
             }
 
-            return ourCards.Count > 0;
+            if (!enumerable.Any())
+            {
+                return false;
+            }
+
+            CardCreationOptions options2 =
+                new CardCreationOptions(creationOptions.CardPools, CardCreationSource.Other, creationOptions.RarityOdds)
+                    .WithFilter(x => enumerable.Contains(x))
+                    .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoRarityModification);
+            CardModel cardModel = CardFactory.CreateForReward(base.Owner, 1, options2).FirstOrDefault()?.Card;
+            if (TouhouAncients_RewardsSinceLastRare % 4 == 0)
+            {
+                if (cardModel.IsUpgradable)
+                {
+                    CardCmd.Upgrade(cardModel);
+                }
+                TouhouAncients_RewardsSinceLastRare = 0;
+            }
+
+            var result = new CardCreationResult(cardModel);
+            result.ModifyCard(cardModel, this);
+            options.Add(result);
+            return true;
         }
 
         return false;
     }
 }
+
+//     public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> options,
+//         CardCreationOptions creationOptions)
+//     {
+//         if (base.Owner != player) return false;
+//         if (TouhouAncients_RewardsSinceLastRare % 4 == 0)
+//         {
+//             TouhouAncients_RewardsSinceLastRare = 0;
+//             // 第二次稀有卡牌升级
+//             var ourCards = options.Where(o => o.ModifyingRelics.Contains(this)).ToList();
+//             foreach (var result in ourCards)
+//             {
+//                 var card = result.Card;
+//                 if (card.IsUpgradable)
+//                 {
+//                     var cloned = base.Owner.RunState.CloneCard(card);
+//                     CardCmd.Upgrade(cloned);
+//                     result.ModifyCard(cloned, this);
+//                 }
+//             }
+//
+//             return ourCards.Count > 0;
+//         }
+//
+//         return false;
+//     }
+// }

@@ -66,7 +66,7 @@ public class DreamSeal : TouhouAncientCards
         // 1. 6次伤害（对所有敌人）
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
             .WithHitCount(HitCount)
-            .FromCard(this)
+            .FromCard(this,cardPlay)
             .TargetingAllOpponents(base.CombatState)
             .WithHitFx("vfx/vfx_attack_blunt", "event:/sfx/enemy/enemy_attacks/terror_eel/terror_eel_attack_multi")
             .SpawningHitVfxOnEachCreature()

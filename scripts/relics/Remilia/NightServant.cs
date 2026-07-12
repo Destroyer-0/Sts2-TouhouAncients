@@ -28,8 +28,7 @@ public class NightServant : TouhouAncientRelics
         HoverTipFactory.FromCard<ServantHongmeiling>(),
     ];
 
-    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
-        CardCreationOptions creationOptions)
+    public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options, CardCreationOptions creationOptions)
     {
         if (base.Owner != player) return false;
 

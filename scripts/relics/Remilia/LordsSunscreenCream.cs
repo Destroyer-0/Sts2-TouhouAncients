@@ -30,19 +30,20 @@ public class LordsSunscreenCream : TouhouAncientRelics
     public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
     {
         if (base.Owner != player) return options;
-
-        // 只修改战斗遭遇的卡牌奖励
         if (options.Source != CardCreationSource.Encounter) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
 
-        // 用自定义池过滤出稀有牌
-        var rareCards = options.GetPossibleCards(player)
-            .Where(c => c.Rarity == CardRarity.Rare)
-            .ToList();
-
-        if (rareCards.Count == 0) return options;
-
-        return options.WithCustomPool(rareCards, CardRarityOddsType.Uniform);
+        return options.WithFilter(x => x.Rarity == CardRarity.Rare);
+        // // 只修改战斗遭遇的卡牌奖励
+        //
+        // // 用自定义池过滤出稀有牌
+        // var rareCards = options.GetPossibleCards(player)
+        //     .Where(c => c.Rarity == CardRarity.Rare)
+        //     .ToList();
+        //
+        // if (rareCards.Count == 0) return options;
+        //
+        // return options.WithCardPools(rareCards);
     }
 
     /// <summary>

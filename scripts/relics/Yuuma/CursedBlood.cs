@@ -38,7 +38,7 @@ public class CursedBlood : TouhouAncientRelics
         var rng = player.RunState.Rng.CombatPotionGeneration;
 
         // 获取所有可解锁的自指向药水
-        var selfTargetPotions = PotionFactory.GetPotionOptions(player, System.Array.Empty<PotionModel>())
+        var selfTargetPotions = PotionFactory.GetPotionOptions(player)
             .Where(p => p is { CanBeGeneratedInCombat: true, TargetType: TargetType.Self or TargetType.AnyPlayer })
             .ToList();
 

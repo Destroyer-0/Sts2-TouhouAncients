@@ -34,15 +34,15 @@ public class SoulSakeCup : TouhouAncientRelics
         var currentHp = (int)creature.CurrentHp;
         if (currentHp > targetHp)
         {
-            var diff = currentHp - targetHp;
+            int diff = currentHp - targetHp;
             // 对自身造成伤害以降低生命值
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 creature,
                 diff,
                 ValueProp.Unpowered | ValueProp.Unblockable,
-                dealer: null,
-                cardSource: null
+                null,
+                null
             );
         }
     }

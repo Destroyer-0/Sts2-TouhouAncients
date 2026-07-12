@@ -64,8 +64,7 @@ public class WitchsCauldron : TouhouAncientRelics
         // 获得3瓶随机药水,其中一定有一瓶稀有药水
         potionRewards.Add(new PotionReward(base.Owner));
         potionRewards.Add(new PotionReward(base.Owner));
-        var rarePotion = PotionFactory.GetPotionOptions(base.Owner,
-            ModelDb.AllPotions.Where((PotionModel p) => p.Rarity != PotionRarity.Rare)).ToList();
+        var rarePotion = PotionFactory.GetPotionOptions(base.Owner).Where(p=>p.Rarity != PotionRarity.Rare).ToList();
         var potion = new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(), base.Owner);
         potionRewards.Add(potion);
         //var rewards = potionList.Select(r => new PotionReward(r.ToMutable(), base.Owner)).ToList<Reward>();

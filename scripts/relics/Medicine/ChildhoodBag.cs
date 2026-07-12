@@ -47,8 +47,7 @@ public static class ChildhoodBagPatch
     }
 
 // 异步逻辑单独提取
-    private static async Task ReplaceOnUseLogic(FoulPotion __instance, PlayerChoiceContext choiceContext,
-        Creature? target)
+    private static async Task ReplaceOnUseLogic(FoulPotion __instance, PlayerChoiceContext choiceContext, Creature? target)
     {
         try
         {
@@ -59,7 +58,7 @@ public static class ChildhoodBagPatch
             var damage = __instance.DynamicVars.Damage;
             var targets = dealer.CombatState.Creatures.Where(c => c.IsEnemy);
 
-            await CreatureCmd.Damage(choiceContext, targets, damage.BaseValue, damage.Props, dealer, null);
+            await CreatureCmd.Damage(choiceContext, targets, damage, dealer, null, null);
         }
         catch (Exception ex)
         {
