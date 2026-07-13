@@ -27,23 +27,23 @@ public class LordsSunscreenCream : TouhouAncientRelics
     /// <summary>
     /// 使卡牌奖励中出现的卡牌全部为稀有牌。
     /// </summary>
-    public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
+    public override CardCreationOptions ModifyCardRewardCreationOptionsLate(Player player, CardCreationOptions options)
     {
         if (base.Owner != player) return options;
 
         // 只修改战斗遭遇的卡牌奖励
         if (options.Source != CardCreationSource.Encounter) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
-
+        
         // 用自定义池过滤出稀有牌
         var rareCards = options.GetPossibleCards(player)
             .Where(c => c.Rarity == CardRarity.Rare)
             .ToList();
 
         if (rareCards.Count == 0) return options;
-
         return options.WithCustomPool(rareCards, CardRarityOddsType.Uniform);
     }
+
 
     /// <summary>
     /// 添加"我全都要"选项，将卡牌奖励中的所有牌加入牌组。

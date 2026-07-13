@@ -29,7 +29,6 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(RyukeiNoTama));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(WindPriestessWine));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DuplexBarrier));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottomlessStomach));
@@ -37,6 +36,7 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(SkySwallowingSpoon));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(EstrangedHeart));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottledGalaxy));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(OilFutures));
         
         
         // 打patch（即修改游戏代码的功能）用
