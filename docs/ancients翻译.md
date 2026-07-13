@@ -532,7 +532,7 @@
 | 对话键 | 中文 | English |
 |--------|------|---------|
 | `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | 女苑：世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | Joon: The greatest thing in the world is living the high life where you can afford anything. Don't you agree? |
+| `talk.ANY.0-0r.ancient` | 女苑：世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | jyoon: The greatest thing in the world is living the high life where you can afford anything. Don't you agree? |
 
 ---
 
@@ -657,7 +657,7 @@
 ### 字段翻译
 | 字段 | 中文 | English |
 |------|------|---------|
-| `.title` | 依神 紫苑&依神 女苑 | Shion Yorigami & Joon Yorigami |
+| `.title` | 依神 紫苑&依神 女苑 | Shion Yorigami & jyoon Yorigami |
 | `.epithet` | 最凶最恶的双子荒疫神 | The Most Wicked and Malevolent Twin Blight Gods |
 
 ### 对话翻译

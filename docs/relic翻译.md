@@ -1639,7 +1639,7 @@
 |------|------|
 | `.title` | `Gold for Luck` |
 | `.description` | `Whenever you play [blue]{CardsNeeded}[/blue] cards, spend [blue]{GoldCost}[/blue] [gold]Gold[/gold] to gain {Energy:energyIcons()}.` |
-| `.flavor` | `Shion & Joon relic test 1.` |
+| `.flavor` | `Shion & jyoon relic test 1.` |
 
 ---
 
