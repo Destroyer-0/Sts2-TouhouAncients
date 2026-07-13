@@ -631,31 +631,31 @@
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
   "TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]疫病支票[/gold]加入你的[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "",
+  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的牌。",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "——那么下一位成功人士是哪位？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
-  "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "[green]升级[/green]商店内出售的卡牌，并为这些牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
-  "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "为商店内出售的卡牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "来，把你的金币给我。",
 
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "黑猫玩偶",
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.description": "在每回合开始时获得{Energy:energyIcons()}。每回合开始时，随机[blue]{Cards}[/blue]张[gold]手牌[/gold]被侵蚀为[purple]抵押物[/purple][blue]{CollateralNum}[/blue]。",
-  "TOUHOUANCIENTS-BLACK_CAT_DOLL.flavor": "",
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.flavor": "如果继续安于现状，马上就会变的一贫如洗……",
 
   "TOUHOUANCIENTS-OIL_FUTURES.title": "石油期货",
   "TOUHOUANCIENTS-OIL_FUTURES.description": "在每回合开始时获得{Energy:energyIcons()}。每[blue]{Turns}[/blue]回合，从[blue]{Cards}[/blue]张随机[red]诅咒[/red]中选择一张加入[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "只要手握这些资源，就能变成富豪神了呢。",
   "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "选择一张[red]诅咒[/red]加入手牌",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "烟熏的团扇",
   "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "",
+  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "是谁把这贫穷神招来的啊……",
 
   "TOUHOUANCIENTS-GRILLED_MISO.title": "烤味噌",
   "TOUHOUANCIENTS-GRILLED_MISO.description": "拾起时，[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
   "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
-  "TOUHOUANCIENTS-GRILLED_MISO.flavor": ""
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~我的烤味噌……那简直是贫乏神眼中的美味珍馐……"
 }
