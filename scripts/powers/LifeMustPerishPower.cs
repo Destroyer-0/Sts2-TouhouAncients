@@ -88,6 +88,10 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
     {
         if (side != base.Owner.Side) return;
         if (Owner.CombatState == null) return;
+        if (!participants.Contains(base.Owner))
+        {
+            return;
+        }
         if (base.Owner.IsDead) return;
         // 减少计数
 

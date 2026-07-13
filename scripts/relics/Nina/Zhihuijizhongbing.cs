@@ -61,6 +61,7 @@ public class Zhihuijizhongbing : TouhouAncientRelics
     public override async Task BeforeSideTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Player) return;
+        if (!participants.Contains(Owner.Creature)) return;
         if (_anyCardsPlayedThisTurn) return;
 
         // 没有打出任何牌 → 获得临时集中，生成冰霜充能球

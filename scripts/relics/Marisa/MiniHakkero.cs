@@ -28,6 +28,7 @@ public class MiniHakkero : TouhouAncientRelics
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return;
+        if (!participants.Contains(Owner.Creature)) return;
         if (base.Owner.PlayerCombatState == null) return;
 
         var hand = PileType.Hand.GetPile(base.Owner);

@@ -48,6 +48,10 @@ public class MedicinePoison : TouhouAncientEnchantmentModel
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (!HasCard) return;
+        if (!participants.Contains(Card.Owner.Creature))
+        {
+            return;
+        }
         if (side != base.Card.Owner.Creature.Side) return;
         if (base.Card.Pile?.Type != PileType.Hand) return;
         //Card.EnergyCost.AddUntilPlayed(-1);

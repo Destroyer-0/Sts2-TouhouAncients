@@ -91,6 +91,10 @@ public class BatteryBili : TouhouAncientRelics
     
     public override Task AfterSideTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (!participants.Contains(base.Owner.Creature))
+        {
+            return Task.CompletedTask;
+        }
         if (side == CombatSide.Player)
         {
             foreach (var card in _affectedCards)

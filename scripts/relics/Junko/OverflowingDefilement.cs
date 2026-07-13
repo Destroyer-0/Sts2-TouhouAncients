@@ -70,6 +70,7 @@ public class OverflowingDefilement : TouhouAncientRelics
     {
         if (side != base.Owner.Creature.Side) return;
         if (base.Owner.Creature.CombatState == null) return;
+        if (!participants.Contains(Owner.Creature)) return;
 
         var player = base.Owner;
         var hand = PileType.Hand.GetPile(player).Cards;

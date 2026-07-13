@@ -103,6 +103,10 @@ public abstract class TouhouAncientTemporaryDexterityPower : TouhouAncientTempor
         var power = this;
         if (side != power.Owner.Side)
             return;
+        if (!participants.Contains(base.Owner))
+        {
+            return;
+        }
         power.Flash();
         await PowerCmd.Remove((PowerModel)power);
         DexterityPower strengthPower = await PowerCmd.Apply<DexterityPower>(choiceContext, power.Owner,

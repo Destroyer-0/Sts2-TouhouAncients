@@ -76,6 +76,10 @@ public class DanmukuGhost : TouhouAncientRelics
     {
         if (side == base.Owner.Creature.Side) return; // 只处理敌人回合结束
 
+        if (!participants.Contains(base.Owner.Creature))
+        {
+            return;
+        }
         if (!shouldSmall || attackingEnemiesThisTurn == null) return; // 玩家受到了伤害，不触发
 
         if (attackingEnemiesThisTurn.IsAlive)

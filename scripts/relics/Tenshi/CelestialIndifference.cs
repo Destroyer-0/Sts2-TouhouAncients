@@ -45,6 +45,7 @@ public class CelestialIndifference : TouhouAncientRelics
     {
         if (side != base.Owner.Creature.Side) return;
         if (base.Owner.PlayerCombatState == null) return;
+        if (!participants.Contains(Owner.Creature)) return;
 
         var combatState = base.Owner.PlayerCombatState;
 

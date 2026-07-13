@@ -82,6 +82,10 @@ public class HellOfBulletsPower : TouhouAncientPowerModel
     /// </summary>
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (!participants.Contains(base.Owner))
+        {
+            return;
+        }
         if (side == base.Owner.Side)
         {
             await PowerCmd.Remove(this);
