@@ -116,7 +116,7 @@ public class AllCreationHisou : TouhouAncientCards
             }
             
             targetCard.ExhaustOnNextPlay = true;
-            await CardCmd.AutoPlay(choiceContext, targetCard, null, AutoPlayType.Default);
+            await CardCmd.AutoPlay(choiceContext, targetCard, null);
         }
 
 
