@@ -37,6 +37,12 @@ public class RichestFormPower : TouhouAncientPowerModel
         HoverTipFactory.ForEnergy(this)
     ];
 
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        _cardTypePlayedThisTurn.Clear();
+        return base.AfterApplied(applier, cardSource);
+    }
+
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (!Owner.IsPlayer) return 0;
