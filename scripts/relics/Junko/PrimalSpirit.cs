@@ -95,7 +95,11 @@ public class PrimalSpirit : TouhouAncientRelics
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side != base.Owner.Creature.Side) return;
-
+        
+        if (!participants.Contains(Owner.Creature))
+        {
+            return;
+        }
         var round = combatState.RoundNumber;
 
         // 获得等于回合数的能量

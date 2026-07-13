@@ -44,6 +44,10 @@ public class StageDevice : TouhouAncientRelics
     {
         if (side != base.Owner.Creature.Side) return;
 
+        if (!participants.Contains(Owner.Creature))
+        {
+            return ;
+        }
         Flash();
 
         var playerCreature = base.Owner.Creature;

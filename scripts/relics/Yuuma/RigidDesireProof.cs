@@ -42,6 +42,10 @@ public class RigidDesireProof : TouhouAncientRelics
 
     public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (!participants.Contains(Owner.Creature))
+        {
+            return Task.CompletedTask;
+        }
         if (side == base.Owner.Creature.Side)
         {
             recentTypeQueue.Clear();

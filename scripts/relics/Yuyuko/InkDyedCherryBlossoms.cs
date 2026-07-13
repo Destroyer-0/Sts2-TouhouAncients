@@ -74,6 +74,10 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (!participants.Contains(Owner.Creature))
+        {
+            return ;
+        }
         if (side != base.Owner.Creature.Side) return;
         // 每回合失去1最大生命
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, isFromCard: false);
