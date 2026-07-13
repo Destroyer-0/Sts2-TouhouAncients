@@ -264,7 +264,7 @@
 
   "TOUHOUANCIENTS-LOSE_MONEY.title": "Gold for Luck",
   "TOUHOUANCIENTS-LOSE_MONEY.description": "Whenever you play [blue]{CardsNeeded}[/blue] cards, spend [blue]{GoldCost}[/blue] [gold]Gold[/gold] to gain {Energy:energyIcons()}.",
-  "TOUHOUANCIENTS-LOSE_MONEY.flavor": "Shion & Joon relic test 1.",
+  "TOUHOUANCIENTS-LOSE_MONEY.flavor": "Shion & jyoon relic test 1.",
 
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "Inaba Amulet",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "Upon pickup, remove all non-Eternal [red]Curses[/red] from your [gold]Deck[/gold]. Prevent [red]Curses[/red] from being added to your [gold]Deck[/gold] afterwards.",

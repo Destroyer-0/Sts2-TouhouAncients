@@ -68,5 +68,8 @@
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂飨",
     "TOUHOUANCIENTS-THE_FEAST.description": "选择并[gold]消耗[/gold]{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张此牌的复制品加入你的[gold]弃牌堆[/gold]。",
-    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌[gold]消耗[/gold]"
+    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌[gold]消耗[/gold]",
+
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "神枪「冈格尼尔」",
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "造成等同于目标[gold]格挡[/gold]值{ExtraDamage:diff()}倍的伤害。\n回合结束时，将这张牌返回你的[gold]手牌[/gold]。"
 }

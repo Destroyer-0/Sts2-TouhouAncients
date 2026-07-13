@@ -111,9 +111,8 @@
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "蕾米莉亚的藏品之一，拥有比世界上任何红宝石都鲜艳的血色，不过到目前为止，还没有哪个怪盗盯上过。",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将[blue]1[/blue]张[gold]冈格尼尔之枪[/gold]加入牌组。",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将一张[gold]神枪「冈格尼尔」[/gold]加入你的[gold]牌组[/gold]。你获得格挡时，所有敌人获得等量格挡。",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "将灵气收束成枪状投掷而出。贯通力很高，碰到弹幕大都都会毫无阻碍的连同敌人本体一起贯穿。",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "领主防晒霜",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "卡牌奖励全部替换为[gold]稀有牌[/gold]，且你可以选择[gold]全都要[/gold]。",
@@ -363,7 +362,7 @@
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "打出这张牌时失去{energyPrefix:energyIcons(1)}。",
 
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "天壤梦弓",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，对生命值最高的敌人额外造成[blue]2[/blue]次伤害并给予[blue]{Weak}[/blue]层[gold]虚弱[/gold]。",
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "可惜不能附魔“无限”或者“火矢”……",
 
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "童忆书包",
@@ -627,19 +626,23 @@
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "凭依之灵",
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "拾起时，将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "今宵就成为飘逸的利己主义者吧。",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
   "TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]疫病支票[/gold]加入你的[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~这得花不少钱。",
+  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的牌。",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "——那么下一位成功人士是哪位？",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "金银天下转，贫富朝夕变。哪个蠢家伙，居然想存钱？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
   "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "为商店内出售的卡牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "来，把你的金币给我。",
+
+  "TOUHOUANCIENTS-JYOON_FAN.title": "朱莉安娜羽扇",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "非精英的战斗开始时，获得{Gold}金币、{Strength}力量、{Dexterity}敏捷、{Focus}集中，这个遗物在{Charges}场非精英战斗后失效，每次击败精英后增加{Charges}充能。",
+  "TOUHOUANCIENTS-JYOON_FAN.flavor": "不能用来打出火杀。",
 
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "黑猫玩偶",
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.description": "在每回合开始时获得{Energy:energyIcons()}。每回合开始时，随机[blue]{Cards}[/blue]张[gold]手牌[/gold]被侵蚀为[purple]抵押物[/purple][blue]{CollateralNum}[/blue]。",
@@ -652,10 +655,10 @@
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "烟熏的团扇",
   "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "是谁把这贫穷神招来的啊……",
+  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "来自贫穷神的悲恸。",
 
   "TOUHOUANCIENTS-GRILLED_MISO.title": "烤味噌",
   "TOUHOUANCIENTS-GRILLED_MISO.description": "拾起时，[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
   "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
-  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~我的烤味噌……那简直是贫乏神眼中的美味珍馐……"
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~真正的烤味噌……可带劲啦~"
 }
