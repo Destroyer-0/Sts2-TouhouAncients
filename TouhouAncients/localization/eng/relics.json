@@ -364,7 +364,7 @@
 
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "Dream Heaven Bow",
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "At the start of each combat, deal [blue]{Damage}[/blue] damage to ALL enemies. Deal an additional [blue]200%[/blue] damage to the enemy with the highest HP and apply [blue]2[/blue] [gold]Weak[/gold].",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "Be sure to hold the bow backward, as the arrow flies in reverse.",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "Too bad you can't enchant it with \"Infinity\" or \"Flame\"…",
 
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "Childhood Bag",
   "TOUHOUANCIENTS-CHILDHOOD_BAG.description": "Upon pickup, fill all empty [gold]Potion Slots[/gold] with [purple]Foul Potion[/purple]. Replace combat [gold]Gold[/gold] rewards with [blue]{PotionCount}[/blue] [purple]Foul Potion[/purple]. Thrown [purple]Foul Potion[/purple] only damages enemies.",

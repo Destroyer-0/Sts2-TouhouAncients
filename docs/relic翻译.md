@@ -1725,3 +1725,26 @@
 
 ---
 
+## 天壤梦弓
+
+**键名**: `TOUHOUANCIENTS-DREAM_HEAVEN_BOW`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "天壤梦弓",
+"TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "在每场战斗开始时，对所有敌人造成[blue]{Damage}[/blue]点伤害，对生命值最高的敌人额外造成[blue]200%[/blue]伤害并给予[blue]2[/blue]层[gold]虚弱[/gold]。",
+"TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "可惜不能附魔"无限"或者"火矢"……"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Dream Heaven Bow` |
+| `.description` | `At the start of each combat, deal [blue]{Damage}[/blue] damage to ALL enemies. Deal an additional [blue]200%[/blue] damage to the enemy with the highest HP and apply [blue]2[/blue] [gold]Weak[/gold].` |
+| `.flavor` | `Too bad you can't enchant it with "Infinity" or "Flame"…` |
+
+### Neta / 文化梗说明
+- **「可惜不能附魔"无限"或者"火矢"」** — 这是 Minecraft 梗。"无限"(Infinity)和"火矢"(Flame)是 Minecraft 中弓的附魔。这里调侃该遗物虽然是一把弓，但没法打上 Minecraft 的附魔。
+
+---
+

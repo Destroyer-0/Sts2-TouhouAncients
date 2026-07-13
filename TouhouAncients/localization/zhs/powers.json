@@ -47,6 +47,10 @@
   "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
   "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人7层[gold]灾厄[/gold]1次。",
   "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
+ 
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.title": "疫病支票",
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.description": "每回合你打出的前[blue]2[/blue]张牌会免费打出。",
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.smartDescription": "每回合你打出的前[blue]{Amount}[/blue]张牌会免费打出。",
   
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "天堂智者",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",

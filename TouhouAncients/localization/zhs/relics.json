@@ -11,8 +11,8 @@
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除[blue]4[/blue]张牌，然后复制你牌组中的防御并升级。",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除[blue]4[/blue]张牌，然后复制你牌组中的防御并升级。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除[blue]4[/blue]张牌，然后复制你牌组中的防御并[green]升级[/green]。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除[blue]4[/blue]张牌，然后复制你牌组中的防御并[green]升级[/green]。",
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.flavor": "删牌大于一切啊！",
 
   "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.title": "萎靡心灵的魔咒",
@@ -53,7 +53,7 @@
   "TOUHOUANCIENTS-MORIYA_GOHEI.flavor": "可不能被常识束缚哦？",
 
   "TOUHOUANCIENTS-DAY_KAKUSEI.title": "白昼新星",
-  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "在每场战斗开始时，获得一瓶能力药水。升级你生成的[gold]能力牌[/gold]。",
+  "TOUHOUANCIENTS-DAY_KAKUSEI.description": "在每场战斗开始时，获得一瓶能力药水。[green]升级[/green]你生成的[gold]能力牌[/gold]。",
   "TOUHOUANCIENTS-DAY_KAKUSEI.flavor": "将它变成伽马射线怎么样？",
 
   "TOUHOUANCIENTS-SNAKE_AMULET.title": "蛇之护符",
@@ -288,7 +288,7 @@
   "TOUHOUANCIENTS-LUCKY_TREASURE_CHEST.flavor": "据说有一半的人购买了这个宝盒以后，把盒子还了回去。",
 
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.title": "四叶草",
-  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是升级过的。",
+  "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.description": "每两场战斗，你的卡牌奖励就会额外包含一张[gold]稀有卡牌[/gold]。第二次以此法出现的[gold]稀有卡牌[/gold]将是[green]升级过的[/green]。",
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "遇到她的人就会变的幸运，但只有幸运的人才能遇到她。",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "仿制兔脚",
@@ -462,7 +462,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "你每打出[blue]{Card}[/blue]张牌，将一张带有[gold]虚无[/gold]、辉星费用为[blue]0[/blue]的[gold]七星[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]加入你的[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]费用减少[blue]1[/blue]。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
@@ -622,5 +622,40 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路之心",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "抽牌阶段结束后，选择任意张[gold]抽牌堆[/gold]的牌放入[gold]手牌[/gold]。累计使用此方式获得[blue]{Threshold}[/blue]张牌后，此遗物在本场战斗结束后失效。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "选择任意张牌放入手牌",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。"
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。",
+
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "凭依之灵",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "拾起时，将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "",
+
+  "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
+  "TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]疫病支票[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "",
+
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的牌。",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "",
+
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "[green]升级[/green]商店内出售的卡牌，并为这些牌[gold]附魔[/gold]：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "",
+
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "黑猫玩偶",
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.description": "在每回合开始时获得{Energy:energyIcons()}。每回合开始时，随机[blue]{Cards}[/blue]张[gold]手牌[/gold]被侵蚀为[purple]抵押物[/purple][blue]{CollateralNum}[/blue]。",
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.flavor": "",
+
+  "TOUHOUANCIENTS-OIL_FUTURES.title": "石油期货",
+  "TOUHOUANCIENTS-OIL_FUTURES.description": "在每回合开始时获得{Energy:energyIcons()}。每[blue]{Turns}[/blue]回合，从[blue]{Cards}[/blue]张随机[red]诅咒[/red]中选择一张加入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "",
+  "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "选择一张[red]诅咒[/red]加入手牌",
+
+  "TOUHOUANCIENTS-SMOKED_FAN.title": "烟熏的团扇",
+  "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "",
+
+  "TOUHOUANCIENTS-GRILLED_MISO.title": "烤味噌",
+  "TOUHOUANCIENTS-GRILLED_MISO.description": "拾起时，[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
+  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": ""
 }
