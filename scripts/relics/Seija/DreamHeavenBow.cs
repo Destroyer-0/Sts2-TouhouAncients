@@ -16,8 +16,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 天壤梦弓：战斗开始时，对所有敌人造成8点伤害，
-/// 对生命值最高的敌人额外造成200%伤害并给予2层虚弱。
+/// 天壤梦弓：战斗开始时，对所有敌人造成伤害，
+/// 对生命值最高的敌人额外造成2次伤害并给予2层虚弱。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class DreamHeavenBow : TouhouAncientRelics
@@ -50,19 +50,16 @@ public class DreamHeavenBow : TouhouAncientRelics
         var maxHp = enemies.Max(e => e.CurrentHp);
         var highestHpEnemies = enemies.Where(e => e.CurrentHp == maxHp).ToList();
 
-        // 额外造成 200% 伤害（即 base × 2）并给予 2 层虚弱
-        var bonusDamage = baseDamage * 3;
         // 对所有敌人造成基础伤害
         VfxCmd.PlayOnCreatureCenters(enemies, "vfx/vfx_attack_slash");
-        if (enemies.Count > highestHpEnemies.Count)
+        await CreatureCmd.Damage(choiceContext, enemies, baseDamage, ValueProp.Unpowered, base.Owner.Creature);
+
+        // 对生命值最高的敌人：1次基础伤害 + 额外2次伤害 = 共3次
+        for (var index = 0; index < 2; index++)
         {
-            await CreatureCmd.Damage(choiceContext, enemies.Except(highestHpEnemies), baseDamage, ValueProp.Unpowered,
-                base.Owner.Creature);
+            await CreatureCmd.Damage(choiceContext, highestHpEnemies, baseDamage, ValueProp.Unpowered, base.Owner.Creature);
         }
 
-        await CreatureCmd.Damage(choiceContext, highestHpEnemies, bonusDamage, ValueProp.Unpowered,
-            base.Owner.Creature);
-        await PowerCmd.Apply<WeakPower>(choiceContext, highestHpEnemies, base.DynamicVars["Weak"].BaseValue,
-            base.Owner.Creature, null);
+        await PowerCmd.Apply<WeakPower>(choiceContext, highestHpEnemies, base.DynamicVars["Weak"].BaseValue, base.Owner.Creature, null);
     }
 }
