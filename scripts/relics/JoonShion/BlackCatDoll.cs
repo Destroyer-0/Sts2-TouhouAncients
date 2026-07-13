@@ -32,7 +32,9 @@ public class BlackCatDoll : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         new[] { HoverTipFactory.ForEnergy(this) }.Concat(
-            HoverTipFactory.FromAffliction<TouhouAncientsCollateral>(base.DynamicVars["CollateralNum"].IntValue));
+                HoverTipFactory.FromAffliction<TouhouAncientsCollateral>(base.DynamicVars["CollateralNum"].IntValue))
+            .Append(HoverTipFactory.FromKeyword(CardKeyword.Retain))
+            .Append(HoverTipFactory.FromKeyword(CardKeyword.Unplayable));
 
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)

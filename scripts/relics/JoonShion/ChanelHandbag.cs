@@ -32,11 +32,6 @@ public class ChanelHandbag : TouhouAncientRelics
         var glam = ModelDb.Enchantment<Glam>();
         foreach (var card in cards)
         {
-            if (card.Card.IsUpgradable)
-            {
-                CardCmd.Upgrade(card.Card);
-            }
-
             if (glam.CanEnchant(card.Card))
             {
                 CardCmd.Enchant<Glam>(card.Card, 1);

@@ -23,11 +23,12 @@ public class FoldingUmbrella : TouhouAncientRelics
     public override async Task AfterSideTurnStartLate(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (side == Owner.Creature.Side && participants.Contains(Owner.Creature))
+        if (side == Owner.Creature.Side && participants.Contains(Owner.Creature) && combatState.RoundNumber == 1)
         {
             Flash();
             await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 5m,
                 base.Owner.Creature, null);
         }
+        
     }
 }
