@@ -43,8 +43,8 @@ public class TheMillionPoundNote : TouhouAncientCards
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c.Pile.Type != PileType.Exhaust);
-        
+        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c.Pile.Type == PileType.Hand);
+
         foreach (var item in debts)
         {
             await CardCmd.Exhaust(choiceContext, item);
@@ -80,7 +80,7 @@ public class TheMillionPoundNote : TouhouAncientCards
         if (oldPileType == PileType.Hand && Pile?.Type == PileType.Hand) return;
         if (Pile?.Type == PileType.Hand)
         {
-            await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 2m,
+            await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1m,
                 Owner.Creature, this);
         }
         else if (oldPileType == PileType.Hand)
@@ -88,7 +88,7 @@ public class TheMillionPoundNote : TouhouAncientCards
             var millionPoundPower = Owner.Creature.GetPower<TheMillionPoundNotePower>();
             if (millionPoundPower != null)
             {
-                await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), millionPoundPower, -2, Owner.Creature, this);
+                await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), millionPoundPower, -1, Owner.Creature, this);
             }
         }
     }

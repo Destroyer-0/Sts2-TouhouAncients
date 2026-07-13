@@ -16,10 +16,6 @@ namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 至贫形态 (Poorest Form)
-/// 3费能力牌，虚无（升级后去除）。
-/// 打出耗能为 0 的牌或以 0 能量结束回合时，
-/// 每 1 层至贫形态给予随机一个敌人以下一个 Debuff：
-///   1 虚弱 / 1 易伤 / 3 中毒 / 8 灾厄
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class PoorestForm : TouhouAncientCards
@@ -36,7 +32,7 @@ public class PoorestForm : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Amount", 5m)
+        new DynamicVar("Amount", 4m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

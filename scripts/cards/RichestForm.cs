@@ -37,8 +37,8 @@ public class RichestForm : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new EnergyVar("Energy2", 5),
-        new EnergyVar("Energy3", 5),
+        new EnergyVar("Energy2", 2),
+        new EnergyVar("Energy3", 4),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -62,7 +62,7 @@ public class RichestForm : TouhouAncientCards
     }
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Energy2"].UpgradeValueBy(1m);
+        //base.DynamicVars["Energy2"].UpgradeValueBy();
         base.DynamicVars["Energy3"].UpgradeValueBy(1m);
     }
 }
