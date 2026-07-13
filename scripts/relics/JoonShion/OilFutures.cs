@@ -28,7 +28,7 @@ public class OilFutures : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new DynamicVar("Turns", 2),
+        new DynamicVar("Turns", 3),
         new CardsVar(3)
     ];
 

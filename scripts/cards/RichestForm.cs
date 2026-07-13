@@ -37,7 +37,7 @@ public class RichestForm : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new EnergyVar("Energy2", 2),
+        new EnergyVar("Energy2", 4),
         new EnergyVar("Energy3", 4),
     ];
 
