@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -30,13 +31,12 @@ public class MillionPounds : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<TheMillionPoundNote>();
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
-
-        var combatState = player.Creature.CombatState;
-        if (combatState == null || combatState.RoundNumber != 1) return;
-
+        if (Owner.Creature.CombatState == null) return;
+        if (combatState.RoundNumber != 1) return;
+        
         Flash();
 
         await CardPileCmd.AddGeneratedCardsToCombat([combatState.CreateCard<TheMillionPoundNote>(base.Owner)], PileType.Hand, creator: base.Owner);

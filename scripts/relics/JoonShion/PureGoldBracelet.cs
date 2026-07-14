@@ -35,9 +35,8 @@ public class PureGoldBracelet : TouhouAncientRelics
         if (hand.IsEmpty) return;
 
         var cards= await CardPileCmd.Draw(choiceContext, base.DynamicVars["Cards"].IntValue, player, fromHandDraw: true);
-        // 弃掉手牌中费用低于2的牌（至多弃ExtraDraw张）
         var lowCostCards = cards
-            .Where(c => c.EnergyCost.GetResolved() < base.DynamicVars["Threshold"].IntValue)
+            .Where(c => !c.EnergyCost.CostsX && !c.HasStarCostX && c.EnergyCost.GetResolved() < base.DynamicVars["Threshold"].IntValue)
             .Take(base.DynamicVars.Cards.IntValue)
             .ToList();
 
