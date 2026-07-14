@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
@@ -33,12 +34,19 @@ public class RyukeiNoTama : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Card", 5)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<SevenStars>(true).Append(HoverTipFactory.FromKeyword(CardKeyword.Retain));
+        HoverTipFactory.FromCardWithCardHoverTips<SevenStars>(true)
+            .Append(HoverTipFactory.FromKeyword(CardKeyword.Retain));
+
+    public override bool ShowCounter => DisplayAmount >= 0 && _starCostReduction < 7;
+
+    public override int DisplayAmount =>
+        !CombatManager.Instance.IsInProgress ? -1 : IsCanonical ? -1 : _cardsPlayedThisCombat;
 
     public override Task BeforeCombatStart()
     {
         _cardsPlayedThisCombat = 0;
         _starCostReduction = 0;
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 
@@ -53,7 +61,7 @@ public class RyukeiNoTama : TouhouAncientRelics
         Flash();
         CardCmd.Upgrade(sevenStar);
         await CardPileCmd.AddGeneratedCardsToCombat([sevenStar], PileType.Hand, creator: base.Owner);
-        
+
         CardCmd.ApplyKeyword(sevenStar, CardKeyword.Retain);
     }
 
@@ -64,18 +72,22 @@ public class RyukeiNoTama : TouhouAncientRelics
         if (player.Creature.CombatState == null) return;
 
         _cardsPlayedThisCombat++;
+        InvokeDisplayAmountChanged();
 
+        if (_cardsPlayedThisCombat < 5) return;
+        _cardsPlayedThisCombat = 0;
         await TryReduceStarCost(player);
     }
 
     /// <summary>
     /// 回合结束时也触发辉星费用减少。
     /// </summary>
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Player) return;
         if (!participants.Contains(Owner.Creature)) return;
-        
+
         var player = base.Owner;
         if (player?.Creature.CombatState == null) return;
 
@@ -84,13 +96,16 @@ public class RyukeiNoTama : TouhouAncientRelics
 
     private async Task TryReduceStarCost(Player player)
     {
-        if(sevenStar.HasBeenRemovedFromState)return;
-        if (_cardsPlayedThisCombat < 5) return;
-
-        _cardsPlayedThisCombat = 0;
-        _starCostReduction++;
+        if (sevenStar.HasBeenRemovedFromState) return;
         Flash();
-        
+        InvokeDisplayAmountChanged();
+        _starCostReduction++;
         sevenStar.SetStarCostThisCombat(Math.Max(0, sevenStar.CurrentStarCost - 1));
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        InvokeDisplayAmountChanged();
+        return base.AfterCombatEnd(room);
     }
 }
