@@ -43,7 +43,7 @@ public class TheMillionPoundNote : TouhouAncientCards
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c.Pile.Type == PileType.Hand);
+        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c.Pile.Type == PileType.Hand).ToList();
 
         foreach (var item in debts)
         {

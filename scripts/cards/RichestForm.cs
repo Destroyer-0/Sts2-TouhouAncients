@@ -62,7 +62,7 @@ public class RichestForm : TouhouAncientCards
     }
     protected override void OnUpgrade()
     {
-        //base.DynamicVars["Energy2"].UpgradeValueBy();
+        base.DynamicVars["Energy2"].UpgradeValueBy(1m);
         base.DynamicVars["Energy3"].UpgradeValueBy(1m);
     }
 }
