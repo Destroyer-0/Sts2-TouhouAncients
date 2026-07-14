@@ -36,6 +36,7 @@ public class Bloodshed : TouhouAncientEnchantmentModel
         await CreatureCmd.Heal(base.Card.Owner.Creature, base.DynamicVars.Heal.BaseValue);
     }
 
+
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
         if (cardSource != base.Card) return;

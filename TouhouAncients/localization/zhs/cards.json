@@ -24,7 +24,7 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:[gold]升级[/gold]、|}打出并[gold]消耗[/gold]所有当前[gold]手牌与消耗牌堆[/gold]里的牌。\n[red]空中的天气、大地的安定、人的气质，全都在我手掌之上！[/red]",
 
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌的魔力",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下{CurrentFreeCount:diff()}张其它牌免费打出。\n每次打出后耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "你的下[blue]{CurrentFreeCount:diff()}[/blue]张其它牌免费打出。\n每次打出后耗能增加{Energy:energyIcons()}，可免费打出的次数增加[blue]1[/blue]。\n[purple][sine]为背叛者们奏响镇魂曲吧[/sine][/purple]",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "铃兰",
     "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽[blue]{Cards}[/blue]张牌。给予所有敌人等同于自身[purple]污染[/purple]层数{Multiplier:diff()}倍的[gold]中毒[/gold]{InCombat:([green]{CalculatePoison}[/green])|}。\n每次抽到或打出这张牌后，这张牌将被[gold]侵蚀[/gold][purple]污染[/purple][blue]{ExtraAmount}[/blue]。",

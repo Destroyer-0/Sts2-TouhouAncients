@@ -3,5 +3,9 @@
   "DEVOURED.title": "Devoured",
   "WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
   "WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
-  "WEIGHTED.title": "Weighted"
+  "WEIGHTED.title": "Weighted",
+
+  "TOUHOU_ANCIENTS_COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
+  "TOUHOU_ANCIENTS_COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
+  "TOUHOU_ANCIENTS_COLLATERAL.title": "Collateral"
 }
