@@ -633,7 +633,7 @@
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的牌。",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的非X费牌。",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "金银天下转，贫富朝夕变。哪个蠢家伙，居然想存钱？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
@@ -641,7 +641,7 @@
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "来，把你的金币给我。",
 
   "TOUHOUANCIENTS-JYOON_FAN.title": "朱莉安娜羽扇",
-  "TOUHOUANCIENTS-JYOON_FAN.description": "非精英的战斗开始时，获得{Gold}金币、{Strength}力量、{Dexterity}敏捷、{Focus}集中，这个遗物在{Charges}场非精英战斗后失效，每次击败精英后增加{Charges}充能。",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "非精英的战斗开始时，获得[blue]{Gold}[/blue][gold]金币[/gold]、[blue]{Strength}力量[/blue]、[blue]{Dexterity}敏捷[/blue]、[blue]{Focus}集中[/blue]，这个遗物在[blue]{Charges}[/blue]场非精英战斗后失效，每次击败精英后增加[blue]{Charges}[/blue]充能。",
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "不能用来打出火杀。",
 
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "黑猫玩偶",
