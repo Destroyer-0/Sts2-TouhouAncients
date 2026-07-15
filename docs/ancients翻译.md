@@ -315,9 +315,9 @@
 | `talk.SILENT.0-visit` | 1 | 1 |
 | `talk.REGENT.0-0r.ancient` | 哎呀，这不是最近在新闻上传的沸沸扬扬的储君大人吗。真是失礼了~有什么需要我的手下为您效劳的吗？ | Oh my, if it isn't Lord Regent, who's been all over the news lately. How rude of me~ Is there anything my underlings can do for you? |
 | `talk.REGENT.0-visit` | 1 | 1 |
-| `talk.REGENT.2-0r.ancient` | 嘿，这可是竹林里特产的发光竹子，如果带回您的星球，一定会收货不少羡慕的目光哦~ | Hey, these are luminous bamboo from the bamboo forest—a local specialty. If you bring them back to your planet, they're sure to draw many envious glances~ |
-| `talk.REGENT.2-0r.next` | 端详 | Examine closely |
-| `talk.REGENT.2-1r.char` | 恩……我需要认真评估我的当前资产。 | Hmm... I need to carefully assess my current assets. |
+| `talk.REGENT.1-0r.ancient` | 嘿，这可是竹林里特产的发光竹子，如果带回您的星球，一定会收货不少羡慕的目光哦~ | Hey, these are luminous bamboo from the bamboo forest—a local specialty. If you bring them back to your planet, they're sure to draw many envious glances~ |
+| `talk.REGENT.1-0r.next` | 端详 | Examine closely |
+| `talk.REGENT.1-1r.char` | 恩……我需要认真评估我的当前资产。 | Hmm... I need to carefully assess my current assets. |
 | `talk.NECROBINDER.0-0.ancient` | 不死者，兔子们看到你和你的那只手，都跑的远远的了呐。 | Undead one, the rabbits all scatter far away when they see you and that hand of yours. |
 | `talk.NECROBINDER.0-0.next` | 继续 | Continue |
 | `talk.NECROBINDER.0-1.char` | 我有个人必须杀，你能帮我什么？ | There's someone I must kill. What can you do to help me? |
@@ -347,7 +347,7 @@
 ### 对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 涅奥的傀儡啊，加入吾等的反抗军！不管是建筑师还是涅奥，我们都终将将其击败！ | Puppet of Neow, join our rebel army! Whether it's the Architect or Neow, we will defeat them all! |
+| `talk.firstVisitEver.0-0.ancient` | 涅奥的傀儡啊，加入吾等的反抗军！不管是建筑师还是涅奥，我们都终将将其推翻！ | Puppet of Neow, join our rebel army! Whether it's the Architect or Neow, we will topple them all! |
 | `talk.ANY.0-0r.ancient` | 你还要被涅奥蒙蔽多久？带上这个，杀死建筑师，回头找她一起算账！ | How much longer will you let Neow deceive you? Take this, kill the Architect, then go settle the score with her too! |
 | `talk.ANY.1-0r.ancient` | 呵呵，在这座塔里，暴走的魔力无穷无尽，让多少道具活过来都不成问题！ | Heheh, in this tower, rampaging magical power is endless—bringing any number of items to life is no problem at all! |
 | `talk.ANY.2-0r.ancient` | 拿上这些觉醒的道具，让这个世界天翻地覆吧！ | Take these awakened items and turn this world upside down! |
@@ -382,6 +382,7 @@
 | `talk.SILENT.0-2.ancient` | 去塔顶找父亲吧，他一定能做出解药！ | Go find Father at the top of the tower—he can definitely make an antidote! |
 | `talk.SILENT.1-0r.ancient` | 父亲讨厌无礼的客人，所以这次……好好和他谈谈怎么样？ | Father hates rude guests, so this time... why not try talking to him nicely? |
 | `talk.SILENT.2-0r.ancient` | 你的小蛇好可爱呀。想给它系个小小的蝴蝶结！ | Your little snake is so cute. I want to tie a tiny bow on it! |
+| `talk.SILENT.3-0r.ancient` | 你身上的这种叫荒疫的毒素……我和铃铃还从没见过这么强力的毒药呢…… | This poison called Blight on you... Lily and I have never seen such a potent poison before... |
 | `talk.REGENT.0-0.char` | 我到来！让我看看这里的居民……人呢？ | I have arrived! Let me see the residents here... Where are the people? |
 | `talk.REGENT.0-0.next` | 继续 | Continue |
 | `talk.REGENT.0-1.ancient` | 喂——我在这里—— | Hey—I'm right here— |
@@ -428,7 +429,7 @@
 ### 对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 嘿！初次见面，我是雾雨魔理沙，欢迎来到我的雾雨魔法店Da☆Ze！这里的什么魔法道具都有提供哦！ | Hey! First time meeting, I'm Marisa Kirisame, welcome to my Kirisame Magic Shop Da☆Ze! We've got all kinds of magic items here! |
+| `talk.firstVisitEver.0-0.ancient` | 嘿！初次见面，我是雾雨魔理沙，欢迎来到我的雾雨魔法店Da☆Ze！这里什么魔法道具都有提供哦！ | Hey! First time meeting, I'm Marisa Kirisame, welcome to my Kirisame Magic Shop Da☆Ze! We've got all kinds of magic items here! |
 | `talk.ANY.0-0r.ancient` | 带上这个！弹幕最重要的就是火力Da☆Ze！ | Take this! The most important thing in danmaku is firepower Da☆Ze! |
 | `talk.ANY.1-0r.ancient` | 没有什么是强大的火力解决不了的！！ | There's nothing that overwhelming firepower can't solve!! |
 | `talk.ANY.2-0r.ancient` | 放心吧，这些东西都是我的魔法结晶！不是借来的啦！ | Don't worry, all these are my magical creations! They're not borrowed, you know! |
@@ -650,21 +651,48 @@
 
 ---
 
-## [依神 紫苑 & 依神 女苑] — 占位符
+## [依神 女苑 & 依神 紫苑]
 
 **键名**: `TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT`
 
 ### 字段翻译
 | 字段 | 中文 | English |
 |------|------|---------|
-| `.title` | 依神 紫苑&依神 女苑 | Shion Yorigami & jyoon Yorigami |
-| `.epithet` | 最凶最恶的双子荒疫神 | The Most Wicked and Malevolent Twin Blight Gods |
+| `.title` | 依神 女苑&依神 紫苑 | jyoon Yorigami & Shion Yorigami |
+| `.epithet` | 最凶最恶的荒疫神姐妹 | The Most-Despicable and Disastrous Blight God Sister |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | …… | ... |
+| `talk.firstVisitEver.0-0.ancient` | 女苑：呵呵呵，你真是幸运呢。想要发财的话，现在就是最好的机会哦~ | jyoon: Hehehe, you're quite fortunate. Meeting me is an omen of striking it rich~ |
+| `talk.firstVisitEver.0-0.speaker` | jyoon | jyoon |
+| `talk.ANY.0-0.ancient` | 拿最贵的酒来——！ | Bring out the most expensive booze——! |
+| `talk.ANY.0-0.speaker` | jyoon | jyoon |
+| `talk.ANY.0-1.ancient` | 上最贵的菜来——！ | Bring out the priciest grub——! |
+| `talk.ANY.0-1.speaker` | shion | shion |
+| `talk.ANY.0-1.next` | 继续 | Continue |
+| `talk.ANY.0-2.ancient` | 让我们为这位涅奥的勇士干杯！ | A toast to this brave champion of Neow! |
+| `talk.ANY.0-2.speaker` | jyoon | jyoon |
+| `talk.ANY.1-0r.ancient` | 世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | The finest thing in the world is a luxurious life where you can afford anything, wouldn't you agree? |
+| `talk.ANY.1-0r.speaker` | jyoon | jyoon |
+| `talk.ANY.1-0r.next` | 继续 | Continue |
+| `talk.ANY.1-1r.ancient` | 如果你不同意，我会很失望的看着你的…… | If you don't agree, I'll stare at you with utter disappointment... |
+| `talk.ANY.1-1r.speaker` | shion | shion |
+| `talk.ANY.2-0r.ancient` | 要不要我把姐姐打个折借给你？只要让她凭依在BOSS身上，BOSS马上就会倒霉到连杂鱼都不如哦~ | How about I lend you my sister at a discount? Just let her possess the Boss, and they'll get so unlucky they won't even measure up to a minion~ |
+| `talk.ANY.2-0r.speaker` | jyoon | jyoon |
+| `talk.ANY.2-0r.next` | 继续 | Continue |
+| `talk.ANY.2-1r.ancient` | 女苑…… | jyoon... |
+| `talk.ANY.2-1r.speaker` | shion | shion |
+| `talk.ANY.2-1r.next` | 继续 | Continue |
+| `talk.ANY.2-2r.ancient` | 啊！我差点忘了！带着姐姐的话可能根本走不到BOSS那里呢！ | Ah! I almost forgot! If I bring my sister along, you might not even make it to the Boss at all! |
+| `talk.ANY.2-2r.speaker` | jyoon | jyoon |
+| `talk.ANY.3-0r.ancient` | 多赚一点金币带回去的话，不仅能还清上一次的石油债，还能大赚一笔呢！ | If we make a tidy bit of extra gold to bring back, we can not only pay off the last oil debt but turn a fat profit! |
+| `talk.ANY.3-0r.speaker` | jyoon | jyoon |
+| `talk.IRONCLAD.0-0.ancient` | 唔……是个看起来很不好惹的战士…… | Ugh... this warrior looks like bad news... |
+| `talk.IRONCLAD.0-0.speaker` | shion | shion |
+| `talk.IRONCLAD.0-0.next` | 继续 | Continue |
+| `talk.IRONCLAD.0-1.ancient` | 姐姐你在担心什么？只要用那招的话……就没有打不败的家伙。不过只要不打扰我们赚钱就没有必要发起斗争了。 | Sis, what are you worried about? As long as we use that trick... there's nobody we can't beat. But as long as they don't get in the way of our profits, there's no need to pick a fight. |
+| `talk.IRONCLAD.0-1.speaker` | jyoon | jyoon |
 
 ---
 

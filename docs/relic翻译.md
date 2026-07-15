@@ -1331,6 +1331,122 @@
 | `.description` | `Gain {Energy:energyIcons()} at the start of each turn.  You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row.` |
 | `.flavor` | `""`（留空） |
 
+---
+
+## 依神姐妹系列遗物（Yorigami Relics）
+
+> 翻译日期：2026-07-14
+
+### 凭依之灵
+**键名**: `TOUHOUANCIENTS-POSSESSION_SPIRIT`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Possession Spirit` |
+| `.description` | `Upon pickup, add [blue]1[/blue] [gold]Richest Form[/gold] and [gold]Poorest Form[/gold] to your [gold]Deck[/gold].` |
+| `.eventDescription` | `Add [blue]1[/blue] [gold]Richest Form[/gold] and [gold]Poorest Form[/gold] to your [gold]Deck[/gold].` |
+| `.flavor` | `Tonight Stars an Easygoing Egoist` |
+
+### 百万英镑
+**键名**: `TOUHOUANCIENTS-MILLION_POUNDS`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Million Pounds` |
+| `.description` | `At the start of each combat, add [blue]{Cards}[/blue] [gold]The Million Pound Note[/gold] to your [gold]Hand[/gold].` |
+| `.flavor` | `Oh mate, it'll cost a tidy bit.` |
+
+### 纯金手镯
+**键名**: `TOUHOUANCIENTS-PURE_GOLD_BRACELET`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Pure Gold Bracelet` |
+| `.description` | `At the start of each turn, draw [blue]{Cards}[/blue] additional cards, then [gold]Discard[/gold] any non-X-cost cards drawn this way that cost less than [blue]{Threshold}[/blue].` |
+| `.flavor` | `Money is meant to be passed from one hand to the next. Who do you think you are, trying to save it up?` |
+
+### 香奈儿手包
+**键名**: `TOUHOUANCIENTS-CHANEL_HANDBAG`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Chanel Handbag` |
+| `.description` | `[gold]Enchant[/gold] all cards for sale in shops with [purple]Glam[/purple].` |
+| `.flavor` | `Come on, give me your gold.` |
+
+### 朱莉安娜羽扇
+**键名**: `TOUHOUANCIENTS-JYOON_FAN`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Joon's Feathered Fan` |
+| `.description` | `At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength} Strength[/blue], [blue]{Dexterity} Dexterity[/blue], and [blue]{Focus} Focus[/blue]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.` |
+| `.flavor` | `Bad day.Bad day.Bad day!` |
+
+### 黑猫玩偶
+**键名**: `TOUHOUANCIENTS-BLACK_CAT_DOLL`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Black Cat Doll` |
+| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the start of each turn, [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] are [gold]Afflicted with[/gold] [purple]Collateral[/purple] [blue]{CollateralNum}[/blue].` |
+| `.flavor` | `If you keep resting on your laurels, you'll be penniless in no time...` |
+
+### 石油期货
+**键名**: `TOUHOUANCIENTS-OIL_FUTURES`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Oil Futures` |
+| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. Every [blue]{Turns}[/blue] turns, choose [blue]1[/blue] of [blue]{Cards}[/blue] random [red]Curses[/red] to add to your [gold]Hand[/gold].` |
+| `.flavor` | `With these resources in hand, I'll become a millionaire god in no time.` |
+| `.selectionScreenPrompt` | `Choose a [red]Curse[/red] to add to your Hand` |
+
+### 烟熏的团扇
+**键名**: `TOUHOUANCIENTS-SMOKED_FAN`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Smoked Fan` |
+| `.description` | `ALL Elite enemies have [blue]1[/blue] HP. Whenever you defeat an Elite, add a [red]Guilty[/red] to your [gold]Deck[/gold].` |
+| `.flavor` | `The poverty god's blessing.` |
+
+### 烤味噌
+**键名**: `TOUHOUANCIENTS-GRILLED_MISO`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Grilled Miso` |
+| `.description` | `Upon pickup, [gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.` |
+| `.eventDescription` | `[gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.` |
+| `.flavor` | `Oh~ real grilled miso... now that's the good stuff~` |
+
+---
+
+## 已有遗物更新（2026-07-14）
+
+### 冈格尼尔（描述重写）
+- 新描述: `Upon pickup, add a [gold]Spear "Gungnir"[/gold] to your [gold]Deck[/gold]. Whenever you gain [gold]Block[/gold], ALL enemies gain that much [gold]Block[/gold].`
+- 移除了 eventDescription
+- 新风味: `Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.`
+
+### 天壤梦弓（描述修改）
+- 旧: 对最高HP敌人造成 200% 伤害 + 2 层虚弱 → 新: 对最高HP敌人额外造成 2 次伤害 + `{Weak}` 层虚弱
+
+### 炼狱之烬（描述修改）
+- 添加了 add Ethereal 效果，修复 typo "Ethernal"→"Ethereal"
+
+### 新增风味文本
+- **无底之胃**: `Whether physical or spiritual, organic or inorganic — anything and everything goes straight down her gullet.`
+- **暴食之齿**: `Refuses nothing — except golden apples.`
+- **舐血之舌**: `Not enough, not enough, not enough! I need more...`
+- **剜天之勺**: `Just one scoop.`
+- **刚欲之证**: `Might makes right. Survival of the fittest is the law of beasts.`
+- **贪婪之瞳**: `A greed like no other is quite filling, you know.`
+- **诅咒之血**: `The fear, joy, hatred, and lament of life — all of it is what oil, the blood of the earth, truly is.`
+- **炼狱之烬**: `"(Yawn—) Says they're gonna conquer the world, yet here they are, lazing around just like me." — Chiyari Tenkajin`
+- **无疚之面**: `Most members of the Gouyoku Alliance are a bunch of self-serving rogues.`
+
 ### 备注
 - **刚欲同盟 → Gouyoku 东方原作专有名词**
 
