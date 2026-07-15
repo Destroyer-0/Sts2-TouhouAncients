@@ -61,7 +61,7 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "在你的回合结束时，手牌总耗能每比剩余能量多一，就给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病支票",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "消耗你手牌中的所有[red]债务[/red]。\n如果这张牌在你的手中，你可以免费打出每回合的前1张牌，在回合结束时将一张[red]债务[/red]加入你的抽牌堆。",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "移除[gold]名流[/gold]状态。\n[gold]消耗[/gold]你的所有[red]债务[/red]，每有一张被[gold]消耗[/gold]的牌，就失去[blue]{Gold}[/blue][gold]金币[/gold]。{InCombat:\n（失去{CalculatedHits:diff()}[gold]金币[/gold]）|}",
 
     "TOUHOUANCIENTS-HEAVEN_SAGE.title": "天堂智者",
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",

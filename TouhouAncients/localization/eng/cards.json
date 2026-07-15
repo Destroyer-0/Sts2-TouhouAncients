@@ -62,8 +62,8 @@
     "TOUHOUANCIENTS-POOREST_FORM.title": "Destitution Form",
     "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy",
 
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病支票",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "(BETA)消耗你的所有[red]债务[/red]。\n如果这张牌在你的手中，你可以免费打出每回合的前2张牌，在回合结束时将一张[red]债务[/red]加入你的弃牌堆。",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Remove your [gold]Celebrity[/gold] Power.\n[gold]Exhaust[/gold] all your [red]Debts[/red]. Lose [blue]{Gold}[/blue] [gold]Gold[/gold] for each card [gold]Exhausted[/gold].{InCombat:\n(Lose {CalculatedHits:diff()} [gold]Gold[/gold])|}",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "The Feast",
     "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].",

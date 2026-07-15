@@ -640,9 +640,13 @@
   "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "[gold]Enchant[/gold] all cards for sale in shops with [purple]Glam[/purple].",
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "Come on, give me your gold.",
 
-  "TOUHOUANCIENTS-JYOON_FAN.title": "Joon's Feathered Fan",
+  "TOUHOUANCIENTS-JYOON_FAN.title": "Juliana Fan",
   "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength} Strength[/blue], [blue]{Dexterity} Dexterity[/blue], and [blue]{Focus} Focus[/blue]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "Bad day.Bad day.Bad day!",
+
+  "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",
+  "TOUHOUANCIENTS-MILLION_POUNDS.description": "At the start of each combat, gain [gold]Celebrity[/gold], and add a [gold]Plague Check[/gold] into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "Oh, mate. That'll cost ya.",
 
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "Black Cat Doll",
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.description": "At the start of each turn, gain {Energy:energyIcons()}. At the start of each turn, [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] are [gold]Afflicted with[/gold] [purple]Collateral[/purple] [blue]{CollateralNum}[/blue].",

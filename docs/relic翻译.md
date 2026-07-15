@@ -1353,8 +1353,8 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Million Pounds` |
-| `.description` | `At the start of each combat, add [blue]{Cards}[/blue] [gold]The Million Pound Note[/gold] to your [gold]Hand[/gold].` |
-| `.flavor` | `Oh mate, it'll cost a tidy bit.` |
+| `.description` | `At the start of each combat, gain [gold]Celebrity[/gold], and add a [gold]Plague Check[/gold] into your [gold]Hand[/gold].` |
+| `.flavor` | `Oh, mate. That'll cost ya.` |
 
 ### 纯金手镯
 **键名**: `TOUHOUANCIENTS-PURE_GOLD_BRACELET`
@@ -1379,7 +1379,7 @@
 
 | 字段 | 翻译 |
 |------|------|
-| `.title` | `Joon's Feathered Fan` |
+| `.title` | `Juliana Fan` |
 | `.description` | `At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength} Strength[/blue], [blue]{Dexterity} Dexterity[/blue], and [blue]{Focus} Focus[/blue]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.` |
 | `.flavor` | `Bad day.Bad day.Bad day!` |
 

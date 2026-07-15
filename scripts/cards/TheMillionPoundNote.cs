@@ -2,38 +2,46 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 疫病支票 (The Million Pound Note)
-/// 2(1)费，消耗，保留。消耗你所有的债务。
-/// 进入手牌时给予玩家百万英镑 Power：每回合前 2 张牌免费打出。
-/// 离开手牌且手牌中无其他疫病支票时移除该 Power。
+/// 疫病支票 (The Million Pound Note — Plague Check)
+/// 1(0)费，保留，消耗。
+/// 移除名流状态，消耗所有债务，每消耗一张失去5金币。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class TheMillionPoundNote : TouhouAncientCards
 {
-    private const int energyCost = 2;
+    private const int energyCost = 1;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.None;
     private const bool shouldShowInCardLibrary = true;
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new GoldVar(5),
+        new CalculatedVar("CalculatedHits").WithMultiplier((CardModel card, Creature? _) =>
+            card.Owner?.PlayerCombatState != null
+                ? card.Owner.PlayerCombatState.AllCards.Count(c => c is Debt && c is { HasBeenRemovedFromState: false, Pile: not { Type: PileType.Exhaust } }) * 5
+                : 0)
+    ];
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<Debt>();
+        HoverTipFactory.FromCardWithCardHoverTips<Debt>()
+            .Append(HoverTipFactory.FromPower<TheMillionPoundNotePower>());
 
     public TheMillionPoundNote() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -43,53 +51,27 @@ public class TheMillionPoundNote : TouhouAncientCards
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c.Pile.Type == PileType.Hand).ToList();
-
-        foreach (var item in debts)
+        var power = Owner.Creature.GetPower<TheMillionPoundNotePower>();
+        if (power != null)
         {
-            await CardCmd.Exhaust(choiceContext, item);
+            await PowerCmd.Remove(power);
+        }
+
+        var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c is { HasBeenRemovedFromState: false, Pile: not { Type: PileType.Exhaust } }).ToList();
+
+        foreach (var debt in debts)
+        {
+            await CardCmd.Exhaust(choiceContext, debt);
+        }
+
+        if (debts.Count > 0)
+        {
+            await PlayerCmd.LoseGold(((CalculatedVar)base.DynamicVars["CalculatedHits"]).Calculate(Owner.Creature), Owner);
         }
     }
 
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
-    }
-
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
-    {
-        if (side != base.Owner.Creature.Side) return;
-        if (base.Owner.PlayerCombatState == null) return;
-        if (!participants.Contains(base.Owner.Creature))
-        {
-            return;
-        }
-
-        if (!PileType.Hand.GetPile(base.Owner).Cards.Contains(this)) return;
-
-        await CardPileCmd.AddToCombatAndPreview<Debt>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner,CardPilePosition.Random);
-    }
-    /// <summary>
-    /// 卡牌变更牌堆时：进入手牌则给予 Power，离开手牌则由 Power 自行检查移除。
-    /// </summary>
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
-    {
-        if (card != this) return;
-        if (card.Owner != Owner) return;
-        if (Owner?.Creature?.CombatState == null) return;
-        if (oldPileType == PileType.Hand && Pile?.Type == PileType.Hand) return;
-        if (Pile?.Type == PileType.Hand)
-        {
-            await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1m,
-                Owner.Creature, this);
-        }
-        else if (oldPileType == PileType.Hand)
-        {
-            var millionPoundPower = Owner.Creature.GetPower<TheMillionPoundNotePower>();
-            if (millionPoundPower != null)
-            {
-                await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), millionPoundPower, -1, Owner.Creature, this);
-            }
-        }
     }
 }

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,35 +8,33 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 百万英镑：战斗开始时，将一张【疫病支票】加入你的手牌。
-/// 疫病支票：2(1)费，消耗，保留。消耗你所有的债务。
-/// 只要这张牌在你的手中，你就能免费打出前两张牌，并在回合结束时将一张债务加入抽牌堆。
+/// 百万英镑：在每场战斗开始时，获得名流，并将一张疫病支票加入手牌。
+/// 名流：每回合你打出的前1张牌会免费打出，并将一张债务加入弃牌堆。
+/// 疫病支票：2(1)费，保留，消耗。触发然后消耗你的所有债务，移除名流状态。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class MillionPounds : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CardsVar(1)
-    ];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<TheMillionPoundNote>();
+        HoverTipFactory.FromCardWithCardHoverTips<TheMillionPoundNote>()
+            .Append(HoverTipFactory.FromPower<TheMillionPoundNotePower>());
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner) return;
-        if (Owner.Creature.CombatState == null) return;
-        if (combatState.RoundNumber != 1) return;
-        
-        Flash();
+        if (player.Creature.CombatState?.RoundNumber != 1) return;
 
-        await CardPileCmd.AddGeneratedCardsToCombat([combatState.CreateCard<TheMillionPoundNote>(base.Owner)], PileType.Hand, creator: base.Owner);
+        Flash();
+        await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, base.Owner.Creature, null);
+        var note = player.Creature.CombatState.CreateCard<TheMillionPoundNote>(player);
+        await CardPileCmd.AddGeneratedCardsToCombat([note], PileType.Hand, creator: base.Owner);
     }
 }
