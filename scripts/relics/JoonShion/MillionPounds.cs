@@ -24,8 +24,8 @@ namespace TouhouAncients.Scripts.relics;
 public class MillionPounds : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<TheMillionPoundNote>()
-            .Append(HoverTipFactory.FromPower<TheMillionPoundNotePower>());
+        new[] { HoverTipFactory.FromPower<TheMillionPoundNotePower>() }.Concat(
+            HoverTipFactory.FromCardWithCardHoverTips<TheMillionPoundNote>());
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -33,7 +33,8 @@ public class MillionPounds : TouhouAncientRelics
         if (player.Creature.CombatState?.RoundNumber != 1) return;
 
         Flash();
-        await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, base.Owner.Creature, null);
+        await PowerCmd.Apply<TheMillionPoundNotePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m,
+            base.Owner.Creature, null);
         var note = player.Creature.CombatState.CreateCard<TheMillionPoundNote>(player);
         await CardPileCmd.AddGeneratedCardsToCombat([note], PileType.Hand, creator: base.Owner);
     }
