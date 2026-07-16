@@ -33,6 +33,8 @@ public class TheMillionPoundNote : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new GoldVar(5),
+        new CalculationBaseVar(0m),
+        new CalculationExtraVar(1m),
         new CalculatedVar("CalculatedHits").WithMultiplier((CardModel card, Creature? _) =>
             card.Owner?.PlayerCombatState != null
                 ? card.Owner.PlayerCombatState.AllCards.Count(c => c is Debt && c is { HasBeenRemovedFromState: false, Pile: not { Type: PileType.Exhaust } }) * 5
