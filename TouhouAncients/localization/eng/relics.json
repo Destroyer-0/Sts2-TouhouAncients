@@ -624,13 +624,9 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs.",
 
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "Possession Spirit",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "Upon pickup, add [blue]1[/blue] [gold]Richest Form[/gold] and [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "Add [blue]1[/blue] [gold]Richest Form[/gold] and [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "Upon pickup, add [blue]1[/blue] [gold]Richest Form[/gold] and [blue]1[/blue] [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "Add [blue]1[/blue] [gold]Richest Form[/gold] and [blue]1[/blue] [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "Tonight Stars an Easygoing Egoist",
-
-  "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",
-  "TOUHOUANCIENTS-MILLION_POUNDS.description": "At the start of each combat, add [blue]{Cards}[/blue] [gold]The Million Pound Note[/gold] to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "Oh mate, it'll cost a tidy bit.",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "Pure Gold Bracelet",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "At the start of each turn, draw [blue]{Cards}[/blue] additional cards, then [gold]Discard[/gold] any non-X-cost cards drawn this way that cost less than [blue]{Threshold}[/blue].",

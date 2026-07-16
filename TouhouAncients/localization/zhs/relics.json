@@ -624,8 +624,8 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "这位无败的刚欲同盟盟主对任何食物都来之不拒，但唯独油豆腐能让她短暂收起撕咬的尖牙。",
 
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "凭依之灵",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "拾起时，将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "将[blue]1[/blue]张[gold]极奢形态[/gold]与[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "拾起时，将[blue]1[/blue]张[gold]极奢形态[/gold]与[blue]1[/blue]张[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "将[blue]1[/blue]张[gold]极奢形态[/gold]与[blue]1[/blue]张[gold]至贫形态[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "今宵就成为飘逸的利己主义者吧。",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
