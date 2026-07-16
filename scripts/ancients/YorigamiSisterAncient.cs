@@ -21,13 +21,13 @@ public class YorigamiSisterAncient : TouhouAncientBase
             new Dictionary<string, AncientSpeakerProfile>
             {
                 ["jyoon"] = new AncientSpeakerProfile(
-                    "res://images/icon/Character/YorigamiSister.png",
-                    "res://images/icon/Character/Outline/YorigamiSister.png",
+                    "res://images/icon/Character/YorigamiSister_Joon.png",
+                    "res://images/icon/Character/Outline/YorigamiSister_Joon.png",
                     new Color(0.980f, 0.584f, 0.306f, 1f)
                 ),
                 ["shion"] = new AncientSpeakerProfile(
                     "res://images/icon/Character/YorigamiSister_Shion.png",
-                    "res://images/icon/Character/Outline/YorigamiSister.png",
+                    "res://images/icon/Character/Outline/YorigamiSister_Shion.png",
                     new Color(0.4f, 0.3f, 0.7f, 1f)
                 ),
             }
