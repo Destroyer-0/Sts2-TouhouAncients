@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using BaseLib.Abstracts;
 using Godot;
 using HarmonyLib;
@@ -94,8 +95,10 @@ public static class AncientDialoguePortraitPatch
                 return;
 
             var iconNode = __instance.GetNode<Control>("%AncientIcon");
-            iconNode.GetNode<TextureRect>("Icon").Texture = PreloadManager.Cache.GetCompressedTexture2D(profile.IconPath);
-            iconNode.GetNode<TextureRect>("Icon/Outline").Texture = PreloadManager.Cache.GetCompressedTexture2D(profile.OutlinePath);
+            iconNode.GetNode<TextureRect>("Icon").Texture =
+                PreloadManager.Cache.GetCompressedTexture2D(profile.IconPath);
+            iconNode.GetNode<TextureRect>("Icon/Outline").Texture =
+                PreloadManager.Cache.GetCompressedTexture2D(profile.OutlinePath);
 
             var dialogueColor = profile.DialogueColor;
             __instance.GetNode<Control>("%Bubble").SelfModulate = dialogueColor;
@@ -114,7 +117,8 @@ public static class AncientDialoguePortraitPatch
             if (!AncientSpeakerRegistry.HasProfiles(ancientEntry))
                 return;
 
-            __result = MergeAllVariants(ancientEntry, __result, p => PreloadManager.Cache.GetCompressedTexture2D(p.IconPath));
+            __result = MergeAllVariants(ancientEntry, __result,
+                p => PreloadManager.Cache.GetCompressedTexture2D(p.IconPath));
         }
     }
 
@@ -129,32 +133,34 @@ public static class AncientDialoguePortraitPatch
             if (!AncientSpeakerRegistry.HasProfiles(ancientEntry))
                 return;
 
-            __result = MergeAllVariants(ancientEntry, __result, p => PreloadManager.Cache.GetCompressedTexture2D(p.OutlinePath));
+            __result = MergeAllVariants(ancientEntry, __result,
+                p => PreloadManager.Cache.GetCompressedTexture2D(p.OutlinePath));
         }
     }
 
     /// <summary>
     /// Merge all variant icons horizontally at full size (no scaling).
-    /// First variant uses <paramref name="firstTex"/> (already loaded by caller),
+    /// First variant uses <paramref name="defaultTex"/> (already loaded by caller),
     /// remaining variants are loaded via <paramref name="getTex"/> from SpeakerProfiles.
     /// </summary>
-    private static Texture2D MergeAllVariants(string ancientEntry, Texture2D firstTex, System.Func<AncientSpeakerProfile, Texture2D> getTex)
+    private static Texture2D MergeAllVariants(string ancientEntry, Texture2D defaultTex,
+        System.Func<AncientSpeakerProfile, Texture2D> getTex)
     {
-        if (firstTex == null)
+        if (defaultTex == null)
             return null!;
 
         var variantIds = AncientSpeakerRegistry.GetVariantIds(ancientEntry).ToList();
         if (variantIds.Count < 2)
-            return firstTex;
+            return defaultTex;
 
-        var firstImg = firstTex.GetImage();
+        var firstImg = defaultTex.GetImage();
         int w = firstImg.GetWidth();
         int h = firstImg.GetHeight();
 
         var merged = Image.CreateEmpty(w * variantIds.Count, h, false, firstImg.GetFormat());
-        merged.BlitRect(firstImg, new Rect2I(0, 0, w, h), new Vector2I(0, 0));
+        //merged.BlitRect(firstImg, new Rect2I(0, 0, w, h), new Vector2I(0, 0));
 
-        for (int i = 1; i < variantIds.Count; i++)
+        for (int i = 0; i < variantIds.Count; i++)
         {
             if (!AncientSpeakerRegistry.TryGetProfile(ancientEntry, variantIds[i], out var profile))
                 continue;
@@ -174,19 +180,33 @@ public static class AncientDialoguePortraitPatch
         var w = tex.GetWidth() * h / tex.GetHeight();
         textureRect.CustomMinimumSize = new Vector2(w, h);
     }
-    
+
     // --- NRelicCollectionCategory.LoadIcon Patch: expand width for merged icons ---
 
-    [HarmonyPatch(typeof(NRelicCollectionCategory), "LoadIcon")]
+    [HarmonyPatch]
     public static class LoadIcon_Patch
     {
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(NRelicCollectionCategory), "LoadIcon");
+        }
+
         static void Postfix(NRelicCollectionCategory __instance, Texture2D tex)
         {
             if (tex == null)
+            {
+                GD.PrintErr("LoadIcon_Patch: tex is null!");
                 return;
-
-            var icon = Traverse.Create(__instance).Field("_icon").GetValue<TextureRect>();
+            }
+            // Use GetNode instead of _icon field to avoid _Ready() timing issues
+            var icon = __instance.GetNode<TextureRect>("%Icon");
+            if (icon == null)
+            {
+                GD.PrintErr("LoadIcon_Patch: %Icon node not found!");
+                return;
+            }
             ResetIconSize(icon, tex);
+            (icon.GetParent() as Container)?.QueueSort();
         }
     }
     //
@@ -239,5 +259,4 @@ public static class AncientDialoguePortraitPatch
     //         }
     //     }
     // }
-
 }
