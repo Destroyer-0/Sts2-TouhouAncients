@@ -61,15 +61,17 @@ public class TheMillionPoundNote : TouhouAncientCards
 
         var debts = Owner.PlayerCombatState.AllCards.Where(c => c is Debt && c is { HasBeenRemovedFromState: false, Pile: not { Type: PileType.Exhaust } }).ToList();
 
+        var amount = ((CalculatedVar)base.DynamicVars["CalculatedHits"]).Calculate(Owner.Creature);
         foreach (var debt in debts)
         {
             await CardCmd.Exhaust(choiceContext, debt);
         }
-
         if (debts.Count > 0)
         {
-            await PlayerCmd.LoseGold(((CalculatedVar)base.DynamicVars["CalculatedHits"]).Calculate(Owner.Creature), Owner);
+            await PlayerCmd.LoseGold(amount, Owner);
         }
+        
+
     }
 
     protected override void OnUpgrade()

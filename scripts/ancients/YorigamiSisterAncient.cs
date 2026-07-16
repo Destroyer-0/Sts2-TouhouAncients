@@ -35,8 +35,8 @@ public class YorigamiSisterAncient : TouhouAncientBase
     }
 
     public override int? ShowAct => 2;
-    public override Color ButtonColor => new(0.584f, 0.435f, 0.278f, 0.7f);
-    private Color JyoonButtonColor => new(0.980f, 0.584f, 0.306f, 0.6f);
+    public override Color ButtonColor => new(0.584f, 0.435f, 0.278f, 0.8f);
+    private Color JyoonButtonColor => new(0.980f, 0.584f, 0.306f, 0.8f);
     private Color ShionButtonColor => new(0.4f, 0.3f, 0.7f, 0.6f);
     public override Color DialogueColor => new(0.980f, 0.584f, 0.306f, 1f);
 
@@ -48,49 +48,49 @@ public class YorigamiSisterAncient : TouhouAncientBase
         _ => ButtonColor,
     };
 
-    /// <summary>
-    /// 重写 DefineDialogues：因为 JSON 键使用 .ancient_jyoon / .ancient_shion 变体后缀，
-    /// BaseLib 的扫描无法识别，所以手动构建对话结构。
-    /// </summary>
-    protected override AncientDialogueSet DefineDialogues()
-    {
-        // ANY 对话结构（根据 JSON）：
-        //   0: 3 lines, 非重复   (jyoon / shion / jyoon)
-        //   1: 2 lines, 重复 1   (jyoon / shion)
-        //   2: 3 lines, 重复 2   (jyoon / shion / jyoon)
-        //   3: 1 line,  重复 3   (jyoon)
-        var agnostic = new List<AncientDialogue>
-        {
-            new AncientDialogue("", "", ""),
-            CreateRepeating(1, "", ""),
-            CreateRepeating(2, "", "", ""),
-            CreateRepeating(3, ""),
-        };
-
-        // IRONCLAD 专有对话：
-        //   0: 2 lines, 非重复   (shion / jyoon)
-        var ironclad = new AncientDialogue[]
-        {
-            new AncientDialogue("", ""),
-        };
-
-        return new AncientDialogueSet
-        {
-            FirstVisitEverDialogue = new AncientDialogue(""),
-            CharacterDialogues = new Dictionary<string, IReadOnlyList<AncientDialogue>>
-            {
-                ["IRONCLAD"] = ironclad,
-            },
-            AgnosticDialogues = agnostic,
-        };
-    }
-
-    private static AncientDialogue CreateRepeating(int visitIndex, params string[] sfxPaths)
-    {
-        var d = new AncientDialogue(sfxPaths);
-        Traverse.Create(d).Property("VisitIndex").SetValue(visitIndex);
-        return d;
-    }
+    // /// <summary>
+    // /// 重写 DefineDialogues：因为 JSON 键使用 .ancient_jyoon / .ancient_shion 变体后缀，
+    // /// BaseLib 的扫描无法识别，所以手动构建对话结构。
+    // /// </summary>
+    // protected override AncientDialogueSet DefineDialogues()
+    // {
+    //     // ANY 对话结构（根据 JSON）：
+    //     //   0: 3 lines, 非重复   (jyoon / shion / jyoon)
+    //     //   1: 2 lines, 重复 1   (jyoon / shion)
+    //     //   2: 3 lines, 重复 2   (jyoon / shion / jyoon)
+    //     //   3: 1 line,  重复 3   (jyoon)
+    //     var agnostic = new List<AncientDialogue>
+    //     {
+    //         new AncientDialogue("", "", ""),
+    //         CreateRepeating(1, "", ""),
+    //         CreateRepeating(2, "", "", ""),
+    //         CreateRepeating(3, ""),
+    //     };
+    //
+    //     // IRONCLAD 专有对话：
+    //     //   0: 2 lines, 非重复   (shion / jyoon)
+    //     var ironclad = new AncientDialogue[]
+    //     {
+    //         new AncientDialogue("", ""),
+    //     };
+    //
+    //     return new AncientDialogueSet
+    //     {
+    //         FirstVisitEverDialogue = new AncientDialogue(""),
+    //         CharacterDialogues = new Dictionary<string, IReadOnlyList<AncientDialogue>>
+    //         {
+    //             ["IRONCLAD"] = ironclad,
+    //         },
+    //         AgnosticDialogues = agnostic,
+    //     };
+    // }
+    //
+    // private static AncientDialogue CreateRepeating(int visitIndex, params string[] sfxPaths)
+    // {
+    //     var d = new AncientDialogue(sfxPaths);
+    //     Traverse.Create(d).Property("VisitIndex").SetValue(visitIndex);
+    //     return d;
+    // }
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/WatariNina_MapNode.png";

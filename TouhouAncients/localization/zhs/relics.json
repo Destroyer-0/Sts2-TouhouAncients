@@ -1,18 +1,18 @@
 ﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
-  "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入牌组。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
-  "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入牌组。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
+  "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.flavor": "战什么未来？现在就要！",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.selectionScreenPrompt": "选择一张牌",
 
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.title": "重峦叠嶂的壁垒",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的牌组。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.description": "拾起时，将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的[gold]牌组[/gold]。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.eventDescription": "将[blue]3[/blue]张带有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]的[gold]壁垒+[/gold]加入你的[gold]牌组[/gold]。每当你将一张[gold]已有同名牌存在于牌组中[/gold]的卡牌加入牌组时，为那张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BILEIHAOPAIDUOZHUA.flavor": "壁垒好牌多抓",
 
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.title": "白白胖胖的海兽",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除[blue]4[/blue]张牌，然后复制你牌组中的防御并[green]升级[/green]。",
-  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除[blue]4[/blue]张牌，然后复制你牌组中的防御并[green]升级[/green]。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.description": "拾起时，删除[blue]4[/blue]张牌，然后复制你[gold]牌组[/gold]中的防御并[green]升级[/green]。",
+  "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.eventDescription": "删除[blue]4[/blue]张牌，然后复制你[gold]牌组[/gold]中的防御并[green]升级[/green]。",
   "TOUHOUANCIENTS-BAIBAIXIANGXIANGRUANRUAN.flavor": "删牌大于一切啊！",
 
   "TOUHOUANCIENTS-GEISHEHUAXIAOJIE.title": "萎靡心灵的魔咒",
@@ -24,8 +24,8 @@
   "TOUHOUANCIENTS-HUOYANTUXI.flavor": "噶人们，火焰屏障伤害特别高",
 
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.title": "吞天噬地的毒牙",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将[blue]1[/blue]张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.eventDescription": "将[blue]1[/blue]张[gold]蛇咬[/gold]加入牌组。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.description": "拾起时，将[blue]1[/blue]张[gold]蛇咬[/gold]加入你的[gold]牌组[/gold]。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.eventDescription": "将[blue]1[/blue]张[gold]蛇咬[/gold]加入你的[gold]牌组[/gold]。为你所有牌组中与之后获得的名字中带有“蛇”的牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.flavor": "蛇咬不愧是尖塔二第一神卡",
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
@@ -633,7 +633,7 @@
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]的非X费牌。",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]且耗能不为X的牌。",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "金银天下转，贫富朝夕变。哪个蠢家伙，居然想存钱？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
