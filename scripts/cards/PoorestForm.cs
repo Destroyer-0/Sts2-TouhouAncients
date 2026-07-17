@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
@@ -27,7 +28,8 @@ public class PoorestForm : TouhouAncientCards
     private const bool shouldShowInCardLibrary = true;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        CardKeyword.Eternal
+        CardKeyword.Eternal,
+        TouhouAncientKeywords.TouhouAncientSinkToBottom
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

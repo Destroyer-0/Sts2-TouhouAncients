@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using BaseLib.Abstracts;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Ancients;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
@@ -181,32 +181,36 @@ public static class AncientDialoguePortraitPatch
         textureRect.CustomMinimumSize = new Vector2(w, h);
     }
 
-    // --- NRelicCollectionCategory.LoadIcon Patch: expand width for merged icons ---
+    // --- NRelicCollectionCategory.LoadRelics Postfix: resize merged Ancient icons ---
+    // Patches LoadRelics instead of LoadIcon to avoid timing issues:
+    // by the time LoadRelics finishes, all subcategories have been added to the tree,
+    // _Ready() has run, and LoadIcon has set the texture.
 
-    [HarmonyPatch]
-    public static class LoadIcon_Patch
+    [HarmonyPatch(typeof(NRelicCollectionCategory), "LoadRelics")]
+    [HarmonyPriority(Priority.Low)]
+    public static class LoadRelics_Patch
     {
-        private static MethodBase TargetMethod()
+        static void Postfix(NRelicCollectionCategory __instance, RelicRarity relicRarity)
         {
-            return AccessTools.Method(typeof(NRelicCollectionCategory), "LoadIcon");
-        }
+            if (relicRarity != RelicRarity.Ancient)
+                return;
 
-        static void Postfix(NRelicCollectionCategory __instance, Texture2D tex)
-        {
-            if (tex == null)
-            {
-                GD.PrintErr("LoadIcon_Patch: tex is null!");
+            var subCategories = Traverse.Create(__instance)
+                .Field("_subCategories")
+                .GetValue<List<NRelicCollectionCategory>>();
+
+            if (subCategories == null)
                 return;
-            }
-            // Use GetNode instead of _icon field to avoid _Ready() timing issues
-            var icon = __instance.GetNode<TextureRect>("%Icon");
-            if (icon == null)
+
+            foreach (var sub in subCategories)
             {
-                GD.PrintErr("LoadIcon_Patch: %Icon node not found!");
-                return;
+                var icon = Traverse.Create(sub).Field("_icon").GetValue<TextureRect>();
+                if (icon?.Texture == null)
+                    continue;
+
+                ResetIconSize(icon, icon.Texture);
+                (icon.GetParent() as Container)?.QueueSort();
             }
-            ResetIconSize(icon, tex);
-            (icon.GetParent() as Container)?.QueueSort();
         }
     }
     //

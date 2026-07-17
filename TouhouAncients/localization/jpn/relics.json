@@ -624,8 +624,8 @@
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs.",
 
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "Possession Spirit",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "Upon pickup, add [blue]1[/blue] [gold]Richest Form[/gold] and [blue]1[/blue] [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "Add [blue]1[/blue] [gold]Richest Form[/gold] and [blue]1[/blue] [gold]Poorest Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "Upon pickup, add [blue]1[/blue] [gold]Opulence Form[/gold] and [blue]1[/blue] [gold]Destitution Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "Add [blue]1[/blue] [gold]Opulence Form[/gold] and [blue]1[/blue] [gold]Destitution Form[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "Tonight Stars an Easygoing Egoist",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "Pure Gold Bracelet",
@@ -637,7 +637,7 @@
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "Come on, give me your gold.",
 
   "TOUHOUANCIENTS-JYOON_FAN.title": "Juliana Fan",
-  "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength} Strength[/blue], [blue]{Dexterity} Dexterity[/blue], and [blue]{Focus} Focus[/blue]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "Bad day.Bad day.Bad day!",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",

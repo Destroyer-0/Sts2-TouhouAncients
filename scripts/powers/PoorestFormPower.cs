@@ -47,6 +47,10 @@ public class PoorestFormPower : TouhouAncientPowerModel
 
         for (int i = 0; i < doomPowerTime; i++)
         {
+            if (Owner.CombatState.HittableEnemies.Count == 0)
+            {
+                return;
+            }
             Creature creature = base.Owner.Player.RunState.Rng.CombatTargets.NextItem(base.Owner.CombatState.HittableEnemies);
             await PowerCmd.Apply<DoomPower>(choiceContext, creature, Amount, Owner, null);
         }
