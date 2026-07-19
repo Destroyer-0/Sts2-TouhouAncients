@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -39,7 +40,6 @@ public class RichestFormPower : TouhouAncientPowerModel
 
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        _cardTypePlayedThisTurn.Clear();
         return base.AfterApplied(applier, cardSource);
     }
 
@@ -53,8 +53,11 @@ public class RichestFormPower : TouhouAncientPowerModel
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != Owner)
+        GD.PrintErr($"{cardPlay.Card.Owner.ToString()}打出{cardPlay.Card.ToString()}");
+        
+        if (cardPlay.Card.Owner != Owner.Player)
         {
+            GD.PrintErr("这不是你打出的牌！");
             return Task.CompletedTask;
         }
 
@@ -64,13 +67,13 @@ public class RichestFormPower : TouhouAncientPowerModel
         }
 
         _cardTypePlayedThisTurn[cardPlay.Card.Type] += 1;
-        return base.AfterCardPlayed(choiceContext, cardPlay);
+        return Task.CompletedTask;
     }
 
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
         modifiedCost = originalCost;
-        if (card.Owner.Creature != base.Owner)
+        if (card.Owner != base.Owner.Player)
         {
             return false;
         }
