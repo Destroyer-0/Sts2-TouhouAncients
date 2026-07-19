@@ -111,7 +111,8 @@
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "One of Remilia's treasures, with a blood-red color more vivid than any ruby in the world — though no phantom thief has ever set their sights on it.",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "Gungnir",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "Upon pickup, add a [gold]Spear \"Gungnir\"[/gold] to your [gold]Deck[/gold]. Whenever you gain [gold]Block[/gold], ALL enemies gain that much [gold]Block[/gold].",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "Upon pickup, add a [gold]Spear \"Gungnir\"[/gold] to your [gold]Deck[/gold].\nWhen you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear \"Gungnir\"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "Add a [gold]Spear \"Gungnir\"[/gold] to your [gold]Deck[/gold]. When you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear \"Gungnir\"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen",
@@ -461,7 +462,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "Jewel from the Dragon's Neck",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "Every [blue]{Card}[/blue] cards you play, add a [gold]Seven Stars[/gold] with [gold]Ethereal[/gold] and [blue]0[/blue] Stars cost into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "At the start of each combat, add a [gold]Seven Stars+[/gold] to your [gold]Hand[/gold]. It has [gold]Retain[/gold]. At the end of your turn, or every [blue]{Card}[/blue] cards you play, reduce its [gold]Stars[/gold] cost by [blue]1[/blue] this combat.",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
@@ -641,7 +642,7 @@
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "Bad day.Bad day.Bad day!",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",
-  "TOUHOUANCIENTS-MILLION_POUNDS.description": "At the start of each combat, gain [gold]Celebrity[/gold], and add a [gold]Plague Check[/gold] into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-MILLION_POUNDS.description": "At the start of each combat, add a [gold]Plague Check[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "Oh, mate. That'll cost ya.",
 
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "Black Cat Doll",
@@ -650,7 +651,7 @@
 
   "TOUHOUANCIENTS-OIL_FUTURES.title": "Oil Futures",
   "TOUHOUANCIENTS-OIL_FUTURES.description": "At the start of each turn, gain {Energy:energyIcons()}. Every [blue]{Turns}[/blue] turns, choose [blue]1[/blue] of [blue]{Cards}[/blue] random [red]Curses[/red] to add to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "With these resources in hand, I'll become a millionaire god in no time.",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "With these resources in hand, I'll become a millionaire god in no time. (Even knowing the truth about that oil... does it matter?)",
   "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "Choose a [red]Curse[/red] to add to your Hand",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "Smoked Fan",
