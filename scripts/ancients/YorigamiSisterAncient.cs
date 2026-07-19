@@ -92,8 +92,8 @@ public class YorigamiSisterAncient : TouhouAncientBase
     //     return d;
     // }
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/WatariNina_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/WatariNina_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/YorigamiSister_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/YorigamiSister_MapNode.png";
 
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/YorigamiSister.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/YorigamiSister.png";
