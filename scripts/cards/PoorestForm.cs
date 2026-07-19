@@ -34,7 +34,7 @@ public class PoorestForm : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Amount", 4m)
+        new DynamicVar("Amount", 5m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

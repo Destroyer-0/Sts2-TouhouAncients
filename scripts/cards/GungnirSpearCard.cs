@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -23,19 +24,20 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class GungnirSpearCard : TouhouAncientCards
 {
-    private const int energyCost = 2;
+    private const int energyCost = 1;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
-
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(0m),
-        new ExtraDamageVar(2m),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? target) => target?.Block ?? 0),
+        new ExtraDamageVar(3m),
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((CardModel card, Creature? target) =>
+            target?.Block ?? 0),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -47,6 +49,15 @@ public class GungnirSpearCard : TouhouAncientCards
     {
     }
 
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    {
+        if (!CombatManager.Instance.IsInProgress || player != this.Owner || this.HasBeenRemovedFromState) return;
+        if (this.Pile != null && this.Pile.Type != PileType.Hand)
+        {
+            await CardPileCmd.Add(this, PileType.Hand, clonedBy: this);
+        }
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
@@ -55,16 +66,21 @@ public class GungnirSpearCard : TouhouAncientCards
             .Execute(choiceContext);
     }
 
-    /// <summary>
-    /// 回合结束时，如果这张牌不在手牌中，将其返回手牌。
-    /// </summary>
-    public override async Task BeforeFlush(PlayerChoiceContext choiceContext, Player player)
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card,
+        bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
-        if (base.Owner != player) return;
-        if (base.Pile?.Type == PileType.Hand) return;
-        if (base.CombatState == null) return;
+        if (!CombatManager.Instance.IsInProgress || card != this || card.HasBeenRemovedFromState)
+            return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
+        return (PileType.Hand, CardPilePosition.Top);
+    }
 
-        await CardPileCmd.Add(this, PileType.Hand);
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (!CombatManager.Instance.IsInProgress || card != this || card.HasBeenRemovedFromState) return;
+        if (card.Pile != null && card.Pile.Type != PileType.Hand)
+        {
+            await CardPileCmd.Add(card, PileType.Hand, clonedBy: this);
+        }
     }
 
     protected override void OnUpgrade()
