@@ -1864,3 +1864,83 @@
 
 ---
 
+
+---
+
+## 龙颈之玉（2026-07-19 更新）
+
+**键名**: `TOUHOUANCIENTS-RYUKEI_NO_TAMA`
+
+### 中文原文（更新后）
+```json
+"TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
+"TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]加入你的[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]费用减少[blue]1[/blue]。",
+"TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Jewel from the Dragon's Neck` |
+| `.description` | `At the start of each combat, add a [gold]Seven Stars+[/gold] to your [gold]Hand[/gold]. It has [gold]Retain[/gold]. At the end of your turn, or every [blue]{Card}[/blue] cards you play, reduce its [gold]Stars[/gold] cost by [blue]1[/blue] this combat.` |
+| `.flavor` | `""`（留空） |
+
+---
+
+## 百万英镑（2026-07-19 更新）
+
+**键名**: `TOUHOUANCIENTS-MILLION_POUNDS`
+
+### 中文原文（更新后）
+```json
+"TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
+"TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将一张[gold]疫病支票[/gold]加入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Million Pounds` |
+| `.description` | `At the start of each combat, add a [gold]Plague Check[/gold] to your [gold]Hand[/gold].` |
+| `.flavor` | `Oh, mate. That'll cost ya.` |
+
+---
+
+## 石油期货（2026-07-19 更新）
+
+**键名**: `TOUHOUANCIENTS-OIL_FUTURES`
+
+### 中文原文（更新后）
+```json
+"TOUHOUANCIENTS-OIL_FUTURES.flavor": "只要手握这些资源，就能变成富豪神了呢（哪怕是知道那石油的真相……也无所谓吗？）"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.flavor` | `With these resources in hand, I'll become a millionaire god in no time. (Even knowing the truth about that oil... does it matter?)` |
+
+---
+
+## 冈格尼尔（2026-07-19 更新）
+
+**键名**: `TOUHOUANCIENTS-SPEAR_GUNGNIR`
+
+### 中文原文（更新后）
+```json
+"TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "冈格尼尔",
+"TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "拾起时，将一张[gold]神枪「冈格尼尔」[/gold]加入你的[gold]牌组[/gold]。\n你使用[gold]神枪「冈格尼尔」[/gold]以外的卡牌对敌人造成伤害/获得格挡时，为目标/所有敌人附加等量格挡。",
+"TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "将一张[gold]神枪「冈格尼尔」[/gold]加入你的[gold]牌组[/gold]。你使用[gold]神枪「冈格尼尔」[/gold]以外的卡牌对敌人造成伤害/获得格挡时，为目标/所有敌人附加等量格挡。",
+"TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "将灵气收束成枪状投掷而出。贯通力很高，碰到弹幕大都都会毫无阻碍的连同敌人本体一起贯穿。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Gungnir` |
+| `.description` | `Upon pickup, add a [gold]Spear "Gungnir"[/gold] to your [gold]Deck[/gold].\nWhen you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear "Gungnir"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.` |
+| `.eventDescription` | `Add a [gold]Spear "Gungnir"[/gold] to your [gold]Deck[/gold]. When you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear "Gungnir"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.` |
+| `.flavor` | `Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.` |
+
+

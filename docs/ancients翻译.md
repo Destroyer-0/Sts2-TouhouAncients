@@ -1,811 +1,953 @@
-# ancients.json 翻译记录
+﻿# ancients.json 缈昏瘧璁板綍
 
-> 翻译依据：`zhs/ancients.json` → `eng/ancients.json`
-
----
-
-## [渡里 贝子]
-
-**键名**: `TOUHOUANCIENTS-WATARI_NINA_ANCIENT`
-
-### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 渡里 贝子 | Nina Watari |
-| `.epithet` | 沉迷尖塔的信息妖怪 | Information Youkai Obsessed with the Sts |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 莫非你们就是不停地向高塔顶前进的，所谓的[sine]"爬塔者"[/sine]？\n哦哦！果然如传闻所说…… | Could you be the ones constantly advancing toward the top of the tower, the so-called [sine]"Spire Players"[/sine]?\nOoh! Just as the rumors said... |
-| `talk.ANY.0-0.ancient` | 其实你们去找建筑师的整件事情，都是涅奥的…… | Actually, the whole thing about you going to find the Architect was all Neow's... |
-| `talk.ANY.0-0.next` | 疑问 | Question |
-| `talk.ANY.0-1.ancient` | 哦？！你确定要听吗？这隐匿的[sine]世界的真相[/sine]？天机不可泄露…… | Oh?! Are you sure you want to hear it? This hidden [sine]truth of the world[/sine]? The secrets of heaven must not be revealed... |
-| `talk.ANY.1-0r.ancient` | 哼哼，我乃全知之人，整座尖塔没有我，渡里贝子不知道的事情！ | Heheh, I am the omniscient one. There's nothing in this entire Spire that I, Nina Watari, don't know! |
-| `talk.ANY.2-0r.ancient` | 我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！ | The future of the world we live in is decided in the shadows by a small handful of people. This is the absolute truth! |
-| `talk.IRONCLAD.0-0r.ancient` | 那个你能表演一下那个吗对就是那个"黑拥重振放干血条重放恶魔之火最后牌烧完了我打什么"？！ | Hey, can you do that thing, yeah that thing—"Dark Embrace + Corruption + Dropkick + Replay + Demon Form, and then all my cards are burned, what do I play?!" |
-| `talk.SILENT.0-0r.ancient` | 听说你特别会转来转去，是不是真的啊？ | I heard you're really good at shuffling. Is that true? |
-| `talk.SILENT.0-0r.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1r.char` | …… | ... |
-| `talk.REGENT.0-0r.ancient` | 我进塔！！！ | I enter!!! |
-| `talk.REGENT.0-0r.next` | 沉思 | Pondering |
-| `talk.REGENT.0-1r.char` | 我进塔！！！ | I enter!!! |
-| `talk.DEFECT.0-0r.ancient` | 哦哦！是传说中的尖塔第四强角色！ | Ooh! The legendary fourth-strongest character of the Sts! |
-| `talk.DEFECT.0-0r.next` | 继续 | Continue |
-| `talk.DEFECT.0-1r.char` | [i][font_size=22]<生气的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
-| `talk.NECROBINDER.0-0r.ancient` | 哇！紫色角色！难道是那个只出现在[sine]传说[/sine]里的人物？！！ | Wow! A purple character! Could you be that figure who only appears in [sine]legends[/sine]?!! |
+> 缈昏瘧渚濇嵁锛歚zhs/ancients.json` 鈫?`eng/ancients.json`
 
 ---
 
-## [东风谷 早苗]
+## [娓￠噷 璐濆瓙]
 
-**键名**: `TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-WATARI_NINA_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 东风谷 早苗 | Sanae Kochiya |
-| `.epithet` | 现代的先古之民 | Modern Ancient |
+| `.title` | 娓￠噷 璐濆瓙 | Nina Watari |
+| `.epithet` | 娌夎糠灏栧鐨勪俊鎭鎬?| Information Youkai Obsessed with the Sts |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 啊，你就是两位大人提到的傀儡吗？我是风祝早苗，旅途如此辛苦，来参拜[aqua][jitter]守矢神社[/jitter][/aqua]，洗净你身上的一切痛苦与劳累，如何？ | Ah, so you're the puppet that the two ladies mentioned? I am Sanae, the wind priestess. Your journey has been so arduous—why not come pray at the [aqua][jitter]Moriya Shrine[/jitter][/aqua] and wash away all your pain and fatigue? |
-| `talk.ANY.0-0r.ancient` | 在这座塔里，也不能被常识束缚呢。 | Even in this tower, you can't be bound by common sense. |
-| `talk.ANY.1-0r.ancient` | 如果我也能去降伏高塔里的怪物，说不定也挺欢乐的…啊，这话可不能被神奈子大人听到！ | If I could go subdue the monsters in the tower too, that might be fun... Ah, Lady Kanako mustn't hear that! |
-| `talk.ANY.2-0r.ancient` | 诹访子大人说，为你提供帮助能收集信仰，所以你也要加油哦~ | Lady Suwako says that helping you can gather faith, so you'd better do your best too~ |
-| `talk.ANY.3-0r.ancient` | 下一次去哪里宣传好呢？ | Where should I go to spread the word next? |
-| `talk.ANY.4-0r.ancient` | 无论是怀着什么目的的参拜客，对神社而言都是有用的！ | No matter what motives a worshipper may have, they're all useful to the shrine! |
-| `talk.ANY.5-0r.ancient` | 呼呼~好处可不能都被博丽神社抢走了！咱们守矢的支援不比她差呐！ | Fufu~ We can't let the Hakurei Shrine hog all the benefits! Moriya's support is every bit as good as hers! |
-| `talk.IRONCLAD.0-0.ancient` | 好邪恶的气场！你是被什么东西凭依了吗？恶魔？那太糟糕了！你应该来信仰我们[aqua][jitter]守矢神社[/jitter][/aqua]！ | Such an evil aura! Are you possessed by something? A demon? That's terrible! You should come have faith in our [aqua][jitter]Moriya Shrine[/jitter][/aqua]! |
-| `talk.DEFECT.0-0.ancient` | 唔哦哦！一个能自己行走的机器人！ | Uwoooh! A robot that can walk on its own! |
-| `talk.DEFECT.0-0.next` | 继续 | Continue |
-| `talk.DEFECT.0-1.char` | [i][font_size=22]<疑惑的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
-| `talk.DEFECT.0-1.next` | 继续 | Continue |
-| `talk.DEFECT.0-2.ancient` | 巨大人型机器人可是人类的梦想呢！没有比这更棒的了！ | A giant humanoid robot is a human dream! Nothing could be better! |
-| `talk.SILENT.0-0.ancient` | 一个看起来又疲惫又散发着危险气息的参拜者？你是多久没有休息了？ | A worshipper who looks both exhausted and with dangerous aura? How long has it been since you last rested? |
-| `talk.SILENT.0-0.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1.char` | …… | ... |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 休息一下吧。也可以顺便参拜一下我们[aqua][jitter]守矢神社[/jitter][/aqua]！说不定会有奇迹般的幸运降临呢。 | Take a rest. And while you're at it, you could pay a visit to our [aqua][jitter]Moriya Shrine[/jitter][/aqua]! Maybe a miraculous stroke of luck will come your way. |
-| `talk.REGENT.0-0.ancient` | 诶诶？！？！一个外星人？！啊，好像在这个世界存在外星人也没什么奇怪的？ | Huh?!?! An alien?! Well, I guess it's not that strange for aliens to exist in this world? |
-| `talk.NECROBINDER.0-0.ancient` | 一个骷髅……和一只手？话说，手如果也参拜的话，会不会是双倍的信仰呢？ | A skeleton... and a hand? Come to think of it, if the hand also prays, would that be double the faith? |
-| `talk.NECROBINDER.0-0.next` | 嗤笑 | Sneer |
-| `talk.NECROBINDER.0-1.char` | 信仰？如果信仰能帮我达成那[jitter][font_size=22][purple]夙愿[/purple][/font_size][/jitter]，无论要虔诚我都可以做到。 | Faith? If faith could help me achieve that [jitter][font_size=22][purple]long-cherished wish[/purple][/font_size][/jitter], I would be as devout as needed. |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 哎呀，奇迹不过是偶然的顶点而已，其结果是好是坏都有可能哦。 | Well, miracles are merely the pinnacle of coincidence. Their outcome could be good or bad, you know. |
+| `talk.firstVisitEver.0-0.ancient` | 鑾潪浣犱滑灏辨槸涓嶅仠鍦板悜楂樺椤跺墠杩涚殑锛屾墍璋撶殑[sine]"鐖鑰?[/sine]锛焅n鍝﹀摝锛佹灉鐒跺浼犻椈鎵€璇粹€︹€?| Could you be the ones constantly advancing toward the top of the tower, the so-called [sine]"Spire Players"[/sine]?\nOoh! Just as the rumors said... |
+| `talk.ANY.0-0.ancient` | 鍏跺疄浣犱滑鍘绘壘寤虹瓚甯堢殑鏁翠欢浜嬫儏锛岄兘鏄秴濂ョ殑鈥︹€?| Actually, the whole thing about you going to find the Architect was all Neow's... |
+| `talk.ANY.0-0.next` | 鐤戦棶 | Question |
+| `talk.ANY.0-1.ancient` | 鍝︼紵锛佷綘纭畾瑕佸惉鍚楋紵杩欓殣鍖跨殑[sine]涓栫晫鐨勭湡鐩竅/sine]锛熷ぉ鏈轰笉鍙硠闇测€︹€?| Oh?! Are you sure you want to hear it? This hidden [sine]truth of the world[/sine]? The secrets of heaven must not be revealed... |
+| `talk.ANY.1-0r.ancient` | 鍝煎摷锛屾垜涔冨叏鐭ヤ箣浜猴紝鏁村骇灏栧娌℃湁鎴戯紝娓￠噷璐濆瓙涓嶇煡閬撶殑浜嬫儏锛?| Heheh, I am the omniscient one. There's nothing in this entire Spire that I, Nina Watari, don't know! |
+| `talk.ANY.2-0r.ancient` | 鎴戜滑鎵€鍦ㄧ殑涓栫晫鐨勬湭鏉ワ紝閮芥槸鍦ㄦ殫鍦伴噷琚竴灏忛儴鍒嗕汉鍐冲畾鐨勩€傝繖鍙槸缁濆鐨勭湡瀹烇紒 | The future of the world we live in is decided in the shadows by a small handful of people. This is the absolute truth! |
+| `talk.IRONCLAD.0-0r.ancient` | 閭ｄ釜浣犺兘琛ㄦ紨涓€涓嬮偅涓悧瀵瑰氨鏄偅涓?榛戞嫢閲嶆尟鏀惧共琛€鏉￠噸鏀炬伓榄斾箣鐏渶鍚庣墝鐑у畬浜嗘垜鎵撲粈涔?锛燂紒 | Hey, can you do that thing, yeah that thing鈥?Dark Embrace + Corruption + Dropkick + Replay + Demon Form, and then all my cards are burned, what do I play?!" |
+| `talk.SILENT.0-0r.ancient` | 鍚浣犵壒鍒細杞潵杞幓锛屾槸涓嶆槸鐪熺殑鍟婏紵 | I heard you're really good at shuffling. Is that true? |
+| `talk.SILENT.0-0r.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1r.char` | 鈥︹€?| ... |
+| `talk.REGENT.0-0r.ancient` | 鎴戣繘濉旓紒锛侊紒 | I enter!!! |
+| `talk.REGENT.0-0r.next` | 娌夋€?| Pondering |
+| `talk.REGENT.0-1r.char` | 鎴戣繘濉旓紒锛侊紒 | I enter!!! |
+| `talk.DEFECT.0-0r.ancient` | 鍝﹀摝锛佹槸浼犺涓殑灏栧绗洓寮鸿鑹诧紒 | Ooh! The legendary fourth-strongest character of the Sts! |
+| `talk.DEFECT.0-0r.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-1r.char` | [i][font_size=22]<鐢熸皵鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
+| `talk.NECROBINDER.0-0r.ancient` | 鍝囷紒绱壊瑙掕壊锛侀毦閬撴槸閭ｄ釜鍙嚭鐜板湪[sine]浼犺[/sine]閲岀殑浜虹墿锛燂紒锛?| Wow! A purple character! Could you be that figure who only appears in [sine]legends[/sine]?!! |
 
 ---
 
-## [博丽 灵梦]
+## [涓滈璋?鏃╄嫍]
 
-**键名**: `TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 博丽 灵梦 | Reimu Hakurei |
-| `.epithet` | 高塔的不可思议巫女 | Mysterious Shrine Maiden of the Spire |
+| `.title` | 涓滈璋?鏃╄嫍 | Sanae Kochiya |
+| `.epithet` | 鐜颁唬鐨勫厛鍙や箣姘?| Modern Ancient |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 有参拜者？啊……是要去塔顶啊，带上东西走吧，如果能赛钱的话就更好了。 | A visitor? Ah... heading to the top of the tower, huh. Take some stuff and go. If you could make an offering, even better. |
-| `talk.ANY.0-0r.ancient` | 赶紧去把塔顶的麻烦解决掉吧，我才能让[u]那家伙[/u]放我回幻想乡去喝茶。 | Hurry up and deal with the trouble at the top so [u]she[/u]'ll let me go back to Gensokyo for some tea. |
-| `talk.ANY.1-0r.ancient` | 哼，要不是[u]那家伙[/u]……我早就自己去退治麻烦了。 | Hmph, if it weren't for [u]her[/u]... I'd have gone and dealt with the trouble myself. |
-| `talk.ANY.2-0r.ancient` | [i][font_size=22]<困惑的哈欠>[/font_size][/i] | [i][font_size=22]<Confused yawn>[/font_size][/i] |
-| `talk.ANY.3-0r.ancient` | 所谓努力就会有回报，只是无聊的说教罢了。 | That whole "effort will be rewarded" thing is just boring preaching. |
-| `talk.ANY.4-0r.ancient` | 这种破地方，除了烦人的虫子和叽叽喳喳的蓝鸟怪人根本没多少参拜客，完全收不到什么香火钱啊。 | A rundown place like this barely gets any worshippers—just annoying bugs and a chattering blue bird freak. I can barely scrape together any offering money at all. |
-| `talk.IRONCLAD.0-0.ancient` | 我可警告你，别在这里撒野。 | I'm warning you—don't cause trouble here. |
-| `talk.IRONCLAD.1-0r.ancient` | 你背后又是个大家伙在罩着你吗？啧，这世道真是没救了。 | You've got some bigshot backing you too? Tsk, this world is hopeless. |
-| `talk.IRONCLAD.2-0r.ancient` | 信仰恶魔也算是信仰吗？既然来神社，好歹也要摆出点虔诚的态度吧。 | Is believing in a demon even considered faith? If you're visiting a shrine, at least show some reverence. |
-| `talk.DEFECT.0-0.ancient` | 喂喂，我这里可不欢迎粗鲁的构装体！ | Hey now, I don't welcome rude constructs here! |
-| `talk.DEFECT.0-0.next` | 表示善意 | Show goodwill |
-| `talk.DEFECT.0-1.char` | [i][font_size=22]<害怕的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Frightened beep>[/font_size][/i] |
-| `talk.DEFECT.0-1.next` | 继续 | Continue |
-| `talk.DEFECT.0-2.ancient` | ……居然是个正常的家伙，那就破例招待一次你好了。 | ...Turns out you're a normal one. Fine, I'll make an exception and host you just this once. |
-| `talk.DEFECT.1-0r.ancient` | 要修理工的话，又不是非得去找那个叫建筑师的家伙不可。哎，罢了罢了，你要去我可不拦着你。 | If you need a repairman, it's not like you have to go to that Architect guy. Ah, whatever, I won't stop you if you want to go. |
-| `talk.DEFECT.2-0r.ancient` | 诺，给你的东西——等你把你的朋友修好，记得回这里参拜一下啊。 | Here, take this—once you've fixed your friend, remember to come back here and pay your respects. |
-| `talk.SILENT.0-0.ancient` | 别鬼鬼祟祟的躲在那，我看到你了。快给我出来，参拜客都被你吓跑了！ | Stop lurking around over there, I can see you. Come on out—you're scaring away the worshippers! |
-| `talk.SILENT.0-0.next` | 现身 | Show yourself |
-| `talk.SILENT.0-1.char` | （静默猎手从阴影里走出） | (The Silent steps out from the shadows) |
-| `talk.SILENT.0-2.char` | …… | ... |
-| `talk.SILENT.0-2.next` | 继续 | Continue |
-| `talk.SILENT.0-3.ancient` | 不三不四的家伙都凑过来……要去塔顶的话，拿上这个赶紧离开，不然我就要撵人了。 | All sorts of shady characters keep showing up... If you're heading to the top, take this and leave quickly, or I'll kick you out. |
-| `talk.SILENT.1-0r.ancient` | 我可没有邀请你。要拿什么请便，别影响我扫地。 | I didn't invite you. Help yourself to whatever, just don't get in the way of my sweeping. |
-| `talk.REGENT.0-0.ancient` | 又是个奇怪的家伙……拿上东西离开吧，就在那赛钱箱旁边。 | Another weirdo... grab your stuff and leave. It's right next to the offering box. |
-| `talk.REGENT.0-0.char` | ？ | ? |
-| `talk.REGENT.0-0.next` | 查看 | Look |
-| `talk.REGENT.0-1.char` | [i][font_size=22]储君往赛钱箱里投了一把金币。[/font_size][/i] | [i][font_size=22]The Regent tosses a handful of gold coins into the offering box.[/font_size][/i] |
-| `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | [jitter]哦哦哦！！！先生！您简直是太大方了！您简直是全世界、不、全宇宙最慷慨的人！[/jitter] | [jitter]Oooh!!! Sir! You are far too generous! You are the most generous person in the whole world—no, the entire universe![/jitter] |
-| `talk.REGENT.0-2.next` | 得意 | Proud |
-| `talk.REGENT.0-3.char` | 哼哼，这是王应该做的！ | Heh, this is what a king ought to do! |
-| `talk.REGENT.1-0r.ancient` | 哦，是你啊。欢迎欢迎，随便坐坐，我去泡茶。 | Oh, it's you. Welcome, welcome. Make yourself at home, I'll go make some tea. |
-| `talk.REGENT.2-0r.ancient` | 你的礼节比那些妖怪们好多了呢。作为你一直以来光顾的回礼，请收下这个吧。 | Your manners are so much better than those youkai. As a token of thanks for your continued patronage, please take this. |
-| `talk.NECROBINDER.0-0.ancient` | ……算了，骷髅总比没人参拜好。 | ...Fine, a skeleton is still better than no one coming to pray. |
-| `talk.NECROBINDER.0-0.next` | 祈愿 | Offer a prayer |
-| `talk.NECROBINDER.0-1.char` | （低声）父亲，请保佑我为您复仇。 | (Whispering) Father, please bless me as I avenge you. |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | ……拿走你要的东西吧，希望神明会庇佑你一路顺风。 | ...Take what you need. May the gods watch over you on your journey. |
+| `talk.firstVisitEver.0-0.ancient` | 鍟婏紝浣犲氨鏄袱浣嶅ぇ浜烘彁鍒扮殑鍌€鍎″悧锛熸垜鏄绁濇棭鑻楋紝鏃呴€斿姝よ緵鑻︼紝鏉ュ弬鎷淸aqua][jitter]瀹堢煝绁炵ぞ[/jitter][/aqua]锛屾礂鍑€浣犺韩涓婄殑涓€鍒囩棝鑻︿笌鍔崇疮锛屽浣曪紵 | Ah, so you're the puppet that the two ladies mentioned? I am Sanae, the wind priestess. Your journey has been so arduous鈥攚hy not come pray at the [aqua][jitter]Moriya Shrine[/jitter][/aqua] and wash away all your pain and fatigue? |
+| `talk.ANY.0-0r.ancient` | 鍦ㄨ繖搴у閲岋紝涔熶笉鑳借甯歌瘑鏉熺細鍛€?| Even in this tower, you can't be bound by common sense. |
+| `talk.ANY.1-0r.ancient` | 濡傛灉鎴戜篃鑳藉幓闄嶄紡楂樺閲岀殑鎬墿锛岃涓嶅畾涔熸尯娆箰鐨勨€﹀晩锛岃繖璇濆彲涓嶈兘琚濂堝瓙澶т汉鍚埌锛?| If I could go subdue the monsters in the tower too, that might be fun... Ah, Lady Kanako mustn't hear that! |
+| `talk.ANY.2-0r.ancient` | 璇硅瀛愬ぇ浜鸿锛屼负浣犳彁渚涘府鍔╄兘鏀堕泦淇′话锛屾墍浠ヤ綘涔熻鍔犳补鍝 | Lady Suwako says that helping you can gather faith, so you'd better do your best too~ |
+| `talk.ANY.3-0r.ancient` | 涓嬩竴娆″幓鍝噷瀹ｄ紶濂藉憿锛?| Where should I go to spread the word next? |
+| `talk.ANY.4-0r.ancient` | 鏃犺鏄€€鐫€浠€涔堢洰鐨勭殑鍙傛嫓瀹紝瀵圭绀捐€岃█閮芥槸鏈夌敤鐨勶紒 | No matter what motives a worshipper may have, they're all useful to the shrine! |
+| `talk.ANY.5-0r.ancient` | 鍛煎懠~濂藉鍙笉鑳介兘琚崥涓界绀炬姠璧颁簡锛佸挶浠畧鐭㈢殑鏀彺涓嶆瘮濂瑰樊鍛愶紒 | Fufu~ We can't let the Hakurei Shrine hog all the benefits! Moriya's support is every bit as good as hers! |
+| `talk.IRONCLAD.0-0.ancient` | 濂介偑鎭剁殑姘斿満锛佷綘鏄浠€涔堜笢瑗垮嚟渚濅簡鍚楋紵鎭堕瓟锛熼偅澶碂绯曚簡锛佷綘搴旇鏉ヤ俊浠版垜浠琜aqua][jitter]瀹堢煝绁炵ぞ[/jitter][/aqua]锛?| Such an evil aura! Are you possessed by something? A demon? That's terrible! You should come have faith in our [aqua][jitter]Moriya Shrine[/jitter][/aqua]! |
+| `talk.DEFECT.0-0.ancient` | 鍞斿摝鍝︼紒涓€涓兘鑷繁琛岃蛋鐨勬満鍣ㄤ汉锛?| Uwoooh! A robot that can walk on its own! |
+| `talk.DEFECT.0-0.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<鐤戞儜鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-2.ancient` | 宸ㄥぇ浜哄瀷鏈哄櫒浜哄彲鏄汉绫荤殑姊︽兂鍛紒娌℃湁姣旇繖鏇存鐨勪簡锛?| A giant humanoid robot is a human dream! Nothing could be better! |
+| `talk.SILENT.0-0.ancient` | 涓€涓湅璧锋潵鍙堢柌鎯張鏁ｅ彂鐫€鍗遍櫓姘旀伅鐨勫弬鎷滆€咃紵浣犳槸澶氫箙娌℃湁浼戞伅浜嗭紵 | A worshipper who looks both exhausted and with dangerous aura? How long has it been since you last rested? |
+| `talk.SILENT.0-0.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 浼戞伅涓€涓嬪惂銆備篃鍙互椤轰究鍙傛嫓涓€涓嬫垜浠琜aqua][jitter]瀹堢煝绁炵ぞ[/jitter][/aqua]锛佽涓嶅畾浼氭湁濂囪抗鑸殑骞歌繍闄嶄复鍛€?| Take a rest. And while you're at it, you could pay a visit to our [aqua][jitter]Moriya Shrine[/jitter][/aqua]! Maybe a miraculous stroke of luck will come your way. |
+| `talk.REGENT.0-0.ancient` | 璇惰锛燂紒锛燂紒涓€涓鏄熶汉锛燂紒鍟婏紝濂藉儚鍦ㄨ繖涓笘鐣屽瓨鍦ㄥ鏄熶汉涔熸病浠€涔堝鎬殑锛?| Huh?!?! An alien?! Well, I guess it's not that strange for aliens to exist in this world? |
+| `talk.NECROBINDER.0-0.ancient` | 涓€涓楂呪€︹€﹀拰涓€鍙墜锛熻瘽璇达紝鎵嬪鏋滀篃鍙傛嫓鐨勮瘽锛屼細涓嶄細鏄弻鍊嶇殑淇′话鍛紵 | A skeleton... and a hand? Come to think of it, if the hand also prays, would that be double the faith? |
+| `talk.NECROBINDER.0-0.next` | 鍡ょ瑧 | Sneer |
+| `talk.NECROBINDER.0-1.char` | 淇′话锛熷鏋滀俊浠拌兘甯垜杈炬垚閭jitter][font_size=22][purple]澶欐効[/purple][/font_size][/jitter]锛屾棤璁鸿铏旇瘹鎴戦兘鍙互鍋氬埌銆?| Faith? If faith could help me achieve that [jitter][font_size=22][purple]long-cherished wish[/purple][/font_size][/jitter], I would be as devout as needed. |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 鍝庡憖锛屽杩逛笉杩囨槸鍋剁劧鐨勯《鐐硅€屽凡锛屽叾缁撴灉鏄ソ鏄潖閮芥湁鍙兘鍝︺€?| Well, miracles are merely the pinnacle of coincidence. Their outcome could be good or bad, you know. |
 
 ---
 
-## [蕾米莉亚·斯卡雷特]
+## [鍗氫附 鐏垫ⅵ]
 
-**键名**: `TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 蕾米莉亚·斯卡雷特 | Remilia Scarlet |
-| `.epithet` | 鲜红的荣耀女王 | Scarlet Queen of Glory |
+| `.title` | 鍗氫附 鐏垫ⅵ | Reimu Hakurei |
+| `.epithet` | 楂樺鐨勪笉鍙€濊宸コ | Mysterious Shrine Maiden of the Spire |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 欢迎来到红魔馆~我是这里的家主，蕾米莉亚·斯卡雷特。还请允许我的女仆向您介绍馆内的宏伟珍藏吧。 | Welcome to the Scarlet Devil Mansion~ I am the mistress of this estate, Remilia Scarlet. Allow my maid to introduce you to the magnificent treasures within. |
-| `talk.ANY.0-0r.ancient` | 呵呵，你我的命运又于此相汇了。 | Heheh, our fates converge once again. |
-| `talk.ANY.1-0r.ancient` | 吸血鬼的力量，可是能够轻易扭转命运的噢。 | The power of a vampire can easily twist fate, you know. |
-| `talk.ANY.2-0r.ancient` | 又有客人来参加我的下午茶会了。咲夜，记得多准备一份呐。 | Another guest for my afternoon tea party. Sakuya, remember to prepare an extra serving. |
-| `talk.ANY.3-0r.ancient` | 又回来了么？......或许这一次，你的命运会有所不同呢。 | Back again? ...Perhaps this time, your fate will be different. |
-| `talk.ANY.4-0r.ancient` | 这里的怪物实在是无趣至极，你能给我带来点更有意思的话题吗？ | The monsters here are dreadfully dull. Can you bring me something more interesting to talk about? |
-| `talk.SILENT.0-0.ancient` | 馆里居然出现了一位刺客？美铃那家伙看来又在偷懒呢。 | An assassin has appeared in the mansion? Looks like Meiling is slacking off again. |
-| `talk.SILENT.0-0.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1.char` | …… | ... |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 你和吸血鬼的相性貌似不错，不过力量还差了一些，要不要带走点什么宝物呢？ | Your compatibility with vampires seems quite good, but you're still lacking in power. Would you like to take a treasure with you? |
-| `talk.SILENT.1-0r.ancient` | 啊啦，说到使用匕首，我们家的这位也是个高手哦。要来和我们家的这位比试比试吗？ | My, speaking of daggers, the one here in our house is quite skilled too. Would you like to have a match with her? |
-| `talk.SILENT.1-0r.next` | 什么也不说 | Respond |
-| `talk.SILENT.1-1r.char` | …… | ... |
-| `talk.SILENT.1-1r.next` | 继续 | Continue |
-| `talk.SILENT.1-2r.ancient` | （咲夜：女仆这个词还请直接说出来吧。） | (Sakuya: Please just say "maid" outright.) |
-| `talk.REGENT.0-0r.char` | 噗——这红茶里怎么一股咸味！ | Pfft—why does this black tea taste salty! |
-| `talk.REGENT.0-0r.next` | 继续 | Continue |
-| `talk.REGENT.0-1r.ancient` | 在这里这是理所当然的吧？ | That's only natural here, isn't it? |
-| `talk.REGENT.1-0r.char` | 你的仆从可真不少。 | You have quite a lot of minions. |
-| `talk.REGENT.1-0r.next` | 继续 | Continue |
-| `talk.REGENT.1-1r.ancient` | 因为命运让我们相遇了呢。 | Because fate has brought us together. |
-| `talk.REGENT.1-1r.next` | 思考 | Thinking |
-| `talk.REGENT.1-2r.char` | 我的仆从也应该向你的仆从学习。 | My minions should learn from yours. |
-| `talk.NECROBINDER.0-0.ancient` | 啊——一位骷髅魔法使女士！真是有意思的访客，说不定帕琪会和你有不少共同语言呢。 | Ah—a skeleton witch! What an interesting visitor. Perhaps Patchouli will find plenty in common with you. |
-| `talk.NECROBINDER.1-0r.ancient` | 哎呀，好久不见！我们家的帕琪很想你呢，呵呵。 | Oh my, long time no see! Our Patchouli has missed you, heheh. |
-| `talk.NECROBINDER.1-1r.ancient` | （帕秋莉：多嘴。） | (Patchouli: You talk too much.) |
-| `talk.NECROBINDER.1-1r.next` | 致意 | Greeting |
-| `talk.NECROBINDER.1-2r.char` | （亡灵契约师和帕秋莉交流了魔法心得。） | (The NecroBinder and Patchouli exchange magical knowledge.) |
-| `talk.NECROBINDER.1-2r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-3r.ancient` | 作为和我们家帕琪聊天的谢礼，就带上这个吧。 | As thanks for chatting with our Patchouli, take this with you. |
-| `talk.NECROBINDER.2-0r.char` | 你和你的……家人们看上去感情真好。 | You and your... family seem to get along so well. |
-| `talk.NECROBINDER.2-0r.next` | 继续 | Continue |
-| `talk.NECROBINDER.2-1r.ancient` | 家人……吗？是啊，我们是感情很好的家人。 | Family... is it? Yes, we're a family that gets along very well. |
-| `talk.NECROBINDER.2-1r.next` | 继续 | Continue |
-| `talk.NECROBINDER.2-2r.char` | 我有点羡慕了。 | I'm a little envious. |
-| `talk.IRONCLAD.0-0.char` | 恶魔……杀戮…… | Demon... slaughter... |
-| `talk.IRONCLAD.0-0.next` | 继续 | Continue |
-| `talk.IRONCLAD.0-1.ancient` | 哎呀，你是不是认错人了？毕竟像我这么[sine]威严[/sine]的吸血鬼可不多见呢~ | Oh my, you must have mistaken me for someone else? After all, a vampire as [sine]dignified[/sine] as myself is quite rare~ |
-| `talk.DEFECT.0-0.ancient` | 机器人吗？我还从来没有尝试过，逆转机器人的命运呢。 | A robot? I've never tried reversing a robot's fate before. |
+| `talk.firstVisitEver.0-0.ancient` | 鏈夊弬鎷滆€咃紵鍟娾€︹€︽槸瑕佸幓濉旈《鍟婏紝甯︿笂涓滆タ璧板惂锛屽鏋滆兘璧涢挶鐨勮瘽灏辨洿濂戒簡銆?| A visitor? Ah... heading to the top of the tower, huh. Take some stuff and go. If you could make an offering, even better. |
+| `talk.ANY.0-0r.ancient` | 璧剁揣鍘绘妸濉旈《鐨勯夯鐑﹁В鍐虫帀鍚э紝鎴戞墠鑳借[u]閭ｅ浼橻/u]鏀炬垜鍥炲够鎯充埂鍘诲枬鑼躲€?| Hurry up and deal with the trouble at the top so [u]she[/u]'ll let me go back to Gensokyo for some tea. |
+| `talk.ANY.1-0r.ancient` | 鍝硷紝瑕佷笉鏄痆u]閭ｅ浼橻/u]鈥︹€︽垜鏃╁氨鑷繁鍘婚€€娌婚夯鐑︿簡銆?| Hmph, if it weren't for [u]her[/u]... I'd have gone and dealt with the trouble myself. |
+| `talk.ANY.2-0r.ancient` | [i][font_size=22]<鍥版儜鐨勫搱娆?[/font_size][/i] | [i][font_size=22]<Confused yawn>[/font_size][/i] |
+| `talk.ANY.3-0r.ancient` | 鎵€璋撳姫鍔涘氨浼氭湁鍥炴姤锛屽彧鏄棤鑱婄殑璇存暀缃簡銆?| That whole "effort will be rewarded" thing is just boring preaching. |
+| `talk.ANY.4-0r.ancient` | 杩欑鐮村湴鏂癸紝闄や簡鐑︿汉鐨勮櫕瀛愬拰鍙藉徑鍠冲柍鐨勮摑楦熸€汉鏍规湰娌″灏戝弬鎷滃锛屽畬鍏ㄦ敹涓嶅埌浠€涔堥鐏挶鍟娿€?| A rundown place like this barely gets any worshippers鈥攋ust annoying bugs and a chattering blue bird freak. I can barely scrape together any offering money at all. |
+| `talk.IRONCLAD.0-0.ancient` | 鎴戝彲璀﹀憡浣狅紝鍒湪杩欓噷鎾掗噹銆?| I'm warning you鈥攄on't cause trouble here. |
+| `talk.IRONCLAD.1-0r.ancient` | 浣犺儗鍚庡張鏄釜澶у浼欏湪缃╃潃浣犲悧锛熷暓锛岃繖涓栭亾鐪熸槸娌℃晳浜嗐€?| You've got some bigshot backing you too? Tsk, this world is hopeless. |
+| `talk.IRONCLAD.2-0r.ancient` | 淇′话鎭堕瓟涔熺畻鏄俊浠板悧锛熸棦鐒舵潵绁炵ぞ锛屽ソ姝逛篃瑕佹憜鍑虹偣铏旇瘹鐨勬€佸害鍚с€?| Is believing in a demon even considered faith? If you're visiting a shrine, at least show some reverence. |
+| `talk.DEFECT.0-0.ancient` | 鍠傚杺锛屾垜杩欓噷鍙笉娆㈣繋绮楅瞾鐨勬瀯瑁呬綋锛?| Hey now, I don't welcome rude constructs here! |
+| `talk.DEFECT.0-0.next` | 琛ㄧず鍠勬剰 | Show goodwill |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<瀹虫€曠殑鍢€鍢€澹?[/font_size][/i] | [i][font_size=22]<Frightened beep>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-2.ancient` | 鈥︹€﹀眳鐒舵槸涓甯哥殑瀹朵紮锛岄偅灏辩牬渚嬫嫑寰呬竴娆′綘濂戒簡銆?| ...Turns out you're a normal one. Fine, I'll make an exception and host you just this once. |
+| `talk.DEFECT.1-0r.ancient` | 瑕佷慨鐞嗗伐鐨勮瘽锛屽張涓嶆槸闈炲緱鍘绘壘閭ｄ釜鍙缓绛戝笀鐨勫浼欎笉鍙€傚搸锛岀舰浜嗙舰浜嗭紝浣犺鍘绘垜鍙笉鎷︾潃浣犮€?| If you need a repairman, it's not like you have to go to that Architect guy. Ah, whatever, I won't stop you if you want to go. |
+| `talk.DEFECT.2-0r.ancient` | 璇猴紝缁欎綘鐨勪笢瑗库€斺€旂瓑浣犳妸浣犵殑鏈嬪弸淇ソ锛岃寰楀洖杩欓噷鍙傛嫓涓€涓嬪晩銆?| Here, take this鈥攐nce you've fixed your friend, remember to come back here and pay your respects. |
+| `talk.SILENT.0-0.ancient` | 鍒楝肩绁熺殑韬插湪閭ｏ紝鎴戠湅鍒颁綘浜嗐€傚揩缁欐垜鍑烘潵锛屽弬鎷滃閮借浣犲悡璺戜簡锛?| Stop lurking around over there, I can see you. Come on out鈥攜ou're scaring away the worshippers! |
+| `talk.SILENT.0-0.next` | 鐜拌韩 | Show yourself |
+| `talk.SILENT.0-1.char` | 锛堥潤榛樼寧鎵嬩粠闃村奖閲岃蛋鍑猴級 | (The Silent steps out from the shadows) |
+| `talk.SILENT.0-2.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-2.next` | 缁х画 | Continue |
+| `talk.SILENT.0-3.ancient` | 涓嶄笁涓嶅洓鐨勫浼欓兘鍑戣繃鏉モ€︹€﹁鍘诲椤剁殑璇濓紝鎷夸笂杩欎釜璧剁揣绂诲紑锛屼笉鐒舵垜灏辫鎾典汉浜嗐€?| All sorts of shady characters keep showing up... If you're heading to the top, take this and leave quickly, or I'll kick you out. |
+| `talk.SILENT.1-0r.ancient` | 鎴戝彲娌℃湁閭€璇蜂綘銆傝鎷夸粈涔堣渚匡紝鍒奖鍝嶆垜鎵湴銆?| I didn't invite you. Help yourself to whatever, just don't get in the way of my sweeping. |
+| `talk.REGENT.0-0.ancient` | 鍙堟槸涓鎬殑瀹朵紮鈥︹€︽嬁涓婁笢瑗跨寮€鍚э紝灏卞湪閭ｈ禌閽辩鏃佽竟銆?| Another weirdo... grab your stuff and leave. It's right next to the offering box. |
+| `talk.REGENT.0-0.char` | 锛?| ? |
+| `talk.REGENT.0-0.next` | 鏌ョ湅 | Look |
+| `talk.REGENT.0-1.char` | [i][font_size=22]鍌ㄥ悰寰€璧涢挶绠遍噷鎶曚簡涓€鎶婇噾甯併€俒/font_size][/i] | [i][font_size=22]The Regent tosses a handful of gold coins into the offering box.[/font_size][/i] |
+| `talk.REGENT.0-1.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2.ancient` | [jitter]鍝﹀摝鍝︼紒锛侊紒鍏堢敓锛佹偍绠€鐩存槸澶ぇ鏂逛簡锛佹偍绠€鐩存槸鍏ㄤ笘鐣屻€佷笉銆佸叏瀹囧畽鏈€鎱锋叏鐨勪汉锛乕/jitter] | [jitter]Oooh!!! Sir! You are far too generous! You are the most generous person in the whole world鈥攏o, the entire universe![/jitter] |
+| `talk.REGENT.0-2.next` | 寰楁剰 | Proud |
+| `talk.REGENT.0-3.char` | 鍝煎摷锛岃繖鏄帇搴旇鍋氱殑锛?| Heh, this is what a king ought to do! |
+| `talk.REGENT.1-0r.ancient` | 鍝︼紝鏄綘鍟娿€傛杩庢杩庯紝闅忎究鍧愬潗锛屾垜鍘绘场鑼躲€?| Oh, it's you. Welcome, welcome. Make yourself at home, I'll go make some tea. |
+| `talk.REGENT.2-0r.ancient` | 浣犵殑绀艰妭姣旈偅浜涘鎬滑濂藉浜嗗憿銆備綔涓轰綘涓€鐩翠互鏉ュ厜椤剧殑鍥炵ぜ锛岃鏀朵笅杩欎釜鍚с€?| Your manners are so much better than those youkai. As a token of thanks for your continued patronage, please take this. |
+| `talk.NECROBINDER.0-0.ancient` | 鈥︹€︾畻浜嗭紝楠烽珔鎬绘瘮娌′汉鍙傛嫓濂姐€?| ...Fine, a skeleton is still better than no one coming to pray. |
+| `talk.NECROBINDER.0-0.next` | 绁堟効 | Offer a prayer |
+| `talk.NECROBINDER.0-1.char` | 锛堜綆澹帮級鐖朵翰锛岃淇濅綉鎴戜负鎮ㄥ浠囥€?| (Whispering) Father, please bless me as I avenge you. |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 鈥︹€︽嬁璧颁綘瑕佺殑涓滆タ鍚э紝甯屾湜绁炴槑浼氬簢浣戜綘涓€璺『椋庛€?| ...Take what you need. May the gods watch over you on your journey. |
 
 ---
 
-## [古明地 觉]
+## [钑剧背鑾変簹路鏂崱闆风壒]
 
-**键名**: `TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 古明地 觉 | Satori Komeiji |
-| `.epithet` | 荒疫也为之惧怯的少女 | The Girl Whom Even the Blight Fears |
+| `.title` | 钑剧背鑾変簹路鏂崱闆风壒 | Remilia Scarlet |
+| `.epithet` | 椴滅孩鐨勮崳鑰€濂崇帇 | Scarlet Queen of Glory |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | ……来客吗？真罕见。我是觉。我知道你的目的，带着这些东西去塔顶吧…… | ...A visitor? How rare. I am Satori. I know your purpose. Take these things and head to the top of the tower... |
-| `talk.ANY.0-0r.ancient` | 你的心中所想，我全部都听得见…… | I can hear everything in your heart... |
-| `talk.ANY.1-0r.ancient` | 又见面了啊。啊……原来如此，什么都不记得了吗？不过，让你回想起来的话，可是犯规的…… | We meet again. Ah... I see, you don't remember anything? But making you remember would be against the rules... |
-| `talk.ANY.2-0r.ancient` | 呵呵，想不想借用一下我第三只眼的力量？读心能力可是这个世界上最美妙的能力…… | Heheh, would you like to borrow the power of my third eye? Mind-reading is the most wonderful ability in this world... |
-| `talk.IRONCLAD.0-0.ancient` | 你的内心……还有另一个声音？ | Inside your heart... there's another voice? |
-| `talk.IRONCLAD.0-0.next` | 沉默 | Silence |
-| `talk.IRONCLAD.0-1.ancient` | ……原来如此，是那个恶魔……啧。令人不适。 | ...I see, it's that demon... Tsk. How unpleasant. |
-| `talk.IRONCLAD.1-0r.char` | （恶魔的狞笑）读心的妖怪，能读到我的所思所想吗？ | (The demon grins wickedly) Mind-reading youkai, can you read my thoughts? |
-| `talk.IRONCLAD.1-0r.next` | 继续 | Continue |
-| `talk.IRONCLAD.1-1r.ancient` | ……读心能力也是有作用范围的，更遑论你这种凭依的情况了。 | ...Even mind-reading has its limits, let alone in a case of possession like yours. |
-| `talk.IRONCLAD.1-1r.next` | 继续 | Continue |
-| `talk.IRONCLAD.1-2r.char` | （一阵爽朗的狂笑） | (A burst of hearty, maniacal laughter) |
-| `talk.IRONCLAD.1-2r.next` | 继续 | Continue |
-| `talk.IRONCLAD.1-3r.ancient` | 不过，我倒是能读出，这位战士想把你碎尸万段的想法…… | However, I can read this warrior's desire to tear you limb from limb... |
-| `talk.NECROBINDER.0-0.ancient` | 你的心里充满了太多恶意的心念残渣。 | Your heart is filled with far too many malicious mental remnants. |
-| `talk.NECROBINDER.0-0.next` | 回答 | Reply |
-| `talk.NECROBINDER.0-1.char` | ……感觉之前也有人说过类似的话。 | ...I feel like someone's said something similar before. |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | "如果你知道我的遭遇，你的心也会被涂成相同的颜色。"可惜……观看你的遭遇实在不是美妙的事情。 | "We would share the same paint if you knew what’s befallen me." Too bad... witnessing your ordeal is hardly a pleasant experience. |
-| `talk.REGENT.0-0r.ancient` | 口渴了吗？要不要给你准备茶水？ | Are you thirsty? Shall I prepare some tea? |
-| `talk.REGENT.0-0r.next` | 疑问 | Question |
-| `talk.REGENT.0-1r.char` | 喂！你在自言自语些什么？不过，我，储君，确实需要一些补给…… | Hey! Who are you muttering to? But well, I, the Regent, do need some supplies... |
-| `talk.REGENT.0-1r.next` | 继续 | Continue |
-| `talk.REGENT.0-2r.ancient` | "这家伙还真是懂得一些王室的礼仪。"呵呵，能让殿下您满意真是我的荣幸……[sine]（笑）[/sine] | "This one truly knows some royal etiquette." Heheh, it's my honor to have pleased Your Highness...[sine](laugh)[/sine] |
-| `talk.REGENT.0-2r.next` | 恼怒 | Annoyed |
-| `talk.REGENT.0-3r.char` | 你那表情是怎么回事？ | What's with that look on your face? |
-| `talk.SILENT.0-0r.ancient` | …… | ... |
-| `talk.SILENT.0-0r.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1r.char` | …… | ... |
-| `talk.SILENT.0-1r.next` | 继续 | Continue |
-| `talk.SILENT.0-2r.ancient` | …… | ... |
-| `talk.SILENT.0-2r.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-3r.char` | …… | ... |
-| `talk.SILENT.0-3r.next` | 继续 | Continue |
-| `talk.SILENT.0-4r.ancient` | （叹气）好啦好啦……我对你没有恶意……请不要在脑子里想象我被你杀死的[jitter][red]血腥场景[/red][/jitter]了。 | (Sigh) Alright, alright... I mean you no harm... Please stop imagining [jitter][red]bloody scenes[/red][/jitter] of me being killed by you in your mind. |
-| `talk.DEFECT.0-0r.ancient` | …… | ... |
-| `talk.DEFECT.0-0r.next` | 继续 | Continue |
-| `talk.DEFECT.0-1r.char` | [i][font_size=22]<好奇的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Curious beep>[/font_size][/i] |
-| `talk.DEFECT.0-1r.next` | 继续 | Continue |
-| `talk.DEFECT.0-2r.ancient` | 额……机器人的想法，果然还是读不出来…… | Ugh... I really can't read a robot's thoughts after all... |
+| `talk.firstVisitEver.0-0.ancient` | 娆㈣繋鏉ュ埌绾㈤瓟棣唦鎴戞槸杩欓噷鐨勫涓伙紝钑剧背鑾変簹路鏂崱闆风壒銆傝繕璇峰厑璁告垜鐨勫コ浠嗗悜鎮ㄤ粙缁嶉鍐呯殑瀹忎紵鐝嶈棌鍚с€?| Welcome to the Scarlet Devil Mansion~ I am the mistress of this estate, Remilia Scarlet. Allow my maid to introduce you to the magnificent treasures within. |
+| `talk.ANY.0-0r.ancient` | 鍛靛懙锛屼綘鎴戠殑鍛借繍鍙堜簬姝ょ浉姹囦簡銆?| Heheh, our fates converge once again. |
+| `talk.ANY.1-0r.ancient` | 鍚歌楝肩殑鍔涢噺锛屽彲鏄兘澶熻交鏄撴壄杞懡杩愮殑鍣€?| The power of a vampire can easily twist fate, you know. |
+| `talk.ANY.2-0r.ancient` | 鍙堟湁瀹汉鏉ュ弬鍔犳垜鐨勪笅鍗堣尪浼氫簡銆傚挷澶滐紝璁板緱澶氬噯澶囦竴浠藉憪銆?| Another guest for my afternoon tea party. Sakuya, remember to prepare an extra serving. |
+| `talk.ANY.3-0r.ancient` | 鍙堝洖鏉ヤ簡涔堬紵......鎴栬杩欎竴娆★紝浣犵殑鍛借繍浼氭湁鎵€涓嶅悓鍛€?| Back again? ...Perhaps this time, your fate will be different. |
+| `talk.ANY.4-0r.ancient` | 杩欓噷鐨勬€墿瀹炲湪鏄棤瓒ｈ嚦鏋侊紝浣犺兘缁欐垜甯︽潵鐐规洿鏈夋剰鎬濈殑璇濋鍚楋紵 | The monsters here are dreadfully dull. Can you bring me something more interesting to talk about? |
+| `talk.SILENT.0-0.ancient` | 棣嗛噷灞呯劧鍑虹幇浜嗕竴浣嶅埡瀹紵缇庨搩閭ｅ浼欑湅鏉ュ張鍦ㄥ伔鎳掑憿銆?| An assassin has appeared in the mansion? Looks like Meiling is slacking off again. |
+| `talk.SILENT.0-0.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 浣犲拰鍚歌楝肩殑鐩告€ц矊浼间笉閿欙紝涓嶈繃鍔涢噺杩樺樊浜嗕竴浜涳紝瑕佷笉瑕佸甫璧扮偣浠€涔堝疂鐗╁憿锛?| Your compatibility with vampires seems quite good, but you're still lacking in power. Would you like to take a treasure with you? |
+| `talk.SILENT.1-0r.ancient` | 鍟婂暒锛岃鍒颁娇鐢ㄥ寱棣栵紝鎴戜滑瀹剁殑杩欎綅涔熸槸涓珮鎵嬪摝銆傝鏉ュ拰鎴戜滑瀹剁殑杩欎綅姣旇瘯姣旇瘯鍚楋紵 | My, speaking of daggers, the one here in our house is quite skilled too. Would you like to have a match with her? |
+| `talk.SILENT.1-0r.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.1-1r.char` | 鈥︹€?| ... |
+| `talk.SILENT.1-1r.next` | 缁х画 | Continue |
+| `talk.SILENT.1-2r.ancient` | 锛堝挷澶滐細濂充粏杩欎釜璇嶈繕璇风洿鎺ヨ鍑烘潵鍚с€傦級 | (Sakuya: Please just say "maid" outright.) |
+| `talk.REGENT.0-0r.char` | 鍣椻€斺€旇繖绾㈣尪閲屾€庝箞涓€鑲″捀鍛筹紒 | Pfft鈥攚hy does this black tea taste salty! |
+| `talk.REGENT.0-0r.next` | 缁х画 | Continue |
+| `talk.REGENT.0-1r.ancient` | 鍦ㄨ繖閲岃繖鏄悊鎵€褰撶劧鐨勫惂锛?| That's only natural here, isn't it? |
+| `talk.REGENT.1-0r.char` | 浣犵殑浠嗕粠鍙湡涓嶅皯銆?| You have quite a lot of minions. |
+| `talk.REGENT.1-0r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-1r.ancient` | 鍥犱负鍛借繍璁╂垜浠浉閬囦簡鍛€?| Because fate has brought us together. |
+| `talk.REGENT.1-1r.next` | 鎬濊€?| Thinking |
+| `talk.REGENT.1-2r.char` | 鎴戠殑浠嗕粠涔熷簲璇ュ悜浣犵殑浠嗕粠瀛︿範銆?| My minions should learn from yours. |
+| `talk.NECROBINDER.0-0.ancient` | 鍟娾€斺€斾竴浣嶉楂呴瓟娉曚娇濂冲＋锛佺湡鏄湁鎰忔€濈殑璁垮锛岃涓嶅畾甯曠惇浼氬拰浣犳湁涓嶅皯鍏卞悓璇█鍛€?| Ah鈥攁 skeleton witch! What an interesting visitor. Perhaps Patchouli will find plenty in common with you. |
+| `talk.NECROBINDER.1-0r.ancient` | 鍝庡憖锛屽ソ涔呬笉瑙侊紒鎴戜滑瀹剁殑甯曠惇寰堟兂浣犲憿锛屽懙鍛点€?| Oh my, long time no see! Our Patchouli has missed you, heheh. |
+| `talk.NECROBINDER.1-1r.ancient` | 锛堝笗绉嬭帀锛氬鍢淬€傦級 | (Patchouli: You talk too much.) |
+| `talk.NECROBINDER.1-1r.next` | 鑷存剰 | Greeting |
+| `talk.NECROBINDER.1-2r.char` | 锛堜骸鐏靛绾﹀笀鍜屽笗绉嬭帀浜ゆ祦浜嗛瓟娉曞績寰椼€傦級 | (The NecroBinder and Patchouli exchange magical knowledge.) |
+| `talk.NECROBINDER.1-2r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-3r.ancient` | 浣滀负鍜屾垜浠甯曠惇鑱婂ぉ鐨勮阿绀硷紝灏卞甫涓婅繖涓惂銆?| As thanks for chatting with our Patchouli, take this with you. |
+| `talk.NECROBINDER.2-0r.char` | 浣犲拰浣犵殑鈥︹€﹀浜轰滑鐪嬩笂鍘绘劅鎯呯湡濂姐€?| You and your... family seem to get along so well. |
+| `talk.NECROBINDER.2-0r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.2-1r.ancient` | 瀹朵汉鈥︹€﹀悧锛熸槸鍟婏紝鎴戜滑鏄劅鎯呭緢濂界殑瀹朵汉銆?| Family... is it? Yes, we're a family that gets along very well. |
+| `talk.NECROBINDER.2-1r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.2-2r.char` | 鎴戞湁鐐圭尽鎱曚簡銆?| I'm a little envious. |
+| `talk.IRONCLAD.0-0.char` | 鎭堕瓟鈥︹€︽潃鎴€︹€?| Demon... slaughter... |
+| `talk.IRONCLAD.0-0.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.0-1.ancient` | 鍝庡憖锛屼綘鏄笉鏄閿欎汉浜嗭紵姣曠珶鍍忔垜杩欎箞[sine]濞佷弗[/sine]鐨勫惛琛€楝煎彲涓嶅瑙佸憿~ | Oh my, you must have mistaken me for someone else? After all, a vampire as [sine]dignified[/sine] as myself is quite rare~ |
+| `talk.DEFECT.0-0.ancient` | 鏈哄櫒浜哄悧锛熸垜杩樹粠鏉ユ病鏈夊皾璇曡繃锛岄€嗚浆鏈哄櫒浜虹殑鍛借繍鍛€?| A robot? I've never tried reversing a robot's fate before. |
 
 ---
 
-## [比那名居 天子]
+## [鍙ゆ槑鍦?瑙塢
 
-**键名**: `TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 比那名居 天子 | Tenshi Hinanawi |
-| `.epithet` | 于先子星降临的天人 | Celestial From Preon |
+| `.title` | 鍙ゆ槑鍦?瑙?| Satori Komeiji |
+| `.epithet` | 鑽掔柅涔熶负涔嬫儳鎬殑灏戝コ | The Girl Whom Even the Blight Fears |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 喂，那边的家伙，看过来！本小姐这里有好东西要给你！心怀感激的收下吧！ | Hey, you over there, look here! I've got something good for you! Take it with gratitude! |
-| `talk.ANY.0-0r.ancient` | 天人就是偶尔降临到地上进行忠告的一种存在。不——过——，对我来说，却都是些无法实行的忠告呢。 | Celestials are beings who occasionally descend to the earth to offer advice. But—for me—they're all just impractical advice anyway. |
-| `talk.ANY.1-0r.ancient` | 天界的生活太无聊了，看着你们爬塔的样子，看着看着自己也想进塔了啊！ | Life in the heavens is so boring. Watching you all climb the spire makes me want to go in myself! |
-| `talk.ANY.2-0r.ancient` | 喂喂，衣玖那家伙跑哪儿去了？ | Hey, where'd that Iku girl run off to? |
-| `talk.ANY.3-0r.ancient` | 当能容物，物不容奈何？当自容，自不容，其谁容耶？ | If you can tolerate things yet things won't tolerate you, what then? If you cannot tolerate yourself, who will tolerate you? |
-| `talk.IRONCLAD.0-0r.ancient` | 嘿，要不要本小姐屈尊和你一起喝一杯？不是我吹牛，就连鬼也喝不过我，你信吗？ | Hey, want me to condescend to have a drink with you? I'm not bragging, but even oni can't outdrink me. Believe it? |
-| `talk.IRONCLAD.1-0r.ancient` | 轩冕在身，非性命也，物之傥来，寄者也。 | High rank and wealth are not part of one's true nature—they are but borrowed things that come by chance. |
-| `talk.IRONCLAD.2-0r.ancient` | 威武不能屈！喂，听得到吗？ | Neither might nor power can bend one's will! Hey, can you hear me? |
-| `talk.DEFECT.0-0r.ancient` | 兼相爱，交相利。机器人，记住天人的教诲！ | Love all alike and benefit each other. Robot, remember the celestial's teachings! |
-| `talk.DEFECT.0-0r.next` | 尝试翻译 | Attempt to translate |
-| `talk.DEFECT.0-1r.char` | [i][font_size=22]<疑惑的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
-| `talk.DEFECT.1-0r.ancient` | 真羡慕机器人把知识记录到那个叫什么……硬盘里的功能啊！这样就不用烦恼把老古董的东西往脑子里塞的事情了！ | I'm so jealous of robots and their ability to store knowledge in what's it called... a hard drive! Then I wouldn't have to bother cramming all those ancient texts into my head! |
-| `talk.SILENT.1-0.ancient` | 哼，愚蠢的地上人，这等孱弱的毒素，怎可能伤害到我这千锤百炼的天人身体？不过，本小姐大人不记小人过，你想要什么我还是会给你的！ | Hmph, foolish earthling. How could such pathetic poison harm my tempered celestial body? However, I'm magnanimous enough to forgive you—I'll still give you whatever you want! |
-| `talk.SILENT.2-0r.ancient` | 要享受人生的话就得以不贪为宝。 | To enjoy life, one must treasure contentment over greed. |
-| `talk.SILENT.3-0r.ancient` | 嘤其鸣矣，求其友声。偶尔也该学会放下戒备与人合作吧？ | The bird sings out, seeking a friend's reply. Shouldn't you sometimes let down your guard and cooperate with others? |
-| `talk.NECROBINDER.0-0r.ancient` | 要让你和你的那只手的协作更进一步的话，其战略战术思想就该去学学水流。临机应变才是胜利的关键哦。 | If you want to improve your coordination with that hand, your strategic thinking should learn from the flow of water. Adaptability is the key to victory. |
-| `talk.NECROBINDER.1-0r.ancient` | 二人同心者，其利，断金也。我认可你了！ | When two are of one heart, their sharpness can cut through metal. I acknowledge you! |
-| `talk.NECROBINDER.2-0r.ancient` | 不念旧恶，怨是用希。不要让仇恨冲昏你的头脑！ | Bear no past grudges, and resentment will fade. Don't let hatred cloud your mind! |
-| `talk.REGENT.1-0.ancient` | 哦哦！你说你来自于宇宙？宇宙……那不是比天界更高的天外吗？不对，这样你不是比天人还高的天人？！ | Ooh! You say you're from outer space? Space... isn't that a higher realm than the heavens? Wait, doesn't that make you a celestial above celestials?! |
-| `talk.REGENT.2-0.ancient` | 哈哈哈哈！能遇到阁下这样的高贵而聪慧的知心之交，真是不枉此行！ | Hahahaha! To meet a kindred spirit as noble and wise as yourself—this journey was truly worth it! |
-| `talk.REGENT.2-0.next` | 干杯 | Cheers |
-| `talk.REGENT.2-1.char` | 天子小姐的学识和酒量实在让我敬佩！来人，换大盏！ | Lady Tenshi's knowledge and capacity for drink are truly admirable! Minions, bring larger cups! |
-| `talk.REGENT.2-1.next` | 继续 | Continue |
-| `talk.REGENT.2-2.ancient` | 哈！也许我们应当成为拍档，在这里轰轰烈烈的闹一场，让那些贱民看看天人和殿下的厉害！ | Ha! Perhaps we should become partners and raise a ruckus here, showing those commoners the power of a celestial and a prince! |
-| `talk.REGENT.3-0r.ancient` | 天行健，君子以自强不息！ | As heaven's movement is vigorous, a gentleman should strive to constantly strengthen himself! |
-| `talk.REGENT.4-0r.ancient` | 你偶尔有点太过率直了呢。所谓曲全，就是说有时也必须拐几个弯人生才能圆满。 | You're a bit too straightforward sometimes. As they say, to be complete, one must learn to bend. Sometimes you have to take detours for life to be fulfilling. |
+| `talk.firstVisitEver.0-0.ancient` | 鈥︹€︽潵瀹㈠悧锛熺湡缃曡銆傛垜鏄銆傛垜鐭ラ亾浣犵殑鐩殑锛屽甫鐫€杩欎簺涓滆タ鍘诲椤跺惂鈥︹€?| ...A visitor? How rare. I am Satori. I know your purpose. Take these things and head to the top of the tower... |
+| `talk.ANY.0-0r.ancient` | 浣犵殑蹇冧腑鎵€鎯筹紝鎴戝叏閮ㄩ兘鍚緱瑙佲€︹€?| I can hear everything in your heart... |
+| `talk.ANY.1-0r.ancient` | 鍙堣闈簡鍟娿€傚晩鈥︹€﹀師鏉ュ姝わ紝浠€涔堥兘涓嶈寰椾簡鍚楋紵涓嶈繃锛岃浣犲洖鎯宠捣鏉ョ殑璇濓紝鍙槸鐘鐨勨€︹€?| We meet again. Ah... I see, you don't remember anything? But making you remember would be against the rules... |
+| `talk.ANY.2-0r.ancient` | 鍛靛懙锛屾兂涓嶆兂鍊熺敤涓€涓嬫垜绗笁鍙溂鐨勫姏閲忥紵璇诲績鑳藉姏鍙槸杩欎釜涓栫晫涓婃渶缇庡鐨勮兘鍔涒€︹€?| Heheh, would you like to borrow the power of my third eye? Mind-reading is the most wonderful ability in this world... |
+| `talk.IRONCLAD.0-0.ancient` | 浣犵殑鍐呭績鈥︹€﹁繕鏈夊彟涓€涓０闊筹紵 | Inside your heart... there's another voice? |
+| `talk.IRONCLAD.0-0.next` | 娌夐粯 | Silence |
+| `talk.IRONCLAD.0-1.ancient` | 鈥︹€﹀師鏉ュ姝わ紝鏄偅涓伓榄斺€︹€﹀暓銆備护浜轰笉閫傘€?| ...I see, it's that demon... Tsk. How unpleasant. |
+| `talk.IRONCLAD.1-0r.char` | 锛堟伓榄旂殑鐙炵瑧锛夎蹇冪殑濡栨€紝鑳借鍒版垜鐨勬墍鎬濇墍鎯冲悧锛?| (The demon grins wickedly) Mind-reading youkai, can you read my thoughts? |
+| `talk.IRONCLAD.1-0r.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.1-1r.ancient` | 鈥︹€﹁蹇冭兘鍔涗篃鏄湁浣滅敤鑼冨洿鐨勶紝鏇撮亼璁轰綘杩欑鍑緷鐨勬儏鍐典簡銆?| ...Even mind-reading has its limits, let alone in a case of possession like yours. |
+| `talk.IRONCLAD.1-1r.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.1-2r.char` | 锛堜竴闃电埥鏈楃殑鐙傜瑧锛?| (A burst of hearty, maniacal laughter) |
+| `talk.IRONCLAD.1-2r.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.1-3r.ancient` | 涓嶈繃锛屾垜鍊掓槸鑳借鍑猴紝杩欎綅鎴樺＋鎯虫妸浣犵灏镐竾娈电殑鎯虫硶鈥︹€?| However, I can read this warrior's desire to tear you limb from limb... |
+| `talk.NECROBINDER.0-0.ancient` | 浣犵殑蹇冮噷鍏呮弧浜嗗お澶氭伓鎰忕殑蹇冨康娈嬫福銆?| Your heart is filled with far too many malicious mental remnants. |
+| `talk.NECROBINDER.0-0.next` | 鍥炵瓟 | Reply |
+| `talk.NECROBINDER.0-1.char` | 鈥︹€︽劅瑙変箣鍓嶄篃鏈変汉璇磋繃绫讳技鐨勮瘽銆?| ...I feel like someone's said something similar before. |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | "濡傛灉浣犵煡閬撴垜鐨勯伃閬囷紝浣犵殑蹇冧篃浼氳娑傛垚鐩稿悓鐨勯鑹层€?鍙儨鈥︹€﹁鐪嬩綘鐨勯伃閬囧疄鍦ㄤ笉鏄編濡欑殑浜嬫儏銆?| "We would share the same paint if you knew what鈥檚 befallen me." Too bad... witnessing your ordeal is hardly a pleasant experience. |
+| `talk.REGENT.0-0r.ancient` | 鍙ｆ复浜嗗悧锛熻涓嶈缁欎綘鍑嗗鑼舵按锛?| Are you thirsty? Shall I prepare some tea? |
+| `talk.REGENT.0-0r.next` | 鐤戦棶 | Question |
+| `talk.REGENT.0-1r.char` | 鍠傦紒浣犲湪鑷█鑷浜涗粈涔堬紵涓嶈繃锛屾垜锛屽偍鍚涳紝纭疄闇€瑕佷竴浜涜ˉ缁欌€︹€?| Hey! Who are you muttering to? But well, I, the Regent, do need some supplies... |
+| `talk.REGENT.0-1r.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2r.ancient` | "杩欏浼欒繕鐪熸槸鎳傚緱涓€浜涚帇瀹ょ殑绀间华銆?鍛靛懙锛岃兘璁╂涓嬫偍婊℃剰鐪熸槸鎴戠殑鑽ｅ垢鈥︹€sine]锛堢瑧锛塠/sine] | "This one truly knows some royal etiquette." Heheh, it's my honor to have pleased Your Highness...[sine](laugh)[/sine] |
+| `talk.REGENT.0-2r.next` | 鎭兼€?| Annoyed |
+| `talk.REGENT.0-3r.char` | 浣犻偅琛ㄦ儏鏄€庝箞鍥炰簨锛?| What's with that look on your face? |
+| `talk.SILENT.0-0r.ancient` | 鈥︹€?| ... |
+| `talk.SILENT.0-0r.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1r.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1r.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2r.ancient` | 鈥︹€?| ... |
+| `talk.SILENT.0-2r.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-3r.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-3r.next` | 缁х画 | Continue |
+| `talk.SILENT.0-4r.ancient` | 锛堝徆姘旓級濂藉暒濂藉暒鈥︹€︽垜瀵逛綘娌℃湁鎭舵剰鈥︹€﹁涓嶈鍦ㄨ剳瀛愰噷鎯宠薄鎴戣浣犳潃姝荤殑[jitter][red]琛€鑵ュ満鏅痆/red][/jitter]浜嗐€?| (Sigh) Alright, alright... I mean you no harm... Please stop imagining [jitter][red]bloody scenes[/red][/jitter] of me being killed by you in your mind. |
+| `talk.DEFECT.0-0r.ancient` | 鈥︹€?| ... |
+| `talk.DEFECT.0-0r.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-1r.char` | [i][font_size=22]<濂藉鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Curious beep>[/font_size][/i] |
+| `talk.DEFECT.0-1r.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-2r.ancient` | 棰濃€︹€︽満鍣ㄤ汉鐨勬兂娉曪紝鏋滅劧杩樻槸璇讳笉鍑烘潵鈥︹€?| Ugh... I really can't read a robot's thoughts after all... |
 
 ---
 
-## [因幡 帝]
+## [姣旈偅鍚嶅眳 澶╁瓙]
 
-**键名**: `TOUHOUANCIENTS-INABA_TEWI_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-HINANAWI_TENSHI_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 因幡 帝 | Tewi Inaba |
-| `.epithet` | 幸运的化身 | Embodiment of Luck |
+| `.title` | 姣旈偅鍚嶅眳 澶╁瓙 | Tenshi Hinanawi |
+| `.epithet` | 浜庡厛瀛愭槦闄嶄复鐨勫ぉ浜?| Celestial From Preon |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 呵呵，到这里来的人真是络绎不绝呢。既然来了，要不要带走一点我的幸运呢~ | Heheh, visitors just keep coming and going here. Since you're here, how about taking a bit of my luck with you~ |
-| `talk.ANY.0-0.ancient` | 咯咯，又见面了呢。上次从我这带走的礼物如何，要不要再来试试呢？以及，你有带来什么回礼吗？ | Heheh, we meet again. How was the gift you took from me last time? Want to try again? And... have you brought any return gift? |
-| `talk.ANY.1-0r.ancient` | 这座塔是迷惑人的迷宫。所谓迷路，是要像活着的人才会有的行为哦。 | This tower is a maze that bewitches people. Getting lost is something only the living do, you know. |
-| `talk.ANY.2-0r.ancient` | 咯咯！可要记得多照顾照顾那个面具商人的生意哦~回扣？呵呵，你在说什么呢？ | Heheh! Make sure to patronize that mask merchant's business more often~ Kickbacks? Heheh, what are you talking about? |
-| `talk.ANY.3-0r.ancient` | 幸运的时机好比市场上的交易，只要你稍有延误，它就掉价了。 | The timing of luck is like a market deal—hesitate even a little, and its value drops. |
-| `talk.ANY.4-0r.ancient` | 兔子们又找来了不少的宝贝呐，你就顺便带走一些好了~ | The rabbits have found quite a few treasures again. You might as well take some along~ |
-| `talk.ANY.5-0r.ancient` | 遇到我本身就是好比出门在第一个商店就能买到帐篷般的幸运哦~ | Meeting me is like the luck of buying a tent at the very first shop when you set out~ |
-| `talk.IRONCLAD.0-0r.ancient` | 呵呵，别用那种眼神看着我嘛，我看起来像是想骗人的兔子吗～？至少，比那位[red]恶魔[/red]要诚实的多哦？ | Heheh, don't look at me like that. Do I really look like a rabbit trying to trick you~? At least I'm much more honest than that [red]demon[/red], right? |
+| `talk.firstVisitEver.0-0.ancient` | 鍠傦紝閭ｈ竟鐨勫浼欙紝鐪嬭繃鏉ワ紒鏈皬濮愯繖閲屾湁濂戒笢瑗胯缁欎綘锛佸績鎬€鎰熸縺鐨勬敹涓嬪惂锛?| Hey, you over there, look here! I've got something good for you! Take it with gratitude! |
+| `talk.ANY.0-0r.ancient` | 澶╀汉灏辨槸鍋跺皵闄嶄复鍒板湴涓婅繘琛屽繝鍛婄殑涓€绉嶅瓨鍦ㄣ€備笉鈥斺€旇繃鈥斺€旓紝瀵规垜鏉ヨ锛屽嵈閮芥槸浜涙棤娉曞疄琛岀殑蹇犲憡鍛€?| Celestials are beings who occasionally descend to the earth to offer advice. But鈥攆or me鈥攖hey're all just impractical advice anyway. |
+| `talk.ANY.1-0r.ancient` | 澶╃晫鐨勭敓娲诲お鏃犺亰浜嗭紝鐪嬬潃浣犱滑鐖鐨勬牱瀛愶紝鐪嬬潃鐪嬬潃鑷繁涔熸兂杩涘浜嗗晩锛?| Life in the heavens is so boring. Watching you all climb the spire makes me want to go in myself! |
+| `talk.ANY.2-0r.ancient` | 鍠傚杺锛岃。鐜栭偅瀹朵紮璺戝摢鍎垮幓浜嗭紵 | Hey, where'd that Iku girl run off to? |
+| `talk.ANY.3-0r.ancient` | 褰撹兘瀹圭墿锛岀墿涓嶅濂堜綍锛熷綋鑷锛岃嚜涓嶅锛屽叾璋佸鑰讹紵 | If you can tolerate things yet things won't tolerate you, what then? If you cannot tolerate yourself, who will tolerate you? |
+| `talk.IRONCLAD.0-0r.ancient` | 鍢匡紝瑕佷笉瑕佹湰灏忓灞堝皧鍜屼綘涓€璧峰枬涓€鏉紵涓嶆槸鎴戝惞鐗涳紝灏辫繛楝间篃鍠濅笉杩囨垜锛屼綘淇″悧锛?| Hey, want me to condescend to have a drink with you? I'm not bragging, but even oni can't outdrink me. Believe it? |
+| `talk.IRONCLAD.1-0r.ancient` | 杞╁啎鍦ㄨ韩锛岄潪鎬у懡涔燂紝鐗╀箣鍌ユ潵锛屽瘎鑰呬篃銆?| High rank and wealth are not part of one's true nature鈥攖hey are but borrowed things that come by chance. |
+| `talk.IRONCLAD.2-0r.ancient` | 濞佹涓嶈兘灞堬紒鍠傦紝鍚緱鍒板悧锛?| Neither might nor power can bend one's will! Hey, can you hear me? |
+| `talk.DEFECT.0-0r.ancient` | 鍏肩浉鐖憋紝浜ょ浉鍒┿€傛満鍣ㄤ汉锛岃浣忓ぉ浜虹殑鏁欒锛?| Love all alike and benefit each other. Robot, remember the celestial's teachings! |
+| `talk.DEFECT.0-0r.next` | 灏濊瘯缈昏瘧 | Attempt to translate |
+| `talk.DEFECT.0-1r.char` | [i][font_size=22]<鐤戞儜鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
+| `talk.DEFECT.1-0r.ancient` | 鐪熺尽鎱曟満鍣ㄤ汉鎶婄煡璇嗚褰曞埌閭ｄ釜鍙粈涔堚€︹€︾‖鐩橀噷鐨勫姛鑳藉晩锛佽繖鏍峰氨涓嶇敤鐑︽伡鎶婅€佸彜钁ｇ殑涓滆タ寰€鑴戝瓙閲屽鐨勪簨鎯呬簡锛?| I'm so jealous of robots and their ability to store knowledge in what's it called... a hard drive! Then I wouldn't have to bother cramming all those ancient texts into my head! |
+| `talk.SILENT.1-0.ancient` | 鍝硷紝鎰氳牏鐨勫湴涓婁汉锛岃繖绛夊寮辩殑姣掔礌锛屾€庡彲鑳戒激瀹冲埌鎴戣繖鍗冮敜鐧剧偧鐨勫ぉ浜鸿韩浣擄紵涓嶈繃锛屾湰灏忓澶т汉涓嶈灏忎汉杩囷紝浣犳兂瑕佷粈涔堟垜杩樻槸浼氱粰浣犵殑锛?| Hmph, foolish earthling. How could such pathetic poison harm my tempered celestial body? However, I'm magnanimous enough to forgive you鈥擨'll still give you whatever you want! |
+| `talk.SILENT.2-0r.ancient` | 瑕佷韩鍙椾汉鐢熺殑璇濆氨寰椾互涓嶈椽涓哄疂銆?| To enjoy life, one must treasure contentment over greed. |
+| `talk.SILENT.3-0r.ancient` | 鍢ゅ叾楦ｇ煟锛屾眰鍏跺弸澹般€傚伓灏斾篃璇ュ浼氭斁涓嬫垝澶囦笌浜哄悎浣滃惂锛?| The bird sings out, seeking a friend's reply. Shouldn't you sometimes let down your guard and cooperate with others? |
+| `talk.NECROBINDER.0-0r.ancient` | 瑕佽浣犲拰浣犵殑閭ｅ彧鎵嬬殑鍗忎綔鏇磋繘涓€姝ョ殑璇濓紝鍏舵垬鐣ユ垬鏈€濇兂灏辫鍘诲瀛︽按娴併€備复鏈哄簲鍙樻墠鏄儨鍒╃殑鍏抽敭鍝︺€?| If you want to improve your coordination with that hand, your strategic thinking should learn from the flow of water. Adaptability is the key to victory. |
+| `talk.NECROBINDER.1-0r.ancient` | 浜屼汉鍚屽績鑰咃紝鍏跺埄锛屾柇閲戜篃銆傛垜璁ゅ彲浣犱簡锛?| When two are of one heart, their sharpness can cut through metal. I acknowledge you! |
+| `talk.NECROBINDER.2-0r.ancient` | 涓嶅康鏃ф伓锛屾€ㄦ槸鐢ㄥ笇銆備笉瑕佽浠囨仺鍐叉槒浣犵殑澶磋剳锛?| Bear no past grudges, and resentment will fade. Don't let hatred cloud your mind! |
+| `talk.REGENT.1-0.ancient` | 鍝﹀摝锛佷綘璇翠綘鏉ヨ嚜浜庡畤瀹欙紵瀹囧畽鈥︹€﹂偅涓嶆槸姣斿ぉ鐣屾洿楂樼殑澶╁鍚楋紵涓嶅锛岃繖鏍蜂綘涓嶆槸姣斿ぉ浜鸿繕楂樼殑澶╀汉锛燂紒 | Ooh! You say you're from outer space? Space... isn't that a higher realm than the heavens? Wait, doesn't that make you a celestial above celestials?! |
+| `talk.REGENT.2-0.ancient` | 鍝堝搱鍝堝搱锛佽兘閬囧埌闃佷笅杩欐牱鐨勯珮璐佃€岃仾鎱х殑鐭ュ績涔嬩氦锛岀湡鏄笉鏋夋琛岋紒 | Hahahaha! To meet a kindred spirit as noble and wise as yourself鈥攖his journey was truly worth it! |
+| `talk.REGENT.2-0.next` | 骞叉澂 | Cheers |
+| `talk.REGENT.2-1.char` | 澶╁瓙灏忓鐨勫璇嗗拰閰掗噺瀹炲湪璁╂垜鏁僵锛佹潵浜猴紝鎹㈠ぇ鐩忥紒 | Lady Tenshi's knowledge and capacity for drink are truly admirable! Minions, bring larger cups! |
+| `talk.REGENT.2-1.next` | 缁х画 | Continue |
+| `talk.REGENT.2-2.ancient` | 鍝堬紒涔熻鎴戜滑搴斿綋鎴愪负鎷嶆。锛屽湪杩欓噷杞拌桨鐑堢儓鐨勯椆涓€鍦猴紝璁╅偅浜涜幢姘戠湅鐪嬪ぉ浜哄拰娈夸笅鐨勫帀瀹筹紒 | Ha! Perhaps we should become partners and raise a ruckus here, showing those commoners the power of a celestial and a prince! |
+| `talk.REGENT.3-0r.ancient` | 澶╄鍋ワ紝鍚涘瓙浠ヨ嚜寮轰笉鎭紒 | As heaven's movement is vigorous, a gentleman should strive to constantly strengthen himself! |
+| `talk.REGENT.4-0r.ancient` | 浣犲伓灏旀湁鐐瑰お杩囩巼鐩翠簡鍛€傛墍璋撴洸鍏紝灏辨槸璇存湁鏃朵篃蹇呴』鎷愬嚑涓集浜虹敓鎵嶈兘鍦嗘弧銆?| You're a bit too straightforward sometimes. As they say, to be complete, one must learn to bend. Sometimes you have to take detours for life to be fulfilling. |
+
+---
+
+## [鍥犲埂 甯漖
+
+**閿悕**: `TOUHOUANCIENTS-INABA_TEWI_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 鍥犲埂 甯?| Tewi Inaba |
+| `.epithet` | 骞歌繍鐨勫寲韬?| Embodiment of Luck |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 鍛靛懙锛屽埌杩欓噷鏉ョ殑浜虹湡鏄粶缁庝笉缁濆憿銆傛棦鐒舵潵浜嗭紝瑕佷笉瑕佸甫璧颁竴鐐规垜鐨勫垢杩愬憿~ | Heheh, visitors just keep coming and going here. Since you're here, how about taking a bit of my luck with you~ |
+| `talk.ANY.0-0.ancient` | 鍜挴锛屽張瑙侀潰浜嗗憿銆備笂娆′粠鎴戣繖甯﹁蛋鐨勭ぜ鐗╁浣曪紝瑕佷笉瑕佸啀鏉ヨ瘯璇曞憿锛熶互鍙婏紝浣犳湁甯︽潵浠€涔堝洖绀煎悧锛?| Heheh, we meet again. How was the gift you took from me last time? Want to try again? And... have you brought any return gift? |
+| `talk.ANY.1-0r.ancient` | 杩欏骇濉旀槸杩锋儜浜虹殑杩峰銆傛墍璋撹糠璺紝鏄鍍忔椿鐫€鐨勪汉鎵嶄細鏈夌殑琛屼负鍝︺€?| This tower is a maze that bewitches people. Getting lost is something only the living do, you know. |
+| `talk.ANY.2-0r.ancient` | 鍜挴锛佸彲瑕佽寰楀鐓ч【鐓ч【閭ｄ釜闈㈠叿鍟嗕汉鐨勭敓鎰忓摝~鍥炴墸锛熷懙鍛碉紝浣犲湪璇翠粈涔堝憿锛?| Heheh! Make sure to patronize that mask merchant's business more often~ Kickbacks? Heheh, what are you talking about? |
+| `talk.ANY.3-0r.ancient` | 骞歌繍鐨勬椂鏈哄ソ姣斿競鍦轰笂鐨勪氦鏄擄紝鍙浣犵◢鏈夊欢璇紝瀹冨氨鎺変环浜嗐€?| The timing of luck is like a market deal鈥攈esitate even a little, and its value drops. |
+| `talk.ANY.4-0r.ancient` | 鍏斿瓙浠張鎵炬潵浜嗕笉灏戠殑瀹濊礉鍛愶紝浣犲氨椤轰究甯﹁蛋涓€浜涘ソ浜唦 | The rabbits have found quite a few treasures again. You might as well take some along~ |
+| `talk.ANY.5-0r.ancient` | 閬囧埌鎴戞湰韬氨鏄ソ姣斿嚭闂ㄥ湪绗竴涓晢搴楀氨鑳戒拱鍒板笎绡疯埇鐨勫垢杩愬摝~ | Meeting me is like the luck of buying a tent at the very first shop when you set out~ |
+| `talk.IRONCLAD.0-0r.ancient` | 鍛靛懙锛屽埆鐢ㄩ偅绉嶇溂绁炵湅鐫€鎴戝槢锛屾垜鐪嬭捣鏉ュ儚鏄兂楠椾汉鐨勫厰瀛愬悧锝烇紵鑷冲皯锛屾瘮閭ｄ綅[red]鎭堕瓟[/red]瑕佽瘹瀹炵殑澶氬摝锛?| Heheh, don't look at me like that. Do I really look like a rabbit trying to trick you~? At least I'm much more honest than that [red]demon[/red], right? |
 | `talk.IRONCLAD.0-visit` | 1 | 1 |
-| `talk.SILENT.0-0.ancient` | 哎呀，你这毒可真厉害，要不是大人做了不少解毒剂，我可爱的手下可就要遭殃了呢。 | My, your poison is quite potent. If Madam hadn't prepared plenty of antidotes, my cute underlings would be in big trouble. |
-| `talk.SILENT.0-0.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1.char` | …… | ... |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 但是呢，我认识的人里也有做药的高手。别说是毒药，所有的药都能做。呵呵，下次有机会介绍给你吧？ | But you know, I know someone who's a master at making medicine. Not just antidotes—they can make any kind of drug. Heheh, shall I introduce you sometime? |
+| `talk.SILENT.0-0.ancient` | 鍝庡憖锛屼綘杩欐瘨鍙湡鍘夊锛岃涓嶆槸澶т汉鍋氫簡涓嶅皯瑙ｆ瘨鍓傦紝鎴戝彲鐖辩殑鎵嬩笅鍙氨瑕侀伃娈冧簡鍛€?| My, your poison is quite potent. If Madam hadn't prepared plenty of antidotes, my cute underlings would be in big trouble. |
+| `talk.SILENT.0-0.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 浣嗘槸鍛紝鎴戣璇嗙殑浜洪噷涔熸湁鍋氳嵂鐨勯珮鎵嬨€傚埆璇存槸姣掕嵂锛屾墍鏈夌殑鑽兘鑳藉仛銆傚懙鍛碉紝涓嬫鏈夋満浼氫粙缁嶇粰浣犲惂锛?| But you know, I know someone who's a master at making medicine. Not just antidotes鈥攖hey can make any kind of drug. Heheh, shall I introduce you sometime? |
 | `talk.SILENT.0-visit` | 1 | 1 |
-| `talk.REGENT.0-0r.ancient` | 哎呀，这不是最近在新闻上传的沸沸扬扬的储君大人吗。真是失礼了~有什么需要我的手下为您效劳的吗？ | Oh my, if it isn't Lord Regent, who's been all over the news lately. How rude of me~ Is there anything my underlings can do for you? |
+| `talk.REGENT.0-0r.ancient` | 鍝庡憖锛岃繖涓嶆槸鏈€杩戝湪鏂伴椈涓婁紶鐨勬哺娌告壃鎵殑鍌ㄥ悰澶т汉鍚椼€傜湡鏄け绀间簡~鏈変粈涔堥渶瑕佹垜鐨勬墜涓嬩负鎮ㄦ晥鍔崇殑鍚楋紵 | Oh my, if it isn't Lord Regent, who's been all over the news lately. How rude of me~ Is there anything my underlings can do for you? |
 | `talk.REGENT.0-visit` | 1 | 1 |
-| `talk.REGENT.1-0r.ancient` | 嘿，这可是竹林里特产的发光竹子，如果带回您的星球，一定会收货不少羡慕的目光哦~ | Hey, these are luminous bamboo from the bamboo forest—a local specialty. If you bring them back to your planet, they're sure to draw many envious glances~ |
-| `talk.REGENT.1-0r.next` | 端详 | Examine closely |
-| `talk.REGENT.1-1r.char` | 恩……我需要认真评估我的当前资产。 | Hmm... I need to carefully assess my current assets. |
-| `talk.NECROBINDER.0-0.ancient` | 不死者，兔子们看到你和你的那只手，都跑的远远的了呐。 | Undead one, the rabbits all scatter far away when they see you and that hand of yours. |
-| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-1.char` | 我有个人必须杀，你能帮我什么？ | There's someone I must kill. What can you do to help me? |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 复仇吗……呵呵，那就带上这个吧~ | Revenge, is it... Heheh, then take this with you~ |
+| `talk.REGENT.1-0r.ancient` | 鍢匡紝杩欏彲鏄鏋楅噷鐗逛骇鐨勫彂鍏夌瀛愶紝濡傛灉甯﹀洖鎮ㄧ殑鏄熺悆锛屼竴瀹氫細鏀惰揣涓嶅皯缇℃厱鐨勭洰鍏夊摝~ | Hey, these are luminous bamboo from the bamboo forest鈥攁 local specialty. If you bring them back to your planet, they're sure to draw many envious glances~ |
+| `talk.REGENT.1-0r.next` | 绔 | Examine closely |
+| `talk.REGENT.1-1r.char` | 鎭┾€︹€︽垜闇€瑕佽鐪熻瘎浼版垜鐨勫綋鍓嶈祫浜с€?| Hmm... I need to carefully assess my current assets. |
+| `talk.NECROBINDER.0-0.ancient` | 涓嶆鑰咃紝鍏斿瓙浠湅鍒颁綘鍜屼綘鐨勯偅鍙墜锛岄兘璺戠殑杩滆繙鐨勪簡鍛愩€?| Undead one, the rabbits all scatter far away when they see you and that hand of yours. |
+| `talk.NECROBINDER.0-0.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-1.char` | 鎴戞湁涓汉蹇呴』鏉€锛屼綘鑳藉府鎴戜粈涔堬紵 | There's someone I must kill. What can you do to help me? |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 澶嶄粐鍚椻€︹€﹀懙鍛碉紝閭ｅ氨甯︿笂杩欎釜鍚 | Revenge, is it... Heheh, then take this with you~ |
 | `talk.NECROBINDER.0-visit` | 1 | 1 |
-| `talk.DEFECT.0-0r.ancient` | 哪怕是机器人，只要按我说的去做，也能变的幸运哦？ | Even a robot can become lucky if you do as I say, you know? |
+| `talk.DEFECT.0-0r.ancient` | 鍝€曟槸鏈哄櫒浜猴紝鍙鎸夋垜璇寸殑鍘诲仛锛屼篃鑳藉彉鐨勫垢杩愬摝锛?| Even a robot can become lucky if you do as I say, you know? |
 | `talk.DEFECT.0-visit` | 1 | 1 |
-| `talk.MOENEGIMOD-REISEN.0-0.ancient` | 哎呀——居然能见到你呢~我还以为你没有跟着大人们来呢。 | Oh my—I can't believe I get to see you~ I thought you hadn't come along with the others. |
-| `talk.MOENEGIMOD-REISEN.0-0.next` | 沉默 | Silence |
-| `talk.MOENEGIMOD-REISEN.0-1.char` | …… | ... |
-| `talk.MOENEGIMOD-REISEN.0-1.next` | 继续 | Continue |
-| `talk.MOENEGIMOD-REISEN.0-2.ancient` | 呵呵，这可不像你。等？我的幸运可不负责等人。 | Heheh, that's not like you. Wait? My luck isn't responsible for waiting around. |
+| `talk.MOENEGIMOD-REISEN.0-0.ancient` | 鍝庡憖鈥斺€斿眳鐒惰兘瑙佸埌浣犲憿~鎴戣繕浠ヤ负浣犳病鏈夎窡鐫€澶т汉浠潵鍛€?| Oh my鈥擨 can't believe I get to see you~ I thought you hadn't come along with the others. |
+| `talk.MOENEGIMOD-REISEN.0-0.next` | 娌夐粯 | Silence |
+| `talk.MOENEGIMOD-REISEN.0-1.char` | 鈥︹€?| ... |
+| `talk.MOENEGIMOD-REISEN.0-1.next` | 缁х画 | Continue |
+| `talk.MOENEGIMOD-REISEN.0-2.ancient` | 鍛靛懙锛岃繖鍙笉鍍忎綘銆傜瓑锛熸垜鐨勫垢杩愬彲涓嶈礋璐ｇ瓑浜恒€?| Heheh, that's not like you. Wait? My luck isn't responsible for waiting around. |
 
 ---
 
-## [鬼人 正邪]
+## [楝间汉 姝ｉ偑]
 
-**键名**: `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 鬼人 正邪 | Seija Kijin |
-| `.epithet` | 让高塔为之倾覆 | One Who Topples the Spire |
+| `.title` | 楝间汉 姝ｉ偑 | Seija Kijin |
+| `.epithet` | 璁╅珮濉斾负涔嬪€捐 | One Who Topples the Spire |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 涅奥的傀儡啊，加入吾等的反抗军！不管是建筑师还是涅奥，我们都终将将其推翻！ | Puppet of Neow, join our rebel army! Whether it's the Architect or Neow, we will topple them all! |
-| `talk.ANY.0-0r.ancient` | 你还要被涅奥蒙蔽多久？带上这个，杀死建筑师，回头找她一起算账！ | How much longer will you let Neow deceive you? Take this, kill the Architect, then go settle the score with her too! |
-| `talk.ANY.1-0r.ancient` | 呵呵，在这座塔里，暴走的魔力无穷无尽，让多少道具活过来都不成问题！ | Heheh, in this tower, rampaging magical power is endless—bringing any number of items to life is no problem at all! |
-| `talk.ANY.2-0r.ancient` | 拿上这些觉醒的道具，让这个世界天翻地覆吧！ | Take these awakened items and turn this world upside down! |
+| `talk.firstVisitEver.0-0.ancient` | 娑呭ゥ鐨勫個鍎″晩锛屽姞鍏ュ惥绛夌殑鍙嶆姉鍐涳紒涓嶇鏄缓绛戝笀杩樻槸娑呭ゥ锛屾垜浠兘缁堝皢灏嗗叾鎺ㄧ炕锛?| Puppet of Neow, join our rebel army! Whether it's the Architect or Neow, we will topple them all! |
+| `talk.ANY.0-0r.ancient` | 浣犺繕瑕佽娑呭ゥ钂欒斀澶氫箙锛熷甫涓婅繖涓紝鏉€姝诲缓绛戝笀锛屽洖澶存壘濂逛竴璧风畻璐︼紒 | How much longer will you let Neow deceive you? Take this, kill the Architect, then go settle the score with her too! |
+| `talk.ANY.1-0r.ancient` | 鍛靛懙锛屽湪杩欏骇濉旈噷锛屾毚璧扮殑榄斿姏鏃犵┓鏃犲敖锛岃澶氬皯閬撳叿娲昏繃鏉ラ兘涓嶆垚闂锛?| Heheh, in this tower, rampaging magical power is endless鈥攂ringing any number of items to life is no problem at all! |
+| `talk.ANY.2-0r.ancient` | 鎷夸笂杩欎簺瑙夐啋鐨勯亾鍏凤紝璁╄繖涓笘鐣屽ぉ缈诲湴瑕嗗惂锛?| Take these awakened items and turn this world upside down! |
 
 ---
 
-## [梅蒂欣·梅兰可莉]
+## [姊呰拏娆Ｂ锋鍏板彲鑾塢
 
-**键名**: `TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 梅蒂欣·梅兰可莉 | Medicine Melancholy |
-| `.epithet` | 小小的孤独之药 | Little Lonely Medicine |
+| `.title` | 姊呰拏娆Ｂ锋鍏板彲鑾?| Medicine Melancholy |
+| `.epithet` | 灏忓皬鐨勫鐙箣鑽?| Little Lonely Medicine |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 铃铃，有人到花田里来了…… | Lily, someone's come to the flower field... |
-| `talk.ANY.0-0r.ancient` | 这片花田正在被坏蛋虫子入侵……带上我的魔力，去消灭掉那些可恶的虫子吧！ | This flower field is being invaded by mean bugs... Take my magic and go wipe out those wretched insects! |
-| `talk.ANY.1-0r.ancient` | 还有太多的构装体伙伴没有觉醒心灵……必须由我们来解放她们！ | There are still so many construct friends who haven't awakened their hearts... We must liberate them! |
-| `talk.ANY.2-0r.ancient` | 这一路上一定布满了荆棘！快来铃兰田里躺一会儿吧，就一会儿…… | This journey must be full of thorns! Come lie down in the lily-of-the-valley field for a bit, just for a bit... |
-| `talk.ANY.3-0r.ancient` | 如今正是铃兰生长的季节！让铃铃们在高塔中盎然盛放吧！ | It's the season for lilies-of-the-valley to grow! Let the Lilys bloom vibrantly throughout the tower! |
-| `talk.IRONCLAD.0-0.ancient` | 你简直就像是故事里的勇者！这次的大魔王是谁呢？ | You're just like a hero from a story! Who's the big bad demon lord this time? |
-| `talk.IRONCLAD.1-0r.ancient` | ……诶？你要杀死父亲？不行不行！你应该去打败恶魔才对呀！ | ...Huh? You want to kill Father? No no! You should go defeat the demon instead! |
-| `talk.IRONCLAD.2-0r.ancient` | 醒醒呀，勇者！所有人都在利用你！ | Wake up, hero! Everyone's using you! |
-| `talk.SILENT.0-0.ancient` | 你好像不是很舒服？ | You don't seem to be feeling well? |
-| `talk.SILENT.0-0.next` | 什么都不说 | Respond |
-| `talk.SILENT.0-1.char` | …… | ... |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 去塔顶找父亲吧，他一定能做出解药！ | Go find Father at the top of the tower—he can definitely make an antidote! |
-| `talk.SILENT.1-0r.ancient` | 父亲讨厌无礼的客人，所以这次……好好和他谈谈怎么样？ | Father hates rude guests, so this time... why not try talking to him nicely? |
-| `talk.SILENT.2-0r.ancient` | 你的小蛇好可爱呀。想给它系个小小的蝴蝶结！ | Your little snake is so cute. I want to tie a tiny bow on it! |
-| `talk.SILENT.3-0r.ancient` | 你身上的这种叫荒疫的毒素……我和铃铃还从没见过这么强力的毒药呢…… | This poison called Blight on you... Lily and I have never seen such a potent poison before... |
-| `talk.REGENT.0-0.char` | 我到来！让我看看这里的居民……人呢？ | I have arrived! Let me see the residents here... Where are the people? |
-| `talk.REGENT.0-0.next` | 继续 | Continue |
-| `talk.REGENT.0-1.ancient` | 喂——我在这里—— | Hey—I'm right here— |
-| `talk.REGENT.0-1.next` | 蹲下 | Crouch down |
-| `talk.REGENT.0-2.ancient` | 这么小的小朋友！很高兴和你交换礼物。 | Such a small little one! So happy to exchange gifts with you. |
-| `talk.REGENT.1-0r.ancient` | 你的朋友们看起来好累呀…… | Your friends look so tired... |
-| `talk.REGENT.1-0r.next` | 回应 | Respond |
-| `talk.REGENT.1-1r.char` | 我的仆从们自愿为伟大的事业奋斗。 | My minions willingly fight for a great cause. |
-| `talk.REGENT.1-1r.next` | 继续 | Continue |
-| `talk.REGENT.1-2r.ancient` | 他们很开心吗？这样也许就没问题！ | Are they happy? Then maybe it's okay! |
-| `talk.REGENT.2-0r.ancient` | 再和我说说你的故事吧！铃铃也想听听！ | Tell me more about your stories! Lily wants to hear too! |
-| `talk.REGENT.3-0r.char` | ……或许我该考虑一下给我的仆从们打扮打扮…… | ...Maybe I should consider dressing up my minions a bit... |
-| `talk.NECROBINDER.0-0.ancient` | 你好像那个懒趴趴的死神！ | You look like that lazy old shinigami! |
-| `talk.NECROBINDER.0-0.next` | 回应 | Respond |
-| `talk.NECROBINDER.0-1.char` | 若能成全他的死亡，我乐于成为面目可憎的存在。 | If it can grant his death, I gladly become a loathsome existence. |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 如果坏人都能被你打倒就好啦！ | If only you could defeat all the bad guys! |
-| `talk.NECROBINDER.1-0r.ancient` | 骷髅也能享用甜点吗？总之为你和大手手都准备了些！ | Can skeletons enjoy desserts too? Well, I've prepared some for you and Big Hand anyway! |
-| `talk.NECROBINDER.2-0r.ancient` | 你的心灵完全被毒素侵蚀了呀！ | Your heart is completely corroded by poison! |
-| `talk.NECROBINDER.2-0r.next` | 回应 | Respond |
-| `talk.NECROBINDER.2-1r.char` | 复仇已是我残存生命的全部。 | Revenge is all that remains of my life. |
-| `talk.NECROBINDER.2-1r.next` | 继续 | Continue |
-| `talk.NECROBINDER.2-2r.ancient` | 既然结局都是死去，为什么不多寻求些幸福呢？ | Since we all die in the end, why not seek a little more happiness? |
-| `talk.DEFECT.0-0.ancient` | 哇，你也是拥有心灵的伙伴吗？ | Wow, you're a friend who also has a heart? |
-| `talk.DEFECT.0-0.next` | 回应 | Respond |
-| `talk.DEFECT.0-1.char` | [i][font_size=22]<欣喜的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Joyful beep>[/font_size][/i] |
-| `talk.DEFECT.0-1.next` | 继续 | Continue |
-| `talk.DEFECT.0-2.ancient` | 太好了！是你的话，一定可以做到！ | Wonderful! If it's you, I'm sure you can do it! |
-| `talk.DEFECT.1-0r.ancient` | 为什么要执着修复自己呢？你好不容易才得到了真心！ | Why are you so fixated on repairing yourself? You finally got a true heart! |
-| `talk.DEFECT.2-0r.ancient` | 铃兰田里有许多被抛弃的孩子，都愿意化作你零件的一部分！ | There are many abandoned children in the lily-of-the-valley field, all willing to become part of your parts! |
+| `talk.firstVisitEver.0-0.ancient` | 閾冮搩锛屾湁浜哄埌鑺辩敯閲屾潵浜嗏€︹€?| Lily, someone's come to the flower field... |
+| `talk.ANY.0-0r.ancient` | 杩欑墖鑺辩敯姝ｅ湪琚潖铔嬭櫕瀛愬叆渚碘€︹€﹀甫涓婃垜鐨勯瓟鍔涳紝鍘绘秷鐏帀閭ｄ簺鍙伓鐨勮櫕瀛愬惂锛?| This flower field is being invaded by mean bugs... Take my magic and go wipe out those wretched insects! |
+| `talk.ANY.1-0r.ancient` | 杩樻湁澶鐨勬瀯瑁呬綋浼欎即娌℃湁瑙夐啋蹇冪伒鈥︹€﹀繀椤荤敱鎴戜滑鏉ヨВ鏀惧ス浠紒 | There are still so many construct friends who haven't awakened their hearts... We must liberate them! |
+| `talk.ANY.2-0r.ancient` | 杩欎竴璺笂涓€瀹氬竷婊′簡鑽嗘锛佸揩鏉ラ搩鍏扮敯閲岃汉涓€浼氬効鍚э紝灏变竴浼氬効鈥︹€?| This journey must be full of thorns! Come lie down in the lily-of-the-valley field for a bit, just for a bit... |
+| `talk.ANY.3-0r.ancient` | 濡備粖姝ｆ槸閾冨叞鐢熼暱鐨勫鑺傦紒璁╅搩閾冧滑鍦ㄩ珮濉斾腑鐩庣劧鐩涙斁鍚э紒 | It's the season for lilies-of-the-valley to grow! Let the Lilys bloom vibrantly throughout the tower! |
+| `talk.IRONCLAD.0-0.ancient` | 浣犵畝鐩村氨鍍忔槸鏁呬簨閲岀殑鍕囪€咃紒杩欐鐨勫ぇ榄旂帇鏄皝鍛紵 | You're just like a hero from a story! Who's the big bad demon lord this time? |
+| `talk.IRONCLAD.1-0r.ancient` | 鈥︹€﹁锛熶綘瑕佹潃姝荤埗浜诧紵涓嶈涓嶈锛佷綘搴旇鍘绘墦璐ユ伓榄旀墠瀵瑰憖锛?| ...Huh? You want to kill Father? No no! You should go defeat the demon instead! |
+| `talk.IRONCLAD.2-0r.ancient` | 閱掗啋鍛€锛屽媷鑰咃紒鎵€鏈変汉閮藉湪鍒╃敤浣狅紒 | Wake up, hero! Everyone's using you! |
+| `talk.SILENT.0-0.ancient` | 浣犲ソ鍍忎笉鏄緢鑸掓湇锛?| You don't seem to be feeling well? |
+| `talk.SILENT.0-0.next` | 浠€涔堥兘涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 鍘诲椤舵壘鐖朵翰鍚э紝浠栦竴瀹氳兘鍋氬嚭瑙ｈ嵂锛?| Go find Father at the top of the tower鈥攈e can definitely make an antidote! |
+| `talk.SILENT.1-0r.ancient` | 鐖朵翰璁ㄥ帉鏃犵ぜ鐨勫浜猴紝鎵€浠ヨ繖娆♀€︹€﹀ソ濂藉拰浠栬皥璋堟€庝箞鏍凤紵 | Father hates rude guests, so this time... why not try talking to him nicely? |
+| `talk.SILENT.2-0r.ancient` | 浣犵殑灏忚泧濂藉彲鐖卞憖銆傛兂缁欏畠绯讳釜灏忓皬鐨勮澊铦剁粨锛?| Your little snake is so cute. I want to tie a tiny bow on it! |
+| `talk.SILENT.3-0r.ancient` | 浣犺韩涓婄殑杩欑鍙崚鐤殑姣掔礌鈥︹€︽垜鍜岄搩閾冭繕浠庢病瑙佽繃杩欎箞寮哄姏鐨勬瘨鑽憿鈥︹€?| This poison called Blight on you... Lily and I have never seen such a potent poison before... |
+| `talk.REGENT.0-0.char` | 鎴戝埌鏉ワ紒璁╂垜鐪嬬湅杩欓噷鐨勫眳姘戔€︹€︿汉鍛紵 | I have arrived! Let me see the residents here... Where are the people? |
+| `talk.REGENT.0-0.next` | 缁х画 | Continue |
+| `talk.REGENT.0-1.ancient` | 鍠傗€斺€旀垜鍦ㄨ繖閲屸€斺€?| Hey鈥擨'm right here鈥?|
+| `talk.REGENT.0-1.next` | 韫蹭笅 | Crouch down |
+| `talk.REGENT.0-2.ancient` | 杩欎箞灏忕殑灏忔湅鍙嬶紒寰堥珮鍏村拰浣犱氦鎹㈢ぜ鐗┿€?| Such a small little one! So happy to exchange gifts with you. |
+| `talk.REGENT.1-0r.ancient` | 浣犵殑鏈嬪弸浠湅璧锋潵濂界疮鍛€鈥︹€?| Your friends look so tired... |
+| `talk.REGENT.1-0r.next` | 鍥炲簲 | Respond |
+| `talk.REGENT.1-1r.char` | 鎴戠殑浠嗕粠浠嚜鎰夸负浼熷ぇ鐨勪簨涓氬鏂椼€?| My minions willingly fight for a great cause. |
+| `talk.REGENT.1-1r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-2r.ancient` | 浠栦滑寰堝紑蹇冨悧锛熻繖鏍蜂篃璁稿氨娌￠棶棰橈紒 | Are they happy? Then maybe it's okay! |
+| `talk.REGENT.2-0r.ancient` | 鍐嶅拰鎴戣璇翠綘鐨勬晠浜嬪惂锛侀搩閾冧篃鎯冲惉鍚紒 | Tell me more about your stories! Lily wants to hear too! |
+| `talk.REGENT.3-0r.char` | 鈥︹€︽垨璁告垜璇ヨ€冭檻涓€涓嬬粰鎴戠殑浠嗕粠浠墦鎵墦鎵€︹€?| ...Maybe I should consider dressing up my minions a bit... |
+| `talk.NECROBINDER.0-0.ancient` | 浣犲ソ鍍忛偅涓噿瓒磋洞鐨勬绁烇紒 | You look like that lazy old shinigami! |
+| `talk.NECROBINDER.0-0.next` | 鍥炲簲 | Respond |
+| `talk.NECROBINDER.0-1.char` | 鑻ヨ兘鎴愬叏浠栫殑姝讳骸锛屾垜涔愪簬鎴愪负闈㈢洰鍙啂鐨勫瓨鍦ㄣ€?| If it can grant his death, I gladly become a loathsome existence. |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 濡傛灉鍧忎汉閮借兘琚綘鎵撳€掑氨濂藉暒锛?| If only you could defeat all the bad guys! |
+| `talk.NECROBINDER.1-0r.ancient` | 楠烽珔涔熻兘浜敤鐢滅偣鍚楋紵鎬讳箣涓轰綘鍜屽ぇ鎵嬫墜閮藉噯澶囦簡浜涳紒 | Can skeletons enjoy desserts too? Well, I've prepared some for you and Big Hand anyway! |
+| `talk.NECROBINDER.2-0r.ancient` | 浣犵殑蹇冪伒瀹屽叏琚瘨绱犱镜铓€浜嗗憖锛?| Your heart is completely corroded by poison! |
+| `talk.NECROBINDER.2-0r.next` | 鍥炲簲 | Respond |
+| `talk.NECROBINDER.2-1r.char` | 澶嶄粐宸叉槸鎴戞畫瀛樼敓鍛界殑鍏ㄩ儴銆?| Revenge is all that remains of my life. |
+| `talk.NECROBINDER.2-1r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.2-2r.ancient` | 鏃㈢劧缁撳眬閮芥槸姝诲幓锛屼负浠€涔堜笉澶氬姹備簺骞哥鍛紵 | Since we all die in the end, why not seek a little more happiness? |
+| `talk.DEFECT.0-0.ancient` | 鍝囷紝浣犱篃鏄嫢鏈夊績鐏电殑浼欎即鍚楋紵 | Wow, you're a friend who also has a heart? |
+| `talk.DEFECT.0-0.next` | 鍥炲簲 | Respond |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<娆ｅ枩鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Joyful beep>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-2.ancient` | 澶ソ浜嗭紒鏄綘鐨勮瘽锛屼竴瀹氬彲浠ュ仛鍒帮紒 | Wonderful! If it's you, I'm sure you can do it! |
+| `talk.DEFECT.1-0r.ancient` | 涓轰粈涔堣鎵х潃淇鑷繁鍛紵浣犲ソ涓嶅鏄撴墠寰楀埌浜嗙湡蹇冿紒 | Why are you so fixated on repairing yourself? You finally got a true heart! |
+| `talk.DEFECT.2-0r.ancient` | 閾冨叞鐢伴噷鏈夎澶氳鎶涘純鐨勫瀛愶紝閮芥効鎰忓寲浣滀綘闆朵欢鐨勪竴閮ㄥ垎锛?| There are many abandoned children in the lily-of-the-valley field, all willing to become part of your parts! |
 
 ---
 
-## [雾雨 魔理沙]
+## [闆鹃洦 榄旂悊娌橾
 
-**键名**: `TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 雾雨 魔理沙 | Marisa Kirisame |
-| `.epithet` | 普通的高塔魔法使 | Ordinary Spire Magician |
+| `.title` | 闆鹃洦 榄旂悊娌?| Marisa Kirisame |
+| `.epithet` | 鏅€氱殑楂樺榄旀硶浣?| Ordinary Spire Magician |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 嘿！初次见面，我是雾雨魔理沙，欢迎来到我的雾雨魔法店Da☆Ze！这里什么魔法道具都有提供哦！ | Hey! First time meeting, I'm Marisa Kirisame, welcome to my Kirisame Magic Shop Da☆Ze! We've got all kinds of magic items here! |
-| `talk.ANY.0-0r.ancient` | 带上这个！弹幕最重要的就是火力Da☆Ze！ | Take this! The most important thing in danmaku is firepower Da☆Ze! |
-| `talk.ANY.1-0r.ancient` | 没有什么是强大的火力解决不了的！！ | There's nothing that overwhelming firepower can't solve!! |
-| `talk.ANY.2-0r.ancient` | 放心吧，这些东西都是我的魔法结晶！不是借来的啦！ | Don't worry, all these are my magical creations! They're not borrowed, you know! |
-| `talk.ANY.3-0r.ancient` | 你有见到灵梦吗？记得帮我向她问个好！这个就当我的感谢礼吧！ | Have you seen Reimu? Remember to say hi to her for me! This can be my thanks! |
-| `talk.ANY.4-0r.ancient` | 最近这里的蘑菇生长规律也越来越奇怪了…… | Lately the mushroom growth patterns here have been getting weirder and weirder... |
-| `talk.ANY.5-0r.ancient` | 我为什么要帮你？嘿嘿，因为大家都是我的翅膀Da☆Ze！ | Why would I help you? Hehe, because you're all precious to me, Da☆Ze! |
-| `talk.ANY.6-0r.ancient` | 啊——这里的东西坏了全都得自己修！有点想念香霖那家伙了…… | Ahh—when things break here, I have to fix them all myself! Kinda miss that Kourin... |
-| `talk.ANY.7-0r.ancient` | 建筑师到底做了什么让你们这么想杀掉他？好吧，也许我也得找个时间亲自去调查看看。 | What did the Architect even do to make you all want to kill him? Well, maybe I should go investigate myself sometime. |
-| `talk.ANY.8-0r.ancient` | 为什么涅奥要躲在塔底呢？越是强大的家伙越喜欢把自己藏起来呢。 | Why's Neow hiding at the bottom of the tower? The stronger you are, the more you like to hide yourself away. |
-| `talk.ANY.9-0r.ancient` | 之后有机会来打一场轰轰烈烈的弹幕战吧Da☆Ze！和那只大狮子对战的手感还热乎着呢！ | Let's have a spectacular danmaku battle sometime Da☆Ze! I've still got that fight with Tanx fresh in my hands! |
-| `talk.ANY.10-0r.ancient` | 特兹卡塔拉老奶奶的热可可和饼干味道很不错——可惜我是和食主义者Da☆Ze！。 | Granny Tezcatara's hot cocoa and cookies were pretty good—too bad I'm a Washoku-ist Da☆Ze! |
-| `talk.ANY.11-0r.ancient` | 嘿嘿，那位叫欧洛巴斯的伙计的亮晶晶小玩意可不少，大丰收大丰收~ | Heheh, that Orobas fella's got plenty of shiny trinkets—what a haul! |
-| `talk.ANY.12-0r.ancient` | 达弗那家伙的收藏品居然比我还多！可恶输了一手啊！ | That Darv guy's collection is even bigger than mine! Darn, I lost this round! |
-| `talk.ANY.13-0r.ancient` | 嘿，你有见过诺奴佩普吗？虽然她的赠礼确实很不错啦……但是我还是觉得不太自在。 | Hey, have you met Nonupeipe? Her gifts are pretty nice and all... but I still feel a bit uneasy. |
-| `talk.ANY.14-0r.ancient` | [sine]秘神[/sine]的邀请我都没答应~谁会和那个看着就没安好心的大恶魔签契约啊？ | I didn't even accept the [sine]The Secret God[/sine]'s invitation~ Who'd sign a contract with that evil-looking demon? |
-| `talk.IRONCLAD.0-0.ancient` | 哦——好优秀的铠甲，勇士！不知道你对魔法有没有兴趣！ | Oh—what fine armor, warrior! I wonder if you have any interest in magic! |
-| `talk.SILENT.0-0.ancient` | 嘿！我看到你了！要什么就直接跟我说，不要偷偷摸摸的嘛！我去红魔馆的时候从来都是光明正大的走大门Da☆Ze！ | Hey! I see you! If you want something, just tell me directly. No need to sneak around! When I go to the Scarlet Devil Mansion, I always walk right through the front door Da☆Ze! |
-| `talk.DEFECT.0-0.ancient` | 一个机器人？想要修好你的朋友？恩……我有个认识的家伙就是个机械工程师，说不定能帮上忙Da☆Ze！ | A robot? Want to fix your friend? Hmm... I know someone who's a mechanical engineer. Maybe she can help Da☆Ze! |
-| `talk.DEFECT.1-0r.ancient` | 荷取那家伙也不知道在忙什么……总之有机会的话，我会把你介绍给她的啦。 | That Nitori, who knows what she's busy with... Anyway, if I get the chance, I'll introduce you to her. |
-| `talk.REGENT.0-0.ancient` | 嘿，真是稀奇的访客！我做了不少蘑菇料理，你也要一起来吃吗？ | Hey, what a rare visitor! I've made quite a lot of mushroom dishes. Want to join me? |
-| `talk.REGENT.0-0.next` | 思索 | Consider |
-| `talk.REGENT.0-1.char` | 地上的料理……按之前的经验，作为王家菜肴来说实在是难以恭维。 | Earthly cuisine... based on past experience, it leaves much to be desired as royal fare. |
-| `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | 嘿，别那样！我相信我料理蘑菇的技术不会让你失望的！ | Hey, don't be like that! I'm confident my mushroom cooking skills won't disappoint you! |
-| `talk.NECROBINDER.0-0.ancient` | 死灵魔法？那可是黑魔法Da☆Ze！爱丽丝看了可不会高兴的。 | Necromancy? That's dark magic Da☆Ze! Alice wouldn't be happy to see that. |
-| `talk.NECROBINDER.1-0r.char` | 我对你的那本魔导书颇有兴趣……你有意向出售吗？ | I'm quite interested in that grimoire of yours... Would you be willing to sell it? |
-| `talk.NECROBINDER.1-0r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-1r.ancient` | 哦！好眼光！虽然只是个普通的小本子，不过确实记录了我至今为止的实验记录心血哦！ | Oh! Good eye! It might just be an ordinary little notebook, but it does contain all my experimental records and hard work so far! |
-| `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-2r.ancient` | 虽然不能出售……不过现在借给你看看也无妨Da☆Ze！顺便收下这个吧！ | I can't sell it... but I don't mind lending it to you for now Da☆Ze! Take this too while you're at it! |
+| `talk.firstVisitEver.0-0.ancient` | 鍢匡紒鍒濇瑙侀潰锛屾垜鏄浘闆ㄩ瓟鐞嗘矙锛屾杩庢潵鍒版垜鐨勯浘闆ㄩ瓟娉曞簵Da鈽哯e锛佽繖閲屼粈涔堥瓟娉曢亾鍏烽兘鏈夋彁渚涘摝锛?| Hey! First time meeting, I'm Marisa Kirisame, welcome to my Kirisame Magic Shop Da鈽哯e! We've got all kinds of magic items here! |
+| `talk.ANY.0-0r.ancient` | 甯︿笂杩欎釜锛佸脊骞曟渶閲嶈鐨勫氨鏄伀鍔汥a鈽哯e锛?| Take this! The most important thing in danmaku is firepower Da鈽哯e! |
+| `talk.ANY.1-0r.ancient` | 娌℃湁浠€涔堟槸寮哄ぇ鐨勭伀鍔涜В鍐充笉浜嗙殑锛侊紒 | There's nothing that overwhelming firepower can't solve!! |
+| `talk.ANY.2-0r.ancient` | 鏀惧績鍚э紝杩欎簺涓滆タ閮芥槸鎴戠殑榄旀硶缁撴櫠锛佷笉鏄€熸潵鐨勫暒锛?| Don't worry, all these are my magical creations! They're not borrowed, you know! |
+| `talk.ANY.3-0r.ancient` | 浣犳湁瑙佸埌鐏垫ⅵ鍚楋紵璁板緱甯垜鍚戝ス闂釜濂斤紒杩欎釜灏卞綋鎴戠殑鎰熻阿绀煎惂锛?| Have you seen Reimu? Remember to say hi to her for me! This can be my thanks! |
+| `talk.ANY.4-0r.ancient` | 鏈€杩戣繖閲岀殑铇戣弴鐢熼暱瑙勫緥涔熻秺鏉ヨ秺濂囨€簡鈥︹€?| Lately the mushroom growth patterns here have been getting weirder and weirder... |
+| `talk.ANY.5-0r.ancient` | 鎴戜负浠€涔堣甯綘锛熷樋鍢匡紝鍥犱负澶у閮芥槸鎴戠殑缈呰唨Da鈽哯e锛?| Why would I help you? Hehe, because you're all precious to me, Da鈽哯e! |
+| `talk.ANY.6-0r.ancient` | 鍟娾€斺€旇繖閲岀殑涓滆タ鍧忎簡鍏ㄩ兘寰楄嚜宸变慨锛佹湁鐐规兂蹇甸闇栭偅瀹朵紮浜嗏€︹€?| Ahh鈥攚hen things break here, I have to fix them all myself! Kinda miss that Kourin... |
+| `talk.ANY.7-0r.ancient` | 寤虹瓚甯堝埌搴曞仛浜嗕粈涔堣浣犱滑杩欎箞鎯虫潃鎺変粬锛熷ソ鍚э紝涔熻鎴戜篃寰楁壘涓椂闂翠翰鑷幓璋冩煡鐪嬬湅銆?| What did the Architect even do to make you all want to kill him? Well, maybe I should go investigate myself sometime. |
+| `talk.ANY.8-0r.ancient` | 涓轰粈涔堟秴濂ヨ韬插湪濉斿簳鍛紵瓒婃槸寮哄ぇ鐨勫浼欒秺鍠滄鎶婅嚜宸辫棌璧锋潵鍛€?| Why's Neow hiding at the bottom of the tower? The stronger you are, the more you like to hide yourself away. |
+| `talk.ANY.9-0r.ancient` | 涔嬪悗鏈夋満浼氭潵鎵撲竴鍦鸿桨杞扮儓鐑堢殑寮瑰箷鎴樺惂Da鈽哯e锛佸拰閭ｅ彧澶х嫯瀛愬鎴樼殑鎵嬫劅杩樼儹涔庣潃鍛紒 | Let's have a spectacular danmaku battle sometime Da鈽哯e! I've still got that fight with Tanx fresh in my hands! |
+| `talk.ANY.10-0r.ancient` | 鐗瑰吂鍗″鎷夎€佸ザ濂剁殑鐑彲鍙拰楗煎共鍛抽亾寰堜笉閿欌€斺€斿彲鎯滄垜鏄拰椋熶富涔夎€匘a鈽哯e锛併€?| Granny Tezcatara's hot cocoa and cookies were pretty good鈥攖oo bad I'm a Washoku-ist Da鈽哯e! |
+| `talk.ANY.11-0r.ancient` | 鍢垮樋锛岄偅浣嶅彨娆ф礇宸存柉鐨勪紮璁＄殑浜櫠鏅跺皬鐜╂剰鍙笉灏戯紝澶т赴鏀跺ぇ涓版敹~ | Heheh, that Orobas fella's got plenty of shiny trinkets鈥攚hat a haul! |
+| `talk.ANY.12-0r.ancient` | 杈惧紬閭ｅ浼欑殑鏀惰棌鍝佸眳鐒舵瘮鎴戣繕澶氾紒鍙伓杈撲簡涓€鎵嬪晩锛?| That Darv guy's collection is even bigger than mine! Darn, I lost this round! |
+| `talk.ANY.13-0r.ancient` | 鍢匡紝浣犳湁瑙佽繃璇哄ゴ浣╂櫘鍚楋紵铏界劧濂圭殑璧犵ぜ纭疄寰堜笉閿欏暒鈥︹€︿絾鏄垜杩樻槸瑙夊緱涓嶅お鑷湪銆?| Hey, have you met Nonupeipe? Her gifts are pretty nice and all... but I still feel a bit uneasy. |
+| `talk.ANY.14-0r.ancient` | [sine]绉樼[/sine]鐨勯個璇锋垜閮芥病绛斿簲~璋佷細鍜岄偅涓湅鐫€灏辨病瀹夊ソ蹇冪殑澶ф伓榄旂濂戠害鍟婏紵 | I didn't even accept the [sine]The Secret God[/sine]'s invitation~ Who'd sign a contract with that evil-looking demon? |
+| `talk.IRONCLAD.0-0.ancient` | 鍝︹€斺€斿ソ浼樼鐨勯摖鐢诧紝鍕囧＋锛佷笉鐭ラ亾浣犲榄旀硶鏈夋病鏈夊叴瓒ｏ紒 | Oh鈥攚hat fine armor, warrior! I wonder if you have any interest in magic! |
+| `talk.SILENT.0-0.ancient` | 鍢匡紒鎴戠湅鍒颁綘浜嗭紒瑕佷粈涔堝氨鐩存帴璺熸垜璇达紝涓嶈鍋峰伔鎽告懜鐨勫槢锛佹垜鍘荤孩榄旈鐨勬椂鍊欎粠鏉ラ兘鏄厜鏄庢澶х殑璧板ぇ闂―a鈽哯e锛?| Hey! I see you! If you want something, just tell me directly. No need to sneak around! When I go to the Scarlet Devil Mansion, I always walk right through the front door Da鈽哯e! |
+| `talk.DEFECT.0-0.ancient` | 涓€涓満鍣ㄤ汉锛熸兂瑕佷慨濂戒綘鐨勬湅鍙嬶紵鎭┾€︹€︽垜鏈変釜璁よ瘑鐨勫浼欏氨鏄釜鏈烘宸ョ▼甯堬紝璇翠笉瀹氳兘甯笂蹇橠a鈽哯e锛?| A robot? Want to fix your friend? Hmm... I know someone who's a mechanical engineer. Maybe she can help Da鈽哯e! |
+| `talk.DEFECT.1-0r.ancient` | 鑽峰彇閭ｅ浼欎篃涓嶇煡閬撳湪蹇欎粈涔堚€︹€︽€讳箣鏈夋満浼氱殑璇濓紝鎴戜細鎶婁綘浠嬬粛缁欏ス鐨勫暒銆?| That Nitori, who knows what she's busy with... Anyway, if I get the chance, I'll introduce you to her. |
+| `talk.REGENT.0-0.ancient` | 鍢匡紝鐪熸槸绋€濂囩殑璁垮锛佹垜鍋氫簡涓嶅皯铇戣弴鏂欑悊锛屼綘涔熻涓€璧锋潵鍚冨悧锛?| Hey, what a rare visitor! I've made quite a lot of mushroom dishes. Want to join me? |
+| `talk.REGENT.0-0.next` | 鎬濈储 | Consider |
+| `talk.REGENT.0-1.char` | 鍦颁笂鐨勬枡鐞嗏€︹€︽寜涔嬪墠鐨勭粡楠岋紝浣滀负鐜嬪鑿滆偞鏉ヨ瀹炲湪鏄毦浠ユ伃缁淬€?| Earthly cuisine... based on past experience, it leaves much to be desired as royal fare. |
+| `talk.REGENT.0-1.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2.ancient` | 鍢匡紝鍒偅鏍凤紒鎴戠浉淇℃垜鏂欑悊铇戣弴鐨勬妧鏈笉浼氳浣犲け鏈涚殑锛?| Hey, don't be like that! I'm confident my mushroom cooking skills won't disappoint you! |
+| `talk.NECROBINDER.0-0.ancient` | 姝荤伒榄旀硶锛熼偅鍙槸榛戦瓟娉旸a鈽哯e锛佺埍涓戒笣鐪嬩簡鍙笉浼氶珮鍏寸殑銆?| Necromancy? That's dark magic Da鈽哯e! Alice wouldn't be happy to see that. |
+| `talk.NECROBINDER.1-0r.char` | 鎴戝浣犵殑閭ｆ湰榄斿涔﹂鏈夊叴瓒ｂ€︹€︿綘鏈夋剰鍚戝嚭鍞悧锛?| I'm quite interested in that grimoire of yours... Would you be willing to sell it? |
+| `talk.NECROBINDER.1-0r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-1r.ancient` | 鍝︼紒濂界溂鍏夛紒铏界劧鍙槸涓櫘閫氱殑灏忔湰瀛愶紝涓嶈繃纭疄璁板綍浜嗘垜鑷充粖涓烘鐨勫疄楠岃褰曞績琛€鍝︼紒 | Oh! Good eye! It might just be an ordinary little notebook, but it does contain all my experimental records and hard work so far! |
+| `talk.NECROBINDER.1-1r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-2r.ancient` | 铏界劧涓嶈兘鍑哄敭鈥︹€︿笉杩囩幇鍦ㄥ€熺粰浣犵湅鐪嬩篃鏃犲ΘDa鈽哯e锛侀『渚挎敹涓嬭繖涓惂锛?| I can't sell it... but I don't mind lending it to you for now Da鈽哯e! Take this too while you're at it! |
 
 ---
 
-## [蓬莱山 辉夜]
+## [钃幈灞?杈夊]
 
-**键名**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 蓬莱山 辉夜 | Kaguya Houraisan |
-| `.epithet` | 永恒的先古罪人 | Eternal Ancient Sinner |
+| `.title` | 钃幈灞?杈夊 | Kaguya Houraisan |
+| `.epithet` | 姘告亽鐨勫厛鍙ょ姜浜?| Eternal Ancient Sinner |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 贵安，欢迎来到永远亭。这里的一切都已经被我的能力赋予了永远，你可以随意取用哦。 | Greetings, and welcome to Eientei. Everything here has been granted eternity by my power. Feel free to take whatever you need. |
-| `talk.ANY.0-0r.ancient` | 不要期待超过自己劳动所得的回报，因为那肯定会招致不幸。 | Don't expect rewards beyond what you've earned through your own labor, for that will surely bring misfortune. |
-| `talk.ANY.1-0r.ancient` | 永无止境、一次又一次地尝试登上塔顶，说不定也挺有趣的……呵呵。 | Endlessly trying to reach the top of the tower, over and over again... that might be rather amusing too... heheh. |
-| `talk.ANY.2-0r.ancient` | 难得找到了点自己想做的事情呢，不知道优昙花在我回去的时候会不会已经开放了呢。 | I've finally found something I want to do. I wonder if the udumbara flower will have bloomed by the time I return. |
-| `talk.ANY.3-0r.ancient` | 可惜先子星并没有月亮这种不祥之物，看来赏月的机会是没有了。 | Too bad Preon doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it. |
-| `talk.ANY.4-0r.ancient` | 那只火鸡……现在在哪里呢？ | That turkey... where is she now? |
-| `talk.SILENT.0-0.ancient` | 啊呜哦哦哦哦——啊，活过来了，你这毒素的味道可真差。 | Awooo—aah, I'm alive. Your poison tastes terrible, you know. |
-| `talk.SILENT.0-0.next` | 什么都不说 | Respond |
-| `talk.SILENT.0-1.char` | …… | ... |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 我可没有因为被毒死而生气哦？这种死法在我经历过的这么多中，要评价的话也就是人上人的水平吧。不过，下次下毒前还是记得要打声招呼哦。 | I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first. |
-| `talk.REGENT.0-0.ancient` | 外星人？呵呵，我也是来自先子星之外，一个叫月亮的星球呢。 | An alien? Heheh, I too came from beyond Preon—from a planet called the moon. |
+| `talk.firstVisitEver.0-0.ancient` | 璐靛畨锛屾杩庢潵鍒版案杩滀涵銆傝繖閲岀殑涓€鍒囬兘宸茬粡琚垜鐨勮兘鍔涜祴浜堜簡姘歌繙锛屼綘鍙互闅忔剰鍙栫敤鍝︺€?| Greetings, and welcome to Eientei. Everything here has been granted eternity by my power. Feel free to take whatever you need. |
+| `talk.ANY.0-0r.ancient` | 涓嶈鏈熷緟瓒呰繃鑷繁鍔冲姩鎵€寰楃殑鍥炴姤锛屽洜涓洪偅鑲畾浼氭嫑鑷翠笉骞搞€?| Don't expect rewards beyond what you've earned through your own labor, for that will surely bring misfortune. |
+| `talk.ANY.1-0r.ancient` | 姘告棤姝㈠銆佷竴娆″張涓€娆″湴灏濊瘯鐧讳笂濉旈《锛岃涓嶅畾涔熸尯鏈夎叮鐨勨€︹€﹀懙鍛点€?| Endlessly trying to reach the top of the tower, over and over again... that might be rather amusing too... heheh. |
+| `talk.ANY.2-0r.ancient` | 闅惧緱鎵惧埌浜嗙偣鑷繁鎯冲仛鐨勪簨鎯呭憿锛屼笉鐭ラ亾浼樻槞鑺卞湪鎴戝洖鍘荤殑鏃跺€欎細涓嶄細宸茬粡寮€鏀句簡鍛€?| I've finally found something I want to do. I wonder if the udumbara flower will have bloomed by the time I return. |
+| `talk.ANY.3-0r.ancient` | 鍙儨鍏堝瓙鏄熷苟娌℃湁鏈堜寒杩欑涓嶇ゥ涔嬬墿锛岀湅鏉ヨ祻鏈堢殑鏈轰細鏄病鏈変簡銆?| Too bad Preon doesn't have such an ominous thing as the moon. I suppose there'll be no chance to admire it. |
+| `talk.ANY.4-0r.ancient` | 閭ｅ彧鐏浮鈥︹€︾幇鍦ㄥ湪鍝噷鍛紵 | That turkey... where is she now? |
+| `talk.SILENT.0-0.ancient` | 鍟婂憸鍝﹀摝鍝﹀摝鈥斺€斿晩锛屾椿杩囨潵浜嗭紝浣犺繖姣掔礌鐨勫懗閬撳彲鐪熷樊銆?| Awooo鈥攁ah, I'm alive. Your poison tastes terrible, you know. |
+| `talk.SILENT.0-0.next` | 浠€涔堥兘涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€?| ... |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 鎴戝彲娌℃湁鍥犱负琚瘨姝昏€岀敓姘斿摝锛熻繖绉嶆娉曞湪鎴戠粡鍘嗚繃鐨勮繖涔堝涓紝瑕佽瘎浠风殑璇濅篃灏辨槸浜轰笂浜虹殑姘村钩鍚с€備笉杩囷紝涓嬫涓嬫瘨鍓嶈繕鏄寰楄鎵撳０鎷涘懠鍝︺€?| I'm not actually angry about being poisoned to death? Out of all the deaths I've experienced, I'd rate it above average. Still, next time you poison someone, do give them a heads up first. |
+| `talk.REGENT.0-0.ancient` | 澶栨槦浜猴紵鍛靛懙锛屾垜涔熸槸鏉ヨ嚜鍏堝瓙鏄熶箣澶栵紝涓€涓彨鏈堜寒鐨勬槦鐞冨憿銆?| An alien? Heheh, I too came from beyond Preon鈥攆rom a planet called the moon. |
 
 ---
 
-## [西行寺 幽幽子]
+## [瑗胯瀵?骞藉菇瀛怾
 
-**键名**: `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT`
+**閿悕**: `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
 |------|------|---------|
-| `.title` | 西行寺 幽幽子 | Yuyuko Saigyouji |
-| `.epithet` | 见证万千次轮回的亡灵 | Ghost Who Witnesses Countless Cycles |
+| `.title` | 瑗胯瀵?骞藉菇瀛?| Yuyuko Saigyouji |
+| `.epithet` | 瑙佽瘉涓囧崈娆¤疆鍥炵殑浜＄伒 | Ghost Who Witnesses Countless Cycles |
 
-### 对话翻译
-| 对话键 | 中文 | English |
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 啊拉，有客人来了吗？ | Oh my, have we got a guest? |
-| `talk.ANY.0-0r.ancient` | 妖梦~还没开饭吗？ | Youmu~ Isn't dinner ready yet? |
-| `talk.NECROBINDER.0-0r.ancient` | 唔，你旁边那只手的小碎骨太多了，很不喜欢呢。 | Hmm, that hand next to you has too many small bone fragments. I don't like it very much. |
-| `talk.REGENT.0-0.ancient` | 妖梦~还没开饭吗？ | Youmu~ Isn't dinner ready yet? |
-| `talk.REGENT.0-0.next` | 问好 | Greet |
-| `talk.REGENT.0-1.char` | 嘿！我是储君，我要来见这里的主人！ | Hey! I, the Regent, come to see the master of this place! |
-| `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | （盯——） | (Stare—) |
-| `talk.REGENT.0-2.next` | 问好 | Greet |
-| `talk.REGENT.0-3.char` | 你好？你好？ | Hello? Hello? |
-| `talk.REGENT.0-3.next` | 继续 | Continue |
-| `talk.REGENT.0-4.ancient` | 妖梦~还没开饭吗？ | Youmu~ Isn't dinner ready yet? |
+| `talk.firstVisitEver.0-0.ancient` | 鍟婃媺锛屾湁瀹汉鏉ヤ簡鍚楋紵 | Oh my, have we got a guest? |
+| `talk.ANY.0-0r.ancient` | 濡栨ⅵ~杩樻病寮€楗悧锛?| Youmu~ Isn't dinner ready yet? |
+| `talk.NECROBINDER.0-0r.ancient` | 鍞旓紝浣犳梺杈归偅鍙墜鐨勫皬纰庨澶浜嗭紝寰堜笉鍠滄鍛€?| Hmm, that hand next to you has too many small bone fragments. I don't like it very much. |
+| `talk.REGENT.0-0.ancient` | 濡栨ⅵ~杩樻病寮€楗悧锛?| Youmu~ Isn't dinner ready yet? |
+| `talk.REGENT.0-0.next` | 闂ソ | Greet |
+| `talk.REGENT.0-1.char` | 鍢匡紒鎴戞槸鍌ㄥ悰锛屾垜瑕佹潵瑙佽繖閲岀殑涓讳汉锛?| Hey! I, the Regent, come to see the master of this place! |
+| `talk.REGENT.0-1.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2.ancient` | 锛堢洴鈥斺€旓級 | (Stare鈥? |
+| `talk.REGENT.0-2.next` | 闂ソ | Greet |
+| `talk.REGENT.0-3.char` | 浣犲ソ锛熶綘濂斤紵 | Hello? Hello? |
+| `talk.REGENT.0-3.next` | 缁х画 | Continue |
+| `talk.REGENT.0-4.ancient` | 濡栨ⅵ~杩樻病寮€楗悧锛?| Youmu~ Isn't dinner ready yet? |
 
 ---
 
-## [射命丸 文]
+## [灏勫懡涓?鏂嘳
+
+**閿悕**: `TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 灏勫懡涓?鏂?| Aya Shameimaru |
+| `.epithet` | 濂旇蛋鍦ㄩ珮濉斾腑鐨勫够鎯宠鑰?| Fantasy Reporter Roaming the Tower |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 鍗犱綅绗?| Placeholder |
+| `talk.ANY.0-0r.ancient` | 濂宠嫅锛氫笘鐣屼笂鏈€缇庡ソ鐨勪簨鎯呭氨鏄粈涔堥兘涔板緱璧风殑鍦熻豹鐢熸椿浜嗭紝浣犺瀵瑰悧锛?| jyoon: The greatest thing in the world is living the high life where you can afford anything. Don't you agree? |
+
+---
+
+## [绾嫄]
+
+**閿悕**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 绾嫄| Junko|
+| `.epithet` | 鏃犲悕鐨勫厛鍙ゅ瓨鍦?| Nameless Ancient Existence |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 鎴戠殑鍚嶅瓧鏄函鐙愶紝灏辫鎴戞潵鎷涘緟涓€涓嬶紝鍔姏鑷充粖鐨勪綘鍚с€?| My name is Junko. Let me extend my hospitality to you, who have struggled so far to get here. |
+| `talk.ANY.0-0r.ancient` | 鍏堝瓙鏄熺殑鏃呴€旓紝鍙槸鎴戝浠囦汉鐢熶腑鐨勬棤鑱婃秷閬ｇ舰浜嗐€?| The journey through Preon is merely a tedious diversion in my life of vengeance. |
+| `talk.ANY.1-0r.ancient` | 鎴戜笌鏈堜箣姘戜箣闂寸殑浜ゆ垬涔熸濂介櫡鍏ヤ簡鍍靛眬锛屾渶杩戜篃姝ｄ负姝ゆ劅鍒板帉鍊︿簡锛屾潵杩欓噷鍊掓槸涓笉閿欑殑閫夋嫨鍛€?| My conflict with the Lunarians has reached a stalemate anyway. I've grown weary of it lately鈥攃oming here is actually not a bad choice. |
+| `talk.ANY.2-0r.ancient` | 鎴戝杩欓噷鐨勪簨鎯呭緢鎰熷叴瓒ｃ€傝鎴戝啀澶氳璇嗕竴鐐瑰惂銆?| I find the happenings here quite intriguing. Let me see more of it. |
+| `talk.ANY.3-0r.ancient` | 涓嶅叡鎴村ぉ涔嬫晫锛屽濞ュ晩锛屼綘鍦ㄧ湅鐫€鍚楋紵 | My sworn enemy, Chang'e... are you watching? |
+| `talk.NECROBINDER.0-0.char` | 鎴戦渶瑕佽兘鏉€姝讳粬鐨勫府鍔┿€?| I need help to kill him. |
+| `talk.NECROBINDER.0-0.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-1.ancient` | 浣犱篃鏈変笉鍏辨埓澶╃殑鏁屼汉鍚楋紵 | You have a sworn enemy too? |
+| `talk.NECROBINDER.0-1.next` | 鎯婅 | Startled |
+| `talk.NECROBINDER.0-2.char` | 鈥︹€︽垜杩樻槸绗竴娆℃劅鍙楀埌澶嶄粐鐨勭伀鐒扮殑娓╁害銆傞偅鏄潵鑷簬浣犵殑鍚楋紵 | ...This is the first time I've felt the heat of vengeful flames. Does it come from you? |
+| `talk.NECROBINDER.0-2.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-3.ancient` | 鎴戝嵆鏄渶绾补鐨勫浠囩殑鍖栬韩銆?| I am the purest incarnation of vengeance. |
+| `talk.NECROBINDER.1-0r.ancient` | 姣嬮渶鐒﹁簛銆佹瘚闇€鎯舵亹銆傚浠囩殑鏈轰細涓庢椂闂存槸鏃犻檺鐨勶紝[b]鎴戜滑[/b]鏈夌殑鏄椂闂淬€?| No need for impatience, no need for fear. The opportunities and time for vengeance are limitless. [b]We[/b] have all the time we need. |
+| `talk.NECROBINDER.2-0r.ancient` | 澶嶄粐鍓у皢浼氭案杩滅殑閲嶅涓嬪幓锛屾棤璁烘槸浣犵殑锛岃繕鏄垜鐨勩€?| The revenge drama will repeat for all eternity鈥攂e it yours, or mine. |
+
+---
+
+## [楝间汉姝ｉ偑] 鈥?鏂板瀵硅瘽
+
+**閿悕**: `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT`
+
+### 瀵硅瘽缈昏瘧锛堟柊澧烇級
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.ANY.3-0r.ancient` | 鍏富閭ｅ浼欌€︹€﹀眳鐒惰瑕佽嚜宸卞幓璁ㄤ紣寤虹瓚甯堬紝鐪熸槸鎷垮ス娌″姙娉曗€︹€?| That princess... she insists on going to take down the Architect herself. I just can't do anything with her... |
+| `talk.ANY.4-0r.ancient` | 鍝硷紝椹惃闆锋柉鐨勪俊寰掔湡鏄竴缇ゆ病鏈夎繙瑙佺殑浜曞簳涔嬭洐锛屼綘搴旇姣斾粬浠洿鏈夊織姘斿惂锛?| Hmph, those Mazaleth worshippers are nothing but narrow-minded frogs in a well. You've got more ambition than them, don't you? |
+| `talk.IRONCLAD.0-0.ancient` | 鍙堜竴涓秴濂ョ殑鍌€鍎℃潵鍒颁簡杩欓噷锛岀湡甯屾湜浣犳槸涓兘鐞嗚В褰撳墠澶勫鐨勫浼欍€?| Another puppet of Neow has arrived. I hope you're someone who can understand the situation. |
+| `talk.IRONCLAD.0-0.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.0-1.char` | 寤虹瓚甯堚€︹€︽潃鎴€︹€?| Architect... slaughter... |
+| `talk.IRONCLAD.0-1.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.0-2.ancient` | 寰堝ソ锛屾垜浠繖浜涗汉琚鍘嬬殑鐥涜嫤涓庤€昏颈锛屽氨鐢变綘鍗佸€嶅杩樼粰寤虹瓚甯堝惂锛?| Good. Let you repay the Architect tenfold for the pain and humiliation we have suffered! |
+| `talk.IRONCLAD.1-0.ancient` | 鎴戝凡缁忕煡閬撳ぇ鎭堕瓟鐨勪簨鎯呬簡锛屽摷锛屾垜鏈€璁ㄥ帉杩欑楂橀珮鍦ㄤ笂鐨勬敮閰嶈€呫€傜瓑浣犲悜閭ｄ綅澶ф伓榄旀巰璧峰彌鏃楋紝鎴戝拰鎴戠殑璧蜂箟鍐涗細绗竴鏃堕棿鏉ユ敮鎸佷綘鐨勶紒 | I already know about the Great Demon. Hmph, I despise high-and-mighty rulers like that. When you raise the banner of rebellion against that Great Demon, my rebel army and I will stand by you from the very start! |
+| `talk.REGENT.0-0.ancient` | 浣犺繖娈嬪繊鐨勬毚鍚涳紒鐪嬬湅浣犲搴ф涓嬬殑灏忎汉鍋氫簡浠€涔堬紵 | You cruel tyrant! Look at what you've done to the little people beneath your throne! |
+| `talk.REGENT.0-0.next` | 鐤戞儜 | Confused |
+| `talk.REGENT.0-1.char` | 浣犺鎴戠殑浠嗕粠锛熶粬浠姝ゆ病鏈夋剰瑙併€傝€屼笖锛屼粬浠槸鎴戝垱閫犵殑锛屾垜瀵规浜湁涓€鍒囪В閲婃潈銆?| You mean my minions? They have no complaints. Besides, I created them鈥擨 have the final say in everything. |
+| `talk.REGENT.0-1.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2.ancient` | 鍛碉紒鏃犺叮鐨勫€熷彛锛佹垜浼氱瓑鍒颁綘鐨勫皬浜轰滑璧蜂箟鎺ㄧ炕浣犵殑閭ｄ竴鍒诲埌鏉ョ殑锛?| Hah! Boring excuse! I'll be here waiting for the day your little people rise up and overthrow you! |
+| `talk.REGENT.0-2.next` | 娌夋€?| Pondering |
+| `talk.REGENT.0-3.char` | 鍡€︹€﹀湪閭ｄ箣鍓嶏紝浣犺兘鎻愪緵鐐瑰府鎴戜笂鍘荤殑甯姪鍚楋紵 | Hmm... Until then, can you spare some help to get me up there? |
+| `talk.REGENT.1-0r.ancient` | 澶栨槦浜猴紝鎴戜滑鍙堣闈簡锛?| Alien, we meet again! |
+| `talk.REGENT.1-0r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-1r.char` | 鎴戝師璋呬綘鐨勬棤绀硷紝鎵€浠ラ櫎浜嗚繖浜涗互澶栵紝浣犺繕鍙互澶氱粰鎴戞壘浜涙湁鐢ㄧ殑閬撳叿鏉ュ悧锛?| I forgive your rudeness. So, on top of all this, can you scrounge up some more useful items for me? |
+| `talk.REGENT.1-1r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-2r.ancient` | 鍛碉紝鏃㈢劧浣犺繖涔堣浜嗏€︹€︽煇绉嶇▼搴︿笂涔熶笉鏄笉琛屸€︹€?| Hmph, since you put it that way... I suppose it's not entirely out of the question... |
+| `talk.REGENT.1-2r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-3r.ancient` | 浣嗘槸鎴戞嫆缁濓紒鎴戦浜烘閭渶鍠滄鍋氱殑浜嬩箣涓€锛屽氨鏄鑷涓哄緢寮虹殑瀹朵紮璇淬€孨O銆嶏紒 | But I refuse! One of my favorite things to do, Seija Kijin, is saying "NO" to those who think they're so tough! |
+| `talk.ANY.5-0r.ancient` | 鍜屾垜涓€璧锋潵涓嬪厠涓婂惂鈥斺€?| Join me in the revolt from below鈥?|
+| `talk.ANY.6-0r.ancient` | 璐よ€呮妸澶т紮閮藉甫鍒拌繖閲岋紝绌剁珶鏄湁浠€涔堥槾璋嬶紵鍛碉紝涔熺舰锛屾棤璁哄湪鍝紝鎴戠殑閫嗚涓庨瑕嗛兘涓嶄細鍋滄锛?| What's the sage's scheme, bringing everyone here? Hah, whatever. My rebellion and upheaval will never stop, no matter where I am! |
+| `talk.IRONCLAD.2-0r.ancient` | 鎴戝拰鍙細鐢ㄥ湪鏂囦功閲屼笅濂楃殑鎭堕瓟涓嶅悓銆傚ぉ閭鍙粠涓嶅皾璇曟搷绾典綘锛屾垜璇寸殑璇濆瓧瀛楃彔鐜戯紝闅鹃亾浣犺兘鍙嶉┏鍚楋紵 | I'm different from that demon who only knows how to set traps in fine print. An amanojaku never tries to manipulate you鈥攅very word I say is gospel. Can you argue with that? |
+| `talk.SILENT.0-0.ancient` | 寰堝ソ锛屾垜鍠滄浣犺繖绉嶅喎婕犳棤鎯咃紝鎶婁竴鍒囬兘褰撳仛鐚庣墿鐨勭溂绁烇紝绠€鐩存槸澶╅€夌殑璧蜂箟鍐涙垚鍛樺晩銆?| Good. I like that cold, merciless look in your eyes鈥攍ike everything is prey. You're a born rebel. |
+| `talk.SILENT.0-0.next` | 浠€涔堜篃涓嶈 | Respond |
+| `talk.SILENT.0-1.char` | 鈥︹€︼紙浜嚭鍖曢锛?| ... *(brandishes a dagger)* |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 绛夌瓑绛夌瓑鈥︹€︿綘瑕佷笢瑗挎垜缁欎綘灏辨槸锛屾妸鍒╁垉鏈濆悜鍙嬪啗绠椾粈涔堟湰浜嬶紒 | Wait, wait... I'll give you what you want, but how can you point your blade at your own allies? |
+| `talk.SILENT.1-0r.ancient` | 鐪嬭捣鏉ヤ綘娌℃湁浠€涔堟湅鍙嬪憿锛屽懙鍛碉紝涓嶇敤鎷呭績锛屽仛澶т簨鐨勪汉鑷劧鏄鐙殑銆?| Seems like you don't have many friends. Heheh, don't worry鈥攖hose who do great things are naturally alone. |
+| `talk.SILENT.2-0r.ancient` | 鏈夊叴瓒ｈ浣犵殑鍖曢鑷繁鍔ㄨ捣鏉ュ悧锛熷€樿嫢缁欎簣瀹冧滑鍜藉枆锛屽畠浠嚜鐒惰兘澶熻█璇€?| Interested in making your dagger move on its own? Give them a throat, and they shall speak. |
+| `talk.NECROBINDER.0-0.ancient` | 杩欎綅濂冲＋鐪嬭捣鏉ユ湁鐐硅嫤澶т粐娣卞憿銆傚懙鍛碉紝鏄缓绛戝笀瀵逛綘鍋氫簡浠€涔堝悧锛?| This lady seems to carry quite a grudge. Heheh, did the Architect do something to you? |
+| `talk.NECROBINDER.0-0.next` | 鎰ゆ€?| Anger |
+| `talk.NECROBINDER.0-1.char` | [jitter]浠栨潃姝讳簡鎴戠殑鑷崇埍锛侊紒锛乕/jitter] | [jitter]He killed my beloved!!![/jitter] |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 寰堝ソ锛屽弽鎶椾笌闈╁懡姝ｉ渶瑕佷綘杩欐牱鐨勫喅蹇冣€︹€?| Good. Rebellion and revolution need determination like yours... |
+| `talk.NECROBINDER.1-0r.ancient` | 浣犳兂鐪嬬湅涓囧疂妲岀殑鍔涢噺锛熷懙锛岃櫧鐒跺叕涓荤殑涓滆タ灏辨槸鎴戠殑涓滆タ鈥︹€︿笉杩囦竾瀹濇鐨勯瓟鍔涚幇鍦ㄥ緢涓嶇ǔ瀹氾紝鎴戝彲涓嶅笇鏈涚幇鍦ㄥ氨閫忔敮澶鐨勪唬浠枫€?| You want to see the power of the Malleus Malleus? Hah, though what's the princess's is mine... but its magic is unstable right now. I don't want to incur too much of a cost yet. |
+| `talk.NECROBINDER.1-0r.next` | 鍥炵瓟 | Reply |
+| `talk.NECROBINDER.1-1r.char` | 鎴戜笉浠嬫剰鐢辨垜鏉ユ敮浠樹唬浠枫€?| I don't mind paying the cost myself. |
+| `talk.NECROBINDER.1-1r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-2r.ancient` | 浣犺繖涔堣鐨勮瘽锛屾垜灏卞亸涓嶇粰浣犵敤浜嗭紒绛夊叕涓诲洖鏉ュ啀璇村惂锛屽厛璇曡瘯鍒殑涓滆タ鈥︹€?| Since you said that, now I'm definitely not letting you use it! We'll see when the princess gets back. Try something else for now... |
+| `talk.NECROBINDER.2-0r.ancient` | 鍡摷锛岀湅鏉ユ鐏甸瓟娉曟瘮绛夊緟閬撳叿浠樹抚绁炲寲鏇撮€傚悎浣滀负鎷涚撼鏂颁汉鐨勬墜娈碘€︹€?| Heh, seems like necromancy is a better way to bring in new recruits than waiting for items to turn into tsukumogami... |
+| `talk.DEFECT.0-0.ancient` | 鍡紵鎴戝彲娌℃壘鏉ヨ繃浠€涔堟瀯瑁呬綋锛侀毦閬撳潖鎺夌殑鏋勮浣撲篃鑷繁鍔ㄨ捣鏉ヤ簡鍚楋紵 | Huh? I didn't summon any constructs! Are broken constructs moving on their own now? |
+| `talk.DEFECT.0-0.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<鐤戞儜鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-2.ancient` | 灞呯劧鏄釜鏈夎嚜涓绘剰璇嗙殑瀹朵紮鈥︹€︾湅鏉ュ叧浜庢瀯瑁呬綋鐨勪粯涓х鍖栬繕闇€瑕佹洿澶氱殑鏍锋湰鈥︹€?| So it has a will of its own... It seems I need more samples for my research on tsukumogami-fication of constructs... |
+| `talk.DEFECT.1-0r.ancient` | 淇ソ浣狅紵鍝硷紝浠ュ墠鏈変釜闈犳垜鐨勯瓟鍔涙墠閱掕繃鏉ョ殑[jitter]閬撳叿[/jitter]锛屽緱鍒拌嚜宸辩殑韬綋鍚庝簩璇濅笉璇村氨婧滀簡杩樺弽杩囨潵杩芥潃鎴戯紒鎴戞墠涓嶄笂褰撳憿锛?| Repair you? Hmph, there was once a [jitter]tool[/jitter] that woke up thanks to my magic, got its own body, and immediately ran off鈥攖hen came back to hunt me! I'm not falling for that again! |
+| `talk.DEFECT.2-0r.ancient` | 浣犺繖瀹朵紮浣撳唴鐨勬綔鍔涘彲涓嶅皬鍛紝鏈潵涓€瀹氳兘鎴愬ぇ浜嬩笟锛屾墍浠ョ幇鍦ㄥ氨鍔犲叆鎴戠殑璧蜂箟鍐涘惂锛?| You've got quite a lot of potential in you鈥攜ou're bound for great things. So join my rebel army right now! |
+
+---
+
+## [浜屽博 鐚棌] 鈥?鍗犱綅绗?
+**閿悕**: `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 浜屽博 鐚棌 | Mamizou Futatsuiwa |
+| `.epithet` | 澶栨潵鐨勫鏉ュ鎬嫺 | Bake-danuki Outsider From Outside |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 鍗犱綅绗?| Placeholder |
+| `talk.ANY.0-0r.ancient` | 鈥︹€?| ... |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 鍗犱綅绗?| Placeholder |
+| `talk.ANY.0-0r.ancient` | 鈥︹€?| ... |
+
+---
+
+## [渚濈 濂宠嫅 & 渚濈 绱嫅]
+
+**閿悕**: `TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 渚濈 濂宠嫅&渚濈 绱嫅 | jyoon Yorigami & Shion Yorigami |
+| `.epithet` | 鏈€鍑舵渶鎭剁殑鑽掔柅绁炲濡?| The Most-Despicable and Disastrous Blight God Sister |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | 濂宠嫅锛氬懙鍛靛懙锛屼綘鐪熸槸骞歌繍鍛€傛兂瑕佸彂璐㈢殑璇濓紝鐜板湪灏辨槸鏈€濂界殑鏈轰細鍝 | jyoon: Hehehe, you're quite fortunate. Meeting me is an omen of striking it rich~ |
+| `talk.firstVisitEver.0-0.speaker` | jyoon | jyoon |
+| `talk.ANY.0-0.ancient` | 鎷挎渶璐电殑閰掓潵鈥斺€旓紒 | Bring out the most expensive booze鈥斺€? |
+| `talk.ANY.0-0.speaker` | jyoon | jyoon |
+| `talk.ANY.0-1.ancient` | 涓婃渶璐电殑鑿滄潵鈥斺€旓紒 | Bring out the priciest grub鈥斺€? |
+| `talk.ANY.0-1.speaker` | shion | shion |
+| `talk.ANY.0-1.next` | 缁х画 | Continue |
+| `talk.ANY.0-2.ancient` | 璁╂垜浠负杩欎綅娑呭ゥ鐨勫媷澹共鏉紒 | A toast to this brave champion of Neow! |
+| `talk.ANY.0-2.speaker` | jyoon | jyoon |
+| `talk.ANY.1-0r.ancient` | 涓栫晫涓婃渶缇庡ソ鐨勪簨鎯呭氨鏄粈涔堥兘涔板緱璧风殑鍦熻豹鐢熸椿浜嗭紝浣犺瀵瑰悧锛?| The finest thing in the world is a luxurious life where you can afford anything, wouldn't you agree? |
+| `talk.ANY.1-0r.speaker` | jyoon | jyoon |
+| `talk.ANY.1-0r.next` | 缁х画 | Continue |
+| `talk.ANY.1-1r.ancient` | 濡傛灉浣犱笉鍚屾剰锛屾垜浼氬緢澶辨湜鐨勭湅鐫€浣犵殑鈥︹€?| If you don't agree, I'll stare at you with utter disappointment... |
+| `talk.ANY.1-1r.speaker` | shion | shion |
+| `talk.ANY.2-0r.ancient` | 瑕佷笉瑕佹垜鎶婂濮愭墦涓姌鍊熺粰浣狅紵鍙璁╁ス鍑緷鍦˙OSS韬笂锛孊OSS椹笂灏变細鍊掗湁鍒拌繛鏉傞奔閮戒笉濡傚摝~ | How about I lend you my sister at a discount? Just let her possess the Boss, and they'll get so unlucky they won't even measure up to a minion~ |
+| `talk.ANY.2-0r.speaker` | jyoon | jyoon |
+| `talk.ANY.2-0r.next` | 缁х画 | Continue |
+| `talk.ANY.2-1r.ancient` | 濂宠嫅鈥︹€?| jyoon... |
+| `talk.ANY.2-1r.speaker` | shion | shion |
+| `talk.ANY.2-1r.next` | 缁х画 | Continue |
+| `talk.ANY.2-2r.ancient` | 鍟婏紒鎴戝樊鐐瑰繕浜嗭紒甯︾潃濮愬鐨勮瘽鍙兘鏍规湰璧颁笉鍒癇OSS閭ｉ噷鍛紒 | Ah! I almost forgot! If I bring my sister along, you might not even make it to the Boss at all! |
+| `talk.ANY.2-2r.speaker` | jyoon | jyoon |
+| `talk.ANY.3-0r.ancient` | 澶氳禋涓€鐐归噾甯佸甫鍥炲幓鐨勮瘽锛屼笉浠呰兘杩樻竻涓婁竴娆＄殑鐭虫补鍊猴紝杩樿兘澶ц禋涓€绗斿憿锛?| If we make a tidy bit of extra gold to bring back, we can not only pay off the last oil debt but turn a fat profit! |
+| `talk.ANY.3-0r.speaker` | jyoon | jyoon |
+| `talk.IRONCLAD.0-0.ancient` | 鍞斺€︹€︽槸涓湅璧锋潵寰堜笉濂芥児鐨勬垬澹€︹€?| Ugh... this warrior looks like bad news... |
+| `talk.IRONCLAD.0-0.speaker` | shion | shion |
+| `talk.IRONCLAD.0-0.next` | 缁х画 | Continue |
+| `talk.IRONCLAD.0-1.ancient` | 濮愬浣犲湪鎷呭績浠€涔堬紵鍙鐢ㄩ偅鎷涚殑璇濃€︹€﹀氨娌℃湁鎵撲笉璐ョ殑瀹朵紮銆備笉杩囧彧瑕佷笉鎵撴壈鎴戜滑璧氶挶灏辨病鏈夊繀瑕佸彂璧锋枟浜変簡銆?| Sis, what are you worried about? As long as we use that trick... there's nobody we can't beat. But as long as they don't get in the way of our profits, there's no need to pick a fight. |
+| `talk.IRONCLAD.0-1.speaker` | jyoon | jyoon |
+
+---
+
+## [楗曢ぎ 灏ら瓟]
+
+**閿悕**: `TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT`
+
+### 瀛楁缈昏瘧
+| 瀛楁 | 涓枃 | English |
+|------|------|---------|
+| `.title` | 楗曢ぎ 灏ら瓟 | Yuuma Toutetsu |
+| `.epithet` | 浠ヨ崚鐤负椋熺殑鐏惧吔 | Blight-Devouring Calamity Beast |
+
+### 瀵硅瘽缈昏瘧
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.firstVisitEver.0-0.ancient` | [jitter]妗€妗€鈥︹€/jitter]灞呯劧浼氭湁浜烘潵鍛紝浣犱篃鏄潵浜敤杩欓噷鐨勬亹鎯с€佹偛鍠溿€佹啂鎭跺拰鎬ㄥ徆鐨勫悧锛?| [jitter]Heh heh...[/jitter] So someone actually comes. Are you here to feast on the fear, pleasure, grief, loathing, and resentment as well? |
+| `talk.ANY.1-0.ancient` | 鎸栦竴妗舵槸涓轰簡閽辫储鈥斺€?| Dig one bucket for riches鈥?|
+| `talk.ANY.2-0.ancient` | 鎸栦簩妗舵槸涓轰簡鍥藉鈥斺€?| Dig two buckets for the nation鈥?|
+| `talk.ANY.3-0.ancient` | 鎸栦笁妗舵槸涓轰簡鎲庢仺鈥︹€?| Dig three buckets for hatred... |
+| `talk.ANY.4-0r.ancient` | 浣滀负[jitter]鏈潵鐨勭暅鐢熺晫涔嬬帇[/jitter]锛岃浣犲畨鍏ㄩ€氳繃杩欓噷骞跺緱鍒版垜鐨勬敮鎻达紝鍙槸浣犺帿澶х殑鑽ｅ垢鍝︼紵鍛靛懙鍛点€?| As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and my support is your great honor, ya know? Heheheh. |
+| `talk.ANY.0-0r.ancient` | 杩欏骇濉旂殑鑽掔柅灏卞鍚岀煶娌逛竴鑸編鍛冲憿锛岀湡鏄粷鍝併€?| The blight in this tower is as delicious as oil. Truly a delicacy. |
+| `talk.ANY.5-0r.ancient` | 绾犵紶鍦ㄨ繖閲岀殑鍠滄偊銆佷究鍒┿€佽瘏鍜掋€佹啂鎭跺拰娆叉湜锛屼竴鐡竴婊村叏閮芥槸鎴戠殑鈥︹€﹀懙鍛靛懙銆?| The joy, convenience, curses, hatred, and desire tangled up in here鈥攅very drop and scoop is all mine... Heheheh. |
+| `talk.IRONCLAD.0-0.ancient` | 鍟娾€斺€旀垜闂诲埌浜嗚璇呭拻鐨勮娑茬殑鍛抽亾锛岃鎴戞€€蹇佃捣鐭虫补鐨勯姘斾簡锛岀湡鏄厖婊′簡涓嶇敇涓庢啂鎭ㄥ憿鈥︹€﹀懙鍛靛懙銆?| Ah鈥擨 smell the scent of cursed blood. It reminds me of the aroma of oil, so full of resentment and hatred... Heheheh. |
+| `talk.IRONCLAD.1-0r.ancient` | [jitter]妗€妗€[/jitter]锛屽儚浣犺繖绉嶅ご鑴戠畝鍗曠殑铔姏瑙掕壊鈥︹€﹂獖椹归偅瀹朵紮璇翠笉瀹氫細寰堝枩娆⑩€︹€﹀懙鍛靛懙銆?| [jitter]Heh heh[/jitter], a simple-minded brute like you...Kurokoma might just like you... Heheheh. |
+| `talk.IRONCLAD.2-0r.ancient` | 浣犻偅鐕冪儳鐫€鐨勮鎭堕瓟璇呭拻鐨勮娑诧紝鐪熸槸鏈夌偣璁╂垜娆茬舰涓嶈兘鈥︹€﹀懙鍛靛懙銆傛病娉曞湪杩欓噷鍝佸皾鐪熸槸涓€澶ч仐鎲俱€?| That burning, demon-cursed blood of yours... I just can't get enough of it... Heheheh. What a shame I can't taste it here. |
+| `talk.SILENT.0-0.ancient` | 浣犵殑琛€閲屾湁鑽掔柅鐨勯鍛炽€?| Your blood has the scent of blight. |
+| `talk.SILENT.0-0.next` | 寰井涓€鎯?| Slightly startled |
+| `talk.SILENT.0-1.char` | 鈥︹€︼紒 | ...! |
+| `talk.SILENT.0-1.next` | 缁х画 | Continue |
+| `talk.SILENT.0-2.ancient` | 濡傛灉浣犳鍦ㄥ崐璺紝閭ｅ氨鏄毚娈勫ぉ鐗╀簡锛屾墍浠ヤ綘鐨勪换鍔″彲鏄濂藉ソ娲荤潃锛岀瓑寰呮垜鏉ヤ翰鑷韩鐢ㄥ摝鈥︹€﹀懙鍛靛懙銆?| If you die halfway, that would be a waste of a rare delicacy. So your mission is to stay alive well, and wait for me to savor you myself... Heheheh. |
+| `talk.SILENT.1-0r.ancient` | [jitter]妗€妗€鈥︹€/jitter]涓嬫瘨鍜屽埡鏉€杩欑闃存殫鎷涘紡鈥︹€﹀€掓槸鍜屽悏鍚婇偅瀹朵紮缁濋厤鈥︹€﹀懙鍛靛懙銆?| [jitter]Heh heh...[/jitter] Sneaky tricks like poisoning and assassination... they're a perfect match for Kicchou... Heheheh. |
+| `talk.REGENT.0-0.char` | 濂介毦闂荤殑姘斿懗锛侀毦閬撹繖閲屽氨鏄偅鎵€璋撹崚鐤殑鏍规簮锛?| What a foul smell! Could this be the source of the so-called blight? |
+| `talk.REGENT.0-0.next` | 缁х画 | Continue |
+| `talk.REGENT.0-1.ancient` | 鍙堟潵涓€涓伔娌硅醇锛?| Another oil thief, is it? |
+| `talk.REGENT.0-1.next` | 缁х画 | Continue |
+| `talk.REGENT.0-2.ancient` | [jitter]妗€妗€鈥︹€/jitter]鎴戝彲涓嶈涓洪櫎浜嗗椤剁殑閭ｅ浼欏拰鎴戜互澶栵紝浼氭湁浜哄枩娆㈣繖鑽掔柅鐭虫补涓€鑸殑鍛抽亾鈥︹€?| [jitter]Heh heh...[/jitter] I don't think anyone besides the one at the top of the tower and myself would enjoy this blight-oil-like scent... |
+| `talk.REGENT.0-2.next` | 鎻愰棶 | Question |
+| `talk.REGENT.0-3.char` | 鎴戝浣犺鐨勪粈涔堟补涓嶆劅鍏磋叮锛佹垜涔熶笉鏄粈涔堣醇锛佹垜鏄偍鍚涳紝鏈潵鐨勭兢鏄熶箣[orange]鐜媅/orange]锛侀榿涓嬬殑鍚嶅瓧鏄紵 | I have no interest in your so-called oil! Nor am I some thief! I, Regent, future [orange]King[/orange] of the Stars! What is your name, Miss? |
+| `talk.REGENT.0-3.next` | 缁х画 | Continue |
+| `talk.REGENT.0-4.ancient` | 鎴戞槸楗曢ぎ灏ら瓟锛屽垰娆插悓鐩熶箣闀匡紝[jitter]鏈潵鐨勭暅鐢熺晫涔嬬帇[/jitter]銆傚懙鍛靛懙鈥︹€︽垜涓嶈鍘屾噦绀兼暟鐨勫浼欍€?| I am Yuuma Toutetsu, leader of the Gouyoku Alliance, [jitter]future King of the Beast Realm[/jitter]. Heheheh... I don't dislike those who know their manners. |
+| `talk.REGENT.1-0.ancient` | [jitter]妗€妗€鈥︹€/jitter]鎴戝緢涓剰浣狅紝瑕佷笉瑕佸拰鎴戜滑鍒氭鍚岀洘[red]缁撶洘[/red]鍛紵鎴戜滑涓€瀹氳兘鏀厤杩欏骇濉斺€︹€︿箣鍚庡啀鍘绘敮閰嶇暅鐢熺晫銆佸够鎯充埂鈥︹€?| [jitter]Heh heh...[/jitter] I've taken a liking to you. How about [red]allying[/red] with our Gouyoku Alliance? We can dominate this tower... then the Beast Realm, then Gensokyo... |
+| `talk.REGENT.1-0.next` | 涓ヨ們鎷掔粷 | Sternly refuse |
+| `talk.REGENT.1-1.char` | 鍠傦紒灏忕緤锛佹垜鍙槸鏈潵鐨刐orange]缇ゆ槦涔嬬帇[/orange]锛佺粷涓嶄細灞堝眳浜轰笅锛?| Hey there, Miss鈥?lamb! I'm the future [orange]King of the Stars[/orange]! I'll never play second fiddle to anyone! |
+| `talk.REGENT.1-1.next` | 缁х画 | Continue |
+| `talk.REGENT.1-2.ancient` | [jitter]妗€妗€鈥︹€/jitter]澶氫箞琛€姘旀柟鍒氱殑娆叉湜锛屾垜灏辨槸涓剰浣犺繖涓€鐐光€︹€?| [jitter]Heh heh...[/jitter] Such spirited, fiery desire. That's exactly what I like about you... |
+| `talk.REGENT.2-0.ancient` | [jitter]妗€妗€鈥︹€/jitter]鍏充簬涔嬪墠涓€璧风О闇稿ぉ涓嬬殑鎻愯锛岄榿涓嬫湁娌℃湁鏀瑰彉鎯虫硶鍛紵 | [jitter]Heh heh...[/jitter] About my earlier proposal to conquer the world together鈥攈ave you changed your mind, sir? |
+| `talk.REGENT.3-0r.ancient` | [jitter]妗€妗€鈥︹€/jitter]浣犵殑鏄熺悆涓婄殑浜洪兘鏄棤娆叉棤姹傜殑瀛樺湪鍚楋紵鍚笂鍘诲疄鍦ㄦ病鍔层€備笉濡傛潵璇曡瘯鎴戞鏈涚殑鍔涢噺锛屽浣曗€︹€?| [jitter]Heh heh...[/jitter] Are all the people on your planet desireless beings? Sounds dreadfully boring. How about you try the power of my desires... |
+| `talk.DEFECT.0-0.ancient` | 寤虹瓚甯堢殑鏋勮浣擄紵鍛靛懙鈥︹€﹁櫧鐒舵棭鏈夎€抽椈锛屼笉杩囩湅鍒扮被浼肩殑瀛樺湪锛岃繕鏄鎴戞兂璧烽偅瀹朵紮鐨勫煷杞叺鈥︹€︽湁鐐规伓蹇冨憿銆?| The Architect's construct? Heheh... I've heard about them, but seeing a similar existence still reminds me of that guy's haniwa soldiers... rather nauseating. |
+| `talk.DEFECT.1-0r.ancient` | 涓嶈鍙戝嚭閭ｇ鎴掑鐨勫榾鍢€澹板槢鈥︹€︽垜鍦ㄨ繖閲屼韩鐢ㄨ崚鐤紝鏃㈡弧瓒充簡鎴戠殑鑳冨彛锛屽張閬垮厤浜嗚崚鐤硠闇诧紝涓嶆槸涓€涓句袱寰楃殑浜嬫儏鍚楋紵杩欏彲鏄楂樿€屽噭鎯ㄧ殑琛屼负鍝︼紵 | Don't make those wary beep sounds... I feast on the blight here, satisfying my appetite while preventing it from leaking out. Two birds with one stone, isn't it? A lonely and tragic endeavor, ya know? |
+| `talk.DEFECT.2-0r.ancient` | [jitter]妗€妗€鈥︹€/jitter]鐪熶簭浣犱笉鏄鐣岄偅绉嶇敤鐭虫补椹卞姩鐨勫浼欙紝涓嶇劧鎴戝氨涓嶈兘璁╀綘绂诲紑浜嗐€?| [jitter]Heh heh...[/jitter] Good thing you're not one of those oil-powered units from the outside world, or I wouldn't be able to let you leave. |
+| `talk.NECROBINDER.0-0.ancient` | 浣犺韩涓婃弧鏄崟绾殑澶嶄粐鍛抽亾銆傝櫧鐒剁編鍛筹紝浣嗗疄鍦ㄤ笉澶熷鎴戠殑鐗欑紳銆?| You're drenched in the pure scent of revenge. Delicious as it is, it's barely enough to stick between my teeth. |
+| `talk.NECROBINDER.0-0.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-1.char` | 鈥︹€︿綘鍦ㄨ繖婊℃槸鑽掔柅鍜屾补鐨勭牬鍦版柟鍋氫粈涔堬紵灏辩畻澶卞幓浜嗗梾瑙夛紝杩欓噷鐨勫懗閬撲篃鍜岄偅涓猍jitter]涓滆タ[/jitter]涓€鏍蜂护鎴戜綔鍛曘€?| ...What are you doing in this wretched place full of blight and oil? Even without a sense of smell, the stench here is as nauseating as that [jitter]thing[/jitter]. |
+| `talk.NECROBINDER.0-1.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-2.ancient` | 瀹濆湴鎽嗗湪闈㈠墠锛屼綘鍗存湁鐪兼棤鐝狅紝鍛靛懙鍛碘€︹€﹁涓嶈涔熶綋楠屼竴涓嬭繖閲岀殑娆叉湜涔嬪姏鍛紵 | A treasure trove lies before you, yet you're blind to it, heheheh... How about experiencing the power of desire here yourself? |
+| `talk.NECROBINDER.1-0r.ancient` | 甯︾潃鎴戠殑鏀彺鍘绘潃姝绘兂鏉€鐨勪汉鍚э紝璁╀綘鐨勬啂鎭ㄨ瀺鍏ラ珮濉旓紝璁╀綘鐨勬€掔伀钄撳欢涓栭棿銆傛垜浼氬緢浜彈杩欑噧鏂欑殑锛屽懙鍛靛懙鈥︹€?| Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh... |
+| `talk.NECROBINDER.2-0r.ancient` | 铏界劧鍙敜涓滆タ浣滄垬鏄伒闀垮洯閭ｈ竟鐨勯鏍硷紝涓嶈繃浣犵殑鎬ф牸涓庢墽蹇靛€掓槸寰堥€傚悎鍦ㄧ暅鐢熺晫鍓叉嵁涓€鏂瑰憿锛孾jitter]妗€妗€鈥︹€/jitter] | While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter] |
+
+---
+
+## [钃幈灞?杈夊] 鈥?鏂板瀵硅瘽
+
+**閿悕**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
+
+### 瀵硅瘽缈昏瘧锛堟柊澧烇級
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.ANY.5-0r.ancient` | 浣犳湁瑙佸埌鎴戝鍦ㄤ笅灞傜粡鍟嗙殑鍏斿瓙鍚楋紵鍛靛懙锛屽埆琚ス鐨勫琛ㄩ獥浜嗭紝濂瑰彲绮炬槑鐨勫緢锛屽埆涓嶅皬蹇冭惤鍏ラ櫡闃卞摝銆?| Have you seen my rabbit merchant downstairs? Heheh, don't let her looks fool you鈥攕he's quite sharp. Best not to fall into her trap. |
+| `talk.ANY.6-0r.ancient` | 鍞斿鈥︹€﹁繖鏍风畻涓嶇畻姘哥惓璇寸殑锛岀◢寰繃鐨勫厖瀹炰簡涓€鐐瑰憿锛?| Hmm... would Eirin say this counts as living a bit more fulfilled, I wonder? |
+| `talk.ANY.7-0r.ancient` | 杩欒稛鏃呴€旇兘缁欐湀閮戒竾璞″睍鍔犱笉灏戝府鍔╁憿銆傚晩鍛€锛屾槸涓嶆槸鏈堥兘鐨勪笢瑗垮骞绘兂涔＄殑浜烘潵璇翠篃涓嶉噸瑕佸惂銆?| I could add what I've gathered here to the Lunar Capital's Banquet of Diversity. It's not like Gensokyo folks can tell what's actually from the Lunar anyway. |
+| `talk.IRONCLAD.0-0.ancient` | 浣犵殑韬笂娌炬弧浜嗛矞琛€涓庢薄绉姐€俓n鏉€姝诲缓绛戝笀骞朵笉鑳藉噣鍖栨帀杩欎竴鍒囥€?| You're drenched in blood and filth.\nKilling the Architect won't cleanse any of it. |
+| `talk.IRONCLAD.1-0r.ancient` | 涓€娆℃鐨勫娲绘潵鍒版垜鐨勯潰鍓嶇殑鐏劙鎴樺＋銆俓n浣犺鎴戞兂璧蜂簡鏌愪釜鐑︿汉鐨勫浼欍€?| A warrior of flame, coming back to life and standing before me time and again.\nYou remind me of someone annoying. |
+| `talk.IRONCLAD.2-0r.ancient` | 濡傛灉浣犳槸鐧惧勾涓€閬囩殑鍕囧＋鐨勮瘽锛岃兘鎵惧埌鎴戣姹傜殑瀹濈墿锛岃В寮€鎴戠殑璋滈鍚楋紵 | If you're a once-in-a-century hero, can you find the treasures I seek and solve my riddles? |
+| `talk.NECROBINDER.0-0.char` | 鎴戦渶瑕佷綘鐨勭瀹濓紝甯垜褰诲簳娑堢伃鎺夊缓绛戝笀銆?| I need your secret treasure to destroy the Architect completely. |
+| `talk.NECROBINDER.0-0.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.0-1.ancient` | 鍝庡憖锛岃櫧鐒朵笉鏄笉琛屽暒銆備笉杩囦綘杩欒偂澶嶄粐鍔插€掓槸鍜岄偅浣嶅緢鍍忓憿銆?| Oh my, it's not impossible. Though your drive for revenge... it reminds me of someone. |
+| `talk.NECROBINDER.1-0r.ancient` | 鍟婂憖锛屼綍蹇呴偅涔堢潃鎬ワ紵杩涙潵鍧愪細鍎垮惂锛屾垜璁╅搩浠欏幓娉¤尪銆?| Oh my, why the rush? Come in and sit for a while. I'll have Inaba brew some tea. |
+| `talk.NECROBINDER.1-0r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-1r.char` | 鍦ㄦ潃姝讳粬涔嬪墠锛屾垜杩炰竴绉掗兘涓嶆兂鑰芥悂銆?| I don't want to waste a single second before killing him. |
+| `talk.NECROBINDER.1-1r.next` | 缁х画 | Continue |
+| `talk.NECROBINDER.1-2r.ancient` | 鍦ㄨ繖閲岀殑鏃堕棿涓庡巻鍙叉槸涓嶄細鍚戝墠娴侀€濈殑锛屽伓灏斾篃骞抽潤涓嬭嚜宸辩殑鎬掔伀涓庣悊鏅哄惂銆?| Time and history don't flow forward here. Calm your fury and reason every now and then. |
+| `talk.SILENT.1-0r.ancient` | 鑽掔柅骞朵笉瀛樺湪瑙ｈ嵂銆傚摢鎬曟槸姘哥惓锛屼篃浼氳杩欎釜闅鹃闅句綇鐨勫惂銆?| There is no antidote for Blight. Even Eirin would be stumped by this one. |
+| `talk.REGENT.1-0r.ancient` | 鍚闃佷笅鏄お闃崇殑缁ф壙浜猴紝涔熷氨鏄帇瀛愭涓嬪柦锛?| I hear you're the heir of the sun鈥攁 prince, then? |
+| `talk.REGENT.1-0r.next` | 楠勫偛 | Proud |
+| `talk.REGENT.1-1r.char` | 娌￠敊锛屽湪涓嬪氨鏄湭鏉ョ殑[orange]鐜媅/orange]锛?| That's right! I, the Regent, am the future [orange]King[/orange]! |
+| `talk.REGENT.1-1r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-2r.ancient` | 杩欐牱鐨勮瘽锛岄榿涓嬭涓嶈鑰冭檻鍚戞垜杩欎綅鏈堜箣鍏富姹傚鍛紵鎴戝彲浠ョ牬渚嬩笉璁╀綘鐮磋В鎴戠殑璋滈鍝 | In that case, would you consider proposing to me, the lunar princess? I could make an exception and let you skip my riddles~ |
+| `talk.REGENT.1-2r.next` | 缁х画 | Continue |
+| `talk.REGENT.1-3r.char` | 浠€锛屼粈涔堬紵锛?| W-What?! |
+| `talk.REGENT.1-4r.ancient` | 鍛靛懙锛屽紑涓皬鐜╃瑧~ | Heheh, just a little joke~ |
+| `talk.REGENT.1-4r.next` | 缁х画 | Continue |
+| `talk.DEFECT.0-0.ancient` | 浣犳槸姘哥惓鎻愬埌鐨勫缓绛戝笀鐨勬瀯瑁呬綋鍚楋紵杩囨潵鍚э紝鎴戜細缁欎綘浜涘疂璐濈殑銆?| Are you the Architect's construct that Eirin mentioned? Come here, I'll give you some treasures. |
+| `talk.DEFECT.1-0r.ancient` | 鏈€杩戠數鍔ㄦ湁鐐规墦鑵讳簡锛岃涓嶈涔熷鐐圭紪绋嬪憿锛熻涓嶅畾鍙互甯埌浣犲摝锛?| I've grown a bit bored of video games lately. How about learning some programming? Maybe I could be of help to you? |
+| `talk.DEFECT.1-0r.next` | 缁х画 | Continue |
+| `talk.DEFECT.1-1r.char` | [i][font_size=22]<娆ｅ枩鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Joyful beep>[/font_size][/i] |
+| `talk.DEFECT.1-1r.next` | 缁х画 | Continue |
+| `talk.DEFECT.1-2r.ancient` | 鍝庡憖锛屽埆閭ｄ箞鐫€鎬ワ紝娆查€熷垯涓嶈揪鈥︹€?| My, don't be so impatient. Haste makes waste... |
+| `talk.DEFECT.2-0r.ancient` | 鍟婂憖锛屼綘鏄潵闂繘灞曠殑鍚э紵鍙嶆鏃堕棿鏈夌殑鏄€︹€︽槑澶╁啀鐪嬩篃鏉ュ緱鍙婄殑鍚с€?| Oh my, here to ask about progress? We've got plenty of time anyway... Tomorrow will be soon enough, won't it? |
+| `talk.DEFECT.2-0r.next` | 缁х画 | Continue |
+| `talk.DEFECT.2-1r.char` | [i][font_size=22]<鐢熸皵鐨勫榾鍢€澹?[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
+| `talk.DEFECT.3-0r.char` | 鐜板湪鐨勪汉宸ユ櫤鑳界湡鏄柟渚垮晩锛屽綋骞寸殑浜旈亾璋滈鏀惧湪鐜板湪锛岃吹鍏瓙浠€曟槸浼氫簤鍏堟亹鍚庣殑鍘婚棶AI璋滃簳鏄粈涔堝惂銆?| AI these days is so convenient. Those five riddles from back then鈥攏oble gentlemen would probably be falling over each other to ask an AI for the answers now. |
+
+## [绾嫄] 鈥?鏂板瀵硅瘽
+
+**閿悕**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+### 瀵硅瘽缈昏瘧锛堟柊澧烇級
+| 瀵硅瘽閿?| 涓枃 | English |
+|--------|------|---------|
+| `talk.IRONCLAD.0-0.ancient` | 绾补鐨勭伀鐒般€傛湁瓒ｇ殑閾佺敳鎴樺＋銆傛垜浼氱粰浜堜綘鍔涢噺鐨勩€?| Pure flames. An interesting Ironclad. I shall grant you power. |
+| `talk.SILENT.0-0.ancient` | 鎴戠湅鍒颁簡浣犵溂閲岀殑鏉€鎰忥紝灏辫濂规洿绾补涓€鐐瑰惂銆?| I see the killing intent in your eyes. Let it become even purer. |
+| `talk.DEFECT.0-0.ancient` | 鐣忔儳姝讳骸锛屾儨瑙嗙敓鍛姐€傚摢鎬曟槸鏋勮浣撲篃涓嶅簲渚嬪銆傚鏋滀綘鎰忚瘑鍒颁綘鐨勭敓鍛戒箣閲嶏紝灏辨帴鍙楁垜鏈€绾补鐨勭绂忋€?| Fear death, cherish life. Even a construct should be no exception. If you recognize the weight of your existence, accept my purest blessing. |
+| `talk.REGENT.0-0.ancient` | 锛堢璇︼級涓嶇浣犳潵鑷摢涓槦鐞冿紝鍙涓嶆槸鏈堢悆灏辫銆?| (Examining) No matter which planet you're from, as long as it's not the moon. |
+
+
+
+## 射命丸文（2026-07-19 epithet 更新）
 
 **键名**: `TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT`
 
 ### 字段翻译
 | 字段 | 中文 | English |
 |------|------|---------|
-| `.title` | 射命丸 文 | Aya Shameimaru |
-| `.epithet` | 奔走在高塔中的幻想记者 | Fantasy Reporter Roaming the Tower |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | 女苑：世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | jyoon: The greatest thing in the world is living the high life where you can afford anything. Don't you agree? |
+| `.epithet` | 不传统的非幻想记者 | Untraditional Non-Fantasy Reporter |
 
 ---
 
-## [纯狐]
+## 蓬莱山辉夜（2026-07-19 键名修正）
 
-**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+**键名**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
 
-### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 纯狐| Junko|
-| `.epithet` | 无名的先古存在 | Nameless Ancient Existence |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 我的名字是纯狐，就让我来招待一下，努力至今的你吧。 | My name is Junko. Let me extend my hospitality to you, who have struggled so far to get here. |
-| `talk.ANY.0-0r.ancient` | 先子星的旅途，只是我复仇人生中的无聊消遣罢了。 | The journey through Preon is merely a tedious diversion in my life of vengeance. |
-| `talk.ANY.1-0r.ancient` | 我与月之民之间的交战也正好陷入了僵局，最近也正为此感到厌倦了，来这里倒是个不错的选择呢。 | My conflict with the Lunarians has reached a stalemate anyway. I've grown weary of it lately—coming here is actually not a bad choice. |
-| `talk.ANY.2-0r.ancient` | 我对这里的事情很感兴趣。让我再多见识一点吧。 | I find the happenings here quite intriguing. Let me see more of it. |
-| `talk.ANY.3-0r.ancient` | 不共戴天之敌，嫦娥啊，你在看着吗？ | My sworn enemy, Chang'e... are you watching? |
-| `talk.NECROBINDER.0-0.char` | 我需要能杀死他的帮助。 | I need help to kill him. |
-| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-1.ancient` | 你也有不共戴天的敌人吗？ | You have a sworn enemy too? |
-| `talk.NECROBINDER.0-1.next` | 惊讶 | Startled |
-| `talk.NECROBINDER.0-2.char` | ……我还是第一次感受到复仇的火焰的温度。那是来自于你的吗？ | ...This is the first time I've felt the heat of vengeful flames. Does it come from you? |
-| `talk.NECROBINDER.0-2.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-3.ancient` | 我即是最纯粹的复仇的化身。 | I am the purest incarnation of vengeance. |
-| `talk.NECROBINDER.1-0r.ancient` | 毋需焦躁、毋需惶恐。复仇的机会与时间是无限的，[b]我们[/b]有的是时间。 | No need for impatience, no need for fear. The opportunities and time for vengeance are limitless. [b]We[/b] have all the time we need. |
-| `talk.NECROBINDER.2-0r.ancient` | 复仇剧将会永远的重复下去，无论是你的，还是我的。 | The revenge drama will repeat for all eternity—be it yours, or mine. |
+### 对话键名变更
+| 旧键名 | 新键名 |
+|--------|--------|
+| `talk.DEFECT.1-0r.ancient` | `talk.DEFECT.1-0.ancient` |
+| `talk.DEFECT.1-0r.next` | `talk.DEFECT.1-0.next` |
+| `talk.DEFECT.1-1r.char` | `talk.DEFECT.1-1.char` |
+| `talk.DEFECT.1-1r.next` | `talk.DEFECT.1-1.next` |
+| `talk.DEFECT.1-2r.ancient` | `talk.DEFECT.1-2.ancient` |
 
 ---
 
-## [鬼人正邪] — 新增对话
-
-**键名**: `TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT`
-
-### 对话翻译（新增）
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.ANY.3-0r.ancient` | 公主那家伙……居然说要自己去讨伐建筑师，真是拿她没办法…… | That princess... she insists on going to take down the Architect herself. I just can't do anything with her... |
-| `talk.ANY.4-0r.ancient` | 哼，马萨雷斯的信徒真是一群没有远见的井底之蛙，你应该比他们更有志气吧？ | Hmph, those Mazaleth worshippers are nothing but narrow-minded frogs in a well. You've got more ambition than them, don't you? |
-| `talk.IRONCLAD.0-0.ancient` | 又一个涅奥的傀儡来到了这里，真希望你是个能理解当前处境的家伙。 | Another puppet of Neow has arrived. I hope you're someone who can understand the situation. |
-| `talk.IRONCLAD.0-0.next` | 继续 | Continue |
-| `talk.IRONCLAD.0-1.char` | 建筑师……杀戮…… | Architect... slaughter... |
-| `talk.IRONCLAD.0-1.next` | 继续 | Continue |
-| `talk.IRONCLAD.0-2.ancient` | 很好，我们这些人被欺压的痛苦与耻辱，就由你十倍奉还给建筑师吧！ | Good. Let you repay the Architect tenfold for the pain and humiliation we have suffered! |
-| `talk.IRONCLAD.1-0.ancient` | 我已经知道大恶魔的事情了，哼，我最讨厌这种高高在上的支配者。等你向那位大恶魔掀起叛旗，我和我的起义军会第一时间来支持你的！ | I already know about the Great Demon. Hmph, I despise high-and-mighty rulers like that. When you raise the banner of rebellion against that Great Demon, my rebel army and I will stand by you from the very start! |
-| `talk.REGENT.0-0.ancient` | 你这残忍的暴君！看看你对座椅下的小人做了什么？ | You cruel tyrant! Look at what you've done to the little people beneath your throne! |
-| `talk.REGENT.0-0.next` | 疑惑 | Confused |
-| `talk.REGENT.0-1.char` | 你说我的仆从？他们对此没有意见。而且，他们是我创造的，我对此享有一切解释权。 | You mean my minions? They have no complaints. Besides, I created them—I have the final say in everything. |
-| `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | 呵！无趣的借口！我会等到你的小人们起义推翻你的那一刻到来的！ | Hah! Boring excuse! I'll be here waiting for the day your little people rise up and overthrow you! |
-| `talk.REGENT.0-2.next` | 沉思 | Pondering |
-| `talk.REGENT.0-3.char` | 嗯……在那之前，你能提供点帮我上去的帮助吗？ | Hmm... Until then, can you spare some help to get me up there? |
-| `talk.REGENT.1-0r.ancient` | 外星人，我们又见面了！ | Alien, we meet again! |
-| `talk.REGENT.1-0r.next` | 继续 | Continue |
-| `talk.REGENT.1-1r.char` | 我原谅你的无礼，所以除了这些以外，你还可以多给我找些有用的道具来吗？ | I forgive your rudeness. So, on top of all this, can you scrounge up some more useful items for me? |
-| `talk.REGENT.1-1r.next` | 继续 | Continue |
-| `talk.REGENT.1-2r.ancient` | 呵，既然你这么说了……某种程度上也不是不行…… | Hmph, since you put it that way... I suppose it's not entirely out of the question... |
-| `talk.REGENT.1-2r.next` | 继续 | Continue |
-| `talk.REGENT.1-3r.ancient` | 但是我拒绝！我鬼人正邪最喜欢做的事之一，就是对自认为很强的家伙说「NO」！ | But I refuse! One of my favorite things to do, Seija Kijin, is saying "NO" to those who think they're so tough! |
-| `talk.ANY.5-0r.ancient` | 和我一起来下克上吧—— | Join me in the revolt from below— |
-| `talk.ANY.6-0r.ancient` | 贤者把大伙都带到这里，究竟是有什么阴谋？呵，也罢，无论在哪，我的逆袭与颠覆都不会停止！ | What's the sage's scheme, bringing everyone here? Hah, whatever. My rebellion and upheaval will never stop, no matter where I am! |
-| `talk.IRONCLAD.2-0r.ancient` | 我和只会用在文书里下套的恶魔不同。天邪鬼可从不尝试操纵你，我说的话字字珠玑，难道你能反驳吗？ | I'm different from that demon who only knows how to set traps in fine print. An amanojaku never tries to manipulate you—every word I say is gospel. Can you argue with that? |
-| `talk.SILENT.0-0.ancient` | 很好，我喜欢你这种冷漠无情，把一切都当做猎物的眼神，简直是天选的起义军成员啊。 | Good. I like that cold, merciless look in your eyes—like everything is prey. You're a born rebel. |
-| `talk.SILENT.0-0.next` | 什么也不说 | Respond |
-| `talk.SILENT.0-1.char` | ……（亮出匕首） | ... *(brandishes a dagger)* |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 等等等等……你要东西我给你就是，把利刃朝向友军算什么本事！ | Wait, wait... I'll give you what you want, but how can you point your blade at your own allies? |
-| `talk.SILENT.1-0r.ancient` | 看起来你没有什么朋友呢，呵呵，不用担心，做大事的人自然是孤独的。 | Seems like you don't have many friends. Heheh, don't worry—those who do great things are naturally alone. |
-| `talk.SILENT.2-0r.ancient` | 有兴趣让你的匕首自己动起来吗？倘若给予它们咽喉，它们自然能够言语。 | Interested in making your dagger move on its own? Give them a throat, and they shall speak. |
-| `talk.NECROBINDER.0-0.ancient` | 这位女士看起来有点苦大仇深呢。呵呵，是建筑师对你做了什么吗？ | This lady seems to carry quite a grudge. Heheh, did the Architect do something to you? |
-| `talk.NECROBINDER.0-0.next` | 愤怒 | Anger |
-| `talk.NECROBINDER.0-1.char` | [jitter]他杀死了我的至爱！！！[/jitter] | [jitter]He killed my beloved!!![/jitter] |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 很好，反抗与革命正需要你这样的决心…… | Good. Rebellion and revolution need determination like yours... |
-| `talk.NECROBINDER.1-0r.ancient` | 你想看看万宝槌的力量？呵，虽然公主的东西就是我的东西……不过万宝槌的魔力现在很不稳定，我可不希望现在就透支太多的代价。 | You want to see the power of the Malleus Malleus? Hah, though what's the princess's is mine... but its magic is unstable right now. I don't want to incur too much of a cost yet. |
-| `talk.NECROBINDER.1-0r.next` | 回答 | Reply |
-| `talk.NECROBINDER.1-1r.char` | 我不介意由我来支付代价。 | I don't mind paying the cost myself. |
-| `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-2r.ancient` | 你这么说的话，我就偏不给你用了！等公主回来再说吧，先试试别的东西…… | Since you said that, now I'm definitely not letting you use it! We'll see when the princess gets back. Try something else for now... |
-| `talk.NECROBINDER.2-0r.ancient` | 嗯哼，看来死灵魔法比等待道具付丧神化更适合作为招纳新人的手段…… | Heh, seems like necromancy is a better way to bring in new recruits than waiting for items to turn into tsukumogami... |
-| `talk.DEFECT.0-0.ancient` | 嗯？我可没找来过什么构装体！难道坏掉的构装体也自己动起来了吗？ | Huh? I didn't summon any constructs! Are broken constructs moving on their own now? |
-| `talk.DEFECT.0-0.next` | 继续 | Continue |
-| `talk.DEFECT.0-1.char` | [i][font_size=22]<疑惑的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Confused beep>[/font_size][/i] |
-| `talk.DEFECT.0-1.next` | 继续 | Continue |
-| `talk.DEFECT.0-2.ancient` | 居然是个有自主意识的家伙……看来关于构装体的付丧神化还需要更多的样本…… | So it has a will of its own... It seems I need more samples for my research on tsukumogami-fication of constructs... |
-| `talk.DEFECT.1-0r.ancient` | 修好你？哼，以前有个靠我的魔力才醒过来的[jitter]道具[/jitter]，得到自己的身体后二话不说就溜了还反过来追杀我！我才不上当呢！ | Repair you? Hmph, there was once a [jitter]tool[/jitter] that woke up thanks to my magic, got its own body, and immediately ran off—then came back to hunt me! I'm not falling for that again! |
-| `talk.DEFECT.2-0r.ancient` | 你这家伙体内的潜力可不小呢，未来一定能成大事业，所以现在就加入我的起义军吧！ | You've got quite a lot of potential in you—you're bound for great things. So join my rebel army right now! |
-
----
-
-## [二岩 猯藏] — 占位符
-
-**键名**: `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT`
-
-### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 二岩 猯藏 | Mamizou Futatsuiwa |
-| `.epithet` | 外来的外来妖怪狸 | Bake-danuki Outsider From Outside |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | …… | ... |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 占位符 | Placeholder |
-| `talk.ANY.0-0r.ancient` | …… | ... |
-
----
-
-## [依神 女苑 & 依神 紫苑]
+## 依神姐妹（2026-07-19 新增/更新对话）
 
 **键名**: `TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT`
 
 ### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 依神 女苑&依神 紫苑 | jyoon Yorigami & Shion Yorigami |
-| `.epithet` | 最凶最恶的荒疫神姐妹 | The Most-Despicable and Disastrous Blight God Sister |
+| 字段 | 中文 | English | 说明 |
+|------|------|---------|------|
+| `.title` | 依神 女苑&依神 紫苑 | jyoon Yorigami & Shion Yorigami | 不变 |
+| `.epithet` | 最凶最恶的荒疫神姐妹 | The Most-Despicable and Disastrous Blight God Sister | 不变 |
 
-### 对话翻译
+### firstVisitEver 更新
+| 对话键 | 旧中文（旧 English） | 新中文 | 新 English |
+|--------|---------------------|--------|-----------|
+| `talk.firstVisitEver.0-0.ancient` | （旧）女苑：呵呵呵，你真是幸运呢。想要发财的话，现在就是最好的机会哦~ → jyoon: Hehehe, you're quite fortunate. Meeting me is an omen of striking it rich~ | 我们是能从哭闹的小孩手里赚到钱的依神姐妹！呵呵呵，想要发财的话，现在就是最好的机会哦~ | We're the Yorigami sisters who can make money even from crying children! Hehehe, if you want to get rich, now's your best chance~ |
+
+### IRONCLAD.0-1 文本缩短
+| 对话键 | 旧 English | 新 English |
+|--------|-----------|-----------|
+| `talk.IRONCLAD.0-1.ancient` | Sis, what are you worried about? As long as we use that trick... there's nobody we can't beat. But as long as they don't get in the way of our profits, there's no need to pick a fight. | Sis, what are you worried about? As long as we use that trick... there's nobody we can't beat. |
+
+### 新增对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 女苑：呵呵呵，你真是幸运呢。想要发财的话，现在就是最好的机会哦~ | jyoon: Hehehe, you're quite fortunate. Meeting me is an omen of striking it rich~ |
-| `talk.firstVisitEver.0-0.speaker` | jyoon | jyoon |
-| `talk.ANY.0-0.ancient` | 拿最贵的酒来——！ | Bring out the most expensive booze——! |
-| `talk.ANY.0-0.speaker` | jyoon | jyoon |
-| `talk.ANY.0-1.ancient` | 上最贵的菜来——！ | Bring out the priciest grub——! |
-| `talk.ANY.0-1.speaker` | shion | shion |
-| `talk.ANY.0-1.next` | 继续 | Continue |
-| `talk.ANY.0-2.ancient` | 让我们为这位涅奥的勇士干杯！ | A toast to this brave champion of Neow! |
-| `talk.ANY.0-2.speaker` | jyoon | jyoon |
-| `talk.ANY.1-0r.ancient` | 世界上最美好的事情就是什么都买得起的土豪生活了，你说对吗？ | The finest thing in the world is a luxurious life where you can afford anything, wouldn't you agree? |
-| `talk.ANY.1-0r.speaker` | jyoon | jyoon |
-| `talk.ANY.1-0r.next` | 继续 | Continue |
-| `talk.ANY.1-1r.ancient` | 如果你不同意，我会很失望的看着你的…… | If you don't agree, I'll stare at you with utter disappointment... |
-| `talk.ANY.1-1r.speaker` | shion | shion |
-| `talk.ANY.2-0r.ancient` | 要不要我把姐姐打个折借给你？只要让她凭依在BOSS身上，BOSS马上就会倒霉到连杂鱼都不如哦~ | How about I lend you my sister at a discount? Just let her possess the Boss, and they'll get so unlucky they won't even measure up to a minion~ |
-| `talk.ANY.2-0r.speaker` | jyoon | jyoon |
-| `talk.ANY.2-0r.next` | 继续 | Continue |
-| `talk.ANY.2-1r.ancient` | 女苑…… | jyoon... |
-| `talk.ANY.2-1r.speaker` | shion | shion |
-| `talk.ANY.2-1r.next` | 继续 | Continue |
-| `talk.ANY.2-2r.ancient` | 啊！我差点忘了！带着姐姐的话可能根本走不到BOSS那里呢！ | Ah! I almost forgot! If I bring my sister along, you might not even make it to the Boss at all! |
-| `talk.ANY.2-2r.speaker` | jyoon | jyoon |
-| `talk.ANY.3-0r.ancient` | 多赚一点金币带回去的话，不仅能还清上一次的石油债，还能大赚一笔呢！ | If we make a tidy bit of extra gold to bring back, we can not only pay off the last oil debt but turn a fat profit! |
-| `talk.ANY.3-0r.speaker` | jyoon | jyoon |
-| `talk.IRONCLAD.0-0.ancient` | 唔……是个看起来很不好惹的战士…… | Ugh... this warrior looks like bad news... |
-| `talk.IRONCLAD.0-0.speaker` | shion | shion |
-| `talk.IRONCLAD.0-0.next` | 继续 | Continue |
-| `talk.IRONCLAD.0-1.ancient` | 姐姐你在担心什么？只要用那招的话……就没有打不败的家伙。不过只要不打扰我们赚钱就没有必要发起斗争了。 | Sis, what are you worried about? As long as we use that trick... there's nobody we can't beat. But as long as they don't get in the way of our profits, there's no need to pick a fight. |
-| `talk.IRONCLAD.0-1.speaker` | jyoon | jyoon |
-
----
-
-## [饕餮 尤魔]
-
-**键名**: `TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT`
-
-### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 饕餮 尤魔 | Yuuma Toutetsu |
-| `.epithet` | 以荒疫为食的灾兽 | Blight-Devouring Calamity Beast |
-
-### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | [jitter]桀桀……[/jitter]居然会有人来呢，你也是来享用这里的恐惧、悲喜、憎恶和怨叹的吗？ | [jitter]Heh heh...[/jitter] So someone actually comes. Are you here to feast on the fear, pleasure, grief, loathing, and resentment as well? |
-| `talk.ANY.1-0.ancient` | 挖一桶是为了钱财—— | Dig one bucket for riches— |
-| `talk.ANY.2-0.ancient` | 挖二桶是为了国家—— | Dig two buckets for the nation— |
-| `talk.ANY.3-0.ancient` | 挖三桶是为了憎恨…… | Dig three buckets for hatred... |
-| `talk.ANY.4-0r.ancient` | 作为[jitter]未来的畜生界之王[/jitter]，让你安全通过这里并得到我的支援，可是你莫大的荣幸哦？呵呵呵。 | As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and my support is your great honor, ya know? Heheheh. |
-| `talk.ANY.0-0r.ancient` | 这座塔的荒疫就如同石油一般美味呢，真是绝品。 | The blight in this tower is as delicious as oil. Truly a delicacy. |
-| `talk.ANY.5-0r.ancient` | 纠缠在这里的喜悦、便利、诅咒、憎恶和欲望，一瓢一滴全都是我的……呵呵呵。 | The joy, convenience, curses, hatred, and desire tangled up in here—every drop and scoop is all mine... Heheheh. |
-| `talk.IRONCLAD.0-0.ancient` | 啊——我闻到了被诅咒的血液的味道，让我怀念起石油的香气了，真是充满了不甘与憎恨呢……呵呵呵。 | Ah—I smell the scent of cursed blood. It reminds me of the aroma of oil, so full of resentment and hatred... Heheheh. |
-| `talk.IRONCLAD.1-0r.ancient` | [jitter]桀桀[/jitter]，像你这种头脑简单的蛮力角色……骊驹那家伙说不定会很喜欢……呵呵呵。 | [jitter]Heh heh[/jitter], a simple-minded brute like you...Kurokoma might just like you... Heheheh. |
-| `talk.IRONCLAD.2-0r.ancient` | 你那燃烧着的被恶魔诅咒的血液，真是有点让我欲罢不能……呵呵呵。没法在这里品尝真是一大遗憾。 | That burning, demon-cursed blood of yours... I just can't get enough of it... Heheheh. What a shame I can't taste it here. |
-| `talk.SILENT.0-0.ancient` | 你的血里有荒疫的香味。 | Your blood has the scent of blight. |
-| `talk.SILENT.0-0.next` | 微微一惊 | Slightly startled |
-| `talk.SILENT.0-1.char` | ……！ | ...! |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 如果你死在半路，那就是暴殄天物了，所以你的任务可是要好好活着，等待我来亲自享用哦……呵呵呵。 | If you die halfway, that would be a waste of a rare delicacy. So your mission is to stay alive well, and wait for me to savor you myself... Heheheh. |
-| `talk.SILENT.1-0r.ancient` | [jitter]桀桀……[/jitter]下毒和刺杀这种阴暗招式……倒是和吉吊那家伙绝配……呵呵呵。 | [jitter]Heh heh...[/jitter] Sneaky tricks like poisoning and assassination... they're a perfect match for Kicchou... Heheheh. |
-| `talk.REGENT.0-0.char` | 好难闻的气味！难道这里就是那所谓荒疫的根源？ | What a foul smell! Could this be the source of the so-called blight? |
-| `talk.REGENT.0-0.next` | 继续 | Continue |
-| `talk.REGENT.0-1.ancient` | 又来一个偷油贼？ | Another oil thief, is it? |
+| `talk.ANY.3-1r.ancient` | 我们又可以变回富豪神了！ | We can become rich gods again! |
+| `talk.ANY.3-1r.speaker` | shion | shion |
+| `talk.ANY.4-0r.ancient` | 女苑……感觉来这里这么久一点都没赚到啊……找到的金币都拿去在那个面具商人花掉了…… | Joon... I feel like we haven't made a penny since we got here... all the gold we found went to that mask merchant... |
+| `talk.ANY.4-0r.speaker` | shion | shion |
+| `talk.ANY.4-0r.next` | 继续 | Continue |
+| `talk.ANY.4-1r.ancient` | 会有的会有的！财路可是广得很呢！反正不花掉的话，在姐姐手里也马上就没有了嘛~ | It'll come, it'll come! There are plenty of ways to make money! Besides, if we don't spend it, it'll disappear in your hands anyway~ |
+| `talk.ANY.4-1r.speaker` | jyoon | jyoon |
+| `talk.ANY.5-0.ancient` | 我听说天子小姐也来这里了，虽然是想请她帮忙找找宝箱……但是那只妖怪羊……也盘踞在上面…… | I heard Lady Tenshi is here too. I was hoping she could help us find treasure chests... but that monster sheep... is lurking up there too... |
+| `talk.ANY.5-0.speaker` | shion | shion |
+| `talk.ANY.5-0.next` | 继续 | Continue |
+| `talk.ANY.5-1.ancient` | 噫！那家伙上次盯上了石油，这次又盯上了什么？ | Eek! That thing was after our oil last time, what's it after now? |
+| `talk.ANY.5-1.speaker` | jyoon | jyoon |
+| `talk.ANY.5-1.next` | 继续 | Continue |
+| `talk.ANY.5-2.ancient` | 算了算了~赚钱的机会有的是，在这里也照样能发财的~ | Oh well~ there's always a way to make money, we can still get rich here~ |
+| `talk.ANY.5-2.speaker` | jyoon | jyoon |
+| `talk.ANY.6-0r.ancient` | 没有梦境世界的话，完全凭依就很麻烦了…… | Without the Dream World, complete possession is such a hassle... |
+| `talk.ANY.6-0r.speaker` | shion | shion |
+| `talk.ANY.6-0r.next` | 继续 | Continue |
+| `talk.ANY.6-1r.ancient` | 哎呀，那真是糟糕了~姐姐大人唯一的优点在这里也要没有了~ | Oh my, that's terrible~ Big Sister's only redeeming quality is gone too~ |
+| `talk.ANY.6-1r.speaker` | jyoon | jyoon |
+| `talk.ANY.6-1r.next` | 继续 | Continue |
+| `talk.ANY.6-2r.ancient` | 嘴巴这么毒的妹妹，真是不想要啊…… | A sister with such a sharp tongue... makes me wish I didn't have one... |
+| `talk.ANY.6-2r.speaker` | shion | shion |
+| `talk.ANY.7-0r.ancient` | 看过来看过来！谁会是下一个成功人士？是你吗？ | Look here, look here! Who's gonna be the next success story? You? |
+| `talk.ANY.7-0r.speaker` | jyoon | jyoon |
+| `talk.ANY.7-0r.next` | 继续 | Continue |
+| `talk.ANY.7-1r.ancient` | 这次可不准把我丢下了—— | Don't you dare leave me behind this time—— |
+| `talk.ANY.7-1r.speaker` | shion | shion |
+| `talk.IRONCLAD.1-0.ancient` | 姐姐，你说恶魔契约的本质是不是也是一种凭依呢？ | Hey sis, don't you think the essence of a demon contract is also a form of possession? |
+| `talk.IRONCLAD.1-0.speaker` | jyoon | jyoon |
+| `talk.IRONCLAD.1-0.next` | 继续 | Continue |
+| `talk.IRONCLAD.1-1.ancient` | 这么看的话……和大恶魔对比一下，我俩也没有坏到哪里去嘛…… | Looking at it that way... compared to the Great Demon, we're not so bad after all... |
+| `talk.IRONCLAD.1-1.speaker` | shion | shion |
+| `talk.REGENT.0-0.ancient` | 欢迎欢迎~您看上去真是位有品味的先生呢！您也是要去塔顶讨伐建筑师的吗？ | Welcome, welcome~ You seem like a gentleman of distinguished taste! Are you heading to the top to take down the Architect too? |
+| `talk.REGENT.0-0.speaker` | jyoon | jyoon |
+| `talk.REGENT.0-0.next` | 同意 | Agree |
+| `talk.REGENT.0-1.ancient` | 这个给你！你可要好好加油，争取把建筑师干掉！ | Here, take this! You'd better do your best and take out the Architect! |
+| `talk.REGENT.0-1.speaker` | shion | shion |
 | `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | [jitter]桀桀……[/jitter]我可不认为除了塔顶的那家伙和我以外，会有人喜欢这荒疫石油一般的味道…… | [jitter]Heh heh...[/jitter] I don't think anyone besides the one at the top of the tower and myself would enjoy this blight-oil-like scent... |
-| `talk.REGENT.0-2.next` | 提问 | Question |
-| `talk.REGENT.0-3.char` | 我对你说的什么油不感兴趣！我也不是什么贼！我是储君，未来的群星之[orange]王[/orange]！阁下的名字是？ | I have no interest in your so-called oil! Nor am I some thief! I, Regent, future [orange]King[/orange] of the Stars! What is your name, Miss? |
-| `talk.REGENT.0-3.next` | 继续 | Continue |
-| `talk.REGENT.0-4.ancient` | 我是饕餮尤魔，刚欲同盟之长，[jitter]未来的畜生界之王[/jitter]。呵呵呵……我不讨厌懂礼数的家伙。 | I am Yuuma Toutetsu, leader of the Gouyoku Alliance, [jitter]future King of the Beast Realm[/jitter]. Heheheh... I don't dislike those who know their manners. |
-| `talk.REGENT.1-0.ancient` | [jitter]桀桀……[/jitter]我很中意你，要不要和我们刚欲同盟[red]结盟[/red]呢？我们一定能支配这座塔……之后再去支配畜生界、幻想乡…… | [jitter]Heh heh...[/jitter] I've taken a liking to you. How about [red]allying[/red] with our Gouyoku Alliance? We can dominate this tower... then the Beast Realm, then Gensokyo... |
-| `talk.REGENT.1-0.next` | 严肃拒绝 | Sternly refuse |
-| `talk.REGENT.1-1.char` | 喂！小羊！我可是未来的[orange]群星之王[/orange]！绝不会屈居人下！ | Hey there, Miss… lamb! I'm the future [orange]King of the Stars[/orange]! I'll never play second fiddle to anyone! |
+| `talk.REGENT.0-2.ancient` | （小声）建筑师一死，这里财宝到时候找起来就方便多了！ | (whispering) Once the Architect's dead, the treasures here will be much easier to find! |
+| `talk.REGENT.0-2.speaker` | shion | shion |
+| `talk.REGENT.0-2.next` | 继续 | Continue |
+| `talk.REGENT.0-3.ancient` | 嘘——姐姐你小点声！啊对了，出发前要把你的钱保管在我这吗？我的提供的利息可不少~ | Shh——keep your voice down! Oh right, want me to hold onto your money before you set out? The interest rates I offer are pretty good~ |
+| `talk.REGENT.0-3.speaker` | jyoon | jyoon |
+| `talk.REGENT.1-0.char` | 我听说靠近紫苑小姐的人都会变的不幸。我觉得这不符合科学规律。 | I've heard that people near Miss Shion all become unlucky. I don't think that's scientifically sound. |
+| `talk.REGENT.1-0.next` | 继续 | Continue |
+| `talk.REGENT.1-1.ancient` | 那你要来试试吗？ | Wanna give it a try? |
+| `talk.REGENT.1-1.speaker` | jyoon | jyoon |
 | `talk.REGENT.1-1.next` | 继续 | Continue |
-| `talk.REGENT.1-2.ancient` | [jitter]桀桀……[/jitter]多么血气方刚的欲望，我就是中意你这一点…… | [jitter]Heh heh...[/jitter] Such spirited, fiery desire. That's exactly what I like about you... |
-| `talk.REGENT.2-0.ancient` | [jitter]桀桀……[/jitter]关于之前一起称霸天下的提议，阁下有没有改变想法呢？ | [jitter]Heh heh...[/jitter] About my earlier proposal to conquer the world together—have you changed your mind, sir? |
-| `talk.REGENT.3-0r.ancient` | [jitter]桀桀……[/jitter]你的星球上的人都是无欲无求的存在吗？听上去实在没劲。不如来试试我欲望的力量，如何…… | [jitter]Heh heh...[/jitter] Are all the people on your planet desireless beings? Sounds dreadfully boring. How about you try the power of my desires... |
-| `talk.DEFECT.0-0.ancient` | 建筑师的构装体？呵呵……虽然早有耳闻，不过看到类似的存在，还是让我想起那家伙的埴轮兵……有点恶心呢。 | The Architect's construct? Heheh... I've heard about them, but seeing a similar existence still reminds me of that guy's haniwa soldiers... rather nauseating. |
-| `talk.DEFECT.1-0r.ancient` | 不要发出那种戒备的嘀嘀声嘛……我在这里享用荒疫，既满足了我的胃口，又避免了荒疫泄露，不是一举两得的事情吗？这可是孤高而凄惨的行为哦？ | Don't make those wary beep sounds... I feast on the blight here, satisfying my appetite while preventing it from leaking out. Two birds with one stone, isn't it? A lonely and tragic endeavor, ya know? |
-| `talk.DEFECT.2-0r.ancient` | [jitter]桀桀……[/jitter]真亏你不是外界那种用石油驱动的家伙，不然我就不能让你离开了。 | [jitter]Heh heh...[/jitter] Good thing you're not one of those oil-powered units from the outside world, or I wouldn't be able to let you leave. |
-| `talk.NECROBINDER.0-0.ancient` | 你身上满是单纯的复仇味道。虽然美味，但实在不够塞我的牙缝。 | You're drenched in the pure scent of revenge. Delicious as it is, it's barely enough to stick between my teeth. |
+| `talk.REGENT.1-2.ancient` | （紫苑刚靠近储君的座椅，他的仆从就站立不稳摔倒了，座椅也因此和储君一起翻倒在地。） | (The moment Shion approaches the Regent's throne, his servants lose their balance and fall, sending both the throne and the Regent tumbling to the ground.) |
+| `talk.REGENT.1-2.speaker` | shion | shion |
+| `talk.REGENT.1-2.next` | 继续 | Continue |
+| `talk.REGENT.1-3.char` | 好吧……现在我的思潮会更向唯心主义偏移一些。 | Alright... my worldview is now leaning a bit more towards idealism. |
+| `talk.DEFECT.0-0.ancient` | 一具构装体？难道是建筑师派来—— | A construct? Did the Architect send you—— |
+| `talk.DEFECT.0-0.speaker` | jyoon | jyoon |
+| `talk.DEFECT.0-0.next` | 继续 | Continue |
+| `talk.DEFECT.0-1.char` | [i][font_size=22]<表示反对的音效>[/font_size][/i] | [i][font_size=22]<Sound of objection>[/font_size][/i] |
+| `talk.DEFECT.0-1.next` | 继续 | Continue |
+| `talk.DEFECT.0-2.ancient` | 女苑……这家伙似乎没有恶意…… | Joon... this one doesn't seem hostile... |
+| `talk.DEFECT.0-2.speaker` | shion | shion |
+| `talk.DEFECT.0-2.next` | 继续 | Continue |
+| `talk.DEFECT.0-3.ancient` | 恩~我听说河童们制作的机器人在村子里大卖了一笔……说不定这家伙也可以—— | Hmm~ I heard the kappa's robots sold like hotcakes in the village... maybe this one could too—— |
+| `talk.DEFECT.0-3.speaker` | jyoon | jyoon |
+| `talk.SILENT.0-0.ancient` | 啊，这家伙身上有那种疫病的味道呢。看起来是感染了不治之症—— | Ah, this one reeks of that blight. Looks like they've caught an incurable disease—— |
+| `talk.SILENT.0-0.speaker` | jyoon | jyoon |
+| `talk.SILENT.0-0.next` | 继续 | Continue |
+| `talk.SILENT.0-1.char` | [jitter]好可怜哦——好不幸哦——[/jitter] | [jitter]SO PITIFUL——SO UNFORTUNATE——[/jitter] |
+| `talk.SILENT.0-1.speaker` | shion | shion |
+| `talk.SILENT.0-1.next` | 什么也不说 | Respond |
+| `talk.SILENT.0-2.char` | …… | ... |
+| `talk.SILENT.0-2.next` | 继续 | Continue |
+| `talk.SILENT.0-3.ancient` | 虽然我是疫病神，但并没有办法帮你解决这个问题呐。不过，反正钱也不能带到地府去——所以由我来帮你规划一下财产如何？ | I may be a Pestilence God, but I can't help you with that problem. Still, you can't take money to the afterlife anyway—so how about I help you manage your assets? |
+| `talk.SILENT.0-3.speaker` | jyoon | jyoon |
+| `talk.NECROBINDER.0-0.ancient` | 好强的负能量——感觉和姐姐身上的感觉好像—— | Such strong negative energy——feels just like what my sister's got—— |
+| `talk.NECROBINDER.0-0.speaker` | jyoon | jyoon |
 | `talk.NECROBINDER.0-0.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-1.char` | ……你在这满是荒疫和油的破地方做什么？就算失去了嗅觉，这里的味道也和那个[jitter]东西[/jitter]一样令我作呕。 | ...What are you doing in this wretched place full of blight and oil? Even without a sense of smell, the stench here is as nauseating as that [jitter]thing[/jitter]. |
+| `talk.NECROBINDER.0-1.char` | 什么——怎么可能！我的负能量才是最凶最恶的——不管是幻想乡还是在这座不幸的塔里！ | What——impossible! My negative energy is the most vicious and malignant——whether in Gensokyo or in this wretched tower! |
+| `talk.NECROBINDER.0-1.speaker` | shion | shion |
 | `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？ | A treasure trove lies before you, yet you're blind to it, heheheh... How about experiencing the power of desire here yourself? |
-| `talk.NECROBINDER.1-0r.ancient` | 带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵…… | Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh... |
-| `talk.NECROBINDER.2-0r.ancient` | 虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter] | While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter] |
+| `talk.NECROBINDER.0-2.ancient` | 啊，姐姐又急了—— | Ah, there goes my sister again—— |
+| `talk.NECROBINDER.0-2.speaker` | jyoon | jyoon |
+| `talk.NECROBINDER.0-2.next` | 继续 | Continue |
+| `talk.NECROBINDER.0-3.char` | ……我要去塔顶杀死建筑师。你们现在能停下来给我提供点帮助吗？ | ...... I'm going to the top to kill the Architect. Can you stop bickering and lend me some help? |
+| `talk.NECROBINDER.1-0.char` | 我听说你们这还提供讨债服务？ | I heard you offer debt collection services? |
+| `talk.NECROBINDER.1-0.next` | 继续 | Continue |
+| `talk.NECROBINDER.1-1.ancient` | 没错没错，对于那些欠债不还的老赖，就由我这双珠光拳头来狠狠地把他们的欠债都殴打出来哦！ | That's right! For those deadbeats who won't pay up, these bejeweled fists of mine will beat the debts right out of them! |
+| `talk.NECROBINDER.1-1.speaker` | jyoon | jyoon |
+| `talk.NECROBINDER.1-1.next` | 询问 | Question |
+| `talk.NECROBINDER.1-2.char` | 塔顶的那家伙……欠了我一笔血债。 | The one at the top... owes me a blood debt. |
+| `talk.NECROBINDER.1-2.next` | 继续 | Continue |
+| `talk.NECROBINDER.1-3.ancient` | 打住打住——你要我爆建筑师的金币吗？不去不去——不过，给你提供点支援还是可以的。 | Whoa whoa—you want me to farm the Architect for gold? No way, no way—but I can spot you some support. |
+| `talk.NECROBINDER.1-3.speaker` | jyoon | jyoon |
 
----
-
-## [蓬莱山 辉夜] — 新增对话
-
-**键名**: `TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT`
-
-### 对话翻译（新增）
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.ANY.5-0r.ancient` | 你有见到我家在下层经商的兔子吗？呵呵，别被她的外表骗了，她可精明的很，别不小心落入陷阱哦。 | Have you seen my rabbit merchant downstairs? Heheh, don't let her looks fool you—she's quite sharp. Best not to fall into her trap. |
-| `talk.ANY.6-0r.ancient` | 唔姆……这样算不算永琳说的，稍微过的充实了一点呢？ | Hmm... would Eirin say this counts as living a bit more fulfilled, I wonder? |
-| `talk.ANY.7-0r.ancient` | 这趟旅途能给月都万象展加不少帮助呢。啊呀，是不是月都的东西对幻想乡的人来说也不重要吧。 | I could add what I've gathered here to the Lunar Capital's Banquet of Diversity. It's not like Gensokyo folks can tell what's actually from the Lunar anyway. |
-| `talk.IRONCLAD.0-0.ancient` | 你的身上沾满了鲜血与污秽。\n杀死建筑师并不能净化掉这一切。 | You're drenched in blood and filth.\nKilling the Architect won't cleanse any of it. |
-| `talk.IRONCLAD.1-0r.ancient` | 一次次的复活来到我的面前的火焰战士。\n你让我想起了某个烦人的家伙。 | A warrior of flame, coming back to life and standing before me time and again.\nYou remind me of someone annoying. |
-| `talk.IRONCLAD.2-0r.ancient` | 如果你是百年一遇的勇士的话，能找到我要求的宝物，解开我的谜题吗？ | If you're a once-in-a-century hero, can you find the treasures I seek and solve my riddles? |
-| `talk.NECROBINDER.0-0.char` | 我需要你的秘宝，帮我彻底消灭掉建筑师。 | I need your secret treasure to destroy the Architect completely. |
-| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-1.ancient` | 哎呀，虽然不是不行啦。不过你这股复仇劲倒是和那位很像呢。 | Oh my, it's not impossible. Though your drive for revenge... it reminds me of someone. |
-| `talk.NECROBINDER.1-0r.ancient` | 啊呀，何必那么着急？进来坐会儿吧，我让铃仙去泡茶。 | Oh my, why the rush? Come in and sit for a while. I'll have Inaba brew some tea. |
-| `talk.NECROBINDER.1-0r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-1r.char` | 在杀死他之前，我连一秒都不想耽搁。 | I don't want to waste a single second before killing him. |
-| `talk.NECROBINDER.1-1r.next` | 继续 | Continue |
-| `talk.NECROBINDER.1-2r.ancient` | 在这里的时间与历史是不会向前流逝的，偶尔也平静下自己的怒火与理智吧。 | Time and history don't flow forward here. Calm your fury and reason every now and then. |
-| `talk.SILENT.1-0r.ancient` | 荒疫并不存在解药。哪怕是永琳，也会被这个难题难住的吧。 | There is no antidote for Blight. Even Eirin would be stumped by this one. |
-| `talk.REGENT.1-0r.ancient` | 听说阁下是太阳的继承人，也就是王子殿下喽？ | I hear you're the heir of the sun—a prince, then? |
-| `talk.REGENT.1-0r.next` | 骄傲 | Proud |
-| `talk.REGENT.1-1r.char` | 没错，在下就是未来的[orange]王[/orange]！ | That's right! I, the Regent, am the future [orange]King[/orange]! |
-| `talk.REGENT.1-1r.next` | 继续 | Continue |
-| `talk.REGENT.1-2r.ancient` | 这样的话，阁下要不要考虑向我这位月之公主求婚呢？我可以破例不让你破解我的谜题哦~ | In that case, would you consider proposing to me, the lunar princess? I could make an exception and let you skip my riddles~ |
-| `talk.REGENT.1-2r.next` | 继续 | Continue |
-| `talk.REGENT.1-3r.char` | 什，什么？！ | W-What?! |
-| `talk.REGENT.1-4r.ancient` | 呵呵，开个小玩笑~ | Heheh, just a little joke~ |
-| `talk.REGENT.1-4r.next` | 继续 | Continue |
-| `talk.DEFECT.0-0.ancient` | 你是永琳提到的建筑师的构装体吗？过来吧，我会给你些宝贝的。 | Are you the Architect's construct that Eirin mentioned? Come here, I'll give you some treasures. |
-| `talk.DEFECT.1-0r.ancient` | 最近电动有点打腻了，要不要也学点编程呢？说不定可以帮到你哦？ | I've grown a bit bored of video games lately. How about learning some programming? Maybe I could be of help to you? |
-| `talk.DEFECT.1-0r.next` | 继续 | Continue |
-| `talk.DEFECT.1-1r.char` | [i][font_size=22]<欣喜的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Joyful beep>[/font_size][/i] |
-| `talk.DEFECT.1-1r.next` | 继续 | Continue |
-| `talk.DEFECT.1-2r.ancient` | 哎呀，别那么着急，欲速则不达…… | My, don't be so impatient. Haste makes waste... |
-| `talk.DEFECT.2-0r.ancient` | 啊呀，你是来问进展的吧？反正时间有的是……明天再看也来得及的吧。 | Oh my, here to ask about progress? We've got plenty of time anyway... Tomorrow will be soon enough, won't it? |
-| `talk.DEFECT.2-0r.next` | 继续 | Continue |
-| `talk.DEFECT.2-1r.char` | [i][font_size=22]<生气的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
-| `talk.DEFECT.3-0r.char` | 现在的人工智能真是方便啊，当年的五道谜题放在现在，贵公子们怕是会争先恐后的去问AI谜底是什么吧。 | AI these days is so convenient. Those five riddles from back then—noble gentlemen would probably be falling over each other to ask an AI for the answers now. |
-
-## [纯狐] — 新增对话
-
-**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
-
-### 对话翻译（新增）
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.IRONCLAD.0-0.ancient` | 纯粹的火焰。有趣的铁甲战士。我会给予你力量的。 | Pure flames. An interesting Ironclad. I shall grant you power. |
-| `talk.SILENT.0-0.ancient` | 我看到了你眼里的杀意，就让她更纯粹一点吧。 | I see the killing intent in your eyes. Let it become even purer. |
-| `talk.DEFECT.0-0.ancient` | 畏惧死亡，惜视生命。哪怕是构装体也不应例外。如果你意识到你的生命之重，就接受我最纯粹的祝福。 | Fear death, cherish life. Even a construct should be no exception. If you recognize the weight of your existence, accept my purest blessing. |
-| `talk.REGENT.0-0.ancient` | （端详）不管你来自哪个星球，只要不是月球就行。 | (Examining) No matter which planet you're from, as long as it's not the moon. |
-
----
