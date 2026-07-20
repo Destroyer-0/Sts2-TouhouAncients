@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,6 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -21,11 +23,7 @@ namespace TouhouAncients.Scripts.relics;
 public class RigidDesireProof : TouhouAncientRelics
 {
     public override string DefaultFileName => "yuuma_default";
-
-    /// <summary>
-    /// 最近打出的牌的类型队列，保留最近 (TypeLimit - 1) 条记录。
-    /// </summary>
-    private readonly Queue<CardType> recentTypeQueue = new();
+    
 
     public override bool HasUponPickupEffect => false;
 
@@ -40,32 +38,6 @@ public class RigidDesireProof : TouhouAncientRelics
         HoverTipFactory.ForEnergy(this),
     ];
 
-    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        if (!participants.Contains(Owner.Creature))
-        {
-            return Task.CompletedTask;
-        }
-        if (side == base.Owner.Creature.Side)
-        {
-            recentTypeQueue.Clear();
-        }
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner != base.Owner) return Task.CompletedTask;
-        recentTypeQueue.Enqueue(cardPlay.Card.Type);
-        // 只保留最近 (TypeLimit - 1) 条
-        int maxSize = DynamicVars["TypeLimit"].IntValue - 1;
-        while (recentTypeQueue.Count > maxSize)
-        {
-            recentTypeQueue.Dequeue();
-        }
-        return Task.CompletedTask;
-    }
-
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner) return amount;
@@ -78,10 +50,12 @@ public class RigidDesireProof : TouhouAncientRelics
         if (autoPlayType != AutoPlayType.None) return true;
 
         int limit = DynamicVars["TypeLimit"].IntValue;
-        // 队列需满 (limit - 1) 条，且全与当前牌同类型，才阻止
-        if (recentTypeQueue.Count < limit - 1) return true;
-        if (recentTypeQueue.Any(t => t != card.Type)) return true;
-
+        var cardPlay = CombatManager.Instance.History.Entries.OfType<CardPlayStartedEntry>().Where(x => x.HappenedThisTurn(Owner.Creature.CombatState)).ToList();
+        if (cardPlay.Count < limit - 1) return true;
+        for (int i = cardPlay.Count - limit + 1; i < cardPlay.Count; i++)
+        {
+            if (cardPlay[i].CardPlay.Card.Type != card.Type) return true;
+        }
         return false;
     }
 }
