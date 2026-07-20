@@ -35,6 +35,12 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
 
     public HashSet<CardModel> _selectedCardModel = new();
 
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _selectedCardModel = new HashSet<CardModel>();
+    }
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner || base.Owner.Creature.CombatState.RoundNumber != 1)

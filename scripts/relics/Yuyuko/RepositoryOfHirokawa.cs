@@ -18,6 +18,12 @@ public class RepositoryOfHirokawa : TouhouAncientRelics
 {
     private HashSet<bool> playedPowerThisTurn = new();
 
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        playedPowerThisTurn = new HashSet<bool>();
+    }
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("BufferAmount", 2m)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<BufferPower>()];

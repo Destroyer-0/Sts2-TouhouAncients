@@ -50,14 +50,20 @@ public class FakeSpiritOrb : TouhouAncientRelics
         }
     }
 
+    private HashSet<CardModel> _affectedCards = new();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _affectedCards = new HashSet<CardModel>();
+    }
+
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner)
             return amount;
         return amount + base.DynamicVars.Energy.IntValue;
     }
-
-    private readonly HashSet<CardModel> _affectedCards = new();
 
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {

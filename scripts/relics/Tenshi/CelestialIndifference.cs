@@ -19,7 +19,13 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class CelestialIndifference : TouhouAncientRelics
 {
-    private readonly HashSet<CardModel> _cardsGainedThisTurn = new();
+    private HashSet<CardModel> _cardsGainedThisTurn = new();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _cardsGainedThisTurn = new HashSet<CardModel>();
+    }
 
     public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
     {
