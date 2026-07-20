@@ -30,7 +30,7 @@
     "TOUHOUANCIENTS-LILY_BELL.description": "获得{Energy:energyIcons()}，抽[blue]{Cards}[/blue]张牌。给予所有敌人等同于自身[purple]污染[/purple]层数{Multiplier:diff()}倍的[gold]中毒[/gold]{InCombat:([green]{CalculatePoison}[/green])|}。\n每次抽到或打出这张牌后，这张牌将被[gold]侵蚀[/gold][purple]污染[/purple][blue]{ExtraAmount}[/blue]。",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "生者必灭之理",
-    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。\n受到敌人伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]{SelfDoom}[/blue]层[gold]灾厄[/gold]。",
+    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}回合后清除所有敌人的[gold]人工制品[/gold]并给予[blue]9999[/blue]层[gold]灾厄[/gold]。\n受到未被格挡的伤害时，延长[blue]1[/blue]回合倒计时并给予自身[blue]{SelfDoom}[/blue]层[gold]灾厄[/gold]。",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "绀珠之药",
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "当你的生命值将要降低至[blue]0[/blue]或以下时，如果这张牌在你的手中，丢弃这张牌并恢复[green]{HealPercent}%[/green]生命值，获得一层[pink]污秽[/pink]计数，失去[blue]{BaseMaxHpLoss}[/blue]*[pink]污秽[/pink]计数点最大生命。{InCombat:\n（将失去[red]{ShouldLose}[/red]点最大生命）|}",
@@ -61,8 +61,8 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "在你的回合结束时，手牌总耗能每比剩余能量多一，就给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病支票",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "选择至多[blue]{Cards}[/blue]张手牌，这些牌的耗能在下一次打出前降为[blue]0[/blue]。若一次性减少[blue]3[/blue]点耗能及以上，这张牌的耗能增加[blue]1[/blue]。\n如果这张牌在你的手中，你不能打出耗能低于这张牌的卡牌。",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "选择要降低耗能的牌。",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "给一张[gold]手牌[/gold]添加[gold]重放[/gold]。\n其耗能减少[blue]1[/blue]。这张牌的耗能增加[blue]1[/blue]。\n在你的下个回合开始时，将此卡返回你的[gold]手牌[/gold]。\n如果这张牌在你的手中，你不能打出耗能低于这张牌的卡牌。",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "选择要添加[gold]重放[/gold]的牌。",
 
     "TOUHOUANCIENTS-HEAVEN_SAGE.title": "天堂智者",
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",

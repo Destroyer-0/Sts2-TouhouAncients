@@ -33,7 +33,7 @@
     "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, it will be [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "All Living Things Must Perish",
-    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive attack damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",
+    "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive unblocked damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "Ultramarine Orb Elixir",
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "When your HP would drop to [blue]0[/blue] or below, if this card is in your [gold]Hand[/gold], discard it and heal [green]{HealPercent}%[/green] HP, gain [pink]Impurity[/pink], and lose [blue]{BaseMaxHpLoss}[/blue] × [pink]Impurity[/pink] Max HP.{InCombat:\n(Lose [red]{ShouldLose}[/red] Max HP)|}",
@@ -45,7 +45,7 @@
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "Deal damage equal to half of each enemy's current HP to ALL enemies.",
 
     "TOUHOUANCIENTS-THE_KOISHI_EYE.title": "Closed Eye",
-    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "Randomly play {Cards:diff()} cards from your [gold]Draw Pile[/gold], [gold]Hand[/gold], and [gold]Discard Pile[/gold].\n[gold]Enchant[/gold] a random Attack among them with [purple]Instinct[/purple]. Gain [red]Unconscious[/red] on a random card among them.",
+    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "Randomly play {Cards:diff()} cards from your [gold]Draw Pile[/gold], [gold]Hand[/gold], or [gold]Discard Pile[/gold].\n[gold]Enchant[/gold] a random Attack among them with [purple]Instinct[/purple]. Gain [red]Unconscious[/red] on a random card among them.",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "Killing Lunacy",
     "TOUHOUANCIENTS-KILLING_AURA.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nWhenever you play a card with Damage or Block, [gold]Exhaust[/gold] it if this card is in your [gold]Hand[/gold] and add those values{IfUpgraded:show: plus [blue]1[/blue]|} to this card.",
@@ -60,11 +60,11 @@
     "TOUHOUANCIENTS-RICHEST_FORM.description": "Gain {Energy2:energyIcons()}.\nAt the start of your turn, gain {Energy3:energyIcons()}.\nWhenever you play a card, cards of the same type cost {Energy:energyIcons()} more this turn.",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "Destitution Form",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy.",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Choose up to [blue]{Cards}[/blue] cards from your [gold]Hand[/gold]. Their cost is reduced to [blue]0[/blue] until they are next played. If their total cost reduction is [blue]3[/blue] or more, this card's cost increases by [blue]1[/blue].\nIf this card is in your [gold]Hand[/gold], you cannot play cards with a lower cost than this card.",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose cards to reduce their cost.",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card's cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "The Feast",
     "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].",
