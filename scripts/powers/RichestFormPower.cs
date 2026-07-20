@@ -60,11 +60,8 @@ public class RichestFormPower : TouhouAncientPowerModel
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        GD.PrintErr($"{cardPlay.Card.Owner.ToString()}打出{cardPlay.Card.ToString()}");
-        
         if (cardPlay.Card.Owner != Owner.Player)
         {
-            GD.PrintErr("这不是你打出的牌！");
             return Task.CompletedTask;
         }
 
