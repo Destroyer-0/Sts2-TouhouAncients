@@ -43,7 +43,14 @@ public class BatteryBili : TouhouAncientRelics
         return Task.CompletedTask;
     }
 
-    private readonly HashSet<CardModel> _affectedCards = new();
+    private HashSet<CardModel> _affectedCards = new();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _affectedCards = new HashSet<CardModel>();
+    }
+
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
@@ -91,6 +98,10 @@ public class BatteryBili : TouhouAncientRelics
     
     public override Task AfterSideTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (!participants.Contains(base.Owner.Creature))
+        {
+            return Task.CompletedTask;
+        }
         if (side == CombatSide.Player)
         {
             foreach (var card in _affectedCards)

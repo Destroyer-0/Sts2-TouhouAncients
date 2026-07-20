@@ -111,9 +111,9 @@
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.flavor": "One of Remilia's treasures, with a blood-red color more vivid than any ruby in the world — though no phantom thief has ever set their sights on it.",
 
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.title": "Gungnir",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "Upon pickup, add [blue]1[/blue] [gold]Gungnir's Spear[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "Add [blue]1[/blue] [gold]Gungnir's Spear[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "1",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.description": "Upon pickup, add a [gold]Spear \"Gungnir\"[/gold] to your [gold]Deck[/gold].\nWhen you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear \"Gungnir\"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "Add a [gold]Spear \"Gungnir\"[/gold] to your [gold]Deck[/gold]. When you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear \"Gungnir\"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.",
+  "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "All [gold]Card Rewards[/gold] are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].",
@@ -363,8 +363,8 @@
   "TOUHOUANCIENTS-FAKE_SPIRIT_ORB.extra": "Lose {energyPrefix:energyIcons(1)} when you play this card.",
 
   "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.title": "Dream Heaven Bow",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "At the start of each combat, deal [blue]{Damage}[/blue] damage to ALL enemies. Deal an additional [blue]200%[/blue] damage to the enemy with the highest HP and apply [blue]2[/blue] [gold]Weak[/gold].",
-  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "Be sure to hold the bow backward, as the arrow flies in reverse.",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.description": "At the start of each combat, deal [blue]{Damage}[/blue] damage to ALL enemies. Deal damage [blue]2[/blue] additional times to the enemy with the highest HP and apply [blue]{Weak}[/blue] [gold]Weak[/gold].",
+  "TOUHOUANCIENTS-DREAM_HEAVEN_BOW.flavor": "Too bad you can't enchant it with \"Infinity\" or \"Flame\"…",
 
   "TOUHOUANCIENTS-CHILDHOOD_BAG.title": "Childhood Bag",
   "TOUHOUANCIENTS-CHILDHOOD_BAG.description": "Upon pickup, fill all empty [gold]Potion Slots[/gold] with [purple]Foul Potion[/purple]. Replace combat [gold]Gold[/gold] rewards with [blue]{PotionCount}[/blue] [purple]Foul Potion[/purple]. Thrown [purple]Foul Potion[/purple] only damages enemies.",
@@ -462,7 +462,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "Jewel from the Dragon's Neck",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "Every [blue]{Card}[/blue] cards you play, add a [gold]Seven Stars[/gold] with [gold]Ethereal[/gold] and [blue]0[/blue] Stars cost into your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "At the start of each combat, add a [gold]Seven Stars+[/gold] to your [gold]Hand[/gold]. It has [gold]Retain[/gold]. At the end of your turn, or every [blue]{Card}[/blue] cards you play, reduce its [gold]Stars[/gold] cost by [blue]1[/blue] this combat.",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
@@ -579,48 +579,87 @@
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, Devour all relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
-  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "Whether physical or spiritual, organic or inorganic — anything and everything goes straight down her gullet.",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "Gluttonous Jaws",
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.description": "Upon pickup, add [blue]1[/blue] [gold]The Feast[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.eventDescription": "Add [blue]1[/blue] [gold]The Feast[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-GLUTTONOUS_FANG.flavor": "",
+  "TOUHOUANCIENTS-GLUTTONOUS_FANG.flavor": "Refuses nothing — except golden apples.",
 
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.title": "Bloodlicking Tongue",
   "TOUHOUANCIENTS-BLOODLICKING_TONGUE.description": "Whenever you lose [blue]{Threshold}[/blue] HP, gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold] and [blue]{Strength}[/blue] [gold]Strength[/gold].",
-  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "",
+  "TOUHOUANCIENTS-BLOODLICKING_TONGUE.flavor": "Not enough, not enough, not enough! I need more...",
 
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.title": "Sky-Crafting Spoon",
   "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.description": "Whenever you add a card to your [gold]Deck[/gold], [gold]enchant[/gold] that card with [purple]{EnchantmentName}[/purple]. After the next combat ends, [red]Swallowed[/red] it and gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. If it's a [red]Curse[/red], triple effect.",
-  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "",
+  "TOUHOUANCIENTS-SKY_SWALLOWING_SPOON.flavor": "Just one scoop.",
 
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.title": "Gouyoku Proof",
   "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.description": "Gain {Energy:energyIcons()} at the start of each turn.  You cannot play [blue]{TypeLimit}[/blue] cards of the same type in a row per turn.",
-  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "",
+  "TOUHOUANCIENTS-RIGID_DESIRE_PROOF.flavor": "Might makes right. Survival of the fittest is the law of beasts.",
 
   "TOUHOUANCIENTS-GREEDY_EYE.title": "Greedy Eye",
   "TOUHOUANCIENTS-GREEDY_EYE.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Hidden Gem[/gold] [gold]enchanted[/gold] with [purple]Obsession[/purple] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-GREEDY_EYE.eventDescription": "Add [blue]{Cards}[/blue] [gold]Hidden Gem[/gold] [gold]enchanted[/gold] with [purple]Obsession[/purple] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-GREEDY_EYE.flavor": "",
+  "TOUHOUANCIENTS-GREEDY_EYE.flavor": "A greed like no other is quite filling, you know.",
 
   "TOUHOUANCIENTS-CURSED_BLOOD.title": "Cursed Blood",
   "TOUHOUANCIENTS-CURSED_BLOOD.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Decay[/gold] to your [gold]Deck[/gold]. At the start of each of your turns, brew [blue]{PotionCount}[/blue] potions and drink them immediately.",
   "TOUHOUANCIENTS-CURSED_BLOOD.eventDescription": "Add [blue]{Cards}[/blue] [gold]Decay[/gold] to your [gold]Deck[/gold]. At the start of each of your turns, brew [blue]{PotionCount}[/blue] potions and drink them immediately.",
-  "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "",
+  "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "The fear, joy, hatred, and lament of life — all of it is what oil, the blood of the earth, truly is.",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold] and add [gold]Ethernal[/gold]. Add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold], add [gold]Ethereal[/gold] to them, then add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "\"(Yawn—) Says they're gonna conquer the world, yet here they are, lazing around just like me.\" — Chiyari Tenkajin",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
 
   "TOUHOUANCIENTS-GUILTLESS_FACE.title": "Guiltless Face",
   "TOUHOUANCIENTS-GUILTLESS_FACE.description": "Upon pickup, choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.",
   "TOUHOUANCIENTS-GUILTLESS_FACE.eventDescription": "Choose a card in your [gold]Deck[/gold]. Transform ALL cards of the same type in your [gold]Deck[/gold] into it.",
   "TOUHOUANCIENTS-GUILTLESS_FACE.selectionScreenPrompt": "Choose a card to Transform ALL cards of the same type in your Deck into it.",
-  "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "",
+  "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "Most members of the Gouyoku Alliance are a bunch of self-serving rogues.",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "Estranged Heart",
   "TOUHOUANCIENTS-ESTRANGED_HEART.description": "After the Draw Phase, choose any number of cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. After accumulating [blue]{Threshold}[/blue] cards obtained this way, this relic expires at the end of this combat.",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs."
+  "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs.",
+
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.title": "Possession Spirit",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.description": "Upon pickup, add [blue]1[/blue] [gold]Opulence Form[/gold] and [blue]1[/blue] [gold]Destitution Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.eventDescription": "Add [blue]1[/blue] [gold]Opulence Form[/gold] and [blue]1[/blue] [gold]Destitution Form[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "Tonight Stars an Easygoing Egoist",
+
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "Pure Gold Bracelet",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "At the start of each turn, draw [blue]{Cards}[/blue] additional cards, then [gold]Discard[/gold] any non-X-cost cards drawn this way that cost less than [blue]{Threshold}[/blue].",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "Money is meant to be passed from one hand to the next. Who do you think you are, trying to save it up?",
+
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "Chanel Handbag",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.description": "[gold]Enchant[/gold] all cards for sale in shops with [purple]Glam[/purple].",
+  "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "Come on, give me your gold.",
+
+  "TOUHOUANCIENTS-JYOON_FAN.title": "Juliana Fan",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
+  "TOUHOUANCIENTS-JYOON_FAN.flavor": "Bad day.Bad day.Bad day!",
+
+  "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",
+  "TOUHOUANCIENTS-MILLION_POUNDS.description": "At the start of each combat, add a [gold]Plague Check[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "Oh, mate. That'll cost ya.",
+
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.title": "Black Cat Doll",
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.description": "At the start of each turn, gain {Energy:energyIcons()}. At the start of each turn, [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] are [gold]Afflicted with[/gold] [purple]Collateral[/purple] [blue]{CollateralNum}[/blue].",
+  "TOUHOUANCIENTS-BLACK_CAT_DOLL.flavor": "If you keep resting on your laurels, you'll be penniless in no time...",
+
+  "TOUHOUANCIENTS-OIL_FUTURES.title": "Oil Futures",
+  "TOUHOUANCIENTS-OIL_FUTURES.description": "At the start of each turn, gain {Energy:energyIcons()}. Every [blue]{Turns}[/blue] turns, choose [blue]1[/blue] of [blue]{Cards}[/blue] random [red]Curses[/red] to add to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "With these resources in hand, I'll become a millionaire god in no time. (Even knowing the truth about that oil... does it matter?)",
+  "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "Choose a [red]Curse[/red] to add to your Hand",
+
+  "TOUHOUANCIENTS-SMOKED_FAN.title": "Smoked Fan",
+  "TOUHOUANCIENTS-SMOKED_FAN.description": "ALL Elite enemies have [blue]1[/blue] HP. Whenever you defeat an Elite, add a [red]Guilty[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-SMOKED_FAN.flavor": "The poverty god's blessing.",
+
+  "TOUHOUANCIENTS-GRILLED_MISO.title": "Grilled Miso",
+  "TOUHOUANCIENTS-GRILLED_MISO.description": "Upon pickup, [gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
+  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~"
 }

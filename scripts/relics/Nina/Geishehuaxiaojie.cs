@@ -23,8 +23,14 @@ public class Geishehuaxiaojie : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];
 
-    private readonly List<GeishehuaxiaojiejianshaoliliangPower> _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
-    
+    private List<GeishehuaxiaojiejianshaoliliangPower> _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
+    }
+
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)

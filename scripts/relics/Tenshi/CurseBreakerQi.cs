@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using TouhouAncients.Scripts.Afflictions;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -40,7 +41,7 @@ public static class CurseBreakerQiPatchs
         try
         {
             if (__instance.Owner != null && __instance.Owner.GetRelic<CurseBreakerQi>() != null &&
-                __instance.Type == CardType.Curse)
+                (__instance.Type == CardType.Curse || __instance.Affliction is TouhouAncientsCollateral))
             {
                 if (!__result && reason.HasFlag(UnplayableReason.HasUnplayableKeyword))
                 {
@@ -119,6 +120,11 @@ public class CurseBreakerQi : TouhouAncientRelics
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
+        if (!participants.Contains(Owner.Creature))
+        {
+            return;
+        }
+
         if (side == base.Owner.Creature.Side)
         {
             _firstCursePlayedThisTurn = false;

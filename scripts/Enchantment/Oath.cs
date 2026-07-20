@@ -23,6 +23,12 @@ public class Oath : TouhouAncientEnchantmentModel
 
     private HashSet<CardModel> shouldExhaustedCards = new();
 
+    protected override void DeepCloneFields()
+    {
+        base.DeepCloneFields();
+        shouldExhaustedCards = new HashSet<CardModel>();
+    }
+
     public override bool CanEnchantCardType(CardType cardType)
     {
         // 不能附魔能力牌（丝带蝴蝶结描述为"非能力牌"）

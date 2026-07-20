@@ -26,6 +26,13 @@ public class Bloodshed : TouhouAncientEnchantmentModel
         return cardType == CardType.Attack;
     }
 
+    public bool canHeal = true;
+
+    public override Task BeforeCombatStart()
+    {
+        canHeal = true;
+        return base.BeforeCombatStart();
+    }
     //public override bool HasExtraCardText => true;
 
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
@@ -34,6 +41,16 @@ public class Bloodshed : TouhouAncientEnchantmentModel
         if (cardPlay?.Card != base.Card) return;
 
         await CreatureCmd.Heal(base.Card.Owner.Creature, base.DynamicVars.Heal.BaseValue);
+    }
+
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (!canHeal)
+        {
+            base.Status = EnchantmentStatus.Disabled;
+        }
+
+        return base.AfterCardPlayed(choiceContext, cardPlay);
     }
 
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
@@ -47,6 +64,6 @@ public class Bloodshed : TouhouAncientEnchantmentModel
         if (healAmount <= 0) return;
 
         await CreatureCmd.Heal(dealer, healAmount);
-        base.Status = EnchantmentStatus.Disabled;
+        canHeal = false;
     }
 }

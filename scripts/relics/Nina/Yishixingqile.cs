@@ -26,7 +26,13 @@ public class Yishixingqile : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Gold", StartingGold)];
 
     /// <summary>被选为免费的商品列表。非保存字段，离开商店后失效。</summary>
-    private readonly HashSet<MerchantEntry> _freeEntries = new();
+    private HashSet<MerchantEntry> _freeEntries = new();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _freeEntries = new HashSet<MerchantEntry>();
+    }
 
     public override bool HasUponPickupEffect => true;
 

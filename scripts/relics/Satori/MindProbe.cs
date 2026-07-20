@@ -27,6 +27,12 @@ public class MindProbe : TouhouAncientRelics
 
     private List<Creature> _stunedEnemyCreature = new();
 
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _stunedEnemyCreature = new List<Creature>();
+    }
+
     public override Task AfterCombatEnd(CombatRoom room)
     {
         _stunedEnemyCreature.Clear();

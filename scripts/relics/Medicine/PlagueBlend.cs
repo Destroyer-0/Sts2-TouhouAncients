@@ -62,6 +62,10 @@ public class PlagueBlend : TouhouAncientRelics
     
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (!participants.Contains(Owner.Creature))
+        {
+            return ;
+        }
         if (side == base.Owner.Creature.Side && combatState.RoundNumber == TriggerTurn)
         {
             Flash();

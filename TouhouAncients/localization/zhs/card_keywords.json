@@ -19,5 +19,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "即使能无限次的重生并净化，污秽亦会无法避免的累积。随着污秽累积，绀珠之药复活的副作用会逐渐增强。",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "无意识",
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "无法以[purple]自动打出[/purple]以外的方式打出。"
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "无法以[purple]自动打出[/purple]以外的方式打出。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "沉底",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "战斗开始时，这张牌将置于抽牌堆底部。"
 }

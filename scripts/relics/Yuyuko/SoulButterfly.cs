@@ -54,6 +54,10 @@ public class SoulButterfly : TouhouAncientRelics
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return Task.CompletedTask;
+        if (!participants.Contains(base.Owner.Creature))
+        {
+            return Task.CompletedTask;
+        }
         if (_dormantRemaining > 0)
         {
             _dormantRemaining--;

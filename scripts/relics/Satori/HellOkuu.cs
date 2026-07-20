@@ -35,6 +35,7 @@ public class HellOkuu : TouhouAncientRelics
     {
         if (side != CombatSide.Player) return;
         if (base.Owner.PlayerCombatState == null) return;
+        if (!participants.Contains(Owner.Creature)) return;
         if (base.Owner.PlayerCombatState.Energy > 0) return;
         Flash();
         await CardPileCmd.AddToCombatAndPreview<Burn>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner,CardPilePosition.Random);

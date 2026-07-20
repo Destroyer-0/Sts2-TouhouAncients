@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,17 +26,29 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public class RichestFormPower : TouhouAncientPowerModel
 {
+    private class Data
+    {
+        public readonly Dictionary<CardType, int> CardTypePlayedThisTurn = new Dictionary<CardType, int>();
+    }
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public int ExtraEnergy { private get; set; }
 
-    private readonly Dictionary<CardType, int> _cardTypePlayedThisTurn = new Dictionary<CardType, int>();
 
+    protected override object InitInternalData()
+    {
+        return new Data();
+    }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.ForEnergy(this)
     ];
+
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        return base.AfterApplied(applier, cardSource);
+    }
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
@@ -47,29 +60,29 @@ public class RichestFormPower : TouhouAncientPowerModel
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != Owner)
+        if (cardPlay.Card.Owner != Owner.Player)
         {
             return Task.CompletedTask;
         }
 
-        if (!_cardTypePlayedThisTurn.TryGetValue(cardPlay.Card.Type, out var count))
+        if (!GetInternalData<Data>().CardTypePlayedThisTurn.TryGetValue(cardPlay.Card.Type, out var count))
         {
-            _cardTypePlayedThisTurn[cardPlay.Card.Type] = 0;
+            GetInternalData<Data>().CardTypePlayedThisTurn[cardPlay.Card.Type] = 0;
         }
 
-        _cardTypePlayedThisTurn[cardPlay.Card.Type] += 1;
-        return base.AfterCardPlayed(choiceContext, cardPlay);
+        GetInternalData<Data>().CardTypePlayedThisTurn[cardPlay.Card.Type] += 1;
+        return Task.CompletedTask;
     }
 
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
         modifiedCost = originalCost;
-        if (card.Owner.Creature != base.Owner)
+        if (card.Owner != base.Owner.Player)
         {
             return false;
         }
 
-        modifiedCost = originalCost + (decimal)(_cardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * Amount);
+        modifiedCost = originalCost + (decimal)(GetInternalData<Data>().CardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * Amount);
         return true;
     }
 
@@ -78,7 +91,7 @@ public class RichestFormPower : TouhouAncientPowerModel
     {
         if (participants.Contains(base.Owner))
         {
-            _cardTypePlayedThisTurn.Clear();
+            GetInternalData<Data>().CardTypePlayedThisTurn.Clear();
         }
     }
 }

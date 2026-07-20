@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4oq7wwvk86v7"]
+
+[ext_resource type="Texture2D" uid="uid://c58556c3cwvph" path="res://images/YorigamiSister.png" id="1_nf30q"]
+
+[node name="YorigamiSisterAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -350.0
+offset_top = -288.0
+offset_right = 2150.0
+offset_bottom = 1479.0
+texture = ExtResource("1_nf30q")

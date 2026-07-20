@@ -10,16 +10,13 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 至贫形态 (Poorest Form)
-/// 3费能力牌，虚无（升级后去除）。
-/// 打出耗能为 0 的牌或以 0 能量结束回合时，
-/// 每 1 层至贫形态给予随机一个敌人以下一个 Debuff：
-///   1 虚弱 / 1 易伤 / 3 中毒 / 8 灾厄
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class PoorestForm : TouhouAncientCards
@@ -28,10 +25,11 @@ public class PoorestForm : TouhouAncientCards
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.None;
-    private const bool shouldShowInCardLibrary = false;
+    private const bool shouldShowInCardLibrary = true;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        CardKeyword.Eternal
+        CardKeyword.Eternal,
+        TouhouAncientKeywords.TouhouAncientSinkToBottom
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

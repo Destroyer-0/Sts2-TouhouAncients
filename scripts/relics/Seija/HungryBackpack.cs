@@ -31,7 +31,13 @@ namespace TouhouAncients.Scripts.relics;
 public class HungryBackpack : TouhouAncientRelics
 {
     private int _currentExtraDraw;
-    private readonly HashSet<CardModel> _affectedCards = new();
+    private HashSet<CardModel> _affectedCards = new();
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _affectedCards = new HashSet<CardModel>();
+    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -125,6 +131,10 @@ public class HungryBackpack : TouhouAncientRelics
     /// </summary>
     public override Task AfterSideTurnEndLate(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (!participants.Contains(base.Owner.Creature))
+        {
+            return Task.CompletedTask;
+        }
         if (side == CombatSide.Player)
         {
             foreach (var card in _affectedCards)

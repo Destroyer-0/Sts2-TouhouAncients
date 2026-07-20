@@ -24,7 +24,8 @@ public enum ForcedAncientOption
     Kaguya辉夜,
     Marisa魔理沙,
     Yuuma饕餮,
-    Junko纯狐
+    Junko纯狐,
+    Yorigami依神姐妹
 }
 
 /// <summary>
@@ -80,6 +81,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             KirisameMarisaAncient  => BanMarisa,
             JunkoAncient  => BanJunko,
             ToutetsuYuumaAncient  => BanYuuma,
+            YorigamiSisterAncient  => BanYorigami,
             _ => false
         };
     }
@@ -106,6 +108,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(KirisameMarisaAncient) => BanMarisa,
             nameof(JunkoAncient) => BanJunko,
             nameof(ToutetsuYuumaAncient) => BanYuuma,
+            nameof(YorigamiSisterAncient) => BanYorigami,
             _ => false
         };
     }
@@ -157,6 +160,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Kaguya辉夜 when type is HouraisanKaguyaAncient => true,
             ForcedAncientOption.Yuuma饕餮 when type is ToutetsuYuumaAncient => true,
             ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
+            ForcedAncientOption.Yorigami依神姐妹 when type is YorigamiSisterAncient => true,
             _ => false
         };
     }
@@ -203,5 +207,6 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanKaguya { get; set; } = false;
     public static bool BanJunko { get; set; } = false;
     public static bool BanYuuma { get; set; } = false;
+    public static bool BanYorigami { get; set; } = false;
 
 }

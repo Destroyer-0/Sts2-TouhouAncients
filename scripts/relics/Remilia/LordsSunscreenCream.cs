@@ -27,7 +27,7 @@ public class LordsSunscreenCream : TouhouAncientRelics
     /// <summary>
     /// 使卡牌奖励中出现的卡牌全部为稀有牌。
     /// </summary>
-    public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
+    public override CardCreationOptions ModifyCardRewardCreationOptionsLate(Player player, CardCreationOptions options)
     {
         if (base.Owner != player) return options;
         if (options.Source != CardCreationSource.Encounter) return options;
@@ -45,6 +45,7 @@ public class LordsSunscreenCream : TouhouAncientRelics
         //
         // return options.WithCardPools(rareCards);
     }
+
 
     /// <summary>
     /// 添加"我全都要"选项，将卡牌奖励中的所有牌加入牌组。

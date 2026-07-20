@@ -46,6 +46,10 @@ public class VigorOnBlockPower : TouhouAncientPowerModel
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (!participants.Contains(Owner))
+        {
+            return;
+        }
         if (side == base.Owner.Side)
         {
             await PowerCmd.Remove(this);

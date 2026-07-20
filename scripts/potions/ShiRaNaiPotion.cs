@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.PotionPools;
 
 namespace TouhouAncients.Scripts.potions;
@@ -28,18 +29,11 @@ public sealed class ShiRaNaiPotion : CustomPotionModel
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        var card = (await CardSelectCmd.FromSimpleGrid(
-            choiceContext,
-            (from c in PileType.Exhaust.GetPile(base.Owner).Cards
-                orderby c.Rarity, c.Id
-                select c).ToList(),
-            base.Owner,
-            new CardSelectorPrefs(base.SelectionScreenPrompt, 0, 1)
-        )).FirstOrDefault();
-
-        if (card != null)
+        CardModel cardModel = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Exhaust.GetPile(base.Owner),
+            base.Owner, new CardSelectorPrefs(base.SelectionScreenPrompt, 1))).FirstOrDefault();
+        if (cardModel != null)
         {
-            await CardPileCmd.Add(card, PileType.Hand);
+            await CardPileCmd.Add(cardModel, PileType.Hand);
         }
     }
 }

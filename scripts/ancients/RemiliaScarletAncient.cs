@@ -35,6 +35,7 @@ public class RemiliaScarletAncient : TouhouAncientBase
         ),
         MakePool(
             AncientOption<DraculaLegacy>(),
+            AncientOption<SpearGungnir>(),
             AncientOption<LordsSunscreenCream>()
         )
         // MakePool(

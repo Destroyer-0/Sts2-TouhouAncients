@@ -42,6 +42,12 @@ public class ServantSakuya : TouhouAncientCards
     /// <summary>记录打出时选择的目标，供回合结束时造成伤害。</summary>
     private List<(CardPlay, Creature?)> _target = new();
 
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        _target = new List<(CardPlay, Creature?)>();
+    }
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(2),

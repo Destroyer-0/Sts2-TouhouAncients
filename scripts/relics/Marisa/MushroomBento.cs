@@ -65,13 +65,14 @@ public class MushroomBento : TouhouAncientRelics
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != base.Owner.Creature.Side) return;
+        if (!participants.Contains(Owner.Creature)) return;
         if (base.Owner.PlayerCombatState == null) return;
 
         var hand = PileType.Hand.GetPile(base.Owner);
         if (hand.Cards.Count < 3) return;
 
         Flash();
-        await CardPileCmd.AddToCombatAndPreview<SporeMind>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner);
+        await CardPileCmd.AddToCombatAndPreview<SporeMind>(base.Owner.Creature, PileType.Draw, 1, creator: base.Owner, CardPilePosition.Random);
     }
 }
 

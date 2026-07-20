@@ -40,16 +40,20 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "Attacks are free to play this turn. When you play an Attack, draw [blue]{Amount}[/blue] cards.",
 
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "极奢形态",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]1[/blue]。",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]{Amount}[/blue]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "Richest Form",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "Whenever you play a card, cards of the same type cost [blue]1[/blue] more this turn.",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "Whenever you play a card, cards of the same type cost [blue]{Amount}[/blue] more this turn.",
 
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人7层[gold]灾厄[/gold]1次。",
-  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人[blue]{Amount}[/blue]层[gold]灾厄[/gold]1次。",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "Poorest Form",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]7[/blue] [gold]Doom[/gold] to a random enemy [blue]1[/blue] time.",
+  "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy [blue]1[/blue] time.",
+
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.title": "Celebrity",
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.description": "The first [blue]1[/blue] card you play each turn is free to play, and add a [red]Debt[/red] into your discard pile.",
+  "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE_POWER.smartDescription": "The first [blue]{Amount}[/blue] {Amount:plural:card|cards} you play each turn {Amount:plural:is|are} free to play, and add a [red]Debt[/red] into your discard pile for each.",
   
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "天堂智者",
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "Heavenly Sage",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!"
 }

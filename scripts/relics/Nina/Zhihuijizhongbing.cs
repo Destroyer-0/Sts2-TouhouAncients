@@ -37,6 +37,10 @@ public class Zhihuijizhongbing : TouhouAncientRelics
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (!participants.Contains(Owner.Creature))
+        {
+            return ;
+        }
         if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)
         {
             Flash();
@@ -61,6 +65,7 @@ public class Zhihuijizhongbing : TouhouAncientRelics
     public override async Task BeforeSideTurnEndEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Player) return;
+        if (!participants.Contains(Owner.Creature)) return;
         if (_anyCardsPlayedThisTurn) return;
 
         // 没有打出任何牌 → 获得临时集中，生成冰霜充能球

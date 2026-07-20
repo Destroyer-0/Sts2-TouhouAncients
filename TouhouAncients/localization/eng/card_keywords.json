@@ -13,5 +13,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "Even with infinite rebirths and purification, Impurity inevitably accumulates. As Impurity builds up, the side effects of resurrection via the Ultramarine Orb Elixir grow stronger.",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "Unconscious",
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play.[/purple]"
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play.[/purple]",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "Sink",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "At the start of combat, this card is placed at the bottom of your draw pile."
 }

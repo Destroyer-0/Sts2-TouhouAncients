@@ -1,67 +1,111 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 龙颈之玉：
-/// 你每打出5张牌，将一张带有虚无、辉星费用为0的七星放入手牌。此计数跨战斗保留。
+/// 龙颈之玉：在每场战斗开始时，将一张七星+加入你的手牌，其拥有保留。
+/// 你每打出5张牌，其在本场战斗中的辉星费用-1。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class RyukeiNoTama : TouhouAncientRelics
 {
-    /// <summary>
-    /// 跨战斗保留的打出计数，每5张触发一次七星。
-    /// </summary>
-    [SavedProperty] private int TouhouAncients_CardsPlayedCounter { get; set; }
-    
-    public override int DisplayAmount => TouhouAncients_CardsPlayedCounter;
-    public override bool ShowCounter => true;
+    private int _cardsPlayedThisCombat;
+    private int _starCostReduction;
+
+    private SevenStars sevenStar;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Card", 5)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<SevenStars>().Append(HoverTipFactory.FromKeyword(CardKeyword.Ethereal));
+        HoverTipFactory.FromCardWithCardHoverTips<SevenStars>(true)
+            .Append(HoverTipFactory.FromKeyword(CardKeyword.Retain));
 
-    /// <summary>
-    /// 每打出5张牌，将一张辉星费用为0的七星（带虚无）放入手牌。
-    /// </summary>
+    public override bool ShowCounter => DisplayAmount >= 0 && _starCostReduction < 7;
+
+    public override int DisplayAmount =>
+        !CombatManager.Instance.IsInProgress ? -1 : IsCanonical ? -1 : _cardsPlayedThisCombat;
+
+    public override Task BeforeCombatStart()
+    {
+        _cardsPlayedThisCombat = 0;
+        _starCostReduction = 0;
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player != base.Owner) return;
+        if (player.Creature.CombatState?.RoundNumber != 1) return;
+
+        Flash();
+
+        sevenStar = player.Creature.CombatState.CreateCard<SevenStars>(player);
+        Flash();
+        CardCmd.Upgrade(sevenStar);
+        await CardPileCmd.AddGeneratedCardsToCombat([sevenStar], PileType.Hand, creator: base.Owner);
+
+        CardCmd.ApplyKeyword(sevenStar, CardKeyword.Retain);
+    }
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var player = base.Owner;
         if (cardPlay.Card.Owner != player) return;
         if (player.Creature.CombatState == null) return;
 
-        TouhouAncients_CardsPlayedCounter++;
+        _cardsPlayedThisCombat++;
         InvokeDisplayAmountChanged();
 
-        if (TouhouAncients_CardsPlayedCounter >= 5)
-        {
-            TouhouAncients_CardsPlayedCounter = 0;
-            InvokeDisplayAmountChanged();
-            Flash();
+        if (_cardsPlayedThisCombat < 5) return;
+        _cardsPlayedThisCombat = 0;
+        await TryReduceStarCost(player);
+    }
 
-            // 创建七星牌，辉星费用设为0，添加虚无关键字
-            var card = player.Creature.CombatState.CreateCard<SevenStars>(player);
-            card.SetStarCostThisCombat(0);
-            if (!card.Keywords.Contains(CardKeyword.Ethereal))
-            {
-                CardCmd.ApplyKeyword(card, CardKeyword.Ethereal);
-            }
+    /// <summary>
+    /// 回合结束时也触发辉星费用减少。
+    /// </summary>
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (side != CombatSide.Player) return;
+        if (!participants.Contains(Owner.Creature)) return;
 
-            // 放入手牌
-            CardCmd.PreviewCardPileAdd(
-                await CardPileCmd.AddGeneratedCardsToCombat([card], PileType.Hand, creator: base.Owner, CardPilePosition.Random));
-        }
+        var player = base.Owner;
+        if (player?.Creature.CombatState == null) return;
+
+        await TryReduceStarCost(player);
+    }
+
+    private async Task TryReduceStarCost(Player player)
+    {
+        if (sevenStar.HasBeenRemovedFromState) return;
+        Flash();
+        InvokeDisplayAmountChanged();
+        _starCostReduction++;
+        sevenStar.SetStarCostThisCombat(Math.Max(0, sevenStar.CurrentStarCost - 1));
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        InvokeDisplayAmountChanged();
+        return base.AfterCombatEnd(room);
     }
 }
