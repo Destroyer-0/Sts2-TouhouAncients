@@ -76,7 +76,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
             {
                 if (enemy.HasPower<BurrowedPower>())
                 {
-                    await CreatureCmd.LoseBlock(enemy, enemy.Block);
+                    await CreatureCmd.LoseBlock(choiceContext, enemy, enemy.Block, null);
                 }
             }
             

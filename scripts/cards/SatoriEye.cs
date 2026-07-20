@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Commands;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -43,15 +44,15 @@ public class SatoriEye : TouhouAncientCards
         EnergyCost.AddThisTurn(DynamicVars.Energy.IntValue);
     }
 
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+    protected override CardLocation GetResultLocationForCardPlay()
     {
-        (PileType resultPileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
-        if (resultPileType != PileType.Discard)
+        CardLocation baseLocation = base.GetResultLocationForCardPlay();
+        if (baseLocation.pileType != PileType.Discard)
         {
-            return (resultPileType, pilePosition);
+            return baseLocation;
         }
 
-        return (PileType.Hand, CardPilePosition.Top);
+        return new CardLocation(Owner, PileType.Hand, CardPilePosition.Top);
     }
 
     protected override void OnUpgrade()

@@ -62,17 +62,17 @@ public class GungnirSpearCard : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
-        await DamageCmd.Attack(base.DynamicVars.CalculatedDamage).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(base.DynamicVars.CalculatedDamage).FromCard(this,cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_blunt", null, "blunt_attack.mp3")
             .Execute(choiceContext);
     }
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card,
-        bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card,
+        bool isAutoPlay, ResourceInfo resources, CardLocation cardLocation)
     {
         if (!CombatManager.Instance.IsInProgress || card != this || card.HasBeenRemovedFromState)
-            return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
-        return (PileType.Hand, CardPilePosition.Top);
+            return base.ModifyCardPlayResultLocation(card, isAutoPlay, resources, cardLocation);
+        return new CardLocation(cardLocation.player, PileType.Hand, CardPilePosition.Top);
     }
 
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
