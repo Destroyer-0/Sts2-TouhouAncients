@@ -26,13 +26,20 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public class RichestFormPower : TouhouAncientPowerModel
 {
+    private class Data
+    {
+        public readonly Dictionary<CardType, int> CardTypePlayedThisTurn = new Dictionary<CardType, int>();
+    }
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public int ExtraEnergy { private get; set; }
 
-    private readonly Dictionary<CardType, int> _cardTypePlayedThisTurn = new Dictionary<CardType, int>();
 
+    protected override object InitInternalData()
+    {
+        return new Data();
+    }
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.ForEnergy(this)
@@ -61,12 +68,12 @@ public class RichestFormPower : TouhouAncientPowerModel
             return Task.CompletedTask;
         }
 
-        if (!_cardTypePlayedThisTurn.TryGetValue(cardPlay.Card.Type, out var count))
+        if (!GetInternalData<Data>().CardTypePlayedThisTurn.TryGetValue(cardPlay.Card.Type, out var count))
         {
-            _cardTypePlayedThisTurn[cardPlay.Card.Type] = 0;
+            GetInternalData<Data>().CardTypePlayedThisTurn[cardPlay.Card.Type] = 0;
         }
 
-        _cardTypePlayedThisTurn[cardPlay.Card.Type] += 1;
+        GetInternalData<Data>().CardTypePlayedThisTurn[cardPlay.Card.Type] += 1;
         return Task.CompletedTask;
     }
 
@@ -78,7 +85,7 @@ public class RichestFormPower : TouhouAncientPowerModel
             return false;
         }
 
-        modifiedCost = originalCost + (decimal)(_cardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * Amount);
+        modifiedCost = originalCost + (decimal)(GetInternalData<Data>().CardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * Amount);
         return true;
     }
 
@@ -87,7 +94,7 @@ public class RichestFormPower : TouhouAncientPowerModel
     {
         if (participants.Contains(base.Owner))
         {
-            _cardTypePlayedThisTurn.Clear();
+            GetInternalData<Data>().CardTypePlayedThisTurn.Clear();
         }
     }
 }
