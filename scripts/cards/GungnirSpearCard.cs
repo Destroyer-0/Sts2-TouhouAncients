@@ -31,7 +31,7 @@ public class GungnirSpearCard : TouhouAncientCards
     private const bool shouldShowInCardLibrary = true;
 
     //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
-    
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(0m),
@@ -49,7 +49,8 @@ public class GungnirSpearCard : TouhouAncientCards
     {
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
         if (!CombatManager.Instance.IsInProgress || player != this.Owner || this.HasBeenRemovedFromState) return;
         if (this.Pile != null && this.Pile.Type != PileType.Hand)
@@ -77,9 +78,9 @@ public class GungnirSpearCard : TouhouAncientCards
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (!CombatManager.Instance.IsInProgress || card != this || card.HasBeenRemovedFromState) return;
-        if (card.Pile != null && card.Pile.Type != PileType.Hand)
+        if (card.Pile != null && card.Pile.Type != PileType.Hand && PileType.Hand.GetPile(Owner).Cards.Count < CardPile.MaxCardsInHand)
         {
-            await CardPileCmd.Add(card, PileType.Hand, clonedBy: this);
+            await CardPileCmd.Add(card, PileType.Hand, CardPilePosition.Top, clonedBy: this);
         }
     }
 
