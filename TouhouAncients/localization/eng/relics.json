@@ -661,5 +661,56 @@
   "TOUHOUANCIENTS-GRILLED_MISO.title": "Grilled Miso",
   "TOUHOUANCIENTS-GRILLED_MISO.description": "Upon pickup, [gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
   "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
-  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~"
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~",
+
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "Reliable Tanuki Disciple",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "At the start of your turn, randomly add [blue]{Cards}[/blue] [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Defend[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "",
+
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "Crimson Cloud Knuckles",
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.description": "When you play an [gold]Attack[/gold] card (not via Auto-Play), randomly play another [gold]Attack[/gold] card from your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "",
+
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "Sunken Anchor Ghost",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of your turn. Your [gold]Power[/gold] cards are placed at the bottom of your [gold]Draw Pile[/gold] at the start of combat.",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "",
+
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal [blue]{Percent}%[/blue] HP. Seiga Kaku takes over for subsequent turns.",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "",
+
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "Nidomitei's Special Blend",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold]. All [gold]Potions[/gold] you obtain become [gold]Super ZUN Beer[/gold].",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold]. All [gold]Potions[/gold] you obtain become [gold]Super ZUN Beer[/gold].",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "",
+
+  "TOUHOUANCIENTS-DOWSING_ROD.title": "Dowsing Rod",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin to search for treasure at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-DOWSING_ROD.flavor": "",
+
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "Dragon Vein Vessel",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "Mark [blue]1[/blue] path (does not include Boss rooms). Entering nodes on the path grants [blue]{Gold}[/blue] [gold]Gold[/gold]; if it is a combat, gain [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] at the start, and gain [blue]{CardRewards}[/blue] extra [gold]Card Rewards[/gold].",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor": "",
+
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "Disillusion Trident",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Nameless Demon[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.eventDescription": "Add [blue]{Cards}[/blue] [gold]Nameless Demon[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "",
+
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "One-Eyed Karakasa",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "Whenever you kill a non-Minion enemy, gain [blue]{Charges}[/blue] charges ([blue]{FirstTurnCharges}[/blue] if it is the first turn of combat). At [gold]Rest Sites[/gold], you may spend [blue]{UpgradeCost}[/blue] charges to [green]Upgrade[/green] [blue]{UpgradeCount}[/blue] additional cards.",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "",
+
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, view [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.eventDescription": "View [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "",
+
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.description": "Whenever you draw a [gold]Power[/gold] card, draw [blue]{Cards}[/blue] additional cards. The first time you play a [gold]Power[/gold] each turn, add [blue]{Copies}[/blue] copies of it to your [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "",
+
+  "TOUHOUANCIENTS-NOH_MASK.title": "Noh Mask",
+  "TOUHOUANCIENTS-NOH_MASK.description": "At the start of each turn, randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], and [purple]Pleasure[/purple] to [blue]{EmotionCards}[/blue] cards in your [gold]Hand[/gold] this turn. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
+  "TOUHOUANCIENTS-NOH_MASK.flavor": ""
 }

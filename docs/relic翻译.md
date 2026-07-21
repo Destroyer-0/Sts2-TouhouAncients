@@ -1943,4 +1943,220 @@
 | `.eventDescription` | `Add a [gold]Spear "Gungnir"[/gold] to your [gold]Deck[/gold]. When you deal damage or gain [gold]Block[/gold] with cards other than [gold]Spear "Gungnir"[/gold], apply equal [gold]Block[/gold] to the target/ALL enemies.` |
 | `.flavor` | `Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.` |
 
+---
+
+## 可靠的弟子狸（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-RELIABLE_DISCIPLE_TANUKI`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-RELIABLE_DISCIPLE_TANUKI.title": "可靠的弟子狸",
+"TOUHOUANCIENTS-RELIABLE_DISCIPLE_TANUKI.description": "在你的回合开始时，随机将一张[gold]仆从俯冲[/gold]、[gold]仆从打击[/gold]、[gold]仆从防御[/gold]加入你的[gold]手牌[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Reliable Tanuki Disciple` |
+| `.description` | `At the start of your turn, add a random [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Defend[/gold] to your [gold]Hand[/gold].` |
+
+---
+
+## 赤云指虎（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLE`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLE.title": "赤云指虎",
+"TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLE.description": "当你不以自动打出的方式打出[gold]攻击牌[/gold]时，随机打出[gold]手牌[/gold]中另一张[gold]攻击牌[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Crimson Cloud Knuckle` |
+| `.description` | `When you play an [gold]Attack[/gold] without auto-playing it, play a random other [gold]Attack[/gold] from your [gold]Hand[/gold].` |
+
+---
+
+## 沉锚幽灵（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-ANCHORED_GHOST`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-ANCHORED_GHOST.title": "沉锚幽灵",
+"TOUHOUANCIENTS-ANCHORED_GHOST.description": "回合开始时获得[blue]1[/blue]能量。你的[gold]能力牌[/gold]在战斗开始时被置于牌堆底。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Anchored Ghost` |
+| `.description` | `At the start of your turn, gain [blue]1[/blue] Energy. At the start of each combat, your [gold]Power[/gold] cards are placed at the bottom of your [gold]Draw Pile[/gold].` |
+
+---
+
+## 邪仙发簪（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-HERMIT_HAIRPIN`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-HERMIT_HAIRPIN.title": "邪仙发簪",
+"TOUHOUANCIENTS-HERMIT_HAIRPIN.description": "每场战斗你首次死亡时，恢复[blue]50%[/blue]生命值，之后的回合由霍青娥接管。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Hermit's Hairpin` |
+| `.description` | `The first time you would die each combat, heal [blue]50%[/blue] of your Max HP. For the rest of combat, Seiga Kaku takes over.` |
+
+---
+
+## 鲵吞亭特调（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-GEIDONTEI_SPECIAL`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-GEIDONTEI_SPECIAL.title": "鲵吞亭特调",
+"TOUHOUANCIENTS-GEIDONTEI_SPECIAL.description": "获得[blue]2[/blue]个药水栏位，你获得的药水变成[gold]超ZUN啤酒[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Geidontei Special` |
+| `.description` | `Gain [blue]2[/blue] Potion Slots. Potions you obtain become [gold]Super ZUN Beer[/gold].` |
+
+---
+
+## 寻龙尺（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-DRAGON_DOWSING_ROD`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DRAGON_DOWSING_ROD.title": "寻龙尺",
+"TOUHOUANCIENTS-DRAGON_DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在[gold]休息处[/gold]雇佣纳兹琳寻宝。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Dragon Dowsing Rod` |
+| `.description` | `[gold]Card Rewards[/gold] you skip are recorded. You may hire Nazrin to seek treasure at [gold]Rest Sites[/gold].` |
+
+---
+
+## 龙脉之皿（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-DRAGON_VEIN_VESSEL`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "龙脉之皿",
+"TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记一条路线（不包括boss房间）。进入路线上的节点获得[blue]33[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]2[/blue][gold]力量[/gold][blue]2[/blue][gold]敏捷[/gold]，且额外掉落一组[gold]卡牌奖励[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Dragon Vein Vessel` |
+| `.description` | `Mark a path (excluding Boss rooms). When you enter a node on that path, gain [blue]33[/blue] [gold]Gold[/gold]. If it is a combat, at the start of combat gain [blue]2[/blue] [gold]Strength[/gold] and [blue]2[/blue] [gold]Dexterity[/gold], and an additional [gold]Card Reward[/gold] drops.` |
+
+---
+
+## 幻灭三叉戟（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-DISILLUSION_TRIDENT`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "幻灭三叉戟",
+"TOUHOUANCIENTS-DISILLUSION_TRIDENT.description": "将一张[gold]未名妖魔[/gold]加入[gold]牌组[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Trident of Disillusion` |
+| `.description` | `Add an [gold]Unnamed Demon[/gold] to your [gold]Deck[/gold].` |
+
+---
+
+## 独眼唐伞（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-ONE_EYED_KARAKASA`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "独眼唐伞",
+"TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "每当你斩杀一名不是[gold]爪牙[/gold]的敌人时，获得[blue]1[/blue]计数，如果此时为战斗的第一回合则改为[blue]3[/blue]。你可以在[gold]休息处[/gold]花费[blue]4[/blue]计数额外[green]升级[/green]一张牌。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `One-Eyed Karakasa` |
+| `.description` | `Whenever you kill a non-[gold]Minion[/gold] enemy, gain [blue]1[/blue] Count (or [blue]3[/blue] if it is the first turn of combat). At [gold]Rest Sites[/gold], you may spend [blue]4[/blue] Count to additionally [green]Upgrade[/green] a card.` |
+
+---
+
+## 百鬼夜行绘卷（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-NIGHT_PARADE_SCROLL`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-NIGHT_PARADE_SCROLL.title": "百鬼夜行绘卷",
+"TOUHOUANCIENTS-NIGHT_PARADE_SCROLL.description": "查看来自[gold]铁甲战士[/gold]、[gold]静默猎者[/gold]、[gold]储君[/gold]、[gold]亡灵契约师[/gold]、[gold]故障机器人[/gold]的各一组[gold]卡牌奖励[/gold]。将选择的[gold]卡牌奖励[/gold]合成为卡牌：[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Night Parade Scroll` |
+| `.description` | `View one [gold]Card Reward[/gold] from each of [gold]Ironclad[/gold], [gold]Silent[/gold], [gold]Heir[/gold], [gold]Necromancer[/gold], and [gold]Defect[/gold]. Combine the chosen rewards into a [gold]Night Parade[/gold] card and add it to your [gold]Deck[/gold].` |
+
+---
+
+## 超能念力（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-PSYCHIC_POWER`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-PSYCHIC_POWER.title": "超能念力",
+"TOUHOUANCIENTS-PSYCHIC_POWER.description": "每当你抽到[gold]能力牌[/gold]时，额外抽一张牌。每回合首次打出[gold]能力牌[/gold]时，将一张该牌的复制品加入[gold]弃牌堆[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Psychic Power` |
+| `.description` | `Whenever you draw a [gold]Power[/gold] card, draw [blue]1[/blue] additional card. The first time you play a [gold]Power[/gold] each turn, add a copy of it to your [gold]Discard Pile[/gold].` |
+
+---
+
+## 能乐假面（2026-07-21 新增）
+
+**键名**: `TOUHOUANCIENTS-NOH_MASK`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-NOH_MASK.title": "能乐假面",
+"TOUHOUANCIENTS-NOH_MASK.description": "每回合开始时随机将四张[gold]手牌[/gold]在本回合添加喜、怒、哀、乐情绪。当你打出喜、怒、哀、乐情绪各一张后，恢复[blue]1[/blue]能量并抽一张牌。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Noh Mask` |
+| `.description` | `At the start of each turn, random [blue]4[/blue] cards in your [gold]Hand[/gold] gain either Joy, Anger, Sorrow, or Pleasure emotion this turn. After you play one of each emotion, regain [blue]1[/blue] Energy and draw [blue]1[/blue] card.` |
+
 
