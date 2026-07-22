@@ -70,7 +70,7 @@
     "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]The Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to [gold]Exhaust[/gold].",
 
-    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "Heavenly Sage",
+    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "Heaven Sage",
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
