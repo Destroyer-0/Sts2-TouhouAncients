@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
+using Godot;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using TouhouAncients.Scripts.monsters;
@@ -15,11 +16,24 @@ public sealed class YorigamiSistersEncounter : CustomEncounterModel
         ModelDb.Monster<YorigamiShion>()
     ];
 
-    public override bool IsValidForAct(ActModel act) => false;
+    public override string? CustomScenePath
+    {
+        get
+        {
+            GD.PrintErr("asdjakaskika!");
+            return "res://scenes/encounters/yorigami_sisters.tscn";
+        }
+    }
 
-    public override bool IsWeak => false;
+    protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
+    [
+        (ModelDb.Monster<YorigamiJoon>().ToMutable(), "joon"),
+        (ModelDb.Monster<YorigamiShion>().ToMutable(), "shion"),
+    ];
 
     public YorigamiSistersEncounter() : base(RoomType.Monster)
     {
     }
+
+    public override bool IsValidForAct(ActModel act) => act.Index == 1;
 }

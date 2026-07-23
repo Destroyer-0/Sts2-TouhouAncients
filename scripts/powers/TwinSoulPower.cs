@@ -16,8 +16,9 @@ namespace TouhouAncients.Scripts.powers;
 /// <summary>
 /// 双生 — 紫苑的被动能力。
 /// 效果1：每回合为女苑提供 8 点格挡（在玩家侧回合开始时触发，参考 RampartPower）。
-/// 效果2：紫苑死亡时，如果女苑还存活，在 2 回合后以 50 HP 复活（参考 ReattachPower）。
+/// 效果2：紫苑死亡时，在 2 回合后以 50 HP 复活（参考 ReattachPower）。
 /// 无限复活次数。
+/// 女苑被击倒时，此能力将被移除。
 /// </summary>
 public class TwinSoulPower : TouhouAncientPowerModel
 {
@@ -51,15 +52,17 @@ public class TwinSoulPower : TouhouAncientPowerModel
     /// 效果1：每回合为女苑提供格挡（在玩家侧回合开始时）。
     /// 参考 RampartPower。
     /// </summary>
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (side != CombatSide.Player) return;
-
-        IEnumerable<Creature> joonCreatures = base.CombatState.Enemies
-            .Where(c => c.Monster is YorigamiJoon && !c.IsDead);
-        foreach (Creature joon in joonCreatures)
+        
+        if (side != CombatSide.Player || CombatManager.Instance.PlayersTakingExtraTurn.Count > 0)
         {
-            await CreatureCmd.GainBlock(joon, 8m, ValueProp.Unpowered, null);
+            return;
+        }
+        IEnumerable<Creature> enumerable = base.CombatState.Enemies.Where((Creature c) => c.Monster is YorigamiJoon);
+        foreach (Creature item in enumerable)
+        {
+            await CreatureCmd.GainBlock(item, base.Amount, ValueProp.Unpowered, null);
         }
     }
 
@@ -67,8 +70,12 @@ public class TwinSoulPower : TouhouAncientPowerModel
     /// 效果2：倒计时与复活。
     /// 在敌人侧回合结束时推进倒计时。
     /// </summary>
-    public override async Task AfterSideTurnEnd(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (!participants.Contains(Owner))
+        {
+            return;
+        }
         if (side != base.Owner.Side) return;
         if (!IsReviving) return;
 
@@ -80,22 +87,15 @@ public class TwinSoulPower : TouhouAncientPowerModel
     }
 
     /// <summary>
-    /// 死亡时：如果女苑还存活，则标记为复活中状态（不真正死亡）。
+    /// 死亡时：标记为复活中状态（不真正死亡）。
     /// </summary>
     public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (wasRemovalPrevented || base.Owner != creature) return Task.CompletedTask;
 
-        // 检查女苑是否存活
-        bool joonAlive = base.CombatState.Enemies
-            .Any(c => c.Monster is YorigamiJoon && !c.IsDead);
-
-        if (joonAlive)
-        {
-            IsReviving = true;
-            ReviveCountdown = 2;
-        }
+        IsReviving = true;
+        ReviveCountdown = 2;
 
         return Task.CompletedTask;
     }
@@ -105,12 +105,6 @@ public class TwinSoulPower : TouhouAncientPowerModel
     /// </summary>
     private async Task DoReattach()
     {
-        // 再次检查女苑是否还存活
-        bool joonAlive = base.CombatState.Enemies
-            .Any(c => c.Monster is YorigamiJoon && !c.IsDead);
-
-        if (!joonAlive) return;
-
         IsReviving = false;
         await CreatureCmd.Heal(base.Owner, 50m);
     }

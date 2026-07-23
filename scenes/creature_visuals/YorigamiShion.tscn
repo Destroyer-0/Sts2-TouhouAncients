@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://t2yv7rjgtdn8"]
+
+[ext_resource type="Texture2D" uid="uid://bp24p73j4lhg8" path="res://images/sprite/shion/stand0000.png" id="1_ljcn2"]
+[ext_resource type="Texture2D" uid="uid://b3bvgguybgq8v" path="res://images/sprite/shion/stand0001.png" id="2_m75nl"]
+[ext_resource type="Texture2D" uid="uid://bylbb1kder85v" path="res://images/sprite/shion/stand0002.png" id="3_53myq"]
+[ext_resource type="Texture2D" uid="uid://bu62p4kqim11b" path="res://images/sprite/shion/stand0003.png" id="4_cnftv"]
+[ext_resource type="Texture2D" uid="uid://dl428d2ry3yeu" path="res://images/sprite/shion/stand0004.png" id="5_krfhi"]
+[ext_resource type="Texture2D" uid="uid://dtvi8brra7uk6" path="res://images/sprite/shion/stand0005.png" id="6_rqw22"]
+[ext_resource type="Texture2D" uid="uid://bqda4r7heb5ni" path="res://images/sprite/shion/stand0006.png" id="7_70b1k"]
+[ext_resource type="Texture2D" uid="uid://cu6rnk1bmaddq" path="res://images/sprite/shion/stand0007.png" id="8_30d0d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo5xb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ljcn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m75nl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_53myq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cnftv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_krfhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rqw22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_70b1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_30d0d")
+}],
+"loop": true,
+"name": &"idle_loop",
+"speed": 10.0
+}]
+
+[node name="YorigamiShion" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(9.536743e-07, -18)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_xo5xb")
+animation = &"idle_loop"
+autoplay = "idle_loop"
+frame_progress = 0.18544191
+offset = Vector2(-2, -29.333336)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -72.0
+offset_top = -239.0
+offset_right = 188.0
+offset_bottom = 1.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -95)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -278)

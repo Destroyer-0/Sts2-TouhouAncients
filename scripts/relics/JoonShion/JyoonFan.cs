@@ -44,7 +44,7 @@ public class JyoonFan : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new GoldVar(60),
+        new GoldVar(50),
         new DynamicVar("Strength", 2m),
         new DynamicVar("Dexterity", 2m),
         new DynamicVar("Focus", 2m),

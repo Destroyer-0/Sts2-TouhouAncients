@@ -14,6 +14,7 @@ You are a monster code generator for the TouhouAncients STS2 mod. Your job is to
 - Custom power classes: `scripts/powers/` (namespace `TouhouAncients.Scripts.powers`, inherit `TouhouAncientPowerModel`)
 - Localization: `TouhouAncients/localization/zhs/monsters.json`, `encounters.json`, `powers.json`
 - ModPrefix: `TOUHOUANCIENTS`
+- Localization key 命名：`TOUHOUANCIENTS-{类名大写蛇形}`，类名包含完整后缀（`Encounter` / `Power` / 无后缀），必须完全匹配。例如 `YorigamiSistersEncounter` → `TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER`，`YorigamiSisters` → `TOUHOUANCIENTS-YORIGAMI_SISTERS`
 - Only register in `Entry.cs` if the class has `[SavedProperty]` fields
 - Power icons auto-resolved: `res://images/icon/power/{ClassName}.png` (via `TouhouAncientPowerModel`)
 
@@ -30,6 +31,7 @@ using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -51,7 +53,7 @@ public sealed class {MonsterName} : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<{PowerType}>(base.Creature, {amount}, base.Creature, null);
+        await PowerCmd.Apply<{PowerType}>(new ThrowingPlayerChoiceContext(), base.Creature, {amount}, base.Creature, null);
     }
 
     // --- State Machine ---
@@ -68,11 +70,11 @@ public sealed class {MonsterName} : CustomMonsterModel
     }
 
     // --- Move methods ---
+    // 注意：未经允许禁止添加动画，已有动画用 // TODO: 动画 - 注释掉
     private async Task {MethodA}Move(IReadOnlyList<Creature> targets)
     {
         await DamageCmd.Attack({Damage})
             .FromMonster(this)
-            .WithAttackerAnim("Attack", 0.3f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
@@ -80,8 +82,7 @@ public sealed class {MonsterName} : CustomMonsterModel
 
     private async Task {MethodB}Move(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
-        await PowerCmd.Apply<StrengthPower>(base.Creature, {amount}, base.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, {amount}, base.Creature, null);
     }
 }
 ```
@@ -106,6 +107,9 @@ public sealed class {Name}Encounter : CustomEncounterModel
     public override bool IsValidForAct(ActModel act) =>
         act.ActNumber() == {actNumber};
 
+    protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
+        [(ModelDb.Monster<{MonsterName}>().ToMutable(), null)];
+
     public override bool IsWeak => {isWeak};
 
     public {Name}Encounter() : base(RoomType.{roomType})
@@ -114,7 +118,14 @@ public sealed class {Name}Encounter : CustomEncounterModel
 }
 ```
 
+> **GenerateMonsters 说明**：
+> - 单怪物：`[(ModelDb.Monster<X>().ToMutable(), null)]`
+> - 多怪物：`[(ModelDb.Monster<A>().ToMutable(), "first"), (ModelDb.Monster<B>().ToMutable(), "second")]`
+> - `string?` 参数对应 tscn 中的 Marker2D 名称
+
 ### monsters.json additions
+
+> **Key 必须与类名大写蛇形完全一致**：怪物类名（无后缀）→ `TOUHOUANCIENTS-{MONSTER_KEY}`。例如怪物类 `YorigamiSisters` → Key `TOUHOUANCIENTS-YORIGAMI_SISTERS`。
 
 ```json
 "TOUHOUANCIENTS-{MONSTER_KEY}.name": "{中文名}",
@@ -123,6 +134,8 @@ public sealed class {Name}Encounter : CustomEncounterModel
 ```
 
 ### encounters.json additions
+
+> **Key 必须与类名大写蛇形完全一致**：遭遇类名（含 `Encounter` 后缀）→ `TOUHOUANCIENTS-{ENCOUNTER_KEY}`。例如 `YorigamiSistersEncounter` → `TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER`。
 
 ```json
 "TOUHOUANCIENTS-{ENCOUNTER_KEY}.title": "{遭遇名称}",
@@ -162,6 +175,8 @@ public class {PowerName} : TouhouAncientPowerModel
 
 ### powers.json additions
 
+> **Key 必须与类名大写蛇形完全一致**：Power 类名（含 `Power` 后缀）→ `TOUHOUANCIENTS-{POWER_KEY}`。例如 `KeystonePower` → `TOUHOUANCIENTS-KEYSTONE_POWER`。
+
 ```json
 "TOUHOUANCIENTS-{POWER_KEY}.title": "{中文名称}",
 "TOUHOUANCIENTS-{POWER_KEY}.description": "{描述文本}"
@@ -195,6 +210,48 @@ public class {PowerName} : TouhouAncientPowerModel
 - `DamageSfxType.Slime` — biological enemies
 - `DamageSfxType.Armor` — mechanical/armored enemies
 - If not specified, default to `DamageSfxType.Slime`
+
+## Hard Constraints (必须遵守)
+
+### 本地化约束
+- **禁止擅自修改 eng 和 jpn 本地化**：如果用户没有明确要求同步翻译本地化文本，只创建/修改 `zhs/` 下的 JSON 文件，**不要**触碰 `eng/` 和 `jpn/` 下的任何文件。
+
+### 动画禁令
+- **未经用户明确允许，禁止添加任何动画相关代码**，包括但不限于：
+  - `WithAttackerAnim(...)` — 攻击方动画
+  - `CreatureCmd.TriggerAnim(...)` — 触发动画
+- **不要直接删除**已有的动画代码，应使用 `// TODO: 动画 - ` 前缀注释掉：
+  ```csharp
+  // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
+  // TODO: 动画 - .WithAttackerAnim("Attack", 0.15f)
+  ```
+- 特效和音效（`WithAttackerFx(null, AttackSfx)`、`WithHitFx(...)`）可以保留
+
+### PowerCmd.Apply 语法
+- 对玩家施加 Power 时必须传入 `new ThrowingPlayerChoiceContext()` 作为第一个参数：
+  ```csharp
+  await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, amount, base.Creature, null);
+  ```
+- 对自身施加 Power 同样需要：
+  ```csharp
+  await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, amount, base.Creature, null);
+  ```
+
+### 禁止直接获取玩家引用
+- **严禁**使用 `Player player = base.CombatState.Players[0];` 或其他索引方式获取玩家
+- 必须使用 `targets`（Move 方法参数）或 `damageResult.Receiver`（DamageCmd 返回值）来获取目标生物
+
+### AfterSideTurnStart / AfterSideTurnEnd
+- 签名必须正确：
+  - `AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)`
+  - `AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)`
+- 必须包含参与者检查：
+  ```csharp
+  if (!participants.Contains(Owner))
+  {
+      return;
+  }
+  ```
 
 ## Workflow
 

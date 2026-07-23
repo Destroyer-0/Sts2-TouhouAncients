@@ -54,10 +54,14 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "不幸",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]并叠加2层[gold]灾厄[/gold]。每张攻击牌每次打出只触发一次。",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]并叠加[blue]2[/blue]层[gold]灾厄[/gold]。每张攻击牌每次打出只触发一次。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]。\n造成伤害时，使对方失去10层[gold]王国资产[/gold]。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount2}[/blue]层[gold]王国资产[/gold]。",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
-  "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。死亡时，如果女苑还存活，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。",
-  "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。死亡时，如果女苑还存活，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。"
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。女苑被击倒时，将被击晕并移除此能力。",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "每回合为女苑提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。女苑被击倒时，将被击晕并移除此能力。",
+
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "讨债人",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除50%的[gold]王国资产[/gold]并增加等量伤害。",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除[blue]{Amount}%[/blue]的[gold]王国资产[/gold]并增加等量伤害。"
 }

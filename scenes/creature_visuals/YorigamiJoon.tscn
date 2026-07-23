@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1nikxyfcp5c6"]
+
+[ext_resource type="Texture2D" uid="uid://bojue3v847uhw" path="res://images/sprite/joon/stand0000.png" id="1_3iih2"]
+[ext_resource type="Texture2D" uid="uid://c0lkwwj266qo2" path="res://images/sprite/joon/stand0001.png" id="2_kqm74"]
+[ext_resource type="Texture2D" uid="uid://u6mawkqi8i21" path="res://images/sprite/joon/stand0002.png" id="3_ymf5o"]
+[ext_resource type="Texture2D" uid="uid://87cry7g0ittk" path="res://images/sprite/joon/stand0003.png" id="4_1uynk"]
+[ext_resource type="Texture2D" uid="uid://c22hham2mknrf" path="res://images/sprite/joon/stand0004.png" id="5_pdr3k"]
+[ext_resource type="Texture2D" uid="uid://bci0syqsqsv6c" path="res://images/sprite/joon/stand0005.png" id="6_2t8sh"]
+[ext_resource type="Texture2D" uid="uid://df76b8h7c4jpd" path="res://images/sprite/joon/stand0006.png" id="7_mke2k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pxvvt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3iih2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kqm74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ymf5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1uynk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pdr3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2t8sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mke2k")
+}],
+"loop": true,
+"name": &"idle_loop",
+"speed": 10.0
+}]
+
+[node name="YorigamiJoon" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(9.536743e-07, -18)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_pxvvt")
+animation = &"idle_loop"
+autoplay = "idle_loop"
+frame_progress = 0.88066727
+offset = Vector2(-2, -29.333336)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -75.0
+offset_top = -200.0
+offset_right = 75.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -81)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -257)

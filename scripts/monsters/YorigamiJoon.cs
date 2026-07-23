@@ -1,18 +1,30 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
+using BaseLib.Utils.NodeFactories;
+using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
 public sealed class YorigamiJoon : CustomMonsterModel
 {
+    // --- 本地化 ---
+    private static readonly LocString _scatterWealthLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.moves.SCATTER_WEALTH_UPPERCUT.banter");
+    private static readonly LocString _joonDefeatedLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.banter.JOON_DEFEATED");
+
     // --- HP ---
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 95, 90);
@@ -29,8 +41,28 @@ public sealed class YorigamiJoon : CustomMonsterModel
     private int CelebrityBurnStrength => 2;
     private int CelebrityBurnFrail => 2;
 
+    public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://scenes/creature_visuals/YorigamiJoon.tscn");
+    // --- 死亡后留场景 ---
+    //public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature) => false;
+    public override bool ShouldFadeAfterDeath => false;
+    public override bool ShouldDisappearFromDoom => false;
+
     // --- 音效 ---
-    public override DamageSfxType TakeDamageSfxType => DamageSfxType.Slime;
+    public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
+
+    
+    // --- 死亡前对话 ---
+    public override async Task BeforeDeath(Creature creature)
+    {
+        await base.BeforeDeath(creature);
+        if (creature != base.Creature) return;
+
+        bool shionAlive = base.CombatState.Allies.Any(c => c.Monster is YorigamiShion && !c.IsDead);
+        if (shionAlive)
+        {
+            TalkCmd.Play(_joonDefeatedLine, base.Creature, VfxColor.Purple);
+        }
+    }
 
     // --- 状态机 ---
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -66,22 +98,24 @@ public sealed class YorigamiJoon : CustomMonsterModel
     /// </summary>
     private async Task BubbleQueenMove(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
-        await PowerCmd.Apply<RoyaltiesPower>(targets, BubbleQueenRoyalties, base.Creature, null);
+        // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
+        await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), targets, BubbleQueenRoyalties, base.Creature, null);
     }
 
     /// <summary>
-    /// 黄金龙卷风：4x3 多段攻击。
+    /// 黄金龙卷风：4x3 多段攻击。结束后给自己叠加讨债人。
     /// </summary>
     private async Task GoldenTornadoMove(IReadOnlyList<Creature> targets)
     {
         await DamageCmd.Attack(GoldenTornadoDamage)
             .FromMonster(this)
             .WithHitCount(GoldenTornadoHits)
-            .WithAttackerAnim("Attack", 0.15f)
+            // TODO: 动画 - .WithAttackerAnim("Attack", 0.15f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
+        await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
     }
 
     /// <summary>
@@ -90,28 +124,26 @@ public sealed class YorigamiJoon : CustomMonsterModel
     /// </summary>
     private async Task ScatterWealthUppercutMove(IReadOnlyList<Creature> targets)
     {
-        Player player = base.CombatState.Players[0];
-        RoyaltiesPower royalties = player.GetPower<RoyaltiesPower>();
-        int halfRoyalties = 0;
-        if (royalties != null && royalties.Amount > 0)
-        {
-            halfRoyalties = (int)(royalties.Amount / 2m);
-        }
+        TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple);
 
-        int totalDamage = ScatterWealthUppercutDamage + halfRoyalties;
+        // Player player = base.CombatState.Players[0];
+        // var royalties = player.Creature.GetPowerAmount<RoyaltiesPower>();
+        // int halfRoyalties  = (int)(royalties / 2m);
+        //
+        // int totalDamage = ScatterWealthUppercutDamage + halfRoyalties;
 
-        await DamageCmd.Attack(totalDamage)
+        await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)
-            .WithAttackerAnim("Attack", 0.3f)
+            // TODO: 动画 - .WithAttackerAnim("Attack", 0.3f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
         // 扣除玩家一半王国资产
-        if (royalties != null && halfRoyalties > 0)
-        {
-            await PowerCmd.Apply<RoyaltiesPower>(player, -halfRoyalties, base.Creature, null);
-        }
+        // if (halfRoyalties > 0)
+        // {
+        //     await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), player.Creature, -halfRoyalties, base.Creature, null);
+        // }
     }
 
     /// <summary>
@@ -119,8 +151,8 @@ public sealed class YorigamiJoon : CustomMonsterModel
     /// </summary>
     private async Task CelebrityBurnMove(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
-        await PowerCmd.Apply<StrengthPower>(base.Creature, CelebrityBurnStrength, base.Creature, null);
-        await PowerCmd.Apply<FrailPower>(targets, CelebrityBurnFrail, base.Creature, null);
+        // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
+        await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
     }
 }
