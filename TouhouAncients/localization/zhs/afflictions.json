@@ -1,10 +1,10 @@
 {
-  "DEVOURED.description": "为这张牌添加[gold]消耗[/gold]。",
-  "DEVOURED.title": "吞噬",
-  "WEIGHTED.description": "打出这张牌时失去{Amount:energyIcons()}。",
-  "WEIGHTED.extraCardText": "失去{Amount:energyIcons()}。",
-  "WEIGHTED.title": "沉重",
-  "TOUHOU_ANCIENTS_COLLATERAL.description": "获得[gold]保留[/gold]与[red]不可被打出[/red]，[blue]{Amount}[/blue]回合后移除。",
-  "TOUHOU_ANCIENTS_COLLATERAL.extraCardText": "{Amount}回合后移除抵押物效果。",
-  "TOUHOU_ANCIENTS_COLLATERAL.title": "抵押物"
+  "TOUHOUANCIENTS-DEVOURED.description": "为这张牌添加[gold]消耗[/gold]。",
+  "TOUHOUANCIENTS-DEVOURED.title": "吞噬",
+  "TOUHOUANCIENTS-WEIGHTED.description": "打出这张牌时失去{Amount:energyIcons()}。",
+  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "失去{Amount:energyIcons()}。",
+  "TOUHOUANCIENTS-WEIGHTED.title": "沉重",
+  "TOUHOUANCIENTS-COLLATERAL.description": "获得[gold]保留[/gold]与[red]不可被打出[/red]，[blue]{Amount}[/blue]回合后移除。",
+  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "{Amount}回合后移除抵押物效果。",
+  "TOUHOUANCIENTS-COLLATERAL.title": "抵押物"
 }

@@ -57,9 +57,34 @@ public sealed class YorigamiShion : CustomMonsterModel
         }
     }
 
-    private bool _justExitedStun;
-    
-    
+    private MoveState _selfRepairState;
+    private ConditionalBranchState _rootBranch;
+
+    /// <summary>
+    /// 自修复状态：显示治疗意图，由 TwinSoulPower 在死亡时切入。
+    /// 复活完成后由 ExitSelfRepairState 切回根分支。
+    /// </summary>
+    public MoveState SelfRepairState
+    {
+        get
+        {
+            _selfRepairState ??= new MoveState("SELF_REPAIR", SelfRepairMove, new HealIntent())
+            {
+                MustPerformOnceBeforeTransitioning = true
+            };
+            return _selfRepairState;
+        }
+    }
+
+    /// <summary>
+    /// 退出自修复状态，切回根条件分支重新评估（显示正常意图）。
+    /// </summary>
+    public void ExitSelfRepairState()
+    {
+        _selfRepairState!.FollowUpState = _rootBranch;
+        SetMoveImmediate(SelfRepairState, forceTransition: true);
+    }
+
     public override bool ShouldFadeAfterDeath => false;
     public override bool ShouldDisappearFromDoom => false;
 
@@ -94,17 +119,21 @@ public sealed class YorigamiShion : CustomMonsterModel
         StunnedState.FollowUpState = absoluteLoser;
 
         // 根条件分支：女苑存活 → 阶段1，否则 → 阶段2
-        ConditionalBranchState rootBranch = new ConditionalBranchState("ROOT");
-        rootBranch.AddState(doomSpread, IsJoonAlive);
-        rootBranch.AddState(absoluteLoser, () => !IsJoonAlive());
+        _rootBranch = new ConditionalBranchState("ROOT");
+        _rootBranch.AddState(doomSpread, IsJoonAlive);
+        _rootBranch.AddState(absoluteLoser, () => !IsJoonAlive());
+
+        // 自修复结束后回到根分支
+        SelfRepairState.FollowUpState = _rootBranch;
 
         list.Add(doomSpread);
         list.Add(featherPlucking);
         list.Add(absoluteLoser);
         list.Add(StunnedState);
-        list.Add(rootBranch);
+        list.Add(SelfRepairState);
+        list.Add(_rootBranch);
 
-        return new MonsterMoveStateMachine(list, rootBranch);
+        return new MonsterMoveStateMachine(list, doomSpread);
     }
 
     /// <summary>
@@ -158,17 +187,10 @@ public sealed class YorigamiShion : CustomMonsterModel
 
     /// <summary>
     /// 绝对输家：给予场上所有单位灾厄，并让玩家失去王国资产。
-    /// 眩晕后首次进入时触发对话。
     /// </summary>
     private async Task AbsoluteLoserMove(IReadOnlyList<Creature> targets)
     {
         //await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.8f);
-
-        if (_justExitedStun)
-        {
-            _justExitedStun = false;
-            TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple);
-        }
 
         // 给所有敌人（包括女苑如果还活着）施加灾厄
         var allys = base.CombatState.Allies.Where(c => !c.IsDead).ToList();
@@ -187,11 +209,20 @@ public sealed class YorigamiShion : CustomMonsterModel
     }
 
     /// <summary>
-    /// 眩晕状态：什么也不做，标记已退出眩晕。
+    /// 眩晕状态：眩晕结束时触发对话。
     /// </summary>
     private Task StunnedMove(IReadOnlyList<Creature> targets)
     {
-        _justExitedStun = true;
+        TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// 自修复状态：什么也不做，由 TwinSoulPower.DoReattach 执行治疗并切回。
+    /// 此状态仅用于显示治疗意图图标。
+    /// </summary>
+    private Task SelfRepairMove(IReadOnlyList<Creature> targets)
+    {
         return Task.CompletedTask;
     }
 }

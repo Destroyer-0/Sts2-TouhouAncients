@@ -41,7 +41,7 @@ public static class CurseBreakerQiPatchs
         try
         {
             if (__instance.Owner != null && __instance.Owner.GetRelic<CurseBreakerQi>() != null &&
-                (__instance.Type == CardType.Curse || __instance.Affliction is TouhouAncientsCollateral))
+                (__instance.Type == CardType.Curse || __instance.Affliction is Collateral))
             {
                 if (!__result && reason.HasFlag(UnplayableReason.HasUnplayableKeyword))
                 {

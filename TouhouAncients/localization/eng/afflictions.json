@@ -1,11 +1,11 @@
 {
-  "DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
-  "DEVOURED.title": "Devoured",
-  "WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
-  "WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
-  "WEIGHTED.title": "Weighted",
+  "TOUHOUANCIENTS-DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
+  "TOUHOUANCIENTS-DEVOURED.title": "Devoured",
+  "TOUHOUANCIENTS-WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
+  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
+  "TOUHOUANCIENTS-WEIGHTED.title": "Weighted",
 
-  "TOUHOU_ANCIENTS_COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
-  "TOUHOU_ANCIENTS_COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
-  "TOUHOU_ANCIENTS_COLLATERAL.title": "Collateral"
+  "TOUHOUANCIENTS-COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
+  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
+  "TOUHOUANCIENTS-COLLATERAL.title": "Collateral"
 }

@@ -87,7 +87,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
     }
 
     /// <summary>
-    /// 死亡时：标记为复活中状态（不真正死亡）。
+    /// 死亡时：标记为复活中状态（不真正死亡），切换到自修复状态显示治疗意图。
     /// </summary>
     public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
         bool wasRemovalPrevented, float deathAnimLength)
@@ -97,16 +97,26 @@ public class TwinSoulPower : TouhouAncientPowerModel
         IsReviving = true;
         ReviveCountdown = 2;
 
+        if (base.Owner.Monster is YorigamiShion shion)
+        {
+            shion.SetMoveImmediate(shion.SelfRepairState);
+        }
+
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// 执行复活：治疗 50 HP 并将复活标记清除。
+    /// 执行复活：治疗 50 HP，清除复活标记，切回正常状态机。
     /// </summary>
     private async Task DoReattach()
     {
         IsReviving = false;
         await CreatureCmd.Heal(base.Owner, 50m);
+
+        if (base.Owner.Monster is YorigamiShion shion)
+        {
+            shion.ExitSelfRepairState();
+        }
     }
 
     /// <summary>

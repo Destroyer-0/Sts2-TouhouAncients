@@ -31,7 +31,7 @@ public class BlackCatDoll : TouhouAncientRelics
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromAffliction<TouhouAncientsCollateral>(base.DynamicVars["CollateralNum"].IntValue)
+        HoverTipFactory.FromAffliction<Collateral>(base.DynamicVars["CollateralNum"].IntValue)
             .Append(HoverTipFactory.FromKeyword(CardKeyword.Retain))
             .Append(HoverTipFactory.FromKeyword(CardKeyword.Unplayable));
 
@@ -60,7 +60,7 @@ public class BlackCatDoll : TouhouAncientRelics
         if (targetCard == null) return;
 
         // 添加抵押物侵蚀
-        await CardCmd.AfflictAndPreview<TouhouAncientsCollateral>([targetCard],
+        await CardCmd.AfflictAndPreview<Collateral>([targetCard],
             base.DynamicVars["CollateralNum"].IntValue);
     }
 }

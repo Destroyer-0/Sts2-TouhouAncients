@@ -2,12 +2,11 @@
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Afflictions;
 
 
-public sealed class Weighted : AfflictionModel
+public sealed class Weighted : TouhouAncientAfflictionModel
 {
     public override bool HasExtraCardText => true;
     

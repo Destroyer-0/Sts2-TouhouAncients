@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
@@ -14,6 +15,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.powers;
 
@@ -52,16 +54,37 @@ public sealed class YorigamiJoon : CustomMonsterModel
 
     
     // --- 死亡前对话 ---
+    // 绕过 TalkCmd.Play 的 IsDead 检查（BeforeDeath 时 IsDead 已为 true），直接创建气泡
     public override async Task BeforeDeath(Creature creature)
     {
         await base.BeforeDeath(creature);
         if (creature != base.Creature) return;
 
-        bool shionAlive = base.CombatState.Allies.Any(c => c.Monster is YorigamiShion && !c.IsDead);
+        bool shionAlive = base.CombatState.Enemies.Any(c => c is { Monster: YorigamiShion, IsDead: false });
         if (shionAlive)
         {
-            TalkCmd.Play(_joonDefeatedLine, base.Creature, VfxColor.Purple);
+            string formattedText = _joonDefeatedLine.GetFormattedText();
+            double duration = Math.Max(0.5, GetRawCharCount(formattedText) * 0.12);
+            NSpeechBubbleVfx? bubble = NSpeechBubbleVfx.Create(formattedText, base.Creature, duration, VfxColor.Purple);
+            if (bubble != null)
+                NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(bubble);
         }
+    }
+
+    // --- 死亡后隐藏意图 ---
+    // 由于 TwinSoulPower 阻止了怪物从战斗中移除，导致 AnimHideIntent 不会被自动调用
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+        bool wasRemovalPrevented, float deathAnimLength)
+    {
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        if (creature != base.Creature) return;
+        NCombatRoom.Instance?.GetCreatureNode(creature)?.AnimHideIntent();
+    }
+
+    private static int GetRawCharCount(string bbcodeText)
+    {
+        string text = Regex.Replace(bbcodeText, "\\[/?[^\\]]+\\]", "");
+        return text.Replace("\n", "").Replace("\r", "").Replace(" ", "").Length;
     }
 
     // --- 状态机 ---
