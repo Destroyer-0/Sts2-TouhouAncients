@@ -16,14 +16,7 @@ public sealed class YorigamiSistersEncounter : CustomEncounterModel
         ModelDb.Monster<YorigamiShion>()
     ];
 
-    public override string? CustomScenePath
-    {
-        get
-        {
-            GD.PrintErr("asdjakaskika!");
-            return "res://scenes/encounters/yorigami_sisters.tscn";
-        }
-    }
+    public override string? CustomScenePath => "res://scenes/encounters/yorigami_sisters.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [
@@ -35,5 +28,5 @@ public sealed class YorigamiSistersEncounter : CustomEncounterModel
     {
     }
 
-    public override bool IsValidForAct(ActModel act) => act.Index == 1;
+    public override bool IsValidForAct(ActModel act) => false;
 }

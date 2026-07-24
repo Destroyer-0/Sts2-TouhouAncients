@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Afflictions;
@@ -11,4 +12,5 @@ namespace TouhouAncients.Scripts.Afflictions;
 /// </summary>
 public abstract class TouhouAncientAfflictionModel : AfflictionModel, ICustomModel
 {
+    
 }

@@ -99,7 +99,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
 
         if (base.Owner.Monster is YorigamiShion shion)
         {
-            shion.SetMoveImmediate(shion.SelfRepairState);
+            shion.SetSelfRepairState();
         }
 
         return Task.CompletedTask;

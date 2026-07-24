@@ -64,7 +64,7 @@ public sealed class YorigamiJoon : CustomMonsterModel
         if (shionAlive)
         {
             string formattedText = _joonDefeatedLine.GetFormattedText();
-            double duration = Math.Max(0.5, GetRawCharCount(formattedText) * 0.12);
+            double duration = Math.Max(3, GetRawCharCount(formattedText) * 0.2);
             NSpeechBubbleVfx? bubble = NSpeechBubbleVfx.Create(formattedText, base.Creature, duration, VfxColor.Purple);
             if (bubble != null)
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(bubble);
@@ -147,13 +147,7 @@ public sealed class YorigamiJoon : CustomMonsterModel
     /// </summary>
     private async Task ScatterWealthUppercutMove(IReadOnlyList<Creature> targets)
     {
-        TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple);
-
-        // Player player = base.CombatState.Players[0];
-        // var royalties = player.Creature.GetPowerAmount<RoyaltiesPower>();
-        // int halfRoyalties  = (int)(royalties / 2m);
-        //
-        // int totalDamage = ScatterWealthUppercutDamage + halfRoyalties;
+        TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple, VfxDuration.Long);
 
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)

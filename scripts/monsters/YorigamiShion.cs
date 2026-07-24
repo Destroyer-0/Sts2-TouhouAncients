@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Godot;
 using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
@@ -11,11 +12,14 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
@@ -23,66 +27,53 @@ namespace TouhouAncients.Scripts.monsters;
 public sealed class YorigamiShion : CustomMonsterModel
 {
     // --- 本地化 ---
-    private static readonly LocString _absoluteLoserLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_SHION.moves.ABSOLUTE_LOSER.banter");
+    private static readonly LocString _absoluteLoserLine =
+        new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_SHION.moves.ABSOLUTE_LOSER.banter");
 
     // --- HP ---
     public override int MinInitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 110, 100);
+
     public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 110, 100);
 
     // --- 伤害/数值 ---
     private int DoomSpreadDoom => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 5, 4);
+
     private int DoomSpreadWeak => 1;
+
     private int FeatherPluckingDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 8, 7);
+
     private int AbsoluteLoserDoom => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 18, 16);
+
     private int AbsoluteLoserRoyaltiesLoss => 10;
-    public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://scenes/creature_visuals/YorigamiShion.tscn");
+
+    public override NCreatureVisuals? CreateCustomVisuals() =>
+        NodeFactory<NCreatureVisuals>.CreateFromScene("res://scenes/creature_visuals/YorigamiShion.tscn");
 
 
     // --- 音效 ---
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
 
     // --- 状态（延迟初始化） ---
-    private MoveState _stunnedState;
-    private MoveState StunnedState
-    {
-        get
-        {
-            _stunnedState ??= new MoveState("STUNNED", StunnedMove);
-            return _stunnedState;
-        }
-    }
+    public MoveState StunnedState;
 
-    private MoveState _selfRepairState;
+    public MoveState SelfRepairState;
+
+
     private ConditionalBranchState _rootBranch;
-
-    /// <summary>
-    /// 自修复状态：显示治疗意图，由 TwinSoulPower 在死亡时切入。
-    /// 复活完成后由 ExitSelfRepairState 切回根分支。
-    /// </summary>
-    public MoveState SelfRepairState
-    {
-        get
-        {
-            _selfRepairState ??= new MoveState("SELF_REPAIR", SelfRepairMove, new HealIntent())
-            {
-                MustPerformOnceBeforeTransitioning = true
-            };
-            return _selfRepairState;
-        }
-    }
 
     /// <summary>
     /// 退出自修复状态，切回根条件分支重新评估（显示正常意图）。
     /// </summary>
     public void ExitSelfRepairState()
     {
-        _selfRepairState!.FollowUpState = _rootBranch;
+        SelfRepairState!.FollowUpState = _rootBranch;
         SetMoveImmediate(SelfRepairState, forceTransition: true);
+        PlayAnim("idle_loop");
     }
 
     public override bool ShouldFadeAfterDeath => false;
@@ -93,7 +84,9 @@ public sealed class YorigamiShion : CustomMonsterModel
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature, null);
+        AnimatedSprite2D.AnimationFinished += OnAnimationFinished;
+        await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature,
+            null);
         await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
     }
 
@@ -115,16 +108,18 @@ public sealed class YorigamiShion : CustomMonsterModel
         MoveState absoluteLoser = new MoveState("ABSOLUTE_LOSER", AbsoluteLoserMove, new DebuffIntent());
         absoluteLoser.FollowUpState = absoluteLoser;
 
+        StunnedState = new MoveState("STUNNED", StunnedMove, new StunIntent());
         // 眩晕结束后进入阶段2
         StunnedState.FollowUpState = absoluteLoser;
+
+        SelfRepairState = new MoveState("SELF_REPAIR", SelfRepairMove, new HealIntent());
+        // 默认自循环（击倒后等待复活），ExitSelfRepairState 中会改为 _rootBranch
+        SelfRepairState.FollowUpState = SelfRepairState;
 
         // 根条件分支：女苑存活 → 阶段1，否则 → 阶段2
         _rootBranch = new ConditionalBranchState("ROOT");
         _rootBranch.AddState(doomSpread, IsJoonAlive);
         _rootBranch.AddState(absoluteLoser, () => !IsJoonAlive());
-
-        // 自修复结束后回到根分支
-        SelfRepairState.FollowUpState = _rootBranch;
 
         list.Add(doomSpread);
         list.Add(featherPlucking);
@@ -134,6 +129,15 @@ public sealed class YorigamiShion : CustomMonsterModel
         list.Add(_rootBranch);
 
         return new MonsterMoveStateMachine(list, doomSpread);
+    }
+
+
+    private void OnAnimationFinished()
+    {
+        if (AnimatedSprite2D.Animation == "hurt")
+        {
+            AnimatedSprite2D.Play(IsJoonAlive() ? "idle_loop" : "spell");
+        }
     }
 
     /// <summary>
@@ -155,34 +159,126 @@ public sealed class YorigamiShion : CustomMonsterModel
         if (creature.Monster is YorigamiJoon)
         {
             await PowerCmd.Remove<TwinSoulPower>(base.Creature);
-            SetMoveImmediate(StunnedState);
             await CreatureCmd.Stun(creature, StunnedMove, StunnedState.StateId);
+            PlayAnim("die");
+            SetMoveImmediate(StunnedState);
         }
     }
 
+    public void SetSelfRepairState()
+    {
+        PlayAnim("damage");
+        SetMoveImmediate(SelfRepairState);
+    }
+
+    /// <summary>
+    /// 受击时播放一轮 hurt 动画后回到 idle。
+    /// </summary>
+    // public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
+    //     DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    // {
+    //     if (target == base.Creature && props.IsCardOrMonsterMove())
+    //     {
+    //         PlayAnim("hurt");
+    //         await Cmd.Wait(1f);
+    //         PlayAnim("idle_loop");
+    //     }
+    // }
+
     // --- 技能方法 ---
+    private AnimatedSprite2D? _animatedSprite2D;
+
+    public AnimatedSprite2D AnimatedSprite2D
+    {
+        get
+        {
+            if (_animatedSprite2D == null)
+            {
+                var body = base.Creature.GetCreatureNode()?.Visuals.GetCurrentBody();
+                if (body is AnimatedSprite2D sprite)
+                {
+                    _animatedSprite2D = sprite;
+                }
+            }
+
+            return _animatedSprite2D;
+        }
+    }
+
+    /// <summary>
+    /// 直接控制 AnimatedSprite2D 播放指定动画。
+    /// </summary>
+    private void PlayAnim(string animationName)
+    {
+        AnimatedSprite2D.Animation = animationName;
+        AnimatedSprite2D.Play();
+    }
 
     /// <summary>
     /// 厄运传播：给予 1 虚弱 + 灾厄。
     /// </summary>
     private async Task DoomSpreadMove(IReadOnlyList<Creature> targets)
     {
-        // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
-        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadWeak, base.Creature, null);
-        await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature, null);
+        PlayAnim("spell");
+        await Cmd.Wait(0.5f);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadWeak, base.Creature,
+            null);
+        await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature,
+            null);
+        await Cmd.Wait(1f);
+        PlayAnim("idle_loop");
     }
 
     /// <summary>
-    /// 雁过拔毛：造成伤害。
+    /// 雁过拔毛：Rush 穿过玩家，离开屏幕左侧后从右侧返回，造成伤害。
     /// </summary>
     private async Task FeatherPluckingMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnim("rush");
+
+        // 找到最左侧玩家
+        Vector2? targetPos = null;
+        foreach (Creature target in targets)
+        {
+            NCreature creatureNode = target.GetCreatureNode();
+            if (creatureNode != null && (!targetPos.HasValue || targetPos.Value.X > creatureNode.GlobalPosition.X))
+            {
+                targetPos = creatureNode.GlobalPosition;
+            }
+        }
+
+        NCreature myNode = base.Creature.GetCreatureNode();
+        Node2D body = myNode?.Visuals.GetCurrentBody();
+
+        // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
+        if (myNode != null && body != null && targetPos.HasValue)
+        {
+            var rushTarget = Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f);
+            var rushTween = body.CreateTween();
+            rushTween.TweenProperty(body, "position", rushTarget, 0.5f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.6f);
+        }
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(FeatherPluckingDamage)
             .FromMonster(this)
-            //.WithAttackerAnim("Attack", 0.3f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
+        // 瞬移到右侧，然后 Tween 平滑返回原位
+        if (myNode != null && body != null)
+        {
+            body.Position = Vector2.Right * 600f;
+            await Cmd.Wait(0.1f);
+            var returnTween = body.CreateTween();
+            returnTween.TweenProperty(body, "position", Vector2.Zero, 0.3f)
+                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.35f);
+        }
+
+        PlayAnim("idle_loop");
     }
 
     /// <summary>
@@ -190,7 +286,8 @@ public sealed class YorigamiShion : CustomMonsterModel
     /// </summary>
     private async Task AbsoluteLoserMove(IReadOnlyList<Creature> targets)
     {
-        //await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.8f);
+        PlayAnim("spell");
+        await Cmd.Wait(0.5f);
 
         // 给所有敌人（包括女苑如果还活着）施加灾厄
         var allys = base.CombatState.Allies.Where(c => !c.IsDead).ToList();
@@ -206,23 +303,27 @@ public sealed class YorigamiShion : CustomMonsterModel
                     -(Math.Min(royal, AbsoluteLoserRoyaltiesLoss)), base.Creature, null);
             }
         }
+
+        await Cmd.Wait(1f);
     }
 
     /// <summary>
-    /// 眩晕状态：眩晕结束时触发对话。
+    /// 眩晕状态：播放 die 动画并触发对话。
     /// </summary>
     private Task StunnedMove(IReadOnlyList<Creature> targets)
     {
+        //PlayAnim("die");
         TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+        PlayAnim("spell");
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// 自修复状态：什么也不做，由 TwinSoulPower.DoReattach 执行治疗并切回。
-    /// 此状态仅用于显示治疗意图图标。
+    /// 自修复状态：播放 hurt 动画，由 TwinSoulPower.DoReattach 执行治疗并切回。
     /// </summary>
     private Task SelfRepairMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnim("damage");
         return Task.CompletedTask;
     }
 }

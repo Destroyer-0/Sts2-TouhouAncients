@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqda4r7heb5ni"
-path="res://.godot/imported/stand0006.png-2938ea5e8fcf0ff0ab8e2f85e95b5514.ctex"
+uid="uid://cbs8aglalcsev"
+path="res://.godot/imported/oil_burst.png-892bda7cf7e222de43ebd3a30b4d19ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/shion/stand0006.png"
-dest_files=["res://.godot/imported/stand0006.png-2938ea5e8fcf0ff0ab8e2f85e95b5514.ctex"]
+source_file="res://images/sprite/shion/oil_burst.png"
+dest_files=["res://.godot/imported/oil_burst.png-892bda7cf7e222de43ebd3a30b4d19ba.ctex"]
 
 [params]
 

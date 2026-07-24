@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu62p4kqim11b"
-path="res://.godot/imported/stand0003.png-92d5cb9867b333910c57baaf1b05b3b5.ctex"
+uid="uid://bxre0ium5y362"
+path="res://.godot/imported/damage.png-7d587428f1c62b5c7904c0cb7a8a1e02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/shion/stand0003.png"
-dest_files=["res://.godot/imported/stand0003.png-92d5cb9867b333910c57baaf1b05b3b5.ctex"]
+source_file="res://images/sprite/shion/damage.png"
+dest_files=["res://.godot/imported/damage.png-7d587428f1c62b5c7904c0cb7a8a1e02.ctex"]
 
 [params]
 

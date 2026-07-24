@@ -8,7 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <!-- 改成你的杀戮尖塔2目录 -->
-    <Sts2Dir>D:\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2Dir>
+    <Sts2Dir>D:\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
     <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
   </PropertyGroup>
 
@@ -23,14 +23,21 @@
       <Private>false</Private>
     </Reference>
     
-    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.0.0" />
+    <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="scripts\Patches\" />
   </ItemGroup>
 
   <!-- 自动复制dll和json -->
-  <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
-    <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
-    <MakeDir Directories="$(Sts2Dir)\mods\" />
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
-    <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
-  </Target>
+    <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
+        <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
+        <MakeDir Directories="$(Sts2Dir)\mods\" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
+        <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+        <Copy SourceFiles="更新内容.md" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+        <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+    </Target>
 </Project>
