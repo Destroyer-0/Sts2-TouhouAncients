@@ -25,7 +25,8 @@ public enum ForcedAncientOption
     Marisa魔理沙,
     Yuuma饕餮,
     Junko纯狐,
-    Yorigami依神姐妹
+    Yorigami依神姐妹,
+    Mamizou猯藏
 }
 
 /// <summary>
@@ -82,6 +83,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             JunkoAncient  => BanJunko,
             ToutetsuYuumaAncient  => BanYuuma,
             YorigamiSisterAncient  => BanYorigami,
+            FutatsuiwaMamizouAncient  => !EnableTestContentMamizou || BanMamizou,
             _ => false
         };
     }
@@ -109,6 +111,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(JunkoAncient) => BanJunko,
             nameof(ToutetsuYuumaAncient) => BanYuuma,
             nameof(YorigamiSisterAncient) => BanYorigami,
+            nameof(FutatsuiwaMamizouAncient) => !EnableTestContentMamizou || BanMamizou,
             _ => false
         };
     }
@@ -161,6 +164,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Yuuma饕餮 when type is ToutetsuYuumaAncient => true,
             ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
             ForcedAncientOption.Yorigami依神姐妹 when type is YorigamiSisterAncient => true,
+            ForcedAncientOption.Mamizou猯藏 when type is FutatsuiwaMamizouAncient => EnableTestContentMamizou,
             _ => false
         };
     }
@@ -208,5 +212,12 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanJunko { get; set; } = false;
     public static bool BanYuuma { get; set; } = false;
     public static bool BanYorigami { get; set; } = false;
+    public static bool BanMamizou { get; set; } = false;
+
+    /// <summary>
+    /// 启用测试内容·二岩猯藏（勾选后二岩猯藏才会出现在游戏中）
+    /// </summary>
+    [ConfigSection("TestContent")]
+    public static bool EnableTestContentMamizou { get; set; } = false;
 
 }

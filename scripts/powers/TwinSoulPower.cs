@@ -54,6 +54,10 @@ public class TwinSoulPower : TouhouAncientPowerModel
     /// </summary>
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        if (Owner.IsDead)
+        {
+            return;
+        }
         
         if (side != CombatSide.Player || CombatManager.Instance.PlayersTakingExtraTurn.Count > 0)
         {

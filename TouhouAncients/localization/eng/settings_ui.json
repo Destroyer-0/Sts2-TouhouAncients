@@ -33,5 +33,10 @@
   "TOUHOUANCIENTS-BAN_MARISA.title": "Ban Marisa (Act 2/3)",
   "TOUHOUANCIENTS-BAN_JUNKO.title": "Ban Junko (Act 3)",
   "TOUHOUANCIENTS-BAN_YUUMA.title": "Ban Yuuma (Act 3)",
-  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "Ban Yorigami Sister(Act 2)"
+  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "Ban Yorigami Sister(Act 2)",
+  "TOUHOUANCIENTS-BAN_MAMIZOU.title": "Ban Mamizou (Act 2/3)",
+
+  "TOUHOUANCIENTS-TEST_CONTENT.title": "Test Content",
+  "TOUHOUANCIENTS-TEST_CONTENT.description": "The balance, art, and text of the following content are still being adjusted and will not appear by default.",
+  "TOUHOUANCIENTS-ENABLE_TEST_CONTENT_MAMIZOU.title": "Enable Test Content: Mamizou Futatsuiwa"
 }

@@ -689,7 +689,7 @@
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "龙脉之皿",
-  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记[blue]1[/blue]条路线（不包括boss房间）。进入路线上的节点获得[blue]{Gold}[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]{Strength}[/blue][gold]力量[/gold][blue]{Dexterity}[/blue][gold]敏捷[/gold]，且额外掉落[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记[blue]1[/blue]条路线。进入路线上的节点获得[blue]{Gold}[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]{Strength}[/blue][gold]力量[/gold][blue]{Dexterity}[/blue][gold]敏捷[/gold]，且额外掉落[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor": "",
 
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "幻灭三叉戟",
@@ -698,7 +698,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "独眼唐伞",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "每当你斩杀一名不是爪牙的敌人时，获得[blue]{Charges}[/blue]计数，如果此时为战斗的第一回合则改为[blue]{FirstTurnCharges}[/blue]。你可以在休息处花费[blue]{UpgradeCost}[/blue]计数额外[green]升级[/green][blue]{UpgradeCount}[/blue]张牌。",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "每当你斩杀一名敌人时，获得[blue]{Charges}[/blue]计数，如果此时为战斗的第一回合则改为[blue]{FirstTurnCharges}[/blue]。你可以在休息处花费[blue]{UpgradeCost}[/blue]计数额外[green]升级[/green][blue]{UpgradeCount}[/blue]张牌。",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行绘卷",
