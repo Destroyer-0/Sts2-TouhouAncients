@@ -74,7 +74,6 @@ public class DeathBlackCrown : TouhouAncientRelics
         if (!props.IsPoweredAttack()) return 1m;
         if (CardsPlayedThisTurn > 2) return 1m;
 
-        Flash();
         return 2m;
     }
 
