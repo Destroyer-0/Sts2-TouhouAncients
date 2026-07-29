@@ -205,11 +205,34 @@ public sealed class YorigamiShion : CustomMonsterModel
         }
     }
 
+    private AnimationPlayer? _animationPlayer;
+
+    private AnimationPlayer? AnimationPlayer
+    {
+        get
+        {
+            if (_animationPlayer == null)
+            {
+                _animationPlayer = AnimatedSprite2D?.GetParent()?.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+            }
+
+            return _animationPlayer;
+        }
+    }
+
     /// <summary>
     /// 直接控制 AnimatedSprite2D 播放指定动画。
     /// </summary>
     private void PlayAnim(string animationName)
     {
+        bool wasDie = AnimatedSprite2D.Animation == "die";
+        bool willBeDie = animationName == "die";
+
+        if (willBeDie && !wasDie)
+            AnimationPlayer?.Play("float");
+        else if (!willBeDie && wasDie)
+            AnimationPlayer?.Play("RESET");
+
         AnimatedSprite2D.Animation = animationName;
         AnimatedSprite2D.Play();
     }

@@ -97,7 +97,7 @@ public sealed class YorigamiJoon : CustomMonsterModel
         MoveState goldenTornado = new MoveState("GOLDEN_TORNADO", GoldenTornadoMove,
             new MultiAttackIntent(GoldenTornadoDamage, GoldenTornadoHits));
         MoveState scatterWealthUppercut = new MoveState("SCATTER_WEALTH_UPPERCUT", ScatterWealthUppercutMove,
-            new DeathBlowIntent(() => ScatterWealthUppercutDamage));
+            new SingleAttackIntent(ScatterWealthUppercutDamage));
         MoveState celebrityBurn = new MoveState("CELEBRITY_BURN", CelebrityBurnMove,
             new BuffIntent(), new DebuffIntent());
 
