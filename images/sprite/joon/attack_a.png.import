@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bip6bqsnv64sg"
-path="res://.godot/imported/ko.png-261214a7f061e4ddccd2e959e811926d.ctex"
+uid="uid://doxvtcbg3ggxi"
+path="res://.godot/imported/attack_a.png-31583c77bb93a536aebd8629171e2df4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/joon/ko.png"
-dest_files=["res://.godot/imported/ko.png-261214a7f061e4ddccd2e959e811926d.ctex"]
+source_file="res://images/sprite/joon/attack_a.png"
+dest_files=["res://.godot/imported/attack_a.png-31583c77bb93a536aebd8629171e2df4.ctex"]
 
 [params]
 
