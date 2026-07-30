@@ -4,5 +4,8 @@
   "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "还未到[pink][sine]樱花散落[/sine][/pink]的时候呢。",
 
   "OPTION_WITCHS_CAULDRON.name": "炼药",
-  "OPTION_WITCHS_CAULDRON.description": "获得[blue]3[/blue]瓶随机药水，[gold]变化[/gold]至多[blue]1[/blue]张牌。"
+  "OPTION_WITCHS_CAULDRON.description": "获得[blue]3[/blue]瓶随机药水，[gold]变化[/gold]至多[blue]1[/blue]张牌。",
+
+  "OPTION_TREASURE.name": "寻宝",
+  "OPTION_TREASURE.description": "从记录的卡牌中选择任意张加入牌组。并有概率挖出一些[jitter][gold]秘宝[/gold][/jitter]!。"
 }

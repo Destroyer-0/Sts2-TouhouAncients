@@ -68,7 +68,7 @@
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "每当你抽到名字中有“防御”的牌时，打出这张牌。\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂飨",
-    "TOUHOUANCIENTS-THE_FEAST.description": "选择并[gold]消耗[/gold]{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张此牌的复制品加入你的[gold]弃牌堆[/gold]。",
+    "TOUHOUANCIENTS-THE_FEAST.description": "选择并[gold]消耗[/gold]{MinExhaust}~{MaxExhaust}张抽牌堆中不为[gold]狂飨[/gold]的牌，每消耗一张，获得{Strength:diff()}[gold]力量[/gold]与{Energy:energyIcons()}。\n回合结束时，如果这张牌在你的手中，将{Copies}张此牌的复制品加入你的[gold]弃牌堆[/gold]。\n[jitter][i]全都化作我的食粮吧！！[/i][/jitter]",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "选择1~3张牌[gold]消耗[/gold]",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "神枪「冈格尼尔」",

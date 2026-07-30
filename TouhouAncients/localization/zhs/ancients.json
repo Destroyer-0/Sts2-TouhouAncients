@@ -475,6 +475,7 @@
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.firstVisitEver.0-0.speaker": "jyoon",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-0.ancient": "拿最贵的酒来——！",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-0.speaker": "jyoon",
+  "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-0.next": "继续",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-1.ancient": "上最贵的菜来——！",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-1.speaker": "shion",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-1.next": "继续",
@@ -594,8 +595,6 @@
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.NECROBINDER.1-3.ancient": "打住打住——你要我爆建筑师的金币吗？不去不去——不过，给你提供点支援还是可以的。",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.NECROBINDER.1-3.speaker": "jyoon",
 
-
-
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.title": "饕餮 尤魔",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.epithet": "以荒疫为食的灾兽",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.firstVisitEver.0-0.ancient": "[jitter]桀桀……[/jitter]居然会有人来呢，你也是来享用这里的恐惧、悲喜、憎恶和怨叹的吗？",
@@ -614,6 +613,7 @@
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.SILENT.0-1.next": "继续",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.SILENT.0-2.ancient": "如果你死在半路，那就是暴殄天物了，所以你的任务可是要好好活着，等待我来亲自享用哦……呵呵呵。",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.SILENT.1-0r.ancient": "[jitter]桀桀……[/jitter]下毒和刺杀这种阴暗招式……倒是和吉吊那家伙绝配……呵呵呵。",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.SILENT.2-0r.ancient": "小看世间的险恶，可是会吃苦头的哦？",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.REGENT.0-0.char": "好难闻的气味！难道这里就是那所谓荒疫的根源？",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.REGENT.0-0.next": "继续",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.REGENT.0-1.ancient": "又来一个偷油贼？",
