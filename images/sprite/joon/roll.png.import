@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6w62h47ge27o"
-path="res://.godot/imported/ko2.png-579c55faadc46092562127593fb1fd51.ctex"
+uid="uid://di2xiybefgqie"
+path="res://.godot/imported/roll.png-73628a9746f1792bedc97af148f0c950.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/joon/ko2.png"
-dest_files=["res://.godot/imported/ko2.png-579c55faadc46092562127593fb1fd51.ctex"]
+source_file="res://images/sprite/joon/roll.png"
+dest_files=["res://.godot/imported/roll.png-73628a9746f1792bedc97af148f0c950.ctex"]
 
 [params]
 

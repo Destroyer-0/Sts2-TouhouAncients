@@ -35,7 +35,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
             HoverTipFactory.FromKeyword(CardKeyword.Ethereal));
 
 
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+    public override async Task AfterSideTurnStart( CombatSide side,
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
@@ -51,7 +51,7 @@ public class PurgatoryEmbers : TouhouAncientRelics
 
         var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, 0, exhaustCards.Count);
         var selected = (await CardSelectCmd.FromSimpleGrid(
-            choiceContext,
+            new ThrowingPlayerChoiceContext(),
             exhaustCards,
             Owner,
             prefs

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u6mawkqi8i21"
-path="res://.godot/imported/stand0002.png-66b2a0c466b3d81cea5751756bbc5ec1.ctex"
+uid="uid://c54qysc2gyj12"
+path="res://.godot/imported/attack_a_air.png-f805e4e4c8325c146aa8f179b6f1c264.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/joon/stand0002.png"
-dest_files=["res://.godot/imported/stand0002.png-66b2a0c466b3d81cea5751756bbc5ec1.ctex"]
+source_file="res://images/sprite/joon/attack_a_air.png"
+dest_files=["res://.godot/imported/attack_a_air.png-f805e4e4c8325c146aa8f179b6f1c264.ctex"]
 
 [params]
 

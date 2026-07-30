@@ -24,7 +24,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
-public sealed class YorigamiShion : CustomMonsterModel
+public sealed class YorigamiShion : TouhouAncientMonster
 {
     // --- 本地化 ---
     private static readonly LocString _absoluteLoserLine =
@@ -76,15 +76,15 @@ public sealed class YorigamiShion : CustomMonsterModel
         PlayAnim("idle_loop");
     }
 
-    public override bool ShouldFadeAfterDeath => false;
-    public override bool ShouldDisappearFromDoom => false;
+    public override bool ShouldFadeAfterDeath => IsJoonAlive();
+    public override bool ShouldDisappearFromDoom => IsJoonAlive();
 
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        AnimatedSprite2D.AnimationFinished += OnAnimationFinished;
+        MyAnimatedSprite2D.AnimationFinished += OnAnimationFinished;
         await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature,
             null);
         await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
@@ -134,9 +134,9 @@ public sealed class YorigamiShion : CustomMonsterModel
 
     private void OnAnimationFinished()
     {
-        if (AnimatedSprite2D.Animation == "hurt")
+        if (MyAnimatedSprite2D.Animation == "hurt")
         {
-            AnimatedSprite2D.Play(IsJoonAlive() ? "idle_loop" : "spell");
+            MyAnimatedSprite2D.Play(IsJoonAlive() ? "idle_loop" : "spell");
         }
     }
 
@@ -171,37 +171,19 @@ public sealed class YorigamiShion : CustomMonsterModel
         SetMoveImmediate(SelfRepairState);
     }
 
-    /// <summary>
-    /// 受击时播放一轮 hurt 动画后回到 idle。
-    /// </summary>
-    // public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
-    //     DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
-    // {
-    //     if (target == base.Creature && props.IsCardOrMonsterMove())
-    //     {
-    //         PlayAnim("hurt");
-    //         await Cmd.Wait(1f);
-    //         PlayAnim("idle_loop");
-    //     }
-    // }
 
-    // --- 技能方法 ---
-    private AnimatedSprite2D? _animatedSprite2D;
+    private AnimationPlayer? _animationPlayer;
 
-    public AnimatedSprite2D AnimatedSprite2D
+    private AnimationPlayer? AnimationPlayer
     {
         get
         {
-            if (_animatedSprite2D == null)
+            if (_animationPlayer == null)
             {
-                var body = base.Creature.GetCreatureNode()?.Visuals.GetCurrentBody();
-                if (body is AnimatedSprite2D sprite)
-                {
-                    _animatedSprite2D = sprite;
-                }
+                _animationPlayer = MyAnimatedSprite2D?.GetParent()?.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
             }
 
-            return _animatedSprite2D;
+            return _animationPlayer;
         }
     }
 
@@ -210,8 +192,15 @@ public sealed class YorigamiShion : CustomMonsterModel
     /// </summary>
     private void PlayAnim(string animationName)
     {
-        AnimatedSprite2D.Animation = animationName;
-        AnimatedSprite2D.Play();
+        bool wasDie = MyAnimatedSprite2D.Animation == "die";
+        bool willBeDie = animationName == "die";
+
+        if (willBeDie && !wasDie)
+            AnimationPlayer?.Play("float");
+        else if (!willBeDie && wasDie)
+            AnimationPlayer?.Play("RESET");
+
+        PlayAnimation(animationName);
     }
 
     /// <summary>

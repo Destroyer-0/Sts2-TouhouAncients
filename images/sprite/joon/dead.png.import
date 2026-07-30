@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df76b8h7c4jpd"
-path="res://.godot/imported/stand0006.png-d166996badbfe253237281276f62a558.ctex"
+uid="uid://crkjn3f8ft8cs"
+path="res://.godot/imported/dead.png-00e23fb2ae4b7ee8755f0f3b760ae2db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/joon/stand0006.png"
-dest_files=["res://.godot/imported/stand0006.png-d166996badbfe253237281276f62a558.ctex"]
+source_file="res://images/sprite/joon/dead.png"
+dest_files=["res://.godot/imported/dead.png-00e23fb2ae4b7ee8755f0f3b760ae2db.ctex"]
 
 [params]
 

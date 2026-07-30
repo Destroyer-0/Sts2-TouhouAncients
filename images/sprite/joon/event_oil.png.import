@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0lkwwj266qo2"
-path="res://.godot/imported/stand0001.png-a4e33eff9a31bd8bc4b5f7fb42d4b444.ctex"
+uid="uid://ccepr2obqy17m"
+path="res://.godot/imported/event_oil.png-cf11356bb917c323bc06e0935c09cd74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/joon/stand0001.png"
-dest_files=["res://.godot/imported/stand0001.png-a4e33eff9a31bd8bc4b5f7fb42d4b444.ctex"]
+source_file="res://images/sprite/joon/event_oil.png"
+dest_files=["res://.godot/imported/event_oil.png-cf11356bb917c323bc06e0935c09cd74.ctex"]
 
 [params]
 

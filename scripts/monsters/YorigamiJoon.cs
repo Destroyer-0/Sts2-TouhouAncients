@@ -3,9 +3,11 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Godot;
 using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +23,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
-public sealed class YorigamiJoon : CustomMonsterModel
+public sealed class YorigamiJoon : TouhouAncientMonster
 {
     // --- 本地化 ---
     private static readonly LocString _scatterWealthLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.moves.SCATTER_WEALTH_UPPERCUT.banter");
@@ -46,12 +48,20 @@ public sealed class YorigamiJoon : CustomMonsterModel
     public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://scenes/creature_visuals/YorigamiJoon.tscn");
     // --- 死亡后留场景 ---
     //public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature) => false;
-    public override bool ShouldFadeAfterDeath => false;
-    public override bool ShouldDisappearFromDoom => false;
+    public override bool ShouldFadeAfterDeath => IsShionAlive();
+    public override bool ShouldDisappearFromDoom => IsShionAlive();
 
     // --- 音效 ---
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
-
+    
+    /// <summary>
+    /// 检测女苑是否存活。
+    /// </summary>
+    private bool IsShionAlive()
+    {
+        return base.CombatState.Enemies.Any(c => c.Monster is YorigamiShion && !c.IsDead);
+    }
+    
     
     // --- 死亡前对话 ---
     // 绕过 TalkCmd.Play 的 IsDead 检查（BeforeDeath 时 IsDead 已为 true），直接创建气泡
@@ -79,6 +89,7 @@ public sealed class YorigamiJoon : CustomMonsterModel
         await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature != base.Creature) return;
         NCombatRoom.Instance?.GetCreatureNode(creature)?.AnimHideIntent();
+        PlayAnimation("die");
     }
 
     private static int GetRawCharCount(string bbcodeText)
@@ -97,7 +108,7 @@ public sealed class YorigamiJoon : CustomMonsterModel
         MoveState goldenTornado = new MoveState("GOLDEN_TORNADO", GoldenTornadoMove,
             new MultiAttackIntent(GoldenTornadoDamage, GoldenTornadoHits));
         MoveState scatterWealthUppercut = new MoveState("SCATTER_WEALTH_UPPERCUT", ScatterWealthUppercutMove,
-            new DeathBlowIntent(() => ScatterWealthUppercutDamage));
+            new SingleAttackIntent(ScatterWealthUppercutDamage));
         MoveState celebrityBurn = new MoveState("CELEBRITY_BURN", CelebrityBurnMove,
             new BuffIntent(), new DebuffIntent());
 
@@ -122,7 +133,11 @@ public sealed class YorigamiJoon : CustomMonsterModel
     private async Task BubbleQueenMove(IReadOnlyList<Creature> targets)
     {
         // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
+        PlayAnimation("money");
+        await Cmd.Wait(0.5f);
         await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), targets, BubbleQueenRoyalties, base.Creature, null);
+        await Cmd.Wait(1.7f);
+        PlayAnimation("idle_loop");
     }
 
     /// <summary>
@@ -130,6 +145,28 @@ public sealed class YorigamiJoon : CustomMonsterModel
     /// </summary>
     private async Task GoldenTornadoMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnimation("tornado_1");
+        
+        NCreature myNode = base.Creature.GetCreatureNode();
+        Node2D body = myNode?.Visuals.GetCurrentBody();
+        // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
+        if (myNode != null && body != null)
+        {
+            var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y - 100f);
+            var rushTween = body.CreateTween();
+            rushTween.TweenProperty(body, "position", rushTarget, 0.6f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.6f);
+        }
+
+        PlayAnimation("tornado_2");
+        var land = NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition;
+
+        var rushTween2 = body.CreateTween();
+        rushTween2.TweenProperty(body, "position", land, 0.5f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+        await Cmd.Wait(0.5f);
+        
         await DamageCmd.Attack(GoldenTornadoDamage)
             .FromMonster(this)
             .WithHitCount(GoldenTornadoHits)
@@ -138,7 +175,18 @@ public sealed class YorigamiJoon : CustomMonsterModel
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
+        PlayAnimation("roll");
+        
+        var returnTween = body.CreateTween();
+        returnTween.TweenProperty(body, "position", Vector2.Zero, 0.3f)
+            .SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
+        await Cmd.Wait(0.35f);
+        
+        PlayAnimation("prepare");
+        await Cmd.Wait(0.25f);
+        
         await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
+        PlayAnimation("idle_loop");
     }
 
     /// <summary>
@@ -149,27 +197,42 @@ public sealed class YorigamiJoon : CustomMonsterModel
     {
         TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple, VfxDuration.Long);
 
+        await Cmd.Wait(0.5f);
+        PlayAnimation("attack");
+        MyAnimatedSprite2D.AnimationFinished += Reset;
+        await Cmd.Wait(0.2f);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)
             // TODO: 动画 - .WithAttackerAnim("Attack", 0.3f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
-
+        await Cmd.Wait(1f);
         // 扣除玩家一半王国资产
         // if (halfRoyalties > 0)
         // {
         //     await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), player.Creature, -halfRoyalties, base.Creature, null);
         // }
     }
-
+    
+    private void Reset()
+    {
+        PlayAnimation("idle_loop");
+        MyAnimatedSprite2D.AnimationFinished -= Reset;
+    }
+    
     /// <summary>
     /// 名流燃烧：获得力量，给玩家施加脆弱。
     /// </summary>
     private async Task CelebrityBurnMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnimation("spell_pre");
+        await Cmd.Wait(0.2f);
+        PlayAnimation("spell");
         // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
+        await Cmd.Wait(0.8f);
+        PlayAnimation("idle_loop");
     }
 }

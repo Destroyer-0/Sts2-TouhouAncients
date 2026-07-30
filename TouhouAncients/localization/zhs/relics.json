@@ -659,8 +659,8 @@
   "TOUHOUANCIENTS-SMOKED_FAN.flavor": "来自贫穷神的悲恸。",
 
   "TOUHOUANCIENTS-GRILLED_MISO.title": "烤味噌",
-  "TOUHOUANCIENTS-GRILLED_MISO.description": "拾起时，[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
-  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励与商店中的卡牌不再出现[green]升级[/green]后的。",
+  "TOUHOUANCIENTS-GRILLED_MISO.description": "拾起时，[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励中的卡牌不再出现[green]升级[/green]后的。",
+  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]升级[/gold][blue]{Cards}[/blue]张牌。战斗奖励中的卡牌不再出现[green]升级[/green]后的。",
   "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~真正的烤味噌……可带劲啦~",
 
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "可靠的弟子狸",
@@ -669,39 +669,39 @@
 
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "赤云指虎",
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.description": "当你不以自动打出的方式打出[gold]攻击牌[/gold]时，随机打出[gold]手牌[/gold]中另一张[gold]攻击牌[/gold]。",
-  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "",
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "拥有精密的动作和强大的力量程度的能力。",
 
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "沉锚幽灵",
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "回合开始时获得{Energy:energyIcons()}。你的[gold]能力牌[/gold]在战斗开始时被置于牌堆底。",
-  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "无论如何都会沉船程度的能力。",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙发簪",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "每场战斗你首次死亡时，恢复[blue]{Percent}%[/blue]生命值，之后的回合由霍青娥接管。",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "霍青娥",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "霍青娥接管回合后，回合开始时使你失去6点生命并获得{energyPrefix:energyIcons(1)}。她更喜欢耗能高的卡牌。",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "让僵尸出现在你草坪上程度的能力。",
 
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "鲵吞亭特调",
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.description": "拾起时，获得[blue]{PotionSlots}[/blue]个[gold]药水栏位[/gold]。你之后获得的[gold]药水[/gold]将变成[gold]超ZUN啤酒[/gold]。",
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.eventDescription": "获得[blue]{PotionSlots}[/blue]个[gold]药水栏位[/gold]。你之后获得的[gold]药水[/gold]将变成[gold]超ZUN啤酒[/gold]。",
-  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "喝完酒变勇程度的能力。",
 
-  "TOUHOUANCIENTS-DOWSING_ROD.title": "寻龙尺",
-  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处雇佣纳兹琳寻宝。",
-  "TOUHOUANCIENTS-DOWSING_ROD.flavor": "",
+  "TOUHOUANCIENTS-DOWSING_ROD.title": "纳兹琳灵摆",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处花费[blue]{Gold}[/blue][gold]金币[/gold]雇佣纳兹琳寻宝。",
+  "TOUHOUANCIENTS-DOWSING_ROD.flavor": "不管怎样都能找回宝塔程度的能力。",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "龙脉之皿",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记[blue]1[/blue]条路线。进入路线上的节点获得[blue]{Gold}[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，且额外掉落[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]。",
-  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor": "",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor": "识别风水并点燃程度的能力。",
 
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "幻灭三叉戟",
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.description": "拾起时，将[blue]{Cards}[/blue]张[gold]未名妖魔[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.eventDescription": "将[blue]{Cards}[/blue]张[gold]未名妖魔[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°鵺å…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ‘ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "独眼唐伞",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "每当你斩杀一名敌人时，获得[blue]{Charges}[/blue]计数，如果此时为战斗的第一回合则改为[blue]{FirstTurnCharges}[/blue]。你可以在休息处花费[blue]{UpgradeCost}[/blue]计数额外[green]升级[/green][blue]{UpgradeCount}[/blue]张牌。",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "吓人让人人见人爱程度的能力。",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行绘卷",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "拾起时，查看来自铁甲战士、静默猎者、储君、亡灵契约师、故障机器人的各[blue]{CardPacks}[/blue]组[gold]卡牌奖励[/gold]。将选择的[gold]卡牌奖励[/gold]合成为[gold]卡牌[/gold]：[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]。",
@@ -710,7 +710,7 @@
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "超能念力",
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.description": "每当你抽到[gold]能力牌[/gold]时，额外抽[blue]{Cards}[/blue]张牌。每回合首次打出[gold]能力牌[/gold]时，将[blue]{Copies}[/blue]张该牌的复制品加入[gold]弃牌堆[/gold]。",
-  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "将JK作为种族程度的能力。",
 
   "TOUHOUANCIENTS-NOH_MASK.title": "能乐假面",
   "TOUHOUANCIENTS-NOH_MASK.description": "战斗开始时或将牌堆洗牌时，为所有卡牌随机添加[purple]喜[/purple]、[purple]怒[/purple]、[purple]哀[/purple]、[purple]乐[/purple]情绪。每当你打出[purple]喜[/purple]、[purple]怒[/purple]、[purple]哀[/purple]、[purple]乐[/purple]情绪各[blue]{EmotionThreshold}[/blue]张后，恢复{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
