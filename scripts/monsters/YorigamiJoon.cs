@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using BaseLib.Abstracts;
-using BaseLib.Utils.NodeFactories;
 using Godot;
-using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -25,19 +23,20 @@ namespace TouhouAncients.Scripts.monsters;
 
 public sealed class YorigamiJoon : TouhouAncientMonster
 {
+    private static readonly StringName RetainedVisualGroup =
+        new StringName("touhou_ancients_yorigami_joon_retained_visual");
+
     // --- 本地化 ---
     private static readonly LocString _scatterWealthLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.moves.SCATTER_WEALTH_UPPERCUT.banter");
     private static readonly LocString _joonDefeatedLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.banter.JOON_DEFEATED");
 
     // --- HP ---
-    public override int MinInitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 95, 90);
-    public override int MaxInitialHp => AscensionHelper.GetValueIfAscension(
+    protected override int InitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 95, 90);
 
     // --- 伤害/数值 ---
     private int BubbleQueenRoyalties => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 35, 30);
+        AscensionLevel.DeadlyEnemies, 40, 35);
     private int GoldenTornadoDamage => 4;
     private int GoldenTornadoHits => 3;
     private int ScatterWealthUppercutDamage => AscensionHelper.GetValueIfAscension(
@@ -45,38 +44,15 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     private int CelebrityBurnStrength => 2;
     private int CelebrityBurnFrail => 2;
 
-    public override NCreatureVisuals? CreateCustomVisuals() => NodeFactory<NCreatureVisuals>.CreateFromScene("res://scenes/creature_visuals/YorigamiJoon.tscn");
-    // --- 死亡后留场景 ---
-    //public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature) => false;
-    public override bool ShouldFadeAfterDeath => IsShionAlive();
-    public override bool ShouldDisappearFromDoom => IsShionAlive();
-
-    // --- 音效 ---
-    public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
+    public override bool ShouldFadeAfterDeath => true;
+    public override bool ShouldDisappearFromDoom => false;
     
-    /// <summary>
-    /// 检测女苑是否存活。
-    /// </summary>
-    private bool IsShionAlive()
+    
+    protected override string? GetNextAnimation(string finishedAnimation)
     {
-        return base.CombatState.Enemies.Any(c => c.Monster is YorigamiShion && !c.IsDead);
-    }
-
-    public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature) => creature != Creature || !IsShionAlive();
-    
-    
-    public override async Task AfterAddedToRoom()
-    {
-        await base.AfterAddedToRoom();
-        MyAnimatedSprite2D.AnimationFinished += OnAnimationFinished;
-    }
-    
-    private void OnAnimationFinished()
-    {
-        if (MyAnimatedSprite2D.Animation == "hurt")
-        {
-            MyAnimatedSprite2D.Play("idle");
-        }
+        return finishedAnimation == "attack"
+            ? CurrentLoopAnimation
+            : base.GetNextAnimation(finishedAnimation);
     }
     
     // --- 死亡前对话 ---
@@ -91,42 +67,121 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         {
             string formattedText = _joonDefeatedLine.GetFormattedText();
             double duration = Math.Max(3, GetRawCharCount(formattedText) * 0.2);
-            NSpeechBubbleVfx? bubble = NSpeechBubbleVfx.Create(formattedText, base.Creature, duration, VfxColor.Purple);
+            NSpeechBubbleVfx? bubble = NSpeechBubbleVfx.Create(
+                formattedText, base.Creature, duration, VfxColor.Purple);
             if (bubble != null)
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(bubble);
         }
+
+        PlayAnimation("die");
+    }
+
+    public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature)
+    {
+        if (creature != base.Creature)
+            return true;
+
+        return !base.CombatState.Enemies.Any(
+            c => c is { Monster: YorigamiShion, IsDead: false });
     }
 
     // --- 死亡后处理 ---
-    // 强制切换到无限眩晕状态，显示眩晕意图。
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
-        bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
         await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature != base.Creature) return;
-        PlayAnimation("die");
-        ForceDeadState();
+
+        if (creature.CombatState is not CombatState combatState ||
+            !combatState.Enemies.Any(c => c is { Monster: YorigamiShion, IsDead: false }))
+            return;
+
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
+        if (creatureNode != null)
+        {
+            creatureNode.AnimHideIntent();
+            creatureNode.ToggleIsInteractable(on: false);
+            creatureNode.AddToGroup(RetainedVisualGroup);
+        }
+
+        // Hook 监听者在执行前已经复制到独立列表，可以安全注销逻辑实体。
+        // 保留 CombatState 引用，确保后续死亡 Hook 仍能取得原战斗上下文。
+        CombatManager.Instance.RemoveCreature(creature);
+        combatState.RemoveCreature(creature, unattach: false);
     }
 
     /// <summary>
-    /// 将状态机强制切换到一个自循环的眩晕状态，死后不再行动。
+    /// 紫苑死亡时，让仍留在场上的女苑原始显示节点播放原版死亡风化效果。
     /// </summary>
-    private void ForceDeadState()
+    internal static Task FadeRetainedVisualAfterShionDeath()
     {
-        MonsterMoveStateMachine? fsm = base.Creature.Monster?.MoveStateMachine;
-        if (fsm == null) return;
-        MoveState deadState = new MoveState("DEAD", DeadMove, new StunIntent())
-        {
-            FollowUpStateId = "DEAD",
-            MustPerformOnceBeforeTransitioning = true,
-        };
-        fsm.States["DEAD"] = deadState;
-        base.Creature.Monster.SetMoveImmediate(deadState, forceTransition: true);
+        SceneTree? sceneTree = NCombatRoom.Instance?.GetTree();
+        List<NCreature> creatureNodes = sceneTree?
+            .GetNodesInGroup(RetainedVisualGroup)
+            .OfType<NCreature>()
+            .Where(GodotObject.IsInstanceValid)
+            .ToList() ?? [];
+
+        return FadeAndRemoveRetainedVisuals(creatureNodes);
     }
 
-    private static Task DeadMove(IReadOnlyList<Creature> targets)
+    /// <summary>
+    /// 让因复活机制而保留的完整怪物节点播放原版死亡风化效果。
+    /// </summary>
+    internal static Task FadeRetainedCreatureVisual(Creature creature)
     {
-        return Task.CompletedTask;
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);
+        return FadeAndRemoveRetainedVisuals(creatureNode == null ? [] : [creatureNode]);
+    }
+
+    private static async Task FadeAndRemoveRetainedVisuals(
+        List<NCreature> creatureNodes)
+    {
+        NCombatRoom? combatRoom = NCombatRoom.Instance;
+        if (combatRoom == null || creatureNodes.Count == 0)
+            return;
+
+        foreach (NCreature creatureNode in creatureNodes)
+        {
+            creatureNode.RemoveFromGroup(RetainedVisualGroup);
+            creatureNode.AnimHideIntent();
+        }
+
+        NMonsterDeathVfx? deathVfx = NMonsterDeathVfx.Create(creatureNodes);
+        if (deathVfx == null)
+        {
+            foreach (NCreature creatureNode in creatureNodes)
+            {
+                combatRoom.RemoveCreatureNode(creatureNode);
+                creatureNode.QueueFreeSafely();
+            }
+            return;
+        }
+
+        Node? parent = creatureNodes[0].GetParent();
+        if (parent == null)
+            return;
+
+        parent.AddChildSafely(deathVfx);
+        parent.MoveChild(deathVfx, creatureNodes[0].GetIndex());
+
+        Task fadeTask = PlayDeathVfxAndRemoveNodes(deathVfx, creatureNodes);
+        foreach (NCreature creatureNode in creatureNodes)
+        {
+            creatureNode.DeathAnimationTask = fadeTask;
+            combatRoom.RemoveCreatureNode(creatureNode);
+        }
+
+        await fadeTask;
+    }
+
+    private static async Task PlayDeathVfxAndRemoveNodes(
+        NMonsterDeathVfx deathVfx, List<NCreature> creatureNodes)
+    {
+        await Cmd.Wait(0.25f, ignoreCombatEnd: true);
+        await deathVfx.PlayVfx();
+
+        foreach (NCreature creatureNode in creatureNodes)
+            creatureNode.QueueFreeSafely();
     }
 
     private static int GetRawCharCount(string bbcodeText)
@@ -171,21 +226,16 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     {
         PlayAnimation("money");
         await Cmd.Wait(0.5f);
-        var pos = NCombatRoom.Instance.GetCreatureNode(Creature)?.VfxSpawnPosition;
-        if (pos.HasValue)
-        {
-            VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
-            SfxCmd.Play("event:/sfx/ui/gold/gold_2");
-        }
+        var pos = base.Creature.GetCreatureNode().VfxSpawnPosition;
+        VfxCmd.PlayVfx(pos, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+        SfxCmd.Play("event:/sfx/ui/gold/gold_2");
+
         await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), targets, BubbleQueenRoyalties, base.Creature, null);
         await Cmd.Wait(1.1f);
-        if (pos.HasValue)
-        {
-            VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
-            SfxCmd.Play("event:/sfx/ui/gold/gold_2");
-        }
+        VfxCmd.PlayVfx(pos, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+        SfxCmd.Play("event:/sfx/ui/gold/gold_2");
         await Cmd.Wait(0.6f);
-        PlayAnimation("idle");
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
@@ -209,7 +259,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         PlayAnimation("tornado_2");
-        var land = NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition;
+        var land = targets.Count > 0 ? NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition : Vector2.Left * 350;
 
         var rushTween2 = body.CreateTween();
         rushTween2.TweenProperty(body, "position", land, 0.5f)
@@ -247,7 +297,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         await Cmd.Wait(0.25f);
         
         await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
-        PlayAnimation("idle");
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
@@ -261,7 +311,6 @@ public sealed class YorigamiJoon : TouhouAncientMonster
 
         await Cmd.Wait(0.5f);
         PlayAnimation("attack");
-        MyAnimatedSprite2D.AnimationFinished += Reset;
         await Cmd.Wait(0.2f);
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
@@ -278,12 +327,6 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         // }
     }
     
-    private void Reset()
-    {
-        PlayAnimation("idle");
-        MyAnimatedSprite2D.AnimationFinished -= Reset;
-    }
-    
     /// <summary>
     /// 名流燃烧：获得力量，给玩家施加脆弱。
     /// </summary>
@@ -296,6 +339,6 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
         await Cmd.Wait(0.8f);
-        PlayAnimation("idle");
+        PlayCurrentLoopAnimation();
     }
 }

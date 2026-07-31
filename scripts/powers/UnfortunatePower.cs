@@ -23,6 +23,10 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public class UnfortunatePower : TouhouAncientPowerModel
 {
+    public override string? CustomPackedIconPath => TouhouAncientCmd.CheckPathExists($"res://images/icon/power/PoorestFormPower.png");
+    public override string? CustomBigIconPath => TouhouAncientCmd.CheckPathExistsWithFallback2($"res://images/icon/power/BigIcon/PoorestFormPower.png",CustomPackedIconPath);
+
+    
     private class Data
     {
         public readonly Dictionary<CardModel, bool> triggeredCards = new Dictionary<CardModel, bool>();

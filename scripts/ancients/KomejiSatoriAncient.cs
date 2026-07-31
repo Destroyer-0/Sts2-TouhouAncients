@@ -56,7 +56,7 @@ public class KomejiSatoriAncient : TouhouAncientBase
         ];
     }
 
-    public override IEnumerable<EventOption> AllPossibleOptions => Pool0.Concat(Pool1).Concat(Pool2).Concat(Pool3);
+    protected override IEnumerable<EventOption> GetAncientOptions() => Pool0.Concat(Pool1).Concat(Pool2).Concat(Pool3);
 
     private IEnumerable<EventOption> Pool0 =>
     [

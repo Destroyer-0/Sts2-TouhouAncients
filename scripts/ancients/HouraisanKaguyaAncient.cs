@@ -31,7 +31,7 @@ public class HouraisanKaguyaAncient : TouhouAncientBase
             AncientOption<KaguyaSecretTreasure>()
         ));
 
-    public override IEnumerable<EventOption> AllPossibleOptions => BaseOptionPool;
+    protected override IEnumerable<EventOption> GetAncientOptions() => BaseOptionPool;
 
     private IEnumerable<EventOption> BaseOptionPool =>
     [

@@ -20,6 +20,9 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public class DebtCollectorPower : TouhouAncientPowerModel
 {
+    public override string? CustomPackedIconPath => TouhouAncientCmd.CheckPathExists($"res://images/icon/power/RichestFormPower.png");
+    public override string? CustomBigIconPath => TouhouAncientCmd.CheckPathExistsWithFallback2($"res://images/icon/power/BigIcon/RichestFormPower.png", CustomPackedIconPath);
+
     private class Data
     {
         public AttackCommand? trackedCommand;

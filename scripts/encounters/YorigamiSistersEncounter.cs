@@ -28,5 +28,14 @@ public sealed class YorigamiSistersEncounter : CustomEncounterModel
     {
     }
 
+    /// <summary>
+    /// 是否为挑战战斗（由 Ancient 事件的挑战选项进入）。挑战战斗不生成正常战斗奖励
+    /// （金币/卡牌/药水），奖励由 Ancient 事件在战斗胜利后自行结算。
+    /// 由 <see cref="TouhouAncientBase.StartChallenge"/> 在 ToMutable 后的实例上设置。
+    /// </summary>
+    public bool IsChallenge { get; set; }
+
+    public override bool ShouldGiveRewards => !IsChallenge;
+
     public override bool IsValidForAct(ActModel act) => false;
 }
