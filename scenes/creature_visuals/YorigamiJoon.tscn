@@ -208,6 +208,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_6aknu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3rrj6")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pw2dw")
 }, {
 "duration": 1.0,
@@ -229,7 +240,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_i1hhb")
 }],
 "loop": true,
-"name": &"idle_loop",
+"name": &"idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -347,9 +358,8 @@ unique_name_in_owner = true
 position = Vector2(9.536743e-07, -18)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_pxvvt")
-animation = &"spell"
-autoplay = "idle_loop"
-frame_progress = 0.45034477
+animation = &"hurt"
+autoplay = "idle"
 offset = Vector2(-2, -29.333336)
 flip_h = true
 

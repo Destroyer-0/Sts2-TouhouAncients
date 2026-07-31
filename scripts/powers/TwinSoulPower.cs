@@ -124,11 +124,12 @@ public class TwinSoulPower : TouhouAncientPowerModel
     }
 
     /// <summary>
-    /// 死亡后不将生物从战斗中移除（复活需要保留）。
+    /// 死亡后不将持有者从战斗中移除（复活需要保留）。
+    /// 仅对自身持有者生效，不阻止其他生物（如女苑）的正常移除。
     /// </summary>
     public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature)
     {
-        return false;
+        return creature != base.Owner;
     }
 
     /// <summary>

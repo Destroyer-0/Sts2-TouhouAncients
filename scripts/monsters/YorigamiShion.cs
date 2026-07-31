@@ -73,7 +73,7 @@ public sealed class YorigamiShion : TouhouAncientMonster
     {
         SelfRepairState!.FollowUpState = _rootBranch;
         SetMoveImmediate(SelfRepairState, forceTransition: true);
-        PlayAnim("idle_loop");
+        PlayAnim("idle");
     }
 
     public override bool ShouldFadeAfterDeath => IsJoonAlive();
@@ -96,10 +96,8 @@ public sealed class YorigamiShion : TouhouAncientMonster
         List<MonsterState> list = new List<MonsterState>();
 
         // 阶段1：厄运传播 → 雁过拔毛（循环）
-        MoveState doomSpread = new MoveState("DOOM_SPREAD", DoomSpreadMove,
-            new DebuffIntent());
-        MoveState featherPlucking = new MoveState("FEATHER_PLUCKING", FeatherPluckingMove,
-            new SingleAttackIntent(FeatherPluckingDamage));
+        MoveState doomSpread = new MoveState("DOOM_SPREAD", DoomSpreadMove, new DebuffIntent());
+        MoveState featherPlucking = new MoveState("FEATHER_PLUCKING", FeatherPluckingMove, new SingleAttackIntent(FeatherPluckingDamage));
 
         doomSpread.FollowUpState = featherPlucking;
         featherPlucking.FollowUpState = doomSpread;
@@ -136,7 +134,7 @@ public sealed class YorigamiShion : TouhouAncientMonster
     {
         if (MyAnimatedSprite2D.Animation == "hurt")
         {
-            MyAnimatedSprite2D.Play(IsJoonAlive() ? "idle_loop" : "spell");
+            MyAnimatedSprite2D.Play(IsJoonAlive() ? "idle" : "spell");
         }
     }
 
@@ -214,8 +212,8 @@ public sealed class YorigamiShion : TouhouAncientMonster
             null);
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature,
             null);
-        await Cmd.Wait(1f);
-        PlayAnim("idle_loop");
+        await Cmd.Wait(0.75f);
+        PlayAnim("idle");
     }
 
     /// <summary>
@@ -244,9 +242,9 @@ public sealed class YorigamiShion : TouhouAncientMonster
         {
             var rushTarget = Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f);
             var rushTween = body.CreateTween();
-            rushTween.TweenProperty(body, "position", rushTarget, 0.5f)
+            rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.6f);
+            await Cmd.Wait(0.4f);
         }
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
@@ -262,12 +260,12 @@ public sealed class YorigamiShion : TouhouAncientMonster
             body.Position = Vector2.Right * 600f;
             await Cmd.Wait(0.1f);
             var returnTween = body.CreateTween();
-            returnTween.TweenProperty(body, "position", Vector2.Zero, 0.3f)
+            returnTween.TweenProperty(body, "position", Vector2.Zero, 0.25f)
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.35f);
+            await Cmd.Wait(0.3f);
         }
 
-        PlayAnim("idle_loop");
+        PlayAnim("idle");
     }
 
     /// <summary>
@@ -308,7 +306,6 @@ public sealed class YorigamiShion : TouhouAncientMonster
     }
 
     /// <summary>
-    /// 自修复状态：播放 hurt 动画，由 TwinSoulPower.DoReattach 执行治疗并切回。
     /// </summary>
     private Task SelfRepairMove(IReadOnlyList<Creature> targets)
     {

@@ -186,7 +186,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_gm2vb")
 }],
 "loop": true,
-"name": &"idle_loop",
+"name": &"idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -279,9 +279,8 @@ unique_name_in_owner = true
 position = Vector2(9.536743e-07, -18)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xo5xb")
-animation = &"die"
-autoplay = "idle_loop"
-frame_progress = 0.31481412
+animation = &"idle"
+autoplay = "idle"
 offset = Vector2(-2, -30)
 flip_h = true
 

@@ -39,6 +39,9 @@ public class TheMillionPoundNote : TouhouAncientCards
                                                          .Where(x => x != this && !x.EnergyCost.CostsX)
                                                          .All(x => x.EnergyCost.GetResolved() < EnergyCost.GetResolved());
 
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
+    
     public override int MaxUpgradeLevel => 0;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => new[]

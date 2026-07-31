@@ -61,7 +61,23 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     {
         return base.CombatState.Enemies.Any(c => c.Monster is YorigamiShion && !c.IsDead);
     }
+
+    public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature) => creature != Creature || !IsShionAlive();
     
+    
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        MyAnimatedSprite2D.AnimationFinished += OnAnimationFinished;
+    }
+    
+    private void OnAnimationFinished()
+    {
+        if (MyAnimatedSprite2D.Animation == "hurt")
+        {
+            MyAnimatedSprite2D.Play("idle");
+        }
+    }
     
     // --- 死亡前对话 ---
     // 绕过 TalkCmd.Play 的 IsDead 检查（BeforeDeath 时 IsDead 已为 true），直接创建气泡
@@ -81,15 +97,36 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         }
     }
 
-    // --- 死亡后隐藏意图 ---
-    // 由于 TwinSoulPower 阻止了怪物从战斗中移除，导致 AnimHideIntent 不会被自动调用
+    // --- 死亡后处理 ---
+    // 强制切换到无限眩晕状态，显示眩晕意图。
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
         if (creature != base.Creature) return;
-        NCombatRoom.Instance?.GetCreatureNode(creature)?.AnimHideIntent();
         PlayAnimation("die");
+        ForceDeadState();
+    }
+
+    /// <summary>
+    /// 将状态机强制切换到一个自循环的眩晕状态，死后不再行动。
+    /// </summary>
+    private void ForceDeadState()
+    {
+        MonsterMoveStateMachine? fsm = base.Creature.Monster?.MoveStateMachine;
+        if (fsm == null) return;
+        MoveState deadState = new MoveState("DEAD", DeadMove, new StunIntent())
+        {
+            FollowUpStateId = "DEAD",
+            MustPerformOnceBeforeTransitioning = true,
+        };
+        fsm.States["DEAD"] = deadState;
+        base.Creature.Monster.SetMoveImmediate(deadState, forceTransition: true);
+    }
+
+    private static Task DeadMove(IReadOnlyList<Creature> targets)
+    {
+        return Task.CompletedTask;
     }
 
     private static int GetRawCharCount(string bbcodeText)
@@ -121,7 +158,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         list.Add(goldenTornado);
         list.Add(scatterWealthUppercut);
         list.Add(celebrityBurn);
-
+        
         return new MonsterMoveStateMachine(list, bubbleQueen);
     }
 
@@ -132,12 +169,23 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     /// </summary>
     private async Task BubbleQueenMove(IReadOnlyList<Creature> targets)
     {
-        // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.6f);
         PlayAnimation("money");
         await Cmd.Wait(0.5f);
+        var pos = NCombatRoom.Instance.GetCreatureNode(Creature)?.VfxSpawnPosition;
+        if (pos.HasValue)
+        {
+            VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+            SfxCmd.Play("event:/sfx/ui/gold/gold_2");
+        }
         await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), targets, BubbleQueenRoyalties, base.Creature, null);
-        await Cmd.Wait(1.7f);
-        PlayAnimation("idle_loop");
+        await Cmd.Wait(1.1f);
+        if (pos.HasValue)
+        {
+            VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+            SfxCmd.Play("event:/sfx/ui/gold/gold_2");
+        }
+        await Cmd.Wait(0.6f);
+        PlayAnimation("idle");
     }
 
     /// <summary>
@@ -152,41 +200,54 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
         if (myNode != null && body != null)
         {
-            var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y - 100f);
+            var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y + 800f);
             var rushTween = body.CreateTween();
-            rushTween.TweenProperty(body, "position", rushTarget, 0.6f)
+            rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.6f);
+            await Cmd.Wait(0.4f);
         }
 
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         PlayAnimation("tornado_2");
         var land = NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition;
 
         var rushTween2 = body.CreateTween();
         rushTween2.TweenProperty(body, "position", land, 0.5f)
-            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
         await Cmd.Wait(0.5f);
         
+        //NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(GoldenTornadoDamage)
             .FromMonster(this)
             .WithHitCount(GoldenTornadoHits)
-            // TODO: 动画 - .WithAttackerAnim("Attack", 0.15f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        
+        await Cmd.Wait(0.5f);
 
         PlayAnimation("roll");
         
+        Vector2 returnStart = body.Position;
+        Vector2 returnEnd = Vector2.Zero;
+        float arcHeight = 100f;
+
         var returnTween = body.CreateTween();
-        returnTween.TweenProperty(body, "position", Vector2.Zero, 0.3f)
-            .SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
-        await Cmd.Wait(0.35f);
+        returnTween.TweenMethod(
+            Callable.From<float>(t =>
+            {
+                body.Position = returnStart.Lerp(returnEnd, t)
+                    + new Vector2(0, -10 * arcHeight * t * (1 - t));
+            }),
+            0f, 1f, 0.5f
+        ).SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
+        await Cmd.Wait(0.5f);
         
         PlayAnimation("prepare");
         await Cmd.Wait(0.25f);
         
         await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
-        PlayAnimation("idle_loop");
+        PlayAnimation("idle");
     }
 
     /// <summary>
@@ -195,19 +256,21 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     /// </summary>
     private async Task ScatterWealthUppercutMove(IReadOnlyList<Creature> targets)
     {
-        TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple, VfxDuration.Long);
+        await Cmd.Wait(0.4f);
+        TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
 
         await Cmd.Wait(0.5f);
         PlayAnimation("attack");
         MyAnimatedSprite2D.AnimationFinished += Reset;
         await Cmd.Wait(0.2f);
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)
-            // TODO: 动画 - .WithAttackerAnim("Attack", 0.3f)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(1f);
+        //PlayAnimation("idle");
         // 扣除玩家一半王国资产
         // if (halfRoyalties > 0)
         // {
@@ -217,7 +280,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     
     private void Reset()
     {
-        PlayAnimation("idle_loop");
+        PlayAnimation("idle");
         MyAnimatedSprite2D.AnimationFinished -= Reset;
     }
     
@@ -233,6 +296,6 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
         await Cmd.Wait(0.8f);
-        PlayAnimation("idle_loop");
+        PlayAnimation("idle");
     }
 }
