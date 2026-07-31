@@ -62,6 +62,6 @@
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "每回合为女苑提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。\n女苑被击倒时，被击晕并移除此能力。",
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "讨债人",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除50%的[gold]王国资产[/gold]并增加等量伤害。",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除[blue]{Amount}%[/blue]的[gold]王国资产[/gold]并增加等量伤害。"
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除目标50%的[gold]王国资产[/gold]并增加等量伤害。",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]并增加等量伤害。"
 }
