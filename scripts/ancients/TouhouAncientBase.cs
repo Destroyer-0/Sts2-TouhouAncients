@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using TouhouAncients.Scripts.encounters;
@@ -17,8 +18,6 @@ namespace TouhouAncients.Scripts;
 
 public abstract class TouhouAncientBase : CustomAncientModel
 {
-    /// <summary>挑战胜利后奖励的金币数量。</summary>
-    private const int ChallengeGoldReward = 150;
 
     /// <summary>挑战胜利后恢复已损失生命值的比例。</summary>
     private const decimal ChallengeHealRatio = 0.5m;
@@ -28,10 +27,10 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// <summary>
     /// 可选：挑战战斗的 Encounter。返回非 null 时，Ancient 事件的选项列表末尾会追加一个
     /// "挑战"选项（参照 PUNCH_OFF 的本地化与选项实现），点击后进入该 Encounter 的战斗。
-    /// 胜利后奖励为本次 Ancient 选项界面上的全部遗物、150 金币，并恢复已损失生命值的 50%。
+    /// 胜利后奖励为本次 Ancient 选项界面上的全部遗物 并恢复已损失生命值的 50%。
     /// 默认返回 null（不启用挑战）。启用时请在子类中返回对应的 Encounter。
     /// </summary>
-    public virtual YorigamiSistersEncounter? ChallengeEncounter => null;
+    public virtual TouhouAncientEncounter? ChallengeEncounter => null;
 
     /// <summary>
     /// 进入战斗要求事件为共享事件（BaseLib 要求：Required for combat events）。
@@ -67,13 +66,27 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
-        var options = base.GenerateInitialOptions().ToList();
-        _generatedRelicOptions = options;
+        // 每个玩家独立抽取遗物池：共享事件的事件级 Rng 不含玩家槽位（全员同池），
+        // 这里用 Rng(Player, Id) 按"运行种子 + 玩家槽位 + 事件ID"派生独立 RNG
+        // （对齐非共享事件的种子规则），保证多人时各玩家看到/掉落各自的随机遗物，
+        // 且所有客户端按同一规则生成（跨端一致、可同步），单人行为与原逻辑一致。
+
         if (ChallengeEncounter != null)
         {
+            var optionRng = new Rng(Owner!, Id);
+            var options = OptionPools.Roll(optionRng, this)
+                .Select(option => RelicOption(option.ModelForOption))
+                .ToList();
+            _generatedRelicOptions = options;
             options.Add(CreateChallengeOption());
+            return options;
         }
-        return options;
+        else
+        {
+            var options = base.GenerateInitialOptions().ToList();
+            _generatedRelicOptions = options;
+            return options;
+        }
     }
 
     /// <summary>
@@ -128,7 +141,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
         // 发放挑战奖励：全部遗物 + 150 金币（奖励界面由 OfferCustom 弹出，只含给定奖励）。
         var relicModels = _generatedRelicOptions?.Select(o => o.Relic).OfType<RelicModel>() ?? Array.Empty<RelicModel>();
-        var rewards = new List<Reward> { new GoldReward(ChallengeGoldReward, Owner!) };
+        var rewards = new List<Reward> { };
         foreach (var relic in relicModels)
         {
             // 每个玩家使用独立的遗物实例（从 canonical 克隆），避免多个奖励共享同一个 mutable 实例。

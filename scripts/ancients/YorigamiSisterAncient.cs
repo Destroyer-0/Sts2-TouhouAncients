@@ -99,7 +99,7 @@ public class YorigamiSisterAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/YorigamiSister.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/YorigamiSister.png";
 
-    public override YorigamiSistersEncounter? ChallengeEncounter => ModelDb.Encounter<YorigamiSistersEncounter>();
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<YorigamiSistersEncounter>();
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

@@ -37,7 +37,8 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     // --- 伤害/数值 ---
     private int BubbleQueenRoyalties => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 40, 35);
-    private int GoldenTornadoDamage => 4;
+    private int GoldenTornadoDamage => AscensionHelper.GetValueIfAscension(
+        AscensionLevel.DeadlyEnemies, 5, 4);
     private int GoldenTornadoHits => 3;
     private int ScatterWealthUppercutDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 10, 8);
