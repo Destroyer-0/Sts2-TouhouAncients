@@ -22,7 +22,10 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class SunkenAnchorGhost : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new EnergyVar(1)
+    ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [];
 
@@ -44,7 +47,8 @@ public class SunkenAnchorGhost : TouhouAncientRelics
         var drawPile = player.PlayerCombatState.DrawPile;
 
         var powerCards = drawPile.Cards
-            .Where(c => c.Type == CardType.Power && !c.Keywords.Contains(TouhouAncientKeywords.TouhouAncientSinkToBottom))
+            .Where(c => c.Type == CardType.Power &&
+                        !c.Keywords.Contains(TouhouAncientKeywords.TouhouAncientSinkToBottom))
             .ToList();
 
         if (powerCards.Count == 0) return Task.CompletedTask;

@@ -15,9 +15,8 @@ public class NohMask : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("EmotionCards", 2m),
         new DynamicVar("EmotionThreshold", 1m),
-        new DynamicVar("Cards", 2m),
-        new EnergyVar(2),
+        new DynamicVar("Cards", 1m),
+        new EnergyVar(1),
     ];
 }

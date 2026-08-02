@@ -44,6 +44,8 @@ public class Entry
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.TouhouAncients");
         harmony.PatchAll();
+        // 订阅战斗开始/结束事件，为挑战战斗（YorigamiSistersEncounter）播放自定义 BGM
+        EncounterBgm.Initialize();
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册

@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -16,4 +19,22 @@ public class WickedHermitHairpin : TouhouAncientRelics
     [
         new DynamicVar("Percent", 50m),
     ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        new HoverTip(
+            new LocString("relics", Id.Entry + ".seigatitle"),
+            Description)
+    ];
+        
+        
+    private LocString Description
+    {
+        get
+        {
+            var locString = new LocString("relics", Id.Entry + ".seigadescription");
+            locString.Add("energyPrefix", EnergyIconHelper.GetPrefix(this));
+            return locString;
+        }
+    }
 }

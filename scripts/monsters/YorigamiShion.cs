@@ -300,6 +300,7 @@ public sealed class YorigamiShion : TouhouAncientMonster
     {
         //PlayAnimation("die");
         TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+        VfxCmd.PlayOnCreatureCenter(Creature, "vfx/vfx_scream");
         PlayAnimation("spell");
         return Task.CompletedTask;
     }

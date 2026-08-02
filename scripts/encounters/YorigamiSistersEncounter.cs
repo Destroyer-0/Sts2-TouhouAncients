@@ -1,20 +1,21 @@
 using System.Collections.Generic;
-using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using Godot;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using TouhouAncients.Scripts.monsters;
 
 namespace TouhouAncients.Scripts.encounters;
 
-public sealed class YorigamiSistersEncounter : CustomEncounterModel
+public sealed class YorigamiSistersEncounter : TouhouAncientEncounter
 {
     public override IEnumerable<MonsterModel> AllPossibleMonsters =>
     [
         ModelDb.Monster<YorigamiJoon>(),
         ModelDb.Monster<YorigamiShion>()
     ];
+
+    /// <summary>本挑战战斗的自定义 BGM（位于 res://debug_audio/，import 已开启 loop）。</summary>
+    public override string? BgmFileName => "TFM-010b_03.mp3";
 
     public override string? CustomScenePath => "res://scenes/encounters/yorigami_sisters.tscn";
 

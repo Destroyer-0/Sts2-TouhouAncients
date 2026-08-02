@@ -15,9 +15,9 @@ public class DragonVeinVessel : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Gold", 50m),
-        new DynamicVar("Strength", 2m),
-        new DynamicVar("Dexterity", 2m),
-        new DynamicVar("CardRewards", 2m),
+        new DynamicVar("Gold", 33m),
+        new DynamicVar("Strength", 1m),
+        new DynamicVar("Dexterity", 1m),
+        new DynamicVar("CardRewards", 1m),
     ];
 }

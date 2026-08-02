@@ -15,9 +15,9 @@ public class OneEyedKarakasa : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Charges", 2m),
-        new DynamicVar("FirstTurnCharges", 4m),
-        new DynamicVar("UpgradeCost", 5m),
+        new DynamicVar("Charges", 1m),
+        new DynamicVar("FirstTurnCharges", 3m),
+        new DynamicVar("UpgradeCost", 4m),
         new DynamicVar("UpgradeCount", 1m),
     ];
 }

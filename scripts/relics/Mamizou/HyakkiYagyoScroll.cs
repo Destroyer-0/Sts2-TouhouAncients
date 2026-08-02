@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using TouhouAncients.Scripts.cards;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -17,4 +19,5 @@ public class HyakkiYagyoScroll : TouhouAncientRelics
     [
         new DynamicVar("CardPacks", 1m),
     ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<HyakkiYagyo>();
 }
