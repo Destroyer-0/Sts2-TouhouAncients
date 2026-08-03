@@ -1,12 +1,17 @@
+using System.Collections.Generic;
 using BaseLib.Config;
 using Godot.Bridge;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.PotionPools;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.Enchantment;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.Patches;
 using TouhouAncients.Scripts.relics;
 
@@ -46,10 +51,26 @@ public class Entry
         harmony.PatchAll();
         // 订阅战斗开始/结束事件，为挑战战斗（YorigamiSistersEncounter）播放自定义 BGM
         EncounterBgm.Initialize();
+        // 注册挑战 Encounter 为 RunState Hook 监听者：使其 TryModifyRewards 生效
+        // （挑战战斗不生成默认战斗奖励，只保留 StartChallenge 传入的挑战遗物）
+        ModHelper.SubscribeForRunStateHooks("touhouancients.challenge", ChallengeRunStateHooks);
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册
         Log.Info("Mod initialized!");
         ModConfigRegistry.Register("TouhouAncients", new TouhouAncientsConfig());
+    }
+
+    /// <summary>
+    /// 返回当前挑战战斗的 Encounter（作为 RunState Hook 监听者）。ModHelper 的原生扩展点，
+    /// 让 <see cref="TouhouAncientEncounter.TryModifyRewards"/> 在奖励生成时被调用。
+    /// 按类型判断（TouhouAncientEncounter 只用于挑战战斗），正常/读档奖励流程都生效。
+    /// </summary>
+    private static IEnumerable<AbstractModel> ChallengeRunStateHooks(RunState runState)
+    {
+        if (runState.CurrentRoom is CombatRoom { Encounter: TouhouAncientEncounter } combatRoom)
+        {
+            yield return combatRoom.Encounter;
+        }
     }
 }

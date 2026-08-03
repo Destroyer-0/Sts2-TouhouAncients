@@ -83,7 +83,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             JunkoAncient  => BanJunko,
             ToutetsuYuumaAncient  => BanYuuma,
             YorigamiSisterAncient  => BanYorigami,
-            FutatsuiwaMamizouAncient  => !EnableTestContentMamizou || BanMamizou,
+            //FutatsuiwaMamizouAncient  => !EnableTestContentMamizou || BanMamizou,
             _ => false
         };
     }
@@ -111,7 +111,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(JunkoAncient) => BanJunko,
             nameof(ToutetsuYuumaAncient) => BanYuuma,
             nameof(YorigamiSisterAncient) => BanYorigami,
-            nameof(FutatsuiwaMamizouAncient) => !EnableTestContentMamizou || BanMamizou,
+            //nameof(FutatsuiwaMamizouAncient) => !EnableTestContentMamizou || BanMamizou,
             _ => false
         };
     }
@@ -164,7 +164,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Yuuma饕餮 when type is ToutetsuYuumaAncient => true,
             ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
             ForcedAncientOption.Yorigami依神姐妹 when type is YorigamiSisterAncient => true,
-            ForcedAncientOption.Mamizou猯藏 when type is FutatsuiwaMamizouAncient => EnableTestContentMamizou,
+            //ForcedAncientOption.Mamizou猯藏 when type is FutatsuiwaMamizouAncient => EnableTestContentMamizou,
             _ => false
         };
     }

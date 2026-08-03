@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Multiplayer.Messages.Game.Sync;
+using MegaCrit.Sts2.Core.Nodes.Events;
 using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.Patches;
@@ -132,6 +134,16 @@ public static class AncientMultiplayerVotePatch
         var collection = SyncAccess.GetPlayerCollection(sync);
         var players = collection.Players;
 
+        // 标记"按玩家分别结算"：让 UI 跳过"随机选择"的投票动画/音效（此时没有随机抽取，
+        // 每个玩家拿到的是自己投的遗物）。必须在执行任何选项前对所有实例置位。
+        foreach (var eventModel in SyncAccess.GetEvents(sync))
+        {
+            if (eventModel is TouhouAncientBase ancient)
+            {
+                ancient.IsPerPlayerResolution = true;
+            }
+        }
+
         // 先捕获投票，再清空（原版 ClearPlayerVotes 会把每一项置 null），并推进页面。
         var captured = new uint?[votes.Count];
         for (int i = 0; i < votes.Count; i++)
@@ -182,5 +194,33 @@ public static class AncientMultiplayerVotePatch
         }
         // 回退：挑战选项固定追加在末尾。
         return options.Count > 0 ? options.Count - 1 : -1;
+    }
+
+    // ------------------------------------------------------------------
+    // 多人挑战体验的 UI 补丁：
+    //   按玩家分别结算时跳过"随机选择"的投票动画/音效（EventSplitVoteAnimation）。
+    //   （"有人投挑战"的协同提示已改为直接挂在挑战选项上的 HoverTip，仅多人模式
+    //    附加，见 TouhouAncientBase.CreateChallengeOption——无需布局注入。）
+    // ------------------------------------------------------------------
+
+    /// <summary>
+    /// 按玩家分别结算时（IsPerPlayerResolution == true），跳过 EventSplitVoteAnimation
+    /// 的"随机选择"动画与 map_split_tick.mp3 音效——因为此时没有随机抽取，每个玩家拿到的
+    /// 是自己投的遗物。仍保留 BeforeSharedOptionChosen 里的禁用/置灰/确认闪光等反馈。
+    /// </summary>
+    [HarmonyPatch(typeof(EventSplitVoteAnimation), "TryPlay")]
+    public static class EventSplitVoteAnimation_TryPlay_Patch
+    {
+        static bool Prefix(EventSplitVoteAnimation __instance, ref Task __result)
+        {
+            var layout = Traverse.Create(__instance).Field("_eventLayout").GetValue<NEventLayout>();
+            var eventModel = layout != null ? Traverse.Create(layout).Field("_event").GetValue<EventModel>() : null;
+            if (eventModel is TouhouAncientBase { IsPerPlayerResolution: true })
+            {
+                __result = Task.CompletedTask;
+                return false;
+            }
+            return true;
+        }
     }
 }
