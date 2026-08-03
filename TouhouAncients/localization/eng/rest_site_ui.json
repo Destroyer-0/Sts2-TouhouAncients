@@ -4,5 +4,8 @@
   "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "It is not yet time for the [pink][sine]cherry blossoms to fall[/sine][/pink].",
 
   "OPTION_WITCHS_CAULDRON.name": "Brew",
-  "OPTION_WITCHS_CAULDRON.description": "Gain [blue]3[/blue] random potions. [gold]Transform[/gold] up to [blue]1[/blue] card."
+  "OPTION_WITCHS_CAULDRON.description": "Gain [blue]3[/blue] random potions. [gold]Transform[/gold] up to [blue]1[/blue] card.",
+
+  "OPTION_TREASURE.name": "Treasure Hunt",
+  "OPTION_TREASURE.description": "Choose any number of recorded cards to add to your [gold]Deck[/gold]. There's also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!"
 }

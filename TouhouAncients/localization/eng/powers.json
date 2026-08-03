@@ -61,11 +61,11 @@
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "When attacked by an Attack card, the attacker loses 5 [gold]Royalties[/gold].\nWhen dealing damage, the target loses 10 [gold]Royalties[/gold].",
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "When attacked by an Attack card, the attacker loses [blue]{Amount}[/blue] [gold]Royalties[/gold].\nWhen dealing damage, the target loses [blue]{Amount2}[/blue] [gold]Royalties[/gold].",
 
-  "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
-  "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。女苑被击倒时，将被击晕并移除此能力。",
-  "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。女苑被击倒时，将被击晕并移除此能力。",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "Twin Soul",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "Grant [gold]Joon[/gold] [blue]8[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "Grant [gold]Joon[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
 
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "讨债人",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除50%的[gold]王国资产[/gold]并增加等量伤害。",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除[blue]{Amount}%[/blue]的[gold]王国资产[/gold]并增加等量伤害。"
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "Debt Collector",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage.",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage."
 }

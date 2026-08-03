@@ -2159,4 +2159,111 @@
 | `.title` | `Noh Mask` |
 | `.description` | `At the start of each turn, random [blue]4[/blue] cards in your [gold]Hand[/gold] gain either Joy, Anger, Sorrow, or Pleasure emotion this turn. After you play one of each emotion, regain [blue]1[/blue] Energy and draw [blue]1[/blue] card.` |
 
+---
+
+## 2026-08-03 增量更新（53adedaf 之后）
+
+### 烤味噌（描述修改）
+- zhs 改为"战斗奖励中的卡牌不再出现升级后的"（删去"与商店"）
+- `.description` / `.eventDescription` → `[green]Upgraded[/green] cards will no longer appear in combat rewards.`
+
+### 邪仙发簪（新增 seiga 字段）
+| 字段 | 翻译 |
+|------|------|
+| `.seigatitle` | `Seiga Kaku` |
+| `.seigadescription` | `After Seiga Kaku takes over, lose [blue]6[/blue] HP and gain {energyPrefix:energyIcons(1)} at the start of your turn. She prefers higher-cost cards.` |
+
+### 新增遗物 flavor 补译
+| 遗物 | 中文 flavor | 英文 flavor |
+|------|------------|------------|
+| `CRIMSON_CLOUD_KNUCKLES` | 拥有精密的动作和强大的力量程度的能力。 | `The ability to have precise movements and overwhelming strength.` |
+| `SUNKEN_ANCHOR_GHOST` | 无论如何都会沉船程度的能力。 | `The ability to make any ship sink no matter what.` |
+| `WICKED_HERMIT_HAIRPIN` | 让僵尸出现在你草坪上程度的能力。 | `The ability to make zombies appear on your lawn.` |
+| `NIDOMITEI_SPECIAL_BLEND` | 喝完酒变勇程度的能力。 | `The ability to grow braver after a drink.` |
+| `DOWSING_ROD` | 不管怎样都能找回宝塔程度的能力。 | `The ability to find her pagoda no matter what.` |
+| `DRAGON_VEIN_VESSEL` | 识别风水并点燃程度的能力。 | `The ability to read feng shui and ignite it.` |
+| `ONE_EYED_KARAKASA` | 吓人让人人见人爱程度的能力。 | `The ability to scare people yet still be adored by everyone.` |
+| `PSYCHIC_TELEKINESIS` | 将JK作为种族程度的能力。 | `The ability to treat JK as a species.` |
+
+### 幻灭三叉戟（flavor 乱码）
+- zhs 中 flavor 为故意乱码（编码损坏文本），用户确认保留乱码的错误感，仅将"鵺"替换为 "nue"：
+  `è°�æ˜¯å°nueå…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ'ï¼Ÿ`
+
+### 能乐假面（描述更新，zhs 大改后重译）
+- zhs 改为："战斗开始时或将牌堆洗牌时，为所有卡牌随机添加喜怒哀乐情绪。每当你打出喜怒哀乐情绪各{EmotionThreshold}张后，恢复{Energy:energyIcons()}并抽{Cards}张牌。"
+- `.description` → `At the start of combat or whenever you shuffle your [gold]Draw Pile[/gold], randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], or [purple]Pleasure[/purple] to all cards. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.`
+
+### 依神姐妹战斗相关（新增文件 monsters.json / encounters.json）
+- 依神女苑/依神紫苑怪物名与招式：`Yorigami Joon` / `Yorigami Shion`、`Bubble Queen`、`Golden Tornado`、`Scatter Wealth Uppercut`、`Celebrity Burn`、`Doom Spread`、`Feather Plucking`、`Absolute Loser`、`Endless Poverty`、`Stunned`
+- 遭遇战：`Yorigami Sisters`；失败文本 → `{character}'s wealth and fortune were squandered away by [gold]{encounter}[/gold].`
+
+### 双生 / 讨债人（powers.json 新增）
+| 键 | 翻译 |
+|----|------|
+| `TWIN_SOUL_POWER.title` | `Twin Soul` |
+| `TWIN_SOUL_POWER.description` | `Grant [gold]Joon[/gold] [blue]8[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.` |
+| `DEBT_COLLECTOR_POWER.title` | `Debt Collector` |
+| `DEBT_COLLECTOR_POWER.description` | `Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage.` |
+
+### 未名妖魔 / 百鬼夜行（cards.json 新增）
+| 键 | 翻译 |
+|----|------|
+| `NAMELESS_YOUKAI.title` | `Nameless Demon`（与幻灭三叉戟引用一致） |
+| `NAMELESS_YOUKAI.description` | `Add a copy of this card to your [gold]Draw Pile[/gold] with its cost randomized.\nTransform into the last card you played and return it to your [gold]Hand[/gold].` |
+| `HYAKKI_YAGYO.title` | `Hyakki Yagyo`（与百鬼夜行绘卷引用一致） |
+| `HYAKKI_YAGYO.description` | `Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.` |
+
+### 狂飨（cards.json 追加台词）
+- `.description` 追加 `\n[jitter][i]All shall become my food!![/i][/jitter]`
+
+### 寻宝（rest_site_ui.json 新增）
+| 字段 | 翻译 |
+|------|------|
+| `OPTION_TREASURE.name` | `Treasure Hunt` |
+| `OPTION_TREASURE.description` | `Choose any number of recorded cards to add to your [gold]Deck[/gold]. There's also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!` |
+
+---
+
+## 亡灵提灯（重做：附魔付丧之力X）
+
+**键名**: `TOUHOUANCIENTS-GHOST_LANTERN`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
+"TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
+"TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
+"TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择至多[blue]{SelectNum}[/blue]张加入牌组",
+"TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Ghost Lantern` |
+| `.description` | `Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].` |
+| `.eventDescription` | `Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].` |
+| `.selectionScreenPrompt` | `Choose up to [blue]{SelectNum}[/blue] cards to add to your [gold]Deck[/gold].` |
+| `.flavor` | `The souls dwelling within [jitter]stir[/jitter]. In every way, a ghost surpasses the physical body... no, I'm not referring to anyone in particular.` |
+
+### 关联附魔（重做）
+**键名**: `TOUHOUANCIENTS-TSUKUMOGAMI`（付丧之力X）
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n[blue]{Amount}[/blue]回合后，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数-1。",
+"TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Tsukumogami` |
+| `.description` | `Gains [gold]Ethereal[/gold].\nIn [blue]{Amount}[/blue] turns, play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by 1.` |
+
+### 说明
+- 附魔重做为"付丧之力X"：`ShowAmount` 显示计数，`IsStackable` 可叠加
+- 遗物附魔时使用 `EnchantAmount = 5`，即"付丧之力5"
+- 附魔名与数字拼接：中文无空格（付丧之力5），英文有空格（Tsukumogami 5），参照蛊毒魔盒（Toxic 3）风格
+
 

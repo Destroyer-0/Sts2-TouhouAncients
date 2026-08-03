@@ -338,8 +338,8 @@
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "亡灵提灯",
-  "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，这些牌拥有[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
   "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择至多[blue]{SelectNum}[/blue]张加入牌组",
   "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。",
 

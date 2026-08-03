@@ -59,5 +59,13 @@
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "Misfortune",
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "When attacked by an Attack card, the attacker loses 5 [gold]Royalties[/gold].\nWhen dealing damage, the target loses 10 [gold]Royalties[/gold].",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "When attacked by an Attack card, the attacker loses [blue]{Amount}[/blue] [gold]Royalties[/gold].\nWhen dealing damage, the target loses [blue]{Amount2}[/blue] [gold]Royalties[/gold]."
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "When attacked by an Attack card, the attacker loses [blue]{Amount}[/blue] [gold]Royalties[/gold].\nWhen dealing damage, the target loses [blue]{Amount2}[/blue] [gold]Royalties[/gold].",
+
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "Twin Soul",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "Grant [gold]Joon[/gold] [blue]8[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
+  "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "Grant [gold]Joon[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
+
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "Debt Collector",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage.",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage."
 }
