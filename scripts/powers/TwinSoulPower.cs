@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.monsters;
@@ -28,6 +29,11 @@ public class TwinSoulPower : TouhouAncientPowerModel
         public int reviveCountdown;
     }
 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DynamicVar("RecoverHP", 50m)
+    ];
+
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -44,6 +50,8 @@ public class TwinSoulPower : TouhouAncientPowerModel
         set => GetInternalData<Data>().reviveCountdown = value;
     }
 
+    public void SetRecoverHp(decimal hp) => base.DynamicVars["RecoverHP"].BaseValue = hp;
+    
     protected override object InitInternalData()
     {
         return new Data { reviveCountdown = 0 };
@@ -116,7 +124,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
     private async Task DoReattach()
     {
         IsReviving = false;
-        await CreatureCmd.Heal(base.Owner, 50m);
+        await CreatureCmd.Heal(base.Owner, DynamicVars["RecoverHP"].BaseValue);
 
         if (base.Owner.Monster is YorigamiShion shion)
         {

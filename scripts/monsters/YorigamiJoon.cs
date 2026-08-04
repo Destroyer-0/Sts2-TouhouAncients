@@ -32,7 +32,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 95, 90);
+        AscensionLevel.ToughEnemies, 100, 95);
 
     // --- 伤害/数值 ---
     private int BubbleQueenRoyalties => AscensionHelper.GetValueIfAscension(
@@ -41,7 +41,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         AscensionLevel.DeadlyEnemies, 5, 4);
     private int GoldenTornadoHits => 3;
     private int ScatterWealthUppercutDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 10, 8);
+        AscensionLevel.DeadlyEnemies, 12, 10);
     private int CelebrityBurnStrength => 2;
     private int CelebrityBurnFrail => 2;
 
@@ -240,7 +240,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
     }
 
     /// <summary>
-    /// 黄金龙卷风：4x3 多段攻击。结束后给自己叠加讨债人。
+    /// 黄金龙卷风：5x3 多段攻击。结束后给自己叠加讨债人。
     /// </summary>
     private async Task GoldenTornadoMove(IReadOnlyList<Creature> targets)
     {

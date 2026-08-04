@@ -2203,7 +2203,7 @@
 | `TWIN_SOUL_POWER.title` | `Twin Soul` |
 | `TWIN_SOUL_POWER.description` | `Grant [gold]Joon[/gold] [blue]8[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.` |
 | `DEBT_COLLECTOR_POWER.title` | `Debt Collector` |
-| `DEBT_COLLECTOR_POWER.description` | `Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold] and deals equal additional damage.` |
+| `DEBT_COLLECTOR_POWER.description` | `Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.` |
 
 ### 未名妖魔 / 百鬼夜行（cards.json 新增）
 | 键 | 翻译 |

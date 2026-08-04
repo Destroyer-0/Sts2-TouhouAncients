@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
 /// 讨债人 — 女苑的能力。
-/// 下一击清除目标 50% 王国资产并附加等量伤害（每层 +50%）。
+/// 下一击清除目标 50% 王国资产，附加等量伤害并恢复等量生命（每层 +50%）。
 /// 参考 VigorPower 的 BeforeAttack / ModifyDamageAdditive / AfterAttack 模式。
 /// </summary>
 public class DebtCollectorPower : TouhouAncientPowerModel
@@ -85,6 +85,9 @@ public class DebtCollectorPower : TouhouAncientPowerModel
         {
             await PowerCmd.Apply<RoyaltiesPower>(choiceContext, kvp.Key, -kvp.Value,
                 base.Owner, null);
+
+            // 讨债所得：恢复等量生命
+            await CreatureCmd.Heal(base.Owner, kvp.Value);
         }
 
         data.pendingRoyaltyLoss.Clear();

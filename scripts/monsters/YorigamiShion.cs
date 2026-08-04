@@ -49,6 +49,8 @@ public sealed class YorigamiShion : TouhouAncientMonster
         AscensionLevel.DeadlyEnemies, 18, 16);
 
     private int AbsoluteLoserRoyaltiesLoss => 10;
+    private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
+        AscensionLevel.DeadlyEnemies, 55, 50);
 
     // --- 状态（延迟初始化） ---
     public MoveState StunnedState;
@@ -77,7 +79,8 @@ public sealed class YorigamiShion : TouhouAncientMonster
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature,
             null);
-        await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
+        var twinSoulPower = await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
+        twinSoulPower.SetRecoverHp(twinSoulPower.GetScaledAmountForMultiplayer(CombatState, Creature, TwinSoulRecoverHP, Creature, null));
     }
 
     // --- 状态机 ---
