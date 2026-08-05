@@ -2266,4 +2266,38 @@
 - 遗物附魔时使用 `EnchantAmount = 5`，即"付丧之力5"
 - 附魔名与数字拼接：中文无空格（付丧之力5），英文有空格（Tsukumogami 5），参照蛊毒魔盒（Toxic 3）风格
 
+---
+
+## 地狱猫车（重做）
+
+**键名**: `TOUHOUANCIENTS-HELL_ORIN`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
+"TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue]尸体并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
+"TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Hell's Cat Cart` |
+| `.description` | `Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] Corpse and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at the [gold]Rest Site[/gold].` |
+| `.flavor` | `A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.` |
+
+### 休息处选项（rest_site_ui.json）
+| 键 | 中文 | 英文 |
+|----|------|------|
+| `OPTION_HELL_ORIN.name` | `复燃` | `Reignite` |
+| `OPTION_HELL_ORIN.description` | `消耗所有尸体，每消耗1个恢复[blue]{HealPerCount}[/blue]点生命值。\n如果消耗尸体数不小于[blue]{EnchantThreshold}[/blue]，选择一张牌，为它[gold]附魔[/gold]：[purple]灵魂之力[/purple]` | `Consume all [gold]Corpse[/gold]. Restore [blue]{HealPerCount}[/blue] HP per Corpse consumed. \nIf you consume at least [blue]{EnchantThreshold}[/blue] Corpse, choose a card and [gold]Enchant[/gold] it with [purple]Soul's Power[/purple].` |
+| `OPTION_HELL_ORIN.descriptionDisabled` | `阿燐的猫车快递里还没有新鲜的尸体哦！` | `Orin's Cat Cart Delivery has no fresh corpses yet!` |
+
+### 说明
+- 2026-08-05 重做：由"敌人死亡回血 + 洗牌抽牌递减"改为"斩杀非爪牙敌人获得尸体，休息处复燃"
+- 复燃：消耗所有尸体，每 1 具恢复 2 点生命；消耗不少于 10 时选择一张牌附魔：灵魂之力（原版 `SoulsPower`，失去消耗）
+- 数值全部记录在 `HellOrin.CanonicalVars`：`CorpsePerKill`(1)、`HealPerKill`(1)、`HealPerCount`(2)、`EnchantThreshold`(10)、`EnchantAmount`(1)、`EnchantmentName`（StringVar，取原版 `SoulsPower` 标题），文本通过动态变量引用，不硬编码
+- 遗物描述中的变量由 DynamicVars 自动替换；休息处描述中的 `{HealPerCount}`/`{EnchantThreshold}`/`{EnchantmentName}` 由 `RestSiteOption.Description` 手动 Add 注入（StringVar 需强转 `(StringVar)DynamicVars[...]` 后取 `.StringValue`）
+- 阿燐 = Orin，猫车快递 = Cat Cart Delivery（用户指定译名）；灵魂之力对应原版 `SOULS_POWER`（Soul's Power）
+
 

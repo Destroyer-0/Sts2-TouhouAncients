@@ -43,6 +43,7 @@ public class Entry
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottledGalaxy));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(OilFutures));
         SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(JyoonFan));
+        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HellOrin));
         
         
         // 打patch（即修改游戏代码的功能）用
