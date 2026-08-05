@@ -6,6 +6,10 @@
   "OPTION_WITCHS_CAULDRON.name": "炼药",
   "OPTION_WITCHS_CAULDRON.description": "获得[blue]3[/blue]瓶随机药水，[gold]变化[/gold]至多[blue]1[/blue]张牌。",
 
+  "OPTION_HELL_ORIN.name": "复燃",
+  "OPTION_HELL_ORIN.description": "消耗所有尸体，每消耗1个恢复[blue]{HealPerCount}[/blue]点生命值。\n如果消耗尸体数不小于[blue]{EnchantThreshold}[/blue]，选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]",
+  "OPTION_HELL_ORIN.descriptionDisabled": "阿燐的猫车快递里还没有新鲜的尸体哦！",
+
   "OPTION_TREASURE.name": "寻宝",
   "OPTION_TREASURE.description": "从记录的卡牌中选择任意张加入牌组。并有概率挖出一些[jitter][gold]秘宝[/gold][/jitter]!。"
 }

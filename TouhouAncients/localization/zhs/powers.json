@@ -63,5 +63,11 @@
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "讨债人",
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除目标50%的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。"
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
+
+  "TOUHOUANCIENTS-MAGICIAN_POWER.title": "普通的魔法使",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "使用极限火花·蓄力时，场上的每个蘑菇为魔理沙提供10点活力。",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "使用极限火花·蓄力时，每1个蘑菇为魔理沙提供{Amount}点活力。",
+  "TOUHOUANCIENTS-FUNGAL_POWER.title": "菌类",
+  "TOUHOUANCIENTS-FUNGAL_POWER.description": "共生：死亡时，向玩家的弃牌堆中加入3张孢子心灵。"
 }
