@@ -148,7 +148,14 @@ public class TwinSoulPower : TouhouAncientPowerModel
     {
         return false;
     }
-
+    /// <summary>
+    /// 复活倒计时期间不接收力量与效果命中（参考 ReattachPower）。
+    /// </summary>
+    public override bool ShouldAllowHitting(Creature creature)
+    {
+        if (creature != base.Owner) return true;
+        return !IsReviving;
+    }
     /// <summary>
     /// 只有不在复活倒计时中时才视为致命死亡。
     /// </summary>
