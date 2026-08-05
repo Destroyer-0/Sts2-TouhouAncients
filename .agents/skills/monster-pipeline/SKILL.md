@@ -111,6 +111,12 @@ runSubagent(
    - HP values (especially Max if not specified)
    - Any unrecognized buff types
    - Missing info from the TODO list
+   - **全部本地化文本内容**（不是只确认键名，必须逐条确认文案本身）：
+     - 怪物名（`{KEY}.name`）与每个意图标题（`{KEY}.moves.{MOVE}.title`）
+     - 遭遇名（`{ENCOUNTER_KEY}.title`）与败北文本（`{ENCOUNTER_KEY}.loss`，含 `{character}`/`{encounter}` 占位符写法）
+     - Power 标题与描述（`.title` / `.description`；若为 Counter 类型或含动态值，还需确认 `.smartDescription` 与 `{Amount}` 等变量用法）
+     - 富文本标记（`[gold]`、`[blue]` 等）与术语（如"最大生命"而非"体力上限"）
+   - 注意：解析代理给出的本地化预览只是**建议文案**，未经用户确认不得直接写入。文本属于策划内容，须由用户定夺。
 5. Collect user's answers to all TODO items. Do NOT proceed until the user confirms.
 
 ## Stage 2: Generate Code Plan
@@ -128,7 +134,10 @@ runSubagent(
 ```
 
 2. The agent will output a plan listing all files to create.
-3. **Ask the user to confirm the plan** before any files are written.
+3. **Ask the user to confirm the plan** before any files are written. 计划中必须包含**完整的本地化 JSON 条目清单**（键 + 确切文案值），并逐条确认：
+   - 计划中展示的每条本地化文案必须与 Stage 1 用户确认过的内容一致
+   - 若计划中出现了 Stage 1 未确认的新文案（如补全的 `.smartDescription`、追加的 `banter`/`speakLine`），必须先向用户确认
+   - Counter 类型 Power 必须确认是否包含 `.smartDescription` 及 `{Amount}` 变量
 4. If there are custom powers, confirm the power name, type, and stack type.
 
 ## Stage 3: Write Files
