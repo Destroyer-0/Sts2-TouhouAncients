@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c0amqyybl7wbu"]
+
+[node name="KirisameMarisa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="marisa" type="Marker2D" parent="."]
+position = Vector2(1343, 736)
+
+[node name="mushroom1" type="Marker2D" parent="."]
+position = Vector2(1178, 741)
+
+[node name="mushroom2" type="Marker2D" parent="."]
+position = Vector2(1020, 736)
+
+[node name="mushroom3" type="Marker2D" parent="."]
+position = Vector2(858, 748)
+
+[node name="mushroom4" type="Marker2D" parent="."]
+position = Vector2(1514, 737)
+
+[node name="mushroom5" type="Marker2D" parent="."]
+position = Vector2(1677, 750)
