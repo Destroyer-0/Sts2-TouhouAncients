@@ -43,11 +43,6 @@ public class UnfortunatePower : TouhouAncientPowerModel
         return false;
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DynamicVar("Amount2", 10m),
-    ];
-
     protected override object InitInternalData()
     {
         return new Data();
@@ -103,8 +98,7 @@ public class UnfortunatePower : TouhouAncientPowerModel
         var royal = target.GetPowerAmount<RoyaltiesPower>();
         if (royal > 0)
         {
-            var amount2 = base.DynamicVars["Amount2"].IntValue;
-            await PowerCmd.Apply<RoyaltiesPower>(choiceContext, target, -(Math.Min(royal, amount2)), base.Owner, null);
+            await PowerCmd.Apply<RoyaltiesPower>(choiceContext, target, -(Math.Min(royal, Amount)), base.Owner, null);
         }
     }
 
