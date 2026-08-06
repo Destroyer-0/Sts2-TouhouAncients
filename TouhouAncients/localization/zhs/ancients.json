@@ -1,4 +1,9 @@
 ﻿{
+
+  "TOUHOUANCIENTS-CHALLENGE_COOP": "这是一个合作事件，所有玩家均确认挑战后方可进行",
+  "TOUHOUANCIENTS.fight.description": "获取以上所有先古遗物选项",
+  "TOUHOUANCIENTS.fight.done": "继续",
+
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.title": "渡里 贝子",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.epithet": "沉迷尖塔的信息妖怪",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.firstVisitEver.0-0.ancient": "莫非你们就是不停地向高塔顶前进的，所谓的[sine]\"爬塔者\"[/sine]？\n哦哦！果然如传闻所说……",
@@ -347,6 +352,7 @@
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.title": "雾雨 魔理沙",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.epithet": "普通的高塔魔法使",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.fight.title": "来一场弹幕对决吧！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.firstVisitEver.0-0.ancient": "嘿！初次见面，我是雾雨魔理沙，欢迎来到我的雾雨魔法店Da☆Ze！这里什么魔法道具都有提供哦！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.ANY.0-0r.ancient": "带上这个！弹幕最重要的就是火力Da☆Ze！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.ANY.1-0r.ancient": "没有什么是强大的火力解决不了的！！",
@@ -472,9 +478,6 @@
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.title": "依神 女苑&依神 紫苑",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.epithet": "最凶最恶的荒疫神姐妹",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.fight.title": "挑战依神姐妹",
-  "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.fight.description": "获取以上所有先古遗物选项",
-  "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.fight.done": "继续",
-  "TOUHOUANCIENTS-CHALLENGE_COOP": "这是一个合作事件，所有玩家均确认挑战后方可进行",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.firstVisitEver.0-0.ancient": "我们是能从哭闹的小孩手里赚到钱的依神姐妹！呵呵呵，想要发财的话，现在就是最好的机会哦~",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.firstVisitEver.0-0.speaker": "jyoon",
   "TOUHOUANCIENTS-YORIGAMI_SISTER_ANCIENT.talk.ANY.0-0.ancient": "拿最贵的酒来——！",

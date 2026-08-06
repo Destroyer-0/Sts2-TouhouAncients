@@ -135,7 +135,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "Ordinary people can act freely only because they cannot read each other's hearts.",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "Hell's Cat Cart",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] Corpse and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at the [gold]Rest Site[/gold].",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] Corpse, {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at [gold]Rest Site[/gold].",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",

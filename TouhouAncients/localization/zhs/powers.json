@@ -54,8 +54,8 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "不幸",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]。\n造成伤害时，使对方失去10层[gold]王国资产[/gold]。",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount2}[/blue]层[gold]王国资产[/gold]。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去6层[gold]王国资产[/gold]。\n造成伤害时，使对方失去6层[gold]王国资产[/gold]。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。\n死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。\n女苑被击倒时，被击晕并移除此能力。",
@@ -66,8 +66,14 @@
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "普通的魔法使",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "使用极限火花·蓄力时，场上的每个蘑菇为魔理沙提供10点活力。",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "使用极限火花·蓄力时，每1个蘑菇为魔理沙提供{Amount}点活力。",
-  "TOUHOUANCIENTS-FUNGAL_POWER.title": "菌类",
-  "TOUHOUANCIENTS-FUNGAL_POWER.description": "共生：死亡时，向玩家的弃牌堆中加入3张孢子心灵。"
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]10[/blue]点活力。",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]{Amount}[/blue]点活力。",
+  
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "我会还给你的！",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，归还被偷走的卡牌。\n“嘿嘿，等我老死了以后直接拿走就行啦。”",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，归还被偷走的卡牌。\n“嘿嘿，等我老死了以后直接拿走就行啦。”",
+
+  "TOUHOUANCIENTS-FUNGAL_POWER.title": "共生",
+  "TOUHOUANCIENTS-FUNGAL_POWER.description": "死亡时，向玩家的弃牌堆中加入3张[gold]孢子心灵[/gold]。",
+  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "死亡时，向玩家的弃牌堆中加入{Amount}张[gold]孢子心灵[/gold]。"
 }
