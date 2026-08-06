@@ -72,7 +72,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
         {
             return;
         }
-        IEnumerable<Creature> enumerable = base.CombatState.Enemies.Where((Creature c) => c.Monster is YorigamiJoon);
+        IEnumerable<Creature> enumerable = base.CombatState.Enemies.Where((Creature c) => c.Monster is YorigamiJoonMonster);
         foreach (Creature item in enumerable)
         {
             await CreatureCmd.GainBlock(item, base.Amount, ValueProp.Unpowered, null);
@@ -110,7 +110,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
         IsReviving = true;
         ReviveCountdown = 2;
 
-        if (base.Owner.Monster is YorigamiShion shion)
+        if (base.Owner.Monster is YorigamiShionMonster shion)
         {
             shion.SetSelfRepairState();
         }
@@ -126,7 +126,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
         IsReviving = false;
         await CreatureCmd.Heal(base.Owner, DynamicVars["RecoverHP"].BaseValue);
 
-        if (base.Owner.Monster is YorigamiShion shion)
+        if (base.Owner.Monster is YorigamiShionMonster shion)
         {
             shion.ExitSelfRepairState();
         }

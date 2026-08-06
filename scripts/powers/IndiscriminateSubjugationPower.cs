@@ -40,7 +40,7 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         if (dealer != base.Owner) return;
         // "未被格挡"判定：本次命中实际穿透格挡造成了伤害
         if (result.UnblockedDamage <= 0) return;
-        if (!props.IsCardOrMonsterMove()) return;
+        //if (!props.IsCardOrMonsterMove()) return;
         if (base.Owner.Monster is not HakureiReimuMonster reimu) return;
         // 梦想天生造成的伤害不计数（每段命中都会触发本 Hook，封魔针 7×3 的三段命中算三次）
         if (reimu.CurrentMoveKey == "FANTASY_NATURE") return;

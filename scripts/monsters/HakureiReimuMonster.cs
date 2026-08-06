@@ -46,7 +46,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     private const int SealingNeedleHits = 3;
 
     private int TenbuHurricaneKickDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 8, 7);
+        AscensionLevel.DeadlyEnemies, 9, 8);
     
     private const int TenbuHurricaneKickHits = 2;
 
@@ -83,6 +83,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     {
         if (side != base.Creature.Side) return;
         if (!participants.Contains(Creature)) return;
+        if (CurrentMoveKey == "TENBU_HURRICANE_KICK") return;
         if (base.Creature.HasPower<SoarPower>())
         {
             await PowerCmd.Remove<SoarPower>(base.Creature);
@@ -269,33 +270,35 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     /// 若抽牌堆/手牌/弃牌堆/消耗堆中不存在该牌，生成并放入抽牌堆；
     /// 否则将该牌移动至抽牌堆并升级。
     /// </summary>
-    private async Task AddOrUpgradeDreamSeal<T>(Player player) where T : CardModel
+    private async Task AddOrUpgradeDreamSeal<T>(Player player) where T : ReimuBossDreamSealStatus
     {
-        CardModel? existing = FindDreamSealInCombatPiles<T>(player);
+        ReimuBossDreamSealStatus? existing = FindDreamSealInCombatPiles<T>(player);
         if (existing == null)
         {
             // 不存在：生成并放入抽牌堆
-            CardModel newCard = player.RunState.CreateCard(ModelDb.Card<T>(), player);
-            await CardPileCmd.Add(newCard, PileType.Draw);
+            //var newCard = player.RunState.CreateCard(ModelDb.Card<T>(), player);
+            
+            await CardPileCmd.AddToCombatAndPreview<T>(player.Creature, PileType.Draw,1, null,CardPilePosition.Random);
+           // await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Draw, null, CardPilePosition.Random);
+            //await CardPileCmd.Add(newCard, PileType.Draw);
         }
         else
         {
             // 存在：移动至抽牌堆并升级
-            await CardPileCmd.RemoveFromCombat(existing);
             await CardPileCmd.Add(existing, PileType.Draw);
-            CardCmd.Upgrade(existing);
+            existing.FakeUpgrade();
         }
     }
 
     /// <summary>
     /// 在玩家的抽牌堆/手牌/弃牌堆/消耗堆中查找指定类型的卡牌实例。
     /// </summary>
-    private static CardModel? FindDreamSealInCombatPiles<T>(Player player) where T : CardModel
+    private static ReimuBossDreamSealStatus? FindDreamSealInCombatPiles<T>(Player player) where T : ReimuBossDreamSealStatus
     {
         foreach (PileType pileType in new[] { PileType.Draw, PileType.Hand, PileType.Discard, PileType.Exhaust })
         {
-            CardModel? found = pileType.GetPile(player).Cards.FirstOrDefault(c => c is T);
-            if (found != null) return found;
+            var  found = pileType.GetPile(player).Cards.FirstOrDefault(c => c is T);
+            if (found != null) return (ReimuBossDreamSealStatus)found;
         }
         return null;
     }

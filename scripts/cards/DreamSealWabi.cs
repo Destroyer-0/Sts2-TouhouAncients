@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TouhouAncients.Scripts.cards;
@@ -15,27 +17,11 @@ namespace TouhouAncients.Scripts.cards;
 /// 打出获得 1 层易伤（每次升级额外获得 1 层）。
 /// 如果这张牌在你的手中，你不能打出技能牌。
 /// </summary>
-public class DreamSealWabi : TouhouAncientCards
+[Pool(typeof(StatusCardPool))]
+public class DreamSealWabi : ReimuBossDreamSealStatus
 {
-    private const int energyCost = 1;
-    private const CardType type = CardType.Status;
-    private const CardRarity rarity = CardRarity.Status;
-    private const TargetType targetType = TargetType.None;
-    private const bool shouldShowInCardLibrary = true;
-
-    /// <summary>可无限升级：升级时易伤层数 +1。</summary>
-    public override int MaxUpgradeLevel => int.MaxValue;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DynamicVar("Amount", 1m)];
-
-    public DreamSealWabi() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+    public DreamSealWabi() : base(true)
     {
-    }
-
-    protected override void OnUpgrade()
-    {
-        base.DynamicVars["Amount"].UpgradeValueBy(1m);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -83,5 +83,5 @@ position = Vector2(0, -257)
 
 [node name="StolenCardPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(170, -140)
-scale = Vector2(0.25, 0.25)
+position = Vector2(91, -60)
+scale = Vector2(0.3, 0.3)

@@ -22,6 +22,9 @@ public sealed class HakureiReimuEncounter : TouhouAncientEncounter
         "reimu"
     ];
 
+    public override string? BgmFileName => "TFM-Reimu.mp3";
+
+    public override string? CustomScenePath => "res://scenes/encounters/hakurei_reimu.tscn";
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [
         (ModelDb.Monster<HakureiReimuMonster>().ToMutable(), "reimu")

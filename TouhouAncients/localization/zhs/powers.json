@@ -79,5 +79,5 @@
 
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "无差别降伏",
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "每使用梦想天生以外的技能造成7次未被格挡的伤害，下一次意图切换至梦想天生。",
-  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "每使用梦想天生以外的技能造成[blue]{Amount}[/blue]次未被格挡的伤害，下一次意图切换至[gold]梦想天生[/gold]。"
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "每使用梦想天生以外的技能造成[blue]{HitsLeft}[/blue]次未被格挡的伤害，下一次意图切换至[gold]梦想天生[/gold]。"
 }

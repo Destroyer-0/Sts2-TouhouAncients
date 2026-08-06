@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://i4w60earbmuy"]
+
+[ext_resource type="Texture2D" uid="uid://c8q83mwyydw8k" path="res://images/sprite/reimu/stand.png" id="1_5imvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reksr"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nth7l"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7os7t"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwo0x"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yjve"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xs76"]
+atlas = ExtResource("1_5imvx")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hud8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reksr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nth7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7os7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwo0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yjve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xs76")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="HakureiReimu" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-15, -115)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_hud8x")
+autoplay = "default"
+frame_progress = 0.035722796
+offset = Vector2(-2, -29.333336)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -126.0
+offset_top = -323.0
+offset_right = 115.0
+offset_bottom = 21.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -151)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -347)
