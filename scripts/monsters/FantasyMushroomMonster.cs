@@ -1,50 +1,65 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BaseLib.Utils.NodeFactories;
+using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
 /// 奇幻蘑菇：魔理沙召唤的仆从。每回合恢复生命，死亡时向玩家弃牌堆加入孢子心灵。
+/// 外观有两种随机形态（大蘑菇 / 小蘑菇），视觉锚点位于贴图底部（在场景中烘焙）。
 /// </summary>
-public sealed class FantasyMushroom : TouhouAncientMonster
+public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
 {
+    // --- 外观 ---
+    /// <summary>
+    /// 纯静态贴图（Sprite2D），无帧动画，跳过 AnimatedSprite2D 相关处理。
+    /// </summary>
+    protected override bool HasAnimation => false;
+
+    /// <summary>
+    /// 备用小蘑菇场景路径（每个场景各自烘焙底部锚点）。
+    /// </summary>
+    private const string AlternateMushroomScenePath = "res://scenes/creature_visuals/FantasyMushroomAlt.tscn";
+
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 39, 35);
 
+    public override DamageSfxType TakeDamageSfxType => DamageSfxType.Plant;
+    
     // --- 数值 ---
-    private int HealAmount => 10;
+    private int HealAmount => 5;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, 2m, base.Creature, null);
     }
 
-    // --- 死亡处理 ---
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    // --- 视觉 ---
+    public override NCreatureVisuals? CreateCustomVisuals()
     {
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
-        if (creature != base.Creature) return;
-
-        // 每个玩家的弃牌堆随机位置加入 3 张孢子心灵
-        foreach (Player player in base.CombatState.Players)
+        // 随机二选一：备用小蘑菇场景 / 默认大蘑菇场景（战斗 RNG，多人端可同步）
+        // 每个场景各自烘焙底部锚点，底部对齐
+        if (base.Rng.NextBool())
         {
-            await CardPileCmd.AddToCombatAndPreview<SporeMind>(
-                player.Creature, PileType.Discard, 3, player, CardPilePosition.Random);
+            return NodeFactory<NCreatureVisuals>.CreateFromScene(AlternateMushroomScenePath);
         }
+
+        return base.CreateCustomVisuals();
     }
 
     // --- 状态机：固定恢复意图（自环） ---

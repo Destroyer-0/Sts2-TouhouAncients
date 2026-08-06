@@ -10,27 +10,33 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 
 namespace TouhouAncients.Scripts.monsters;
 
-public abstract class TouhouAncientMonster : CustomMonsterModel
+public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 {
     private AnimatedSprite2D? _animatedSprite2D;
+
+    /// <summary>
+    /// 是否拥有帧动画（AnimatedSprite2D）。
+    /// 纯静态贴图怪物（如奇幻蘑菇）应重写为 false，跳过所有 AnimatedSprite2D 相关处理。
+    /// </summary>
+    protected virtual bool HasAnimation => true;
 
     /// <summary>
     /// Boss 的固定初始生命值。最小生命与最大生命统一使用此值。
     /// </summary>
     protected abstract int InitialHp { get; }
 
-    public sealed override int MinInitialHp => InitialHp;
+    public override int MinInitialHp => InitialHp;
 
-    public sealed override int MaxInitialHp => InitialHp;
+    public override int MaxInitialHp => InitialHp;
 
-    public sealed override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
+    public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
 
     public override NCreatureVisuals? CreateCustomVisuals()
     {
         string scenePath = $"res://scenes/creature_visuals/{GetType().Name}.tscn";
         var visuals = NodeFactory<NCreatureVisuals>.CreateFromScene(scenePath);
 
-        if (visuals.GetNodeOrNull<AnimatedSprite2D>("%Visuals") is AnimatedSprite2D sprite)
+        if (HasAnimation && visuals.GetNodeOrNull<AnimatedSprite2D>("%Visuals") is AnimatedSprite2D sprite)
         {
             _animatedSprite2D = sprite;
             sprite.AnimationFinished += OnAnimationFinished;
@@ -43,6 +49,9 @@ public abstract class TouhouAncientMonster : CustomMonsterModel
     {
         get
         {
+            // 无帧动画的怪物不尝试获取 AnimatedSprite2D
+            if (!HasAnimation) return null!;
+
             if (_animatedSprite2D == null)
             {
                 var body = base.Creature.GetCreatureNode()?.Visuals.GetCurrentBody();
@@ -90,6 +99,7 @@ public abstract class TouhouAncientMonster : CustomMonsterModel
 
     protected virtual void PlayAnimation(string animationName)
     {
+        if (!HasAnimation) return;
         MyAnimatedSprite2D.Animation = animationName;
         MyAnimatedSprite2D.Play();
     }
@@ -101,7 +111,7 @@ public abstract class TouhouAncientMonster : CustomMonsterModel
 
     internal void HandleHitAnimationTrigger()
     {
-        if (!ShouldPlayHurtAnimation)
+        if (!HasAnimation || !ShouldPlayHurtAnimation)
             return;
 
         if (MyAnimatedSprite2D.SpriteFrames.HasAnimation("hurt"))

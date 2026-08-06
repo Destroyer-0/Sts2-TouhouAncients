@@ -23,7 +23,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
-public sealed class YorigamiJoon : TouhouAncientMonster
+public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 {
     private static readonly StringName RetainedVisualGroup =
         new StringName("touhou_ancients_yorigami_joon_retained_visual");
@@ -65,7 +65,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         await base.BeforeDeath(creature);
         if (creature != base.Creature) return;
 
-        bool shionAlive = base.CombatState.Enemies.Any(c => c is { Monster: YorigamiShion, IsDead: false });
+        bool shionAlive = base.CombatState.Enemies.Any(c => c is { Monster: YorigamiShionMonster, IsDead: false });
         if (shionAlive)
         {
             string formattedText = _joonDefeatedLine.GetFormattedText();
@@ -85,7 +85,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
             return true;
 
         return !base.CombatState.Enemies.Any(
-            c => c is { Monster: YorigamiShion, IsDead: false });
+            c => c is { Monster: YorigamiShionMonster, IsDead: false });
     }
 
     // --- 死亡后处理 ---
@@ -95,7 +95,7 @@ public sealed class YorigamiJoon : TouhouAncientMonster
         if (creature != base.Creature) return;
 
         if (creature.CombatState is not CombatState combatState ||
-            !combatState.Enemies.Any(c => c is { Monster: YorigamiShion, IsDead: false }))
+            !combatState.Enemies.Any(c => c is { Monster: YorigamiShionMonster, IsDead: false }))
             return;
 
         NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(creature);

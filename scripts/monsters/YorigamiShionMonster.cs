@@ -22,7 +22,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
 
-public sealed class YorigamiShion : TouhouAncientMonster
+public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 {
     protected override string CurrentLoopAnimation => IsJoonAlive() ? "idle" : "spell";
 
@@ -128,7 +128,7 @@ public sealed class YorigamiShion : TouhouAncientMonster
     /// </summary>
     private bool IsJoonAlive()
     {
-        return !CombatManager.Instance.IsInProgress || base.CombatState.Enemies.Any(c => c is { Monster: YorigamiJoon, IsDead: false });
+        return !CombatManager.Instance.IsInProgress || base.CombatState.Enemies.Any(c => c is { Monster: YorigamiJoonMonster, IsDead: false });
     }
 
     /// <summary>
@@ -143,12 +143,12 @@ public sealed class YorigamiShion : TouhouAncientMonster
             if (!base.Creature.HasPower<TwinSoulPower>())
             {
                 PlayAnimation("die");
-                await YorigamiJoon.FadeRetainedVisualAfterShionDeath();
+                await YorigamiJoonMonster.FadeRetainedVisualAfterShionDeath();
             }
             return;
         }
 
-        if (creature.Monster is YorigamiJoon)
+        if (creature.Monster is YorigamiJoonMonster)
         {
             bool isWaitingToRevive = base.Creature.IsDead;
             await PowerCmd.Remove<TwinSoulPower>(base.Creature);
@@ -157,7 +157,7 @@ public sealed class YorigamiShion : TouhouAncientMonster
 
             if (isWaitingToRevive)
             {
-                await YorigamiJoon.FadeRetainedCreatureVisual(base.Creature);
+                await YorigamiJoonMonster.FadeRetainedCreatureVisual(base.Creature);
                 return;
             }
 

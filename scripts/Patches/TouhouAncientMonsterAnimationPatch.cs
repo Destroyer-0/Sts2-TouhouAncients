@@ -17,7 +17,7 @@ internal static class TouhouAncientMonsterAnimationPatch
     {
         if (trigger != "Hit"
             || __instance.HasSpineAnimation
-            || __instance.Entity.Monster is not TouhouAncientMonster monster)
+            || __instance.Entity.Monster is not TouhouAncientMonsterBase monster)
         {
             return true;
         }
