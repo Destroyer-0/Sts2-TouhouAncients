@@ -2275,7 +2275,7 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-"TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue]尸体并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
+"TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue]尸体、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
 "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。"
 ```
 
@@ -2283,7 +2283,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Hell's Cat Cart` |
-| `.description` | `Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] Corpse and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at the [gold]Rest Site[/gold].` |
+| `.description` | `Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] Corpse, {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at [gold]Rest Site[/gold].` |
 | `.flavor` | `A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.` |
 
 ### 休息处选项（rest_site_ui.json）
@@ -2296,7 +2296,9 @@
 ### 说明
 - 2026-08-05 重做：由"敌人死亡回血 + 洗牌抽牌递减"改为"斩杀非爪牙敌人获得尸体，休息处复燃"
 - 复燃：消耗所有尸体，每 1 具恢复 2 点生命；消耗不少于 10 时选择一张牌附魔：灵魂之力（原版 `SoulsPower`，失去消耗）
-- 数值全部记录在 `HellOrin.CanonicalVars`：`CorpsePerKill`(1)、`HealPerKill`(1)、`HealPerCount`(2)、`EnchantThreshold`(10)、`EnchantAmount`(1)、`EnchantmentName`（StringVar，取原版 `SoulsPower` 标题），文本通过动态变量引用，不硬编码
+- 数值全部记录在 `HellOrin.CanonicalVars`：`CorpsePerKill`(1)、`HealPerKill`(1)、`HealPerCount`(2)、`EnchantThreshold`(10)、`EnchantAmount`(1)、`Energy`(1，`EnergyVar`)、`EnchantmentName`（StringVar，取原版 `SoulsPower` 标题），文本通过动态变量引用，不硬编码
+- 2026-08-06 更新：斩杀非爪牙敌人时额外获得 {Energy:energyIcons()}（`EnergyVar(1)`），`AfterDeath` 中调用 `PlayerCmd.GainEnergy`；同步更新 zhs/eng/jpn 三语描述
+- 2026-08-06 修订：英文描述 `at the [gold]Rest Site[/gold]` 改为 `at [gold]Rest Site[/gold]`，同步更新 eng/jpn
 - 遗物描述中的变量由 DynamicVars 自动替换；休息处描述中的 `{HealPerCount}`/`{EnchantThreshold}`/`{EnchantmentName}` 由 `RestSiteOption.Description` 手动 Add 注入（StringVar 需强转 `(StringVar)DynamicVars[...]` 后取 `.StringValue`）
 - 阿燐 = Orin，猫车快递 = Cat Cart Delivery（用户指定译名）；灵魂之力对应原版 `SOULS_POWER`（Soul's Power）
 
