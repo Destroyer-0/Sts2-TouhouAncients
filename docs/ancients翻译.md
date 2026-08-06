@@ -951,3 +951,75 @@
 | `talk.NECROBINDER.1-3.ancient` | 打住打住——你要我爆建筑师的金币吗？不去不去——不过，给你提供点支援还是可以的。 | Whoa whoa—you want me to farm the Architect for gold? No way, no way—but I can spot you some support. |
 | `talk.NECROBINDER.1-3.speaker` | jyoon | jyoon |
 
+
+---
+
+## 增量更新（2026-08-06，基于提交 c188fbc 之后）
+
+### 通用挑战键（移动至文件顶部）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-CHALLENGE_COOP` | 这是一个合作事件，所有玩家均确认挑战后方可进行 | This is a cooperative event. The challenge will begin once all players confirm. |
+| `TOUHOUANCIENTS.fight.description` | 获取以上所有先古遗物选项 | Obtain all the Ancient relic options above |
+| `TOUHOUANCIENTS.fight.done` | 继续 | Continue |
+
+> 说明：原位于 `YORIGAMI_SISTER_ANCIENT.fight.*` 下的通用键已移至文件顶部（键名去掉角色前缀）。
+
+### 雾雨魔理沙：新增挑战遭遇标题
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `KIRISAME_MARISA_ANCIENT.fight.title` | 来一场弹幕对决吧！ | Let's have a danmaku duel! |
+
+### 魔理沙 DEFECT 对话（富文本标记更新）
+
+| 键 | 变更 |
+|------|------|
+| `talk.DEFECT.0-0.ancient` | "mechanical engineer" 包裹 `[aqua]` 标记 |
+| `talk.DEFECT.1-0r.ancient` | "Nitori"（荷取）包裹 `[aqua]` 标记 |
+
+### 渡里贝子：新增 Akyuu（稗田阿求）对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.ancient` | 哦哦！你就是村子里那个大名鼎鼎的稗田家的……"牢求"吗？嘿嘿，看来你转生的还挺快嘛！ | Oh ho! So you're that famous Hieda family... "Achoo!" from the village? Heheh, you've reincarnated pretty fast! |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.next` | 继续 | Continue |
+| `talk.AKYUUMOD-AKYUU_MOD.0-1r.char` | ……我会把你写到幻想乡缘起里的。 | ...I'll write you into the Gensokyo Chronicles. |
+| `talk.AKYUUMOD-AKYUU_MOD.1-0r.ancient` | 为什么现在的人类都越来越像饮料瓶了呢？ | Why does your profile picture often appear in outside memes? |
+
+> **专有名词**：「牢求」→ "Achoo!"（用户指定：译为"阿嚏"拟声）；「稗田家」→ Hieda family；「幻想乡缘起」→ Gensokyo Chronicles（东方官方英译）。
+
+### 因幡帝：新增 Akyuu 对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0.ancient` | 呵呵。人间之里的大小姐，什么风把你吹到这里来了？ | Heheh. Young mistress of the Human Village, what brings you all the way here? |
+| `talk.AKYUUMOD-AKYUU_MOD.1-0r.ancient` | 哎呀，阎魔大人可真不近人情。连你这副身体都要压榨。 | Oh my, Lord Enma is so cold-hearted. Working even a body like yours to the bone. |
+
+> **专有名词**：「人间之里」→ Human Village（东方官方英译）；「阎魔」→ Lord Enma（东方官方英译）。
+
+### 博丽灵梦：REGENT 对话微调
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.REGENT.0-0.next` | 继续（原：查看） | Continue |
+### 饕餮尤魔：新增 Akyuu 对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.ancient` | 浓郁的书香味。啧啧，原来是个连我的牙缝都填不满的人类。 | The rich scent of books. Tsk tsk, a human who can't even fill the gaps between my teeth. |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.next` | 记录 | Record |
+| `talk.AKYUUMOD-AKYUU_MOD.0-1r.char` | （在纸上记录）唔，饕餮尤魔……畜生界的三大首脑之一……盘踞在高塔…… | (Writing on paper) Hmm, Yuuma Toutetsu... one of the three heads of the Beast Realm... lurking in the Spire... |
+
+### 二岩猯藏：对话占位/清空
+
+| 键 | 变更 |
+|------|------|
+| `talk.firstVisitEver.0-0.ancient` | 原文案 → `...` |
+| `talk.ANY.0-0r.ancient` | 原文案 → `...` |
+| `talk.ANY.1-0r.ancient` | 空 → `...` |
+| `talk.ANY.3-0r.ancient` | "My tanuki disciples..." → "This old one's disciples..."（老朽的弟子们） |
+| `talk.DEFECT.0-0r.ancient` | 原文案 → 空 |
+| `talk.REGENT.0-0r.ancient` | 原文案 → 空 |
+| `talk.NECROBINDER.0-0r.ancient` | 原文案 → 空 |

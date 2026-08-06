@@ -84,6 +84,7 @@ User input (design spec)
 │ - TouhouAncients/localization/zhs/monsters.json (append)   │
 │ - TouhouAncients/localization/zhs/encounters.json (append) │
 │ - [if custom power] zhs/powers.json (append)               │
+│ ⚠ 只写 zhs，不要写 eng/jpn！（见 Constraints）             │
 ├──────────────────────────────────────────────────────────┤
 │ Action: Summarize what was created, list any manual steps  │
 │ (icon creation, tscn scene, Entry.cs registration)         │
@@ -171,3 +172,4 @@ runSubagent(
 - Default ModPrefix: `TOUHOUANCIENTS`
 - NEVER write files without user confirmation at each stage
 - If the design has missing encounter info, Stage 1 TODO will catch it — do not proceed without answers
+- **⚠ 生成怪物时不要提早翻译**：Stage 3 只写 `zhs` 本地化（monsters/encounters/cards/powers.json），**不要**同步写 `eng/` 与 `jpn/`，也不要更新翻译记录文档。eng/jpn 翻译与翻译记录属于 `translate` 技能（或用户单独发起的翻译请求）的职责，只有在用户明确要求翻译时才执行。

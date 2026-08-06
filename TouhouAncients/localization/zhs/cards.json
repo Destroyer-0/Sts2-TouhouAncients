@@ -78,5 +78,13 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "将一张此牌的复制品加入抽牌堆，并随机化其耗能。\n变化为上一张打出的牌并返回手牌。",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "百鬼夜行",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "打出随机2张记录的牌，然后将它们在本场战斗中从记录中移除。\n记录全部移除后，将此牌在本场战斗中移出游戏。"
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "打出随机2张记录的牌，然后将它们在本场战斗中从记录中移除。\n记录全部移除后，将此牌在本场战斗中移出游戏。",
+
+    "TOUHOUANCIENTS-DREAM_SEAL_WABI.title": "梦想封印·侘",
+    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "获得[blue]1[/blue]层[gold]易伤[/gold]。\n如果这张牌在你的手中，你不能打出技能牌。",
+    "TOUHOUANCIENTS-DREAM_SEAL_WABI.descriptionUpgraded": "获得[blue]{Amount:diff()}[/blue]层[gold]易伤[/gold]。\n如果这张牌在你的手中，你不能打出技能牌。",
+
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "梦想封印·寂",
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "获得[blue]1[/blue]层[gold]虚弱[/gold]。\n如果这张牌在你的手中，你不能打出攻击牌。",
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.descriptionUpgraded": "获得[blue]{Amount:diff()}[/blue]层[gold]虚弱[/gold]。\n如果这张牌在你的手中，你不能打出攻击牌。"
 }

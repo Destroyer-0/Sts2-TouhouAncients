@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -22,6 +23,9 @@ public class HakureiReimuAncient : TouhouAncientBase
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
+
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HakureiReimuEncounter>();
+
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<HakureiGohei>(),

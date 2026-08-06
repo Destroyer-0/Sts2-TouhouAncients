@@ -12,15 +12,15 @@
   "TOUHOUANCIENTS-MAGIC_WALLET_POWER.smartDescription": "The next [gold]{Amount}[/gold] cards are free to play.",
 
   "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.title": "All Living Things Must Perish",
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "After [blue]4[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
-  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "After [blue]{Amount}[/blue] turns, remove all enemies' [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.description": "After [blue]4[/blue] turns, remove all enemies’ [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
+  "TOUHOUANCIENTS-LIFE_MUST_PERISH_POWER.smartDescription": "After [blue]{Amount}[/blue] turns, remove all enemies’ [gold]Artifact[/gold] and apply [blue]9999[/blue] [gold]Doom[/gold]. When taking damage from an enemy, extend the countdown by [blue]1[/blue] turn and apply [blue]8[/blue] [gold]Doom[/gold] to yourself.",
 
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "Reduce Miss Snake Plant's Strength",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], up to [blue]8[/blue] times.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
-  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "Whenever [gold]{Applier}[/gold] plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you're already too weak to deal any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.title": "Reduce Miss Snake Plant’s Strength",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.description": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], up to [blue]8[/blue] times.\nYou think you can still fight, but you’re already too weak to deal any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.smartDescription": "Whenever the player plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you’re already too weak to deal any damage.",
+  "TOUHOUANCIENTS-GEISHEHUAXIAOJIEJIANSHAOLILIANG_POWER.remoteDescription": "Whenever [gold]{Applier}[/gold] plays a card, gain [blue]1[/blue] [gold]Strength[/gold], {Amount} times remaining.\nYou think you can still fight, but you’re already too weak to deal any damage.",
 
-  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "All Creation's Hisou",
+  "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.title": "All Creation’s Hisou",
   "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.description": "Positive status stacks are increased by [gold]1[/gold].",
   "TOUHOUANCIENTS-ALL_CREATION_HISOU_POWER.smartDescription": "Positive status stacks are increased by [gold]{Amount}[/gold].",
 
@@ -58,14 +58,30 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "Misfortune",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "When attacked by an Attack card, the attacker loses 5 [gold]Royalties[/gold].\nWhen dealing damage, the target loses 10 [gold]Royalties[/gold].",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "When attacked by an Attack card, the attacker loses [blue]{Amount}[/blue] [gold]Royalties[/gold].\nWhen dealing damage, the target loses [blue]{Amount2}[/blue] [gold]Royalties[/gold].",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "When attacked by an Attack card, the attacker loses 6 [gold]Royalties[/gold].\nWhen dealing damage, the target loses 6 [gold]Royalties[/gold].",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "When attacked by an Attack card, the attacker loses [blue]{Amount}[/blue] [gold]Royalties[/gold].\nWhen dealing damage, the target loses [blue]{Amount}[/blue] [gold]Royalties[/gold].",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "Twin Soul",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "Grant [gold]Joon[/gold] [blue]8[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]50[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "Grant [gold]Joon[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]{RecoverHP}[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "Debt Collector",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target's [gold]Royalties[/gold], deals equal additional damage, and heals for that amount."
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
+
+  "TOUHOUANCIENTS-MAGICIAN_POWER.title": "Ordinary Magician",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]{Amount}[/blue] [gold]Vigor[/gold].\n\"[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]！[/gold]\"",
+
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "I’ll Return It!",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
+
+  "TOUHOUANCIENTS-FUNGAL_POWER.title": "Symbiosis",
+  "TOUHOUANCIENTS-FUNGAL_POWER.description": "On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "On death, add {Amount} [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
+
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "Indiscriminate Subjugation",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "After dealing [blue]7[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to Fantasy Nature.",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "After dealing [blue]{Amount}[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to [gold]Fantasy Nature[/gold]."
 }

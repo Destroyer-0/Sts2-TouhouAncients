@@ -4,15 +4,15 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "Super ZUN Beer",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add a random Touhou Ancient card into your [gold]Hand[/gold]. It's free to play this turn.\n[jitter][b]Wow, what an opportunity![/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add a random Touhou Ancient card into your [gold]Hand[/gold]. It’s free to play this turn.\n[jitter][b]Wow, what an opportunity![/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "Wow, what an opportunity!",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "Shi Ra Nai Milk",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "Put a card from your [gold]Exhaust Pile[/gold] into your [gold]Hand[/gold].\nCouldn't think of an effect for this potion, so this will have to do (lol).",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "Put a card from your [gold]Exhaust Pile[/gold] into your [gold]Hand[/gold].\nCouldn’t think of an effect for this potion, so this will have to do (lol).",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "Choose a card from your [gold]Exhaust Pile[/gold].",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "Couldn't think of a flavor text for this potion, so this will have to do (lol).",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "Couldn’t think of a flavor text for this potion, so this will have to do (lol).",
 
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "Meteoric Debris",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]Transform[/gold] ALL cards in your hand.\n[sine]If you're not satisfied, just blow it up with her![/sine]",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you're not satisfied, just blow it up with her![/sine]"
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]Transform[/gold] ALL cards in your hand.\n[sine]If you’re not satisfied, just blow it up with her![/sine]",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you’re not satisfied, just blow it up with her![/sine]"
 }

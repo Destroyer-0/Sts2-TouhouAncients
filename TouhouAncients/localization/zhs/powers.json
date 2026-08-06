@@ -66,8 +66,8 @@
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "普通的魔法使",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]10[/blue]点活力。",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]{Amount}[/blue]点活力。",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]10[/blue]点[gold]活力[/gold]。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上的每个蘑菇为魔理沙提供[blue]{Amount}[/blue]点[gold]活力[/gold]。\n[gold]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/gold]",
   
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "我会还给你的！",
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，归还被偷走的卡牌。\n“嘿嘿，等我老死了以后直接拿走就行啦。”",
@@ -75,5 +75,9 @@
 
   "TOUHOUANCIENTS-FUNGAL_POWER.title": "共生",
   "TOUHOUANCIENTS-FUNGAL_POWER.description": "死亡时，向玩家的弃牌堆中加入3张[gold]孢子心灵[/gold]。",
-  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "死亡时，向玩家的弃牌堆中加入{Amount}张[gold]孢子心灵[/gold]。"
+  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "死亡时，向玩家的弃牌堆中加入{Amount}张[gold]孢子心灵[/gold]。",
+
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "无差别降伏",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "每使用梦想天生以外的技能造成7次未被格挡的伤害，下一次意图切换至梦想天生。",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "每使用梦想天生以外的技能造成[blue]{Amount}[/blue]次未被格挡的伤害，下一次意图切换至[gold]梦想天生[/gold]。"
 }

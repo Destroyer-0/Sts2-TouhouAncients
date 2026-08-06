@@ -8,8 +8,8 @@
 
   "OPTION_HELL_ORIN.name": "Reignite",
   "OPTION_HELL_ORIN.description": "Consume all [gold]Corpse[/gold]. Restore [blue]{HealPerCount}[/blue] HP per Corpse consumed. \nIf you consume at least [blue]{EnchantThreshold}[/blue] Corpse, choose a card and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
-  "OPTION_HELL_ORIN.descriptionDisabled": "Orin's Cat Cart Delivery has no fresh corpses yet!",
+  "OPTION_HELL_ORIN.descriptionDisabled": "Orin’s Cat Cart Delivery has no fresh corpses yet!",
 
   "OPTION_TREASURE.name": "Treasure Hunt",
-  "OPTION_TREASURE.description": "Choose any number of recorded cards to add to your [gold]Deck[/gold]. There's also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!"
+  "OPTION_TREASURE.description": "Choose any number of recorded cards to add to your [gold]Deck[/gold]. There’s also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!"
 }
