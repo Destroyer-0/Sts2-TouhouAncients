@@ -5,6 +5,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -23,8 +24,8 @@ public class KirisameMarisaAncient : TouhouAncientBase
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/KirisameMarisa_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KirisameMarisa.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KirisameMarisa.png";
-
-
+    
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<KirisameMarisaEncounter>();
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MiniHakkero>(),

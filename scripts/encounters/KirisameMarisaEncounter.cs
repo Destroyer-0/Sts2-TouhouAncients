@@ -14,7 +14,7 @@ public sealed class KirisameMarisaEncounter : TouhouAncientEncounter
     public override IEnumerable<MonsterModel> AllPossibleMonsters =>
     [
         ModelDb.Monster<KirisameMarisaMonster>(),
-        ModelDb.Monster<FantasyMushroom>()
+        ModelDb.Monster<FantasyMushroomMonster>()
     ];
 
     /// <summary>预置槽位：魔理沙本体 + 5 个蘑菇位，供战斗中召唤使用。</summary>
@@ -23,13 +23,15 @@ public sealed class KirisameMarisaEncounter : TouhouAncientEncounter
         "marisa", "mushroom1", "mushroom2", "mushroom3", "mushroom4", "mushroom5"
     ];
 
-    public override string? BgmFileName => "TFM-010b_03.mp3";
+    public override string? BgmFileName => "TFM-Marisa.mp3";
 
     public override string? CustomScenePath => "res://scenes/encounters/kirisame_marisa.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [
-        (ModelDb.Monster<KirisameMarisaMonster>().ToMutable(), "marisa")
+        (ModelDb.Monster<KirisameMarisaMonster>().ToMutable(), "marisa"),
+        (ModelDb.Monster<FantasyMushroomMonster>().ToMutable(), "mushroom1"),
+        (ModelDb.Monster<FantasyMushroomMonster>().ToMutable(), "mushroom2")
     ];
 
     public KirisameMarisaEncounter() : base(RoomType.Monster)

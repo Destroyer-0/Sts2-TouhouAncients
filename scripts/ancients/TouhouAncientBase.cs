@@ -111,7 +111,13 @@ public abstract class TouhouAncientBase : CustomAncientModel
         var hoverTips = Owner != null && Owner.RunState.Players.Count > 1
             ? new IHoverTip[] { new HoverTip(new LocString("ancients", ChallengeCoopPromptKey)) }
             : Array.Empty<IHoverTip>();
-        return new EventOption(this, StartChallenge, $"{Id.Entry}.fight", hoverTips);
+        return new EventOption(
+            this, 
+            StartChallenge,
+            new LocString("ancients",$"{Id.Entry}.fight.title"),
+            new LocString("ancients","TOUHOUANCIENTS.fight.description"),
+            $"{Id.Entry}.fight", 
+            hoverTips);
     }
 
     /// <summary>
