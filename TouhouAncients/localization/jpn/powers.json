@@ -73,7 +73,7 @@
   "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
   "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]{Amount}[/blue] [gold]Vigor[/gold].\n\"[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]！[/gold]\"",
 
-  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "I’ll Return It!",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "Marisa Stole the Precious Thing",
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
 
@@ -83,5 +83,5 @@
 
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "Indiscriminate Subjugation",
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "After dealing [blue]7[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to Fantasy Nature.",
-  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "After dealing [blue]{Amount}[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to [gold]Fantasy Nature[/gold]."
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "After dealing [blue]{HitsLeft}[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to [gold]Fantasy Nature[/gold]."
 }

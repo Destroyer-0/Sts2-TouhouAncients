@@ -83,10 +83,8 @@
     "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.",
 
     "TOUHOUANCIENTS-DREAM_SEAL_WABI.title": "Dream Seal: Wabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Apply [blue]1[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
-    "TOUHOUANCIENTS-DREAM_SEAL_WABI.descriptionUpgraded": "Apply [blue]{Amount:diff()}[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
+    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Apply [blue]{Amount}[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
 
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "Dream Seal: Sabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]1[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.descriptionUpgraded": "Apply [blue]{Amount:diff()}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards."
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards."
 }
