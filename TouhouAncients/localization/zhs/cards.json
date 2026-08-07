@@ -75,7 +75,8 @@
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "造成等同于目标[gold]格挡[/gold]值{ExtraDamage:diff()}倍的伤害。\n无论何处，将这张牌返回你的[gold]手牌[/gold]。{InCombat:\n（造成{CalculatedDamage:diff()}点伤害）|}",
 
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "未名妖魔",
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "将一张此牌的复制品加入抽牌堆，并随机化其耗能。\n变化为上一张打出的牌并返回手牌。",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "将任意张手牌[gold]变化[/gold]为稀有度相同的{IfUpgraded:show:[gold]已升级[/gold]的|}[gold]其他颜色的牌[/gold]。\n在这个回合，你打出与上一张打出的牌[gold]颜色不同[/gold]的牌时，获得{Energy:energyIcons()}并在本回合获得{Power:diff()}点[gold]力量[/gold]。",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "选择任意张牌来[gold]变化[/gold]。",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "百鬼夜行",
     "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "打出随机2张记录的牌，然后将它们在本场战斗中从记录中移除。\n记录全部移除后，将此牌在本场战斗中移出游戏。",
