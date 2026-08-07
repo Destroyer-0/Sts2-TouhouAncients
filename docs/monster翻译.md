@@ -147,3 +147,33 @@
 | MAGICIAN_POWER（新增） | 普通的魔法使 → Ordinary Magician：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold] |
 | I_WILL_RETURN_IT_POWER（新增） | 我会还给你的！→ I'll Return It!：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n"Heheh, just take them once I'm dead and gone." |
 | FUNGAL_POWER（改名） | 菌类 → 共生 → Symbiosis：On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].（孢子心灵 → Spore Mind，与 MUSHROOM_BENTO 遗物一致） |
+
+### 怪物图鉴"先古之民"分区标题（新增）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `ANCIENT_SECTION.title` | 先古之民 | Ancients |
+
+---
+
+## 增量更新（2026-08-07，基于提交 6414515d 之后）
+
+### 雾雨魔理沙怪物：新增技能台词
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.banter` | 我会还给你的！ | I'll return it! |
+
+### 能力更新（powers.json）
+
+| 键 | 变更 |
+|------|------|
+| `I_WILL_RETURN_IT_POWER.title` | 我会还给你的！→ **魔理沙偷走了重要的东西** → Marisa Stole the Precious Thing（ZUN 名曲英文名） |
+| `INDISCRIMINATE_SUBJUGATION_POWER.smartDescription` | `{Amount}` → `{HitsLeft}`（zhs 同改，仅变量名替换） |
+
+### 状态卡牌更新（cards.json）
+
+| 键 | 变更 |
+|------|------|
+| `DREAM_SEAL_WABI.description` | `[blue]1[/blue]` → `[blue]{Amount}[/blue]`；删除 `descriptionUpgraded` |
+| `DREAM_SEAL_SABI.description` | `[blue]1[/blue]` → `[blue]{Amount}[/blue]`；删除 `descriptionUpgraded` |

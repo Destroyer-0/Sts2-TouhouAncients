@@ -1023,3 +1023,81 @@
 | `talk.DEFECT.0-0r.ancient` | 原文案 → 空 |
 | `talk.REGENT.0-0r.ancient` | 原文案 → 空 |
 | `talk.NECROBINDER.0-0r.ancient` | 原文案 → 空 |
+
+---
+
+## 增量更新（2026-08-07，基于提交 6414515d 之后）
+
+### 通用挑战键措辞变更
+
+| 键 | 变更 |
+|------|------|
+| `TOUHOUANCIENTS-CHALLENGE_COOP` | "合作事件" → "合作选项"：This is a cooperative **option**. The challenge will begin once all players confirm. |
+
+### 博丽灵梦：新增挑战遭遇标题
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HAKUREI_REIMU_ANCIENT.fight.title` | 挑战博丽巫女 | Challenge the Hakurei Shrine Maiden |
+
+### 博丽灵梦 × 魔理沙 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MARISA-MARISA.0-0r.ancient` | ……我说你这家伙就那么喜欢凑热闹吗？ | ...Don't you ever get tired of butting in? |
+
+### 蕾米莉亚 × 小恶魔 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-0.ancient` | 小恶魔？你在这里做什么？难怪帕琪找不到你。啊——你不会是要去塔顶吧？ | Koakuma? What are you doing here? No wonder Patchouli couldn't find you. Ah—you're not heading for the top of the tower, are you? |
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-0.next` | 继续 | Continue |
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-1.char` | 咳咳，蕾米莉亚大人，这件事还请您帮我向帕秋莉大人保密…… | Ahem, Lady Remilia, please keep this from Lady Patchouli… |
+
+> **专有名词**：「小恶魔」→ Koakuma；「帕琪」/「帕秋莉」→ Patchouli。
+
+### 因幡帝 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | 咯咯，遇到老熟人了呢。 | Heheh, running into an old acquaintance. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 沉默 | Silence |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.char` | 你在这里的话，意味着那家伙也在—— | If you're here, that means she's here too— |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.ancient` | 恩恩~会在这里吗~公主会不会同意我告诉你呢~ | Mm hm~ Is she here~? I wonder if the princess would allow me to tell you~ |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.ancient` | 看在一千年邻居的份上，好宝贝你随便挑哦~ | For the sake of a thousand years as neighbors, pick any fine treasure you like~ |
+
+### 蓬莱山辉夜 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 沉默 | Silence |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.ancient` | 噗嗤——你居然也听信了[u]那位[/u]的鬼话，要去上面讨伐那建筑师？ | Pfft—you actually believed [u]her[/u] nonsense and went to take down the Architect up there? |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 握拳 | Clench fist |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.char` | [jitter]（幻想乡粗口）在那之前，我会先把你烧成灰！！！！[/jitter] | [jitter](Gensokyo dirty words) Before that, I'll burn you to ashes first!!!![/jitter] |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.char` | 遇到你总没好事。黑心公主。 | Nothing good ever happens when I run into you. Black-hearted princess. |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.1-1r.ancient` | 嗯嗯~我也是这么想的，熔岩脑袋。 | Mm hm~ That's what I think too, lava brain. |
+| `talk.MOKOUMOD-MOKOU_MOD.2-0r.ancient` | 恩？这次你居然没有直接动手吗？真不像你呢。 | Huh? You didn't attack right away this time? That's not like you. |
+| `talk.MOKOUMOD-MOKOU_MOD.2-0r.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.2-1r.char` | ……这次放你一马。赶紧把宝贝给我。 | …I'll let you off this once. Hand over the treasure. |
+| `talk.MOKOUMOD-MOKOU_MOD.3-0r.ancient` | [i][jitter][font_size=22]<辉夜与妹红激烈的扭打在一起。>[/font_size][/jitter][/i] | [i][jitter][font_size=22]<Kaguya and Mokou are locked in a fierce brawl.>[/font_size][/jitter][/i] |
+
+> **专有名词**：「幻想乡粗口」→ Gensokyo dirty words（用户指定直译）；「妹红」→ Mokou（台词中用名，无全名）。
+
+### 二岩猯藏 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | 哟嚯，不死的小姑娘你也在这儿呢。老朽还记得咱俩上次凭依组队的事情呢。 | Yo ho, the immortal little lady's here too. This old one still remembers us teaming up through possession last time. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 打招呼 | Greeting |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | 狸猫老大，我现在要前往塔顶。你有什么能提供帮助的吗？ | Boss Tanuki, I'm heading to the top of the tower now. Is there anything you can offer to help? |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.ancient` | 这里的宝贝随便拿随便拿~可一定要带着俺们最强的组合拿下胜利呐。 | Take any treasure you like~ But make sure to bring our strongest combo to victory. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.char` | 会赢的。放心吧。 | I'll win. Don't worry. |
