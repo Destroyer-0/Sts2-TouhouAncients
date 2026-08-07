@@ -23,7 +23,7 @@ public class DreamSealSabi : ReimuBossDreamSealStatus
     public DreamSealSabi() : base(true)
     {
     }
-
+    
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<WeakPower>(choiceContext, base.Owner.Creature,
