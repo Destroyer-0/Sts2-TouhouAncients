@@ -36,24 +36,6 @@ public class TouhouAncientsConfig : SimpleModConfig
 {
 
     /// <summary>
-    /// 检查某个基础游戏 Ancient（原版先古之民）是否被配置为禁用
-    /// </summary>
-    public static bool IsBaseGameAncientBanned(AncientEventModel ancient)
-    {
-        return ancient switch
-        {
-            Nonupeipe => BanNonupeipe,
-            Vakuu => BanVakuu,
-            Orobas => BanOrobus,
-            Pael => BanPaerl,
-            Tezcatara => BanTezcataras,
-            Darv => BanDarv,
-            Tanx => BanTanx,
-            _ => false
-        };
-    }
-    
-    /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）
     /// </summary>
     [ConfigSection("ForcedAncient_2")]
@@ -62,39 +44,112 @@ public class TouhouAncientsConfig : SimpleModConfig
     [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
 
     /// <summary>
-    /// 检查某个 Touhou Ancient 是否被禁止（实例模式匹配版本）
+    /// 本次运行实际生效的强制 Ancient（运行期字段，非设置项，不写入配置文件）。
+    /// BaseLib 配置是各端本地文件、不会网络同步，直接读 ForcedAncient_2/3 会导致联机不同步；
+    /// 因此开局时由 ForcedAncientSyncPatch 将主机的配置写入这两个字段，
+    /// 并随 LobbyBeginRunMessage 广播到所有客户端，ShouldForceSpawn 只读取这两个字段，
+    /// 保证各端一致。非主机端的本地设置文件不被修改。
     /// </summary>
-    public static bool IsAncientBanned(TouhouAncientBase type)
+    public static ForcedAncientOption ForcedAncient_2_Run { get; set; } = ForcedAncientOption.None;
+
+    public static ForcedAncientOption ForcedAncient_3_Run { get; set; } = ForcedAncientOption.None;
+
+    /// <summary>
+    /// 本次运行实际生效的禁用掩码（运行期字段，非设置项，不写入配置文件）。
+    /// 位 i 对应 <see cref="GetBanBit"/> 定义的 Ancient；null 表示未同步（回退本地配置）。
+    /// 开局时由 ForcedAncientSyncPatch 将主机的禁用配置写入该字段并随 LobbyBeginRunMessage 广播，
+    /// 保证各端候选池一致（BanAncientPatch 的 Transpiler 过滤依赖此字段）。
+    /// </summary>
+    public static ulong? BannedMask_Run { get; set; }
+
+    /// <summary>
+    /// 由本地禁用配置构造运行期掩码（开局时由 ForcedAncientSyncPatch 调用）。
+    /// 位序必须与 <see cref="GetBanBit"/> 保持一致。
+    /// </summary>
+    public static ulong BuildBannedMask()
     {
-        return type switch
+        ulong mask = 0;
+        if (BanNonupeipe) mask |= 1UL << 0;
+        if (BanVakuu) mask |= 1UL << 1;
+        if (BanTanx) mask |= 1UL << 2;
+        if (BanOrobus) mask |= 1UL << 3;
+        if (BanPaerl) mask |= 1UL << 4;
+        if (BanTezcataras) mask |= 1UL << 5;
+        if (BanDarv) mask |= 1UL << 6;
+        if (BanReimu) mask |= 1UL << 7;
+        if (BanSanae) mask |= 1UL << 8;
+        if (BanMarisa) mask |= 1UL << 9;
+        if (BanSatori) mask |= 1UL << 10;
+        if (BanTewi) mask |= 1UL << 11;
+        if (BanSeija) mask |= 1UL << 12;
+        if (BanMedicine) mask |= 1UL << 13;
+        if (BanNina) mask |= 1UL << 14;
+        if (BanRemilia) mask |= 1UL << 15;
+        if (BanTenshi) mask |= 1UL << 16;
+        if (BanYuyuko) mask |= 1UL << 17;
+        if (BanKaguya) mask |= 1UL << 18;
+        if (BanJunko) mask |= 1UL << 19;
+        if (BanYuuma) mask |= 1UL << 20;
+        if (BanYorigami) mask |= 1UL << 21;
+        if (BanMamizou) mask |= 1UL << 22;
+        return mask;
+    }
+
+    /// <summary>
+    /// 返回 Type 对应的禁用位（0~22）；未识别的 Ancient 返回 -1。
+    /// 位序必须与 <see cref="BuildBannedMask"/> 保持一致。
+    /// </summary>
+    private static int GetBanBit(Type type)
+    {
+        return type.Name switch
         {
-            HakureiReimuAncient  => BanReimu,
-            KotiyaSanaeAncient  => BanSanae,
-            RemiliaScarletAncient  => BanRemilia,
-            KomejiSatoriAncient  => BanSatori,
-            WatariNinaAncient  => BanNina,
-            MedicineMelancholyAncient  => BanMedicine,
-            HinanawiTenshiAncient  => BanTenshi,
-            InabaTewiAncient  => BanTewi,
-            KijinSeijaAncient  => BanSeija,
-            SaigyoujiYuyukoAncient  => BanYuyuko,
-            HouraisanKaguyaAncient  => BanKaguya,
-            KirisameMarisaAncient  => BanMarisa,
-            JunkoAncient  => BanJunko,
-            ToutetsuYuumaAncient  => BanYuuma,
-            YorigamiSisterAncient  => BanYorigami,
-            //FutatsuiwaMamizouAncient  => !EnableTestContentMamizou || BanMamizou,
-            _ => false
+            nameof(Nonupeipe) => 0,
+            nameof(Vakuu) => 1,
+            nameof(Tanx) => 2,
+            nameof(Orobas) => 3,
+            nameof(Pael) => 4,
+            nameof(Tezcatara) => 5,
+            nameof(Darv) => 6,
+            nameof(HakureiReimuAncient) => 7,
+            nameof(KotiyaSanaeAncient) => 8,
+            nameof(KirisameMarisaAncient) => 9,
+            nameof(KomejiSatoriAncient) => 10,
+            nameof(InabaTewiAncient) => 11,
+            nameof(KijinSeijaAncient) => 12,
+            nameof(MedicineMelancholyAncient) => 13,
+            nameof(WatariNinaAncient) => 14,
+            nameof(RemiliaScarletAncient) => 15,
+            nameof(HinanawiTenshiAncient) => 16,
+            nameof(SaigyoujiYuyukoAncient) => 17,
+            nameof(HouraisanKaguyaAncient) => 18,
+            nameof(JunkoAncient) => 19,
+            nameof(ToutetsuYuumaAncient) => 20,
+            nameof(YorigamiSisterAncient) => 21,
+            //nameof(FutatsuiwaMamizouAncient) => 22, // 猯藏 Ancient 类暂被注释，恢复时取消注释（BuildBannedMask 已预留第 22 位）
+            _ => -1
         };
     }
 
     /// <summary>
+    /// 检查某个 Ancient 是否被禁止（实例版本，委托 Type 版本统一走运行期掩码）
+    /// </summary>
+    public static bool IsAncientBanned(TouhouAncientBase type)
+    {
+        return IsAncientBanned(type.GetType());
+    }
+
+    /// <summary>
     /// 检查某个 Ancient 是否被禁止（Type 版本，供 Patch 使用）
+    /// 运行期掩码优先（各端一致的主机配置）；未同步时回退本地配置。
     /// </summary>
     public static bool IsAncientBanned(Type type)
     {
-        var name = type.Name;
-        return name switch
+        if (BannedMask_Run is ulong mask)
+        {
+            int bit = GetBanBit(type);
+            return bit >= 0 && ((mask >> bit) & 1UL) != 0;
+        }
+        return type.Name switch
         {
             nameof(HakureiReimuAncient) => BanReimu,
             nameof(KotiyaSanaeAncient) => BanSanae,
@@ -117,12 +172,25 @@ public class TouhouAncientsConfig : SimpleModConfig
     }
 
     /// <summary>
+    /// 检查某个基础游戏 Ancient 是否被禁止（实例版本，委托 Type 版本统一走运行期掩码）
+    /// </summary>
+    public static bool IsBaseGameAncientBanned(AncientEventModel ancient)
+    {
+        return IsBaseGameAncientBanned(ancient.GetType());
+    }
+
+    /// <summary>
     /// 检查某个基础游戏 Ancient 是否被禁止（Type 版本，供 Patch 使用）
+    /// 运行期掩码优先（各端一致的主机配置）；未同步时回退本地配置。
     /// </summary>
     public static bool IsBaseGameAncientBanned(Type type)
     {
-        var name = type.Name;
-        return name switch
+        if (BannedMask_Run is ulong mask)
+        {
+            int bit = GetBanBit(type);
+            return bit >= 0 && ((mask >> bit) & 1UL) != 0;
+        }
+        return type.Name switch
         {
             nameof(Nonupeipe) => BanNonupeipe,
             nameof(Vakuu) => BanVakuu,
@@ -142,8 +210,8 @@ public class TouhouAncientsConfig : SimpleModConfig
     {
         var option= actNumber switch
         {
-            2 => ForcedAncient_2,
-            3 => ForcedAncient_3,
+            2 => ForcedAncient_2_Run,
+            3 => ForcedAncient_3_Run,
             _ => ForcedAncientOption.None
         };
 
