@@ -31,6 +31,7 @@ public class LordsSunscreenCream : TouhouAncientRelics
     {
         if (base.Owner != player) return options;
 
+        if (options.Source != CardCreationSource.Encounter) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
         
         // 用自定义池过滤出稀有牌
