@@ -391,8 +391,8 @@
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.flavor": "",
 
   "TOUHOUANCIENTS-RIBBON_BOW.title": "Ribbon Bow",
-  "TOUHOUANCIENTS-RIBBON_BOW.description": "Upon pickup, choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-RIBBON_BOW.description": "Upon pickup, add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "Add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
   "TOUHOUANCIENTS-RIBBON_BOW.selectionScreenPrompt": "Choose [blue]{SelectCount}[/blue] cards to [gold]enchant[/gold]",
   "TOUHOUANCIENTS-RIBBON_BOW.flavor": "",
 

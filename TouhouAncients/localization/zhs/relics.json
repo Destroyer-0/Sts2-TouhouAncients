@@ -116,7 +116,7 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "将灵气收束成枪状投掷而出。贯通力很高，碰到弹幕大都都会毫无阻碍的连同敌人本体一起贯穿。",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "领主防晒霜",
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "卡牌奖励全部替换为[gold]稀有牌[/gold]，且你可以选择[gold]全都要[/gold]。",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "战斗奖励中的卡牌将全部替换为[gold]稀有牌[/gold]。卡牌奖励你可以选择[gold]全都要[/gold]。",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "幼稚的吸血鬼才打阳伞，成熟的吸血鬼会让女仆先涂好防晒霜。",
   
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "腌制红雾",
@@ -196,7 +196,7 @@
   "TOUHOUANCIENTS-SUBSPACE_HOLE.flavor": "可不是[u]那家伙[/u]的能力。",
 
   "TOUHOUANCIENTS-SEALING_NEEDLE.title": "封魔针",
-  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "攻击牌对处于[gold]虚弱[/gold]状态的敌人额外造成[blue]等同于其当前虚弱层数[/blue]的伤害并额外给予目标[blue]1[/blue]层[gold]虚弱[/gold]。",
+  "TOUHOUANCIENTS-SEALING_NEEDLE.description": "攻击牌额外造成[blue]等同于目标当前虚弱层数[/blue]的伤害并额外给予其[blue]1[/blue]层[gold]虚弱[/gold]。",
   "TOUHOUANCIENTS-SEALING_NEEDLE.flavor": "据说还能用于活络经血。",
 
   "TOUHOUANCIENTS-YIN_YANG_ORB.title": "阴阳玉",
@@ -391,8 +391,8 @@
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.flavor": "",
 
   "TOUHOUANCIENTS-RIBBON_BOW.title": "丝带蝴蝶结",
-  "TOUHOUANCIENTS-RIBBON_BOW.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-RIBBON_BOW.description": "拾起时，将一张[gold]遗恨[/gold]加入你的[gold]牌组[/gold]。从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "将一张[gold]遗恨[/gold]加入你的[gold]牌组[/gold]。从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-RIBBON_BOW.selectionScreenPrompt": "选择[blue]{SelectCount}[/blue]张牌进行[gold]附魔[/gold]",
   "TOUHOUANCIENTS-RIBBON_BOW.flavor": "",
 
@@ -462,7 +462,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]放入[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]费用减少[blue]1[/blue]。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]放入[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]耗能减少[blue]1[/blue]。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
@@ -565,7 +565,7 @@
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "迷幻的投影",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "在每场战斗开始时，获得[red]混乱[/red]效果。费用为[blue]{CostTwo}[/blue]的卡牌打出[blue]{CostTwo}[/blue]次，费用大于等于[blue]{CostThree}[/blue]的卡牌打出[blue]{CostThree}[/blue]次。",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "在每场战斗开始时，获得[red]混乱[/red]效果。耗能为[blue]{CostTwo}[/blue]的卡牌打出[blue]{CostTwo}[/blue]次，耗能大于等于[blue]{CostThree}[/blue]的卡牌打出[blue]{CostThree}[/blue]次。",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢出的暇秽",
@@ -634,7 +634,7 @@
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中费用低于[blue]{Threshold}[/blue]且耗能不为X的牌。",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中耗能低于[blue]{Threshold}[/blue]且不为X的牌。",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "金银天下转，贫富朝夕变。哪个蠢家伙，居然想存钱？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
@@ -714,5 +714,9 @@
 
   "TOUHOUANCIENTS-NOH_MASK.title": "能乐假面",
   "TOUHOUANCIENTS-NOH_MASK.description": "战斗开始时或将牌堆洗牌时，为所有卡牌随机添加[purple]喜[/purple]、[purple]怒[/purple]、[purple]哀[/purple]、[purple]乐[/purple]情绪。每当你打出[purple]喜[/purple]、[purple]怒[/purple]、[purple]哀[/purple]、[purple]乐[/purple]情绪各[blue]{EmotionThreshold}[/blue]张后，恢复{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
-  "TOUHOUANCIENTS-NOH_MASK.flavor": ""
+  "TOUHOUANCIENTS-NOH_MASK.flavor": "",
+
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "狸之烟管",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "在你的回合结束时，变化任意张手牌。",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": ""
 }

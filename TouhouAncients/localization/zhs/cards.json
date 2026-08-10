@@ -45,7 +45,7 @@
     "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "随机打出[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]中的{Cards:diff()}张牌。\n为其中随机一张攻击牌[gold]附魔[/gold][purple]本能[/purple]，为其中随机一张牌添加[red]无意识[/red]。",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "杀戮灵气",
-    "TOUHOUANCIENTS-KILLING_AURA.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。\n你打出带有攻击/格挡的牌时，如果这张牌在你的[gold]手牌[/gold]中，[gold]消耗[/gold]该牌并将其对应数值{IfUpgraded:show:增加1|}添加到这张牌上。",
+    "TOUHOUANCIENTS-KILLING_AURA.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。\n你打出带有攻击/格挡的牌时，如果这张牌在你的[gold]手牌[/gold]中，[gold]消耗[/gold]该牌并将其对应数值{IfUpgraded:show:增加1后|}添加到这张牌上。",
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "纯粹的弹幕地狱",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "选择任意张手牌，变化为[gold]无名的弹幕[/gold]。\n在这个回合，你的攻击牌可以免费打出，且打出后抽一张牌；当你手中没有攻击牌时，结束你的回合。",
@@ -85,5 +85,8 @@
     "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "获得[blue]{Amount}[/blue]层[gold]易伤[/gold]。\n如果这张牌在你的手中，你不能打出技能牌。",
 
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "梦想封印·寂",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "获得[blue]{Amount}[/blue]层[gold]虚弱[/gold]。\n如果这张牌在你的手中，你不能打出攻击牌。"
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "获得[blue]{Amount}[/blue]层[gold]虚弱[/gold]。\n如果这张牌在你的手中，你不能打出攻击牌。",
+
+    "TOUHOUANCIENTS-YUAN_HEN.title": "遗恨",
+    "TOUHOUANCIENTS-YUAN_HEN.description": "如果这张牌在你的[gold]手牌[/gold]中，你从非手牌区打出牌时，将一张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。"
 }

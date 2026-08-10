@@ -86,5 +86,8 @@
     "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Apply [blue]{Amount}[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
 
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "Dream Seal: Sabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards."
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
+
+    "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
+    "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold]."
 }
