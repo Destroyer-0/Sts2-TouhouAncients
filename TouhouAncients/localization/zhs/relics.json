@@ -131,11 +131,11 @@
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "选择至多[blue]2[/blue]张卡牌[gold]变化[/gold]",
 
   "TOUHOUANCIENTS-THE_THIRD_EYE.title": "第三只眼",
-  "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，给予自身[blue]2[/blue]层[gold]虚弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-THE_THIRD_EYE.description": "在每场战斗开始时，给予自身[blue]2[/blue]层[gold]虚弱[/gold]，[gold]预见[/gold][blue]5[/blue]，将[blue]1[/blue]张[gold]觉之瞳[/gold]放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "常人之所以能自由行动，只因读不透他人的心声。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "有敌人死亡时，恢复[blue]{HealAmount}[/blue]点生命。每当[gold]有敌人死亡[/gold]或[gold]洗牌[/gold]时，若恢复生命的数值大于[blue]0[/blue]，抽一张牌并使该效果减少[blue]2[/blue]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue]尸体、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
@@ -171,7 +171,7 @@
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在你的回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "提神咖啡",
@@ -458,11 +458,11 @@
   "TOUHOUANCIENTS-SAIGYOUJI_BRANCH.flavor": "请勿用作添柴。",
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "绀珠之药",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "在每场战斗开始时，将[blue]1[/blue]张[gold]绀珠之药[/gold]放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龙颈之玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]加入你的[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]费用减少[blue]1[/blue]。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "在每场战斗开始时，将一张[gold]七星+[/gold]放入[gold]手牌[/gold]，其拥有[gold]保留[/gold]。在你的回合结束时，或你每打出[blue]{Card}[/blue]张牌，其在本场战斗中的[gold]辉星[/gold]费用减少[blue]1[/blue]。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠的皮衣",
@@ -489,7 +489,7 @@
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "辉夜姬秘宝",
-  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "每场战斗开始时，从[blue]{Cards}[/blue]张[green]升级过的[/green]其它角色的牌库中选择一张加入[gold]手牌[/gold]。打出这张牌后，其原始复制会额外出现在[gold]战斗奖励[/gold]中。",
+  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "每场战斗开始时，从[blue]{Cards}[/blue]张[green]升级过的[/green]其它角色的牌库中选择一张放入[gold]手牌[/gold]。打出这张牌后，其原始复制会额外出现在[gold]战斗奖励[/gold]中。",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "选择一张牌",
 
@@ -525,8 +525,8 @@
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.flavor": "请不要打探少女的裙中藏了什么哦？",
 
   "TOUHOUANCIENTS-BOTTLED_GALAXY.title": "微缩银河",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张加入手牌。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
-  "TOUHOUANCIENTS-BOTTLED_GALAXY.eventDescription": "从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张加入手牌。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张放入[gold]手牌[/gold]。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
+  "TOUHOUANCIENTS-BOTTLED_GALAXY.eventDescription": "从你的[gold]牌组[/gold]中选择[blue]{Cards}[/blue]张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张放入[gold]手牌[/gold]。{CardTitles.StringValue:cond:\n\n微缩：\n{}|}",
   "TOUHOUANCIENTS-BOTTLED_GALAXY.flavor": "星之沙是如此绚丽多彩。",
 
   "TOUHOUANCIENTS-GLOBE.title": "太阳系仪",
@@ -630,7 +630,7 @@
   "TOUHOUANCIENTS-POSSESSION_SPIRIT.flavor": "今宵就成为飘逸的利己主义者吧。",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万英镑",
-  "TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将一张[gold]疫病支票[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-MILLION_POUNDS.description": "在每场战斗开始时，将一张[gold]疫病支票[/gold]放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
@@ -650,9 +650,9 @@
   "TOUHOUANCIENTS-BLACK_CAT_DOLL.flavor": "如果继续安于现状，马上就会变的一贫如洗……",
 
   "TOUHOUANCIENTS-OIL_FUTURES.title": "石油期货",
-  "TOUHOUANCIENTS-OIL_FUTURES.description": "在每回合开始时获得{Energy:energyIcons()}。每[blue]{Turns}[/blue]回合，从[blue]{Cards}[/blue]张随机[red]诅咒[/red]中选择一张加入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-OIL_FUTURES.description": "在每回合开始时获得{Energy:energyIcons()}。每[blue]{Turns}[/blue]回合，从[blue]{Cards}[/blue]张随机[red]诅咒[/red]中选择一张放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-OIL_FUTURES.flavor": "只要手握这些资源，就能变成富豪神了呢（哪怕是知道那石油的真相……也无所谓吗？）",
-  "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "选择一张[red]诅咒[/red]加入手牌",
+  "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "选择一张[red]诅咒[/red]放入[gold]手牌[/gold]",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "烟熏的团扇",
   "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
@@ -664,7 +664,7 @@
   "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~真正的烤味噌……可带劲啦~",
 
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "可靠的弟子狸",
-  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "在你的回合开始时，随机将[blue]{Cards}[/blue]张[gold]仆从俯冲[/gold]、[gold]仆从打击[/gold]、[gold]仆从防御[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "在你的回合开始时，随机将[blue]{Cards}[/blue]张[gold]仆从俯冲[/gold]、[gold]仆从打击[/gold]、[gold]仆从防御[/gold]放入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "",
 
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "赤云指虎",
