@@ -368,8 +368,8 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-RIBBON_BOW.title": "丝带蝴蝶结",
-"TOUHOUANCIENTS-RIBBON_BOW.description": "拾起时，从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-"TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+"TOUHOUANCIENTS-RIBBON_BOW.description": "拾起时，将一张[gold]遗恨[/gold]加入你的[gold]牌组[/gold]。从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+"TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "将一张[gold]遗恨[/gold]加入你的[gold]牌组[/gold]。从你的[gold]牌组[/gold]中选择[blue]{SelectCount}[/blue]张攻击牌或技能牌，[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
 "TOUHOUANCIENTS-RIBBON_BOW.selectionScreenPrompt": "选择[blue]{SelectCount}[/blue]张牌进行[gold]附魔[/gold]",
 "TOUHOUANCIENTS-RIBBON_BOW.flavor": ""
 ```
@@ -378,10 +378,23 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Ribbon Bow` |
-| `.description` | `Upon pickup, choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
-| `.eventDescription` | `Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+| `.description` | `Upon pickup, add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+| `.eventDescription` | `Add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
 | `.selectionScreenPrompt` | `Choose [blue]{SelectCount}[/blue] cards to [gold]enchant[/gold]` |
 | `.flavor` | `""`（留空） |
+
+### 重做说明（2026-08-10）
+- 拾起效果新增：将一张[遗恨](`TOUHOUANCIENTS-YUAN_HEN`)加入牌组
+- 附魔数量改为动态变量 `{SelectCount}`（默认 2），从硬编码 2 调整
+
+### 关联卡牌：遗恨
+
+**键名**: `TOUHOUANCIENTS-YUAN_HEN`（`scripts/cards/YuanHen.cs`）
+
+| 语言 | `.title` | `.description` |
+|------|----------|----------------|
+| zhs | `遗恨` | `如果这张牌在你的[gold]手牌[/gold]中，你从非手牌区打出牌时，将一张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。` |
+| eng/jpn | `Grudge` | `While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].` |
 
 ---
 
