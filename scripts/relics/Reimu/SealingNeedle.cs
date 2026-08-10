@@ -26,37 +26,64 @@ public class SealingNeedle : TouhouAncientRelics
         HoverTipFactory.FromPower<WeakPower>()
     ];
 
-    // /// <summary>
-    // /// 造成伤害后，给予目标1层虚弱（可叠加）。
-    // /// </summary>
-    // public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
-    // {
-    //     if (dealer != base.Owner?.Creature) return;
-    //     if (!target.IsAlive || !target.IsEnemy) return;
-    //
-    //     await PowerCmd.Apply<WeakPower>(target, 1m, dealer, cardSource);
-    // }
+    /// <summary>
+    /// 追踪本张攻击牌本次打出时被判定受到攻击的敌人。
+    /// 键为打出中的攻击牌，值为已判定目标的集合（HashSet 去重，多段攻击对同一目标只记录一次）。
+    /// 仿照 RupturePower 的 BeforeCardPlayed 注册 / AfterCardPlayed 消费机制。
+    /// </summary>
+    private Dictionary<CardModel, HashSet<Creature>> pendingWeakTargets = new();
 
     /// <summary>
-    /// 使用攻击牌后，给予目标1层虚弱（可叠加）。群体攻击时对所有敌人施加。
+    /// 模型被克隆（多人联机）时，重置追踪字典。
+    /// MutableClone 使用 MemberwiseClone 浅拷贝，若不重置，克隆体与原实例会共享同一个字典引用，导致数据不同步。
+    /// </summary>
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        pendingWeakTargets = new Dictionary<CardModel, HashSet<Creature>>();
+    }
+
+    /// <summary>
+    /// 打出前：我方攻击牌注册一个空的目标集合。
+    /// </summary>
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner != base.Owner) return Task.CompletedTask;
+        if (cardPlay.Card.Type != CardType.Attack) return Task.CompletedTask;
+
+        pendingWeakTargets[cardPlay.Card] = new HashSet<Creature>();
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// 造成伤害时判定目标（即使未实际造成伤害，如被格挡也会触发）。
+    /// 多段攻击会对同一目标多次触发，由 HashSet 去重。
+    /// </summary>
+    public override Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result,
+        ValueProp props, Creature target, CardModel? cardSource)
+    {
+        if (dealer != base.Owner?.Creature) return Task.CompletedTask;
+        if (cardSource == null) return Task.CompletedTask;
+        if (!target.IsAlive || !target.IsEnemy) return Task.CompletedTask;
+        if (!pendingWeakTargets.TryGetValue(cardSource, out HashSet<Creature> targets)) return Task.CompletedTask;
+
+        targets.Add(target);
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// 卡牌结算完成后，对本次记录的所有敌人统一施加 1 层虚弱。
+    /// 在结算完成后施加，不影响该卡牌自身的伤害与其虚弱增伤。
     /// </summary>
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (cardPlay.Card.Type != CardType.Attack) return;
+        if (!pendingWeakTargets.Remove(cardPlay.Card, out HashSet<Creature> targets)) return;
 
-        if (cardPlay.Card.TargetType == TargetType.AllEnemies)
+        foreach (Creature target in targets)
         {
-            foreach (Creature enemy in base.Owner.Creature.CombatState.GetCreaturesOnSide(CombatSide.Enemy))
-            {
-                if (enemy.IsAlive)
-                    await PowerCmd.Apply<WeakPower>(context, enemy, 1m, base.Owner.Creature, cardPlay.Card);
-            }
-        }
-        else
-        {
-            if (cardPlay.Target == null || !cardPlay.Target.IsAlive || !cardPlay.Target.IsEnemy) return;
-            await PowerCmd.Apply<WeakPower>(context, cardPlay.Target, 1m, base.Owner.Creature, cardPlay.Card);
+            await PowerCmd.Apply<WeakPower>(context, target, 1m, base.Owner.Creature, cardPlay.Card);
         }
     }
 
