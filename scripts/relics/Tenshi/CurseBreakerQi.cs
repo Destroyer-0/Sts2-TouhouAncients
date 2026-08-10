@@ -61,21 +61,18 @@ public static class CurseBreakerQiPatchs
 }
 
 /// <summary>
-/// 破厄真气：拾起时获得9张随机诅咒。可以打出诅咒牌，打出诅咒时获得1力量、1能量并抽2张牌。
+/// 破厄真气：拾起时获得9张随机诅咒。可以打出诅咒牌，打出诅咒时获得1力量并抽2张牌。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class CurseBreakerQi : TouhouAncientRelics
 {
-    private bool _firstCursePlayedThisTurn;
-
     public override bool HasUponPickupEffect => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromKeyword(CardKeyword.Unplayable),
-        HoverTipFactory.ForEnergy(this),
     ];
 
     public override async Task AfterObtained()
@@ -103,31 +100,14 @@ public class CurseBreakerQi : TouhouAncientRelics
         return base.AfterCardEnteredCombat(card);
     }
 
-    // 每回合第一次打出诅咒时获得奖励
+    // 打出诅咒时获得奖励
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (cardPlay.Card.Type != CardType.Curse) return;
-        if (_firstCursePlayedThisTurn) return;
 
-        _firstCursePlayedThisTurn = true;
         Flash();
         await PowerCmd.Apply<StrengthPower>(context, base.Owner.Creature, 1m, base.Owner.Creature, null);
-        await PlayerCmd.GainEnergy(1, base.Owner);
-        await CardPileCmd.Draw(context, 3, base.Owner);
-    }
-
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
-    {
-        if (!participants.Contains(Owner.Creature))
-        {
-            return;
-        }
-
-        if (side == base.Owner.Creature.Side)
-        {
-            _firstCursePlayedThisTurn = false;
-        }
+        await CardPileCmd.Draw(context, 2, base.Owner);
     }
 }
