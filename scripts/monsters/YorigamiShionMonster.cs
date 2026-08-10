@@ -49,6 +49,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 18, 16);
 
     private int AbsoluteLoserRoyaltiesLoss => 10;
+
     private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 55, 50);
 
@@ -56,7 +57,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     public MoveState StunnedState;
 
     public MoveState SelfRepairState;
-    
+
     private ConditionalBranchState _rootBranch;
 
     /// <summary>
@@ -69,7 +70,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         PlayCurrentLoopAnimation();
     }
 
-    public override bool ShouldFadeAfterDeath => true;//IsJoonAlive();
+    public override bool ShouldFadeAfterDeath => true; //IsJoonAlive();
     public override bool ShouldDisappearFromDoom => IsJoonAlive();
 
 
@@ -80,7 +81,9 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature,
             null);
         var twinSoulPower = await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
-        twinSoulPower.SetRecoverHp(twinSoulPower.GetScaledAmountForMultiplayer(CombatState, Creature, TwinSoulRecoverHP, Creature, null));
+        if (twinSoulPower == null) return;
+        var amount = CombatState.Players.Count == 1 ? TwinSoulRecoverHP : twinSoulPower.GetScaledAmountForMultiplayer(CombatState, Creature, TwinSoulRecoverHP, Creature, null);
+        twinSoulPower.SetRecoverHp(amount);
     }
 
     // --- 状态机 ---
@@ -145,6 +148,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
                 PlayAnimation("die");
                 await YorigamiJoonMonster.FadeRetainedVisualAfterShionDeath();
             }
+
             return;
         }
 
@@ -315,6 +319,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         PlayAnimation("damage");
         return Task.CompletedTask;
     }
+
     protected override bool ShouldShowMoveInBestiary(string moveStateId)
     {
         return moveStateId != "STUNNED";
