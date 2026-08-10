@@ -49,9 +49,12 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// 因此开局时由 ForcedAncientSyncPatch 将主机的配置写入这两个字段，
     /// 并随 LobbyBeginRunMessage 广播到所有客户端，ShouldForceSpawn 只读取这两个字段，
     /// 保证各端一致。非主机端的本地设置文件不被修改。
+    /// [ConfigIgnore]：不显示在设置 UI，也不参与配置文件的读写。
     /// </summary>
+    [ConfigIgnore]
     public static ForcedAncientOption ForcedAncient_2_Run { get; set; } = ForcedAncientOption.None;
 
+    [ConfigIgnore]
     public static ForcedAncientOption ForcedAncient_3_Run { get; set; } = ForcedAncientOption.None;
 
     /// <summary>
@@ -59,7 +62,9 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// 位 i 对应 <see cref="GetBanBit"/> 定义的 Ancient；null 表示未同步（回退本地配置）。
     /// 开局时由 ForcedAncientSyncPatch 将主机的禁用配置写入该字段并随 LobbyBeginRunMessage 广播，
     /// 保证各端候选池一致（BanAncientPatch 的 Transpiler 过滤依赖此字段）。
+    /// [ConfigIgnore]：不显示在设置 UI，也不参与配置文件的读写。
     /// </summary>
+    [ConfigIgnore]
     public static ulong? BannedMask_Run { get; set; }
 
     /// <summary>

@@ -53,7 +53,7 @@ public class SilenceDoll : TouhouAncientRelics
             _data.CurrentTurnDiscards.Add(card);
         }
     }
-
+    
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != base.Owner) return;
