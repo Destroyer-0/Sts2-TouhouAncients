@@ -26,7 +26,10 @@ public sealed class Collateral : TouhouAncientAfflictionModel
             return false;
         }
 
-        return keywords.Add(CardKeyword.Retain) && keywords.Add(CardKeyword.Unplayable);
+        bool modified = false;
+        modified |= keywords.Add(CardKeyword.Retain);
+        modified |= keywords.Add(CardKeyword.Unplayable);
+        return modified;
     }
     
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
