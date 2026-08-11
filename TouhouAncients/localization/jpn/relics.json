@@ -221,8 +221,8 @@
   "TOUHOUANCIENTS-MYSTIC_FORTUNE_PEACH.flavor": "The peaches of heaven are absolutely delicious!",
 
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.title": "Heavenly Misfortune Blocker",
-  "TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "Upon pickup, gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. Whenever you play a [red]Curse[/red], gain [blue]1[/blue] [gold]Strength[/gold] and draw [blue]2[/blue] cards.",
-  "TOUHOUANCIENTS-CURSE_BREAKER_QI.eventDescription": "Gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. Whenever you play a [red]Curse[/red], gain [blue]1[/blue] [gold]Strength[/gold] and draw [blue]2[/blue] cards.",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "Upon pickup, gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. The first time you play a [red]Curse[/red] each turn, gain [blue]1[/blue] [gold]Strength[/gold], {Energy:energyIcons()}, and draw [blue]3[/blue] cards.",
+  "TOUHOUANCIENTS-CURSE_BREAKER_QI.eventDescription": "Gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. The first time you play a [red]Curse[/red] each turn, gain [blue]1[/blue] [gold]Strength[/gold], {Energy:energyIcons()}, and draw [blue]3[/blue] cards.",
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "A celestial's great fortune can suppress even the most vicious god of calamity's misfortune.",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "Heavenly Sash",
