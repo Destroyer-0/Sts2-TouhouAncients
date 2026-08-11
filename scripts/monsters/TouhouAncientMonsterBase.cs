@@ -29,6 +29,49 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 
     public override int MaxInitialHp => InitialHp;
 
+    /// <summary>
+    /// 当前幕号（从 1 开始，第二幕为 2，第三幕为 3）。
+    /// 通过怪物自身的 Creature 获取战斗状态中的幕号；
+    /// canonical 实例（资源加载 GetIntents、图鉴预览等）无法获取时返回 -1，此时按幕取值回退到默认值。
+    /// 注意：本属性不能用于 <see cref="InitialHp"/>——Creature 构造函数读取 MinInitialHp/MaxInitialHp
+    /// 时 Monster.Creature 尚未绑定（构造函数在读取 HP 之后才设置），且 CombatManager 的 _state
+    /// 也在 creatures 创建之后（SetUpCombat）才设置，因此 HP 只能在 AfterAddedToRoom 中按幕调整。
+    /// </summary>
+    protected int CurrentActNumber
+    {
+        get
+        {
+            if (!base.IsMutable) return -1;
+            try
+            {
+                return base.Creature.CombatState?.RunState.CurrentActIndex + 1 ?? -1;
+            }
+            catch (InvalidOperationException)
+            {
+                // canonical 实例 / 图鉴 SetUpForCombat 阶段：Creature 尚未绑定，回退到默认值
+                return -1;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 按当前幕号返回对应数值：actValues 中与当前幕匹配的条目生效，
+    /// 未配置的幕（或无法获取幕号的环境）回退到 fallback。
+    /// 约定：fallback 使用角色最早出现的幕的数值（如魔理沙最早在第二幕出现，
+    /// 默认即为第二幕数值），后续幕（如第三幕）再额外配置更高数值。
+    /// 注意：使用按幕数值的 Intent 请改用延迟求值构造（如 new SingleAttackIntent(() => Damage)），
+    /// 避免在 canonical 实例的 GenerateMoveStateMachine 中提前求值导致无法区分幕。
+    /// </summary>
+    protected int GetActValue(int fallback, params (int actNumber, int value)[] actValues)
+    {
+        int actNumber = CurrentActNumber;
+        foreach ((int act, int value) in actValues)
+        {
+            if (act == actNumber) return value;
+        }
+        return fallback;
+    }
+
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
 
     public override NCreatureVisuals? CreateCustomVisuals()

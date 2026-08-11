@@ -33,20 +33,36 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     private const string AlternateMushroomScenePath = "res://scenes/creature_visuals/FantasyMushroomAlt.tscn";
 
     // --- HP ---
+    /// <summary>
+    /// 初始生命：二层数值（随魔理沙最早出现的幕，也作为图鉴预览等环境的回退值）。
+    /// 三层时在 <see cref="AfterAddedToRoom"/> 中提升，因为 Creature 构造函数读取
+    /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
+    /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 49, 45);
+        AscensionLevel.ToughEnemies, 39, 35);
+
+    /// <summary>三层初始生命（当前数值）。</summary>
+    private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
+        AscensionLevel.ToughEnemies, 53, 48);
 
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Plant;
     
     // --- 数值 ---
-    private int HealAmount => 7;
+    private int HealAmount => GetActValue(4, (3, 7));
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
+        // 三层提升初始生命到三层数值（Creature 构造阶段无法获取幕号，故在此调整）。
+        // 使用内部 API 直接调整，避免 GainMaxHp 触发 AfterGainMaxHp 等 Hook
+        if (CurrentActNumber == 3 && InitialHpAct3 > InitialHp)
+        {
+            base.Creature.SetMaxHpInternal(InitialHpAct3);
+            base.Creature.SetCurrentHpInternal(InitialHpAct3);
+        }
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
-        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, 3m, base.Creature, null);
+        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, (decimal)GetActValue(2, (3, 3)), base.Creature, null);
     }
 
     // --- 视觉 ---
