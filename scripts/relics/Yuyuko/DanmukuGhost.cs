@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -25,12 +26,12 @@ public class DanmukuGhost : TouhouAncientRelics
     /// <summary>
     /// 记录本敌人回合中攻击过但未造成伤害的敌人
     /// </summary>
-    private List<Creature> attackingEnemiesThisTurn = new();
+    private HashSet<Creature> attackingEnemiesThisTurn = new();
 
     /// <summary>
     /// 记录本敌人回合中造成过伤害的敌人（这些敌人不触发缩小）
     /// </summary>
-    private List<Creature> damagingEnemiesThisTurn = new();
+    private HashSet<Creature> damagingEnemiesThisTurn = new();
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ShrinkAmount", 2m)];
 
@@ -47,8 +48,8 @@ public class DanmukuGhost : TouhouAncientRelics
             return Task.CompletedTask;
         }
 
-        attackingEnemiesThisTurn = new List<Creature>();
-        damagingEnemiesThisTurn = new List<Creature>();
+        attackingEnemiesThisTurn = new HashSet<Creature>();
+        damagingEnemiesThisTurn = new HashSet<Creature>();
         return Task.CompletedTask;
     }
 
@@ -71,10 +72,7 @@ public class DanmukuGhost : TouhouAncientRelics
         {
             // 造成过伤害：该敌人本回合不触发缩小
             attackingEnemiesThisTurn.Remove(dealer);
-            if (!damagingEnemiesThisTurn.Contains(dealer))
-            {
-                damagingEnemiesThisTurn.Add(dealer);
-            }
+            damagingEnemiesThisTurn.Add(dealer);
         }
 
         return Task.CompletedTask;
