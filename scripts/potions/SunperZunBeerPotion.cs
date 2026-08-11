@@ -33,6 +33,7 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         // 获取所有继承 TouhouAncientCards 的卡牌，筛选可战斗生成的
         var ancientCards = ModelDb.AllCards
             .Where(c => c is TouhouAncientCards && c.CanBeGeneratedInCombat)
+            .Where(x=>x.Type is CardType.Attack or CardType.Skill or CardType.Power )
             .ToList();
 
         if (ancientCards.Count == 0) return;
