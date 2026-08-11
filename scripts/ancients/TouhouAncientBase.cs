@@ -125,29 +125,45 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// false，参照 PUNCH_OFF / DenseVegetation）：胜利后走标准战斗奖励流程，在战斗结束时弹出
     /// 奖励页，不再返回事件页；读档后由 StartPreFinishedCombat → OfferRoomEndRewards 可靠地
     /// 重新弹出奖励页，不会丢失。
+    ///
+    /// v0.110.1 起 EnterCombatWithoutExitingEvent 要求传入 canonical Encounter（游戏内部经
+    /// EventCombatSynchronizer 在调用内同步 ToMutable 生成战斗实例），不再手动 ToMutable。
+    /// IsChallenge 采用"置位-复位"方案：在 canonical 上置位后传入，游戏同步克隆
+    /// （MemberwiseClone 拷贝字段）使战斗实例继承 IsChallenge=true，ChallengeVictoryHealPatch
+    /// 据此识别挑战战斗；调用返回后立即在 finally 中复位 canonical，未来非挑战战斗克隆出的
+    /// 实例 IsChallenge 为 false，不会误回血。
     /// </summary>
     private Task StartChallenge()
     {
-        var encounter = ChallengeEncounter!.ToMutable();
-        ((TouhouAncientEncounter)encounter).IsChallenge = true;
-
-        // 为所有玩家收集各自随机池的遗物奖励，作为 extraRewards 存入 CombatRoom.ExtraRewards。
-        // 各端所有事件实例的 _generatedRelicOptions 一致（每玩家独立 RNG、跨端可同步），
-        // 因此各端 ExtraRewards 内容一致，多人奖励同步正常；该字段随存档持久化。
-        var rewards = new List<Reward>();
-        foreach (var eventModel in RunManager.Instance.EventSynchronizer.Events)
+        var encounter = ChallengeEncounter!;
+        var ancientEncounter = (TouhouAncientEncounter)encounter;
+        ancientEncounter.IsChallenge = true; // 置位：游戏克隆战斗实例时（MemberwiseClone）会继承该标志
+        try
         {
-            if (eventModel is not TouhouAncientBase ancient || ancient.Owner == null) continue;
-            var relicModels = ancient._generatedRelicOptions?.Select(o => o.Relic).OfType<RelicModel>()
-                              ?? Array.Empty<RelicModel>();
-            foreach (var relic in relicModels)
+            // 为所有玩家收集各自随机池的遗物奖励，作为 extraRewards 存入 CombatRoom.ExtraRewards。
+            // 各端所有事件实例的 _generatedRelicOptions 一致（每玩家独立 RNG、跨端可同步），
+            // 因此各端 ExtraRewards 内容一致，多人奖励同步正常；该字段随存档持久化。
+            var rewards = new List<Reward>();
+            foreach (var eventModel in RunManager.Instance.EventSynchronizer.Events)
             {
-                // 每个玩家使用独立的遗物实例（从 canonical 克隆），避免多个奖励共享同一个 mutable 实例。
-                var canonicalRelic = relic.CanonicalInstance ?? relic;
-                rewards.Add(new RelicReward(canonicalRelic.ToMutable(), ancient.Owner));
+                if (eventModel is not TouhouAncientBase ancient || ancient.Owner == null) continue;
+                var relicModels = ancient._generatedRelicOptions?.Select(o => o.Relic).OfType<RelicModel>()
+                                  ?? Array.Empty<RelicModel>();
+                foreach (var relic in relicModels)
+                {
+                    // 每个玩家使用独立的遗物实例（从 canonical 克隆），避免多个奖励共享同一个 mutable 实例。
+                    var canonicalRelic = relic.CanonicalInstance ?? relic;
+                    rewards.Add(new RelicReward(canonicalRelic.ToMutable(), ancient.Owner));
+                }
             }
+            // 传入 canonical（v0.110.1 起要求），游戏内部在调用内同步克隆出战斗实例并继承 IsChallenge。
+            EnterCombatWithoutExitingEvent(encounter, rewards, shouldResumeAfterCombat: false);
         }
-        EnterCombatWithoutExitingEvent(encounter, rewards, shouldResumeAfterCombat: false);
+        finally
+        {
+            // 战斗实例已在此调用内同步克隆完成，复位 canonical 标志，避免后续非挑战战斗被误判为挑战。
+            ancientEncounter.IsChallenge = false;
+        }
         return Task.CompletedTask;
     }
 

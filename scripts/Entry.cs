@@ -26,24 +26,24 @@ public class Entry
     {
         // 注册 Mod 中的 [SavedProperty] 类型到缓存中，
         // 否则读档时 SavedProperties 无法正确地序列化/反序列化这些属性。
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(FourLeafClover));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(WindPriestessWine));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DuplexBarrier));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottomlessStomach));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BloodlickingTongue));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(SkySwallowingSpoon));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(EstrangedHeart));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottledGalaxy));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(OilFutures));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(JyoonFan));
-        SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HellOrin));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HighQuality));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BrainInAVat));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(Tribute));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(FourLeafClover));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(InkDyedCherryBlossoms));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KonshiiNoKusuri));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(KompeitoPot));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(StardustBroom));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(WindPriestessWine));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DuplexBarrier));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottomlessStomach));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BloodlickingTongue));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(SkySwallowingSpoon));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(EstrangedHeart));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(BottledGalaxy));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(OilFutures));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(JyoonFan));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HellOrin));
         
         
         // 打patch（即修改游戏代码的功能）用
