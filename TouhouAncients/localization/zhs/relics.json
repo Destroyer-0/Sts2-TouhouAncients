@@ -135,7 +135,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "常人之所以能自由行动，只因读不透他人的心声。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue]尸体、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue][gold]尸体[/gold]、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
