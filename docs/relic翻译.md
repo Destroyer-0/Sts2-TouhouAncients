@@ -1936,6 +1936,44 @@
 
 ---
 
+## 石油期货（2026-08-11 更新）
+
+**键名**: `TOUHOUANCIENTS-OIL_FUTURES`
+
+### 中文原文（更新后）
+```json
+"TOUHOUANCIENTS-OIL_FUTURES.flavor": "灾厄的洪流在这黑色的血液中流淌。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.flavor` | `The torrent of Doom flows within this black blood.` |
+
+---
+
+## 天衍苦厄
+
+**键名**: `TOUHOUANCIENTS-CURSE_BREAKER_QI`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-CURSE_BREAKER_QI.title": "天衍苦厄",
+"TOUHOUANCIENTS-CURSE_BREAKER_QI.description": "拾起时，获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒牌[/red]。打出[red]诅咒牌[/red]时，获得[blue]1[/blue][gold]力量[/gold]并抽[blue]2[/blue]张牌。",
+"TOUHOUANCIENTS-CURSE_BREAKER_QI.eventDescription": "获得[blue]9[/blue]张随机[red]诅咒[/red]。你可以打出原本不能打出的[red]诅咒牌[/red]。打出[red]诅咒牌[/red]时，获得[blue]1[/blue][gold]力量[/gold]并抽[blue]2[/blue]张牌。",
+"TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "天人的强运就连最凶恶的厄神的厄运都能镇压。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Heavenly Misfortune Blocker` |
+| `.description` | `Upon pickup, gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. Whenever you play a [red]Curse[/red], gain [blue]1[/blue] [gold]Strength[/gold] and draw [blue]2[/blue] cards.` |
+| `.eventDescription` | `Gain [blue]9[/blue] random [red]Curses[/red]. You may play [red]Curses[/red] that are normally unplayable. Whenever you play a [red]Curse[/red], gain [blue]1[/blue] [gold]Strength[/gold] and draw [blue]2[/blue] cards.` |
+| `.flavor` | `A celestial's great fortune can suppress even the most vicious god of calamity's misfortune.` |
+
+---
+
 ## 冈格尼尔（2026-07-19 更新）
 
 **键名**: `TOUHOUANCIENTS-SPEAR_GUNGNIR`

@@ -34,19 +34,19 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 39, 35);
+        AscensionLevel.ToughEnemies, 49, 45);
 
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Plant;
     
     // --- 数值 ---
-    private int HealAmount => 5;
+    private int HealAmount => 7;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
-        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, 2m, base.Creature, null);
+        await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, 3m, base.Creature, null);
     }
 
     // --- 视觉 ---

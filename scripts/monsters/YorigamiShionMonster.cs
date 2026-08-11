@@ -30,7 +30,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     // --- 本地化 ---
     private static readonly LocString _absoluteLoserLine =
-        new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_SHION.moves.ABSOLUTE_LOSER.banter");
+        new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.ABSOLUTE_LOSER.banter");
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(

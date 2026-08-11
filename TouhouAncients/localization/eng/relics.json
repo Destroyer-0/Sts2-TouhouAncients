@@ -651,7 +651,7 @@
 
   "TOUHOUANCIENTS-OIL_FUTURES.title": "Oil Futures",
   "TOUHOUANCIENTS-OIL_FUTURES.description": "At the start of each turn, gain {Energy:energyIcons()}. Every [blue]{Turns}[/blue] turns, choose [blue]1[/blue] of [blue]{Cards}[/blue] random [red]Curses[/red] to add to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "With these resources in hand, I'll become a millionaire god in no time. (Even knowing the truth about that oil... does it matter?)",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "The torrent of Doom flows within this black blood.",
   "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "Choose a [red]Curse[/red] to add to your Hand",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "Smoked Fan",

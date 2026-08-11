@@ -35,25 +35,25 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 156, 150);
+        AscensionLevel.ToughEnemies, 256, 250);
 
     // --- 伤害/数值 ---
     private int EscapeVelocityDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 15, 14);
+        AscensionLevel.DeadlyEnemies, 22, 20);
 
     private int StellarFantasyDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 5, 4);
+        AscensionLevel.DeadlyEnemies, 6, 5);
 
     private int StellarFantasyHits => 4;
 
     private int BlackHoleEdgeDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 16, 15);
+        AscensionLevel.DeadlyEnemies, 18, 16);
 
     private int BlackHoleEdgeWeak => 2;
 
-    private int MasterSparkChargeBlock => 14;
+    private int MasterSparkChargeBlock => 20;
 
-    private int MasterSparkChargeVigorPerMushroom => 10;
+    private int MasterSparkChargeVigorPerMushroom => 12;
 
     private int MasterSparkDamage => 20;
 
@@ -68,6 +68,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     
     private static readonly LocString _prepareLine =
         new LocString("monsters", "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.MASTER_SPARK_CHARGE.banter");
+    
+    private static readonly LocString _thiefLine =
+        new LocString("monsters", "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.banter");
 
     /// <summary>
     /// 场上存活蘑菇的数量。
@@ -176,6 +179,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
         // 卡牌从牌堆中飞出的节奏：等待后让被偷的牌显示在魔理沙身后（仿 ThievingHopper）
         await Cmd.Wait(0.6f);
+        TalkCmd.Play(_prepareLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
         foreach (CardModel card in stolenCards)
         {
             if (creatureNode == null || !LocalContext.IsMine(card)) continue;

@@ -30,6 +30,9 @@
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.MOKOUMOD-MOKOU_MOD.0-0r.ancient": "我在信息的洋流里见过不少以你为原型的火鸡图片来着。",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.MOKOUMOD-MOKOU_MOD.0-0r.next": "愤怒",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.MOKOUMOD-MOKOU_MOD.0-0r.char": "那家伙——————————",
+  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.KEINEMOD-KEINE_MOD.1-0r.char": "你这家伙，真是缺乏常识呢。回去以后，请你来我的教室上课吧。",
+  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.KEINEMOD-KEINE_MOD.1-0r.next": "继续",
+  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.KEINEMOD-KEINE_MOD.1-1r.ancient": "诶——你是要给我灌输虚假的历史对不对！！",
 
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.title": "东风谷 早苗",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT.epithet": "现代的先古之民",
@@ -102,6 +105,9 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.NECROBINDER.0-2.ancient": "……拿走你要的东西吧，希望神明会庇佑你一路顺风。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.MARISA-MARISA.0-0r.ancient": "……我说你这家伙就那么喜欢凑热闹吗？",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.MARISA-MARISA.1-0r.ancient": "既然都出发了，就把这差事彻底解决掉吧。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-0.char": "能在这里见到博丽巫女真是令人欣喜。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-0.next": "继续",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-1.ancient": "啊啊——不瞒你说……比起坐在这儿等别人解决事情，还是自己亲手去退治适合我的风格……",
   
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.title": "蕾米莉亚·斯卡雷特",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.epithet": "鲜红的荣耀女王",
@@ -407,6 +413,7 @@
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-1r.ancient": "哦！好眼光！虽然只是个普通的小本子，不过确实记录了我至今为止的实验记录心血哦！",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-1r.next": "继续",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.NECROBINDER.1-2r.ancient": "虽然不能出售……不过现在借给你看看也无妨Da☆Ze！顺便收下这个吧！",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-0r.ancient": "慧音老师也来这里调查了吗？嘿嘿，这里可没有要伪装的村子或是虚假的月亮哦。",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.title": "蓬莱山 辉夜",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ANCIENT.epithet": "永恒的先古罪人",

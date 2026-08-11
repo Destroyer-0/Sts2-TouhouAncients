@@ -29,8 +29,8 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         new StringName("touhou_ancients_yorigami_joon_retained_visual");
 
     // --- 本地化 ---
-    private static readonly LocString _scatterWealthLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.moves.SCATTER_WEALTH_UPPERCUT.banter");
-    private static readonly LocString _joonDefeatedLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON.banter.JOON_DEFEATED");
+    private static readonly LocString _scatterWealthLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON_MONSTER.moves.SCATTER_WEALTH_UPPERCUT.banter");
+    private static readonly LocString _joonDefeatedLine = new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_JOON_MONSTER.banter.JOON_DEFEATED");
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(

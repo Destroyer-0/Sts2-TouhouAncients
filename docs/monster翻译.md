@@ -15,7 +15,7 @@
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.DREAM_SEAL.title": "梦想封印",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.OCTAGONAL_BINDING_ARRAY.title": "八方鬼缚阵",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SEALING_NEEDLE.title": "封魔针",
-"TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.TENBU_HURRICANE_KICK.title": "天霸风神脚",
+"TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.TENBU_HURRICANE_KICK.title": "阴阳玉",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title": "亚空点穴",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.title": "梦想天生"
 ```
@@ -27,7 +27,7 @@
 | `.moves.DREAM_SEAL.title` | `Dream Seal` |
 | `.moves.OCTAGONAL_BINDING_ARRAY.title` | `Octagonal Binding Array` |
 | `.moves.SEALING_NEEDLE.title` | `Sealing Needle` |
-| `.moves.TENBU_HURRICANE_KICK.title` | `Tenbu Hurricane Kick` |
+| `.moves.TENBU_HURRICANE_KICK.title` | `Yin-Yang Orb` |
 | `.moves.SUBSPACE_ACUPRESSURE.title` | `Subspace Acupressure` |
 | `.moves.FANTASY_NATURE.title` | `Fantasy Nature` |
 

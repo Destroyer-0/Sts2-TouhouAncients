@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4fdeposmjxob"
-path="res://.godot/imported/Grudge.jpg-435c2b475fd5a0cecf51b87d7006c39a.ctex"
+uid="uid://dj8q3chu7gjti"
+path="res://.godot/imported/attack_throw_a.png-8745128aaacccd07ccbb6fdc8be0521d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/cards/Grudge.jpg"
-dest_files=["res://.godot/imported/Grudge.jpg-435c2b475fd5a0cecf51b87d7006c39a.ctex"]
+source_file="res://images/sprite/marisa/attack_throw_a.png"
+dest_files=["res://.godot/imported/attack_throw_a.png-8745128aaacccd07ccbb6fdc8be0521d.ctex"]
 
 [params]
 

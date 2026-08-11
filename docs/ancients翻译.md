@@ -949,6 +949,38 @@
 | `talk.NECROBINDER.1-2.char` | 塔顶的那家伙……欠了我一笔血债。 | The one at the top... owes me a blood debt. |
 | `talk.NECROBINDER.1-2.next` | 继续 | Continue |
 | `talk.NECROBINDER.1-3.ancient` | 打住打住——你要我爆建筑师的金币吗？不去不去——不过，给你提供点支援还是可以的。 | Whoa whoa—you want me to farm the Architect for gold? No way, no way—but I can spot you some support. |
+
+---
+
+## 增量更新（2026-08-11）
+
+### 渡里贝子：新增 妹红 / 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.ancient` | 我在信息的洋流里见过不少以你为原型的火鸡图片来着。 | I've come across plenty of turkey pictures modeled after you in the currents of information. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.next` | 愤怒 | Anger |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.char` | 那家伙—————————— | That bastard—————————— |
+| `talk.KEINEMOD-KEINE_MOD.1-0r.char` | 你这家伙，真是缺乏常识呢。回去以后，请你来我的教室上课吧。 | You really do lack common sense. When we get back, I'll have you attend my class. |
+| `talk.KEINEMOD-KEINE_MOD.1-0r.next` | 继续 | Continue |
+| `talk.KEINEMOD-KEINE_MOD.1-1r.ancient` | 诶——你是要给我灌输虚假的历史对不对！！ | Ehh—you're trying to feed me false history, aren't you!! |
+
+### 博丽灵梦：新增 魔理沙 / 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MARISA-MARISA.1-0r.ancient` | 既然都出发了，就把这差事彻底解决掉吧。 | Since you've already set off, just see the job through to the end. |
+| `talk.KEINEMOD-KEINE_MOD.0-0.char` | 能在这里见到博丽巫女真是令人欣喜。 | It's a delight to meet the Hakurei Shrine Maiden here. |
+| `talk.KEINEMOD-KEINE_MOD.0-0.next` | 继续 | Continue |
+| `talk.KEINEMOD-KEINE_MOD.0-1.ancient` | 啊啊——不瞒你说……比起坐在这儿等别人解决事情，还是自己亲手去退治适合我的风格…… | Ahh—truth be told... rather than sitting here waiting for someone else to settle things, I'd rather take care of them myself... that's more my style. |
+
+### 雾雨魔理沙：新增 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.KEINEMOD-KEINE_MOD.0-0r.ancient` | 慧音老师也来这里调查了吗？嘿嘿，这里可没有要伪装的村子或是虚假的月亮哦。 | Keine-sensei, you're here to investigate too? Heheh, there's no village to conceal or false moon around here, you know. |
+
+> **专有名词**：「慧音老师」→ Keine-sensei（上白泽慧音 = Keine Kamishirasawa，老师身份保留敬语）；「虚假的月亮」→ false moon、「要伪装的村子」→ village to conceal（均指向慧音改写/抹消历史的能力）。
 | `talk.NECROBINDER.1-3.speaker` | jyoon | jyoon |
 
 
