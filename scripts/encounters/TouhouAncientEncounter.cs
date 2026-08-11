@@ -22,7 +22,9 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
     /// <summary>
     /// 是否为挑战战斗（由 Ancient 事件的挑战选项进入）。挑战战斗不生成默认战斗奖励
     /// （金币/卡牌/药水），奖励只含 StartChallenge 传入 CombatRoom.ExtraRewards 的挑战遗物。
-    /// 由 <see cref="TouhouAncientBase.StartChallenge"/> 在 ToMutable 后的实例上设置。
+    /// 由 <see cref="TouhouAncientBase.StartChallenge"/> 在 canonical 实例上置位，游戏内部
+    /// ToMutable（MemberwiseClone 拷贝字段）克隆战斗实例时继承该标志；调用返回后
+    /// StartChallenge 会在 finally 中复位 canonical，故该标志只标记"这一场"经挑战进入的战斗。
     /// </summary>
     public bool IsChallenge { get; set; }
 
