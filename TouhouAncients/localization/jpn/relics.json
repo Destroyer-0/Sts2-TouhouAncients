@@ -116,7 +116,7 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "Gathers aura into a spear-like projectile and hurls it. With immense piercing power, it tears through most danmaku and impales the enemy in a single strike.",
   
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "Lord's Sunscreen",
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "All [gold]Card Rewards[/gold] are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "All cards in combat rewards are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "Only immature vampires use parasols. Mature vampires have their maids apply sunscreen first.",
   
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "Preserved Red Fog",
@@ -135,7 +135,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "Ordinary people can act freely only because they cannot read each other's hearts.",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "Hell's Cat Cart",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "When an enemy dies, heal [blue]{HealAmount}[/blue] HP. Whenever an [gold]enemy dies[/gold] or you [gold]Shuffle[/gold], if the heal amount is greater than [blue]0[/blue], draw [blue]1[/blue] card and reduce this effect by [blue]2[/blue].",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "Whenever a non-minion enemy dies, gain [blue]{[gold]Corpse[/gold]PerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at [gold]Rest Site[/gold].",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
@@ -338,8 +338,8 @@
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "Bad news, the battery is leaking. Good news, at least batteries can't cast [gold]Voltaic[/gold].",
 
   "TOUHOUANCIENTS-GHOST_LANTERN.title": "Ghost Lantern",
-  "TOUHOUANCIENTS-GHOST_LANTERN.description": "Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards with [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple] to add to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards with [gold]Enchant[/gold]: [purple]{EnchantmentName}[/purple] to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-GHOST_LANTERN.description": "Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].",
+  "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].",
   "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "Choose up to [blue]{SelectNum}[/blue] cards to add to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "The souls dwelling within [jitter]stir[/jitter]. In every way, a ghost surpasses the physical body... no, I'm not referring to anyone in particular.",
 
@@ -391,8 +391,8 @@
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.flavor": "",
 
   "TOUHOUANCIENTS-RIBBON_BOW.title": "Ribbon Bow",
-  "TOUHOUANCIENTS-RIBBON_BOW.description": "Upon pickup, choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-RIBBON_BOW.description": "Upon pickup, add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-RIBBON_BOW.eventDescription": "Add a [gold]Grudge[/gold] to your [gold]Deck[/gold]. Choose [blue]{SelectCount}[/blue] Attacks or Skills from your [gold]Deck[/gold] and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
   "TOUHOUANCIENTS-RIBBON_BOW.selectionScreenPrompt": "Choose [blue]{SelectCount}[/blue] cards to [gold]enchant[/gold]",
   "TOUHOUANCIENTS-RIBBON_BOW.flavor": "",
 
@@ -651,7 +651,7 @@
 
   "TOUHOUANCIENTS-OIL_FUTURES.title": "Oil Futures",
   "TOUHOUANCIENTS-OIL_FUTURES.description": "At the start of each turn, gain {Energy:energyIcons()}. Every [blue]{Turns}[/blue] turns, choose [blue]1[/blue] of [blue]{Cards}[/blue] random [red]Curses[/red] to add to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "With these resources in hand, I'll become a millionaire god in no time. (Even knowing the truth about that oil... does it matter?)",
+  "TOUHOUANCIENTS-OIL_FUTURES.flavor": "The torrent of Doom flows within this black blood.",
   "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "Choose a [red]Curse[/red] to add to your Hand",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "Smoked Fan",
@@ -659,7 +659,60 @@
   "TOUHOUANCIENTS-SMOKED_FAN.flavor": "The poverty god's blessing.",
 
   "TOUHOUANCIENTS-GRILLED_MISO.title": "Grilled Miso",
-  "TOUHOUANCIENTS-GRILLED_MISO.description": "Upon pickup, [gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
-  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards or shops.",
-  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~"
+  "TOUHOUANCIENTS-GRILLED_MISO.description": "Upon pickup, [gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards.",
+  "TOUHOUANCIENTS-GRILLED_MISO.eventDescription": "[gold]Upgrade[/gold] [blue]{Cards}[/blue] cards. [green]Upgraded[/green] cards will no longer appear in combat rewards.",
+  "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~",
+
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "Reliable Tanuki Disciple",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "At the start of your turn, randomly add [blue]{Cards}[/blue] [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Defend[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "",
+
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "Crimson Cloud Knuckles",
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.description": "When you play an [gold]Attack[/gold] card (not via Auto-Play), randomly play another [gold]Attack[/gold] card from your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "The ability to have precise movements and overwhelming strength.",
+
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "Sunken Anchor Ghost",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of your turn. Your [gold]Power[/gold] cards are placed at the bottom of your [gold]Draw Pile[/gold] at the start of combat.",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "The ability to make any ship sink no matter what.",
+
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal [blue]{Percent}%[/blue] HP. Seiga Kaku takes over for subsequent turns.",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "Seiga Kaku",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After Seiga Kaku takes over, lose [blue]6[/blue] HP and gain {energyPrefix:energyIcons(1)} at the start of your turn. She prefers higher-cost cards.",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "The ability to make zombies appear on your lawn.",
+
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "Nidomitei's Special Blend",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold]. All [gold]Potions[/gold] you obtain become [gold]Super ZUN Beer[/gold].",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold]. All [gold]Potions[/gold] you obtain become [gold]Super ZUN Beer[/gold].",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "The ability to grow braver after a drink.",
+
+  "TOUHOUANCIENTS-DOWSING_ROD.title": "Dowsing Rod",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin to search for treasure at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-DOWSING_ROD.flavor": "The ability to find her pagoda no matter what.",
+
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "Dragon Vein Vessel",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "Mark [blue]1[/blue] path (does not include Boss rooms). Entering nodes on the path grants [blue]{Gold}[/blue] [gold]Gold[/gold]; if it is a combat, gain [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] at the start, and gain [blue]{CardRewards}[/blue] extra [gold]Card Rewards[/gold].",
+  "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor": "The ability to read feng shui and ignite it.",
+
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "Disillusion Trident",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Unidentified Youkai[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.eventDescription": "Add [blue]{Cards}[/blue] [gold]Unidentified Youkai[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°nueå…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ'ï¼Ÿ",
+
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "One-Eyed Karakasa",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "Whenever you kill a non-Minion enemy, gain [blue]{Charges}[/blue] charges ([blue]{FirstTurnCharges}[/blue] if it is the first turn of combat). At [gold]Rest Sites[/gold], you may spend [blue]{UpgradeCost}[/blue] charges to [green]Upgrade[/green] [blue]{UpgradeCount}[/blue] additional cards.",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "The ability to scare people yet still be adored by everyone.",
+
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, view [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.eventDescription": "View [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "",
+
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.description": "Whenever you draw a [gold]Power[/gold] card, draw [blue]{Cards}[/blue] additional cards. The first time you play a [gold]Power[/gold] each turn, add [blue]{Copies}[/blue] copies of it to your [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "The ability to treat JK as a species.",
+
+  "TOUHOUANCIENTS-NOH_MASK.title": "Noh Mask",
+  "TOUHOUANCIENTS-NOH_MASK.description": "At the start of combat or whenever you shuffle your [gold]Draw Pile[/gold], randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], or [purple]Pleasure[/purple] to all cards. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
+  "TOUHOUANCIENTS-NOH_MASK.flavor": ""
 }

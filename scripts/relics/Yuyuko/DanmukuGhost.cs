@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -23,29 +24,32 @@ namespace TouhouAncients.Scripts.relics;
 public class DanmukuGhost : TouhouAncientRelics
 {
     /// <summary>
-    /// 记录本敌人回合中意图攻击的敌人
+    /// 记录本敌人回合中攻击过但未造成伤害的敌人
     /// </summary>
-    private Creature? attackingEnemiesThisTurn;
+    private HashSet<Creature> attackingEnemiesThisTurn = new();
 
-    private bool shouldSmall;
+    /// <summary>
+    /// 记录本敌人回合中造成过伤害的敌人（这些敌人不触发缩小）
+    /// </summary>
+    private HashSet<Creature> damagingEnemiesThisTurn = new();
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ShrinkAmount", 2m)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShrinkPower>()];
 
     /// <summary>
-    /// 敌人回合开始时，记录所有意图攻击的敌人
+    /// 敌人回合开始时，清空本回合的记录
     /// </summary>
     public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (!participants.Contains(Owner.Creature) || side == base.Owner.Creature.Side)
+        if (side == base.Owner.Creature.Side)
         {
             return Task.CompletedTask;
         }
 
-        attackingEnemiesThisTurn = null;
-        shouldSmall = true;
+        attackingEnemiesThisTurn = new HashSet<Creature>();
+        damagingEnemiesThisTurn = new HashSet<Creature>();
         return Task.CompletedTask;
     }
 
@@ -55,37 +59,41 @@ public class DanmukuGhost : TouhouAncientRelics
     {
         if (target != Owner.Creature) return Task.CompletedTask;
         if (dealer is not { IsEnemy: true }) return Task.CompletedTask;
+
         if (result.WasFullyBlocked || result.UnblockedDamage <= 0)
         {
-            attackingEnemiesThisTurn = dealer;
+            // 攻击未造成伤害：若该敌人本回合从未造成过伤害，则记入触发列表
+            if (!damagingEnemiesThisTurn.Contains(dealer))
+            {
+                attackingEnemiesThisTurn.Add(dealer);
+            }
         }
         else
         {
-            attackingEnemiesThisTurn = null;
-            shouldSmall = false;
+            // 造成过伤害：该敌人本回合不触发缩小
+            attackingEnemiesThisTurn.Remove(dealer);
+            damagingEnemiesThisTurn.Add(dealer);
         }
 
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// 敌人回合结束时，给攻击未造成伤害的敌人上缩小
+    /// 敌人回合结束时，给所有攻击过但未造成伤害的敌人施加缩小
     /// </summary>
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (side == base.Owner.Creature.Side) return; // 只处理敌人回合结束
 
-        if (!participants.Contains(base.Owner.Creature))
-        {
-            return;
-        }
-        if (!shouldSmall || attackingEnemiesThisTurn == null) return; // 玩家受到了伤害，不触发
+        if (attackingEnemiesThisTurn == null || attackingEnemiesThisTurn.Count == 0) return;
 
-        if (attackingEnemiesThisTurn.IsAlive)
+        foreach (Creature enemy in attackingEnemiesThisTurn)
         {
+            if (!enemy.IsAlive) continue;
+
             Flash();
-            await PowerCmd.Apply<ShrinkPower>(choiceContext, attackingEnemiesThisTurn,
+            await PowerCmd.Apply<ShrinkPower>(choiceContext, enemy,
                 base.DynamicVars["ShrinkAmount"].BaseValue,
                 base.Owner.Creature, null);
         }

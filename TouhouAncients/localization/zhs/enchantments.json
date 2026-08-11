@@ -1,8 +1,8 @@
 {
-    "TOUHOUANCIENTS-TRICK.description": "打出后，获得1层[gold]缓冲[/gold]，这张牌在本场战斗中费用增加[blue]1[/blue]。",
+    "TOUHOUANCIENTS-TRICK.description": "打出后，获得1层[gold]缓冲[/gold]，这张牌在本场战斗中耗能增加[blue]1[/blue]。",
     "TOUHOUANCIENTS-TRICK.title": "诈术",
 
-    "TOUHOUANCIENTS-HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌费用减少[blue]1[/blue]。",
+    "TOUHOUANCIENTS-HIGH_QUALITY.description": "你的牌组中每有一张同名牌，此牌耗能减少[blue]1[/blue]。",
     "TOUHOUANCIENTS-HIGH_QUALITY.title": "优质",
     
     "TOUHOUANCIENTS-SNAKE_BITE_UPGRADE.description": "回合结束时，如果这张牌在你的手牌中，则将其费用降低[blue]1[/blue]点，直到其离开手牌。打出后返回你的手牌，在本回合随机化其耗能。",
@@ -22,7 +22,7 @@
     "TOUHOUANCIENTS-EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
     "TOUHOUANCIENTS-EXORCISM.title": "降伏",
 
-    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。抽牌阶段结束后，如果你的手牌中没有带有[purple]付丧之力[/purple]的卡牌，将随机一张带有此附魔的卡牌移动到手牌中。",
+    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n当前计数[blue]{Amount}[/blue]。\n计数首次降至[blue]0[/blue]时，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数减少[blue]1[/blue]。",
     "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力",
 
     "TOUHOUANCIENTS-MEDICINE_POISON.description": "获得[gold]永恒[/gold]。额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。回合结束时，如果这张牌在手中，本场战斗额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。",
@@ -35,13 +35,13 @@
     "TOUHOUANCIENTS-WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
     "TOUHOUANCIENTS-WANDERING.title": "彷徨",
 
-    "TOUHOUANCIENTS-YUMEIRO.description": "费用减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
+    "TOUHOUANCIENTS-YUMEIRO.description": "耗能减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
     "TOUHOUANCIENTS-YUMEIRO.title": "梦色",
 
     "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]{Times}[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
     "TOUHOUANCIENTS-GREED.title": "贪欲",
 
-    "TOUHOUANCIENTS-BLOOD_POND.description": "费用与[gold]辉星[/gold]消耗变为[blue]0[/blue]，获得[gold]重放[/gold][blue]{Times}[/blue]。\n[red]战斗结束时，这张牌将被饕餮尤魔吞噬。[/red]",
+    "TOUHOUANCIENTS-BLOOD_POND.description": "耗能与[gold]辉星[/gold]消耗变为[blue]0[/blue]，获得[gold]重放[/gold][blue]{Times}[/blue]。\n[red]战斗结束时，这张牌将被饕餮尤魔吞噬。[/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "黑水",
     "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎恶的有机物"
 }

@@ -1,0 +1,49 @@
+{
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "依神姐妹",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}的财产与气运被[gold]{encounter}[/gold]挥霍得一干二净。",
+
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "雾雨魔理沙",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character}败于[gold]{encounter}[/gold]闪耀而强大的火力面前。",
+
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "渡里贝子",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character}在[gold]{encounter}[/gold]鼓吹的阴谋论中失去了战意。",
+
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "东风谷早苗",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character}并未引发足以战胜[aqua]现人神[/aqua][gold]{encounter}[/gold]的奇迹。",
+
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.title": "博丽灵梦",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.loss": "即便没有符卡规则，[gold]{encounter}[/gold]的实力依然不容置喙。",
+
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "蕾米莉亚·斯卡雷特",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}的命运终止于[gold]{encounter}[/gold]的威严之下。",
+
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "古明地觉",
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold]看穿了{character}的一切意图。",
+
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.title": "比那名居天子",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character}成为了[gold]{encounter}[/gold]的又一个手下败将。",
+
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡帝",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character}踩中了[gold]{encounter}[/gold]早有准备的陷阱。",
+
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]翻转了{character}倾向胜利的天平。",
+
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "梅蒂欣·梅兰可莉",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character}沉眠于[gold]{encounter}[/gold]的铃兰花海之中。",
+
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "蓬莱山辉夜",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}的旅途终止于[gold]{encounter}[/gold]的石榴裙下。",
+
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "西行寺幽幽子",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold]为{character}带来了[purple]死亡[/purple]本身。",
+
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "纯狐",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character}臣服于[gold]{encounter}[/gold]绝对的实力。",
+
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "饕餮尤魔",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold]让{character}作为有机物的一份子融入了石油之海。",
+
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "二岩猯藏（测试）",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]与她的手下的花招耍得晕头转向。"
+}

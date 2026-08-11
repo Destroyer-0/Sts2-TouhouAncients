@@ -1,10 +1,9 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Afflictions;
 
-public sealed class Devoured : AfflictionModel
+public sealed class Devoured : TouhouAncientAfflictionModel
 {
     private bool _appliedExhaust;
 

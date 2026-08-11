@@ -21,8 +21,7 @@ using TouhouAncients.Scripts.Enchantment;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 亡灵提灯：从15张无色牌中选择任意张加入牌组，这些牌拥有附魔：付丧之力。
-/// 回合结束时，将弃牌堆中所有带付丧之力的牌移回手牌。
+/// 亡灵提灯：从15张无色牌中选择至多5张加入牌组，为这些牌附魔：付丧之力5。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class GhostLantern : TouhouAncientRelics
@@ -31,16 +30,17 @@ public class GhostLantern : TouhouAncientRelics
     [
         new StringVar("EnchantmentName", ModelDb.Enchantment<Tsukumogami>().Title.GetFormattedText()),
         new DynamicVar("Amount", 15),
-        new DynamicVar("SelectNum", 5)
+        new DynamicVar("SelectNum", 5),
+        new DynamicVar("EnchantAmount", 5)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromEnchantment<Tsukumogami>();
+        HoverTipFactory.FromEnchantment<Tsukumogami>(5);
 
     public override bool HasUponPickupEffect => true;
 
     /// <summary>
-    /// 拾起时：选15张无色牌中的任意张加入牌组，附魔付丧之力。
+    /// 拾起时：选15张无色牌中的至多5张加入牌组，附魔付丧之力5。
     /// </summary>
     public override async Task AfterObtained()
     {
@@ -89,7 +89,7 @@ public class GhostLantern : TouhouAncientRelics
     private CardModel EnchantCard(CardModel card)
     {
         var enchanted = base.Owner.RunState.CloneCard(card);
-        CardCmd.Enchant<Tsukumogami>(enchanted, 0);
+        CardCmd.Enchant<Tsukumogami>(enchanted, (int)base.DynamicVars["EnchantAmount"].BaseValue);
         return enchanted;
     }
 }

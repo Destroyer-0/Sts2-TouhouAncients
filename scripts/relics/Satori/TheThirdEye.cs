@@ -39,8 +39,8 @@ public class TheThirdEye : TouhouAncientRelics
         var creature = base.Owner.Creature;
 
         // 自身获得2层虚弱
-        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(),creature, 2m, creature, null);
-
+        var a=await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(),creature, 2m, creature, null);
+        await PowerCmd.TickDownDuration(a);
         // 注：卡牌"觉之眼"暂未实现
         // var eyeCard = base.Owner.RunState.CreateCard(...);
         // await CardPileCmd.Add(eyeCard, PileType.Hand);

@@ -57,10 +57,19 @@ public class DeathBlackCrown : TouhouAncientRelics
         return Task.CompletedTask;
     }
 
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    {
+        if (cardSource?.Owner != base.Owner) return 1m;
+        if (!props.IsPoweredAttack()) return 1m;
+        if (CardsPlayedThisTurn >= 2) return 1m;
+
+        return 2m;
+    }
+
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner) return Task.CompletedTask;
-        if (cardPlay.IsFirstInSeries)
+        if (cardPlay.IsLastInSeries)
         {
             CardsPlayedThisTurn++;
             RefreshCounter();
@@ -68,19 +77,9 @@ public class DeathBlackCrown : TouhouAncientRelics
         return Task.CompletedTask;
     }
 
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
-    {
-        if (cardSource?.Owner != base.Owner) return 1m;
-        if (!props.IsPoweredAttack()) return 1m;
-        if (CardsPlayedThisTurn > 2) return 1m;
-
-        Flash();
-        return 2m;
-    }
-
     private void RefreshCounter()
     {
-        base.Status = CardsPlayedThisTurn <= 2 ? RelicStatus.Active : RelicStatus.Normal;
+        base.Status = CardsPlayedThisTurn < 2 ? RelicStatus.Active : RelicStatus.Normal;
         InvokeDisplayAmountChanged();
     }
 

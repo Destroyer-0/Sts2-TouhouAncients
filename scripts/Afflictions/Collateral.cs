@@ -10,7 +10,7 @@ namespace TouhouAncients.Scripts.Afflictions;
 /// <summary>
 /// 抵押物：无法被打出并获得保留，在手中累计停留2回合后移除此侵蚀。
 /// </summary>
-public sealed class TouhouAncientsCollateral : AfflictionModel
+public sealed class Collateral : TouhouAncientAfflictionModel
 {
     public override bool HasExtraCardText => true;
     
@@ -18,6 +18,7 @@ public sealed class TouhouAncientsCollateral : AfflictionModel
         HasCard
             ? [HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(CardKeyword.Retain)]
             : [];
+    
     public override bool TryModifyKeywordsInCombat(CardModel card, ISet<CardKeyword> keywords)
     {
         if (card != Card)
@@ -25,7 +26,10 @@ public sealed class TouhouAncientsCollateral : AfflictionModel
             return false;
         }
 
-        return keywords.Add(CardKeyword.Retain) && keywords.Add(CardKeyword.Unplayable);
+        bool modified = false;
+        modified |= keywords.Add(CardKeyword.Retain);
+        modified |= keywords.Add(CardKeyword.Unplayable);
+        return modified;
     }
     
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

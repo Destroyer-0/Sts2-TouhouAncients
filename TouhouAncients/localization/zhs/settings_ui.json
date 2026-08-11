@@ -33,5 +33,10 @@
   "TOUHOUANCIENTS-BAN_MARISA.title": "禁用 雾雨魔理沙（2/3层）",
   "TOUHOUANCIENTS-BAN_JUNKO.title": "禁用 纯狐（3层）",
   "TOUHOUANCIENTS-BAN_YUUMA.title": "禁用 饕餮尤魔（3层）",
-  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "禁用 依神女苑&依神紫苑（2层）"
+  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "禁用 依神女苑&依神紫苑（2层）",
+  "TOUHOUANCIENTS-BAN_MAMIZOU.title": "禁用 二岩猯藏（2/3层）",
+
+  "TOUHOUANCIENTS-TEST_CONTENT.title": "测试内容",
+  "TOUHOUANCIENTS-TEST_CONTENT.description": "以下内容的平衡性、美术、文本还在调试中，不会默认刷出。",
+  "TOUHOUANCIENTS-ENABLE_TEST_CONTENT_MAMIZOU.title": "启用测试内容·二岩猯藏"
 }

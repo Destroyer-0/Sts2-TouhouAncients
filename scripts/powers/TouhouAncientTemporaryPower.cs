@@ -17,7 +17,7 @@ public abstract class TouhouAncientTemporaryPower : TouhouAncientPowerModel, ITe
 
     private bool _shouldIgnoreNextInstance;
 
-    public override PowerType Type => !this.IsPositive ? PowerType.Debuff : PowerType.Buff;
+    public override PowerType Type => !IsPositive ? PowerType.Debuff : PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 

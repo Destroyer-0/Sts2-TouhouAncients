@@ -73,6 +73,41 @@ public static class AncientDialoguePortraitPatch
         }
     }
 
+    // --- NEventOptionButton._Ready Patch: challenge option icon ---
+
+    /// <summary>
+    /// Postfix: 为挑战选项（ChallengeEncounter 非 null 的 Ancient 事件中的 .fight 选项）
+    /// 显示图标。原版只在 Option.Relic != null 时显示 %RelicIcon，挑战选项没有关联遗物，
+    /// 因此这里手动显示，图标复用 Ancient 自身的 RunHistoryIcon（多说话者如依神姐妹会
+    /// 经过 MergeAllVariants 合并为拓宽宽度后的样式），并用 ResetIconSize 按宽高比调整
+    /// %RelicIcon 尺寸以完整显示宽图。
+    /// </summary>
+    [HarmonyPatch(typeof(NEventOptionButton), "_Ready")]
+    public static class NEventOptionButton_Ready_ChallengeIcon_Patch
+    {
+        static void Postfix(NEventOptionButton __instance)
+        {
+            if (__instance.Event is not TouhouAncientBase touhouAncient) return;
+            if (touhouAncient.ChallengeEncounter == null) return;
+            if (__instance.Option.Relic != null) return; // 遗物选项已有图标，跳过
+            if (!__instance.Option.TextKey.EndsWith(".fight")) return; // 仅挑战选项
+
+            var icon = __instance.GetNode<TextureRect>("%RelicIcon");
+            var tex = touhouAncient.RunHistoryIcon;
+            if (tex == null) return;
+
+            icon.Texture = tex;
+            var outlineTex = touhouAncient.RunHistoryIconOutline;
+            if (outlineTex != null)
+            {
+                icon.GetNode<TextureRect>("%Outline").Texture = outlineTex;
+            }
+
+            ResetIconSize(icon, tex); // 保持高度、按纹理宽高比调整宽度（宽图完整显示）
+            icon.Visible = true;
+        }
+    }
+
     // --- SetAncientAsSpeaker Patch: switch portrait by variant ---
 
     [HarmonyPatch(typeof(NAncientDialogueLine), "SetAncientAsSpeaker")]

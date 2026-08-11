@@ -120,7 +120,7 @@ public class InkDyedCherryBlossomsRestSiteOption(Player owner, InkDyedCherryBlos
     {
         get
         {
-            if (base.IsEnabled && relic.LostMaxHpTotal > 0)
+            if (IsEnabled)
             {
                 LocString locString = new LocString("rest_site_ui", "OPTION_" + OptionId + ".description");
                 locString.Add("MaxHpGain", relic.LostMaxHpTotal);

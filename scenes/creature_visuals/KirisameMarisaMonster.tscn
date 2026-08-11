@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmmwima67y5xu"]
+
+[ext_resource type="Texture2D" uid="uid://b124kkc5wm5p0" path="res://images/sprite/marisa/stand.png" id="1_w0uwn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnqs3"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5baad"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hvrw"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uq5q"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwyo"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4juj"]
+atlas = ExtResource("1_w0uwn")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olr8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnqs3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5baad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hvrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uq5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4juj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="KirisameMarisa" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(9.536743e-07, -18)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_olr8y")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.095708124
+offset = Vector2(-2, -29.333336)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -75.0
+offset_top = -200.0
+offset_right = 75.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -81)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -257)
+
+[node name="StolenCardPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(91, -60)
+scale = Vector2(0.3, 0.3)

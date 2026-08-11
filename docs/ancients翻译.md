@@ -949,5 +949,187 @@
 | `talk.NECROBINDER.1-2.char` | 塔顶的那家伙……欠了我一笔血债。 | The one at the top... owes me a blood debt. |
 | `talk.NECROBINDER.1-2.next` | 继续 | Continue |
 | `talk.NECROBINDER.1-3.ancient` | 打住打住——你要我爆建筑师的金币吗？不去不去——不过，给你提供点支援还是可以的。 | Whoa whoa—you want me to farm the Architect for gold? No way, no way—but I can spot you some support. |
+
+---
+
+## 增量更新（2026-08-11）
+
+### 渡里贝子：新增 妹红 / 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.ancient` | 我在信息的洋流里见过不少以你为原型的火鸡图片来着。 | I've come across plenty of turkey pictures modeled after you in the currents of information. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.next` | 愤怒 | Anger |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0r.char` | 那家伙—————————— | That bastard—————————— |
+| `talk.KEINEMOD-KEINE_MOD.1-0r.char` | 你这家伙，真是缺乏常识呢。回去以后，请你来我的教室上课吧。 | You really do lack common sense. When we get back, I'll have you attend my class. |
+| `talk.KEINEMOD-KEINE_MOD.1-0r.next` | 继续 | Continue |
+| `talk.KEINEMOD-KEINE_MOD.1-1r.ancient` | 诶——你是要给我灌输虚假的历史对不对！！ | Ehh—you're trying to feed me false history, aren't you!! |
+
+### 博丽灵梦：新增 魔理沙 / 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MARISA-MARISA.1-0r.ancient` | 既然都出发了，就把这差事彻底解决掉吧。 | Since you've already set off, just see the job through to the end. |
+| `talk.KEINEMOD-KEINE_MOD.0-0.char` | 能在这里见到博丽巫女真是令人欣喜。 | It's a delight to meet the Hakurei Shrine Maiden here. |
+| `talk.KEINEMOD-KEINE_MOD.0-0.next` | 继续 | Continue |
+| `talk.KEINEMOD-KEINE_MOD.0-1.ancient` | 啊啊——不瞒你说……比起坐在这儿等别人解决事情，还是自己亲手去退治适合我的风格…… | Ahh—truth be told... rather than sitting here waiting for someone else to settle things, I'd rather take care of them myself... that's more my style. |
+
+### 雾雨魔理沙：新增 慧音 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.KEINEMOD-KEINE_MOD.0-0r.ancient` | 慧音老师也来这里调查了吗？嘿嘿，这里可没有要伪装的村子或是虚假的月亮哦。 | Keine-sensei, you're here to investigate too? Heheh, there's no village to conceal or false moon around here, you know. |
+
+> **专有名词**：「慧音老师」→ Keine-sensei（上白泽慧音 = Keine Kamishirasawa，老师身份保留敬语）；「虚假的月亮」→ false moon、「要伪装的村子」→ village to conceal（均指向慧音改写/抹消历史的能力）。
 | `talk.NECROBINDER.1-3.speaker` | jyoon | jyoon |
 
+
+---
+
+## 增量更新（2026-08-06，基于提交 c188fbc 之后）
+
+### 通用挑战键（移动至文件顶部）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-CHALLENGE_COOP` | 这是一个合作事件，所有玩家均确认挑战后方可进行 | This is a cooperative event. The challenge will begin once all players confirm. |
+| `TOUHOUANCIENTS.fight.description` | 获取以上所有先古遗物选项 | Obtain all the Ancient relic options above |
+| `TOUHOUANCIENTS.fight.done` | 继续 | Continue |
+
+> 说明：原位于 `YORIGAMI_SISTER_ANCIENT.fight.*` 下的通用键已移至文件顶部（键名去掉角色前缀）。
+
+### 雾雨魔理沙：新增挑战遭遇标题
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `KIRISAME_MARISA_ANCIENT.fight.title` | 来一场弹幕对决吧！ | Let's have a danmaku duel! |
+
+### 魔理沙 DEFECT 对话（富文本标记更新）
+
+| 键 | 变更 |
+|------|------|
+| `talk.DEFECT.0-0.ancient` | "mechanical engineer" 包裹 `[aqua]` 标记 |
+| `talk.DEFECT.1-0r.ancient` | "Nitori"（荷取）包裹 `[aqua]` 标记 |
+
+### 渡里贝子：新增 Akyuu（稗田阿求）对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.ancient` | 哦哦！你就是村子里那个大名鼎鼎的稗田家的……"牢求"吗？嘿嘿，看来你转生的还挺快嘛！ | Oh ho! So you're that famous Hieda family... "Achoo!" from the village? Heheh, you've reincarnated pretty fast! |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.next` | 继续 | Continue |
+| `talk.AKYUUMOD-AKYUU_MOD.0-1r.char` | ……我会把你写到幻想乡缘起里的。 | ...I'll write you into the Gensokyo Chronicles. |
+| `talk.AKYUUMOD-AKYUU_MOD.1-0r.ancient` | 为什么现在的人类都越来越像饮料瓶了呢？ | Why does your profile picture often appear in outside memes? |
+
+> **专有名词**：「牢求」→ "Achoo!"（用户指定：译为"阿嚏"拟声）；「稗田家」→ Hieda family；「幻想乡缘起」→ Gensokyo Chronicles（东方官方英译）。
+
+### 因幡帝：新增 Akyuu 对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0.ancient` | 呵呵。人间之里的大小姐，什么风把你吹到这里来了？ | Heheh. Young mistress of the Human Village, what brings you all the way here? |
+| `talk.AKYUUMOD-AKYUU_MOD.1-0r.ancient` | 哎呀，阎魔大人可真不近人情。连你这副身体都要压榨。 | Oh my, Lord Enma is so cold-hearted. Working even a body like yours to the bone. |
+
+> **专有名词**：「人间之里」→ Human Village（东方官方英译）；「阎魔」→ Lord Enma（东方官方英译）。
+
+### 博丽灵梦：REGENT 对话微调
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.REGENT.0-0.next` | 继续（原：查看） | Continue |
+### 饕餮尤魔：新增 Akyuu 对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.ancient` | 浓郁的书香味。啧啧，原来是个连我的牙缝都填不满的人类。 | The rich scent of books. Tsk tsk, a human who can't even fill the gaps between my teeth. |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.next` | 记录 | Record |
+| `talk.AKYUUMOD-AKYUU_MOD.0-1r.char` | （在纸上记录）唔，饕餮尤魔……畜生界的三大首脑之一……盘踞在高塔…… | (Writing on paper) Hmm, Yuuma Toutetsu... one of the three heads of the Beast Realm... lurking in the Spire... |
+
+### 二岩猯藏：对话占位/清空
+
+| 键 | 变更 |
+|------|------|
+| `talk.firstVisitEver.0-0.ancient` | 原文案 → `...` |
+| `talk.ANY.0-0r.ancient` | 原文案 → `...` |
+| `talk.ANY.1-0r.ancient` | 空 → `...` |
+| `talk.ANY.3-0r.ancient` | "My tanuki disciples..." → "This old one's disciples..."（老朽的弟子们） |
+| `talk.DEFECT.0-0r.ancient` | 原文案 → 空 |
+| `talk.REGENT.0-0r.ancient` | 原文案 → 空 |
+| `talk.NECROBINDER.0-0r.ancient` | 原文案 → 空 |
+
+---
+
+## 增量更新（2026-08-07，基于提交 6414515d 之后）
+
+### 通用挑战键措辞变更
+
+| 键 | 变更 |
+|------|------|
+| `TOUHOUANCIENTS-CHALLENGE_COOP` | "合作事件" → "合作选项"：This is a cooperative **option**. The challenge will begin once all players confirm. |
+
+### 博丽灵梦：新增挑战遭遇标题
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HAKUREI_REIMU_ANCIENT.fight.title` | 挑战博丽巫女 | Challenge the Hakurei Shrine Maiden |
+
+### 博丽灵梦 × 魔理沙 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MARISA-MARISA.0-0r.ancient` | ……我说你这家伙就那么喜欢凑热闹吗？ | ...Don't you ever get tired of butting in? |
+
+### 蕾米莉亚 × 小恶魔 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-0.ancient` | 小恶魔？你在这里做什么？难怪帕琪找不到你。啊——你不会是要去塔顶吧？ | Koakuma? What are you doing here? No wonder Patchouli couldn't find you. Ah—you're not heading for the top of the tower, are you? |
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-0.next` | 继续 | Continue |
+| `talk.BG_KOAKUMA_CHARACTER_BG_KOAKUMA_CHARACTER.0-1.char` | 咳咳，蕾米莉亚大人，这件事还请您帮我向帕秋莉大人保密…… | Ahem, Lady Remilia, please keep this from Lady Patchouli… |
+
+> **专有名词**：「小恶魔」→ Koakuma；「帕琪」/「帕秋莉」→ Patchouli。
+
+### 因幡帝 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | 咯咯，遇到老熟人了呢。 | Heheh, running into an old acquaintance. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 沉默 | Silence |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.char` | 你在这里的话，意味着那家伙也在—— | If you're here, that means she's here too— |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.ancient` | 恩恩~会在这里吗~公主会不会同意我告诉你呢~ | Mm hm~ Is she here~? I wonder if the princess would allow me to tell you~ |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.ancient` | 看在一千年邻居的份上，好宝贝你随便挑哦~ | For the sake of a thousand years as neighbors, pick any fine treasure you like~ |
+
+### 蓬莱山辉夜 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 沉默 | Silence |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | …… | ... |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.ancient` | 噗嗤——你居然也听信了[u]那位[/u]的鬼话，要去上面讨伐那建筑师？ | Pfft—you actually believed [u]her[/u] nonsense and went to take down the Architect up there? |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 握拳 | Clench fist |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.char` | [jitter]（幻想乡粗口）在那之前，我会先把你烧成灰！！！！[/jitter] | [jitter](Gensokyo dirty words) Before that, I'll burn you to ashes first!!!![/jitter] |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.char` | 遇到你总没好事。黑心公主。 | Nothing good ever happens when I run into you. Black-hearted princess. |
+| `talk.MOKOUMOD-MOKOU_MOD.1-0r.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.1-1r.ancient` | 嗯嗯~我也是这么想的，熔岩脑袋。 | Mm hm~ That's what I think too, lava brain. |
+| `talk.MOKOUMOD-MOKOU_MOD.2-0r.ancient` | 恩？这次你居然没有直接动手吗？真不像你呢。 | Huh? You didn't attack right away this time? That's not like you. |
+| `talk.MOKOUMOD-MOKOU_MOD.2-0r.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.2-1r.char` | ……这次放你一马。赶紧把宝贝给我。 | …I'll let you off this once. Hand over the treasure. |
+| `talk.MOKOUMOD-MOKOU_MOD.3-0r.ancient` | [i][jitter][font_size=22]<辉夜与妹红激烈的扭打在一起。>[/font_size][/jitter][/i] | [i][jitter][font_size=22]<Kaguya and Mokou are locked in a fierce brawl.>[/font_size][/jitter][/i] |
+
+> **专有名词**：「幻想乡粗口」→ Gensokyo dirty words（用户指定直译）；「妹红」→ Mokou（台词中用名，无全名）。
+
+### 二岩猯藏 × 妹红 联动对话
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | 哟嚯，不死的小姑娘你也在这儿呢。老朽还记得咱俩上次凭依组队的事情呢。 | Yo ho, the immortal little lady's here too. This old one still remembers us teaming up through possession last time. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 打招呼 | Greeting |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | 狸猫老大，我现在要前往塔顶。你有什么能提供帮助的吗？ | Boss Tanuki, I'm heading to the top of the tower now. Is there anything you can offer to help? |
+| `talk.MOKOUMOD-MOKOU_MOD.0-1.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.ancient` | 这里的宝贝随便拿随便拿~可一定要带着俺们最强的组合拿下胜利呐。 | Take any treasure you like~ But make sure to bring our strongest combo to victory. |
+| `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 继续 | Continue |
+| `talk.MOKOUMOD-MOKOU_MOD.0-3.char` | 会赢的。放心吧。 | I'll win. Don't worry. |

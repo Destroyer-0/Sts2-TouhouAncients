@@ -1,0 +1,49 @@
+{
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "Yorigami Sisters",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}’s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "Marisa Kirisame",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character} fell before the dazzling, overwhelming firepower of [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "Nina Watari",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character} lost the will to fight amid the conspiracy theories touted by [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "Sanae Kochiya",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character} failed to bring about a miracle great enough to overcome [aqua]the living god[/aqua] [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.title": "Reimu Hakurei",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.loss": "Even without the spell card rules, the strength of [gold]{encounter}[/gold] is beyond question.",
+
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "Remilia Scarlet",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}’s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "Satori Komeji",
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold] saw through every intention of {character}.",
+
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.title": "Tenshi Hinanawi",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character} became yet another defeated rival of [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "Tewi Inaba",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character} stepped right into a trap long prepared by [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "Seija Kijin",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",
+
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "Medicine Melancholy",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",
+
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "Kaguya Houraisan",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "Yuyuko Saigyouji",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}.",
+
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "Junko",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character} submitted to the absolute power of [gold]{encounter}[/gold].",
+
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "Yuuma Toutetsu",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold] melted {character} into the sea of oil as just another piece of organic matter.",
+
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "Mamizou Futatsuiwa (Test)",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character} was spun dizzy by the tricks of [gold]{encounter}[/gold] and her underlings."
+}

@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Events;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -98,6 +99,8 @@ public class YorigamiSisterAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/YorigamiSister.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/YorigamiSister.png";
 
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<YorigamiSistersEncounter>();
+
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<PossessionSpirit>()
@@ -116,17 +119,4 @@ public class YorigamiSisterAncient : TouhouAncientBase
         )
     );
 
-    public override IEnumerable<EventOption> AllPossibleOptions
-    {
-        get
-        {
-            var currentOptions = base.AllPossibleOptions.ToList();
-            for (int i = 0; i < currentOptions.Count; i++)
-            {
-                var option = currentOptions[i];
-            }
-
-            return base.AllPossibleOptions;
-        }
-    }
 }

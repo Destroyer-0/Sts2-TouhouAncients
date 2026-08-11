@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwaynq786hvso"]
+
+[ext_resource type="Texture2D" uid="uid://cf2jcuw0tv3a" path="res://images/sprite/marisa/mush_big.png" id="1_mmd3k"]
+
+[node name="FantasyMushroom2" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 6)
+texture = ExtResource("1_mmd3k")
+offset = Vector2(-1.333, -32)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -45.0
+offset_top = -76.0
+offset_right = 37.0
+offset_bottom = 1.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -23)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -119)
