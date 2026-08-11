@@ -3,11 +3,15 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
 
@@ -15,10 +19,6 @@ namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 极奢形态 (Richest Form)
-/// 3费能力牌。
-/// 获得 120（升级后 150）启动资金。
-/// 打出非X费牌不再消耗能量，改为 1:10 消耗启动资金。
-/// 启动资金不足时改为消耗金币。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class RichestForm : TouhouAncientCards
@@ -54,12 +54,13 @@ public class RichestForm : TouhouAncientCards
     {
         var creature = base.Owner.Creature;
         Owner.PlayerCombatState.GainEnergy(base.DynamicVars["Energy2"].IntValue);
-        var power = await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, DynamicVars.Energy.IntValue, creature, this);
+        var power = await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, DynamicVars["Energy3"].IntValue, creature, this);
         if (power != null)
         {
-            power.ExtraEnergy = base.DynamicVars["Energy3"].IntValue;
+            power.ExtraCost += DynamicVars.Energy.IntValue;
         }
     }
+    
     protected override void OnUpgrade()
     {
         base.DynamicVars["Energy2"].UpgradeValueBy(1m);

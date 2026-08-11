@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using TouhouAncients.Scripts.powers;
@@ -33,8 +34,17 @@ public class RichestFormPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public int ExtraEnergy { private get; set; }
 
+    public int ExtraCost
+    {
+        get => DynamicVars["ExtraCost"].IntValue;
+        set => DynamicVars["ExtraCost"].BaseValue = value;
+    }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DynamicVar("ExtraCost", 0m)
+    ];
 
     protected override object InitInternalData()
     {
@@ -45,17 +55,12 @@ public class RichestFormPower : TouhouAncientPowerModel
         HoverTipFactory.ForEnergy(this)
     ];
 
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        return base.AfterApplied(applier, cardSource);
-    }
-
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (!Owner.IsPlayer) return 0;
         if (player != base.Owner.Player)
             return amount;
-        return amount + ExtraEnergy;
+        return amount + Amount;
     }
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -82,7 +87,7 @@ public class RichestFormPower : TouhouAncientPowerModel
             return false;
         }
 
-        modifiedCost = originalCost + (decimal)(GetInternalData<Data>().CardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * Amount);
+        modifiedCost = originalCost + (decimal)(GetInternalData<Data>().CardTypePlayedThisTurn.GetValueOrDefault(card.Type, 0) * ExtraCost);
         return true;
     }
 
