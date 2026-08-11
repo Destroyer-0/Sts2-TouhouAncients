@@ -23,7 +23,7 @@ public class RabbitsFoot : TouhouAncientRelics
     private const string _sellKey = "SELL_CARD";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new GoldVar(75)];
+        [new GoldVar(80)];
 
     public override bool TryModifyCardRewardAlternatives(Player player, CardReward cardReward, List<CardRewardAlternative> alternatives)
     {
