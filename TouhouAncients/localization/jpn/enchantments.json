@@ -22,7 +22,7 @@
     "TOUHOUANCIENTS-EXORCISM.description": "When played, add a [gold]Dream Seal[/gold] to your [gold]Hand[/gold].",
     "TOUHOUANCIENTS-EXORCISM.title": "Exorcism",
 
-    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "Gains [gold]Ethereal[/gold].\nIn [blue]{Amount}[/blue] turns, play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by 1.",
+    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "Gains [gold]Ethereal[/gold].\nCurrent count: [blue]{Amount}[/blue].\nThe first time the count reaches [blue]0[/blue], play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by [blue]1[/blue].",
     "TOUHOUANCIENTS-TSUKUMOGAMI.title": "Tsukumogami",
 
     "TOUHOUANCIENTS-MEDICINE_POISON.description": "Gains [gold]Eternal[/gold]. Applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold]. If this card is in your [gold]Hand[/gold] at end of turn, it applies an additional [blue]{Amount}[/blue] [gold]Poison[/gold] this combat.",

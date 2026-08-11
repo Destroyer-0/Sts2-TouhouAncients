@@ -22,7 +22,7 @@
     "TOUHOUANCIENTS-EXORCISM.description": "打出后，将一张[gold]梦想封印[/gold]置入你的手牌。",
     "TOUHOUANCIENTS-EXORCISM.title": "降伏",
 
-    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n[blue]{Amount}[/blue]回合后，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数-1。",
+    "TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n当前计数[blue]{Amount}[/blue]。\n计数首次降至[blue]0[/blue]时，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数减少[blue]1[/blue]。",
     "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力",
 
     "TOUHOUANCIENTS-MEDICINE_POISON.description": "获得[gold]永恒[/gold]。额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。回合结束时，如果这张牌在手中，本场战斗额外给予[blue]{Amount}[/blue]层[gold]中毒[/gold]。",

@@ -41,8 +41,8 @@
   "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold]将在战斗结束后[green]升级[/green]。",
 
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "极奢形态",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]1[/blue]。",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "你每打出一张牌，其同类型牌在本回合内耗能增加[blue]{Amount}[/blue]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "在每回合开始时获得[blue]1[/blue]点[gold]能量[/gold]。你每打出一张牌，其同类型牌在本回合内耗能增加[blue]1[/blue]。",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "在每回合开始时获得{Amount:energyIcons()}。你每打出一张牌，其同类型牌在本回合内耗能增加[blue]{ExtraCost}[/blue]。",
 
   "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "至贫形态",
   "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "在你的回合结束时，依照手牌总耗能与剩余能量之差，每一点给予随机一名敌人7层[gold]灾厄[/gold]1次。",
