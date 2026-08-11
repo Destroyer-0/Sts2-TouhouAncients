@@ -2302,7 +2302,7 @@
 
 ### 中文原文
 ```json
-"TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n[blue]{Amount}[/blue]回合后，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数-1。",
+"TOUHOUANCIENTS-TSUKUMOGAMI.description": "获得[gold]虚无[/gold]。\n当前计数[blue]{Amount}[/blue]。\n计数首次降至[blue]0[/blue]时，无论何处，将这张牌打出。\n在你的回合结束时，如果这张牌在本回合没有被打出，计数减少[blue]1[/blue]。",
 "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付丧之力"
 ```
 
@@ -2310,11 +2310,36 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Tsukumogami` |
-| `.description` | `Gains [gold]Ethereal[/gold].\nIn [blue]{Amount}[/blue] turns, play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by 1.` |
+| `.description` | `Gains [gold]Ethereal[/gold].\nCurrent count: [blue]{Amount}[/blue].\nThe first time the count reaches [blue]0[/blue], play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by [blue]1[/blue].` |
 
 ### 说明
 - 附魔重做为"付丧之力X"：`ShowAmount` 显示计数，`IsStackable` 可叠加
 - 遗物附魔时使用 `EnchantAmount = 5`，即"付丧之力5"
 - 附魔名与数字拼接：中文无空格（付丧之力5），英文有空格（Tsukumogami 5），参照蛊毒魔盒（Toxic 3）风格
+
+---
+
+## 领主防晒霜
+
+**键名**: `TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "领主防晒霜",
+"TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "战斗奖励中的卡牌将全部替换为[gold]稀有牌[/gold]。卡牌奖励你可以选择[gold]全都要[/gold]。",
+"TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "幼稚的吸血鬼才打阳伞，成熟的吸血鬼会让女仆先涂好防晒霜。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Lord's Sunscreen` |
+| `.description` | `All cards in combat rewards are replaced with [gold]Rare[/gold] cards, and you may [gold]Take All[/gold].` |
+| `.flavor` | `Only immature vampires use parasols. Mature vampires have their maids apply sunscreen first.` |
+
+### Neta / 文化梗说明
+- **「全都要」→ Take All** — 指卡牌奖励界面"全部拿取"的选项，术语表已收录
+- **「战斗奖励中的卡牌」→ cards in combat rewards** — 参照烤味噌更新的句式 `cards will no longer appear in combat rewards`
+- 描述强调被替换的是"卡牌"本身，而非整个卡牌奖励组
 
 
