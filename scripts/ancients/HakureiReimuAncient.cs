@@ -24,7 +24,7 @@ public class HakureiReimuAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
 
-    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HakureiReimuEncounter>();
+    // public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HakureiReimuEncounter>();
 
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(

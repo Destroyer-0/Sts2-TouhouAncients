@@ -174,7 +174,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
         {
             return base.IsValidForAct(act);
         }
-
+        
         return act.ActNumber() == ShowAct.Value;
     }
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
