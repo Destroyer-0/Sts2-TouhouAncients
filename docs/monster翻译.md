@@ -16,7 +16,7 @@
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.OCTAGONAL_BINDING_ARRAY.title": "八方鬼缚阵",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SEALING_NEEDLE.title": "封魔针",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.TENBU_HURRICANE_KICK.title": "阴阳玉",
-"TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title": "亚空点穴",
+"TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title": "降神",
 "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.title": "梦想天生"
 ```
 
@@ -28,7 +28,7 @@
 | `.moves.OCTAGONAL_BINDING_ARRAY.title` | `Octagonal Binding Array` |
 | `.moves.SEALING_NEEDLE.title` | `Sealing Needle` |
 | `.moves.TENBU_HURRICANE_KICK.title` | `Yin-Yang Orb` |
-| `.moves.SUBSPACE_ACUPRESSURE.title` | `Subspace Acupressure` |
+| `.moves.SUBSPACE_ACUPRESSURE.title` | `Divine Descent` |
 | `.moves.FANTASY_NATURE.title` | `Fantasy Nature` |
 
 ### 遭遇：`TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER`
@@ -177,3 +177,21 @@
 |------|------|
 | `DREAM_SEAL_WABI.description` | `[blue]1[/blue]` → `[blue]{Amount}[/blue]`；删除 `descriptionUpgraded` |
 | `DREAM_SEAL_SABI.description` | `[blue]1[/blue]` → `[blue]{Amount}[/blue]`；删除 `descriptionUpgraded` |
+
+---
+
+## 增量更新（2026-08-12）
+
+### 博丽灵梦怪物：技能改名 + 战斗逻辑调整
+
+| 键 | 变更 |
+|------|------|
+| `HAKUREI_REIMU_MONSTER.moves.TENBU_HURRICANE_KICK.title` | 天霸风神脚 → 阴阳玉 → Yin-Yang Orb（zhs 已改，eng/jpn 同步） |
+| `HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title` | 亚空点穴 → 降神 → Divine Descent（zhs 已改，eng/jpn 同步） |
+
+战斗逻辑（`HakureiReimuMonster.cs`）：
+
+- 阴阳玉：移除进入翱翔效果，仅保留 2 段伤害。
+- 降神：移除获得无实体，改为使梦想天生计数减少 3（`IndiscriminateSubjugationPower.DecreaseHitsLeft(3)`），保留获得 2 点力量。
+- 梦想天生：通过「无差别降伏」强制切入时同步获得翱翔，释放（执行）后移除翱翔；首次固定的梦想天生（战斗开场）不获得翱翔。
+- 翱翔仅于释放梦想天生时移除；若灵梦被眩晕导致梦想天生未释放，翱翔保持不移除（合理保留，无兜底清理）。

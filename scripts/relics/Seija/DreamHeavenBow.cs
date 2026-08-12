@@ -24,7 +24,7 @@ public class DreamHeavenBow : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Damage", 7),
+        new DynamicVar("Damage", 8),
         new DynamicVar("Weak", 2)
     ];
 

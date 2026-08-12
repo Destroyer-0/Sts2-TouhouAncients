@@ -55,6 +55,8 @@ internal static class NBestiaryAncientSectionPatch
 
         // 先收集本分区所有节点，再统一移动到列表最顶部，避免逐个插入导致顺序颠倒
         List<Node> sectionNodes = new List<Node> { CreateDivider() };
+        // 每个条目是否应用金色标题（与 sectionNodes 索引一一对应；奇幻蘑菇保持原版奶油色）
+        List<bool> goldTitles = new List<bool> { false };
 
         foreach ((Type monsterType, Type encounterType) in AncientMonsters)
         {
@@ -71,11 +73,22 @@ internal static class NBestiaryAncientSectionPatch
             node.Connect(NClickableControl.SignalName.Released,
                 Callable.From<NBestiaryEntry>(clicked => OnMonsterClicked(__instance, clicked)));
             sectionNodes.Add(node);
+            // 挑战本体使用金色标题（区别于原版精英紫、Boss 红），奇幻蘑菇保持默认奶油色
+            goldTitles.Add(isDiscovered && monsterType != typeof(FantasyMushroomMonster));
         }
 
         foreach (Node node in sectionNodes)
         {
             bestiaryList.AddChildSafely(node);
+        }
+
+        // 节点已进入树（_Ready 已按 roomType 设置默认色），对挑战本体覆盖为金色标题
+        for (int i = 0; i < sectionNodes.Count; i++)
+        {
+            if (goldTitles[i] && sectionNodes[i] is NBestiaryEntry entryNode)
+            {
+                entryNode.GetNode<MegaRichTextLabel>("%Label").SelfModulate = StsColors.gold;
+            }
         }
 
         // 逆序逐个移动到索引 0，使整个分区位于列表最顶部且保持正确顺序

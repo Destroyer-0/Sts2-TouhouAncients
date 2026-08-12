@@ -47,7 +47,7 @@ public class JyoonFan : TouhouAncientRelics
         new GoldVar(50),
         new DynamicVar("Strength", 2m),
         new DynamicVar("Dexterity", 2m),
-        new DynamicVar("Focus", 2m),
+        new DynamicVar("Focus", 1m),
         new DynamicVar("Charges", 4m),
     ];
 
