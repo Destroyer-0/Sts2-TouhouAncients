@@ -83,5 +83,9 @@
 
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.title": "未名妖魔",
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]1[/blue]点[gold]力量[/gold]。",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。\n当前已经获得[blue]{StrengthApplied}[/blue]点[gold]力量[/gold]。"
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。\n当前已经获得[blue]{StrengthApplied}[/blue]点[gold]力量[/gold]。",
+
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "公主的谜题",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "每道未完成的谜题在辉夜回合开始时为她提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有{PuzzleNum}道谜题未被解开，将获得{GainBlock}点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "每道未完成的谜题在辉夜回合开始时为她提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有{PuzzleNum}道谜题未被解开，将获得{GainBlock}点[gold]格挡[/gold]。"
 }

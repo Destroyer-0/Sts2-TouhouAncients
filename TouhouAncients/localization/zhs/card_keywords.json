@@ -22,5 +22,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "无法以[purple]自动打出[/purple]以外的方式打出。",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "沉底",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "战斗开始时，这张牌将置于抽牌堆底部。"
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "战斗开始时，这张牌将置于抽牌堆底部。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.title": "谜题",
+  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.description": "打出这张牌后完成对应谜题，并将此牌移出战斗。"
 }
