@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(StatusCardPool))]
 public class DreamSealSabi : ReimuBossDreamSealStatus
 {
-    public DreamSealSabi() : base(true)
+    public DreamSealSabi() : base(false)
     {
     }
     
