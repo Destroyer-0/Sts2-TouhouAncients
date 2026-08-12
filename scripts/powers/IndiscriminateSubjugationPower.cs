@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -49,12 +50,22 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         InvokeDisplayAmountChanged();
         if (base.DynamicVars[_hitsLeftKey].IntValue <= 0)
         {
-            // 等待本次命中特效播放完毕后，将意图切换至梦想天生
+            // 等待本次命中特效播放完毕后，将意图切换至梦想天生（并同步进入翱翔）
             await Cmd.Wait(0.5f);
             Flash();
-            reimu.ForceDreamNatureNext();
+            await reimu.ForceDreamNatureNext();
             base.DynamicVars[_hitsLeftKey].BaseValue = _baseHitsLeft;
             InvokeDisplayAmountChanged();
         }
+    }
+
+    /// <summary>
+    /// 减少梦想天生计数（HitsLeft）：「降神」等效果使用。
+    /// 计数不会低于 0；归零后仍由 <see cref="AfterDamageGiven"/> 在造成伤害时触发意图切换。
+    /// </summary>
+    public void DecreaseHitsLeft(int amount)
+    {
+        base.DynamicVars[_hitsLeftKey].BaseValue = Math.Max(0, base.DynamicVars[_hitsLeftKey].IntValue - amount);
+        InvokeDisplayAmountChanged();
     }
 }
