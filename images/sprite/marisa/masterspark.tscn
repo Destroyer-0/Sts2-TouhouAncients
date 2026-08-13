@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://u37mxsbs3b8b"]
+
+[ext_resource type="Texture2D" uid="uid://3h8ok8ky5wt0" path="res://images/sprite/marisa/m_spark_a1.png" id="1_qq5h5"]
+[ext_resource type="Texture2D" uid="uid://dqu6a2cetd6sa" path="res://images/sprite/marisa/m_spark_b1.png" id="2_u15ho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdrr4"]
+atlas = ExtResource("1_qq5h5")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32a65"]
+atlas = ExtResource("1_qq5h5")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsypt"]
+atlas = ExtResource("1_qq5h5")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvish"]
+atlas = ExtResource("1_qq5h5")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o70px"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdrr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32a65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsypt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvish")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6st8u"]
+atlas = ExtResource("2_u15ho")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw5g4"]
+atlas = ExtResource("2_u15ho")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quxkj"]
+atlas = ExtResource("2_u15ho")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5fnw"]
+atlas = ExtResource("2_u15ho")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_onu6h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6st8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw5g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quxkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5fnw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Masterspark" type="Node2D"]
+scale = Vector2(10, 10)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-23.999998, -9)
+sprite_frames = SubResource("SpriteFrames_o70px")
+flip_h = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-360, -9)
+scale = Vector2(20, 1)
+sprite_frames = SubResource("SpriteFrames_onu6h")
+flip_h = true

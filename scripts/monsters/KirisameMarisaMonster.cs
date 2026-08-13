@@ -18,10 +18,12 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
 
@@ -33,6 +35,8 @@ namespace TouhouAncients.Scripts.monsters;
 /// </summary>
 public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 {
+    protected override string CurrentLoopAnimation => NextMove != MasterSparkState ? "idle" : "spell";
+
     // --- HP ---
     /// <summary>
     /// 初始生命：二层数值（角色最早出现的幕，也作为图鉴预览等环境的回退值）。
@@ -40,11 +44,11 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
     /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 156, 150);
+        AscensionLevel.ToughEnemies, 176, 166);
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 256, 250);
+        AscensionLevel.ToughEnemies, 276, 260);
 
     // --- 伤害/数值 ---
     /// <summary>
@@ -67,7 +71,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
     private int BlackHoleEdgeWeak => 2;
 
-    private int MasterSparkChargeBlock => GetActValue(14, (3, 20));
+    private int MasterSparkChargeBlock => GetActValue(14, (3, 30));
 
     private int MasterSparkChargeVigorPerMushroom => GetActValue(10, (3, 12));
 
@@ -88,6 +92,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     private static readonly LocString _thiefLine =
         new LocString("monsters", "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.banter");
 
+    public MoveState MasterSparkState;
+    
     /// <summary>
     /// 魔理沙身后当前显示的偷取卡牌节点（仅本机创建），归还卡牌时统一清除。
     /// </summary>
@@ -166,13 +172,46 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     // --- 技能方法 ---
 
     /// <summary>
-    /// 逃逸速度：偷走每个玩家弃牌堆顶的牌，然后造成伤害。
+    /// 逃逸速度：冲刺撞击玩家时偷走每个玩家弃牌堆顶的牌并造成伤害，随后带着被偷的牌从右侧返回。
     /// 弃牌堆为空则不偷，技能正常执行。
     /// </summary>
     private async Task EscapeVelocityMove(IReadOnlyList<Creature> targets)
     {
+        NCreature creatureNode = base.Creature.GetCreatureNode();
+        Node2D body = creatureNode?.Visuals.GetCurrentBody();
+        Vector2 bodyOrigin = body?.Position ?? Vector2.Zero;
+
+        // 找到最左侧玩家，作为撞击点
+        Vector2? playerPos = null;
+        foreach (Creature target in targets)
+        {
+            NCreature? targetNode = target.GetCreatureNode();
+            if (targetNode != null && (!playerPos.HasValue || playerPos.Value.X > targetNode.GlobalPosition.X))
+            {
+                playerPos = targetNode.GlobalPosition;
+            }
+        }
+
+        // 冲刺起手：dash_start（短暂延迟）
+        PlayAnimation("dash_start");
         SfxCmd.Play("event:/sfx/enemy/enemy_attacks/thieving_hopper/thieving_hopper_steal");
-        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(base.Creature);
+        await Cmd.Wait(0.25f);
+
+        // 开始飞行：dash（循环）冲向玩家（撞击瞬间偷牌并造成伤害）
+        PlayAnimation("dash");
+        if (creatureNode != null && body != null)
+        {
+            // 冲至玩家所在位置（撞击点）
+            var impactOffset = playerPos.HasValue
+                ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X- 600f)
+                : Vector2.Left * 1800;
+            var rushTween = body.CreateTween();
+            rushTween.TweenProperty(body, "position", impactOffset, 0.15f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.2f);
+        }
+
+        // 撞击瞬间：偷走每个玩家弃牌堆顶的牌
         List<CardModel> stolenCards = new List<CardModel>();
         foreach (Creature target in targets)
         {
@@ -193,76 +232,157 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             stolenCards.Add(cardToSteal);
         }
 
-        // 卡牌从牌堆中飞出的节奏：等待后让被偷的牌显示在魔理沙身后（仿 ThievingHopper）
-        await Cmd.Wait(0.6f);
-        TalkCmd.Play(_thiefLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
-        foreach (CardModel card in stolenCards)
-        {
-            if (creatureNode == null || !LocalContext.IsMine(card)) continue;
-
-            Marker2D? stolenCardPos = creatureNode.GetSpecialNode<Marker2D>("%StolenCardPos");
-            if (stolenCardPos == null) continue;
-
-            NCard? nCard = NCard.Create(card);
-            if (nCard == null) continue;
-
-            stolenCardPos.AddChildSafely(nCard);
-            nCard.Position += nCard.Size * 0.5f;
-            nCard.UpdateVisuals(PileType.Deck, CardPreviewMode.Normal);
-            _stolenCardNodes.Add(nCard);
-        }
-
+        // 撞击瞬间造成伤害
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(EscapeVelocityDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
+        // 继续冲出屏幕左侧
+
+        // 屏幕外：让被偷的牌挂在移动的 body 上，随魔理沙从右侧一起飞回
+        if (stolenCards.Any(LocalContext.IsMine))
+        {
+            TalkCmd.Play(_thiefLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
+            foreach (CardModel card in stolenCards)
+            {
+                if (creatureNode == null || body == null || !LocalContext.IsMine(card)) continue;
+
+                Marker2D? stolenCardPos = creatureNode.GetSpecialNode<Marker2D>("%StolenCardPos");
+                if (stolenCardPos == null) continue;
+
+                NCard? nCard = NCard.Create(card);
+                if (nCard == null) continue;
+
+                // 换算到 body 局部坐标（body 缩放 3、StolenCardPos 缩放 0.3），卡牌跟随 body 移动
+                nCard.Position = (stolenCardPos.Position - bodyOrigin) / body.Scale.X
+                                 + nCard.Size * (0.3f / body.Scale.X) * 0.5f;
+                nCard.Scale = Vector2.One * (0.3f / body.Scale.X);
+                body.AddChildSafely(nCard);
+                nCard.UpdateVisuals(PileType.Deck, CardPreviewMode.Normal);
+                _stolenCardNodes.Add(nCard);
+            }
+        }
+
+        // if (creatureNode != null && body != null)
+        // {
+        //     var rushTarget = playerPos.HasValue
+        //         ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X - 600f)
+        //         : Vector2.Left * 1800;
+        //     var rushTween2 = body.CreateTween();
+        //     rushTween2.TweenProperty(body, "position", rushTarget, 0.2f)
+        //         .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+        //     await Cmd.Wait(0.25f);
+        // }
+        
+        // 从右侧返回：带着被偷的牌飞回（dash 循环动画贯穿整个飞行）
+        if (body != null)
+        {
+            body.Position = Vector2.Right * 600f;
+            await Cmd.Wait(0.1f);
+            var returnTween = body.CreateTween();
+            returnTween.TweenProperty(body, "position", bodyOrigin, 0.25f)
+                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.3f);
+        }
+
+        // 飞行结束后短暂延迟
+        await Cmd.Wait(0.25f);
+
+        // 落地：dash_end
+        PlayAnimation("dash_end");
+        await Cmd.Wait(0.3f);
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
-    /// 菌类专家：召唤 2 只奇幻蘑菇（受场上存活蘑菇数量上限限制）。
+    /// 菌类专家：跳起（jump_rise）后在空中翻滚（roll）约 1 秒，期间召唤 2 只奇幻蘑菇（受场上存活蘑菇数量上限限制），再落回原地（jump_fall）。
     /// </summary>
     private async Task FungusExpertMove(IReadOnlyList<Creature> targets)
     {
         TalkCmd.Play(_mushroomLine, base.Creature, VfxColor.White, VfxDuration.Long);
+        
+        NCreature creatureNode = base.Creature.GetCreatureNode();
+        Node2D body = creatureNode?.Visuals.GetCurrentBody();
+        Vector2 bodyOrigin = body?.Position ?? Vector2.Zero;
+
+        // 跳起：播放 jump_rise 同时把角色往上升
+        PlayAnimation("jump_rise");
+        if (body != null)
+        {
+            var riseTween = body.CreateTween();
+            riseTween.TweenProperty(body, "position", bodyOrigin + Vector2.Up * 200f, 0.3f)
+                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.35f);
+        }
+
+        // 空中翻滚 roll 约 1 秒，期间生成蘑菇召唤
+        PlayAnimation("roll");
         int toSummon = Math.Min(FungusExpertSummonCount, MaxMushroomCount - AliveMushroomCount);
         for (int i = 0; i < toSummon; i++)
         {
             await SummonMushroom();
         }
+        await Cmd.Wait(1f);
+
+        // 落地：jump_fall 回到原地
+        PlayAnimation("jump_fall");
+        if (body != null)
+        {
+            var fallTween = body.CreateTween();
+            fallTween.TweenProperty(body, "position", bodyOrigin, 0.3f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.35f);
+        }
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
-    /// 星辰幻想：4 段多段攻击。
+    /// 星辰幻想：先摆出起手式（shot_1），再以射击姿态（shot_2）进行 4 段多段攻击。
     /// </summary>
     private async Task StellarFantasyMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnimation("shot_1");
+        await Cmd.Wait(0.25f);
+        PlayAnimation("shot_2");
         await DamageCmd.Attack(StellarFantasyDamage)
             .FromMonster(this)
             .WithHitCount(StellarFantasyHits)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        await Cmd.Wait(0.3f);
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
-    /// 黑洞边缘：造成伤害并给玩家施加虚弱。
+    /// 黑洞边缘：投掷（throw）造成伤害并给玩家施加虚弱。
     /// </summary>
     private async Task BlackHoleEdgeMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnimation("throw");
         await DamageCmd.Attack(BlackHoleEdgeDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
+            //.WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/the_kin_priest/the_kin_priest_soul_grenade")
+            .WithWaitBeforeHit(1f, 1f)
+            .WithHitVfxNode((Creature t) => NKinPriestGrenadeVfx.Create(t))
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, BlackHoleEdgeWeak, base.Creature, null);
+        await Cmd.Wait(0.3f);
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
-    /// 极限火花·蓄力：获得格挡，归还偷走的牌到手牌，每个存活蘑菇提供 10 点活力。
+    /// 极限火花·蓄力：播放蓄力动画（spell）并保持到发射，获得格挡，归还偷走的牌到手牌，每个存活蘑菇提供 10 点活力。
     /// </summary>
     private async Task MasterSparkChargeMove(IReadOnlyList<Creature> targets)
     {
+        // 蓄力动画保持到下一回合发射极限火花（不在本方法结尾恢复 idle）
+        PlayAnimation("spell");
         await CreatureCmd.GainBlock(base.Creature, MasterSparkChargeBlock, ValueProp.Unpowered, null);
         await ReturnStolenCards();
 
@@ -276,16 +396,67 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 极限火花：造成伤害并获得力量。
+    /// 极限火花：播放发射动画（masterspark），生成极限火花光束素材（scale.y 在 0.5 秒内变化至 1），
+    /// 发射瞬间强烈震屏，造成伤害并获得力量；演出结束后光束先淡出再卸载。
     /// </summary>
     private async Task MasterSparkMove(IReadOnlyList<Creature> targets)
     {
+        PlayAnimation("masterspark");
+
+        NGame.Instance?.ScreenShake(ShakeStrength.TooMuch, ShakeDuration.Long);
+        // 生成极限火花光束素材，scale.y 在 0.5 秒内从 0 变化至 1
+        Node2D? masterspark = null;
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(base.Creature);
+        if (creatureNode != null)
+        {
+            PackedScene? sparkScene = GD.Load<PackedScene>("res://images/sprite/marisa/masterspark.tscn");
+            if (sparkScene != null)
+            {
+                masterspark = sparkScene.Instantiate<Node2D>();
+                if (masterspark != null)
+                {
+                    masterspark.Position = creatureNode.VfxSpawnPosition;
+                    masterspark.Scale = new Vector2(8f, 0f);
+                    NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(masterspark);
+
+                    // 让所有 AnimatedSprite2D 从第 0 帧同时开始播放，保证闪光层与光束层帧同步
+                    foreach (AnimatedSprite2D sprite in masterspark.GetChildren().OfType<AnimatedSprite2D>())
+                    {
+                        sprite.Stop();
+                        sprite.Play("default");
+                    }
+
+                    var sparkTween = masterspark.CreateTween();
+                    sparkTween.TweenProperty(masterspark, "scale:y", 8f, 0.5f)
+                        .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+                }
+            }
+        }
+
+        await Cmd.Wait(0.5f);
+
+        // 发射瞬间强烈震屏
+
         await DamageCmd.Attack(MasterSparkDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        await Cmd.Wait(1f);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, MasterSparkStrength, base.Creature, null);
+
+        await Cmd.Wait(1f);
+
+        // 演出结束后先淡出再卸载
+        if (masterspark != null && GodotObject.IsInstanceValid(masterspark))
+        {
+            var fadeTween = masterspark.CreateTween();
+            fadeTween.TweenProperty(masterspark, "modulate:a", 0f, 0.4f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+            await Cmd.Wait(0.5f);
+            masterspark.QueueFreeSafely();
+        }
+        PlayCurrentLoopAnimation();
     }
 
     /// <summary>
