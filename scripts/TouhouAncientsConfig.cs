@@ -26,7 +26,7 @@ public enum ForcedAncientOption
     Yuuma饕餮,
     Junko纯狐,
     Yorigami依神姐妹,
-    Mamizou猯藏
+    //Mamizou猯藏
 }
 
 /// <summary>
@@ -96,7 +96,7 @@ public class TouhouAncientsConfig : SimpleModConfig
         if (BanJunko) mask |= 1UL << 19;
         if (BanYuuma) mask |= 1UL << 20;
         if (BanYorigami) mask |= 1UL << 21;
-        if (BanMamizou) mask |= 1UL << 22;
+        //if (BanMamizou) mask |= 1UL << 22;
         return mask;
     }
 
@@ -285,12 +285,12 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanJunko { get; set; } = false;
     public static bool BanYuuma { get; set; } = false;
     public static bool BanYorigami { get; set; } = false;
-    public static bool BanMamizou { get; set; } = false;
+    //public static bool BanMamizou { get; set; } = false;
 
     /// <summary>
     /// 启用测试内容·二岩猯藏（勾选后二岩猯藏才会出现在游戏中）
     /// </summary>
-    [ConfigSection("TestContent")]
-    public static bool EnableTestContentMamizou { get; set; } = false;
+    // [ConfigSection("TestContent")]
+    // public static bool EnableTestContentMamizou { get; set; } = false;
 
 }

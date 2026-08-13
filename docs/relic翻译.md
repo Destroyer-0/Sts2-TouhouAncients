@@ -2264,6 +2264,21 @@
 | `HYAKKI_YAGYO.title` | `Hyakki Yagyo`（与百鬼夜行绘卷引用一致） |
 | `HYAKKI_YAGYO.description` | `Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.` |
 
+### 未名妖魔（2026-08-13 机制重做后重译，eng/jpn 同步）
+- zhs 机制重做后重译；旧译 `Nameless Demon`（旧机制）已废弃。「颜色」表述参照原版 `PRISMATIC_GEM` 的 *cards from other colors*。
+| 键 | 翻译 |
+|----|------|
+| `NAMELESS_YOUKAI.title` | `Nameless Youkai` |
+| `NAMELESS_YOUKAI.description` | `Transform any number of cards from your [gold]Hand[/gold] into cards from other [gold]colors[/gold] of the same rarity{IfUpgraded:show: ([gold]Upgraded[/gold])|}.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.` |
+| `NAMELESS_YOUKAI.selectionScreenPrompt` | `Choose any number of cards to [gold]Transform[/gold].` |
+| `NAMELESS_YOUKAI_POWER.title` | `Nameless Youkai` |
+| `NAMELESS_YOUKAI_POWER.description` | `This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]1[/blue] [gold]Strength[/gold] this turn.` |
+| `NAMELESS_YOUKAI_POWER.smartDescription` | `This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.` |
+
+### 本地化清理（2026-08-13，eng/jpn 同步）
+- 移除废案键 `THE_MILLION_POUND_NOTE_POWER`（代码中无对应 Power 类，zhs 亦无此键）
+- 修正 `MAGICIAN_POWER.smartDescription`：去掉风味句外多余的英文引号，并将 "about danmaku" 统一为 "in danmaku"（与 `.description` 一致）
+
 ### 狂飨（cards.json 追加台词）
 - `.description` 追加 `\n[jitter][i]All shall become my food!![/i][/jitter]`
 

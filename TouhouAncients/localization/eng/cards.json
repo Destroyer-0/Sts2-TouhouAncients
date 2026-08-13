@@ -76,8 +76,9 @@
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target’s [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
 
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Unidentified Youkai",
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Add a copy of this card to your [gold]Draw Pile[/gold] with its cost randomized.\nTransform into the last card you played and return it to your [gold]Hand[/gold].",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Nameless Youkai",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into cards from other [gold]colors[/gold] of the same rarity{IfUpgraded:show: ([gold]Upgraded[/gold])|}.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
     "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.",
