@@ -34,7 +34,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 110, 100);
+        AscensionLevel.ToughEnemies, 120, 110);
 
     // --- 伤害/数值 ---
     private int DoomSpreadDoom => AscensionHelper.GetValueIfAscension(
@@ -51,7 +51,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     private int AbsoluteLoserRoyaltiesLoss => 10;
 
     private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 55, 50);
+        AscensionLevel.DeadlyEnemies, 60, 55);
 
     // --- 状态（延迟初始化） ---
     public MoveState StunnedState;
@@ -244,9 +244,11 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         Node2D body = myNode?.Visuals.GetCurrentBody();
 
         // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
-        if (myNode != null && body != null && targetPos.HasValue)
+        if (myNode != null && body != null )
         {
-            var rushTarget = Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f);
+            var rushTarget = targetPos.HasValue
+                ? Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f)
+                : Vector2.Left * 1800;
             var rushTween = body.CreateTween();
             rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);

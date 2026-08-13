@@ -6,6 +6,7 @@
 
 [node name="Visuals" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(0, 6)
 texture = ExtResource("1_njt3k")
 offset = Vector2(-1.333, -28.245)

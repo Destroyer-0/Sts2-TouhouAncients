@@ -355,6 +355,7 @@ animations = [{
 
 [node name="Visuals" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 position = Vector2(9.536743e-07, -18)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_pxvvt")

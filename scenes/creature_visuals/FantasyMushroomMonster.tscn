@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cf2jcuw0tv3a" path="res://images/sprite/marisa/mush_big.png" id="1_mmd3k"]
 
 [node name="FantasyMushroom2" type="Node2D"]
+texture_filter = 1
 
 [node name="Visuals" type="Sprite2D" parent="."]
 unique_name_in_owner = true
