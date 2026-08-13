@@ -56,28 +56,28 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// 图鉴预览等无法获取幕号的环境同样回退到第二幕数值。
     /// </summary>
     private int EscapeVelocityDamage => GetActValue(
-        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 15, 14),
-        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20)));
+        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 13, 12),
+        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 17)));
 
     private int StellarFantasyDamage => GetActValue(
-        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4),
-        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5)));
+        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 4, 3),
+        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4)));
 
     private int StellarFantasyHits => 4;
 
     private int BlackHoleEdgeDamage => GetActValue(
-        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15),
-        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 18, 16)));
+        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 17, 16),
+        (3, AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 22, 20)));
 
     private int BlackHoleEdgeWeak => 2;
 
-    private int MasterSparkChargeBlock => GetActValue(14, (3, 30));
+    private int MasterSparkChargeBlock => GetActValue(16, (3, 30));
 
-    private int MasterSparkChargeVigorPerMushroom => GetActValue(10, (3, 12));
+    private int MasterSparkChargeVigorPerMushroom => GetActValue(6, (3, 10));
 
-    private int MasterSparkDamage => 20;
+    private int MasterSparkDamage => GetActValue(30, (3, 40));
 
-    private int MasterSparkStrength => 2;
+    private int MasterSparkStrength => GetActValue(3, (3, 4));
 
     private const int MaxMushroomCount = 5;
 
@@ -108,7 +108,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        if (CurrentActNumber == 3 && InitialHpAct3 > InitialHp)
+        if (CurrentActNumber == 3 )
         {
             base.Creature.SetMaxHpInternal(InitialHpAct3);
             base.Creature.SetCurrentHpInternal(InitialHpAct3);
@@ -350,8 +350,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         await DamageCmd.Attack(StellarFantasyDamage)
             .FromMonster(this)
             .WithHitCount(StellarFantasyHits)
-            .WithAttackerFx(null, AttackSfx)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithAttackerFx(null, $"event:/sfx/enemy/enemy_attacks/turret_operator/turret_operator_attack")
+            .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
             .Execute(null);
         await Cmd.Wait(0.3f);
         PlayCurrentLoopAnimation();

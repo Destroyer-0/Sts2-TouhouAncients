@@ -44,7 +44,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     private int GoldenTornadoHits => 3;
     private int ScatterWealthUppercutDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 12, 10);
-    private int CelebrityBurnStrength => 2;
+    private int CelebrityBurnStrength => 3;
     private int CelebrityBurnFrail => 2;
 
     public override bool ShouldFadeAfterDeath => true;

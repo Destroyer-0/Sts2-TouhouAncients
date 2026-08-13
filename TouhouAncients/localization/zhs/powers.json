@@ -54,7 +54,7 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "破财消灾",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去6层[gold]王国资产[/gold]。\n造成伤害时，使对方失去6层[gold]王国资产[/gold]。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]。\n造成伤害时，使对方失去5层[gold]王国资产[/gold]。",
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
