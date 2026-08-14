@@ -282,13 +282,13 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     private async Task AbsoluteLoserMove(IReadOnlyList<Creature> targets)
     {
         PlayAnimation("spell");
+        SfxCmd.Play("event:/sfx/characters/attack_fire");
         await Cmd.Wait(0.5f);
 
         // 给所有敌人（包括女苑如果还活着）施加灾厄
         var allys = base.CombatState.Allies.Where(c => !c.IsDead).ToList();
         allys.Add(Creature);
-        await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), allys, AbsoluteLoserDoom, base.Creature,
-            null);
+        await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), allys, AbsoluteLoserDoom, base.Creature, null);
         foreach (var target in targets)
         {
             var royal = target.GetPowerAmount<RoyaltiesPower>();

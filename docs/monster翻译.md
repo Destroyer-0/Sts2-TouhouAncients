@@ -146,7 +146,7 @@
 | UNFORTUNATE_POWER | 数值 5/10 → 6/6，`{Amount2}` → `{Amount}`（zhs 同改） |
 | MAGICIAN_POWER（新增） | 普通的魔法使 → Ordinary Magician：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold] |
 | I_WILL_RETURN_IT_POWER（新增） | 我会还给你的！→ I'll Return It!：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n"Heheh, just take them once I'm dead and gone." |
-| FUNGAL_POWER（改名） | 菌类 → 共生 → Symbiosis：On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].（孢子心灵 → Spore Mind，与 MUSHROOM_BENTO 遗物一致） |
+| FUNGAL_POWER（改名） | 菌类 → 共生 → 孢子喷发 → Spore Eruption：On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].（孢子心灵 → Spore Mind，与 MUSHROOM_BENTO 遗物一致） |
 
 ### 怪物图鉴"先古之民"分区标题（新增）
 

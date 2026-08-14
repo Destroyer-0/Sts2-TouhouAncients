@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
-/// 菌类：奇幻蘑菇的共生标记能力。持有者死亡时，向每个玩家的弃牌堆随机位置加入孢子心灵。
+/// 菌类：奇幻蘑菇的孢子喷发能力。持有者死亡时，向每个玩家的弃牌堆随机位置加入孢子心灵。
 /// </summary>
 public class FungalPower : TouhouAncientPowerModel
 {

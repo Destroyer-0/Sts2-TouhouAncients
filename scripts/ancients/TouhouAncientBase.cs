@@ -132,6 +132,15 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// （MemberwiseClone 拷贝字段）使战斗实例继承 IsChallenge=true，ChallengeVictoryHealPatch
     /// 据此识别挑战战斗；调用返回后立即在 finally 中复位 canonical，未来非挑战战斗克隆出的
     /// 实例 IsChallenge 为 false，不会误回血。
+    ///
+    /// 多人奖励说明：共享事件的挑战选项会被每个玩家的事件实例各执行一次（EventSynchronizer
+    /// 对每个玩家调用 ChooseOptionForEvent），每次调用本方法只收集 base.Owner（本实例所属玩家）
+    /// 自己随机池的遗物，作为 extraRewards 传入；游戏内部经 EventCombatSynchronizer 将各实例的
+    /// extraRewards 合并进同一个共享战斗的 CombatRoom.ExtraRewards。若在此遍历
+    /// EventSynchronizer.Events 收集全员奖励，N 个实例会各收集一份"全员合集"并全部合并，
+    /// 导致每个玩家的奖励变成人数倍（例如 2 人时每人拿到 A+B+C+A+B+C）。各端每实例的
+    /// _generatedRelicOptions 一致（每玩家独立 RNG、跨端可同步），因此合并结果跨端一致，
+    /// 多人奖励同步正常；该字段随存档持久化。
     /// </summary>
     private Task StartChallenge()
     {
@@ -140,21 +149,16 @@ public abstract class TouhouAncientBase : CustomAncientModel
         ancientEncounter.IsChallenge = true; // 置位：游戏克隆战斗实例时（MemberwiseClone）会继承该标志
         try
         {
-            // 为所有玩家收集各自随机池的遗物奖励，作为 extraRewards 存入 CombatRoom.ExtraRewards。
-            // 各端所有事件实例的 _generatedRelicOptions 一致（每玩家独立 RNG、跨端可同步），
-            // 因此各端 ExtraRewards 内容一致，多人奖励同步正常；该字段随存档持久化。
+            // 只收集本玩家（base.Owner）自己随机池的遗物奖励，作为 extraRewards 存入
+            // CombatRoom.ExtraRewards（各玩家实例各自收集，由 EventCombatSynchronizer 合并）。
+            // 每个玩家使用独立的遗物实例（从 canonical 克隆），避免多个奖励共享同一个 mutable 实例。
             var rewards = new List<Reward>();
-            foreach (var eventModel in RunManager.Instance.EventSynchronizer.Events)
+            var relicModels = _generatedRelicOptions?.Select(o => o.Relic).OfType<RelicModel>()
+                              ?? Array.Empty<RelicModel>();
+            foreach (var relic in relicModels)
             {
-                if (eventModel is not TouhouAncientBase ancient || ancient.Owner == null) continue;
-                var relicModels = ancient._generatedRelicOptions?.Select(o => o.Relic).OfType<RelicModel>()
-                                  ?? Array.Empty<RelicModel>();
-                foreach (var relic in relicModels)
-                {
-                    // 每个玩家使用独立的遗物实例（从 canonical 克隆），避免多个奖励共享同一个 mutable 实例。
-                    var canonicalRelic = relic.CanonicalInstance ?? relic;
-                    rewards.Add(new RelicReward(canonicalRelic.ToMutable(), ancient.Owner));
-                }
+                var canonicalRelic = relic.CanonicalInstance ?? relic;
+                rewards.Add(new RelicReward(canonicalRelic.ToMutable(), Owner!));
             }
             // 传入 canonical（v0.110.1 起要求），游戏内部在调用内同步克隆出战斗实例并继承 IsChallenge。
             EnterCombatWithoutExitingEvent(encounter, rewards, shouldResumeAfterCombat: false);
