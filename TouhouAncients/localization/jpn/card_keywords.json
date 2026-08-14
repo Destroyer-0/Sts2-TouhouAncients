@@ -1,20 +1,26 @@
 {
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "Scry",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "Look at the top X cards of your draw pile. You may discard any of them.",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "Discard any of them",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.title": "占術",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.description": "山札の上からX枚を見る。そのうち任意の枚数を捨ててもよい。",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSATORISCRY.selectionScreenPrompt": "捨てるカードを任意の枚数選ぶ。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "Hanami",
-  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "Restore the Max HP you lost due to [purple]Ink-Dyed Cherry Blossoms[/purple].",
+  "TOUHOUANCIENTS-TOUHOUANCIENTYINYANGTRANSLATION.title": "転換",
+  "TOUHOUANCIENTS-TOUHOUANCIENTYINYANGTRANSLATION.description": "各戦闘開始時、[blue]陰[/blue]状態になる。[blue]陰[/blue]効果または[gold]陽[/gold]効果を発動するたび、もう一方の状態に切り替わる。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "The Regent",
-  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "His Majesty, who is heir to the Throne of Stars, hails from space. Thus, His Majesty is something of a Celestial.",
+  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.title": "募金",
+  "TOUHOUANCIENTS-TOUHOUANCIENTDONATE.description": "200ゴールドとカード報酬1つを得る。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "Impurity",
-  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "Even with infinite rebirths and purification, Impurity inevitably accumulates. As Impurity builds up, the side effects of resurrection via the Ultramarine Orb Elixir grow stronger.",
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.title": "花見",
+  "TOUHOUANCIENTS-TOUHOUANCIENTCHERRYBLOSSOMS.description": "[purple]墨染の桜[/purple]によって失った最大HPを回復する。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "Unconscious",
-  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "Cannot be played without [purple]Auto Play[/purple].",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.title": "リージェント",
+  "TOUHOUANCIENTS-TOUHOUANCIENTREGENT.description": "天より来た星の王座の継承者。ゆえに天人でもある。",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "Sink",
-  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "At the start of combat, this card is placed at the bottom of your draw pile."
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.title": "穢れ",
+  "TOUHOUANCIENTS-TOUHOUANCIENTFILTH.description": "無限に転生し浄化できたとしても、穢れは避けようもなく蓄積する。穢れが増えるほど、紺珠の薬による復活の副作用が強くなる。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.title": "無意識",
+  "TOUHOUANCIENTS-TOUHOUANCIENTKOISHIUNPLAYABLE.description": "[purple]自動プレイ[/purple]以外の方法ではプレイできない。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "底沈み",
+  "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "戦闘開始時、このカードを山札の一番下に置く。"
 }
