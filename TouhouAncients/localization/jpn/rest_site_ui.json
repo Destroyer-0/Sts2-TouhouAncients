@@ -1,15 +1,15 @@
 {
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "花見",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "[pink]墨染の桜[/pink]によって失った最大HPを回復する（{MaxHpGain}）。",
-  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "まだ[pink][sine]桜が散る[/sine][/pink]時ではない。",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.name": "Hanami",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.description": "Restore the Max HP lost due to [pink]Ink-Dyed Cherry Blossoms[/pink] ({MaxHpGain}).",
+  "OPTION_INK_DYED_CHERRY_BLOSSOMS.descriptionDisabled": "It is not yet time for the [pink][sine]cherry blossoms to fall[/sine][/pink].",
 
-  "OPTION_WITCHS_CAULDRON.name": "調薬",
-  "OPTION_WITCHS_CAULDRON.description": "ランダムなポーションを[blue]3[/blue]個得る。最大[blue]1[/blue]枚のカードを[gold]変化[/gold]させる。",
+  "OPTION_WITCHS_CAULDRON.name": "Brew",
+  "OPTION_WITCHS_CAULDRON.description": "Gain [blue]3[/blue] random potions. [gold]Transform[/gold] up to [blue]1[/blue] card.",
 
-  "OPTION_HELL_ORIN.name": "再燃",
-  "OPTION_HELL_ORIN.description": "すべての死体を消費し、1体につきHPを[blue]{HealPerCount}[/blue]回復する。\n[blue]{EnchantThreshold}[/blue]体以上の死体を消費した場合、カード1枚を選び、[purple]{EnchantmentName}[/purple]を[gold]エンチャント[/gold]する。",
-  "OPTION_HELL_ORIN.descriptionDisabled": "お燐の猫車便には、まだ新鮮な死体がないよ！",
+  "OPTION_HELL_ORIN.name": "Reignite",
+  "OPTION_HELL_ORIN.description": "Consume all [gold]Corpse[/gold]. Restore [blue]{HealPerCount}[/blue] HP per Corpse consumed. \nIf you consume at least [blue]{EnchantThreshold}[/blue] Corpse, choose a card and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
+  "OPTION_HELL_ORIN.descriptionDisabled": "Orin’s Cat Cart Delivery has no fresh corpses yet!",
 
-  "OPTION_TREASURE.name": "宝探し",
-  "OPTION_TREASURE.description": "記録されたカードから任意の枚数を選び、デッキに加える。さらに、[jitter][gold]秘宝[/gold][/jitter]を掘り当てることもある！"
+  "OPTION_TREASURE.name": "Treasure Hunt",
+  "OPTION_TREASURE.description": "Choose any number of recorded cards to add to your [gold]Deck[/gold]. There’s also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!"
 }

@@ -1,51 +1,51 @@
 {
-  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "依神姉妹",
-  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}の財産と運は[gold]{encounter}[/gold]にすべて浪費された。",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "Yorigami Sisters",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}’s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "今宵は飄逸なエゴイスト　～ Egoistic Flowers.",
 
-  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "霧雨魔理沙",
-  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]の眩く圧倒的な火力の前に敗れた。",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "Marisa Kirisame",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character} fell before the dazzling, overwhelming firepower of [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm": "恋色マスタースパーク",
 
-  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "渡里 ニナ",
-  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]が吹聴する陰謀論に惑わされ、戦意を失った。",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "Nina Watari",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character} lost the will to fight amid the conspiracy theories touted by [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "東風谷早苗",
-  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character}は[aqua]現人神[/aqua][gold]{encounter}[/gold]に打ち勝つほどの奇跡を起こせなかった。",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "Sanae Kochiya",
+  "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character} failed to bring about a miracle great enough to overcome [aqua]the living god[/aqua] [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.title": "博麗霊夢",
-  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.loss": "スペルカードルールがなくとも、[gold]{encounter}[/gold]の実力に疑いの余地はない。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.title": "Reimu Hakurei",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.loss": "Even without the spell card rules, the strength of [gold]{encounter}[/gold] is beyond question.",
 
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "レミリア・スカーレット",
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}の運命は[gold]{encounter}[/gold]の威厳のもとに終わりを迎えた。",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "Remilia Scarlet",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}’s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "古明地さとり",
-  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold]は{character}のあらゆる意図を見抜いた。",
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "Satori Komeji",
+  "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold] saw through every intention of {character}.",
 
-  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.title": "比那名居天子",
-  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character}はまた一人、[gold]{encounter}[/gold]の前に敗れ去った。",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.title": "Tenshi Hinanawi",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character} became yet another defeated rival of [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡てゐ",
-  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]が用意していた罠を踏んだ。",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "Tewi Inaba",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character} stepped right into a trap long prepared by [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
-  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]は{character}の勝利へ傾いていた天秤をひっくり返した。",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "Seija Kijin",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",
 
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "メディスン・メランコリー",
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]の鈴蘭の花畑で永遠の眠りについた。",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "Medicine Melancholy",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",
 
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "蓬莱山輝夜",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}の旅は[gold]{encounter}[/gold]の魅力の前に終わりを迎えた。",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "Kaguya Houraisan",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "西行寺幽々子",
-  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold]は{character}に[purple]死[/purple]そのものをもたらした。",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "Yuyuko Saigyouji",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}.",
 
-  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "純狐",
-  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]の絶対的な実力に屈した。",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "Junko",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character} submitted to the absolute power of [gold]{encounter}[/gold].",
 
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "饕餮尤魔",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold]は{character}を有機物の一部として石油の海に溶け込ませた。",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "Yuuma Toutetsu",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold] melted {character} into the sea of oil as just another piece of organic matter.",
 
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "二ッ岩マミゾウ（テスト）",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]とその手下たちの化かしに翻弄された。"
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "Mamizou Futatsuiwa (Test)",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character} was spun dizzy by the tricks of [gold]{encounter}[/gold] and her underlings."
 }

@@ -1,18 +1,18 @@
 {
-  "TOUHOUANCIENTS-CAMELLIA_POTION.title": "カメリア",
-  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "HPを全回復し、空いている[gold]ポーションスロット[/gold]をランダムな[gold]ポーション[/gold]ですべて満たす。戦闘中の場合、この戦闘中、すべてのカードを[green]アップグレード[/green]する。",
+  "TOUHOUANCIENTS-CAMELLIA_POTION.title": "Camellia",
+  "TOUHOUANCIENTS-CAMELLIA_POTION.description": "[green]Heal to full HP.[/green] Fill all your empty potion slots with random potions. If in combat, [green]Upgrade[/green] ALL cards for the rest of combat.",
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "スーパーZUNビール",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "ランダムな東方エンシェントカード1枚を手札に加える。このターン、それはコストを支払わずにプレイできる。\n[jitter][b]わあ、なんていい機会なんだ！[/b][/jitter]",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "わあ、なんていい機会なんだ！",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "Super ZUN Beer",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Add a random Touhou Ancient card into your [gold]Hand[/gold]. It’s free to play this turn.\n[jitter][b]Wow, what an opportunity![/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "Wow, what an opportunity!",
 
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "魔廃爆撃",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "手札をすべて[gold]変化[/gold]させる。\n[sine]気に入らないなら、彼女ごと爆破しちゃえ！[/sine]",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]気に入らないなら、彼女ごと爆破しちゃえ！[/sine]",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "Shi Ra Nai Milk",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "Put a card from your [gold]Exhaust Pile[/gold] into your [gold]Hand[/gold].\nCouldn’t think of an effect for this potion, so this will have to do (lol).",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "Choose a card from your [gold]Exhaust Pile[/gold].",
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "Couldn’t think of a flavor text for this potion, so this will have to do (lol).",
 
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "シラナイミルク",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "廃棄札からカード1枚を手札に加える。\nこのポーションの効果を思いつかなかったので、これでいいかも（笑）。",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "廃棄札からカードを1枚選ぶ。",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "このポーションのフレーバーテキストを思いつかなかったので、これでいいかも（笑）。"
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "Meteoric Debris",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]Transform[/gold] ALL cards in your hand.\n[sine]If you’re not satisfied, just blow it up with her![/sine]",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you’re not satisfied, just blow it up with her![/sine]"
 }

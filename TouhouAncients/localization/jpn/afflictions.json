@@ -1,21 +1,11 @@
 {
-  "TOUHOUANCIENTS-DEVOURED.description": "このカードに[gold]廃棄[/gold]を付与する。",
-  "TOUHOUANCIENTS-DEVOURED.title": "貪食",
-  "TOUHOUANCIENTS-WEIGHTED.description": "このカードをプレイした時、{Amount:energyIcons()}を失う。",
-  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "{Amount:energyIcons()}を失う。",
-  "TOUHOUANCIENTS-WEIGHTED.title": "重荷",
-  "TOUHOUANCIENTS-COLLATERAL.description": "[gold]保留[/gold]と[red]プレイ不可[/red]を得る。[blue]{Amount}[/blue]ターン後、この効果を取り除く。",
-  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "{Amount}ターン後に担保を解除する。",
-  "TOUHOUANCIENTS-COLLATERAL.title": "担保"
+  "TOUHOUANCIENTS-DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
+  "TOUHOUANCIENTS-DEVOURED.title": "Devoured",
+  "TOUHOUANCIENTS-WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
+  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
+  "TOUHOUANCIENTS-WEIGHTED.title": "Weighted",
+
+  "TOUHOUANCIENTS-COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
+  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
+  "TOUHOUANCIENTS-COLLATERAL.title": "Collateral"
 }
-
-
-“一眼丁真” is a Chinese internet meme. 丁真 is a person from a poor rural area in China. He has little formal education. Because of his looks, a local government picked him out during a TV shoot of villagers herding sheep, made him a local publicity figure and government staffer, and later even sent him to the UN to speak about living with animals. Overnight he reached a height that most ordinary Chinese people never reach in a lifetime.
-
-That infuriated young people who had studied for years and were still grinding in the workplace. The government keeps saying education and effort changes your fate — but 丁真’s fate changed because of his face and luck. So the internet glued 一(one/first)眼(eye) onto his name and made the word 一眼丁真, meaning “you can tell it’s real at a glance,” as a jab at official “study hard and you’ll make it” propaganda. People don’t hate Ding Zhen himself. They use him to vent about life and about some government unfairness.
-
-(In Slay the Spire 1 there is a well-known mod called the Dingzhen mod.)
-
-In Chinese, “Snecko” is translated as 异蛇 (“strange snake”). 异 and 一 are pronounced the same; Eye is 眼. So some STS meme-makers turn “Snecko’s Eye” into 异眼. 大费物 literally means “card costs a lot of energy” — Snecko’s Eye often rolls cards to 3 energy — and it is also a pun on “废物” (useless / a waste).
-
-I think this really is a hard part to translate. So I think we can replace it with some Western memes about snakes, Truth, or calling out fakes.
