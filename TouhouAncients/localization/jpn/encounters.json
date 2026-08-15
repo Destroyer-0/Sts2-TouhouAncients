@@ -1,9 +1,11 @@
 {
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "依神姉妹",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}の財産と運は[gold]{encounter}[/gold]にすべて浪費された。",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "今宵は飄逸なエゴイスト　～ Egoistic Flowers.",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "霧雨魔理沙",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]の眩く圧倒的な火力の前に敗れた。",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm": "恋色マスタースパーク",
 
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "渡里 ニナ",
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]が吹聴する陰謀論に惑わされ、戦意を失った。",

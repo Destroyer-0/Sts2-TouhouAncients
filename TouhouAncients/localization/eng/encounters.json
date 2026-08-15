@@ -1,9 +1,11 @@
 {
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "Yorigami Sisters",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}’s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "Tonight Stars an Easygoing Egoist ~ Egoistic Flowers",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "Marisa Kirisame",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character} fell before the dazzling, overwhelming firepower of [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm": "Love-Colored Master Spark",
 
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "Nina Watari",
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character} lost the will to fight amid the conspiracy theories touted by [gold]{encounter}[/gold].",

@@ -280,7 +280,7 @@ texture_filter = 1
 position = Vector2(9.536743e-07, -18)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_xo5xb")
-animation = &"hurt"
+animation = &"spell"
 autoplay = "idle"
 offset = Vector2(-2, -30)
 flip_h = true
@@ -296,7 +296,7 @@ offset_bottom = 1.0
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-1, -95)
+position = Vector2(16, -85)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true

@@ -4,7 +4,6 @@ using System.Text;
 using BaseLib.Abstracts;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
@@ -25,8 +24,9 @@ namespace TouhouAncients.Scripts.encounters;
 /// 子类只需重写 <see cref="BgmFileName"/> 指定自己的 BGM 文件，战斗开始/结束时由
 /// <see cref="EncounterBgm"/>（scripts/EncounterBgm.cs）自动播放/停止——Encounter
 /// 本身不接收战斗 Hook，故由全局订阅 CombatManager 事件的 EncounterBgm 统一处理。
-/// 若同时重写 <see cref="BgmDisplayName"/>，<see cref="TouhouAncientEncounterBgmNamePatch"/>
-/// 会在进入战斗后于屏幕底部显示该曲名。
+/// 战斗底部曲名显示是通用功能：<see cref="TouhouAncientEncounterBgmNamePatch"/> 对
+/// 任意 Encounter 生效，只要本地化表 encounters 存在 "{Id.Entry}.bgm" 键（如
+/// TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm）就显示，键不存在则不显示。
 /// </summary>
 public abstract class TouhouAncientEncounter : CustomEncounterModel
 {
@@ -50,11 +50,6 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
     public virtual string? BgmFileName => null;
 
     /// <summary>
-    /// 战斗画面底部显示的 BGM 曲名。硬编码在各 Encounter 子类中，返回 null 则不显示。
-    /// </summary>
-    public virtual string? BgmDisplayName => null;
-
-    /// <summary>
     /// 挑战战斗不生成默认战斗奖励（金币/卡牌/药水）：通过游戏原生 ModifyRewards 钩子
     /// （在 <see cref="Entry.Init"/> 用 ModHelper.SubscribeForRunStateHooks 把当前挑战
     /// Encounter 注册进 RunState Hook 监听者）在奖励生成时只保留 StartChallenge 传入
@@ -73,9 +68,10 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
 }
 
 /// <summary>
-/// 进入正式战斗后，若当前 Encounter 是 <see cref="TouhouAncientEncounter"/> 且写了
-/// <see cref="TouhouAncientEncounter.BgmDisplayName"/>，把
+/// 进入正式战斗后，若本地化表 encounters 存在当前 Encounter 的 "{Id.Entry}.bgm" 键
+/// （如 TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm），把
 /// <c>res://scenes/ui/bgm_name_display.tscn</c> 挂到 <see cref="NCombatRoom"/> 上显示曲名。
+/// 对任意 <see cref="EncounterModel"/> 生效（含原版与其他 mod 的 Encounter），键不存在则不显示。
 /// 胜负都会触发 <see cref="CombatManager.CombatEnded"/>，此时立刻摘掉标签
 /// （战斗房间在发奖/离开前仍会留着，不能等房间销毁）。
 /// </summary>
@@ -97,18 +93,19 @@ public static class TouhouAncientEncounterBgmNamePatch
         if (__instance.GetNodeOrNull(DisplayNodeName) != null) return;
 
         ICombatRoomVisuals? visuals = VisualsField?.GetValue(__instance) as ICombatRoomVisuals;
-        if (visuals?.Encounter is not TouhouAncientEncounter encounter) return;
-        if (string.IsNullOrEmpty(encounter.BgmDisplayName)) return;
+        if (visuals?.Encounter is not EncounterModel encounter) return;
+        string? bgmDisplayName = LocString.GetIfExists("encounters", encounter.Id.Entry + ".bgm")?.GetFormattedText();
+        if (string.IsNullOrEmpty(bgmDisplayName)) return;
 
         PackedScene? scene = GD.Load<PackedScene>(ScenePath);
         if (scene == null) return;
 
         Control display = scene.Instantiate<Control>();
         display.Name = DisplayNodeName;
-        MegaLabel? label = display.GetNodeOrNull<MegaLabel>("%Label");
+        Label? label = display.GetNodeOrNull<Label>("%Label");
         if (label != null)
         {
-            label.Text = "♪ " + encounter.BgmDisplayName;
+            label.Text = "♪ Bgm: " + bgmDisplayName;
         }
         __instance.AddChildSafely(display);
         _display = display;
@@ -148,16 +145,37 @@ public static class TouhouAncientEncounterBgmNamePatch
 /// </summary>
 public static class TouhouAncientEncounterDeathQuotePatch
 {
+    /// <summary>
+    /// <see cref="NCombatRoom"/> 的私有字段 <c>_visuals</c>（<see cref="ICombatRoomVisuals"/>），
+    /// 用于读取当前战斗的 Encounter。
+    /// </summary>
+    private static readonly FieldInfo VisualsField =
+        AccessTools.Field(typeof(NCombatRoom), "_visuals");
+
+    /// <summary>
+    /// 获取当前正在进行的挑战战斗的 <see cref="TouhouAncientEncounter"/>。
+    /// <c>RunManager.Instance.State</c> 是私有属性无法直接访问，因此改用公开的
+    /// <see cref="NCombatRoom.Instance"/> 拿到当前战斗房间节点，再反射读取其
+    /// <c>_visuals.Encounter</c>（与 <see cref="TouhouAncientEncounterBgmNamePatch"/> 相同做法）。
+    /// 不在战斗房间或 Encounter 非挑战战斗时返回 null。
+    /// </summary>
+    private static TouhouAncientEncounter? GetCurrentTouhouAncientEncounter()
+    {
+        NCombatRoom? combatRoom = NCombatRoom.Instance;
+        if (combatRoom == null) return null;
+        ICombatRoomVisuals? visuals = VisualsField?.GetValue(combatRoom) as ICombatRoomVisuals;
+        return visuals?.Encounter as TouhouAncientEncounter;
+    }
+
     [HarmonyPatch(typeof(RunHistoryUtilities), nameof(RunHistoryUtilities.CreateRunHistoryEntry))]
     public static class CreateRunHistoryEntry_Patch
     {
         static void Postfix(bool victory, bool isAbandoned)
         {
             if (victory || isAbandoned) return;
-            if (RunManager.Instance.State?.CurrentRoom is not CombatRoom combatRoom) return;
-            if (combatRoom.Encounter is not TouhouAncientEncounter) return;
+            if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
 
-            ModelId encounterId = combatRoom.Encounter.Id;
+            ModelId encounterId = encounter.Id;
             RunHistory? history = RunManager.Instance.History;
             if (history == null) return;
             if (history.KilledByEncounter == encounterId && history.KilledByEvent == ModelId.none)
@@ -197,8 +215,7 @@ public static class TouhouAncientEncounterDeathQuotePatch
     {
         static void Postfix(ModelId characterId, ref string __result)
         {
-            if (RunManager.Instance.State?.CurrentRoom is not CombatRoom combatRoom) return;
-            if (combatRoom.Encounter is not TouhouAncientEncounter encounter) return;
+            if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
 
             CharacterModel character = SaveUtil.CharacterOrDeprecated(characterId);
             LocString loss = encounter.GetLossMessageFor(character);

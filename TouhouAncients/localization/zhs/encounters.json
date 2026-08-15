@@ -1,9 +1,11 @@
 {
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "依神姐妹",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}的财产与气运被[gold]{encounter}[/gold]挥霍得一干二净。",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "今宵是飘逸的利己主义者～ Egoistic Flowers.",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "雾雨魔理沙",
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.loss": "{character}败于[gold]{encounter}[/gold]闪耀而强大的火力面前。",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm": "恋色Master Spark",
 
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "渡里贝子",
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character}在[gold]{encounter}[/gold]鼓吹的阴谋论中失去了战意。",
