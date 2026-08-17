@@ -42,8 +42,8 @@ public class EstrangedHeart : TouhouAncientRelics
         }
     }
     
-
-    public override bool IsUsedUp => TouhouAncients_CardTaken >= Threshold;
+    
+    public override bool IsUsedUp => TouhouAncients_CardTaken < 0;
 
     public override bool ShowCounter => !IsUsedUp;
 
@@ -95,11 +95,13 @@ public class EstrangedHeart : TouhouAncientRelics
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (TouhouAncients_CardTaken>=Threshold)
+        if (TouhouAncients_CardTaken >= Threshold)
         {
+            TouhouAncients_CardTaken = -1;
             base.Status = RelicStatus.Disabled;
             InvokeDisplayAmountChanged();
         }
+
         return Task.CompletedTask;
     }
 }
