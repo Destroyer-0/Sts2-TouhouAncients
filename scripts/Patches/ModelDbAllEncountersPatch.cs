@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
@@ -15,7 +16,8 @@ namespace TouhouAncients.Scripts.Patches;
 /// 原版 <see cref="ModelDb.AllEncounters"/> 由各幕（Act）遭遇与官方事件遭遇组成
 /// （= Acts.SelectMany(a => a.AllEncounters).Concat(EventEncounters).Distinct()），
 /// 本 Mod 挑战遭遇（IsValidForAct => false）既不在任何幕中，也不属于 EventEncounters，
-/// 因此不会出现在该枚举里，导致意图图无法生成；此补丁在其结果末尾追加全部挑战遭遇。
+/// 因此不会出现在该枚举里，导致意图图无法生成；此补丁在其结果末尾追加全部
+/// <see cref="TouhouAncientEncounter"/> 非抽象子类。
 ///
 /// 注意：普通/精英/Boss 房间的遭遇生成走的是各幕自己的遭遇池
 /// （ActModel.AllEncounters → 各幕 GenerateAllEncounters()），不使用 ModelDb.AllEncounters，
@@ -25,18 +27,27 @@ namespace TouhouAncients.Scripts.Patches;
 [HarmonyPatch(typeof(ModelDb), nameof(ModelDb.AllEncounters), MethodType.Getter)]
 internal static class ModelDbAllEncountersPatch
 {
-    /// <summary>本 Mod 的挑战遭遇（均在"先古之民"Ancient 分区中展示）。</summary>
-    private static readonly EncounterModel[] ChallengeEncounters =
-    [
-        ModelDb.Encounter<HakureiReimuEncounter>(),
-        ModelDb.Encounter<KirisameMarisaEncounter>(),
-        ModelDb.Encounter<YorigamiSistersEncounter>(),
-        ModelDb.Encounter<HouraisanKaguyaEncounter>()
-    ];
-
     [HarmonyPostfix]
     private static IEnumerable<EncounterModel> AppendChallengeEncounters(IEnumerable<EncounterModel> __result)
     {
-        return __result.Concat(ChallengeEncounters).Distinct();
+        return __result.Concat(GetChallengeEncounters()).Distinct();
+    }
+
+    /// <summary>枚举全部 <see cref="TouhouAncientEncounter"/> 子类的 canonical 实例。</summary>
+    private static IEnumerable<EncounterModel> GetChallengeEncounters()
+    {
+        foreach (Type type in ModelDb.AllAbstractModelSubtypes)
+        {
+            if (type == null || type.IsAbstract || !type.IsSubclassOf(typeof(TouhouAncientEncounter)))
+            {
+                continue;
+            }
+
+            EncounterModel? encounter = ModelDb.GetByIdOrNull<EncounterModel>(ModelDb.GetId(type));
+            if (encounter != null)
+            {
+                yield return encounter;
+            }
+        }
     }
 }
