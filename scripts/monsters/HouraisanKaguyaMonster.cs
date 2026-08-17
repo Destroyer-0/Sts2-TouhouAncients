@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
@@ -106,14 +107,15 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
             List<CardModel> puzzleCards = new List<CardModel>
             {
-                player.RunState.CreateCard(ModelDb.Card<DragonNeckJewelCard>(), player),
-                player.RunState.CreateCard(ModelDb.Card<HinezumiNoKawagoromoCard>(), player),
-                player.RunState.CreateCard(ModelDb.Card<SwallowCowrieShellCard>(), player),
-                player.RunState.CreateCard(ModelDb.Card<BuddhaStoneBowlCard>(), player),
-                player.RunState.CreateCard(ModelDb.Card<HouraiNoTamaeCard>(), player)
+                player.Creature.CombatState.CreateCard<DragonNeckJewelCard>(player),
+                player.Creature.CombatState.CreateCard<HinezumiNoKawagoromoCard>(player),
+                player.Creature.CombatState.CreateCard<SwallowCowrieShellCard>(player),
+                player.Creature.CombatState.CreateCard<BuddhaStoneBowlCard>(player),
+                player.Creature.CombatState.CreateCard<HouraiNoTamaeCard>(player)
             };
-            puzzleCards.UnstableShuffle(base.Rng);
-            await CardPileCmd.AddGeneratedCardsToCombat(puzzleCards, PileType.Draw, player, CardPilePosition.Random);
+            CardCmd.PreviewCardPileAdd(
+                await CardPileCmd.AddGeneratedCardsToCombat(puzzleCards, PileType.Draw, null, CardPilePosition.Random),
+                1.5f, CardPreviewStyle.HorizontalLayout);
         }
 
         // 施加公主的谜题（每道未完成谜题提供格挡，PuzzleNum 由能力内部初始化为 5）
@@ -147,7 +149,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         List<Creature> aliveTargets = targets.Where(t => !t.IsDead).ToList();
         if (aliveTargets.Count > 0)
         {
-            await PowerCmd.Apply<DrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), aliveTargets, -1m, base.Creature, null);
+            await PowerCmd.Apply<DecreaseDrawCardsNextTurnPower>(new ThrowingPlayerChoiceContext(), aliveTargets, 1m, base.Creature, null);
         }
     }
 
@@ -158,5 +160,18 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     {
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, EternalNightReturnStrength, base.Creature, null);
         await CreatureCmd.Heal(base.Creature, EternalNightReturnHeal);
+        var poisonPowers = base.Creature.GetPowerAmount<PoisonPower>();
+        if (poisonPowers > 0)
+        {
+            await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), this.Creature,
+                -(Math.Min(10, poisonPowers / 2)), base.Creature, null);
+        }
+
+        var doomPower = base.Creature.GetPowerAmount<DoomPower>();
+        if (doomPower > 0)
+        {
+            await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), this.Creature,
+                -(Math.Min(20, doomPower / 2)), base.Creature, null);
+        }
     }
 }

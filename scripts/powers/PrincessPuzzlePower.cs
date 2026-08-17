@@ -57,7 +57,8 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// </summary>
     public override bool ShouldScaleInMultiplayer => true;
 
-    public override decimal GetScaledAmountForMultiplayer(ICombatState combatState, Creature? applier, decimal amount, Creature target, CardModel? cardSource)
+    public override decimal GetScaledAmountForMultiplayer(ICombatState combatState, Creature? applier, decimal amount,
+        Creature target, CardModel? cardSource)
     {
         return amount * (decimal)combatState.Players.Count;
     }
@@ -79,6 +80,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
         {
             completed.Clear();
         }
+
         RefreshGainBlock();
         return Task.CompletedTask;
     }
@@ -86,13 +88,20 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>
     /// 辉夜回合开始时，为辉夜提供当前格挡总量（未解开谜题数 × 每道谜题格挡量 × 玩家数）。
     /// </summary>
-    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (side != CombatSide.Enemy || !participants.Contains(base.Owner))
+        if (Owner.IsDead)
         {
-            return Task.CompletedTask;
+            return;
         }
-        return GainBlockOnTurnStart();
+
+        if (side != CombatSide.Player || CombatManager.Instance.PlayersTakingExtraTurn.Count > 0)
+        {
+            return;
+        }
+
+        await GainBlockOnTurnStart();
     }
 
     private async Task GainBlockOnTurnStart()
@@ -145,6 +154,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
         {
             tracking[i] = new HashSet<Player>();
         }
+
         return tracking;
     }
 }
