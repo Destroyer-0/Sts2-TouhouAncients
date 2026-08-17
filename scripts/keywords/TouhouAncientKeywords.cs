@@ -49,7 +49,7 @@ public class TouhouAncientKeywords
     public static CardKeyword TouhouAncientSinkToBottom;
 
     [CustomEnum("TouhouAncientPuzzle")]
-    [KeywordProperties(AutoKeywordPosition.After)]
+    [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword TouhouAncientPuzzle;
 
 }
@@ -113,5 +113,21 @@ public class SinkToBottomSingleton : CustomSingletonModel
         {
             pile.MoveToBottomInternal(card);
         }
+    }
+}
+
+public class TouhouAncientPuzzleSingleton : CustomSingletonModel
+{
+    public TouhouAncientPuzzleSingleton() : base(HookType.Combat)
+    {
+    }
+    
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources, CardLocation cardLocation)
+    {
+        if (card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientPuzzle))
+        {
+            cardLocation = new(card.Owner, PileType.None, CardPilePosition.None);
+        }
+        return base.ModifyCardPlayResultLocation(card, isAutoPlay, resources, cardLocation);
     }
 }

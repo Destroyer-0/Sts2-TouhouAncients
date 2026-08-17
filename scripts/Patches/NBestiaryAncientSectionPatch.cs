@@ -37,7 +37,8 @@ internal static class NBestiaryAncientSectionPatch
         (typeof(KirisameMarisaMonster), typeof(KirisameMarisaEncounter)),
         (typeof(FantasyMushroomMonster), typeof(KirisameMarisaEncounter)),
         (typeof(YorigamiJoonMonster), typeof(YorigamiSistersEncounter)),
-        (typeof(YorigamiShionMonster), typeof(YorigamiSistersEncounter))
+        (typeof(YorigamiShionMonster), typeof(YorigamiSistersEncounter)),
+        (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter))
     ];
 
     [HarmonyPostfix]

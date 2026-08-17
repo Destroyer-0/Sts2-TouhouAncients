@@ -30,7 +30,8 @@ internal static class ModelDbAllEncountersPatch
     [
         ModelDb.Encounter<HakureiReimuEncounter>(),
         ModelDb.Encounter<KirisameMarisaEncounter>(),
-        ModelDb.Encounter<YorigamiSistersEncounter>()
+        ModelDb.Encounter<YorigamiSistersEncounter>(),
+        ModelDb.Encounter<HouraisanKaguyaEncounter>()
     ];
 
     [HarmonyPostfix]
