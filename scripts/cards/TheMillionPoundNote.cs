@@ -30,7 +30,7 @@ public class TheMillionPoundNote : TouhouAncientCards
 {
     private const int energyCost = 0;
     private const CardType type = CardType.Curse;
-    private const CardRarity rarity = CardRarity.Ancient;
+    private const CardRarity rarity = CardRarity.Curse;
     private const TargetType targetType = TargetType.None;
     private const bool shouldShowInCardLibrary = true;
 
@@ -41,7 +41,8 @@ public class TheMillionPoundNote : TouhouAncientCards
 
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;
-    
+
+    public override bool UseAncientFrame => true;
     public override int MaxUpgradeLevel => 0;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => new[]
