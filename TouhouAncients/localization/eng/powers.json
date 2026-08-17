@@ -83,5 +83,14 @@
 
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.title": "Nameless Youkai",
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]1[/blue] [gold]Strength[/gold] this turn.",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far."
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.",
+  
+
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "公主的谜题",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "每道未完成的谜题将在回合开始时为她提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有{PuzzleNum}道谜题未被解开，将获得{GainBlock}点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "每道未完成的谜题将在回合开始时为她提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有{PuzzleNum}道谜题未被解开，将获得{GainBlock}点[gold]格挡[/gold]。",
+
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "炽火灼身",
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "在你的回合开始时，将[blue]1[/blue]张[gold]灼伤[/gold]加入你的[gold]弃牌堆[/gold]。",
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.smartDescription": "在你的回合开始时，将[blue]{Amount}[/blue]张[gold]灼伤[/gold]加入你的[gold]弃牌堆[/gold]。"
 }

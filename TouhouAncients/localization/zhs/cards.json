@@ -90,18 +90,18 @@
     "TOUHOUANCIENTS-YUAN_HEN.title": "遗恨",
     "TOUHOUANCIENTS-YUAN_HEN.description": "如果这张牌在你的[gold]手牌[/gold]中，你从非手牌区打出牌时，将一张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。",
 
-    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL.title": "龙颈之玉",
-    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL.description": "你每打出一张牌，本回合耗能减少[blue]1[/blue]。",
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "龙颈之玉",
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "你每打出一张牌，本回合耗能减少[blue]1[/blue]。",
 
     "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.title": "火鼠的皮衣",
-    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.description": "",
+    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.description": "在你的回合开始时，将[blue]{Cards}[/blue]张[gold]灼伤[/gold]加入你的[gold]弃牌堆[/gold]。",
 
-    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL.title": "燕之子安贝",
-    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL.description": "",
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.title": "燕之子安贝",
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.description": "只有你上回合打出的牌的类型[gold]完全一致[/gold]时才能打出。",
 
-    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL.title": "佛御石之钵",
-    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL.description": "只有你的格挡大于[blue]35[/blue]时才能打出。",
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.title": "佛御石之钵",
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.description": "只有你的格挡大于[blue]35[/blue]时才能打出。",
 
     "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.title": "蓬莱的玉枝",
-    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "只有抽牌堆的牌数量不大于[blue]1[/blue]时才能打出。打出后保留你的手牌，结束你的回合。"
+    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "只有抽牌堆的牌数量不大于[blue]1[/blue]时才能打出。"
 }
