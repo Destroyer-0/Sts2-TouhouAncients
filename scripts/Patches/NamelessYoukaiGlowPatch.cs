@@ -21,6 +21,7 @@ namespace TouhouAncients.Scripts.Patches;
 /// 2. Patch NHandCardHolder.UpdateCard：把符合条件卡牌的高亮材质替换为自定义红蓝流光 shader，
 ///    其余卡牌恢复默认材质。
 /// </summary>
+[HarmonyPatch]
 public static class NamelessYoukaiGlowPatch
 {
     /// <summary>NCardHighlight._shaderMaterial 私有字段（AnimShow/AnimHide 的 tween 操作它）</summary>
@@ -56,6 +57,7 @@ public static class NamelessYoukaiGlowPatch
 
     /// <summary>让符合条件的牌进入金色高亮分支（原版 UI 会因此调用 AnimShow 显示高亮）。</summary>
     [HarmonyPatch(typeof(CardModel), nameof(CardModel.ShouldGlowGold), MethodType.Getter)]
+    [HarmonyPostfix]
     static void ShouldGlowGoldPostfix(CardModel __instance, ref bool __result)
     {
         if (__result) return;
@@ -69,6 +71,7 @@ public static class NamelessYoukaiGlowPatch
     /// 替换符合条件卡牌的高亮材质为红蓝流光材质；其余卡牌恢复默认材质。
     /// </summary>
     [HarmonyPatch(typeof(NHandCardHolder), nameof(NHandCardHolder.UpdateCard))]
+    [HarmonyPostfix]
     static void UpdateCardPostfix(NHandCardHolder __instance)
     {
         if (!__instance.IsNodeReady() || __instance.CardNode == null) return;

@@ -47,7 +47,7 @@ public class NamelessYoukaiPower : TouhouAncientPowerModel
             return PowerStackType.None;
         }
     }
-
+    
     public override int DisplayAmount => base.DynamicVars[StrengthAppliedKey].IntValue;
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
@@ -55,11 +55,12 @@ public class NamelessYoukaiPower : TouhouAncientPowerModel
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<StrengthPower>(1m),
-        new DynamicVar(StrengthAppliedKey, 0m)
+        new DynamicVar(StrengthAppliedKey, 0m),
+        new StringVar("Card")
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>()];
+        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.FromCard(GetInternalData<Data>().previousCard)];
 
     protected override object InitInternalData()
     {
@@ -78,6 +79,7 @@ public class NamelessYoukaiPower : TouhouAncientPowerModel
     {
         AssertMutable();
         GetInternalData<Data>().previousCard = card;
+        ((StringVar)base.DynamicVars["Card"]).StringValue = card.Title;
     }
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
@@ -100,6 +102,7 @@ public class NamelessYoukaiPower : TouhouAncientPowerModel
         // 更新"上一张打出的牌"为本次打出的牌
         var previous = data.previousCard;
         data.previousCard = current;
+        ((StringVar)base.DynamicVars["Card"]).StringValue = current.Title;
 
         // 第一张牌或与上一张颜色（卡池）相同则不触发
         if (previous == null) return;
