@@ -26,30 +26,29 @@ namespace TouhouAncients.Scripts.monsters;
 /// 博丽灵梦：解决异变的红白巫女，符卡规则的制定者。
 /// 状态机：梦想天生 → 梦想封印 → 八方鬼缚阵 → 阴阳玉 → 封魔针 → 降神 →（循环）梦想封印。
 /// 固有能力"无差别降伏"触发时将意图切换至梦想天生并同步获得翱翔，释放梦想天生后移除翱翔，
-/// 梦想天生后继续原先下一个意图。首次固定的梦想天生（战斗开场）不获得翱翔。
+/// 梦想天生后继续原先下一个意图。首次固定的梦想天生（战斗开场）同样在意图确定时进入翱翔。
 /// </summary>
 public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 206, 196);
+        AscensionLevel.ToughEnemies, 186, 176);
 
     // --- 伤害/数值 ---
     private int DreamSealDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 19, 17);
+        AscensionLevel.DeadlyEnemies, 14, 13);
 
     private int OctagonalBlock => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 32, 27);
 
     private int SealingNeedleDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 8, 7);
+        AscensionLevel.DeadlyEnemies, 5, 4);
 
     private const int SealingNeedleHits = 3;
 
     private int TenbuHurricaneKickDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 9, 8);
+        AscensionLevel.DeadlyEnemies, 20, 18);
     
-    private const int TenbuHurricaneKickHits = 2;
 
     private const int SubspaceStrength = 2;
 
@@ -78,13 +77,16 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         await base.AfterAddedToRoom();
         // 固有能力：无差别降伏（Counter 类型，层数即剩余计数）
         await PowerCmd.Apply<IndiscriminateSubjugationPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+
+        // 首次固定的梦想天生（战斗开场第一回合）：意图确定为梦想天生时同步进入翱翔
+        await PowerCmd.Apply<SoarPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
     }
 
     // --- 无差别降伏：强制切换意图至梦想天生 ---
     /// <summary>
     /// 将当前意图立即切换至梦想天生，并保证梦想天生先执行一次，
     /// 执行完毕后回到触发切换前"原先的下一个意图"。
-    /// 进入梦想天生时同步获得翱翔（首次固定的梦想天生不获得），释放梦想天生后移除。
+    /// 进入梦想天生时同步获得翱翔，释放梦想天生后移除。
     /// </summary>
     internal async Task ForceDreamNatureNext()
     {
@@ -112,6 +114,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         // 意图显示按每个目标玩家各自计算（DreamNatureIntent 内部按传入目标玩家取生命）
         MoveState dreamNature = new MoveState(FantasyNatureMoveId, FantasyNatureMove,
             new DreamNatureIntent());
+//            new MultiAttackIntent(0, FantasyNatureHits));
 
         // 梦想封印：造成伤害并向每位玩家加入/升级状态卡牌
         MoveState dreamSeal = new MoveState("DREAM_SEAL", DreamSealMove,
@@ -123,7 +126,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         // 阴阳玉：造成伤害
         MoveState tenbu = new MoveState("TENBU_HURRICANE_KICK", TenbuHurricaneKickMove,
-            new MultiAttackIntent(TenbuHurricaneKickDamage, TenbuHurricaneKickHits), new BuffIntent());
+            new SingleAttackIntent(TenbuHurricaneKickDamage));
 
         // 封魔针：3 段攻击
         MoveState sealingNeedle = new MoveState("SEALING_NEEDLE", SealingNeedleMove,
@@ -152,7 +155,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     }
 
     // --- 技能方法 ---
-
     /// <summary>
     /// 梦想天生：对每个目标玩家按其当前生命各自结算动态伤害（6 段）。
     /// 单次伤害 = max(2, floor(玩家当前生命 / 12))，享受力量加成。
@@ -166,18 +168,36 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         SfxCmd.Play(AttackSfx);
         await CreatureCmd.TriggerAnim(base.Creature, "Attack", 0.3f);
+        
+        var a = await PowerCmd.Apply<FakeDreamFantasyPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
 
-        foreach (Creature target in targets.Where(t => !t.IsDead))
+        if (a != null)
         {
-            decimal damage = Math.Max(2m, Math.Floor(target.CurrentHp / 12m));
-            for (int i = 0; i < FantasyNatureHits; i++)
+            foreach (var target in targets)
             {
-                VfxCmd.PlayOnCreature(target, "vfx/vfx_attack_slash");
-                await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), target, damage, ValueProp.Move, base.Creature);
-                await Cmd.Wait(0.08f);
+                a.SetCreatureHp(target, target.CurrentHp);
             }
         }
+        
+        await DamageCmd.Attack(0)
+            .FromMonster(this)
+            .WithHitCount(FantasyNatureHits)
+            .WithAttackerFx(null, AttackSfx)
+            .WithHitFx("vfx/vfx_attack_slash")
+            .Execute(null);
 
+        await PowerCmd.Remove(a);
+        
+        // foreach (Creature target in targets.Where(t => !t.IsDead))
+        // {
+        //     decimal damage = Math.Max(2m, Math.Floor(target.CurrentHp / 12m));
+        //     for (int i = 0; i < FantasyNatureHits; i++)
+        //     {
+        //         VfxCmd.PlayOnCreature(target, "vfx/vfx_attack_slash");
+        //         await CreatureCmd.Damage(new BlockingPlayerChoiceContext(), target, damage, ValueProp.Move, base.Creature);
+        //         await Cmd.Wait(0.08f);
+        //     }
+        // }
         // 释放梦想天生后移除翱翔
         if (base.Creature.HasPower<SoarPower>())
         {
@@ -230,7 +250,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         await DamageCmd.Attack(TenbuHurricaneKickDamage)
             .FromMonster(this)
-            .WithHitCount(TenbuHurricaneKickHits)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
@@ -259,7 +278,11 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         CurrentMoveKey = "SUBSPACE_ACUPRESSURE";
 
         // 使梦想天生计数（无差别降伏的剩余计数）减少 3；归零后由无差别降伏在造成伤害时触发意图切换
-        base.Creature.GetPower<IndiscriminateSubjugationPower>()?.DecreaseHitsLeft(SubspaceFantasyNatureCount);
+        var power = base.Creature.GetPower<IndiscriminateSubjugationPower>();
+        if (power != null)
+        {
+            await power.DecreaseHitsLeft(SubspaceFantasyNatureCount);
+        }
 
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, SubspaceStrength, base.Creature, null);
     }
@@ -286,7 +309,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         else
         {
             // 存在：移动至抽牌堆并升级
-            await CardPileCmd.Add(existing, PileType.Draw);
+            await CardPileCmd.Add(existing, PileType.Draw, CardPilePosition.Random);
             existing.FakeUpgrade();
         }
     }

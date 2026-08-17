@@ -20,7 +20,7 @@ public sealed class DreamNatureIntent : MultiAttackIntent
     /// <summary>意图所属的怪物 Creature（用于解析本地玩家）。在 GetTotalDamage / GetIntentLabel 时记录。</summary>
     private Creature _owner = null!;
 
-    public DreamNatureIntent() : base(0, 6)
+    public DreamNatureIntent() : base(2, 6)
     {
         // DamageCalc 为 protected setter，子类可访问。
         // 基类 GetSingleDamage 会用此委托计算基础伤害并应用力量修正，
@@ -36,9 +36,9 @@ public sealed class DreamNatureIntent : MultiAttackIntent
     {
         if (owner?.CombatState != null && LocalContext.GetMe(owner.CombatState) is { } me)
         {
-            return Math.Max(2m, Math.Floor(me.Creature.CurrentHp / 12m));
+            return Math.Max(2m, Math.Ceiling(me.Creature.CurrentHp / 12m));
         }
-        return 0m;
+        return 2m;
     }
 
     public override int GetTotalDamage(IEnumerable<Creature> targets, Creature owner)

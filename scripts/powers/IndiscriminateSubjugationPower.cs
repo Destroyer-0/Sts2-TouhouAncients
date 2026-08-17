@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -45,12 +46,32 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         if (base.Owner.Monster is not HakureiReimuMonster reimu) return;
         // 梦想天生造成的伤害不计数（每段命中都会触发本 Hook，封魔针 7×3 的三段命中算三次）
         if (reimu.CurrentMoveKey == "FANTASY_NATURE") return;
-
+        if (!shouldTriggerThisTurn) return;
         base.DynamicVars[_hitsLeftKey].BaseValue--;
         InvokeDisplayAmountChanged();
-        if (base.DynamicVars[_hitsLeftKey].IntValue <= 0)
+        await TryTrigger();
+    }
+
+    /// <summary>
+    /// 减少梦想天生计数（HitsLeft）：「降神」等效果使用。
+    /// 计数不会低于 0；归零后仍由 <see cref="AfterDamageGiven"/> 在造成伤害时触发意图切换。
+    /// </summary>
+    public async Task DecreaseHitsLeft(int amount)
+    {
+        if (!shouldTriggerThisTurn) return;
+        base.DynamicVars[_hitsLeftKey].BaseValue = Math.Max(0, base.DynamicVars[_hitsLeftKey].IntValue - amount);
+        InvokeDisplayAmountChanged();
+        await TryTrigger();
+    }
+
+    private bool shouldTriggerThisTurn = true;
+
+    public async Task TryTrigger()
+    {
+        if (base.DynamicVars[_hitsLeftKey].IntValue <= 0 && base.Owner.Monster is HakureiReimuMonster reimu)
         {
             // 等待本次命中特效播放完毕后，将意图切换至梦想天生（并同步进入翱翔）
+            shouldTriggerThisTurn = false;
             await Cmd.Wait(0.5f);
             Flash();
             await reimu.ForceDreamNatureNext();
@@ -59,13 +80,12 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         }
     }
 
-    /// <summary>
-    /// 减少梦想天生计数（HitsLeft）：「降神」等效果使用。
-    /// 计数不会低于 0；归零后仍由 <see cref="AfterDamageGiven"/> 在造成伤害时触发意图切换。
-    /// </summary>
-    public void DecreaseHitsLeft(int amount)
+    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
-        base.DynamicVars[_hitsLeftKey].BaseValue = Math.Max(0, base.DynamicVars[_hitsLeftKey].IntValue - amount);
-        InvokeDisplayAmountChanged();
+        if (side == CombatSide.Enemy)
+        {
+            shouldTriggerThisTurn = true;
+        }
+        return base.AfterSideTurnEnd(choiceContext, side, participants);
     }
 }

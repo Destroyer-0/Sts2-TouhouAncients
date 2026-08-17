@@ -137,93 +137,93 @@ public static class TouhouAncientEncounterBgmNamePatch
     }
 }
 
-/// <summary>
-/// 仅修正 <see cref="TouhouAncientEncounter"/> 挑战战斗的死亡文本。
-/// 原版用最后一个地图点的 <c>Rooms.First()</c> 记成事件死亡，先古之民没有
-/// <c>event.loss</c>，会落到 <c>MAP_POINT_HISTORY.debug</c>。
-/// 不改重拳出击、历战假人等原版事件（它们继续走 <c>event.loss</c>）。
-/// </summary>
-public static class TouhouAncientEncounterDeathQuotePatch
-{
-    /// <summary>
-    /// <see cref="NCombatRoom"/> 的私有字段 <c>_visuals</c>（<see cref="ICombatRoomVisuals"/>），
-    /// 用于读取当前战斗的 Encounter。
-    /// </summary>
-    private static readonly FieldInfo VisualsField =
-        AccessTools.Field(typeof(NCombatRoom), "_visuals");
-
-    /// <summary>
-    /// 获取当前正在进行的挑战战斗的 <see cref="TouhouAncientEncounter"/>。
-    /// <c>RunManager.Instance.State</c> 是私有属性无法直接访问，因此改用公开的
-    /// <see cref="NCombatRoom.Instance"/> 拿到当前战斗房间节点，再反射读取其
-    /// <c>_visuals.Encounter</c>（与 <see cref="TouhouAncientEncounterBgmNamePatch"/> 相同做法）。
-    /// 不在战斗房间或 Encounter 非挑战战斗时返回 null。
-    /// </summary>
-    private static TouhouAncientEncounter? GetCurrentTouhouAncientEncounter()
-    {
-        NCombatRoom? combatRoom = NCombatRoom.Instance;
-        if (combatRoom == null) return null;
-        ICombatRoomVisuals? visuals = VisualsField?.GetValue(combatRoom) as ICombatRoomVisuals;
-        return visuals?.Encounter as TouhouAncientEncounter;
-    }
-
-    [HarmonyPatch(typeof(RunHistoryUtilities), nameof(RunHistoryUtilities.CreateRunHistoryEntry))]
-    public static class CreateRunHistoryEntry_Patch
-    {
-        static void Postfix(bool victory, bool isAbandoned)
-        {
-            if (victory || isAbandoned) return;
-            if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
-
-            ModelId encounterId = encounter.Id;
-            RunHistory? history = RunManager.Instance.History;
-            if (history == null) return;
-            if (history.KilledByEncounter == encounterId && history.KilledByEvent == ModelId.none)
-            {
-                return;
-            }
-
-            RunHistory corrected = new RunHistory
-            {
-                SchemaVersion = history.SchemaVersion,
-                PlatformType = history.PlatformType,
-                GameMode = history.GameMode,
-                Win = history.Win,
-                Seed = history.Seed,
-                StartTime = history.StartTime,
-                RunTime = history.RunTime,
-                Ascension = history.Ascension,
-                BuildId = history.BuildId,
-                WasAbandoned = history.WasAbandoned,
-                KilledByEncounter = encounterId,
-                KilledByEvent = ModelId.none,
-                Players = history.Players,
-                Acts = history.Acts,
-                Modifiers = history.Modifiers,
-                MapPointHistory = history.MapPointHistory
-            };
-            SaveManager.Instance.SaveRunHistory(corrected);
-            if (RunManager.Instance.IsInProgress)
-            {
-                RunManager.Instance.History = corrected;
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(NRunHistory), nameof(NRunHistory.GetDeathQuote))]
-    public static class GetDeathQuote_Patch
-    {
-        static void Postfix(ModelId characterId, ref string __result)
-        {
-            if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
-
-            CharacterModel character = SaveUtil.CharacterOrDeprecated(characterId);
-            LocString loss = encounter.GetLossMessageFor(character);
-            StringBuilder text = new StringBuilder();
-            text.Append(new LocString("game_over_screen", "ENCOUNTER_QUOTE_LEFT").GetRawText());
-            text.Append(loss.GetFormattedText());
-            text.Append(new LocString("game_over_screen", "ENCOUNTER_QUOTE_RIGHT").GetRawText());
-            __result = text.ToString();
-        }
-    }
-}
+// /// <summary>
+// /// 仅修正 <see cref="TouhouAncientEncounter"/> 挑战战斗的死亡文本。
+// /// 原版用最后一个地图点的 <c>Rooms.First()</c> 记成事件死亡，先古之民没有
+// /// <c>event.loss</c>，会落到 <c>MAP_POINT_HISTORY.debug</c>。
+// /// 不改重拳出击、历战假人等原版事件（它们继续走 <c>event.loss</c>）。
+// /// </summary>
+// public static class TouhouAncientEncounterDeathQuotePatch
+// {
+//     /// <summary>
+//     /// <see cref="NCombatRoom"/> 的私有字段 <c>_visuals</c>（<see cref="ICombatRoomVisuals"/>），
+//     /// 用于读取当前战斗的 Encounter。
+//     /// </summary>
+//     private static readonly FieldInfo VisualsField =
+//         AccessTools.Field(typeof(NCombatRoom), "_visuals");
+//
+//     /// <summary>
+//     /// 获取当前正在进行的挑战战斗的 <see cref="TouhouAncientEncounter"/>。
+//     /// <c>RunManager.Instance.State</c> 是私有属性无法直接访问，因此改用公开的
+//     /// <see cref="NCombatRoom.Instance"/> 拿到当前战斗房间节点，再反射读取其
+//     /// <c>_visuals.Encounter</c>（与 <see cref="TouhouAncientEncounterBgmNamePatch"/> 相同做法）。
+//     /// 不在战斗房间或 Encounter 非挑战战斗时返回 null。
+//     /// </summary>
+//     private static TouhouAncientEncounter? GetCurrentTouhouAncientEncounter()
+//     {
+//         NCombatRoom? combatRoom = NCombatRoom.Instance;
+//         if (combatRoom == null) return null;
+//         ICombatRoomVisuals? visuals = VisualsField?.GetValue(combatRoom) as ICombatRoomVisuals;
+//         return visuals?.Encounter as TouhouAncientEncounter;
+//     }
+//
+//     [HarmonyPatch(typeof(RunHistoryUtilities), nameof(RunHistoryUtilities.CreateRunHistoryEntry))]
+//     public static class CreateRunHistoryEntry_Patch
+//     {
+//         static void Postfix(bool victory, bool isAbandoned)
+//         {
+//             if (victory || isAbandoned) return;
+//             if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
+//
+//             ModelId encounterId = encounter.Id;
+//             RunHistory? history = RunManager.Instance.History;
+//             if (history == null) return;
+//             if (history.KilledByEncounter == encounterId && history.KilledByEvent == ModelId.none)
+//             {
+//                 return;
+//             }
+//
+//             RunHistory corrected = new RunHistory
+//             {
+//                 SchemaVersion = history.SchemaVersion,
+//                 PlatformType = history.PlatformType,
+//                 GameMode = history.GameMode,
+//                 Win = history.Win,
+//                 Seed = history.Seed,
+//                 StartTime = history.StartTime,
+//                 RunTime = history.RunTime,
+//                 Ascension = history.Ascension,
+//                 BuildId = history.BuildId,
+//                 WasAbandoned = history.WasAbandoned,
+//                 KilledByEncounter = encounterId,
+//                 KilledByEvent = ModelId.none,
+//                 Players = history.Players,
+//                 Acts = history.Acts,
+//                 Modifiers = history.Modifiers,
+//                 MapPointHistory = history.MapPointHistory
+//             };
+//             SaveManager.Instance.SaveRunHistory(corrected);
+//             if (RunManager.Instance.IsInProgress)
+//             {
+//                 RunManager.Instance.History = corrected;
+//             }
+//         }
+//     }
+//
+//     [HarmonyPatch(typeof(NRunHistory), nameof(NRunHistory.GetDeathQuote))]
+//     public static class GetDeathQuote_Patch
+//     {
+//         static void Postfix(ModelId characterId, ref string __result)
+//         {
+//             if (GetCurrentTouhouAncientEncounter() is not TouhouAncientEncounter encounter) return;
+//
+//             CharacterModel character = SaveUtil.CharacterOrDeprecated(characterId);
+//             LocString loss = encounter.GetLossMessageFor(character);
+//             StringBuilder text = new StringBuilder();
+//             text.Append(new LocString("game_over_screen", "ENCOUNTER_QUOTE_LEFT").GetRawText());
+//             text.Append(loss.GetFormattedText());
+//             text.Append(new LocString("game_over_screen", "ENCOUNTER_QUOTE_RIGHT").GetRawText());
+//             __result = text.ToString();
+//         }
+//     }
+// }
