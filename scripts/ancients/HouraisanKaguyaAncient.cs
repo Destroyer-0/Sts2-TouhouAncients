@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -19,6 +20,7 @@ public class HouraisanKaguyaAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HouraisanKaguya.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HouraisanKaguya.png";
 
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HouraisanKaguyaEncounter>();
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<KonshiiNoKusuri>(),
