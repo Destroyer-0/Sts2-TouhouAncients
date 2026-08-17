@@ -166,7 +166,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     {
         CurrentMoveKey = FantasyNatureMoveId;
 
-        SfxCmd.Play(AttackSfx);
+        //SfxCmd.Play(AttackSfx);
         await CreatureCmd.TriggerAnim(base.Creature, "Attack", 0.3f);
         
         var a = await PowerCmd.Apply<FakeDreamFantasyPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
@@ -182,7 +182,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         await DamageCmd.Attack(0)
             .FromMonster(this)
             .WithHitCount(FantasyNatureHits)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
@@ -215,7 +214,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         await DamageCmd.Attack(DreamSealDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
@@ -250,7 +248,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         await DamageCmd.Attack(TenbuHurricaneKickDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
     }
@@ -265,7 +262,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         await DamageCmd.Attack(SealingNeedleDamage)
             .FromMonster(this)
             .WithHitCount(SealingNeedleHits)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
     }

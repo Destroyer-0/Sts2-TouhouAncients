@@ -236,7 +236,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(EscapeVelocityDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
@@ -365,7 +364,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         PlayAnimation("throw");
         await DamageCmd.Attack(BlackHoleEdgeDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             //.WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/the_kin_priest/the_kin_priest_soul_grenade")
             .WithWaitBeforeHit(1f, 1f)
             .WithHitVfxNode((Creature t) => NKinPriestGrenadeVfx.Create(t))
@@ -439,7 +437,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
         await DamageCmd.Attack(MasterSparkDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(1f);

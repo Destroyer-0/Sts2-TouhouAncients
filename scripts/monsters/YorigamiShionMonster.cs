@@ -258,7 +258,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(FeatherPluckingDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 

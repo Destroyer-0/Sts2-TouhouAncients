@@ -108,8 +108,10 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
         // Hook 监听者在执行前已经复制到独立列表，可以安全注销逻辑实体。
         // 保留 CombatState 引用，确保后续死亡 Hook 仍能取得原战斗上下文。
+        // 不调用 combatState.RemoveCreature，因为当女苑在玩家回合死亡时，
+        // 敌方回合的 PerformMove 仍会尝试移除 creature，导致重复移除报错。
+        // 让原版 PerformMove 在检测到 creature 死亡时自然处理移除逻辑即可。
         CombatManager.Instance.RemoveCreature(creature);
-        combatState.RemoveCreature(creature, unattach: false);
     }
 
     /// <summary>
@@ -273,7 +275,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         await DamageCmd.Attack(GoldenTornadoDamage)
             .FromMonster(this)
             .WithHitCount(GoldenTornadoHits)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         
@@ -318,7 +319,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(1f);

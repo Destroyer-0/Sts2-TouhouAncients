@@ -130,7 +130,6 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         await DamageCmd.Attack(PaleWhiteWaterfallDamage)
             .FromMonster(this)
             .WithHitCount(PaleWhiteWaterfallHits)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
     }
@@ -142,7 +141,6 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     {
         await DamageCmd.Attack(FalseMoonDamage)
             .FromMonster(this)
-            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
