@@ -134,6 +134,7 @@
 | KIJIN_SEIJA_ENCOUNTER | Seija Kijin | [gold]{encounter}[/gold] flipped the scales tipping toward {character}'s victory. |
 | MEDICINE_MELANCHOLY_ENCOUNTER | Medicine Melancholy | {character} fell into an eternal slumber within [gold]{encounter}[/gold]'s sea of lily of the valley. |
 | HOURAISAN_KAGUYA_ENCOUNTER | Kaguya Houraisan | {character}'s journey came to an end beneath the allure of [gold]{encounter}[/gold]. |
+| HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou | （妹红彩蛋） | Just a single grain in the endless fate of deadly duels. |
 | SAIGYOUJI_YUYUKO_ENCOUNTER | Yuyuko Saigyouji | [gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}. |
 | JUNKO_ENCOUNTER | Junko | {character} submitted to the absolute power of [gold]{encounter}[/gold]. |
 | TOUTETSU_YUUMA_ENCOUNTER | Yuuma Toutetsu | [gold]{encounter}[/gold] melted {character} into the sea of oil as just another piece of organic matter. |

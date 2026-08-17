@@ -1105,6 +1105,8 @@
 
 | 键 | 中文 | English |
 |------|------|---------|
+| `fight.mokou.title` | 又一次厮杀。 | Yet another slaughter. |
+| `HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou` | 只是那[gold]永无尽头的死斗宿命[/gold]中的一粟而已。 | Just a single grain in the endless fate of deadly duels. |
 | `talk.MOKOUMOD-MOKOU_MOD.0-0.ancient` | …… | ... |
 | `talk.MOKOUMOD-MOKOU_MOD.0-0.next` | 沉默 | Silence |
 | `talk.MOKOUMOD-MOKOU_MOD.0-1.char` | …… | ... |
