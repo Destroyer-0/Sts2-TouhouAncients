@@ -37,12 +37,13 @@ public class MasterSpark : TouhouAncientCards
 
     protected override bool HasEnergyCostX => true;
 
-    protected override bool ShouldGlowGoldInternal => base.Owner.PlayerCombatState.Energy >= base.DynamicVars["Need"].IntValue;
+    protected override bool ShouldGlowGoldInternal =>
+        base.Owner.PlayerCombatState.Energy >= base.DynamicVars["Need"].IntValue;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(7m, ValueProp.Move),
-        new DynamicVar("Need",4),
+        new DynamicVar("Need", 4),
         new DynamicVar("ExtraHit", 1),
         new EnergyVar(1)
     ];
@@ -66,37 +67,39 @@ public class MasterSpark : TouhouAncientCards
 
         await Cmd.Wait(0.5f);
 
-        var target = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList().Last();
-        var owner = base.Owner.Creature;
-        var creatureNode1 = NCombatRoom.Instance?.GetCreatureNode(owner);
-        var creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
-        var shouldSpawnSpark = creatureNode2 != null && creatureNode1 != null;
-        Vector2 vfxSpawnPosition = Vector2.Zero;
-        Vector2 vfxSpawnPosition2 = Vector2.Zero;
-        if (shouldSpawnSpark)
+        if (base.CombatState.Enemies.Count(e => e.IsAlive) > 0)
         {
-            vfxSpawnPosition = creatureNode1.VfxSpawnPosition;
-            vfxSpawnPosition2 = creatureNode2.VfxSpawnPosition;
-            Player player = owner.Player;
-            if (player is { Character: Defect })
-                vfxSpawnPosition += Defect.EyelineOffset;
-            // NHyperbeamVfx nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition, creatureNode2.VfxSpawnPosition);
-            // if (nHyperbeamVfx != null)
-            // {
-            //     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
-            //     await Cmd.Wait(0.5f);
-            // }
-        }
-
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this,cardPlay)
-            .TargetingAllOpponents(base.CombatState)
-            .WithAttackerAnim("Cast", 0.5f)
-            .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
-            .SpawningHitVfxOnEachCreature()
-            .BeforeDamage(async delegate
+            var target = base.CombatState.Enemies.Where(e => e.IsAlive).ToList().Last();
+            var owner = base.Owner.Creature;
+            var creatureNode1 = NCombatRoom.Instance?.GetCreatureNode(owner);
+            var creatureNode2 = NCombatRoom.Instance?.GetCreatureNode(target);
+            var shouldSpawnSpark = creatureNode2 != null && creatureNode1 != null;
+            Vector2 vfxSpawnPosition = Vector2.Zero;
+            Vector2 vfxSpawnPosition2 = Vector2.Zero;
+            if (shouldSpawnSpark)
             {
-                if (shouldSpawnSpark)
+                vfxSpawnPosition = creatureNode1.VfxSpawnPosition;
+                vfxSpawnPosition2 = creatureNode2.VfxSpawnPosition;
+                Player player = owner.Player;
+                if (player is { Character: Defect })
+                    vfxSpawnPosition += Defect.EyelineOffset;
+                // NHyperbeamVfx nHyperbeamVfx = NHyperbeamVfx.Create(vfxSpawnPosition, creatureNode2.VfxSpawnPosition);
+                // if (nHyperbeamVfx != null)
+                // {
+                //     NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamVfx);
+                //     await Cmd.Wait(0.5f);
+                // }
+            }
+
+            await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this, cardPlay)
+                .TargetingAllOpponents(base.CombatState)
+                .WithAttackerAnim("Cast", 0.5f)
+                .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
+                .SpawningHitVfxOnEachCreature()
+                .BeforeDamage(async delegate
                 {
+                    if (shouldSpawnSpark)
+                    {
                         //List<Creature> enemies = base.CombatState.Enemies.Where((Creature e) => e.IsAlive).ToList();
                         NHyperbeamVfx nHyperbeamVfx2 = NHyperbeamVfx.Create(vfxSpawnPosition, vfxSpawnPosition2);
                         if (nHyperbeamVfx2 != null)
@@ -114,9 +117,11 @@ public class MasterSpark : TouhouAncientCards
                         //         NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nHyperbeamImpactVfx);
                         //     }
                         // }
-                }
-            })
-            .Execute(choiceContext);
+                    }
+                })
+                .Execute(choiceContext);
+        }
+
         if (gainEnergy)
         {
             await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
