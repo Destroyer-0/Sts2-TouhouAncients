@@ -39,7 +39,7 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
     /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 39, 35);
+        AscensionLevel.ToughEnemies, 31, 28);
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
@@ -48,7 +48,7 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Plant;
     
     // --- 数值 ---
-    private int HealAmount => GetActValue(4, (3, 7));
+    private int HealAmount => GetActValue(3, (3, 6));
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()

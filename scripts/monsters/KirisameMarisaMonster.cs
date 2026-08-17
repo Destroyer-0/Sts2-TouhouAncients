@@ -44,11 +44,11 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
     /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 176, 166);
+        AscensionLevel.ToughEnemies, 186, 176);
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 276, 260);
+        AscensionLevel.ToughEnemies, 286, 270);
 
     // --- 伤害/数值 ---
     /// <summary>
