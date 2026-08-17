@@ -15,6 +15,7 @@
 
   "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.title": "博丽灵梦",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.loss": "即便没有符卡规则，[gold]{encounter}[/gold]的实力依然不容置喙。",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.bgm": "少女绮想曲　～ Capriccio",
 
   "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "蕾米莉亚·斯卡雷特",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}的命运终止于[gold]{encounter}[/gold]的威严之下。",
@@ -23,7 +24,7 @@
   "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold]看穿了{character}的一切意图。",
 
   "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.title": "比那名居天子",
-  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character}成为了[gold]{encounter}[/gold]的又一个手下败将。",
+  "TOUHOUANCIENTS-HINANAWI_TENSHI_ENCOUNTER.loss": "{character}在[gold]{encounter}[/gold]面前低下了高傲的头颅。",
 
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡帝",
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character}踩中了[gold]{encounter}[/gold]早有准备的陷阱。",

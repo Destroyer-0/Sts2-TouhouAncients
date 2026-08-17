@@ -82,6 +82,6 @@
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "再使用梦想天生以外的技能造成[blue]{HitsLeft}[/blue]次未被格挡的伤害，下一次意图切换至[gold]梦想天生[/gold]。",
 
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.title": "未名妖魔",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]1[/blue]点[gold]力量[/gold]。",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。\n当前已经获得[blue]{StrengthApplied}[/blue]点[gold]力量[/gold]。"
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得[blue]1[/blue]能量并在本回合获得[blue]2[/blue]点[gold]力量[/gold]。",
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "本回合内，你打出与上一张打出的牌颜色不同的牌时，获得{Energy:energyIcons()}并在本回合获得[blue]{StrengthPower}[/blue]点[gold]力量[/gold]。\n当前已经获得[blue]{StrengthApplied}[/blue]点[gold]力量[/gold]。\n上一张牌为[gold]{Card}[/gold]。"
 }
