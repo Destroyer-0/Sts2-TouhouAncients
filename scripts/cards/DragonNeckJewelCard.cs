@@ -25,21 +25,6 @@ public sealed class DragonNeckJewelCard : HouraiPuzzleCard
     protected override int PuzzleType => 0;
 
     /// <summary>
-    /// 进入战斗时，根据本回合已打出的牌数同步减少耗能（保持与打出记录一致）。
-    /// </summary>
-    public override Task AfterCardEnteredCombat(CardModel card)
-    {
-        if (card != this || base.IsClone)
-        {
-            return Task.CompletedTask;
-        }
-        int playedThisTurn = CombatManager.Instance.History.CardPlaysFinished.Count(
-            (CardPlayFinishedEntry e) => e.CardPlay.Card.Owner == base.Owner && e.HappenedThisTurn(base.CombatState));
-        ReduceCostBy(playedThisTurn);
-        return Task.CompletedTask;
-    }
-
-    /// <summary>
     /// 每打出一张牌，本回合耗能减少 1（可叠加至 0 费）。
     /// </summary>
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

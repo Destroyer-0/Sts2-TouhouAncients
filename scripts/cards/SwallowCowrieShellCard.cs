@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace TouhouAncients.Scripts.cards;
@@ -17,4 +18,7 @@ public sealed class SwallowCowrieShellCard : HouraiPuzzleCard
     }
 
     protected override int PuzzleType => 2;
+
+    protected override bool IsPlayable => !CombatManager.Instance.History.CardPlaysFinished.Any() ||
+                                          CombatManager.Instance.History.CardPlaysFinished.GroupBy(x => x.CardPlay.Card.Type).Count() == 1;
 }

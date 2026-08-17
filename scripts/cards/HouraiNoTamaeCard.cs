@@ -27,19 +27,5 @@ public sealed class HouraiNoTamaeCard : HouraiPuzzleCard
     /// <summary>
     /// 只有抽牌堆的牌数量不大于 1 时才能打出。
     /// </summary>
-    protected override bool IsPlayable => base.Owner != null && PileType.Draw.GetPile(base.Owner).Cards.Count <= 1;
-
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await base.OnPlay(choiceContext, cardPlay);
-
-        // 保留你的手牌（单回合保留，回合结束时自动清除）
-        foreach (CardModel card in PileType.Hand.GetPile(base.Owner).Cards)
-        {
-            card.GiveSingleTurnRetain();
-        }
-
-        // 结束你的回合
-        PlayerCmd.EndTurn(base.Owner, canBackOut: false);
-    }
+    protected override bool IsPlayable => PileType.Draw.GetPile(base.Owner).Cards.Count <= 1;
 }

@@ -6,8 +6,11 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.monsters;
 using TouhouAncients.Scripts.powers;
@@ -41,11 +44,6 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
     /// </summary>
     protected abstract int PuzzleType { get; }
 
-    /// <summary>
-    /// 打出后移出战斗：谜题卡完成谜题后不进入弃牌堆。
-    /// </summary>
-    protected override PileType GetResultPileTypeForCardPlay() => PileType.None;
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card != this) return;
@@ -72,7 +70,13 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
     {
         if (card != this) return;
         if (!base.Owner.Character.Id.Entry.Contains("MOKOU", StringComparison.OrdinalIgnoreCase)) return;
+        Creature? kaguya = base.Owner.Creature.CombatState?.Enemies.FirstOrDefault(c => c.Monster is HouraisanKaguyaMonster);
+        if (kaguya == null) return;
         await CompletePuzzleForOwner();
-        await CardCmd.Exhaust(choiceContext, this, causedByEthereal: false, skipVisuals: true);
+        TalkCmd.Play(new LocString("monsters", "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER"), base.Owner.Creature, VfxColor.Red, VfxDuration.Long);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, 1, base.Owner.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, kaguya, 1, base.Owner.Creature, null);
+        await CardCmd.Exhaust(choiceContext, card);
     }
+    
 }
