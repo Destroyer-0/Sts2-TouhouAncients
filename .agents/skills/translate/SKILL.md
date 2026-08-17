@@ -9,11 +9,11 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 ## 增量翻译规则
 
-> **翻译基准线**：`bdd0435`（2026-06-17 记录）
+> **翻译基准线**：`4e46dfcf86c9909dd015d1fdf54d864a17ddd748`（2026-08-17 记录，`i18n: 更新本地化文本`）
 > 此后调用 `/translate` 时，**只翻译自该基准提交之后新增或变更的本地化内容**。
 >
 > 操作步骤：
-> 1. 运行 `git diff bdd0435 -- TouhouAncients/localization/zhs/` 查看新增/变更的条目
+> 1. 运行 `git diff 4e46dfc -- TouhouAncients/localization/zhs/` 查看新增/变更的条目
 > 2. 只处理这些新增或变更条目的翻译
 > 3. 已有译文的条目不动
 
