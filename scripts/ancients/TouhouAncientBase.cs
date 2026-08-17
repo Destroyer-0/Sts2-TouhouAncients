@@ -100,9 +100,10 @@ public abstract class TouhouAncientBase : CustomAncientModel
     private const string ChallengeCoopPromptKey = "TOUHOUANCIENTS-CHALLENGE_COOP";
 
     /// <summary>
-    /// 创建"挑战"选项。本地化键：{AncientId}.fight.title / .fight.description
-    /// （位于 ancients.json）。注意 textKey 只传前缀，EventOption 构造函数会
-    /// 自动追加 ".title" / ".description" 后缀。
+    /// 创建"挑战"选项。标题优先匹配角色专属键 {AncientId}.fight.{token}.title
+    /// （token 是 Character.Id.Entry 的子串，忽略大小写；更长的 token 优先），
+    /// 没有匹配时回退到 {AncientId}.fight.title。描述统一用 TOUHOUANCIENTS.fight.description。
+    /// textKey 固定为 {AncientId}.fight，供挑战按钮图标等逻辑识别，不要改成 fight.{token}。
     /// 仅多人模式给挑战选项附加"合作事件"HoverTip（悬停选项时显示），提示所有玩家
     /// 均确认进行挑战后方可开始；单人模式不附加。
     /// </summary>
@@ -114,10 +115,27 @@ public abstract class TouhouAncientBase : CustomAncientModel
         return new EventOption(
             this, 
             StartChallenge,
-            new LocString("ancients",$"{Id.Entry}.fight.title"),
+            GetChallengeTitleLoc(),
             new LocString("ancients","TOUHOUANCIENTS.fight.description"),
             $"{Id.Entry}.fight", 
             hoverTips);
+    }
+
+    /// <summary>
+    /// 解析挑战选项标题。子类可重写以使用完全自定义的匹配规则。
+    /// 默认：扫描 ancients 表中 {AncientId}.fight.{token}.title，若 Character.Id.Entry
+    /// 包含该 token（忽略大小写）则采用，更长 token 优先；否则用 {AncientId}.fight.title。
+    /// 例如妹红角色 ID 含 "MOKOU" 时，会命中 fight.mokou.title。
+    /// 之后给任意 Ancient 加一条 fight.{token}.title 本地化即可扩展，不必改代码。
+    /// </summary>
+    protected virtual LocString GetChallengeTitleLoc()
+    {
+        return CharacterLocVariant.Find(
+                   "ancients",
+                   $"{Id.Entry}.fight.",
+                   ".title",
+                   Owner?.Character.Id.Entry)
+               ?? new LocString("ancients", $"{Id.Entry}.fight.title");
     }
 
     /// <summary>
