@@ -5,6 +5,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 
@@ -13,6 +14,7 @@ namespace TouhouAncients.Scripts.monsters;
 public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 {
     private AnimatedSprite2D? _animatedSprite2D;
+    private Tween? _bodyMoveTween;
 
     /// <summary>
     /// 是否拥有帧动画（AnimatedSprite2D）。
@@ -119,6 +121,87 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     /// </summary>
     public virtual bool ShouldPlayHurtAnimation => true;
 
+    /// <summary>
+    /// 死后仍要播非 die 动画时返回 true（例如紫苑双生倒地等待复活）。
+    /// </summary>
+    protected virtual bool ShouldKeepAnimatingWhileDead => false;
+
+    private bool IsCreatureDead
+    {
+        get
+        {
+            if (!IsMutable)
+                return false;
+            try
+            {
+                return Creature.IsDead;
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 死后锁定为 die，忽略 hurt / idle / 技能动画。
+    /// </summary>
+    protected bool IsDeathAnimationLocked => HasAnimation && IsCreatureDead && !ShouldKeepAnimatingWhileDead;
+
+    public override async Task BeforeDeath(Creature creature)
+    {
+        await base.BeforeDeath(creature);
+        if (creature != Creature || !HasAnimation)
+            return;
+
+        StopBodyMoveAndResetPosition();
+        if (!ShouldKeepAnimatingWhileDead)
+            PlayAnimation("die");
+    }
+
+    /// <summary>
+    /// 创建绑定到显示节点的位移 Tween。死后会立刻杀掉并锁回原位，避免冲锋半路把尸体带走。
+    /// </summary>
+    protected Tween CreateBodyMoveTween(Node2D body)
+    {
+        _bodyMoveTween?.Kill();
+        if (IsCreatureDead)
+        {
+            body.Position = Vector2.Zero;
+            Tween killed = body.CreateTween();
+            killed.Kill();
+            _bodyMoveTween = null;
+            return killed;
+        }
+
+        _bodyMoveTween = body.CreateTween();
+        return _bodyMoveTween;
+    }
+
+    /// <summary>
+    /// 设置显示节点坐标。死后忽略写入，保持站位。
+    /// </summary>
+    protected void SetBodyPosition(Node2D body, Vector2 position)
+    {
+        if (IsCreatureDead)
+        {
+            body.Position = Vector2.Zero;
+            return;
+        }
+
+        body.Position = position;
+    }
+
+    private void StopBodyMoveAndResetPosition()
+    {
+        _bodyMoveTween?.Kill();
+        _bodyMoveTween = null;
+
+        Node2D? body = Creature.GetCreatureNode()?.Visuals?.GetCurrentBody();
+        if (body != null)
+            body.Position = Vector2.Zero;
+    }
+
     // public override async Task AfterAddedToRoom()
     // {
     //     await base.AfterAddedToRoom();
@@ -137,12 +220,16 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     /// </summary>
     protected virtual string? GetNextAnimation(string finishedAnimation)
     {
+        if (IsDeathAnimationLocked)
+            return null;
         return finishedAnimation == "hurt" ? CurrentLoopAnimation : null;
     }
 
     protected virtual void PlayAnimation(string animationName)
     {
         if (!HasAnimation) return;
+        if (IsDeathAnimationLocked && animationName != "die")
+            return;
         MyAnimatedSprite2D.Animation = animationName;
         MyAnimatedSprite2D.Play();
     }
@@ -154,7 +241,7 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 
     internal void HandleHitAnimationTrigger()
     {
-        if (!HasAnimation || !ShouldPlayHurtAnimation)
+        if (!HasAnimation || !ShouldPlayHurtAnimation || IsDeathAnimationLocked)
             return;
 
         if (MyAnimatedSprite2D.SpriteFrames.HasAnimation("hurt"))
