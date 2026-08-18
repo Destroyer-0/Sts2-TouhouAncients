@@ -16,15 +16,14 @@ namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 迷幻的投影 — 在每场战斗开始时，获得混乱效果。
-/// 2费用的卡牌打出2次，大于等于3费用的卡牌打出3次。
+/// 耗能为2或以上的卡牌打出2次。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class IllusoryProjection : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("CostTwo", 2),
-        new DynamicVar("CostThree", 3)
+        new DynamicVar("CostThreshold", 2)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -45,16 +44,10 @@ public class IllusoryProjection : TouhouAncientRelics
         // 获取解析后的费用（混乱随机化后的最终费用）
         var cost = card.EnergyCost.GetResolved();
 
-        if (cost == 2)
+        if (cost >= 2)
         {
             Flash();
             return playCount + 1; // 打出2次
-        }
-
-        if (cost >= 3)
-        {
-            Flash();
-            return playCount + 2; // 打出3次
         }
 
         return playCount;
