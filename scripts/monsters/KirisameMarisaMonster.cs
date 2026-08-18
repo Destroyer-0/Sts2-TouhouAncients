@@ -205,7 +205,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             var impactOffset = playerPos.HasValue
                 ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X- 600f)
                 : Vector2.Left * 1800;
-            var rushTween = body.CreateTween();
+            var rushTween = CreateBodyMoveTween(body);
             rushTween.TweenProperty(body, "position", impactOffset, 0.15f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.2f);
@@ -228,7 +228,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             IWillReturnItPower returnPower = (IWillReturnItPower)ModelDb.Power<IWillReturnItPower>().ToMutable();
             returnPower.StolenCard = cardToSteal;
             await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), returnPower, base.Creature, 1m, base.Creature, null);
-
             stolenCards.Add(cardToSteal);
         }
 
@@ -279,9 +278,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         // 从右侧返回：带着被偷的牌飞回（dash 循环动画贯穿整个飞行）
         if (body != null)
         {
-            body.Position = Vector2.Right * 600f;
+            SetBodyPosition(body, Vector2.Right * 600f);
             await Cmd.Wait(0.1f);
-            var returnTween = body.CreateTween();
+            var returnTween = CreateBodyMoveTween(body);
             returnTween.TweenProperty(body, "position", bodyOrigin, 0.25f)
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.3f);
@@ -311,7 +310,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         PlayAnimation("jump_rise");
         if (body != null)
         {
-            var riseTween = body.CreateTween();
+            var riseTween = CreateBodyMoveTween(body);
             riseTween.TweenProperty(body, "position", bodyOrigin + Vector2.Up * 200f, 0.3f)
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.35f);
@@ -330,7 +329,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         PlayAnimation("jump_fall");
         if (body != null)
         {
-            var fallTween = body.CreateTween();
+            var fallTween = CreateBodyMoveTween(body);
             fallTween.TweenProperty(body, "position", bodyOrigin, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.35f);
