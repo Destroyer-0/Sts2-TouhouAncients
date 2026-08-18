@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://1pivp31yp6r6"]
+
+[ext_resource type="Texture2D" uid="uid://cvlsji68e7wwh" path="res://images/sprite/shion/shot_negative_001.png" id="1_fyc83"]
+
+[resource]
+atlas = ExtResource("1_fyc83")
+region = Rect2(0, 128, 128, 128)
