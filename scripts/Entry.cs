@@ -44,6 +44,7 @@ public class Entry
         // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(OilFutures));
         // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(JyoonFan));
         // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(HellOrin));
+        // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DowsingRod));
         
         
         // 打patch（即修改游戏代码的功能）用
