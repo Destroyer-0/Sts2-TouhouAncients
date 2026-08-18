@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
@@ -47,6 +48,9 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
     /// <summary>五道难题发放的谜题卡数量（五种各一张）。</summary>
     private const int PuzzleCardCount = 5;
+
+    /// <summary>五道难题释放后，辉夜曲淡入时长（秒）。</summary>
+    private const float FiveDifficultProblemsBgmFadeInSeconds = 2f;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
@@ -120,6 +124,12 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
         // 施加公主的谜题（每道未完成谜题提供格挡，PuzzleNum 由能力内部初始化为 5）
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+
+        if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter
+            && !string.IsNullOrEmpty(encounter.BgmFileName))
+        {
+            EncounterBgm.Start(encounter.BgmFileName, FiveDifficultProblemsBgmFadeInSeconds);
+        }
     }
 
     /// <summary>
