@@ -21,9 +21,11 @@ namespace TouhouAncients.Scripts.encounters;
 /// <summary>
 /// 东方角色挑战战斗的 Encounter 基类，统一处理自定义 BGM。
 ///
-/// 子类只需重写 <see cref="BgmFileName"/> 指定自己的 BGM 文件，战斗开始/结束时由
-/// <see cref="EncounterBgm"/>（scripts/EncounterBgm.cs）自动播放/停止——Encounter
-/// 本身不接收战斗 Hook，故由全局订阅 CombatManager 事件的 EncounterBgm 统一处理。
+/// 子类只需重写 <see cref="BgmFileName"/> 指定自己的 BGM 文件。默认战斗开始/结束时由
+/// <see cref="EncounterBgm"/>（scripts/EncounterBgm.cs）自动播放/停止；
+/// <see cref="AutoStartBgm"/> 为 false 时开场只静音原版音乐，稍后手动调用
+/// <see cref="EncounterBgm.Start"/> 再播。Encounter 本身不接收战斗 Hook，故由全局订阅
+/// CombatManager 事件的 EncounterBgm 统一处理。
 /// 战斗底部曲名显示是通用功能：<see cref="TouhouAncientEncounterBgmNamePatch"/> 对
 /// 任意 Encounter 生效，只要本地化表 encounters 存在 "{Id.Entry}.bgm" 键（如
 /// TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.bgm）就显示，键不存在则不显示。
@@ -48,6 +50,12 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
     /// 返回 null 表示不播放自定义 BGM。注意：对应音频文件的 import 需开启 loop=true 才能循环。
     /// </summary>
     public virtual string? BgmFileName => null;
+
+    /// <summary>
+    /// 战斗开始时是否立刻播放 <see cref="BgmFileName"/>。返回 false 时只静音原版 FMOD 音乐，
+    /// 由怪物技能等手动调用 <see cref="EncounterBgm.Start"/> 再开始播放。
+    /// </summary>
+    public virtual bool AutoStartBgm => true;
 
     /// <summary>
     /// 挑战战斗不生成默认战斗奖励（金币/卡牌/药水）：通过游戏原生 ModifyRewards 钩子
@@ -90,9 +98,22 @@ public static class TouhouAncientEncounterBgmNamePatch
     static void Postfix(NCombatRoom __instance)
     {
         if (__instance.Mode != CombatRoomMode.ActiveCombat) return;
-        if (__instance.GetNodeOrNull(DisplayNodeName) != null) return;
-
         ICombatRoomVisuals? visuals = VisualsField?.GetValue(__instance) as ICombatRoomVisuals;
+        if (visuals?.Encounter is TouhouAncientEncounter { AutoStartBgm: false }) return;
+        TryShow(__instance);
+    }
+
+    /// <summary>
+    /// 把曲名标签挂到当前战斗房间。BGM 延后播放时由 <see cref="EncounterBgm.Start"/> 在真正开播时调用。
+    /// </summary>
+    public static void TryShow(NCombatRoom? combatRoom = null)
+    {
+        NCombatRoom? room = combatRoom ?? NCombatRoom.Instance;
+        if (room == null) return;
+        if (room.Mode != CombatRoomMode.ActiveCombat) return;
+        if (room.GetNodeOrNull(DisplayNodeName) != null) return;
+
+        ICombatRoomVisuals? visuals = VisualsField?.GetValue(room) as ICombatRoomVisuals;
         if (visuals?.Encounter is not EncounterModel encounter) return;
         string? bgmDisplayName = LocString.GetIfExists("encounters", encounter.Id.Entry + ".bgm")?.GetFormattedText();
         if (string.IsNullOrEmpty(bgmDisplayName)) return;
@@ -107,7 +128,7 @@ public static class TouhouAncientEncounterBgmNamePatch
         {
             label.Text = "♪ Bgm: " + bgmDisplayName;
         }
-        __instance.AddChildSafely(display);
+        room.AddChildSafely(display);
         _display = display;
         SubscribeCombatEnded();
     }

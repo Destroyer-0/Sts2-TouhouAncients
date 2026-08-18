@@ -22,7 +22,12 @@ public sealed class HouraisanKaguyaEncounter : TouhouAncientEncounter
         "kaguya"
     ];
 
-    public override string? BgmFileName => null;
+    public override string? BgmFileName => "Kaguya.mp3";
+
+    /// <summary>
+    /// 辉夜曲不在开场播放，等「五道难题」释放后再开始。
+    /// </summary>
+    public override bool AutoStartBgm => false;
 
     public override string? CustomScenePath => "res://scenes/encounters/houraisan_kaguya.tscn";
 

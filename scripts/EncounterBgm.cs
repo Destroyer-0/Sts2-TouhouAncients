@@ -1,4 +1,5 @@
 using BaseLib.Audio;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
@@ -15,8 +16,9 @@ namespace TouhouAncients.Scripts;
 ///
 /// 背景：EncounterModel.CustomBgm 只接受 FMOD 事件路径（event:/...），无法直接播放
 /// mod 的 mp3 文件——传 res:// 路径会在日志报 "cannot find music path" 且把原 act 音乐停掉。
-/// 因此这里改用 BaseLib 的 <see cref="AutoModAudio"/> 在战斗开始时播放 mp3，战斗结束时停止。
-/// 循环依赖音频导入设置：对应 mp3 的 import 需开启 loop=true。
+/// 因此这里改用 BaseLib 的 <see cref="AutoModAudio"/> 播放 mp3，战斗结束时停止。
+/// 默认在战斗开始时播放；子类可将 <see cref="TouhouAncientEncounter.AutoStartBgm"/> 设为 false，
+/// 开场只静音原版 FMOD 音乐，稍后调用 <see cref="Start"/> 再播（可淡入）。循环依赖音频导入设置：对应 mp3 的 import 需开启 loop=true。
 ///
 /// 为避免与游戏原 FMOD 音乐重叠，战斗期间把 FMOD 音乐总线（bus:/master/music）静音
 /// （mp3 走 Godot 总线，不受该 FMOD 总线影响），战斗结束后恢复原来的音量。
@@ -34,7 +36,7 @@ public static class EncounterBgm
     /// <summary>战斗开始前记录的 FMOD 音乐总线音量，战斗结束后恢复。</summary>
     private static float _savedMusicBusVolume = 1f;
 
-    /// <summary>是否正处于挑战战斗 BGM 播放中（决定结束后是否需要恢复音乐总线音量）。</summary>
+    /// <summary>是否已静音原版 FMOD 音乐，决定结束后是否需要恢复总线音量。</summary>
     private static bool _active;
 
     /// <summary>
@@ -48,22 +50,36 @@ public static class EncounterBgm
 
     private static void OnCombatSetUp(CombatState state)
     {
-        if (state.Encounter is TouhouAncientEncounter encounter && !string.IsNullOrEmpty(encounter.BgmFileName))
+        if (state.Encounter is not TouhouAncientEncounter encounter || string.IsNullOrEmpty(encounter.BgmFileName))
+        {
+            return;
+        }
+
+        if (encounter.AutoStartBgm)
         {
             Start(encounter.BgmFileName);
         }
+        else
+        {
+            MuteVanillaMusic();
+        }
     }
 
-    private static void Start(string bgmFileName)
+    /// <summary>
+    /// 开始播放自定义 BGM。<paramref name="fadeInSeconds"/> 大于 0 时从静音淡入到正常音量。
+    /// </summary>
+    public static void Start(string bgmFileName, float fadeInSeconds = 0f)
     {
-        Stop();
-
-        // 记录并静音 FMOD 音乐总线，避免与原 act 音乐重叠。
-        _savedMusicBusVolume = FmodAudio.GetBusVolume(MusicBusPath);
-        FmodAudio.SetBusVolume(MusicBusPath, 0f);
+        StopCurrentPlayer();
+        MuteVanillaMusic();
 
         _current = Audio.PlayMusic(bgmFileName);
-        _active = true;
+        if (_current != null && fadeInSeconds > 0f)
+        {
+            _current.FadeIn(fadeInSeconds);
+        }
+
+        TouhouAncientEncounterBgmNamePatch.TryShow();
     }
 
     private static void OnCombatEnded(CombatRoom room)
@@ -76,18 +92,44 @@ public static class EncounterBgm
     /// </summary>
     public static void Stop()
     {
+        StopCurrentPlayer();
+        RestoreVanillaMusic();
+    }
+
+    private static void StopCurrentPlayer()
+    {
         if (_current != null && GodotObject.IsInstanceValid(_current))
         {
             _current.Stop();
             _current.GetParent()?.RemoveChild(_current);
         }
         _current = null;
+    }
 
+    /// <summary>
+    /// 记录并静音 FMOD 音乐总线，避免与原 act 音乐重叠。已静音时不再次读取音量，以免把 0 当成原值。
+    /// </summary>
+    private static void MuteVanillaMusic()
+    {
         if (_active)
         {
-            FmodAudio.SetBusVolume(MusicBusPath, _savedMusicBusVolume);
-            _active = false;
+            return;
         }
+
+        _savedMusicBusVolume = FmodAudio.GetBusVolume(MusicBusPath);
+        FmodAudio.SetBusVolume(MusicBusPath, 0f);
+        _active = true;
+    }
+
+    private static void RestoreVanillaMusic()
+    {
+        if (!_active)
+        {
+            return;
+        }
+
+        FmodAudio.SetBusVolume(MusicBusPath, _savedMusicBusVolume);
+        _active = false;
     }
 }
 
