@@ -22,15 +22,14 @@ namespace TouhouAncients.Scripts.relics;
 public class PlagueBlend : TouhouAncientRelics
 {
     private const int TriggerTurn = 3;
-    private const decimal PoisonAmount = 4m;
 
     public override bool HasUponPickupEffect => false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1),
-        new DynamicVar("TriggerTurn",3m),
-        new DynamicVar("PoisonAmount", PoisonAmount),
+        new DynamicVar("TriggerTurn", 3m),
+        new DynamicVar("PoisonAmount", 4),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -38,8 +37,7 @@ public class PlagueBlend : TouhouAncientRelics
         HoverTipFactory.ForEnergy(this),
         HoverTipFactory.FromPower<PoisonPower>(),
     ];
-
-
+    
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != base.Owner)
@@ -69,7 +67,7 @@ public class PlagueBlend : TouhouAncientRelics
         if (side == base.Owner.Creature.Side && combatState.RoundNumber == TriggerTurn)
         {
             Flash();
-            await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, PoisonAmount, Owner.Creature, null);
+            await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars["PoisonAmount"].IntValue, Owner.Creature, null);
         }
     }
 }
