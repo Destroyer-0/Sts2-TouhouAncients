@@ -63,6 +63,9 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy.",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
+
+    "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
+    "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the treasure hunt rewards.",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card’s cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
 

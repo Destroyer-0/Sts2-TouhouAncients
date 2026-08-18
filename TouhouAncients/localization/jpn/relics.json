@@ -235,6 +235,10 @@
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "Choose an [green]Upgraded[/green] Ancient card to add to your [gold]Deck[/gold]",
   
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.title": "Heavenly Hagoromo",
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.description": "At the start of each combat, gain [blue]{BuffAmount}[/blue] [gold]Dexterity[/gold].After you play an [gold]Attack[/gold], this effect becomes [blue]{BuffAmount}[/blue] [gold]Strength[/gold];after you play a [gold]Skill[/gold], this effect becomes [blue]{BuffAmount}[/blue] [gold]Dexterity[/gold].",
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.flavor": "A hagoromo gifted by the Dragon Palace, identical to what its messengers wear. For Tenshi, this outfit is simply far too troublesome to put on.",
+
   "TOUHOUANCIENTS-HISOU_SWORD.title": "Hisou Sword",
   "TOUHOUANCIENTS-HISOU_SWORD.description": "Upon pickup, add [blue]1[/blue] [gold]All Creation's Hisou[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "Add [blue]1[/blue] [gold]All Creation's Hisou[/gold] to your [gold]Deck[/gold].",
@@ -292,7 +296,7 @@
   "TOUHOUANCIENTS-FOUR_LEAF_CLOVER.flavor": "Those who meet her become lucky, but only the fortunate can meet her.",
 
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "Glowing Bamboo",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The [gold]First[/gold] unupgraded card you play each combat will be [green]Upgraded[/green]  after the combat ends.",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "The First card you play each combat will be [green]Upgraded[/green] after the combat ends.",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "A natural phenomenon... or lunar technology? Shh! That's a trade secret.",
 
   "TOUHOUANCIENTS-RABBITS_FOOT.title": "Fake Rabbit's Foot",
@@ -565,7 +569,7 @@
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "Illusory Projection",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "Start each combat [red]Confused[/red]. Cards costing [blue]{CostTwo}[/blue] are played [blue]{CostTwo}[/blue] times, and cards costing [blue]{CostThree}[/blue] or more are played [blue]{CostThree}[/blue] times.",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "Start each combat [red]Confused[/red]. Cards costing [blue]{CostThreshold}[/blue] or more are played [blue]2[/blue] times.",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "Overflowing Defilement",
@@ -687,8 +691,9 @@
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "The ability to grow braver after a drink.",
 
   "TOUHOUANCIENTS-DOWSING_ROD.title": "Dowsing Rod",
-  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin to search for treasure at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin to search for treasure at [gold]Rest Sites[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].\nChoose any number of recorded cards to add to your [gold]Deck[/gold], and maybe dig up some [jitter][gold]treasures[/gold][/jitter]!",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "The ability to find her pagoda no matter what.",
+  "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "Choose cards to take",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "Dragon Vein Vessel",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "Mark [blue]1[/blue] path (does not include Boss rooms). Entering nodes on the path grants [blue]{Gold}[/blue] [gold]Gold[/gold]; if it is a combat, gain [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] at the start, and gain [blue]{CardRewards}[/blue] extra [gold]Card Rewards[/gold].",

@@ -235,13 +235,17 @@
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.flavor": "",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.selectionScreenPrompt": "选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组",
 
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.title": "天云羽衣",
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.description": "在每场战斗开始时，获得[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。当你打出[gold]攻击牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]力量[/gold]；当你打出[gold]技能牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.flavor": "龙宫赠送的龙宫使者同款的羽衣服饰。对天子来说，这衣服穿起来实在过于麻烦。",
+
   "TOUHOUANCIENTS-HISOU_SWORD.title": "绯想之剑",
   "TOUHOUANCIENTS-HISOU_SWORD.description": "拾起时，将[blue]1[/blue]张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HISOU_SWORD.eventDescription": "将[blue]1[/blue]张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-HISOU_SWORD.flavor": "足以洞察对方气质，只有天人才能完全掌握的武器。",
 
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.title": "天罚石柱",
-  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.description": "使用技能牌时插下[gold]要石[/gold]，使用攻击牌时拔出[gold]要石[/gold]，对所有敌人造成[blue]{Damage}[/blue]点伤害，并使[gold]要石[/gold]在本场战斗伤害提高[blue]{ExtraDamage}[/blue]。",
+  "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.description": "打出技能牌时插下[gold]要石[/gold]，打出攻击牌时拔出[gold]要石[/gold]，对所有敌人造成[blue]{Damage}[/blue]点伤害，并使[gold]要石[/gold]在本场战斗伤害提高[blue]{ExtraDamage}[/blue]。",
   "TOUHOUANCIENTS-KEYSTONE_FLOATING_CANNON.flavor": "用来镇压引发地震的大鲶鱼……虽然先子星并没有这种东西。",
   
   "TOUHOUANCIENTS-HOLY_ARMOR.title": "天赐甲胄",
@@ -314,7 +318,7 @@
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.flavor": "把这个交给商人就能换取特别服务——当你觉得被因幡帝骗了时，实际没有被骗，这算不算一种被骗呢？",
 
   "TOUHOUANCIENTS-GLOWING_BAMBOO.title": "发光竹子",
-  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的[gold]首张[/gold]未升级的牌将在战斗结束后[green]升级[/green]。",
+  "TOUHOUANCIENTS-GLOWING_BAMBOO.description": "每场战斗你打出的首张牌将在战斗结束后[green]升级[/green]。",
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "自然现象？……还是月球科技？嘘！这可是商业机密。",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
@@ -561,11 +565,11 @@
   "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
 
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "战栗的冻星",
-  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "每打出[blue]{AttackThreshold}[/blue]张攻击牌，[gold]生成[/gold]一个[gold]冰霜[/gold]充能球，并交替将一张带有[gold]虚无[/gold]的[gold]战栗[/gold]/[gold]主宰[/gold]添加到你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "每打出[blue]{AttackThreshold}[/blue]张攻击牌，[gold]生成[/gold]一个[gold]冰霜[/gold]充能球，并交替将一张带有[gold]虚无[/gold]的[gold]战栗[/gold]/[gold]主宰[/gold]放入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "迷幻的投影",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "在每场战斗开始时，获得[red]混乱[/red]效果。耗能为[blue]{CostTwo}[/blue]的卡牌打出[blue]{CostTwo}[/blue]次，耗能大于等于[blue]{CostThree}[/blue]的卡牌打出[blue]{CostThree}[/blue]次。",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "在每场战斗开始时，获得[red]混乱[/red]效果。耗能大于等于[blue]{CostThreshold}[/blue]的卡牌打出[blue]2[/blue]次。",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢出的暇秽",
@@ -687,8 +691,9 @@
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "喝完酒变勇程度的能力。",
 
   "TOUHOUANCIENTS-DOWSING_ROD.title": "纳兹琳灵摆",
-  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处花费[blue]{Gold}[/blue][gold]金币[/gold]雇佣纳兹琳寻宝。",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处花费[blue]{Gold}[/blue][gold]金币[/gold]雇佣纳兹琳寻宝。\n从记录的卡牌中选择任意张加入牌组，并有概率挖出一些[jitter][gold]秘宝[/gold][/jitter]！",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "不管怎样都能找回宝塔程度的能力。",
+  "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "选择要拿走的卡牌",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "龙脉之皿",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记[blue]1[/blue]条路线。进入路线上的节点获得[blue]{Gold}[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，且额外掉落[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]。",

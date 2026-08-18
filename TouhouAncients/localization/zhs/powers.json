@@ -4,8 +4,8 @@
   "TOUHOUANCIENTS-VIGOR_ON_BLOCK_POWER.smartDescription": "本回合将格挡掉的攻击伤害的[blue]{Amount}%[/blue]转化为[gold]活力[/gold]。",
 
   "TOUHOUANCIENTS-KEYSTONE_POWER.title": "要石",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成伤害。",
-  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "使用技能牌时插下，使用攻击牌时拔出，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.description": "打出技能牌时插下，打出攻击牌时拔出，对所有敌人造成伤害。",
+  "TOUHOUANCIENTS-KEYSTONE_POWER.smartDescription": "打出技能牌时插下，打出攻击牌时拔出，对所有敌人造成[blue]{Amount}[/blue]点伤害。",
 
   "TOUHOUANCIENTS-MAGIC_WALLET_POWER.title": "魔力暴走",
   "TOUHOUANCIENTS-MAGIC_WALLET_POWER.description": "下[gold]1[/gold]张牌免费打出。",
@@ -95,5 +95,5 @@
   
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.description": "在你的下回合开始时，少抽[blue]1[/blue]张牌。",
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.smartDescription": "在你的下回合开始时，少抽[blue]{Amount}[/blue]张牌。",
-  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "下回合减少抽牌"
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月"
 }
