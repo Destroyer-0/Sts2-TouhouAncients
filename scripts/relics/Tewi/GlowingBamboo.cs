@@ -12,12 +12,12 @@ using TouhouAncients.Scripts.powers;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 发光竹子：每场战斗你打出的首张未被升级的牌将在战斗结束后被升级。
+/// 发光竹子：每场战斗你打出的首张牌将在战斗结束后被升级（如果可升级）。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class GlowingBamboo : TouhouAncientRelics
 {
-    /// <summary>本场战斗中已标记的首张未升级牌。</summary>
+    /// <summary>本场战斗中已标记的首张牌。</summary>
     private CardModel? _trackedCard;
 
     public override Task BeforeCombatStart()
@@ -33,13 +33,19 @@ public class GlowingBamboo : TouhouAncientRelics
         if (cardPlay.Card.Owner != base.Owner) return;
         if (_trackedCard != null) return;
         var deckVersion = cardPlay.Card?.DeckVersion;
-        if (deckVersion == null || deckVersion.IsUpgraded || !deckVersion.IsUpgradable || deckVersion.HasBeenRemovedFromState) return;
+        if (deckVersion == null || deckVersion.HasBeenRemovedFromState) return;
+        if (cardPlay.Card == null) return;
+        if (cardPlay.Card.DeckVersion == null) return;
 
-        Flash();
-        _trackedCard = cardPlay.Card;
         base.Status = RelicStatus.Disabled;
         InvokeDisplayAmountChanged();
-        (await PowerCmd.Apply<GlowingBambooPower>(choiceContext,base.Owner.Creature, 1, base.Owner.Creature, null))?.SetSelectedCard(_trackedCard);
+        _trackedCard = cardPlay.Card;
+
+        if (cardPlay.Card.DeckVersion.IsUpgradable)
+        {
+            Flash();
+            (await PowerCmd.Apply<GlowingBambooPower>(choiceContext, base.Owner.Creature, 1, base.Owner.Creature, null))?.SetSelectedCard(_trackedCard);
+        }
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
@@ -47,7 +53,7 @@ public class GlowingBamboo : TouhouAncientRelics
         var deckVersion = _trackedCard?.DeckVersion;
         if (deckVersion != null
             && PileType.Deck.GetPile(Owner).Cards.Contains(deckVersion)
-            && deckVersion is { IsUpgraded: false, IsUpgradable: true, HasBeenRemovedFromState: false })
+            && deckVersion is { IsUpgradable: true, HasBeenRemovedFromState: false })
         {
             Flash();
             CardCmd.Upgrade(deckVersion);
