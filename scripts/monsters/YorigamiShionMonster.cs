@@ -28,6 +28,8 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     public override bool ShouldPlayHurtAnimation => NextMove != StunnedState;
 
+    protected override bool ShouldKeepAnimatingWhileDead => Creature.HasPower<TwinSoulPower>();
+
     // --- 本地化 ---
     private static readonly LocString _absoluteLoserLine =
         new LocString("monsters", "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.ABSOLUTE_LOSER.banter");
@@ -196,6 +198,9 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// </summary>
     protected override void PlayAnimation(string animationName)
     {
+        if (IsDeathAnimationLocked && animationName != "die")
+            return;
+
         bool wasDie = MyAnimatedSprite2D.Animation == "die";
         bool willBeDie = animationName == "die";
 
@@ -214,6 +219,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     {
         PlayAnimation("spell");
         await Cmd.Wait(0.5f);
+        ScatterNegativeGlyphs(targets, count: 10, scatterRadius: 200f);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadWeak, base.Creature,
             null);
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature,
@@ -249,7 +255,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             var rushTarget = targetPos.HasValue
                 ? Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f)
                 : Vector2.Left * 1800;
-            var rushTween = body.CreateTween();
+            var rushTween = CreateBodyMoveTween(body);
             rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.4f);
@@ -260,13 +266,14 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             .FromMonster(this)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        ScatterNegativeGlyphs(targets, count: 8, scatterRadius: 180f);
 
         // 瞬移到右侧，然后 Tween 平滑返回原位
         if (myNode != null && body != null)
         {
-            body.Position = Vector2.Right * 600f;
+            SetBodyPosition(body, Vector2.Right * 600f);
             await Cmd.Wait(0.1f);
-            var returnTween = body.CreateTween();
+            var returnTween = CreateBodyMoveTween(body);
             returnTween.TweenProperty(body, "position", Vector2.Zero, 0.25f)
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.3f);
@@ -289,7 +296,10 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         {
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(Creature, VfxColor.Blue));
         }
-        await Cmd.Wait(0.5f);
+        ScatterNegativeGlyphs(targets, count: 18, scatterRadius: 280f);
+        await Cmd.Wait(0.25f);
+        ScatterNegativeGlyphs(targets, count: 18, scatterRadius: 340f);
+        await Cmd.Wait(0.25f);
 
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), allys, AbsoluteLoserDoom, base.Creature, null);
         foreach (var target in targets)
@@ -336,5 +346,64 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     protected override bool ShouldShowMoveInBestiary(string moveStateId)
     {
         return moveStateId != "STUNNED";
+    }
+
+    private const string NegativeBurstScenePath = "res://images/sprite/shion/shion_negative_burst.tscn";
+
+    private static PackedScene? _negativeBurstScene;
+
+    /// <summary>
+    /// 在目标位置逸散随机厄运字符（厄 / 貧 / 損 / 負）。
+    /// </summary>
+    private void ScatterNegativeGlyphs(IReadOnlyList<Creature> targets, int count, float scatterRadius)
+    {
+        foreach (Creature target in targets)
+        {
+            NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(target);
+            if (creatureNode == null)
+                continue;
+
+            ScatterNegativeGlyphsAt(creatureNode.VfxSpawnPosition, count, scatterRadius);
+        }
+    }
+
+    private void ScatterNegativeGlyphsAt(Vector2 origin, int count, float scatterRadius)
+    {
+        _negativeBurstScene ??= GD.Load<PackedScene>(NegativeBurstScenePath);
+        if (_negativeBurstScene == null || NCombatRoom.Instance?.CombatVfxContainer == null)
+            return;
+
+        Node2D vfx = _negativeBurstScene.Instantiate<Node2D>();
+        CpuParticles2D[] emitters = vfx.GetChildren().OfType<CpuParticles2D>().ToArray();
+        if (emitters.Length == 0)
+            return;
+
+        int baseAmount = count / emitters.Length;
+        int remainder = count % emitters.Length;
+        float lifetime = 0f;
+        for (int i = 0; i < emitters.Length; i++)
+        {
+            CpuParticles2D particles = emitters[i];
+            int amount = baseAmount + (i < remainder ? 1 : 0);
+            if (amount <= 0)
+                continue;
+
+            particles.Amount = amount;
+            particles.InitialVelocityMin = scatterRadius * 0.55f;
+            particles.InitialVelocityMax = scatterRadius;
+            lifetime = Math.Max(lifetime, (float)particles.Lifetime);
+        }
+
+        NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(vfx);
+        vfx.GlobalPosition = origin;
+        foreach (CpuParticles2D particles in emitters)
+        {
+            if (particles.Amount > 0)
+                particles.Emitting = true;
+        }
+
+        Tween tween = vfx.CreateTween();
+        tween.TweenInterval(lifetime + 0.35f);
+        tween.TweenCallback(Callable.From(vfx.QueueFreeSafely));
     }
 }

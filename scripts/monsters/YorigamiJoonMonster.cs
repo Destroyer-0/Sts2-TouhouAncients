@@ -76,6 +76,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
                 NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(bubble);
         }
 
+        StopWealthGlyphs();
         PlayAnimation("die");
     }
 
@@ -108,10 +109,9 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
         // Hook 监听者在执行前已经复制到独立列表，可以安全注销逻辑实体。
         // 保留 CombatState 引用，确保后续死亡 Hook 仍能取得原战斗上下文。
-        // 不调用 combatState.RemoveCreature，因为当女苑在玩家回合死亡时，
-        // 敌方回合的 PerformMove 仍会尝试移除 creature，导致重复移除报错。
-        // 让原版 PerformMove 在检测到 creature 死亡时自然处理移除逻辑即可。
         CombatManager.Instance.RemoveCreature(creature);
+        bool performingMove = creature.Monster is { IsPerformingMove: true };
+        combatState.RemoveCreature(creature, unattach: performingMove);
     }
 
     /// <summary>
@@ -230,6 +230,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     private async Task BubbleQueenMove(IReadOnlyList<Creature> targets)
     {
         PlayAnimation("money");
+        StartWealthGlyphs();
         await Cmd.Wait(0.5f);
         var pos = base.Creature.GetCreatureNode().VfxSpawnPosition;
         VfxCmd.PlayVfx(pos, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
@@ -240,6 +241,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         VfxCmd.PlayVfx(pos, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
         SfxCmd.Play("event:/sfx/ui/gold/gold_2");
         await Cmd.Wait(0.6f);
+        StopWealthGlyphs();
         PlayCurrentLoopAnimation();
     }
 
@@ -256,7 +258,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         if (myNode != null && body != null)
         {
             var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y + 800f);
-            var rushTween = body.CreateTween();
+            var rushTween = CreateBodyMoveTween(body);
             rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.4f);
@@ -266,7 +268,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         PlayAnimation("tornado_2");
         var land = targets.Count > 0 ? NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition : Vector2.Left * 350;
 
-        var rushTween2 = body.CreateTween();
+        var rushTween2 = CreateBodyMoveTween(body);
         rushTween2.TweenProperty(body, "position", land, 0.5f)
             .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
         await Cmd.Wait(0.5f);
@@ -286,12 +288,12 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         Vector2 returnEnd = Vector2.Zero;
         float arcHeight = 100f;
 
-        var returnTween = body.CreateTween();
+        var returnTween = CreateBodyMoveTween(body);
         returnTween.TweenMethod(
             Callable.From<float>(t =>
             {
-                body.Position = returnStart.Lerp(returnEnd, t)
-                    + new Vector2(0, -10 * arcHeight * t * (1 - t));
+                SetBodyPosition(body, returnStart.Lerp(returnEnd, t)
+                    + new Vector2(0, -10 * arcHeight * t * (1 - t)));
             }),
             0f, 1f, 0.5f
         ).SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
@@ -319,6 +321,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
             .FromMonster(this)
+            .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(1f);
@@ -343,5 +346,57 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
         await Cmd.Wait(0.8f);
         PlayCurrentLoopAnimation();
+    }
+
+    private const string WealthBurstScenePath = "res://images/sprite/joon/joon_wealth_burst.tscn";
+
+    private static PackedScene? _wealthBurstScene;
+
+    private Node2D? _wealthBurstVfx;
+
+    /// <summary>
+    /// 在女苑身后持续逸散随机财富字符（金 / 富 / 豊 / 宝），逐渐放大并变为半透明。
+    /// </summary>
+    private void StartWealthGlyphs()
+    {
+        StopWealthGlyphs();
+
+        _wealthBurstScene ??= GD.Load<PackedScene>(WealthBurstScenePath);
+        NCreature? creatureNode = Creature.GetCreatureNode();
+        Node2D? body = creatureNode?.Visuals.GetCurrentBody();
+        Node? parent = body?.GetParent();
+        if (_wealthBurstScene == null || body == null || parent == null)
+            return;
+
+        Node2D vfx = _wealthBurstScene.Instantiate<Node2D>();
+        parent.AddChildSafely(vfx);
+        parent.MoveChild(vfx, body.GetIndex());
+        vfx.Position = body.Position + new Vector2(0f, -60f);
+        foreach (CpuParticles2D particles in vfx.GetChildren().OfType<CpuParticles2D>())
+            particles.Emitting = true;
+
+        _wealthBurstVfx = vfx;
+    }
+
+    private void StopWealthGlyphs()
+    {
+        if (_wealthBurstVfx == null || !GodotObject.IsInstanceValid(_wealthBurstVfx))
+        {
+            _wealthBurstVfx = null;
+            return;
+        }
+
+        Node2D vfx = _wealthBurstVfx;
+        _wealthBurstVfx = null;
+        float lifetime = 0f;
+        foreach (CpuParticles2D particles in vfx.GetChildren().OfType<CpuParticles2D>())
+        {
+            particles.Emitting = false;
+            lifetime = Math.Max(lifetime, (float)particles.Lifetime);
+        }
+
+        Tween tween = vfx.CreateTween();
+        tween.TweenInterval(lifetime + 0.2f);
+        tween.TweenCallback(Callable.From(vfx.QueueFreeSafely));
     }
 }
