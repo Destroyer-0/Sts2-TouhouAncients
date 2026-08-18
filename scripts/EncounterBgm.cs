@@ -20,8 +20,10 @@ namespace TouhouAncients.Scripts;
 /// 默认在战斗开始时播放；子类可将 <see cref="TouhouAncientEncounter.AutoStartBgm"/> 设为 false，
 /// 开场只静音原版 FMOD 音乐，稍后调用 <see cref="Start"/> 再播（可淡入）。循环依赖音频导入设置：对应 mp3 的 import 需开启 loop=true。
 ///
-/// 为避免与游戏原 FMOD 音乐重叠，战斗期间把 FMOD 音乐总线（bus:/master/music）静音
-/// （mp3 走 Godot 总线，不受该 FMOD 总线影响），战斗结束后恢复原来的音量。
+/// 为避免与游戏原 FMOD 音乐重叠，战斗期间用 <see cref="FmodAudio.SetBusMute"/> 静音
+/// FMOD 音乐总线（bus:/master/music）。静音与音量独立：滑块仍写入 VolumeBgm 和总线音量，
+/// mp3 由 BaseLib <c>ModAudio.UpdateVolumes</c> 跟着 VolumeBgm 变；结束时 unmute 即可，
+/// 不必快照或回写音量。mp3 走 Godot Master 总线，不受该 FMOD mute 影响。
 /// </summary>
 public static class EncounterBgm
 {
@@ -33,10 +35,7 @@ public static class EncounterBgm
     /// <summary>当前正在播放的 BGM 播放器（由 AutoModAudio.PlayMusic 返回）。</summary>
     private static AudioStreamPlayer? _current;
 
-    /// <summary>战斗开始前记录的 FMOD 音乐总线音量，战斗结束后恢复。</summary>
-    private static float _savedMusicBusVolume = 1f;
-
-    /// <summary>是否已静音原版 FMOD 音乐，决定结束后是否需要恢复总线音量。</summary>
+    /// <summary>是否已用 SetBusMute 静音原版 FMOD 音乐，决定结束后是否 unmute。</summary>
     private static bool _active;
 
     /// <summary>
@@ -61,6 +60,7 @@ public static class EncounterBgm
         }
         else
         {
+            TouhouAncientEncounterBgmNamePatch.TryHide();
             MuteVanillaMusic();
         }
     }
@@ -88,7 +88,7 @@ public static class EncounterBgm
     }
 
     /// <summary>
-    /// 停止 BGM 播放并恢复 FMOD 音乐总线音量。
+    /// 停止 BGM 播放并解除 FMOD 音乐总线静音。
     /// </summary>
     public static void Stop()
     {
@@ -107,7 +107,7 @@ public static class EncounterBgm
     }
 
     /// <summary>
-    /// 记录并静音 FMOD 音乐总线，避免与原 act 音乐重叠。已静音时不再次读取音量，以免把 0 当成原值。
+    /// 静音 FMOD 音乐总线。用 mute 而不是把音量写成 0，这样滑块仍可改 VolumeBgm / 总线音量。
     /// </summary>
     private static void MuteVanillaMusic()
     {
@@ -116,8 +116,7 @@ public static class EncounterBgm
             return;
         }
 
-        _savedMusicBusVolume = FmodAudio.GetBusVolume(MusicBusPath);
-        FmodAudio.SetBusVolume(MusicBusPath, 0f);
+        FmodAudio.SetBusMute(MusicBusPath, true);
         _active = true;
     }
 
@@ -128,7 +127,7 @@ public static class EncounterBgm
             return;
         }
 
-        FmodAudio.SetBusVolume(MusicBusPath, _savedMusicBusVolume);
+        FmodAudio.SetBusMute(MusicBusPath, false);
         _active = false;
     }
 }

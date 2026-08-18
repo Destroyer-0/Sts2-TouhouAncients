@@ -25,6 +25,15 @@ namespace TouhouAncients.Scripts.cards;
 /// </summary>
 public abstract class HouraiPuzzleCard : TouhouAncientCards
 {
+    public enum PuzzleCardName
+    {
+        龙颈之玉 = 0,
+        火鼠的皮衣 = 1,
+        燕之子安贝 = 2,
+        佛御石之钵 = 3,
+        蓬莱的玉枝 = 4,
+    }
+
     public override bool CanBeGeneratedByModifiers => false;
 
     public override bool CanBeGeneratedInCombat => false;
@@ -34,7 +43,7 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
         [CardKeyword.Retain, TouhouAncientKeywords.TouhouAncientPuzzle];
 
-    protected HouraiPuzzleCard(int energyCost) : base(energyCost, CardType.Quest, CardRarity.Quest, TargetType.None, shouldShowInCardLibrary: false)
+    protected HouraiPuzzleCard(int energyCost) : base(energyCost, CardType.Quest, CardRarity.Quest, TargetType.None, shouldShowInCardLibrary: true)
     {
     }
 
@@ -42,7 +51,7 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
     /// 谜题类型编号（0-4）。
     /// 0 = 龙颈之玉、1 = 火鼠的皮衣、2 = 燕之子安贝、3 = 佛御石之钵、4 = 蓬莱的玉枝。
     /// </summary>
-    protected abstract int PuzzleType { get; }
+    protected abstract PuzzleCardName PuzzleType { get; }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -60,7 +69,7 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
         if (kaguya == null) return;
         PrincessPuzzlePower? puzzlePower = kaguya.GetPower<PrincessPuzzlePower>();
         if (puzzlePower == null) return;
-        puzzlePower.CompletePuzzle(PuzzleType, base.Owner);
+        puzzlePower.CompletePuzzle((int)PuzzleType, base.Owner);
     }
 
     /// <summary>
@@ -78,5 +87,4 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
         await PowerCmd.Apply<StrengthPower>(choiceContext, kaguya, 1, base.Owner.Creature, null);
         await CardCmd.Exhaust(choiceContext, card);
     }
-    
 }

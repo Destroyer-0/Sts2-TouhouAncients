@@ -98,22 +98,9 @@ public static class TouhouAncientEncounterBgmNamePatch
     static void Postfix(NCombatRoom __instance)
     {
         if (__instance.Mode != CombatRoomMode.ActiveCombat) return;
+        if (__instance.GetNodeOrNull(DisplayNodeName) != null) return;
+
         ICombatRoomVisuals? visuals = VisualsField?.GetValue(__instance) as ICombatRoomVisuals;
-        if (visuals?.Encounter is TouhouAncientEncounter { AutoStartBgm: false }) return;
-        TryShow(__instance);
-    }
-
-    /// <summary>
-    /// 把曲名标签挂到当前战斗房间。BGM 延后播放时由 <see cref="EncounterBgm.Start"/> 在真正开播时调用。
-    /// </summary>
-    public static void TryShow(NCombatRoom? combatRoom = null)
-    {
-        NCombatRoom? room = combatRoom ?? NCombatRoom.Instance;
-        if (room == null) return;
-        if (room.Mode != CombatRoomMode.ActiveCombat) return;
-        if (room.GetNodeOrNull(DisplayNodeName) != null) return;
-
-        ICombatRoomVisuals? visuals = VisualsField?.GetValue(room) as ICombatRoomVisuals;
         if (visuals?.Encounter is not EncounterModel encounter) return;
         string? bgmDisplayName = LocString.GetIfExists("encounters", encounter.Id.Entry + ".bgm")?.GetFormattedText();
         if (string.IsNullOrEmpty(bgmDisplayName)) return;
@@ -128,9 +115,22 @@ public static class TouhouAncientEncounterBgmNamePatch
         {
             label.Text = "♪ Bgm: " + bgmDisplayName;
         }
-        room.AddChildSafely(display);
+        __instance.AddChildSafely(display);
         _display = display;
         SubscribeCombatEnded();
+    }
+
+    
+    public static void TryHide()
+    {
+        if (_display != null && _subscribed)
+            _display.Hide();
+    }
+    
+    public static void TryShow()
+    {
+        if (_display != null && _subscribed)
+            _display.Show();
     }
 
     private static void SubscribeCombatEnded()
@@ -142,10 +142,11 @@ public static class TouhouAncientEncounterBgmNamePatch
 
     private static void OnCombatEnded(CombatRoom room)
     {
-        Hide();
+        End();
     }
 
-    private static void Hide()
+    
+    private static void End()
     {
         if (_display != null && GodotObject.IsInstanceValid(_display))
         {

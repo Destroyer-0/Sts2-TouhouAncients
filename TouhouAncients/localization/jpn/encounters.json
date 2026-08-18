@@ -38,6 +38,7 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "Kaguya Houraisan",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou": "Just a single grain in the endless fate of deadly duels.",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.bgm": "竹取飛翔　～ Lunatic Princess",
 
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "Yuyuko Saigyouji",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}.",

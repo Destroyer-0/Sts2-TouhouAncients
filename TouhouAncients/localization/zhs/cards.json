@@ -103,7 +103,7 @@
     "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.description": "只有你的格挡大于[blue]35[/blue]时才能打出。",
 
     "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.title": "蓬莱的玉枝",
-    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "战斗开始第[blue]7[/blue]回合后才能打出。",
+    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "",
 
     "TOUHOUANCIENTS-SHINING_TOWER.title": "光辉宝塔",
     "TOUHOUANCIENTS-SHINING_TOWER.description": "对所有敌人造成{Damage:diff()}点伤害并[gold]击晕[/gold]他们。\n斩杀时，获得[blue]{Gold}[/blue][gold]金币[/gold]。\n从你的[gold]牌组[/gold]中移除，并重新加入寻宝奖励中。"

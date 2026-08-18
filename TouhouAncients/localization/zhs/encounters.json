@@ -38,6 +38,7 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "蓬莱山辉夜",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}的旅途终止于[gold]{encounter}[/gold]的石榴裙下。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou": "只是那[gold]永无尽头的死斗宿命[/gold]中的一粟而已。",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.bgm": "竹取飞翔　～ Lunatic Princess",
 
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "西行寺幽幽子",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold]为{character}带来了[purple]死亡[/purple]本身。",

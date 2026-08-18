@@ -23,10 +23,11 @@ public sealed class HinezumiNoKawagoromoCard : HouraiPuzzleCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
-    protected override int PuzzleType => 1;
+    protected override PuzzleCardName PuzzleType => PuzzleCardName.火鼠的皮衣;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<BlazingBodyPower>(choiceContext, [Owner.Creature], 1, Owner.Creature, this);
+        await base.OnPlay(choiceContext, cardPlay);
     }
 }

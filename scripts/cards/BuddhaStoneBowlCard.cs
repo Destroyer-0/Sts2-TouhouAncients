@@ -19,7 +19,7 @@ public sealed class BuddhaStoneBowlCard : HouraiPuzzleCard
     {
     }
 
-    protected override int PuzzleType => 3;
+    protected override PuzzleCardName PuzzleType => PuzzleCardName.佛御石之钵;
 
     /// <summary>
     /// 只有你的格挡大于 35 时才能打出。

@@ -50,7 +50,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private const int PuzzleCardCount = 5;
 
     /// <summary>五道难题释放后，辉夜曲淡入时长（秒）。</summary>
-    private const float FiveDifficultProblemsBgmFadeInSeconds = 2f;
+    private const float FiveDifficultProblemsBgmFadeInSeconds = 2.5f;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
@@ -125,8 +125,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         // 施加公主的谜题（每道未完成谜题提供格挡，PuzzleNum 由能力内部初始化为 5）
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
 
-        if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter
-            && !string.IsNullOrEmpty(encounter.BgmFileName))
+        if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter && !string.IsNullOrEmpty(encounter.BgmFileName))
         {
             EncounterBgm.Start(encounter.BgmFileName, FiveDifficultProblemsBgmFadeInSeconds);
         }

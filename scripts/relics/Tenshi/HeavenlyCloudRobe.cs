@@ -46,7 +46,7 @@ public class HeavenlyCloudRobe : TouhouAncientRelics
         // 初始为敏捷形态
         _currentMode = Mode.Dexterity;
         Flash();
-        await PowerCmd.Apply<HeavenlyCloudRobeDexterityPower>(
+        await PowerCmd.Apply<DexterityPower>(
             new ThrowingPlayerChoiceContext(),
             base.Owner.Creature,
             base.DynamicVars["BuffAmount"].BaseValue,
@@ -62,13 +62,13 @@ public class HeavenlyCloudRobe : TouhouAncientRelics
         {
             // 切换到力量形态
             Flash();
-            var existing = base.Owner.Creature.GetPower<HeavenlyCloudRobeDexterityPower>();
-            if (existing != null)
-            {
-                await PowerCmd.Remove(existing);
-            }
-
-            await PowerCmd.Apply<HeavenlyCloudRobeStrengthPower>(
+            await PowerCmd.Apply<DexterityPower>(
+                new ThrowingPlayerChoiceContext(),
+                base.Owner.Creature,
+                -base.DynamicVars["BuffAmount"].BaseValue,
+                base.Owner.Creature,
+                null);
+            await PowerCmd.Apply<StrengthPower>(
                 context,
                 base.Owner.Creature,
                 base.DynamicVars["BuffAmount"].BaseValue,
@@ -78,15 +78,14 @@ public class HeavenlyCloudRobe : TouhouAncientRelics
         }
         else if (cardPlay.Card.Type == CardType.Skill && _currentMode == Mode.Strength)
         {
-            // 切换到敏捷形态
             Flash();
-            var existing = base.Owner.Creature.GetPower<HeavenlyCloudRobeStrengthPower>();
-            if (existing != null)
-            {
-                await PowerCmd.Remove(existing);
-            }
-
-            await PowerCmd.Apply<HeavenlyCloudRobeDexterityPower>(
+            await PowerCmd.Apply<StrengthPower>(
+                new ThrowingPlayerChoiceContext(),
+                base.Owner.Creature,
+                -base.DynamicVars["BuffAmount"].BaseValue,
+                base.Owner.Creature,
+                null);
+            await PowerCmd.Apply<DexterityPower>(
                 context,
                 base.Owner.Creature,
                 base.DynamicVars["BuffAmount"].BaseValue,

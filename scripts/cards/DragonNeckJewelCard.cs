@@ -22,7 +22,7 @@ public sealed class DragonNeckJewelCard : HouraiPuzzleCard
     {
     }
 
-    protected override int PuzzleType => 0;
+    protected override PuzzleCardName PuzzleType => PuzzleCardName.龙颈之玉;
 
     /// <summary>
     /// 每打出一张牌，本回合耗能减少 1（可叠加至 0 费）。
