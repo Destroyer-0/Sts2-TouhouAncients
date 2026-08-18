@@ -38,7 +38,8 @@ public class HinanawiTenshiAncient : TouhouAncientBase
         ),
         MakePool(
             AncientOption<HisouSword>(),
-            AncientOption<KeystoneFloatingCannon>()
+            AncientOption<KeystoneFloatingCannon>(),
+            AncientOption<HeavenlyCloudRobe>()
             //AncientOption<KeystoneFloatingCannon>()
         )
     );
