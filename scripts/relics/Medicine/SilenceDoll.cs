@@ -63,11 +63,6 @@ public class SilenceDoll : TouhouAncientRelics
             .Where(c => c is { HasBeenRemovedFromState: false, Pile: not null } && c.Owner == base.Owner)
             .Distinct()
             .ToList();
-        //
-        //
-        // var amount = CombatManager.Instance.History.Entries.OfType<CardDiscardedEntry>()
-        //     .Count(e => e.HappenedLastPlayerTurn(player) && e.CardPlay.Card.Owner == card.Owner && e.CardPlay.Card.Type == card.Type);
-        //
         _data.CurrentTurnDiscards.Clear();
         if (available.Count == 0) return;
 
@@ -82,9 +77,6 @@ public class SilenceDoll : TouhouAncientRelics
 
         if (selected == null) return;
         _data.TrackedCards.Add(selected);
-
-        // 添加保留并放入手牌
-        // selected.AddKeyword(CardKeyword.Retain);
         await CardPileCmd.Add(selected, PileType.Hand);
     }
 
