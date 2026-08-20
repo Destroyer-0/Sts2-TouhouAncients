@@ -37,8 +37,8 @@ public class ShiningTower : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(30m, ValueProp.Move),
-        new GoldVar(77)
+        new DamageVar(37m, ValueProp.Move),
+        new GoldVar(188)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -46,6 +46,8 @@ public class ShiningTower : TouhouAncientCards
         HoverTipFactory.Static(StaticHoverTip.Fatal),
         StunIntent.GetStaticHoverTip()
     ];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public ShiningTower() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -95,6 +97,6 @@ public class ShiningTower : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Damage.UpgradeValueBy(7m);
+        base.DynamicVars.Damage.UpgradeValueBy(10m);
     }
 }

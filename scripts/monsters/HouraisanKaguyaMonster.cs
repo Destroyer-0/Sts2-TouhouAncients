@@ -50,7 +50,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private const int PuzzleCardCount = 5;
 
     /// <summary>五道难题释放后，辉夜曲淡入时长（秒）。</summary>
-    private const float FiveDifficultProblemsBgmFadeInSeconds = 2.5f;
+    private const float FiveDifficultProblemsBgmFadeInSeconds = 2f;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
