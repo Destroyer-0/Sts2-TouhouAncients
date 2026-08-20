@@ -61,7 +61,7 @@ public class ServantSakuya : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // 1. 生成2把小刀
-        await Shiv.CreateInHand(base.Owner, 2, base.Owner.Creature.CombatState);
+        await Shiv.CreateInHand(base.Owner, DynamicVars.Cards.IntValue, base.Owner.Creature.CombatState);
 
         // 2. 记录目标，供回合结束时使用
         _target.Add((cardPlay, cardPlay.Target));

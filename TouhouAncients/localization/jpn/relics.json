@@ -488,8 +488,8 @@
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "",
 
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "Eientei Zakushi",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "Upon pickup, fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "Fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "Kaguya's Secret Treasure",

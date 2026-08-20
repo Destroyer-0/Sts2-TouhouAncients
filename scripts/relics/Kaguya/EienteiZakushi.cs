@@ -17,7 +17,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 永远亭座药：拾起时，用随机药水填满你的药水栏位。
+/// 永远亭座药：拾起时，获得1个药水栏位，并用随机药水填满你的药水栏位。
 /// 每回合开始时，你每拥有一瓶药水，对随机一个敌人造成8点伤害。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
@@ -28,14 +28,21 @@ public class EienteiZakushi : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("DamagePerPotion", 8m),
+        new DynamicVar("PotionSlots", 1m),
     ];
 
     /// <summary>
-    /// 拾起时，用随机药水填满药水栏位。
+    /// 拾起时，获得{PotionSlots}个药水栏位，并用随机药水填满药水栏位。
     /// </summary>
     public override async Task AfterObtained()
     {
         var player = base.Owner;
+        Flash();
+
+        // 获得 1 个药水栏位
+        var slotCount = base.DynamicVars["PotionSlots"].IntValue;
+        await PlayerCmd.GainMaxPotionCount(slotCount, player);
+
         if (!player.HasOpenPotionSlots) return;
 
         var emptyCount = player.MaxPotionCount - player.Potions.Count();

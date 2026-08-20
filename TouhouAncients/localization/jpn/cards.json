@@ -92,6 +92,21 @@
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "Dream Seal: Sabi",
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
 
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "Jewel from the Dragon's Neck",
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "Whenever you play a card, this card's cost is reduced by [blue]{CostReduce}[/blue] this turn.",
+
+    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.title": "Robe of Fire Rat",
+    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.description": "At the start of your turn, add [blue]{Cards}[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
+
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.title": "Swallow's Cowrie Shell",
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.description": "Can only be played if your [gold]Draw Pile[/gold] has no more than [blue]{DrawPileLimit}[/blue] cards.",
+
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.title": "Buddha's Stone Bowl",
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.description": "Can only be played if your [gold]Block[/gold] is at least [blue]{RequiredBlock}[/blue].",
+
+    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.title": "Jeweled Branch of Hourai",
+    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "",
+
     "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
     "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold]."
 }

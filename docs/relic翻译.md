@@ -819,8 +819,8 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "永远亭座药",
-"TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "拾起时，用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
-"TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+"TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "拾起时，获得[blue]{PotionSlots}[/blue]个[gold]药水栏位[/gold]并用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
+"TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "获得[blue]{PotionSlots}[/blue]个[gold]药水栏位[/gold]并用随机[gold]药水[/gold]填满你的[gold]药水栏位[/gold]。在你的回合开始时，你每拥有一瓶[gold]药水[/gold]，对随机一个敌人造成[blue]{DamagePerPotion}[/blue]点伤害。",
 "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": ""
 ```
 
@@ -828,8 +828,8 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Eientei Zakushi` |
-| `.description` | `Upon pickup, fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.` |
-| `.eventDescription` | `Fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.` |
+| `.description` | `Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.` |
+| `.eventDescription` | `Gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.` |
 | `.flavor` | `""`（留空） |
 
 

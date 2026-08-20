@@ -27,7 +27,7 @@ public sealed class HinezumiNoKawagoromoCard : HouraiPuzzleCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<BlazingBodyPower>(choiceContext, [Owner.Creature], 1, Owner.Creature, this);
+        await PowerCmd.Apply<BlazingBodyPower>(choiceContext, [Owner.Creature], base.DynamicVars["Cards"].IntValue, Owner.Creature, this);
         await base.OnPlay(choiceContext, cardPlay);
     }
 }
