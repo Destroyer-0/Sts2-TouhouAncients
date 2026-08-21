@@ -2032,21 +2032,21 @@
 
 ---
 
-## 沉锚幽灵（2026-07-21 新增）
+## 沉锚幽灵（2026-07-21 新增，2026-08-21 修改）
 
-**键名**: `TOUHOUANCIENTS-ANCHORED_GHOST`
+**键名**: `TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST`
 
 ### 中文原文
 ```json
-"TOUHOUANCIENTS-ANCHORED_GHOST.title": "沉锚幽灵",
-"TOUHOUANCIENTS-ANCHORED_GHOST.description": "回合开始时获得[blue]1[/blue]能量。你的[gold]能力牌[/gold]在战斗开始时被置于牌堆底。"
+"TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "沉锚幽灵",
+"TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "回合开始时获得{Energy:energyIcons()}。每场战斗开始时，将随机9张牌置入你的[gold]弃牌堆[/gold]。"
 ```
 
 ### 英文翻译
 | 字段 | 翻译 |
 |------|------|
-| `.title` | `Anchored Ghost` |
-| `.description` | `At the start of your turn, gain [blue]1[/blue] Energy. At the start of each combat, your [gold]Power[/gold] cards are placed at the bottom of your [gold]Draw Pile[/gold].` |
+| `.title` | `Sunken Anchor Ghost` |
+| `.description` | `Gain {Energy:energyIcons()} at the start of your turn. At the start of each combat, place [blue]9[/blue] random cards into your [gold]Discard Pile[/gold].` |
 
 ---
 

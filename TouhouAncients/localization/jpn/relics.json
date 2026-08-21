@@ -676,7 +676,7 @@
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "The ability to have precise movements and overwhelming strength.",
 
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "Sunken Anchor Ghost",
-  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of your turn. Your [gold]Power[/gold] cards are placed at the bottom of your [gold]Draw Pile[/gold] at the start of combat.",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of your turn. At the start of each combat, place [blue]{Cards}[/blue] random cards into your [gold]Discard Pile[/gold].",
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "The ability to make any ship sink no matter what.",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",

@@ -5,26 +5,26 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using TouhouAncients.Scripts.cardTags;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 沉锚幽灵：回合开始时获得1能量。战斗开始时，为你的能力牌添加沉底关键词。
+/// 沉锚幽灵：回合开始时获得1能量。每场战斗开始时，将随机9张牌置入弃牌堆。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class SunkenAnchorGhost : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1)
+        new EnergyVar(1),
+        new CardsVar(9)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [];
@@ -37,28 +37,25 @@ public class SunkenAnchorGhost : TouhouAncientRelics
     }
 
     /// <summary>
-    /// 战斗开始后，为牌组中所有能力牌添加沉底关键词。
+    /// 战斗开始后，从抽牌堆随机选择9张牌置入弃牌堆。
     /// </summary>
-    public override Task BeforeCombatStartLate()
+    public override async Task BeforeCombatStartLate()
     {
-        if (base.Owner?.Creature?.CombatState == null) return Task.CompletedTask;
+        if (base.Owner?.Creature?.CombatState == null) return;
 
         var player = base.Owner;
         var drawPile = player.PlayerCombatState.DrawPile;
 
-        var powerCards = drawPile.Cards
-            .Where(c => c.Type == CardType.Power &&
-                        !c.Keywords.Contains(TouhouAncientKeywords.TouhouAncientSinkToBottom))
+        if (drawPile.IsEmpty) return;
+
+        var cardsToDiscard = drawPile.Cards.ToList()
+            .UnstableShuffle(player.RunState.Rng.CombatCardSelection)
+            .Take(DynamicVars.Cards.IntValue)
             .ToList();
 
-        if (powerCards.Count == 0) return Task.CompletedTask;
+        if (cardsToDiscard.Count == 0) return;
 
         Flash();
-        foreach (var card in powerCards)
-        {
-            CardCmd.ApplyKeyword(card, TouhouAncientKeywords.TouhouAncientSinkToBottom);
-        }
-
-        return Task.CompletedTask;
+        await CardPileCmd.Add(cardsToDiscard, PileType.Discard, CardPilePosition.Random);
     }
 }
