@@ -52,6 +52,7 @@
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "A Pristine Danmaku Hell",
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "Choose any number of cards from your [gold]Hand[/gold] and [gold]Transform[/gold] them into [gold]Nameless Bullets[/gold].\nThis turn, your Attack cards are free to play and draw a card when played. When you have no Attack cards in your [gold]Hand[/gold], end your turn.",
+    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.selectionScreenPrompt": "Choose cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-NAMELESS_BULLETS.title": "Nameless Bullets",
     "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "Deal {Damage:diff()} damage.",

@@ -2357,4 +2357,40 @@
 - **「战斗奖励中的卡牌」→ cards in combat rewards** — 参照烤味噌更新的句式 `cards will no longer appear in combat rewards`
 - 描述强调被替换的是"卡牌"本身，而非整个卡牌奖励组
 
+---
+
+## 增量更新（2026-08-21，基于提交 c15dd92 之后，全量同步）
+
+### 天云羽衣（新遗物）
+
+**键名**: `TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE`
+
+| 字段 | 中文 | English |
+|------|------|---------|
+| `.title` | 天云羽衣 | Heavenly Hagoromo |
+| `.description` | 在每场战斗开始时，获得[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。当你打出[gold]攻击牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]力量[/gold]；当你打出[gold]技能牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。 | At the start of each combat, gain [blue]{BuffAmount}[/blue] [gold]Dexterity[/gold]. After you play an [gold]Attack[/gold], this effect becomes [blue]{BuffAmount}[/blue] [gold]Strength[/gold]; after you play a [gold]Skill[/gold], this effect becomes [blue]{BuffAmount}[/blue] [gold]Dexterity[/gold]. |
+| `.flavor` | 龙宫赠送的龙宫使者同款的羽衣服饰。对天子来说，这衣服穿起来实在过于麻烦。 | A hagoromo gifted by the Dragon Palace, identical to what its messengers wear. For Tenshi, this outfit is simply far too troublesome to put on. |
+
+### 补译（此前 eng/jpn 缺失或为中文的条目）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HAKUREI_CHARM.title` | 博丽御札 | Hakurei Charm |
+| `HAKUREI_CHARM.description` | 战斗开始时，选择一个选项进行[gold]祈愿[/gold]。 | At the start of combat, choose an option and make a [gold]Wish[/gold]. |
+| `WHITE_FLAG.title` | 白旗 | White Flag |
+| `WHITE_FLAG.description` / `.eventDescription` | 拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | Upon pickup, choose a card from your [gold]Deck[/gold] that costs at least [blue]1[/blue], and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple]. |
+| `TUNAKI_SMOKING_PIPE.title` | 狸之烟管 | Tanuki's Smoking Pipe |
+| `TUNAKI_SMOKING_PIPE.description` | 在你的回合结束时，变化任意张[gold]手牌[/gold]。 | At the end of your turn, [gold]Transform[/gold] any number of cards in your [gold]Hand[/gold]. |
+
+### 描述更新（zhs 文本变更，eng/jpn 同步）
+
+| 键 | 变更 |
+|------|------|
+| `GLOWING_BAMBOO.description` | 移除"未升级的"限定 → The First card you play each combat will be [green]Upgraded[/green] after the combat ends. |
+| `EIENTEI_ZAKUSHI.description` / `.eventDescription` | 新增获得[blue]{PotionSlots}[/blue]个药水栏位 → gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold] |
+| `ILLUSORY_PROJECTION.description` | 重写为单一阈值句式 → Cards costing [blue]{CostThreshold}[/blue] or more are played [blue]2[/blue] times. |
+| `DOWSING_ROD.description` | 补充寻宝描述 + 新增 `.selectionScreenPrompt` → Choose cards to take |
+| `KEYSTONE_FLOATING_CANNON.description` | "使用"→"打出"（英文已为 played，无实质变化） |
+| `MINI_HAKKERO` / `MUSHROOM_BENTO` / `OVERFLOWING_DEFILEMENT` / `TREMBLING_FROZEN_STAR` / `PURGATORY_EMBERS` / `ESTRANGED_HEART` / `SILENCE_DOLL` / `BATTERY_BILI` 等 | 中文补充 `[gold]手牌[/gold]` / `[gold]抽牌堆[/gold]` 标记，英文描述无需变更 |
+
 

@@ -42,6 +42,7 @@
 
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.title": "Yuyuko Saigyouji",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.loss": "[gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}.",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ENCOUNTER.youmu": "[gold]{encounter}[/gold] did not go easy on {character}.",
 
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "Junko",
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character} submitted to the absolute power of [gold]{encounter}[/gold].",

@@ -187,8 +187,8 @@
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "When you enter a [gold]Rest Site[/gold], gain [blue]{CardRewards}[/blue] [gold]Card Rewards[/gold] and {Gold}~{GoldMax} [gold]Gold[/gold].",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "You can't hear any sound when you shake it.",
 
-  "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
-  "TOUHOUANCIENTS-HAKUREI_CHARM.description": "战斗开始时，选择一个选项进行[gold]祈愿[/gold]。",
+  "TOUHOUANCIENTS-HAKUREI_CHARM.title": "Hakurei Charm",
+  "TOUHOUANCIENTS-HAKUREI_CHARM.description": "At the start of combat, choose an option and make a [gold]Wish[/gold].",
   "TOUHOUANCIENTS-HAKUREI_CHARM.flavor": "",
 
   "TOUHOUANCIENTS-SUBSPACE_HOLE.title": "Subspace Hole",
@@ -312,9 +312,9 @@
   "TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL.description": "Rabbits will bring you additional combat rewards.",
   "TOUHOUANCIENTS-OOKUNINESHI_PROTRAYAL.flavor": "The dream lover of all rabbits.",
 
-  "TOUHOUANCIENTS-WHITE_FLAG.title": "白旗",
-  "TOUHOUANCIENTS-WHITE_FLAG.description": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "拾起时，从[gold]牌组[/gold]中选择一张耗能至少为[blue]1[/blue]的牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-WHITE_FLAG.title": "White Flag",
+  "TOUHOUANCIENTS-WHITE_FLAG.description": "Upon pickup, choose a card from your [gold]Deck[/gold] that costs at least [blue]1[/blue], and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-WHITE_FLAG.eventDescription": "Upon pickup, choose a card from your [gold]Deck[/gold] that costs at least [blue]1[/blue], and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
   "TOUHOUANCIENTS-WHITE_FLAG.flavor": "",
 
   "TOUHOUANCIENTS-SUSPICIOUS_TOKEN.title": "Suspicious Token",
@@ -719,5 +719,9 @@
 
   "TOUHOUANCIENTS-NOH_MASK.title": "Noh Mask",
   "TOUHOUANCIENTS-NOH_MASK.description": "At the start of combat or whenever you shuffle your [gold]Draw Pile[/gold], randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], or [purple]Pleasure[/purple] to all cards. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
-  "TOUHOUANCIENTS-NOH_MASK.flavor": ""
+  "TOUHOUANCIENTS-NOH_MASK.flavor": "",
+
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "Tanuki’s Smoking Pipe",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "At the end of your turn, [gold]Transform[/gold] any number of cards in your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": ""
 }

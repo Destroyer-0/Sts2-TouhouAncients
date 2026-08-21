@@ -83,5 +83,17 @@
 
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.title": "Nameless Youkai",
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]1[/blue] [gold]Strength[/gold] this turn.",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far."
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.",
+
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess’s Puzzle",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n{PuzzleNum} puzzles remain unsolved, granting {GainBlock} [gold]Block[/gold].",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n{PuzzleNum} puzzles remain unsolved, granting {GainBlock} [gold]Block[/gold].",
+
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "Scorching Body",
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "At the start of your turn, add [blue]1[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-BLAZING_BODY_POWER.smartDescription": "At the start of your turn, add [blue]{Amount}[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
+
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.description": "At the start of your next turn, draw [blue]1[/blue] fewer card.",
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, draw [blue]{Amount}[/blue] fewer {Amount:plural:card|cards}.",
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "Phantom Moon"
 }

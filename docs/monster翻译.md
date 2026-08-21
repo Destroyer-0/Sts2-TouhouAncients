@@ -196,3 +196,69 @@
 - 降神：移除获得无实体，改为使梦想天生计数减少 3（`IndiscriminateSubjugationPower.DecreaseHitsLeft(3)`），保留获得 2 点力量。
 - 梦想天生：意图切换到梦想天生时同步获得翱翔（含首次固定的梦想天生，即战斗开场在 `AfterAddedToRoom` 进入），释放（执行）后移除翱翔。
 - 翱翔仅于释放梦想天生时移除；若灵梦被眩晕导致梦想天生未释放，翱翔保持不移除（合理保留，无兜底清理）。
+
+---
+
+## 增量更新（2026-08-21，基于提交 c15dd92 之后，全量同步）
+
+### 博丽灵梦怪物：技能改名（monsters.json）
+
+| 键 | 变更 |
+|------|------|
+| `HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title` | 降神 → 降神仪式 → Divine Descent Ritual（zhs 已改，eng/jpn 同步） |
+
+### 新怪物：饕餮尤魔（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `TOUTETSU_YUUMA_MONSTER.name` | 饕餮尤魔 | Yuuma Toutetsu |
+| `TOUTETSU_YUUMA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.title` | 无尽贪婪 | Endless Greed |
+| `TOUTETSU_YUUMA_MONSTER.moves.PALE_WHITE_WATERFALL.title` | 饕餮盛宴 | Glutton's Feast |
+| `TOUTETSU_YUUMA_MONSTER.moves..title` | 剖心撕肉 | Gutting Hearts, Rending Flesh |
+| `TOUTETSU_YUUMA_MONSTER.moves.FALSE_MOON.title` | 剔骨啖髓 | Stripping Bones, Devouring Marrow |
+| `TOUTETSU_YUUMA_MONSTER.moves.ETERNAL_NIGHT_RETURN.title` | 混沌炼狱 | Chaos Purgatory |
+
+### 新怪物：西行寺幽幽子（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `SAIGYOUJI_YUYUKO_MONSTER.name` | 西行寺幽幽子 | Yuyuko Saigyouji |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.title` | 亡我乡 | Vanished Homeland |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves.PALE_WHITE_WATERFALL.title` | 蝶妄想 | Butterfly Delusion |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves..title` | 悉皆彷徨 | All-Pervading Wandering |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves.FALSE_MOON.title` | 完全墨染的樱花 | Fully Ink-Dyed Cherry Blossoms |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves.REPAIR.title` | 西行寺无余涅槃 | Saigyouji's Nirvana Without Remainder |
+| `SAIGYOUJI_YUYUKO_MONSTER.moves.FINAL.title` | 反魂蝶·八分咲 | Soul-Returning Butterfly: Eight-Tenths Bloom |
+
+### 辉夜怪物补译（monsters.json，此前 eng/jpn 缺失）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HOURAISAN_KAGUYA_MONSTER.name` | 蓬莱山辉夜 | Kaguya Houraisan |
+| `HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER` | 和你的难题一起见鬼去吧！ | Go to hell with your difficult problems! |
+| `HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.title` | 五道难题 | Five Difficult Problems |
+| `HOURAISAN_KAGUYA_MONSTER.moves.PALE_WHITE_WATERFALL.title` | 苍白之瀑 | Pale White Waterfall |
+| `HOURAISAN_KAGUYA_MONSTER.moves.FALSE_MOON.title` | 虚假之月 | False Moon |
+| `HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.title` | 永夜归返 | Eternal Night Return |
+
+### 遭遇补充（encounters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou` | 只是那[gold]永无尽头的死斗宿命[/gold]中的一粟而已。 | Just a single grain in the endless fate of deadly duels. |
+| `HOURAISAN_KAGUYA_ENCOUNTER.bgm` | 竹取飞翔　～ Lunatic Princess | Flight of the Bamboo Cutter ~ Lunatic Princess |
+| `SAIGYOUJI_YUYUKO_ENCOUNTER.youmu` | [gold]{encounter}[/gold]面对{character}并没有放水。 | [gold]{encounter}[/gold] did not go easy on {character}. |
+
+### 卡牌补充（cards.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `PURE_HELL_OF_BULLETS.selectionScreenPrompt` | 选择要[gold]变化[/gold]的牌。 | Choose cards to [gold]Transform[/gold]. |
+
+### 能力（powers.json）
+
+| 键 | 变更 |
+|------|------|
+| `PRINCESS_PUZZLE_POWER` | 描述中"为她"→"为[gold]蓬莱山辉夜[/gold]"，补译 title/description/smartDescription → Princess's Puzzle |
+| `BLAZING_BODY_POWER` | 补译 title/description/smartDescription → Scorching Body |
+| `DECREASE_DRAW_CARDS_NEXT_TURN_POWER` | 新增 title「幻月」→ Phantom Moon；description/smartDescription 参照原版 MIND_ROT（draw fewer card 句式） |
