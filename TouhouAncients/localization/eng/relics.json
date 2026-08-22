@@ -266,10 +266,6 @@
   "TOUHOUANCIENTS-COSMIC_DECREE.flavor": "Deigning to keep company with ordinary mortals is also a celestial's duty, after all.",
   "TOUHOUANCIENTS-COSMIC_DECREE.selectionScreenPrompt": "Select any number of cards to add to your [gold]Deck[/gold].",
 
-  "TOUHOUANCIENTS-LOSE_MONEY.title": "Gold for Luck",
-  "TOUHOUANCIENTS-LOSE_MONEY.description": "Whenever you play [blue]{CardsNeeded}[/blue] cards, spend [blue]{GoldCost}[/blue] [gold]Gold[/gold] to gain {Energy:energyIcons()}.",
-  "TOUHOUANCIENTS-LOSE_MONEY.flavor": "Shion & Joon relic test 1.",
-
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.title": "Inaba Amulet",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.description": "Upon pickup, remove all non-Eternal [red]Curses[/red] from your [gold]Deck[/gold]. Prevent [red]Curses[/red] from being added to your [gold]Deck[/gold] afterwards.",
   "TOUHOUANCIENTS-WHITE_RABBIT_AMULET.eventDescription": "Remove all non-Eternal [red]Curses[/red] from your [gold]Deck[/gold]. Prevent [red]Curses[/red] from being added to your [gold]Deck[/gold] afterwards.",
@@ -463,38 +459,38 @@
 
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.title": "Ultramarine Orb Elixir",
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.description": "At the start of each combat, add [blue]1[/blue] [gold]Ultramarine Orb Elixir[/gold] to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "",
+  "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "Purify away the defiled past.",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "Jewel from the Dragon's Neck",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "At the start of each combat, add a [gold]Seven Stars+[/gold] to your [gold]Hand[/gold]. It has [gold]Retain[/gold]. At the end of your turn, or every [blue]{Card}[/blue] cards you play, reduce its [gold]Stars[/gold] cost by [blue]1[/blue] this combat.",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "A dazzling dragon jewel.",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], next turn, draw [blue]1[/blue] extra card.",
-  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "The fire salamander’s shield.",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "Swallow's Cowrie Shell",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "Upon pickup, increase your Max HP by [blue]{MaxHpGain}[/blue]. Upon entering a new room, if your HP is below [blue]40%[/blue], heal to [blue]40%[/blue].",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.eventDescription": "Increase your Max HP by [blue]{MaxHpGain}[/blue]. Upon entering a new room, if your HP is below [blue]40%[/blue], heal to [blue]40%[/blue].",
-  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "",
+  "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "A spring of endless life.",
 
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "Buddha's Stone Bowl",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "Upon pickup, lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{StartBlock}[/blue] [gold]Block[/gold].",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "Lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{StartBlock}[/blue] [gold]Block[/gold].",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "The diamond of a Buddha’s body.",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "Jeweled Branch of Hourai",
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.description": "At the start of each combat, [gold]enchant[/gold] [blue]{EnchantCount}[/blue] random cards in your [gold]Deck[/gold] with [purple]Dreamy[/purple].",
-  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "",
+  "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "Branches of silver, stems of gold, and fruits of jade.",
 
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "Eientei Zakushi",
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "Help me! Eirin!",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "Kaguya's Secret Treasure",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "At the start of each combat, choose one of [blue]{Cards}[/blue] [green]Upgraded[/green] cards from other characters' pools and add it to your [gold]Hand[/gold]. After playing this card, its original copy additionally appears in [gold]combat rewards[/gold].",
-  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "",
+  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "For an eternal life, saving up is naturally the most important thing.",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "Choose a card",
 
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "Mini Hakkero",
@@ -513,7 +509,7 @@
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "Konpeito Pot",
   "TOUHOUANCIENTS-KOMPEITO_POT.description": "Your [gold]Card Rewards[/gold] contain an additional [green]Upgraded[/green] [gold]Power[/gold]. Expires after [blue]3[/blue] picks.",
-  "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "Like twinkling stars, beloved by children and fairies alike.",
+  "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "Eat too much and watch out for cavities!",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "Stardust Broom",
   "TOUHOUANCIENTS-STARDUST_BROOM.description": "Start with [blue]2[/blue] charges, max [blue]3[/blue] charges. You may ignore paths when choosing the next rooms to travel to, consuming [blue]1[/blue] charge per use. Gain [blue]1[/blue] charge every [blue]3[/blue] rooms.",
