@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -47,6 +47,15 @@ public class WindPriestessWine : TouhouAncientRelics
     public override async Task AfterEnergyReset(Player player)
     {
         if (player != base.Owner) return;
+        if (player.PlayerCombatState == null) return;
+
+        // 每回合自然重置获得的能量固定等于能量上限：
+        // - 无保留能量（如冰激凌）：ResetEnergy 将能量重置为 MaxEnergy；
+        // - 有保留能量：AddMaxEnergyToCurrent 在现有能量上加上 MaxEnergy。
+        // 两种情况净获得都是 MaxEnergy，直接按 MaxEnergy 计数，
+        // 不依赖回合结束时的剩余能量（回合结束后被补充能量也不会导致异常）。
+        AddEnergyGain(player.PlayerCombatState.MaxEnergy);
+
         await TryDraw();
     }
 
@@ -64,6 +73,8 @@ public class WindPriestessWine : TouhouAncientRelics
 
     private async Task TryDraw()
     {
+        if (!LocalContext.NetId.HasValue) return;
+
         while (TouhouAncients_EnergyGainedCounter >= DynamicVars.Energy.IntValue)
         {
             TouhouAncients_EnergyGainedCounter -= DynamicVars.Energy.IntValue;
@@ -90,40 +101,5 @@ public static class WindPriestessWine_ModifyEnergyGain_Patch
         var relic = player?.GetRelic<WindPriestessWine>();
         if (relic != null && !modifiers.Contains(relic))
             modifiers = modifiers.Append(relic).ToList();
-    }
-}
-
-[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.ResetEnergy))]
-public static class WindPriestessWine_ResetEnergy_Patch
-{
-    [HarmonyPrefix]
-    private static void Prefix(PlayerCombatState __instance, out int __state)
-        => __state = __instance.Energy;
-
-    [HarmonyPostfix]
-    private static void Postfix(PlayerCombatState __instance, int __state)
-    {
-        var player = (Player)AccessTools
-            .Field(typeof(PlayerCombatState), "_player")
-            .GetValue(__instance);
-        var relic = player?.GetRelic<WindPriestessWine>();
-        relic?.AddEnergyGain(__instance.MaxEnergy - __state);
-    }
-}
-[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.AddMaxEnergyToCurrent))]
-public static class WindPriestessWine_AddMaxEnergy_Patch
-{
-    [HarmonyPrefix]
-    private static void Prefix(PlayerCombatState __instance, out int __state)
-        => __state = __instance.Energy;
-
-    [HarmonyPostfix]
-    private static void Postfix(PlayerCombatState __instance, int __state)
-    {
-        var player = (Player)AccessTools
-            .Field(typeof(PlayerCombatState), "_player")
-            .GetValue(__instance);
-        var relic = player?.GetRelic<WindPriestessWine>();
-        relic?.AddEnergyGain(__instance.MaxEnergy);
     }
 }

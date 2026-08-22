@@ -216,8 +216,4 @@
 | 弘川之骨 | `TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA` | 一回合内只打出能力牌时，回合结束时获得2层缓冲。 | — |
 | 弹幕的亡灵 | `TOUHOUANCIENTS-DANMUKU_GHOST` | 敌人回合内若发动过攻击但未造成伤害，回合结束时获得2回合缩小。 | — |
 
-#### 通用
-| 遗物 | 代号 | 效果 | 衍生 |
-|:----|:----|:----|:----|
-| 破财消灾 | `TOUHOUANCIENTS-LOSE_MONEY` | 每打出3张牌，消耗4金币获得1能量。金币不足时不触发。 | — |
 

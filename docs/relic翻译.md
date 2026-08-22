@@ -1575,32 +1575,27 @@
 
 ---
 
-## 激寒大地的重冰
+## 亘古不变的数字
 
-**键名**: `TOUHOUANCIENTS-ZHIHUIJIZHONGBING`
+**键名**: `TOUHOUANCIENTS-DONGNICHANGSHU`
 
 ### 中文原文
 ```json
-"TOUHOUANCIENTS-ZHIHUIJIZHONGBING.title": "激寒大地的重冰",
-"TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "在每场战斗开始时，获得[blue]{Repeat}[/blue]个额外[gold]充能球栏位[/gold]。当你没有打出任何牌结束回合时，当回合获得[blue]{FocusPower}[/blue]临时[gold]集中[/gold]，然后[gold]生成[/gold]{IceOrbNum}个[gold]冰霜[/gold]充能球。",
-"TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "只会集中冰"
+"TOUHOUANCIENTS-DONGNICHANGSHU.title": "亘古不变的数字",
+"TOUHOUANCIENTS-DONGNICHANGSHU.description": "每回合你的[gold]格挡[/gold]首次大于[blue]{BlockLimit}[/blue]时，将[gold]格挡[/gold]降低至[blue]{BlockLimit}[/blue]，获得{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
+"TOUHOUANCIENTS-DONGNICHANGSHU.flavor": ""
 ```
 
 ### 英文翻译
 | 字段 | 翻译 |
 |------|------|
-| `.title` | `Subzero Glacier` |
-| `.description` | `At the start of each combat, gain [blue]{Repeat}[/blue] additional [gold]Orb Slots[/gold]. When you end your turn without playing any cards, gain [blue]{FocusPower}[/blue] temporary [gold]Focus[/gold] this turn, then [gold]Channel[/gold] {IceOrbNum} [gold]Frost[/gold] Orbs.` |
-| `.flavor` | `Focused entirely on frost.` |
+| `.title` | `The Permanence Number` |
+| `.description` | `The first time your [gold]Block[/gold] exceeds [blue]{BlockLimit}[/blue] each turn, reduce your [gold]Block[/gold] to [blue]{BlockLimit}[/blue], gain {Energy:energyIcons()}, and draw [blue]{Cards}[/blue] cards.` |
+| `.flavor` | `""`（留空） |
 
 ### Neta / 文化梗说明
-- **「激寒大地的重冰」** 改自宝可梦冰系 Z 招式「激狂大地万里冰」(Subzero Slammer)
-- **「重冰」** → Glacier，继承原招式 Subzero 的冰系意象
-- **flavor「只会集中冰」** — 双关语：
-  - **集中** = The Defect 的 **Focus** 属性
-  - **冰** = **Frost Orb**
-  - 意为只会堆 Focus 和 Frost Orb，自嘲只会玩冰系构筑
-- 英文 `"Focused entirely on frost."` 保留 Focus/Frost 双关
+- 原遗物「激寒大地的重冰」改版为「亘古不变的数字」：每回合格挡首次超过 15 时，将格挡压制回 15，并将溢出转化为 1 能量与抽 2 张牌
+- 英文名 `The Permanence Number` 呼应「亘古不变」之意
 
 ---
 

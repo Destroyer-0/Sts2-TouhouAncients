@@ -43,9 +43,9 @@
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "在每场战斗开始时，获得{PlatingPower}[gold]覆甲[/gold]。当你获得[gold]覆甲[/gold]时，获得{Energy:energyIcons()}。",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.flavor": "永恒铠甲王朝了",
   
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.title": "激寒大地的重冰",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "在每场战斗开始时，获得[blue]{Repeat}[/blue]个额外[gold]充能球栏位[/gold]。当你没有打出任何牌结束回合时，当回合获得[blue]{FocusPower}[/blue]临时[gold]集中[/gold]，然后[gold]生成[/gold]{IceOrbNum}个[gold]冰霜[/gold]充能球。",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "只会集中冰",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.title": "亘古不变的数字",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.description": "每回合你的[gold]格挡[/gold]首次大于[blue]{BlockLimit}[/blue]时，将[gold]格挡[/gold]降低至[blue]{BlockLimit}[/blue]，获得{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.flavor": "东尼意思。",
 
   "TOUHOUANCIENTS-MORIYA_GOHEI.title": "守矢御币",
   "TOUHOUANCIENTS-MORIYA_GOHEI.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
@@ -136,11 +136,11 @@
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
   "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue][gold]尸体[/gold]、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
-  "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，让已逝之人的躯体与灵魂搭上终末的旅行。",
+  "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，引领逝者的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
   "TOUHOUANCIENTS-HELL_OKUU.description": "在每回合开始时获得{Energy:energyIcons()}。如果你结束回合时{energyPrefix:energyIcons(1)}为0，将一张[gold]灼伤[/gold]加入[gold]抽牌堆[/gold]，并获得[blue]{Strength}[/blue][gold]力量[/gold]。",
-  "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
+  "TOUHOUANCIENTS-HELL_OKUU.flavor": "脑袋空空的地狱鸦接受了山上的究极能源之力，妄念与狂想在冷却前膨胀了她的无知野心。",
 
   "TOUHOUANCIENTS-MIND_PROBE.title": "心灵探测仪",
   "TOUHOUANCIENTS-MIND_PROBE.description": "成功完全格挡敌人的攻击后，[gold]击晕[/gold]该敌人，每个敌人限一次。",
