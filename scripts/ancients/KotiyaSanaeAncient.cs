@@ -21,20 +21,6 @@ public class KotiyaSanaeAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KotiyaSanae.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KotiyaSanae.png";
 
-    // protected override OptionPools MakeOptionPools => new OptionPools(
-    //     MakePool(
-    //         AncientOption<Zhangeweilaiba>(),
-    //         AncientOption<Yiyandingzhen>(),
-    //         AncientOption<Huoyantuxi>(),
-    //         AncientOption<Bileihaopaiduozhua>(),
-    //         AncientOption<Baibaixiangxiangruanruan>(),
-    //         AncientOption<Geishehuaxiaojie>(),
-    //         AncientOption<Sheyaotebieqiang>(),
-    //         AncientOption<Yishixingqile>(),
-    //         AncientOption<Yonghengkaijiawangchaole>(),
-    //         AncientOption<Zhihuijizhongbing>()
-    //     ));
-    //
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<MoriyaGohei>(),

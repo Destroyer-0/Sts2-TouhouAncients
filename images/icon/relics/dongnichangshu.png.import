@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhmqgecf8nup5"
-path="res://.godot/imported/zhihuijizhongbing.png-077d038885c354b9ae84b08b2611516b.ctex"
+uid="uid://bfie0sw0u28n4"
+path="res://.godot/imported/dongnichangshu.png-6a025a0cf651409e42a0b0d66f07ca98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/zhihuijizhongbing.png"
-dest_files=["res://.godot/imported/zhihuijizhongbing.png-077d038885c354b9ae84b08b2611516b.ctex"]
+source_file="res://images/icon/relics/dongnichangshu.png"
+dest_files=["res://.godot/imported/dongnichangshu.png-6a025a0cf651409e42a0b0d66f07ca98.ctex"]
 
 [params]
 

@@ -43,9 +43,9 @@
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.description": "At the start of each combat, gain {PlatingPower} [gold]Plating[/gold]. Whenever you gain [gold]Plating[/gold], gain {Energy:energyIcons()}.",
   "TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE.flavor": "Who wouldn't love Eternal Armor?",
   
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.title": "Subzero Glacier",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.description": "At the start of each combat, gain [blue]{Repeat}[/blue] additional [gold]Orb Slots[/gold]. When you end your turn without playing any cards, gain [blue]{FocusPower}[/blue] temporary [gold]Focus[/gold] this turn, then [gold]Channel[/gold] {IceOrbNum} [gold]Frost[/gold] Orbs.",
-  "TOUHOUANCIENTS-ZHIHUIJIZHONGBING.flavor": "Focused entirely on frost.",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.title": "The Permanence Number",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.description": "The first time your [gold]Block[/gold] exceeds [blue]{BlockLimit}[/blue] each turn, reduce your [gold]Block[/gold] to [blue]{BlockLimit}[/blue], gain {Energy:energyIcons()}, and draw [blue]{Cards}[/blue] cards.",
+  "TOUHOUANCIENTS-DONGNICHANGSHU.flavor": "",
 
   "TOUHOUANCIENTS-MORIYA_GOHEI.title": "Moriya Gohei",
   "TOUHOUANCIENTS-MORIYA_GOHEI.description": "Upon pickup, choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",

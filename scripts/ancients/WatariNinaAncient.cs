@@ -36,7 +36,7 @@ public class WatariNinaAncient : TouhouAncientBase
             AncientOption<Sheyaotebieqiang>(),
             AncientOption<Yishixingqile>(),
             AncientOption<Yonghengkaijiawangchaole>(),
-            AncientOption<Zhihuijizhongbing>()
+            AncientOption<Dongnichangshu>()
         ));
 
     //
