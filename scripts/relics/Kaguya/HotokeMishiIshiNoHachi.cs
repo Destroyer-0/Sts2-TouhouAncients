@@ -50,7 +50,7 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
     /// <summary>
     /// 战斗开始时，获得5敏捷与30格挡。
     /// </summary>
-    public override async Task BeforeCombatStartLate()
+    public override async Task BeforeCombatStart()
     {
         var creature = base.Owner?.Creature;
         if (creature == null) return;
