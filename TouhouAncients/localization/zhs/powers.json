@@ -95,5 +95,12 @@
   
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.description": "在你的下回合开始时，少抽[blue]1[/blue]张牌。",
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.smartDescription": "在你的下回合开始时，少抽[blue]{Amount}[/blue]张牌。",
-  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月"
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月",
+
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "毒人偶",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "铃铃每回合将把1张[gold]毒素加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "铃铃每回合将{Amount}张[gold]毒素加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
+
+  "TOUHOUANCIENTS-GUARDING_POWER.title": "烈毒护身",
+  "TOUHOUANCIENTS-GUARDING_POWER.description": "本回合，所有对铃铃发起的攻击伤害都会转移到梅蒂欣·梅兰可莉身上。"
 }

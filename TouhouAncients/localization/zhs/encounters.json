@@ -33,7 +33,8 @@
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]翻转了{character}倾向胜利的天平。",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "梅蒂欣·梅兰可莉",
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character}沉眠于[gold]{encounter}[/gold]的铃兰花海之中。",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character}沉眠于[gold]{encounter}[/gold]的铃兰花海。",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.bgm": "剧毒身体　～ Forsaken Doll",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "蓬莱山辉夜",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}的旅途终止于[gold]{encounter}[/gold]的石榴裙下。",
@@ -48,7 +49,7 @@
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character}臣服于[gold]{encounter}[/gold]绝对的实力。",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "饕餮尤魔",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold]让{character}作为有机物的一份子融入了石油之海。",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "{character}作为有机物的一份子融入了石油之海。",
 
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "二岩猯藏（测试）",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]与她的手下的花招耍得晕头转向。"

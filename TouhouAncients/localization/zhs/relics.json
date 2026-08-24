@@ -672,7 +672,7 @@
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "拥有精密的动作和强大的力量程度的能力。",
 
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "沉锚幽灵",
-  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "回合开始时获得{Energy:energyIcons()}。每场战斗开始时，将随机[blue]{Cards}[/blue]张牌置入你的[gold]弃牌堆[/gold]。",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "回合开始时获得{Energy:energyIcons()}。每场战斗开始时，将随机[blue]{Cards}[/blue]张牌从[gold]抽牌堆[/gold]置入[gold]弃牌堆[/gold]。",
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "无论如何都会沉船程度的能力。",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙发簪",

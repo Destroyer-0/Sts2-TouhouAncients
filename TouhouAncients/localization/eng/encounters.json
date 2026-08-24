@@ -34,6 +34,7 @@
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "Medicine Melancholy",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.bgm": "Poison Body ~ Forsaken Doll",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "Kaguya Houraisan",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
@@ -48,7 +49,7 @@
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character} submitted to the absolute power of [gold]{encounter}[/gold].",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "Yuuma Toutetsu",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "[gold]{encounter}[/gold] melted {character} into the sea of oil as just another piece of organic matter.",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "{character} melted into the sea of oil as just another piece of organic matter.",
 
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "Mamizou Futatsuiwa (Test)",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character} was spun dizzy by the tricks of [gold]{encounter}[/gold] and her underlings."
