@@ -64,6 +64,13 @@ public class Yumeiro : TouhouAncientEnchantmentModel
                         continue;
                     }
                 }
+
+                // 联机同步：按 ModelId 确定性排序，保证各端枚举顺序一致。
+                // AllAbstractModelSubtypes 的顺序依赖程序集/类型加载顺序，各端不保证相同；
+                // 而 UnstableShuffle 的结果依赖列表初始顺序，顺序不一致会导致各端随机到不同附魔。
+                s_allEnchantments = s_allEnchantments
+                    .OrderBy(e => e.Id.ToString(), StringComparer.Ordinal)
+                    .ToList();
             }
 
             return s_allEnchantments;
