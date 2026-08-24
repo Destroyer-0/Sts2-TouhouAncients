@@ -1,16 +1,21 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.powers;
 
@@ -44,6 +49,19 @@ public class PoorestFormPower : TouhouAncientPowerModel
         IReadOnlyList<CardModel> cards = PileType.Hand.GetPile(Owner.Player).Cards;
         var remainingEnergy = cards.Where(c=>!c.EnergyCost.CostsX&& c.EnergyCost.GetResolved()>0).Sum(c=>c.EnergyCost.GetResolved());
         var doomPowerTime = remainingEnergy - Owner.Player.PlayerCombatState.Energy;
+
+        // 每回合结束时在玩家身上播放一次紫苑厄运字符特效（数量少，位置与打出牌时一致）
+        NCreature? playerNode = NCombatRoom.Instance?.GetCreatureNode(Owner);
+        Control? backVfxContainer = NCombatRoom.Instance?.BackCombatVfxContainer;
+        if (playerNode != null && backVfxContainer != null)
+        {
+            NShionNegativeBurstVfx? vfx = NShionNegativeBurstVfx.Create(
+                playerNode.VfxSpawnPosition + new Vector2(0f, -60f), count: 8, scatterRadius: 150f);
+            if (vfx != null)
+            {
+                backVfxContainer.AddChildSafely(vfx);
+            }
+        }
 
         for (int i = 0; i < doomPowerTime; i++)
         {

@@ -22,8 +22,6 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
 {
-    /// <summary>每道谜题的格挡量（初始 12）。</summary>
-    private const int BaseBlockPerPuzzle = 12;
 
     /// <summary>初始未解开谜题数（五种谜题各一道）。</summary>
     private const int BasePuzzleNum = 5;
@@ -31,7 +29,6 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>谜题类型总数（0-4 五种）。</summary>
     private const int PuzzleTypeCount = 5;
 
-    private const string BlockPerPuzzleKey = "Amount";
 
     private const string PuzzleNumKey = "PuzzleNum";
 
@@ -50,24 +47,24 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>
     /// 图标显示未解开的谜题数量。
     /// </summary>
-    public override int DisplayAmount => base.DynamicVars[PuzzleNumKey].IntValue;
+    public override int DisplayAmount => base.DynamicVars[GainBlockKey].IntValue;
 
     /// <summary>
     /// 多人模式：施加时层数自动乘玩家数。
     /// </summary>
     public override bool ShouldScaleInMultiplayer => true;
-
-    public override decimal GetScaledAmountForMultiplayer(ICombatState combatState, Creature? applier, decimal amount,
-        Creature target, CardModel? cardSource)
-    {
-        return amount * (decimal)combatState.Players.Count;
-    }
+    
+    //
+    // public override decimal GetScaledAmountForMultiplayer(ICombatState combatState, Creature? applier, decimal amount,
+    //     Creature target, CardModel? cardSource)
+    // {
+    //     return amount * (decimal)combatState.Players.Count;
+    // }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar(BlockPerPuzzleKey, BaseBlockPerPuzzle),
         new DynamicVar(PuzzleNumKey, BasePuzzleNum),
-        new DynamicVar(GainBlockKey, BaseBlockPerPuzzle * BasePuzzleNum)
+        new DynamicVar(GainBlockKey, Amount * BasePuzzleNum)
     ];
 
     /// <summary>
@@ -133,9 +130,8 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     private void RefreshGainBlock()
     {
         int puzzleNum = base.DynamicVars[PuzzleNumKey].IntValue;
-        int blockPerPuzzle = base.DynamicVars[BlockPerPuzzleKey].IntValue;
-        int playerCount = Math.Max(1, base.Amount);
-        base.DynamicVars[GainBlockKey].BaseValue = puzzleNum * blockPerPuzzle * playerCount;
+        base.DynamicVars[GainBlockKey].BaseValue = puzzleNum * Amount;
+        InvokeDisplayAmountChanged();
     }
 
     /// <summary>
