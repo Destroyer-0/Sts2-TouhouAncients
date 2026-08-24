@@ -25,8 +25,11 @@ public class HappinessElixir : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        var potion = ModelDb.Potion<CamelliaPotion>().ToMutable();
-        await PotionCmd.TryToProcure(potion, base.Owner);
+        var rewards = new List<Reward>
+        {
+            new PotionReward(ModelDb.Potion<CamelliaPotion>().ToMutable(), base.Owner)
+        };
+        await RewardsCmd.OfferCustom(base.Owner, rewards);
     }
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)

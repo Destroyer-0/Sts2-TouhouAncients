@@ -42,7 +42,7 @@ public class SkySwallowingSpoon : TouhouAncientRelics
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_SwallowedCards;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(5), new StringVar("EnchantmentName", ModelDb.Enchantment<BloodPond>().Title.GetFormattedText())];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(4), new StringVar("EnchantmentName", ModelDb.Enchantment<BloodPond>().Title.GetFormattedText())];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromEnchantment<BloodPond>();

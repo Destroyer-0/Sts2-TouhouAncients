@@ -45,7 +45,12 @@ public class JunkoMapAct : ActMap
         }
 
         var secondBoss = runState.AscensionLevel >= (int)AscensionLevel.DoubleBoss;
-        Grid = new MapPoint[7, list.Count + (secondBoss? 2 : 1)];
+        // Grid 行数固定为房间数 + 1（与 StandardActMap 一致）。
+        // Boss 与 SecondBoss 节点都放在 Grid 之外（row = GetRowCount() / GetRowCount() + 1），
+        // 这样最后一行的普通节点 row 恒等于 GetRowCount() - 1，
+        // 保证 NMapScreen.RecalculateTravelability 中"到达最后一行节点即放行 Boss"的特判
+        // 在单 boss 与双 boss（羽翼之靴自由旅行）下都成立。
+        Grid = new MapPoint[7, list.Count + 1];
         BossMapPoint = new MapPoint(GetColumnCount() / 2, GetRowCount())
         {
             PointType = MapPointType.Boss
@@ -78,7 +83,8 @@ public class JunkoMapAct : ActMap
         }
 
         startMapPoints.Add(Grid[3, 1]);
-        Grid[3, GetRowCount() - (secondBoss ? 2 : 1)].AddChildPoint(BossMapPoint);
+        // 最后一个普通节点（row = GetRowCount() - 1）连接 Boss，与 StandardActMap 一致
+        Grid[3, GetRowCount() - 1].AddChildPoint(BossMapPoint);
         if (SecondBossMapPoint != null)
         {
             BossMapPoint.AddChildPoint(SecondBossMapPoint);
