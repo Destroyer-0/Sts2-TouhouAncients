@@ -12,6 +12,8 @@ public abstract class ReimuBossDreamSealStatus : TouhouAncientCards
     private const CardType type = CardType.Status;
     private const CardRarity rarity = CardRarity.Status;
     private const TargetType targetType = TargetType.None;
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false; 
 
     protected ReimuBossDreamSealStatus(bool shouldShowInCardLibrary) : base(energyCost, type, rarity, targetType,
         shouldShowInCardLibrary)
