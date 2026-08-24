@@ -20,6 +20,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -348,11 +349,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         PlayCurrentLoopAnimation();
     }
 
-    private const string WealthBurstScenePath = "res://images/sprite/joon/joon_wealth_burst.tscn";
-
-    private static PackedScene? _wealthBurstScene;
-
-    private Node2D? _wealthBurstVfx;
+    private NJoonWealthBurstVfx? _wealthBurstVfx;
 
     /// <summary>
     /// 在女苑身后持续逸散随机财富字符（金 / 富 / 豊 / 宝），逐渐放大并变为半透明。
@@ -361,19 +358,18 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     {
         StopWealthGlyphs();
 
-        _wealthBurstScene ??= GD.Load<PackedScene>(WealthBurstScenePath);
         NCreature? creatureNode = Creature.GetCreatureNode();
         Node2D? body = creatureNode?.Visuals.GetCurrentBody();
-        Node? parent = body?.GetParent();
-        if (_wealthBurstScene == null || body == null || parent == null)
+        Control? backVfxContainer = NCombatRoom.Instance?.BackCombatVfxContainer;
+        if (body == null || backVfxContainer == null)
             return;
 
-        Node2D vfx = _wealthBurstScene.Instantiate<Node2D>();
-        parent.AddChildSafely(vfx);
-        parent.MoveChild(vfx, body.GetIndex());
-        vfx.Position = body.Position + new Vector2(0f, -60f);
-        foreach (CpuParticles2D particles in vfx.GetChildren().OfType<CpuParticles2D>())
-            particles.Emitting = true;
+        NJoonWealthBurstVfx? vfx = NJoonWealthBurstVfx.Create(body.GlobalPosition + new Vector2(0f, -60f));
+        if (vfx == null)
+            return;
+
+        backVfxContainer.AddChildSafely(vfx);
+        vfx.Start();
 
         _wealthBurstVfx = vfx;
     }
@@ -386,17 +382,8 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
             return;
         }
 
-        Node2D vfx = _wealthBurstVfx;
+        NJoonWealthBurstVfx vfx = _wealthBurstVfx;
         _wealthBurstVfx = null;
-        float lifetime = 0f;
-        foreach (CpuParticles2D particles in vfx.GetChildren().OfType<CpuParticles2D>())
-        {
-            particles.Emitting = false;
-            lifetime = Math.Max(lifetime, (float)particles.Lifetime);
-        }
-
-        Tween tween = vfx.CreateTween();
-        tween.TweenInterval(lifetime + 0.2f);
-        tween.TweenCallback(Callable.From(vfx.QueueFreeSafely));
+        vfx.Stop();
     }
 }

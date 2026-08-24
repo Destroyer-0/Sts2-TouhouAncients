@@ -19,6 +19,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -348,10 +349,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         return moveStateId != "STUNNED";
     }
 
-    private const string NegativeBurstScenePath = "res://images/sprite/shion/shion_negative_burst.tscn";
-
-    private static PackedScene? _negativeBurstScene;
-
     /// <summary>
     /// 在目标位置逸散随机厄运字符（厄 / 貧 / 損 / 負）。
     /// </summary>
@@ -369,41 +366,13 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     private void ScatterNegativeGlyphsAt(Vector2 origin, int count, float scatterRadius)
     {
-        _negativeBurstScene ??= GD.Load<PackedScene>(NegativeBurstScenePath);
-        if (_negativeBurstScene == null || NCombatRoom.Instance?.CombatVfxContainer == null)
+        if (NCombatRoom.Instance?.CombatVfxContainer == null)
             return;
 
-        Node2D vfx = _negativeBurstScene.Instantiate<Node2D>();
-        CpuParticles2D[] emitters = vfx.GetChildren().OfType<CpuParticles2D>().ToArray();
-        if (emitters.Length == 0)
+        NShionNegativeBurstVfx? vfx = NShionNegativeBurstVfx.Create(origin, count, scatterRadius);
+        if (vfx == null)
             return;
-
-        int baseAmount = count / emitters.Length;
-        int remainder = count % emitters.Length;
-        float lifetime = 0f;
-        for (int i = 0; i < emitters.Length; i++)
-        {
-            CpuParticles2D particles = emitters[i];
-            int amount = baseAmount + (i < remainder ? 1 : 0);
-            if (amount <= 0)
-                continue;
-
-            particles.Amount = amount;
-            particles.InitialVelocityMin = scatterRadius * 0.55f;
-            particles.InitialVelocityMax = scatterRadius;
-            lifetime = Math.Max(lifetime, (float)particles.Lifetime);
-        }
 
         NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(vfx);
-        vfx.GlobalPosition = origin;
-        foreach (CpuParticles2D particles in emitters)
-        {
-            if (particles.Amount > 0)
-                particles.Emitting = true;
-        }
-
-        Tween tween = vfx.CreateTween();
-        tween.TweenInterval(lifetime + 0.35f);
-        tween.TweenCallback(Callable.From(vfx.QueueFreeSafely));
     }
 }

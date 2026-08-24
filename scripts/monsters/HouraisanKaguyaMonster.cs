@@ -43,6 +43,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 14, 13);
 
     private const int EternalNightReturnStrength = 3;
+    private const int BaseBlockPerPuzzle = 12;
 
     private const int EternalNightReturnHeal = 30;
 
@@ -122,8 +123,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
                 1.5f, CardPreviewStyle.HorizontalLayout);
         }
 
-        // 施加公主的谜题（每道未完成谜题提供格挡，PuzzleNum 由能力内部初始化为 5）
-        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
 
         if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter && !string.IsNullOrEmpty(encounter.BgmFileName))
         {
@@ -166,7 +166,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private async Task EternalNightReturnMove(IReadOnlyList<Creature> targets)
     {
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, EternalNightReturnStrength, base.Creature, null);
-        await CreatureCmd.Heal(base.Creature, EternalNightReturnHeal);
+        await CreatureCmd.Heal(base.Creature, EternalNightReturnHeal* base.Creature.CombatState.Players.Count);
         var poisonPowers = base.Creature.GetPowerAmount<PoisonPower>();
         if (poisonPowers > 0)
         {
