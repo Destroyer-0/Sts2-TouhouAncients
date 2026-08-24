@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kaguya_bg_01"]
+
+[ext_resource type="Script" uid="uid://cgv6fwxmmkr3h" path="res://src/Core/Nodes/Rooms/NCombatBackground.cs" id="1_root"]
+[ext_resource type="Texture2D" uid="uid://dkqdhhf452q5a" path="res://images/sprite/Map_Kaguya.png" id="2_img"]
+
+[node name="KaguyaBackground" type="TextureRect"]
+offset_left = -11.0
+offset_top = -18.0
+offset_right = -11.0
+offset_bottom = -18.0
+script = ExtResource("1_root")
+
+[node name="Visual" type="TextureRect" parent="."]
+texture = ExtResource("2_img")
+expand_mode = 1
+stretch_mode = 6
