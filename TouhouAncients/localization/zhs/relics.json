@@ -719,5 +719,6 @@
 
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "狸之烟管",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "在你的回合结束时，变化任意张[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.selectionScreenPrompt": "选择要[gold]变化[/gold]的牌。",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": ""
 }
