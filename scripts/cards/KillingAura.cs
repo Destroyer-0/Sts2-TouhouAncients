@@ -7,7 +7,9 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -66,6 +68,31 @@ public class KillingAura : TouhouAncientCards
         base.DynamicVars.Block.UpgradeValueBy(amount);
     }
 
+    /// <summary>
+    /// 提取一张牌造成的伤害数值（仿照原版「痛殴」(Thrash) 的提取逻辑）。
+    /// 优先级：CalculatedDamage > Damage > OstyDamage，之后统一跑一次 ModifyDamage Hook。
+    /// </summary>
+    private decimal GetCardDamage(CardModel card)
+    {
+        decimal damage = 0m;
+        if (card.DynamicVars.ContainsKey("CalculatedDamage"))
+        {
+            damage = card.DynamicVars.CalculatedDamage.Calculate(null);
+        }
+        else if (card.DynamicVars.ContainsKey("Damage"))
+        {
+            damage = card.DynamicVars.Damage.BaseValue;
+        }
+        else if (card.DynamicVars.ContainsKey("OstyDamage"))
+        {
+            damage = card.DynamicVars.OstyDamage.BaseValue;
+        }
+
+        damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature,
+            damage, ValueProp.Move, card, null, ModifyDamageHookType.All, CardPreviewMode.None, out _);
+        return damage;
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Target != null)
@@ -105,15 +132,19 @@ public class KillingAura : TouhouAncientCards
                 skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
             );
             AddBlock(cardPlay.Card.DynamicVars.Block.IntValue);
-            if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
+            if (cardPlay.Card.DynamicVars.ContainsKey("Damage")
+                || cardPlay.Card.DynamicVars.ContainsKey("CalculatedDamage")
+                || cardPlay.Card.DynamicVars.ContainsKey("OstyDamage"))
             {
-                AddDamage(cardPlay.Card.DynamicVars.Damage.IntValue);
+                AddDamage((int)GetCardDamage(cardPlay.Card));
             }
 
             return;
         }
 
-        if (cardPlay.Card.DynamicVars.ContainsKey("Damage"))
+        if (cardPlay.Card.DynamicVars.ContainsKey("Damage")
+            || cardPlay.Card.DynamicVars.ContainsKey("CalculatedDamage")
+            || cardPlay.Card.DynamicVars.ContainsKey("OstyDamage"))
         {
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
                 VfxColor.Purple));
@@ -122,7 +153,7 @@ public class KillingAura : TouhouAncientCards
                 cardPlay.Card,
                 skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
             );
-            AddDamage(cardPlay.Card.DynamicVars.Damage.IntValue);
+            AddDamage((int)GetCardDamage(cardPlay.Card));
         }
     }
 }

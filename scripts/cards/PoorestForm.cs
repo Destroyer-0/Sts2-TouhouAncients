@@ -1,17 +1,23 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -52,6 +58,19 @@ public class PoorestForm : TouhouAncientCards
         // 至贫形态可叠加
         await PowerCmd.Apply<PoorestFormPower>(choiceContext, creature, base.DynamicVars["Amount"].BaseValue, creature,
             this);
+
+        // 玩家身后播放紫苑厄运字符特效（数量多）
+        NCreature? playerNode = NCombatRoom.Instance?.GetCreatureNode(creature);
+        Control? backVfxContainer = NCombatRoom.Instance?.BackCombatVfxContainer;
+        if (playerNode != null && backVfxContainer != null)
+        {
+            NShionNegativeBurstVfx? vfx = NShionNegativeBurstVfx.Create(
+                playerNode.VfxSpawnPosition + new Vector2(0f, -60f), count: 30, scatterRadius: 260f);
+            if (vfx != null)
+            {
+                backVfxContainer.AddChildSafely(vfx);
+            }
+        }
     }
 
     protected override void OnUpgrade()

@@ -81,6 +81,11 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
         if (!base.Owner.Character.Id.Entry.Contains("MOKOU", StringComparison.OrdinalIgnoreCase)) return;
         Creature? kaguya = base.Owner.Creature.CombatState?.Enemies.FirstOrDefault(c => c.Monster is HouraisanKaguyaMonster);
         if (kaguya == null) return;
+        if (CombatState.Players.Count > 1)
+        {
+            TalkCmd.Play(new LocString("monsters", "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2"), base.Owner.Creature, VfxColor.Red, VfxDuration.Long);
+            return;
+        }
         await CompletePuzzleForOwner();
         TalkCmd.Play(new LocString("monsters", "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER"), base.Owner.Creature, VfxColor.Red, VfxDuration.Long);
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, 1, base.Owner.Creature, null);

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -10,10 +11,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -58,6 +61,19 @@ public class RichestForm : TouhouAncientCards
         if (power != null)
         {
             power.ExtraCost += DynamicVars.Energy.IntValue;
+        }
+
+        // 玩家身后播放女苑财富字符特效（1 秒）
+        NCreature? playerNode = NCombatRoom.Instance?.GetCreatureNode(creature);
+        Control? backVfxContainer = NCombatRoom.Instance?.BackCombatVfxContainer;
+        if (playerNode != null && backVfxContainer != null)
+        {
+            NJoonWealthBurstVfx? vfx = NJoonWealthBurstVfx.Create(playerNode.VfxSpawnPosition + new Vector2(0f, -60f));
+            if (vfx != null)
+            {
+                backVfxContainer.AddChildSafely(vfx);
+                vfx.PlayForSeconds(1f);
+            }
         }
     }
     
