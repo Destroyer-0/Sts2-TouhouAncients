@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using BaseLib.Abstracts;
+using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
@@ -11,6 +12,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.RunHistoryScreen;
+using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -56,6 +58,31 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
     /// 由怪物技能等手动调用 <see cref="EncounterBgm.Start"/> 再开始播放。
     /// </summary>
     public virtual bool AutoStartBgm => true;
+
+    /// <summary>
+    /// 专属战斗背景主场景路径（可为 null）。不为 null 时，战斗背景将被替换为
+    /// 该 .tscn 场景（根节点需挂 <c>NCombatBackground</c> 脚本；单张图片背景可把
+    /// <c>TextureRect</c> 作为其子节点承载）。返回 null 表示保留当前 Act 的默认背景。
+    ///
+    /// 实现说明：本属性由 <see cref="CustomEncounterBackground"/> 桥接给 BaseLib 内置的
+    /// 自定义背景机制（<c>CustomEncounterModel</c> 已提供 GetBackgroundAssets /
+    /// CreateBackgroundAssetsForCustom 的 Harmony 前缀钩子，自动填充并返回这里的资产），
+    /// 因此无需再写任何 Patch。使用 <see cref="BaseLib.Utils.CustomBackgroundAssets"/>
+    /// 的固定资产构造，且 BgLayers 为空、FgLayer 为 null，NCombatBackground 不会附加分层，
+    /// 主场景即整个背景，最简单可控。
+    /// </summary>
+    public virtual string? CustomBackgroundScenePath => null;
+
+    /// <summary>
+    /// 把 <see cref="CustomBackgroundScenePath"/> 桥接为 BaseLib 的自定义背景资产。
+    /// 返回 null 时 BaseLib 会退回 Act 默认背景。除个别需要按层随机拼装的场景外，
+    /// 子类通常无需重写本方法，直接填 <see cref="CustomBackgroundScenePath"/> 即可。
+    /// </summary>
+    public override BackgroundAssets? CustomEncounterBackground(ActModel parentAct, Rng rng)
+    {
+        string? path = CustomBackgroundScenePath;
+        return string.IsNullOrEmpty(path) ? null : new CustomBackgroundAssets(path, [], null!);
+    }
 
     /// <summary>
     /// 挑战战斗不生成默认战斗奖励（金币/卡牌/药水）：通过游戏原生 ModifyRewards 钩子
