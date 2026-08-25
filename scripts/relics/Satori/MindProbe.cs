@@ -49,8 +49,26 @@ public class MindProbe : TouhouAncientRelics
         if (!dealer.IsEnemy || _stunedEnemyCreature.Contains(dealer)) return;
         
         Flash();
-        await CreatureCmd.Stun(dealer);
+        await StunEnemyWithNextIntent(dealer);
         _stunedEnemyCreature.Add(dealer);
+    }
+
+    /// <summary>
+    /// 眩晕敌人，并指定其眩晕结束后应执行的下一意图（避免意图停留在当前意图上）。
+    /// 参照盛碗虫（石）与盗宝袋兽的 FlutterPower 实现。
+    /// </summary>
+    private async Task StunEnemyWithNextIntent(Creature enemy)
+    {
+        var monster = enemy.Monster;
+        if (monster == null) return;
+        if (monster.MoveStateMachine == null) return;
+
+        // StateLog 最后一项是敌人当前意图对应的状态，计算出它之后应执行的下一意图
+        var nextState = monster.MoveStateMachine.StateLog.Last()
+            .GetNextState(enemy, monster.RunRng.MonsterAi);
+
+        // 传入下一意图 ID，眩晕回合结束后直接进入该意图，而不是停留在当前意图
+        await CreatureCmd.Stun(enemy, nextState);
     }
 
     // public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount,
