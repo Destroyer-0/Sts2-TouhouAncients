@@ -9,6 +9,8 @@ namespace TouhouAncients.Scripts.powers;
 /// <summary>
 /// 我会还给你的！：魔理沙的偷牌暂存能力。
 /// 每个实例暂存一名玩家被偷走的 1 张牌，极限火花·蓄力时归还到手牌并移除该能力。
+/// 多人下每个玩家一个实例，实例的 <see cref="PowerModel.Target"/> 设为被偷牌玩家的 Creature，
+/// 使该实例只对对应玩家可见（原版 SwipePower 同款机制）。
 /// </summary>
 public class IWillReturnItPower : TouhouAncientPowerModel
 {

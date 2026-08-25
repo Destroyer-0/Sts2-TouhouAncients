@@ -226,6 +226,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
             // 创建"我会还给你的"能力实例暂存这张被偷的牌（每名玩家最多 1 张，每个实例 1 张）
             IWillReturnItPower returnPower = (IWillReturnItPower)ModelDb.Power<IWillReturnItPower>().ToMutable();
+            // Target 设为被偷牌玩家的 Creature：多人下各实例只对对应玩家可见（参考原版 SwipePower.Steal）
+            returnPower.Target = cardToSteal.Owner.Creature;
             returnPower.StolenCard = cardToSteal;
             await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), returnPower, base.Creature, 1m, base.Creature, null);
             stolenCards.Add(cardToSteal);
