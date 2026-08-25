@@ -49,6 +49,7 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         if (!shouldTriggerThisTurn) return;
         base.DynamicVars[_hitsLeftKey].BaseValue--;
         InvokeDisplayAmountChanged();
+        reimu.NotifySubjugationHitsLeftChanged(GetHitsLeft());
         await TryTrigger();
     }
 
@@ -61,8 +62,15 @@ public sealed class IndiscriminateSubjugationPower : TouhouAncientPowerModel
         if (!shouldTriggerThisTurn) return;
         base.DynamicVars[_hitsLeftKey].BaseValue = Math.Max(0, base.DynamicVars[_hitsLeftKey].IntValue - amount);
         InvokeDisplayAmountChanged();
+        if (base.Owner.Monster is HakureiReimuMonster reimu)
+        {
+            reimu.NotifySubjugationHitsLeftChanged(GetHitsLeft());
+        }
         await TryTrigger();
     }
+
+    /// <summary>当前剩余计数。</summary>
+    private int GetHitsLeft() => base.DynamicVars[_hitsLeftKey].IntValue;
 
     private bool shouldTriggerThisTurn = true;
 
