@@ -51,8 +51,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     private int AbsoluteLoserDoom => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 18, 16);
 
-    private int AbsoluteLoserRoyaltiesLoss => 10;
-
     private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 60, 55);
 
@@ -284,7 +282,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 绝对输家：给予场上所有单位灾厄，并让玩家失去王国资产。
+    /// 绝对输家：给予场上所有单位灾厄。
     /// </summary>
     private async Task AbsoluteLoserMove(IReadOnlyList<Creature> targets)
     {
@@ -303,15 +301,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await Cmd.Wait(0.25f);
 
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), allys, AbsoluteLoserDoom, base.Creature, null);
-        foreach (var target in targets)
-        {
-            var royal = target.GetPowerAmount<RoyaltiesPower>();
-            if (royal > 0)
-            {
-                await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), target,
-                    -(Math.Min(royal, AbsoluteLoserRoyaltiesLoss)), base.Creature, null);
-            }
-        }
 
         await Cmd.Wait(1f);
     }
