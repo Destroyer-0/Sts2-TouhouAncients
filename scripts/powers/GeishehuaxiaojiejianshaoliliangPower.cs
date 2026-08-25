@@ -18,7 +18,7 @@ public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+    public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Applier")];
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];

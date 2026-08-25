@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
@@ -20,6 +21,14 @@ public class YuanChouPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    /// <summary>
+    /// 每个施放者（Applier）拥有独立的怨仇实例与层数。
+    /// 多人模式（如多个玩家携带不休的恚恨）下，敌人身上会为每个玩家分别显示怨仇图标，
+    /// 伤害减伤与攻击反伤仅对各自对应的施放者生效。
+    /// </summary>
+    public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("Applier")];
     // /// <summary>
     // /// 怨仇的来源（施加该 Debuff 的玩家生物）
     // /// </summary>
