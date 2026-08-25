@@ -723,12 +723,12 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.firstVisitEver.0-0.ancient": "佐渡的二岩是也~今后还请多多关照。老朽可是从幻想乡带来了不少宝贝来帮忙哦。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.0-0r.ancient": "嚯嚯~两大宗教势力对这次异变的解决归属权吵的不可开交。还得是由老朽作为中间人来推广信仰呐。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.1-0r.ancient": "嚯嚯——老朽可是很看好你的。",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.2-0r.ancient": "说起来，老朽在鲵吞亭带来了一些酒。要不要尝尝？不过这酒后劲可不小噢。",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.2-0r.ancient": "老朽从鲵吞亭带来了一些酒。要不要尝尝？希望你能有天狗的酒量。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.3-0r.ancient": "老朽的弟子们又找来了一些新玩意儿，挑挑看有没有用得上的吧。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.4-0r.ancient": "变化之术可是老朽的看家本领，不过在这里嘛……稍微借你点别的力量好了。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.5-0r.ancient": "看在朋友的面子上，给你一个别被俺的狸猫手下用树叶当钱骗了的忠告哦。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.0-0r.ancient": "嚯嚯！你这家伙倒是很[sine]逍遥自在[/sine]嘛！最近在这里闹腾的怎么样？",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.1-0r.ancient": "不大闹一场，可就不是我俩的风格了哦？呵呵呵。",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.1-0r.ancient": "不大闹一场，可就不是俺们的风格了哦？呵呵呵。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.2-0r.ancient": "行啦行啦。你那变化之术，骗得了别人，可骗不了老朽。想要什么东西就自己挑吧。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.3-0r.ancient": "这次又遇到什么麻烦啦？还要老朽出手相助吗？",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.MOKOUMOD-MOKOU_MOD.0-0.ancient": "哟嚯，不死的小姑娘你也在这儿呢。老朽还记得咱俩上次凭依组队的事情呢。",
@@ -742,5 +742,8 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient": "呵呵，老朽见过太多沉默寡言的家伙，她们的秘密往往最有趣。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.DEFECT.0-0r.ancient": "……老朽见过另一个新生的面具妖怪也有和你一样的疑惑。只有不断学习，才能找到真正的自我。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.0-0r.ancient": "哎呀，阁下难道是储君殿下？老朽听说过您的来历，不知我们能否做些特产交易呢？",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": ""
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.char": "喂，我要投诉你！你上次给我的“特产”怎么是一堆叶子！",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.next": "继续",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-1.ancient": "哎呀——真不好意思上次拿错东西了。作为赔礼，俺给您补偿点宝贝吧~",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "老朽听说过你的事情了。不过，想达成你的目标，可万万不能被冲昏了头脑，不能心急呐。"
 }
