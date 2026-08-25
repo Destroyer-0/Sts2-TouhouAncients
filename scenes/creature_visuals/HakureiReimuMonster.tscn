@@ -1,6 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://i4w60earbmuy"]
+[gd_scene load_steps=29 format=3 uid="uid://i4w60earbmuy"]
 
 [ext_resource type="Texture2D" uid="uid://c8q83mwyydw8k" path="res://images/sprite/reimu/stand.png" id="1_5imvx"]
+[ext_resource type="Texture2D" uid="uid://tc4wu2f22odr" path="res://images/sprite/reimu/jump_fall.png" id="2_8xs76"]
+[ext_resource type="SpriteFrames" uid="uid://b38iyjw0gi0jv" path="res://images/sprite/reimu/AmuletAnim.tres" id="2_reksr"]
+[ext_resource type="Texture2D" uid="uid://diqafd2nkdoq4" path="res://images/sprite/reimu/jump_rise.png" id="3_hud8x"]
+[ext_resource type="Texture2D" uid="uid://di0qfufl08c5d" path="res://images/sprite/reimu/spell_musou_b1.png" id="4_1tiws"]
+[ext_resource type="Texture2D" uid="uid://jvort76h4ngm" path="res://images/sprite/reimu/landing.png" id="4_hud8x"]
+[ext_resource type="Texture2D" uid="uid://bxbavpum4dj3r" path="res://images/sprite/reimu/spell_musou_b1_loop.png" id="5_fhm70"]
+[ext_resource type="Texture2D" uid="uid://ruh0td7ylsll" path="res://images/sprite/reimu/shield_p_001.png" id="6_3yosy"]
+[ext_resource type="Script" uid="uid://bwhecq2cpyh7f" path="res://scripts/Vfx/HakureiReimuVisuals.cs" id="7_script"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reksr"]
 atlas = ExtResource("1_5imvx")
@@ -26,6 +34,46 @@ region = Rect2(640, 0, 160, 160)
 atlas = ExtResource("1_5imvx")
 region = Rect2(800, 0, 160, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqqpw"]
+atlas = ExtResource("2_8xs76")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa5g3"]
+atlas = ExtResource("2_8xs76")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poguh"]
+atlas = ExtResource("3_hud8x")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fn4o"]
+atlas = ExtResource("3_hud8x")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tiws"]
+atlas = ExtResource("4_hud8x")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhm70"]
+atlas = ExtResource("4_hud8x")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vugm6"]
+atlas = ExtResource("4_1tiws")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_573mg"]
+atlas = ExtResource("4_1tiws")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbfgm"]
+atlas = ExtResource("5_fhm70")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxco1"]
+atlas = ExtResource("5_fhm70")
+region = Rect2(128, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hud8x"]
 animations = [{
 "frames": [{
@@ -48,21 +96,109 @@ animations = [{
 "texture": SubResource("AtlasTexture_8xs76")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqqpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa5g3")
+}],
+"loop": true,
+"name": &"jump_fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poguh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fn4o")
+}],
+"loop": true,
+"name": &"jump_rise",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tiws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhm70")
+}],
+"loop": false,
+"name": &"land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vugm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_573mg")
+}],
+"loop": false,
+"name": &"spell_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbfgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxco1")
+}],
+"loop": true,
+"name": &"spell_2",
 "speed": 10.0
 }]
 
+[sub_resource type="Shader" id="Shader_i77yt"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvipi"]
+shader = SubResource("Shader_i77yt")
+
 [node name="HakureiReimu" type="Node2D"]
+script = ExtResource("7_script")
 
 [node name="Visuals" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-15, -115)
+texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_hud8x")
-autoplay = "default"
-frame_progress = 0.035722796
-offset = Vector2(-2, -29.333336)
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0287299
+offset = Vector2(-6, -37)
 flip_h = true
+
+[node name="MagicShield" type="Node2D" parent="Visuals"]
+visible = false
+position = Vector2(3.6666665, -31.33333)
+scale = Vector2(0.33333334, 0.33333334)
+
+[node name="Node2D" type="Sprite2D" parent="Visuals/MagicShield"]
+z_index = -1
+texture_filter = 1
+material = SubResource("ShaderMaterial_rvipi")
+texture = ExtResource("6_3yosy")
 
 [node name="Bounds" type="Control" parent="."]
 unique_name_in_owner = true
@@ -75,8 +211,76 @@ offset_bottom = 21.0
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -151)
+position = Vector2(1, -103)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -347)
+position = Vector2(0, -359)
+
+[node name="Amulet" type="Node2D" parent="."]
+visible = false
+position = Vector2(4.7683716e-07, 0)
+
+[node name="Amulet1" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(-220, -105)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.15621623
+
+[node name="Amulet2" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(-170, -180)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.35114613
+
+[node name="Amulet3" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(-90, -240)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.5132529
+
+[node name="Amulet4" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(0, -265)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.10033849
+
+[node name="Amulet5" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(90, -240)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.438009
+
+[node name="Amulet6" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(170, -180)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+autoplay = "default"
+frame_progress = 0.019782452
+
+[node name="Amulet7" type="AnimatedSprite2D" parent="Amulet"]
+texture_filter = 1
+position = Vector2(220, -105)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_reksr")
+animation = &"trigger"
+autoplay = "default"
+frame_progress = 0.39141238
