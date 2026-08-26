@@ -59,17 +59,17 @@ public class HakureiAmulet : TouhouAncientRelics
         return base.BeforeCombatStart();
     }
 
-    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        if (!participants.Contains(Owner.Creature) || side != base.Owner.Creature.Side)
-        {
-            return Task.CompletedTask;
-        }
-
-        _currentThreshold = _initialThreshold;
-        InvokeDisplayAmountChanged();
-        return Task.CompletedTask;
-    }
+    // public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    // {
+    //     if (!participants.Contains(Owner.Creature) || side != base.Owner.Creature.Side)
+    //     {
+    //         return Task.CompletedTask;
+    //     }
+    //
+    //     _currentThreshold = _initialThreshold;
+    //     InvokeDisplayAmountChanged();
+    //     return Task.CompletedTask;
+    // }
     
     /// <summary>
     /// 受到的实际HP损失（破格挡后的伤害）不高于当前阈值时，将伤害降低至1，
@@ -79,7 +79,7 @@ public class HakureiAmulet : TouhouAncientRelics
     {
         if (target != base.Owner?.Creature) return amount;
         if (!CombatManager.Instance.IsInProgress) return amount;
-        if (amount <= 0) return amount;
+        if (amount < 1) return amount;
         //if (!props.IsCardOrMonsterMove()) return amount;
         if (props.HasFlag(ValueProp.Unblockable)) return amount;
         if (amount > _currentThreshold) return amount;

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://i4w60earbmuy"]
+[gd_scene load_steps=32 format=3 uid="uid://i4w60earbmuy"]
 
 [ext_resource type="Texture2D" uid="uid://c8q83mwyydw8k" path="res://images/sprite/reimu/stand.png" id="1_5imvx"]
 [ext_resource type="Texture2D" uid="uid://tc4wu2f22odr" path="res://images/sprite/reimu/jump_fall.png" id="2_8xs76"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bxbavpum4dj3r" path="res://images/sprite/reimu/spell_musou_b1_loop.png" id="5_fhm70"]
 [ext_resource type="Texture2D" uid="uid://ruh0td7ylsll" path="res://images/sprite/reimu/shield_p_001.png" id="6_3yosy"]
 [ext_resource type="Script" uid="uid://bwhecq2cpyh7f" path="res://scripts/Vfx/HakureiReimuVisuals.cs" id="7_script"]
+[ext_resource type="Texture2D" uid="uid://c2ryj00t3kixv" path="res://images/sprite/reimu/shield_p_002.png" id="8_fhm70"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_reksr"]
 atlas = ExtResource("1_5imvx")
@@ -155,25 +156,23 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Shader" id="Shader_i77yt"]
-code = "shader_type canvas_item;
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3yosy"]
+blend_mode = 1
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+[sub_resource type="Curve" id="Curve_hqqpw"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06310679, 1.5888373), 0.0, 0.0, 0, 0, Vector2(0.08980583, 1.0204651), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
 
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
+[sub_resource type="CurveTexture" id="CurveTexture_pa5g3"]
+curve = SubResource("Curve_hqqpw")
 
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rvipi"]
-shader = SubResource("Shader_i77yt")
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_poguh"]
+particle_flag_disable_z = true
+angular_velocity_min = -20.000015
+angular_velocity_max = -20.000015
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_pa5g3")
 
 [node name="HakureiReimu" type="Node2D"]
 script = ExtResource("7_script")
@@ -190,14 +189,33 @@ offset = Vector2(-6, -37)
 flip_h = true
 
 [node name="MagicShield" type="Node2D" parent="Visuals"]
-visible = false
-position = Vector2(3.6666665, -31.33333)
+position = Vector2(0, -36)
 scale = Vector2(0.33333334, 0.33333334)
 
-[node name="Node2D" type="Sprite2D" parent="Visuals/MagicShield"]
+[node name="Node2D2" type="Sprite2D" parent="Visuals/MagicShield"]
+visible = false
 z_index = -1
 texture_filter = 1
-material = SubResource("ShaderMaterial_rvipi")
+material = SubResource("CanvasItemMaterial_3yosy")
+texture = ExtResource("8_fhm70")
+
+[node name="Node2D" type="GPUParticles2D" parent="Visuals/MagicShield"]
+visible = false
+z_index = -1
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_3yosy")
+emitting = false
+amount = 1
+texture = ExtResource("6_3yosy")
+lifetime = 600.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_poguh")
+
+[node name="Node2D3" type="Sprite2D" parent="Visuals/MagicShield"]
+visible = false
+z_index = -1
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_3yosy")
 texture = ExtResource("6_3yosy")
 
 [node name="Bounds" type="Control" parent="."]
@@ -218,7 +236,6 @@ unique_name_in_owner = true
 position = Vector2(0, -359)
 
 [node name="Amulet" type="Node2D" parent="."]
-visible = false
 position = Vector2(4.7683716e-07, 0)
 
 [node name="Amulet1" type="AnimatedSprite2D" parent="Amulet"]
