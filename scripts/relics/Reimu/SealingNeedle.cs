@@ -44,6 +44,16 @@ public class SealingNeedle : TouhouAncientRelics
     }
 
     /// <summary>
+    /// 判断伤害来源是否为遗物拥有者本人，或拥有者召唤的 Osty 宠物。
+    /// Osty 攻击卡牌的 Owner 是玩家，但其伤害的 dealer 是 Osty 本体，因此需要单独判断。
+    /// </summary>
+    private bool IsOwnerDealing(Creature? dealer)
+    {
+        if (dealer == base.Owner?.Creature) return true;
+        return dealer?.Monster is Osty && dealer.PetOwner?.Creature == base.Owner?.Creature;
+    }
+
+    /// <summary>
     /// 打出前：我方攻击牌注册一个空的目标集合。
     /// </summary>
     public override Task BeforeCardPlayed(CardPlay cardPlay)
@@ -62,7 +72,7 @@ public class SealingNeedle : TouhouAncientRelics
     public override Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result,
         ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (dealer != base.Owner?.Creature) return Task.CompletedTask;
+        if (!IsOwnerDealing(dealer)) return Task.CompletedTask;
         if (cardSource == null) return Task.CompletedTask;
         if (!target.IsAlive || !target.IsEnemy) return Task.CompletedTask;
         if (!pendingWeakTargets.TryGetValue(cardSource, out HashSet<Creature> targets)) return Task.CompletedTask;
@@ -100,7 +110,7 @@ public class SealingNeedle : TouhouAncientRelics
             return 0m;
         }
 
-        if (dealer == base.Owner?.Creature || (dealer?.Monster is Osty && Owner?.Creature == dealer.PetOwner?.Creature))
+        if (IsOwnerDealing(dealer))
         {
             return target.GetPowerAmount<WeakPower>();
         }
