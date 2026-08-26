@@ -79,7 +79,7 @@ public class HakureiAmulet : TouhouAncientRelics
     {
         if (target != base.Owner?.Creature) return amount;
         if (!CombatManager.Instance.IsInProgress) return amount;
-        if (amount <= 0) return amount;
+        if (amount < 1) return amount;
         //if (!props.IsCardOrMonsterMove()) return amount;
         if (props.HasFlag(ValueProp.Unblockable)) return amount;
         if (amount > _currentThreshold) return amount;
