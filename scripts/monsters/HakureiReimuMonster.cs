@@ -115,6 +115,29 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<SoarPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
     }
 
+    // --- 死亡演出 ---
+    /// <summary>
+    /// 灵梦死亡时，把 7 张灵符整体挂到当前身体下，
+    /// 使其随身体一起被原版死亡风化特效（NMonsterDeathVfx 溶解）风化溶解，
+    /// 而不是随节点被瞬间删除。
+    /// </summary>
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+        bool wasRemovalPrevented, float deathAnimLength)
+    {
+        if (creature == base.Creature)
+        {
+            NCreature? creatureNode = base.Creature.GetCreatureNode();
+            HakureiReimuVisuals? visuals = creatureNode?.Visuals as HakureiReimuVisuals;
+            Node2D? body = creatureNode?.Visuals.GetCurrentBody();
+            if (visuals?.AmuletRoot != null && body != null)
+            {
+                visuals.ReparentAmuletTo(body);
+            }
+        }
+
+        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+    }
+
     // --- 梦想天生准备演出 ---
     /// <summary>
     /// 梦想天生准备演出：先播放 jump_rise 动画并向上移动 80 像素，抵达目标位置后依次播放
@@ -355,14 +378,13 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     {
         CurrentMoveKey = "SUBSPACE_ACUPRESSURE";
 
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, SubspaceStrength, base.Creature, null);
         // 使梦想天生计数（无差别降伏的剩余计数）减少 3；归零后由无差别降伏在造成伤害时触发意图切换
         var power = base.Creature.GetPower<IndiscriminateSubjugationPower>();
         if (power != null)
         {
             await power.DecreaseHitsLeft(SubspaceFantasyNatureCount);
         }
-
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, SubspaceStrength, base.Creature, null);
     }
 
     // --- 私有辅助 ---

@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace TouhouAncients.Scripts.Vfx;
 
@@ -10,17 +13,11 @@ namespace TouhouAncients.Scripts.Vfx;
 /// 博丽灵梦怪物的视觉辅助脚本，挂在 HakureiReimuMonster.tscn 根节点上。
 /// 负责：
 /// 1. 导出灵符（Amulet）及其 7 个子节点引用，供怪物 C# 控制甩出 / 激活 / 收回；
-/// 2. 提供运行时构建"符纸燃烧"逐帧动画（amulet_orange2.png，6 帧）的方法。
+/// 2. 提供"符纸燃烧"特效（amuletTrigger.tscn 粒子序列帧，对象池复用，随本节点清除）的方法。
 /// </summary>
 public partial class HakureiReimuVisuals : NCreatureVisuals
 {
     private const int AmuletCount = 7;
-
-    private const float BurnFps = 15f;
-
-    private const string AmuletFramesPath = "res://images/sprite/reimu/AmuletAnim.tres";
-
-    private const string BurnTexturePath = "res://images/sprite/reimu/amulet_orange2.png";
 
     /// <summary>灵符根节点（Amulet），控制整体显隐。</summary>
     public Node2D? AmuletRoot { get; set; }
@@ -39,6 +36,12 @@ public partial class HakureiReimuVisuals : NCreatureVisuals
     
     
     private AmuletData[] _amulets = new AmuletData[AmuletCount];
+
+    /// <summary>符纸燃烧特效对象池：空闲待复用的实例。</summary>
+    private readonly List<NAmuletTriggerVfx> _amuletTriggerPool = new();
+
+    /// <summary>所有已创建的符纸燃烧特效实例（含播放中），退出场景树时统一销毁。</summary>
+    private readonly List<NAmuletTriggerVfx> _amuletTriggerAll = new();
 
     /// <summary>已激活的灵符数量（用于幂等激活）。</summary>
     public int ActivatedCount { get; set; }
@@ -79,62 +82,80 @@ public partial class HakureiReimuVisuals : NCreatureVisuals
     }
 
     /// <summary>
-    /// 构建符纸燃烧逐帧动画（amulet_orange2.png，192×16 = 6 帧）。
-    /// 若已存在同名动画则直接返回，避免重复创建。
+    /// 死亡时把灵符根节点（Amulet）整体挂到指定身体节点下，
+    /// 使其随身体一起被 NMonsterDeathVfx 风化溶解（否则灵符会随节点被瞬间删除）。
     /// </summary>
-    public SpriteFrames? GetOrCreateBurnAnimation()
+    public void ReparentAmuletTo(Node2D targetBody)
     {
-        Texture2D? texture = GD.Load<Texture2D>(BurnTexturePath);
-        if (texture == null)
+        if (AmuletRoot == null || targetBody == null)
         {
-            return null;
+            return;
         }
-
-        SpriteFrames frames = new SpriteFrames();
-        int frameWidth = 32;
-        int frameHeight = 16;
-        int frameCount = texture.GetWidth() / frameWidth;
-
-        for (int i = 0; i < frameCount; i++)
+        Node? oldParent = AmuletRoot.GetParent();
+        if (oldParent == targetBody)
         {
-            AtlasTexture atlas = new AtlasTexture
+            return;
+        }
+        oldParent?.RemoveChild(AmuletRoot);
+        targetBody.AddChild(AmuletRoot);
+    }
+
+    /// <summary>退出场景树时销毁所有已创建的符纸燃烧特效实例（含播放中），并清空对象池。</summary>
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+        foreach (NAmuletTriggerVfx vfx in _amuletTriggerAll)
+        {
+            if (GodotObject.IsInstanceValid(vfx))
             {
-                Atlas = texture,
-                Region = new Rect2(i * frameWidth, 0, frameWidth, frameHeight)
-            };
-            frames.AddFrame("default", atlas);
+                vfx.QueueFree();
+            }
         }
-        frames.SetAnimationSpeed("default", BurnFps);
-        return frames;
+        _amuletTriggerAll.Clear();
+        _amuletTriggerPool.Clear();
     }
 
     /// <summary>
-    /// 在指定位置播放一次符纸燃烧特效（amulet_orange2.png 逐帧动画）。
+    /// 在指定位置播放一次符纸燃烧特效（amuletTrigger.tscn 粒子序列帧，6 帧）。
+    /// 从对象池取用或创建实例，挂到战斗 VFX 容器（NCombatRoom.Instance.CombatVfxContainer）播放，
+    /// 播完自动归还对象池复用；池随本节点（HakureiReimuVisuals）退出场景树时一并销毁。
     /// </summary>
     public void PlayBurnVfx(Vector2 globalPosition)
     {
-        SpriteFrames? frames = GetOrCreateBurnAnimation();
-        if (frames == null)
+        if (NCombatRoom.Instance?.CombatVfxContainer == null)
         {
             return;
         }
 
-        AnimatedSprite2D burn = new AnimatedSprite2D
+        NAmuletTriggerVfx vfx = GetOrCreateTrigger();
+        vfx.PlayAt(globalPosition);
+    }
+
+    /// <summary>从对象池取一个闲置实例；没有则创建并订阅播放结束回调。</summary>
+    private NAmuletTriggerVfx GetOrCreateTrigger()
+    {
+        if (_amuletTriggerPool.Count > 0)
         {
-            SpriteFrames = frames,
-            Animation = "default",
-            Position = ToLocal(globalPosition),
-            ZIndex = 10
-        };
-        burn.SpriteFrames.SetAnimationLoop("default", false);
-        AddChild(burn);
-        burn.AnimationFinished += () =>
+            NAmuletTriggerVfx vfx = _amuletTriggerPool[^1];
+            _amuletTriggerPool.RemoveAt(_amuletTriggerPool.Count - 1);
+            return vfx;
+        }
+
+        NAmuletTriggerVfx newVfx = NAmuletTriggerVfx.Create();
+        newVfx.PlaybackFinished += OnTriggerPlaybackFinished;
+        _amuletTriggerAll.Add(newVfx);
+        return newVfx;
+    }
+
+    /// <summary>播放完毕：从战斗 VFX 容器移除，放回对象池供下次复用。</summary>
+    private void OnTriggerPlaybackFinished(NAmuletTriggerVfx vfx)
+    {
+        if (!GodotObject.IsInstanceValid(vfx))
         {
-            if (GodotObject.IsInstanceValid(burn))
-            {
-                burn.QueueFree();
-            }
-        };
-        burn.Play();
+            return;
+        }
+
+        vfx.GetParent()?.RemoveChildSafely(vfx);
+        _amuletTriggerPool.Add(vfx);
     }
 }
