@@ -237,7 +237,7 @@
 
   "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.title": "天云羽衣",
   "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.description": "在每场战斗开始时，获得[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。当你打出[gold]攻击牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]力量[/gold]；当你打出[gold]技能牌[/gold]后，该效果转化为[blue]{BuffAmount}[/blue][gold]敏捷[/gold]。",
-  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.flavor": "龙宫赠送的龙宫使者同款的羽衣服饰。对天子来说，这衣服穿起来实在过于麻烦。",
+  "TOUHOUANCIENTS-HEAVENLY_CLOUD_ROBE.flavor": "龙宫赠送的使者同款羽衣服饰。对天子来说，这衣服穿起来实在过于麻烦。",
 
   "TOUHOUANCIENTS-HISOU_SWORD.title": "绯想之剑",
   "TOUHOUANCIENTS-HISOU_SWORD.description": "拾起时，将[blue]1[/blue]张[gold]全人类的绯想天[/gold]加入你的[gold]牌组[/gold]。",
@@ -341,7 +341,7 @@
   "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
   "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
   "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择至多[blue]{SelectNum}[/blue]张加入牌组",
-  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。",
+  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "为背叛者们奏响镇魂曲吧！",
 
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "万宝槌",
   "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将[blue]1[/blue]张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
@@ -373,12 +373,12 @@
 
   "TOUHOUANCIENTS-STAGE_DEVICE.title": "舞台装置",
   "TOUHOUANCIENTS-STAGE_DEVICE.description": "在奇数回合开始时，给予所有敌人[blue]{VulnAmount}[/blue]层[gold]易伤[/gold]并在本回合内获得[blue]{TempStr}[/blue]点[gold]力量[/gold]。在偶数回合开始时，给予所有敌人[blue]{WeakAmount}[/blue]层[gold]虚弱[/gold]并在本回合内获得[blue]{TempDex}[/blue]点[gold]敏捷[/gold]。",
-  "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "",
+  "TOUHOUANCIENTS-STAGE_DEVICE.flavor": "午夜的钟声响起时，辛迪瑞拉仍未停下她永无休止的舞步。",
 
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "她将自己的珍藏分享给众人，却无人敢接受她天真无邪的馈赠。",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "铃色的日记本",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "拾起时，将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
@@ -398,7 +398,7 @@
 
   "TOUHOUANCIENTS-ROSE_CROWN.title": "蔷薇皇冠",
   "TOUHOUANCIENTS-ROSE_CROWN.description": "在每场战斗开始时，获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]与[blue]{PlatingAmount}[/blue]层[gold]覆甲[/gold]。",
-  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "",
+  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "鲜血染红的荆棘为诠释爱情的信徒加冕。",
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "恶毒的童话书",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "在每场战斗开始时，所有敌人获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]。在你的回合开始时，获得[blue]{Power}[/blue]点[gold]力量[/gold]。",
@@ -411,7 +411,7 @@
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "缄默魔偶",
   "TOUHOUANCIENTS-SILENCE_DOLL.description": "每回合开始时，选择一张上回合进入过[gold]弃牌堆[/gold]的卡牌放入[gold]手牌[/gold]，这张牌直到打出前获得[gold]保留[/gold]。",
   "TOUHOUANCIENTS-SILENCE_DOLL.selectionScreenPrompt": "选择一张牌放入你的[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-SILENCE_DOLL.flavor": "",
+  "TOUHOUANCIENTS-SILENCE_DOLL.flavor": "人偶并非完全沉默的看客，它们只是无言的接受命运，等待消亡或新生的那天。",
 
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.title": "弘川之骨",
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.description": "回合结束时，如果你本回合只打出过[gold]能力牌[/gold]，获得[blue]{BufferAmount}[/blue]层[gold]缓冲[/gold]。",
