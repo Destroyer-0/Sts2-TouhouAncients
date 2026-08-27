@@ -29,6 +29,7 @@ public class DesireBloodSea : TouhouAncientCards
     
     public override bool CanBeGeneratedByModifiers => false;
 
+    public override string? Author => "冰绫月雅";
     public override int MaxUpgradeLevel => -1;
 
     public DesireBloodSea() : base(energyCost, type, rarity, CustomTargetType.Anyone, true)
