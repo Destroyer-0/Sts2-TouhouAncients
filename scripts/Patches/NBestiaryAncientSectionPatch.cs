@@ -38,7 +38,8 @@ internal static class NBestiaryAncientSectionPatch
         (typeof(FantasyMushroomMonster), typeof(KirisameMarisaEncounter)),
         (typeof(YorigamiJoonMonster), typeof(YorigamiSistersEncounter)),
         (typeof(YorigamiShionMonster), typeof(YorigamiSistersEncounter)),
-        (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter))
+        (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter)),
+        (typeof(ToutetsuYuumaMonster), typeof(ToutetsuYuumaEncounter)),
     ];
 
     [HarmonyPostfix]
@@ -74,8 +75,8 @@ internal static class NBestiaryAncientSectionPatch
             node.Connect(NClickableControl.SignalName.Released,
                 Callable.From<NBestiaryEntry>(clicked => OnMonsterClicked(__instance, clicked)));
             sectionNodes.Add(node);
-            // 挑战本体使用金色标题（区别于原版精英紫、Boss 红），奇幻蘑菇保持默认奶油色
-            goldTitles.Add(isDiscovered && monsterType != typeof(FantasyMushroomMonster));
+            // 挑战本体使用金色标题（区别于原版精英紫、Boss 红），非主怪（如奇幻蘑菇）保持默认奶油色
+            goldTitles.Add(isDiscovered && monster is TouhouAncientMonsterBase ancientMonster && ancientMonster.IsPrimaryMonster);
         }
 
         foreach (Node node in sectionNodes)
