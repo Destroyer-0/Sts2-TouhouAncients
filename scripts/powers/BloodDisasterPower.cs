@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.monsters;
@@ -116,11 +117,16 @@ public class BloodDisasterPower : TouhouAncientPowerModel
 
     private void ChangeAmount()
     {
-        NCombatRoom.Instance?.GetCreatureNode(base.Owner)?.ScaleTo(1 + CurrentStrength * 0.1f, 0f);
+        NCreature? node = NCombatRoom.Instance?.GetCreatureNode(base.Owner);
+        float scale = 1f + CurrentStrength * 0.1f;
+        node?.ScaleTo(scale, 0f);
         InvokeDisplayAmountChanged();
-        if (Owner.Monster is ToutetsuYuumaMonster yuuma)
+        if (node == null || Owner.Monster is not ToutetsuYuumaMonster)
         {
-            Owner.GetCreatureNode().Visuals.IntentPosition.GlobalPosition = Owner.GetCreatureNode().Visuals.Body.GlobalPosition + new Vector2(0, -270 - CurrentStrength * 10f);
+            return;
         }
+
+        float visualScale = scale * node.Visuals.DefaultScale;
+        node.IntentContainer.Position = node.Body.Position * visualScale + new Vector2(0f, -270f - CurrentStrength * 15f) - node.IntentContainer.Size / 2f;
     }
 }
