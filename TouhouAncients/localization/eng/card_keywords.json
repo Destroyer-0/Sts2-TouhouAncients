@@ -19,5 +19,7 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "At the start of combat, this card is placed at the bottom of your draw pile.",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.title": "谜题",
-  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.description": "打出这张牌后完成辉夜对应的谜题，并将此牌移出战斗。"
+  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.description": "打出这张牌后完成辉夜对应的谜题，并将此牌移出战斗。",
+
+  "TOUHOUANCIENTS-TOUHOUANCIENTAUTHOR.title": "Artist"
 }

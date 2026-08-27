@@ -44,11 +44,9 @@ public class TouhouAncientsConfig : SimpleModConfig
     [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
 
     /// <summary>
-    /// 本次运行实际生效的强制 Ancient（运行期字段，非设置项，不写入配置文件）。
-    /// BaseLib 配置是各端本地文件、不会网络同步，直接读 ForcedAncient_2/3 会导致联机不同步；
-    /// 因此开局时由 ForcedAncientSyncPatch 将主机的配置写入这两个字段，
-    /// 并随 LobbyBeginRunMessage 广播到所有客户端，ShouldForceSpawn 只读取这两个字段，
-    /// 保证各端一致。非主机端的本地设置文件不被修改。
+    /// 本次运行实际生效的强制 Ancient（局内字段，非设置项，不写入配置文件）。
+    /// 开局时由 AncientRunSavedData 提交：主机/单人拷贝本机设置，客户端从开局包尾读主机数据。
+    /// ShouldForceSpawn 只读取这两个字段。非主机端的本地设置文件不被修改。
     /// [ConfigIgnore]：不显示在设置 UI，也不参与配置文件的读写。
     /// </summary>
     [ConfigIgnore]
@@ -60,7 +58,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>
     /// 本次运行实际生效的禁用掩码（运行期字段，非设置项，不写入配置文件）。
     /// 位 i 对应 <see cref="GetBanBit"/> 定义的 Ancient；null 表示未同步（回退本地配置）。
-    /// 开局时由 ForcedAncientSyncPatch 将主机的禁用配置写入该字段并随 LobbyBeginRunMessage 广播，
+    /// 开局时由 AncientRunSavedData 写入（主机提交本机掩码，客户端从开局包尾读取），
     /// 保证各端候选池一致（BanAncientPatch 的 Transpiler 过滤依赖此字段）。
     /// [ConfigIgnore]：不显示在设置 UI，也不参与配置文件的读写。
     /// </summary>
@@ -68,7 +66,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static ulong? BannedMask_Run { get; set; }
 
     /// <summary>
-    /// 由本地禁用配置构造运行期掩码（开局时由 ForcedAncientSyncPatch 调用）。
+    /// 由本地禁用配置构造运行期掩码（开局提交时由 AncientRunSavedData 调用）。
     /// 位序必须与 <see cref="GetBanBit"/> 保持一致。
     /// </summary>
     public static ulong BuildBannedMask()

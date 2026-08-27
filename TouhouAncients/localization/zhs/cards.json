@@ -1,4 +1,7 @@
 ﻿{
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "欲壑血海",
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "目标失去[blue]{HpLoss}[/blue]点生命并获得[blue]{Strength}[/blue]点[gold]力量[/gold]。\n这张牌在本场战斗中每次打出，目标额外失去[blue]{ExtraHpLoss}[/blue]点生命，额外获得[blue]{ExtraStrength}[/blue][gold]力量[/gold]。",
+
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸运白兔",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌在本场战斗添加[gold]重放[/gold]。",
 

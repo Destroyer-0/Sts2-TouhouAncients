@@ -27,6 +27,9 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     /// </summary>
     protected override bool HasAnimation => false;
 
+    /// <summary>奇幻蘑菇是魔理沙召唤的随从，不是挑战本体。</summary>
+    public override bool IsPrimaryMonster => false;
+
     /// <summary>
     /// 备用小蘑菇场景路径（每个场景各自烘焙底部锚点）。
     /// </summary>

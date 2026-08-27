@@ -426,7 +426,7 @@
   "TOUHOUANCIENTS-SOUL_BUTTERFLY.flavor": "",
 
   "TOUHOUANCIENTS-DANMUKU_GHOST.title": "弹幕的亡灵",
-  "TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其进行过攻击但未造成伤害，使其获得[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
+  "TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其造成过未被格挡的伤害，使其获得[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
   "TOUHOUANCIENTS-DANMUKU_GHOST.flavor": "",
 
   "TOUHOUANCIENTS-GHOST_FAN.title": "幽灵折扇",

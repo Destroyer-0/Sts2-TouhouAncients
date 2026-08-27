@@ -14,6 +14,11 @@ public abstract class TouhouAncientCards : CustomCardModel
     public override string PortraitPath => $"res://images/cards/{GetType().Name}.png";
 
     public virtual bool UseAncientFrame => false;
+
+    /// <summary>
+    /// 绘师（作者）名称。为 null 或空字符串时不显示绘师 HoverTip。
+    /// </summary>
+    public virtual string? Author => null;
     
     // /// <summary>
     // /// ModelDb 反射实例化所需的无参构造函数。

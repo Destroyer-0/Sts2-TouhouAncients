@@ -41,7 +41,7 @@ public class HungryBackpack : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3),
+        new CardsVar(4),
         new DynamicVar("ReduceCardDraw", 1m)
     ];
 
@@ -113,12 +113,10 @@ public class HungryBackpack : TouhouAncientRelics
         {
             if (card.Affliction != null) continue;
             var devoured = await CardCmd.Afflict<Devoured>(card, 1m);
-            if (devoured != null && !card.Keywords.Contains(CardKeyword.Exhaust))
+            if (devoured != null)
             {
-                CardCmd.ApplyKeyword(card, CardKeyword.Exhaust);
-                devoured.AppliedExhaust = true;
+                _affectedCards.Add(card);
             }
-            _affectedCards.Add(card);
         }
 
         _currentExtraDraw = Math.Max(0, _currentExtraDraw - base.DynamicVars["ReduceCardDraw"].IntValue);
@@ -141,10 +139,6 @@ public class HungryBackpack : TouhouAncientRelics
             {
                 if (!card.IsInCombat) continue;
                 if (card.Affliction is not Devoured) continue;
-                if (((Devoured)card.Affliction).AppliedExhaust)
-                {
-                    CardCmd.RemoveKeyword(card, CardKeyword.Exhaust);
-                }
 
                 CardCmd.ClearAffliction(card);
             }

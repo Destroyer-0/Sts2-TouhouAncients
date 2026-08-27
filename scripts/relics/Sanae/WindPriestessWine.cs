@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -21,6 +22,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class WindPriestessWine : TouhouAncientRelics
 {
+    public override bool IsAllowed(IRunState runState) => runState.Players.Count == 1;
+
+
     [SavedProperty]
     private int TouhouAncients_EnergyGainedCounter
     {
@@ -49,11 +53,6 @@ public class WindPriestessWine : TouhouAncientRelics
         if (player != base.Owner) return;
         if (player.PlayerCombatState == null) return;
 
-        // 每回合自然重置获得的能量固定等于能量上限：
-        // - 无保留能量（如冰激凌）：ResetEnergy 将能量重置为 MaxEnergy；
-        // - 有保留能量：AddMaxEnergyToCurrent 在现有能量上加上 MaxEnergy。
-        // 两种情况净获得都是 MaxEnergy，直接按 MaxEnergy 计数，
-        // 不依赖回合结束时的剩余能量（回合结束后被补充能量也不会导致异常）。
         AddEnergyGain(player.PlayerCombatState.MaxEnergy);
 
         await TryDraw();
@@ -65,7 +64,6 @@ public class WindPriestessWine : TouhouAncientRelics
         return amount;
     }
     
-    // Patch 确保这个一定会被调用
     public override async Task AfterModifyingEnergyGain()
     {
         await TryDraw();

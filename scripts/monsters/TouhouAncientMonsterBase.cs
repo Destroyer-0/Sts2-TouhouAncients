@@ -23,6 +23,12 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     protected virtual bool HasAnimation => true;
 
     /// <summary>
+    /// 是否为挑战本体（主怪）。
+    /// 召唤的随从（如奇幻蘑菇）应重写为 false，用于图鉴金色标题等展示逻辑。
+    /// </summary>
+    public virtual bool IsPrimaryMonster => true;
+
+    /// <summary>
     /// Boss 的固定初始生命值。最小生命与最大生命统一使用此值。
     /// </summary>
     protected abstract int InitialHp { get; }
