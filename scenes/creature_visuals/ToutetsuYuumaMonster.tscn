@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://pnnte8vdhq5l"]
+
+[ext_resource type="Texture2D" uid="uid://cwgec3q7hdy6x" path="res://images/sprite/yuuma/stand.png" id="1_n1nuw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6xgr"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u6wj"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnwm"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx7mw"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itvr6"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y71ij"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(800, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8mlj"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(960, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bskab"]
+atlas = ExtResource("1_n1nuw")
+region = Rect2(1120, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lgl8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u6wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx7mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itvr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y71ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8mlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bskab")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="ToutetsuYuuma" type="Node2D"]
+
+[node name="Visuals" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -17)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_8lgl8")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.68190724
+offset = Vector2(-2, -29.333336)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -229.0
+offset_top = -200.0
+offset_right = 229.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1, -81)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -287)
