@@ -2402,7 +2402,7 @@
 | `RIBBON_BOW` | 七个无名小人偶，精心打扮欲争艳。妒火蚀心不可谏，七个只剩六。 | Seven little nameless dolls dressed up to compete; one was slain by a jealous hand and then there were six. |
 | `ROSE_CROWN` | 六个无名小人偶，权力熏心争王位。记者黑心散谣言，六个只剩五。 | Six little nameless dolls vied for the throne, drunk on power; one was undone by a black-hearted reporter's rumors and then there were five. |
 | `PLAGUE_BLEND` | 五个无名小人偶，结伴同逛黑市场。美酒入喉心作痛，五个只剩四。 | Five little nameless dolls drank at the black market; one was knocked out by the wine and then there were four. |
-| `MALICIOUS_FAIRY_TALE` | 四个无名小人偶，共赴森林寻解药。瘴气浓郁迷归路，四个只剩三。 | Four little nameless dolls roamed the magic woods; one lost the way and then there were three. |
+| `MALICIOUS_FAIRY_TALE` | 四个无名小人偶，共赴森林寻解药。瘴气浓郁迷归路，四个只剩三。 | Four little nameless dolls roamed the magic forest; one lost the way and then there were three. |
 | `SILENCE_DOLL` | 三个无名小人偶，避难误入魔女屋。恶咒封口作傀儡，三个只剩两。 | Three little nameless dolls crossed a witch's door; one was made a voiceless puppet and then there were two. |
 | `HAPPINESS_ELIXIR` | 两个无名小人偶，惊魂未定待宁神。违背医嘱把药吞，两个只剩一。 | Two little nameless dolls, shaken, sought calm; one took too much of the potion and then there was one. |
 | `LILY_BELL_DIARY` | 一个无名小人偶，合书封笔只一人。沉眠花海梦往生，一个也不剩。 | One little nameless doll was left at last; she slept alone in the lily field and then there were none. |
