@@ -18,8 +18,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.title": "Sink",
   "TOUHOUANCIENTS-TOUHOUANCIENTSINKTOBOTTOM.description": "At the start of combat, this card is placed at the bottom of your draw pile.",
 
-  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.title": "谜题",
-  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.description": "打出这张牌后完成辉夜对应的谜题，并将此牌移出战斗。",
+  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.title": "Puzzle",
+  "TOUHOUANCIENTS-TOUHOUANCIENTPUZZLE.description": "When you play this card, complete the corresponding puzzle for [gold]Kaguya Houraisan[/gold], then remove this card from combat.",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTAUTHOR.title": "Artist"
 }

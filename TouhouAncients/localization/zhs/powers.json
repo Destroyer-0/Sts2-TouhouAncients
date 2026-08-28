@@ -29,9 +29,9 @@
   "TOUHOUANCIENTS-LUCKY_RABBIT_POWER.smartDescription": "本回合费用为[blue]0[/blue]的卡牌获得[gold]重放[/gold][blue]{Amount}[/blue]。",
 
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "怨仇",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "对[gold]{Applier}[/gold]造成的伤害降低[blue]25%[/blue]。[gold]{Applier}[/gold]打出攻击牌时，受到等同于层数的伤害并使层数减少1。",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "对[gold]{Applier}[/gold]造成的伤害降低[blue]25%[/blue]。[gold]{Applier}[/gold]打出攻击牌时，受到[blue]{Amount}[/blue]点伤害并使层数减少1。",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.remoteDescription": "由于[gold]{Applier}[/gold]的怨仇，你对这名敌人造成的伤害降低[blue]25%[/blue]。你打出攻击牌时，受到[blue]{Amount}[/blue]点伤害并使层数减少1。",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "造成的伤害降低[blue]25%[/blue]。玩家打出攻击牌时，受到等同于层数的伤害并使层数减少1。",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "造成的伤害降低[blue]25%[/blue]。玩家打出攻击牌时，受到[blue]{Amount}[/blue]点伤害并使层数减少1。",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.remoteDescription": "[gold]{Applier}[/gold]打出攻击牌时，受到[blue]{Amount}[/blue]点伤害并使层数减少1。",
 
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "弹幕地狱",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "本回合攻击牌可以免费打出。打出攻击牌时抽[blue]1[/blue]张牌。",
@@ -99,8 +99,8 @@
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月",
 
   "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "毒人偶",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "铃铃每回合将把1张[gold]毒素加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "铃铃每回合将{Amount}张[gold]毒素加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "铃铃每回合将把1张[gold]毒素[/gold]加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "铃铃每回合将{Amount}张[gold]毒素[/gold]加入你的弃牌堆。铃铃倒下时减少1层，最多减少至1。",
 
   "TOUHOUANCIENTS-GUARDING_POWER.title": "烈毒护身",
   "TOUHOUANCIENTS-GUARDING_POWER.description": "本回合，所有对铃铃发起的攻击伤害都会转移到梅蒂欣·梅兰可莉身上。",

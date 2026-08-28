@@ -383,7 +383,7 @@
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "Lily's Diary",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "Upon pickup, add [blue]1[/blue] [gold]Lily Bell[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.eventDescription": "Add [blue]1[/blue] [gold]Lily Bell[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "One little nameless doll was left at last; she slept alone in the lily field and then there were none.",
+  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "One little nameless doll closed the book then forgot her name; she slept alone in the lily field and then there were none.",
 
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.title": "Happiness Elixir",
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.description": "Upon pickup, obtain a [green]Camellia[/green]. After defeating the Act [blue]2[/blue] [gold]Boss[/gold], an extra [green]Camellia[/green] drops.",
@@ -402,7 +402,7 @@
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "Malicious Fairy Tale",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "At the start of each combat, ALL enemies gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold]. At the start of your turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].",
-  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "Four little nameless dolls roamed the magic woods; one lost the way and then there were three.",
+  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "Four little nameless dolls roamed the magic forest; one lost the way and then there were three.",
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "Blight Blend",
   "TOUHOUANCIENTS-PLAGUE_BLEND.description": "Gain {Energy:energyIcons()} at the start of each turn.  At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.",

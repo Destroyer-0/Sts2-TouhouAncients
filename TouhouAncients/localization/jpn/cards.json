@@ -69,7 +69,8 @@
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
 
     "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
-    "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the treasure hunt rewards.",
+    "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards.",
+
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card’s cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
 
@@ -83,18 +84,18 @@
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target’s [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
 
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Nameless Youkai",
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into cards from other [gold]colors[/gold] of the same rarity{IfUpgraded:show: ([gold]Upgraded[/gold])|}.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Unidentified Youkai",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into {IfUpgraded:show:[gold]Upgraded[/gold] |}cards from other [gold]colors[/gold] of the same rarity.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
     "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.",
 
     "TOUHOUANCIENTS-DREAM_SEAL_WABI.title": "Dream Seal: Wabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Apply [blue]{Amount}[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
+    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Apply [blue]{Amount}[/blue] [gold]Vulnerable[/gold].\nWhile this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
 
     "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "Dream Seal: Sabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
+    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Apply [blue]{Amount}[/blue] [gold]Weak[/gold].\nWhile this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
 
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "Jewel from the Dragon's Neck",
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "Whenever you play a card, this card's cost is reduced by [blue]{CostReduce}[/blue] this turn.",

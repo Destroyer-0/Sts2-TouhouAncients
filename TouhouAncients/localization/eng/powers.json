@@ -33,9 +33,9 @@
   "TOUHOUANCIENTS-GLOWING_BAMBOO_POWER.smartDescription": "[gold]{Card}[/gold] will be [green]Upgraded[/green] after combat ends.",
   
   "TOUHOUANCIENTS-YUAN_CHOU_POWER.title": "Resentment",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage dealt to [gold]{Applier}[/gold] is reduced by [blue]25%[/blue]. When [gold]{Applier}[/gold] plays an Attack, it takes damage equal to the stack count and the stack count is reduced by 1.",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Damage dealt to [gold]{Applier}[/gold] is reduced by [blue]25%[/blue]. When [gold]{Applier}[/gold] plays an Attack, it takes [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
-  "TOUHOUANCIENTS-YUAN_CHOU_POWER.remoteDescription": "Due to [gold]{Applier}[/gold]'s Resentment, damage you deal to this enemy is reduced by [blue]25%[/blue]. When you play an Attack, you take [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.description": "Damage is reduced by [blue]25%[/blue]. Whenever player plays an Attack, it takes [blue]1[/blue] damage and the stack count is reduced by 1.",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.smartDescription": "Damage is reduced by [blue]25%[/blue]. Whenever player plays an Attack, it takes [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
+  "TOUHOUANCIENTS-YUAN_CHOU_POWER.remoteDescription": "When [gold]{Applier}[/gold] plays an Attack, you take [blue]{Amount}[/blue] damage and the stack count is reduced by 1.",
 
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Hell of Bullets",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "Attacks are free to play this turn. When you play an Attack, draw [blue]1[/blue] card.",
