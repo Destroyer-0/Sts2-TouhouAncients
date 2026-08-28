@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -46,8 +47,18 @@ public class ShiningTower : TouhouAncientCards
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.Static(StaticHoverTip.Fatal),
-        StunIntent.GetStaticHoverTip()
+        StunIntent.GetStaticHoverTip(),
+        new HoverTip(
+            new LocString("rest_site_ui", "OPTION_TREASURE.name"),
+            DescriptionForTip())
     ];
+
+    private LocString DescriptionForTip()
+    {
+        var desc = new LocString("rest_site_ui", "OPTION_TREASURE.description");
+        desc.Add("Gold", DowsingRod.GoldCost);
+        return desc;
+    }
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
@@ -78,6 +89,12 @@ public class ShiningTower : TouhouAncientCards
         }
 
         await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * fatalStates.Count(x => x is { Value: true, Key.IsDead: true }), base.Owner);
+        
+        var dowsingRod = base.Owner?.Relics.OfType<DowsingRod>().FirstOrDefault();
+        if (dowsingRod != null)
+        {
+            dowsingRod.AddTowerToStorage(this);
+        }
     }
 
     /// <summary>
@@ -89,11 +106,6 @@ public class ShiningTower : TouhouAncientCards
         if (card.Pile?.Type == PileType.Exhaust && oldPileType == PileType.Play)
         {
             // 卡牌被消耗（正常打出后进入消耗堆），重新加入寻龙尺存储
-            var dowsingRod = base.Owner?.Relics.OfType<DowsingRod>().FirstOrDefault();
-            if (dowsingRod != null)
-            {
-                dowsingRod.AddCardToStorage(this);
-            }
         }
     }
 

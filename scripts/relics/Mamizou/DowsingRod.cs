@@ -40,7 +40,7 @@ namespace TouhouAncients.Scripts.relics;
 public class DowsingRod : TouhouAncientRelics
 {
     private const string _cardTitlesKey = "CardTitles";
-    internal const int GoldCost = 50;
+    public const int GoldCost = 50;
     private const int ShiningTowerGuaranteeCount = 3;
 
     private List<SerializableCard> _storedCards = new();
@@ -88,6 +88,7 @@ public class DowsingRod : TouhouAncientRelics
     private LocString DescriptionForTip()
     {
         var desc = new LocString("rest_site_ui", "OPTION_TREASURE.description");
+        desc.Add("Gold", base.DynamicVars.Gold.IntValue);
         return desc;
     }
 
@@ -114,8 +115,10 @@ public class DowsingRod : TouhouAncientRelics
     /// <summary>
     /// 将一张卡牌重新加入存储（用于光辉宝塔回收）。
     /// </summary>
-    internal void AddCardToStorage(CardModel card)
+    internal void AddTowerToStorage(CardModel card)
     {
+        if (_storedCards.Any(x => x.Id == card.Id)) return;
+        
         var cloned = (CardModel)card.MutableClone();
         _storedCards.Add(cloned.ToSerializable());
         UpdateCardList();
@@ -145,7 +148,7 @@ public class DowsingRod : TouhouAncientRelics
         Flash();
 
         // 花费50金币
-        await PlayerCmd.LoseGold(GoldCost, base.Owner, GoldLossType.Spent);
+        await PlayerCmd.LoseGold(DynamicVars.Gold.IntValue, base.Owner, GoldLossType.Spent);
 
         // 第一步：从存储的卡牌中选择任意张拿走
         if (_storedCards.Count > 0)
