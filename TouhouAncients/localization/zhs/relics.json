@@ -378,12 +378,12 @@
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "八个无名小人偶，山中偶遇大宝箱。欣喜开盖毒蛇现，八个只剩七。",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "八个无名小人偶，竹林偶遇大宝箱。机关隐秘毒蛇藏，八个只剩七。",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "铃色的日记本",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "拾起时，将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.eventDescription": "将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "一个无名小人偶，合书封笔再无人。沉眠花海忆往生，一个也不剩。",
+  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "一个无名小人偶，合书封笔名归尘。沉眠花海忆往生，一个也不剩。",
 
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.title": "幸福的秘药",
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.description": "拾起时，获得一瓶[green]卡米莉亚[/green]。第二幕的[gold]Boss[/gold]战结束后额外掉落一瓶。",
@@ -398,7 +398,7 @@
 
   "TOUHOUANCIENTS-ROSE_CROWN.title": "蔷薇皇冠",
   "TOUHOUANCIENTS-ROSE_CROWN.description": "在每场战斗开始时，获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]与[blue]{PlatingAmount}[/blue]层[gold]覆甲[/gold]。",
-  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "六个无名小人偶，权力熏心争王位。不得民心铡刀坠，六个只剩五。",
+  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "六个无名小人偶，权力熏心争王位。记者黑心散谣言，六个只剩五。",
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "恶毒的童话书",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "在每场战斗开始时，所有敌人获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]。在你的回合开始时，获得[blue]{Power}[/blue]点[gold]力量[/gold]。",

@@ -301,7 +301,7 @@
 "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
 "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
 "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
-"TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": ""
+"TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "八个无名小人偶，竹林偶遇大宝箱。机关隐秘毒蛇藏，八个只剩七。"
 ```
 
 ### 英文翻译
@@ -310,7 +310,7 @@
 | `.title` | `Toxic Chemical Box` |
 | `.description` | `Upon pickup, Transform all [gold]Strikes[/gold] in your [gold]Deck[/gold] into [gold]Snakebite[/gold] and [gold]enchant[/gold] them with [purple]Toxic 3[/purple].` |
 | `.eventDescription` | `Transform all [gold]Strikes[/gold] in your [gold]Deck[/gold] into [gold]Snakebite[/gold] and [gold]enchant[/gold] them with [purple]Toxic 3[/purple].` |
-| `.flavor` | `""`（留空） |
+| `.flavor` | `Eight little nameless dolls found a great chest in the bamboo forest; one tripped its venomous snake hidden trap and then there were seven.` |
 
 ### 备注
 - **蛊毒 → Toxic**: 附魔名 `MEDICINE_POISON` 英文为 `Toxic`。`蛊毒3` 即 `Toxic 3`。
@@ -406,7 +406,7 @@
 ```json
 "TOUHOUANCIENTS-ROSE_CROWN.title": "蔷薇皇冠",
 "TOUHOUANCIENTS-ROSE_CROWN.description": "在每场战斗开始时，获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]与[blue]{PlatingAmount}[/blue]层[gold]覆甲[/gold]。",
-"TOUHOUANCIENTS-ROSE_CROWN.flavor": ""
+"TOUHOUANCIENTS-ROSE_CROWN.flavor": "六个无名小人偶，权力熏心争王位。记者黑心散谣言，六个只剩五。"
 ```
 
 ### 英文翻译
@@ -414,7 +414,7 @@
 |------|------|
 | `.title` | `Rose Crown` |
 | `.description` | `At the start of each combat, gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold] and [blue]{PlatingAmount}[/blue] [gold]Plating[/gold].` |
-| `.flavor` | `""`（留空） |
+| `.flavor` | `Six little nameless dolls vied for the throne, drunk on power; one was undone by a black-hearted reporter's rumors and then there were five.` |
 
 ---
 
@@ -2398,10 +2398,10 @@
 |------|------|---------|
 | `CHILDHOOD_BAG` | 十个无名小人偶，高高兴兴上学去。污浊大河浪汹涌，十个只剩九。 | Ten little nameless dolls went off to school; one was swept away by the rushing foul river and then there were nine. |
 | `STAGE_DEVICE` | 九个无名小人偶，邀约上台共起舞。乐曲癫狂无止休，九个只剩八。 | Nine little nameless dolls danced at the ball; one kept dancing and then there were eight. |
-| `MEDICINE_POISON_BOX` | 八个无名小人偶，山中偶遇大宝箱。欣喜掀盖毒虫溢，八个只剩七。 | Eight little nameless dolls found a box in the hills; one opened it to find a venomous snake and then there were seven. |
+| `MEDICINE_POISON_BOX` | 八个无名小人偶，竹林偶遇大宝箱。机关隐秘毒蛇藏，八个只剩七。 | Eight little nameless dolls found a great chest in the bamboo forest; one tripped its venomous snake hidden trap and then there were seven. |
 | `RIBBON_BOW` | 七个无名小人偶，精心打扮欲争艳。妒火蚀心不可谏，七个只剩六。 | Seven little nameless dolls dressed up to compete; one was slain by a jealous hand and then there were six. |
-| `ROSE_CROWN` | 六个无名小人偶，权力熏心争王位。血染金冠魂归天，六个只剩五。 | Six little nameless dolls sought the golden crown; one won no favor from the people and then there were five. |
-| `PLAGUE_BLEND` | 五个无名小人偶，结伴同逛黑市场。美酒入喉心作痛，五个只剩四。 | Five little nameless dolls drank at the black market; one was lost to the wine and then there were four. |
+| `ROSE_CROWN` | 六个无名小人偶，权力熏心争王位。记者黑心散谣言，六个只剩五。 | Six little nameless dolls vied for the throne, drunk on power; one was undone by a black-hearted reporter's rumors and then there were five. |
+| `PLAGUE_BLEND` | 五个无名小人偶，结伴同逛黑市场。美酒入喉心作痛，五个只剩四。 | Five little nameless dolls drank at the black market; one was knocked out by the wine and then there were four. |
 | `MALICIOUS_FAIRY_TALE` | 四个无名小人偶，共赴森林寻解药。瘴气浓郁迷归路，四个只剩三。 | Four little nameless dolls roamed the magic woods; one lost the way and then there were three. |
 | `SILENCE_DOLL` | 三个无名小人偶，避难误入魔女屋。恶咒封口作傀儡，三个只剩两。 | Three little nameless dolls crossed a witch's door; one was made a voiceless puppet and then there were two. |
 | `HAPPINESS_ELIXIR` | 两个无名小人偶，惊魂未定待宁神。违背医嘱把药吞，两个只剩一。 | Two little nameless dolls, shaken, sought calm; one took too much of the potion and then there was one. |

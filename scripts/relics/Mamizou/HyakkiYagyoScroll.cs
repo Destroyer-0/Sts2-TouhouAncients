@@ -15,6 +15,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class HyakkiYagyoScroll : TouhouAncientRelics
 {
+    public override bool HasUponPickupEffect => true;
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("CardPacks", 1m),

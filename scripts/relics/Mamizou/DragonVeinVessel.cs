@@ -39,6 +39,7 @@ public class DragonVeinVessel : TouhouAncientRelics
     [SavedProperty]
     private bool DragonVeinVessel_CoordsSet { get; set; }
 
+    public override bool HasUponPickupEffect => true;
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Gold", 33m),

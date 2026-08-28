@@ -378,7 +378,7 @@
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "Toxic Chemical Box",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "Upon pickup, Transform all [gold]Strikes[/gold] in your [gold]Deck[/gold] into [gold]Snakebite[/gold] and [gold]enchant[/gold] them with [purple]Toxic 3[/purple].",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "Transform all [gold]Strikes[/gold] in your [gold]Deck[/gold] into [gold]Snakebite[/gold] and [gold]enchant[/gold] them with [purple]Toxic 3[/purple].",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "Eight little nameless dolls found a box in the hills; one opened it to find a venomous snake and then there were seven.",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "Eight little nameless dolls found a great chest in the bamboo forest; one tripped its venomous snake hidden trap and then there were seven.",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "Lily's Diary",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "Upon pickup, add [blue]1[/blue] [gold]Lily Bell[/gold] to your [gold]Deck[/gold].",
@@ -398,7 +398,7 @@
 
   "TOUHOUANCIENTS-ROSE_CROWN.title": "Rose Crown",
   "TOUHOUANCIENTS-ROSE_CROWN.description": "At the start of each combat, gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold] and [blue]{PlatingAmount}[/blue] [gold]Plating[/gold].",
-  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "Six little nameless dolls sought the golden crown; one won no favor from the people and then there were five.",
+  "TOUHOUANCIENTS-ROSE_CROWN.flavor": "Six little nameless dolls vied for the throne, drunk on power; one was undone by a black-hearted reporter's rumors and then there were five.",
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "Malicious Fairy Tale",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "At the start of each combat, ALL enemies gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold]. At the start of your turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].",
@@ -406,7 +406,7 @@
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "Blight Blend",
   "TOUHOUANCIENTS-PLAGUE_BLEND.description": "Gain {Energy:energyIcons()} at the start of each turn.  At the start of turn [blue]{TriggerTurn}[/blue], apply [blue]{PoisonAmount}[/blue] [gold]Poison[/gold] to yourself.",
-  "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "Five little nameless dolls drank at the black market; one was lost to the wine and then there were four.",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "Five little nameless dolls drank at the black market; one was knocked out by the wine and then there were four.",
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "Silence Doll",
   "TOUHOUANCIENTS-SILENCE_DOLL.description": "At the start of each turn, choose a card that entered [gold]Discard Pile[/gold] last turn and put it into your [gold]Hand[/gold]. It gains [gold]Retain[/gold] until played.",
