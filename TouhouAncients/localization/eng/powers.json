@@ -88,8 +88,8 @@
   
 
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess’s Puzzle",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n{PuzzleNum} puzzles remain unsolved, granting {GainBlock} [gold]Block[/gold].",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n{PuzzleNum} puzzles remain unsolved, granting {GainBlock} [gold]Block[/gold].",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]12[/blue] [gold]Block[/gold] at the start of her turn.",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n[red]{PuzzleNum}[/red] puzzles remain unsolved, granting [blue]{GainBlock}[/blue] [gold]Block[/gold].",
 
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "Scorching Body",
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "At the start of your turn, add [blue]1[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
@@ -97,5 +97,20 @@
 
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.description": "At the start of your next turn, draw [blue]1[/blue] fewer card.",
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.smartDescription": "At the start of your next turn, draw [blue]{Amount}[/blue] fewer {Amount:plural:card|cards}.",
-  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "Phantom Moon"
+  "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "Phantom Moon",
+
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "Poison Doll",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
+
+  "TOUHOUANCIENTS-GUARDING_POWER.title": "Venomous Guard",
+  "TOUHOUANCIENTS-GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
+
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "Avaricious Calamity",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Amount}[/blue] times.",
+
+  "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "Ravenous Feeding",
+  "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.description": "This turn, the next [blue]{Amount}[/blue] cards played gain [gold]Exhaust[/gold] and increase [gold]Yuuma Toutetsu[/gold]’s [red]Max HP[/red] by [blue]10%[/blue].",
+  "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.smartDescription": "This turn, the next [blue]{Amount}[/blue] cards played gain [gold]Exhaust[/gold] and increase [gold]Yuuma Toutetsu[/gold]’s [red]Max HP[/red] by [blue]10%[/blue]."
 }

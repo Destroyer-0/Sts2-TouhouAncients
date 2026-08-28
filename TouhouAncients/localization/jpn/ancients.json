@@ -83,6 +83,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-0.ancient": "Stop lurking around over there, I can see you. Come on out—you’re scaring away the worshippers!",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-0.next": "Show yourself",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-1.char": "(The Silent steps out from the shadows)",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-1.next": "Respond",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-2.char": "...",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-2.next": "Continue",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-3.ancient": "All sorts of shady characters keep showing up... If you’re heading to the top, take this and leave quickly, or I’ll kick you out.",
@@ -327,6 +328,7 @@
   "TOUHOUANCIENTS-KIJIN_SEIJA_ANCIENT.talk.DEFECT.2-0r.ancient": "You’ve got quite a lot of potential in you—you’re bound for great things. So join my rebel army right now!",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.title": "Medicine Melancholy",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.epithet": "Little Lonely Medicine",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.fight.title": "Challenge Medicine",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.firstVisitEver.0-0.ancient": "Lily, someone’s come to the flower field...",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.ANY.0-0r.ancient": "This flower field is being invaded by mean bugs... Take my magic and go wipe out those wretched insects!",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.ANY.1-0r.ancient": "There are still so many construct friends who haven’t awakened their hearts... We must liberate them!",
@@ -659,6 +661,7 @@
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.title": "Yuuma Toutetsu",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.epithet": "Blight-Devouring Calamity Beast",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.fight.title": "Challenge the Gouyoku Alliance Leader",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.firstVisitEver.0-0.ancient": "[jitter]Heh heh...[/jitter] So someone actually comes. Are you here to feast on the fear, pleasure, grief, loathing, and resentment as well?",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.ANY.0-0r.ancient": "The blight in this tower is as delicious as oil. Truly a delicacy.",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT.talk.ANY.1-0.ancient": "Dig one bucket for riches—",
@@ -709,7 +712,7 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.title": "Mamizou Futatsuiwa (Test)",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.epithet": "Bake-danuki Outsider From Outside",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.firstVisitEver.0-0.ancient": "The Niwa of Sado, at your service~ Please take care of me from now on. This old one has brought quite a few treasures from Gensokyo to help out.",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.0-0r.ancient": "Ho ho~ The two major religious powers are arguing endlessly over who gets credit for resolving this incident. It falls to this old one to serve as mediator and spread the faith.",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.0-0.ancient": "Ho ho~ The two major religious powers are arguing endlessly over who gets credit for resolving this incident. It falls to this old one to serve as mediator and spread the faith.",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.1-0r.ancient": "Ho ho—this old one has high hopes for you.",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.2-0r.ancient": "Come to think of it, I’ve stored some liquor at Nidomitei. Care for a taste? Fair warning, it packs quite a punch.",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.3-0r.ancient": "This old one’s disciples have scrounged up some new trinkets again. Take a look and see if any catch your fancy.",
@@ -730,5 +733,8 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient": "Hehe, I’ve met plenty of tight-lipped folk in my day. Their secrets are always the most intriguing.",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.DEFECT.0-0r.ancient": "...This old one has seen another newborn mask youkai with the same doubts as you. Only by ceaseless learning can you find your true self.",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.0-0r.ancient": "Oh my, could you be His Highness the Regent? This old one has heard of your origins. Might we trade some local specialties?",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": ""
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.char": "Hey, I have a complaint! That “local specialty” you gave me last time was just a pile of leaves!",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.next": "Continue",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-1.ancient": "Oh dear—my apologies for grabbing the wrong thing last time. As an apology, allow this one to make it up to you with some treasures~",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "This old one has heard of your deeds. However, to achieve your goals, you must never let your head get turned—patience is key."
 }

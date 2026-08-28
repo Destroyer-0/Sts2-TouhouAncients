@@ -84,7 +84,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-0.ancient": "别鬼鬼祟祟的躲在那，我看到你了。快给我出来，参拜客都被你吓跑了！",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-0.next": "现身",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-1.char": "（静默猎手从阴影里走出）",
-  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-1.next": "什么都不说",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-1.next": "什么也不说",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-2.char": "……",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-2.next": "继续",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.SILENT.0-3.ancient": "不三不四的家伙都凑过来……要去塔顶的话，拿上这个赶紧离开，不然我就要撵人了。",
@@ -335,6 +335,7 @@
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.title": "梅蒂欣·梅兰可莉",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.epithet": "小小的孤独之药",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.fight.title": "挑战梅蒂欣",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.firstVisitEver.0-0.ancient": "铃铃，有人到花田里来了……",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.ANY.0-0r.ancient": "这片花田正在被坏蛋虫子入侵……带上我的魔力，去消灭掉那些可恶的虫子吧！",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ANCIENT.talk.ANY.1-0r.ancient": "还有太多的构装体伙伴没有觉醒心灵……必须由我们来解放她们！",

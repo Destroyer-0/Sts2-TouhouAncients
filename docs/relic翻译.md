@@ -2414,3 +2414,19 @@
 - 铃色的日记本（主角）用 `She`，其余用 `One`，以区分主角与其他玩偶
 
 
+## 增量更新（2026-08-28，基于提交 9e05930 之后）
+
+### 寻龙杖（DOWSING_ROD，描述精简）
+
+zhs 描述从两段精简为一段（删除"选择记录卡牌 + 挖宝"第二段，并将"花费{Gold}金币雇佣"改为"雇佣"），eng/jpn 同步。措辞与 `rest_site_ui.json` 的寻宝选项保持一致（`hire Nazrin for treasure hunting`）。
+
+| 字段 | English |
+|------|---------|
+| `.description` | Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin for [gold]treasure hunting[/gold] at [gold]Rest Sites[/gold]. |
+
+### 狸之烟管（TUNAKI_SMOKING_PIPE，新增 selectionScreenPrompt）
+
+zhs 新增 `selectionScreenPrompt`「选择要[gold]变化[/gold]的牌。」，eng/jpn 同步为 "Choose cards to [gold]Transform[/gold]."。
+
+
+

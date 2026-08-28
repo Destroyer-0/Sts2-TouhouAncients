@@ -262,3 +262,59 @@
 | `PRINCESS_PUZZLE_POWER` | 描述中"为她"→"为[gold]蓬莱山辉夜[/gold]"，补译 title/description/smartDescription → Princess's Puzzle |
 | `BLAZING_BODY_POWER` | 补译 title/description/smartDescription → Scorching Body |
 | `DECREASE_DRAW_CARDS_NEXT_TURN_POWER` | 新增 title「幻月」→ Phantom Moon；description/smartDescription 参照原版 MIND_ROT（draw fewer card 句式） |
+
+## 增量更新（2026-08-28，基于提交 9e05930 之后）
+
+### 雾雨魔理沙怪物：技能改名（monsters.json）
+
+| 键 | 变更 |
+|------|------|
+| `KIRISAME_MARISA_MONSTER.moves.BLACK_HOLE_EDGE.title` | 黑洞边缘 → 坍缩魔瓶 → Collapsing Bottle（zhs 已改，eng/jpn 同步） |
+
+### 饕餮尤魔怪物：招式键名重命名（monsters.json）
+
+招式键名从借用辉夜的 `FIVE_DIFFICULT_PROBLEMS` 等改名为独立键名，英文值不变。
+
+| 旧键名 | 新键名 | 中文 | English |
+|------|------|------|---------|
+| `FIVE_DIFFICULT_PROBLEMS.title` | `GREED.title` | 无尽贪妄 | Endless Greed |
+| `PALE_WHITE_WATERFALL.title` | `TOUTETSU_FEAST.title` | 饕餮盛宴 | Glutton’s Feast |
+| `..title` | `CUT_HERAT.title` | 剖心撕肉 | Gutting Hearts, Rending Flesh |
+| `FALSE_MOON.title` | `DRINK_BLOOD.title` | 剔骨啖髓 | Stripping Bones, Devouring Marrow |
+| `ETERNAL_NIGHT_RETURN.title` | `CHAOS_HELL.title` | 混沌炼狱 | Chaos Purgatory |
+
+### 辉夜怪物补译（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2` | 看在其他人的份上……饶你一回。 | For the sake of the others... I’ll spare you this once. |
+
+### 新怪物：梅蒂欣·梅兰可莉 + 铃铃（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `MEDICINE_MELANCHOLY_MONSTER.name` | 梅蒂欣·梅兰可莉 | Medicine Melancholy |
+| `MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.title` | 皇后的甜苹果 | The Queen’s Sweet Apple |
+| `MEDICINE_MELANCHOLY_MONSTER.moves.NIGHTINGALE_ROSE.title` | 夜莺与玫瑰 | The Nightingale and the Rose |
+| `MEDICINE_MELANCHOLY_MONSTER.moves.GLORY_THRONY_PATH.title` | 光荣的荆棘路 | The Thorny Road of Glory |
+| `MEDICINE_MELANCHOLY_MONSTER.moves.OH_MY_CUTE_LINGLING.title` | 我可爱的铃铃 | My Cute Lily |
+| `LINGLING_MONSTER.name` | 铃铃 | Lily |
+| `LINGLING_MONSTER.moves.POISON.title` | 神经毒素 | Neurotoxin |
+
+### 能力新增（powers.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `POISON_DOLL_POWER` | 毒人偶 | Poison Doll |
+| `GUARDING_POWER` | 烈毒护身 | Venomous Guard |
+| `BLOOD_DISASTER_POWER` | 贪婪祸劫 | Avaricious Calamity |
+| `HUNGRY_INSTINCT_POWER` | 饥渴摄食 | Ravenous Feeding |
+
+> **术语说明**：`POISON_DOLL_POWER` 描述中"将[gold]毒素[/gold]加入弃牌堆"的"毒素"指 STS2 状态牌 **Toxic**（参照 `YUAN_HEN` 卡牌 eng `add a [gold]Toxic[/gold]`），而非"中毒 Poison"层数。
+
+### 能力描述更新（powers.json）
+
+| 键 | 变更 |
+|------|------|
+| `PRINCESS_PUZZLE_POWER` | description 中 `{Amount}` → `[blue]12[/blue]`（zhs 已硬编码）；smartDescription 第二行为 `{PuzzleNum}`/`{GainBlock}` 加 `[red]`/`[blue]` 标记，eng/jpn 同步 |
+| `YUAN_CHOU_POWER` | description/smartDescription 中"来源"→`[gold]{Applier}[/gold]`，eng/jpn 已同步 |

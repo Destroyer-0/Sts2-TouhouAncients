@@ -687,7 +687,7 @@
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "The ability to grow braver after a drink.",
 
   "TOUHOUANCIENTS-DOWSING_ROD.title": "Dowsing Rod",
-  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin to search for treasure at [gold]Rest Sites[/gold] for [blue]{Gold}[/blue] [gold]Gold[/gold].\nChoose any number of recorded cards to add to your [gold]Deck[/gold], and maybe dig up some [jitter][gold]treasures[/gold][/jitter]!",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin for [gold]treasure hunting[/gold] at [gold]Rest Sites[/gold].",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "The ability to find her pagoda no matter what.",
   "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "Choose cards to take",
 
@@ -719,5 +719,6 @@
 
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "Tanuki’s Smoking Pipe",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "At the end of your turn, [gold]Transform[/gold] any number of cards in your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.selectionScreenPrompt": "Choose cards to [gold]Transform[/gold].",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": ""
 }

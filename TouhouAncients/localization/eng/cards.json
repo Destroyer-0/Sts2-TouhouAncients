@@ -1,4 +1,7 @@
 ﻿{
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "Sea of Desire and Blood",
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "The target loses [blue]{HpLoss}[/blue] HP and gains [blue]{Strength}[/blue] [gold]Strength[/gold].\nEach time this card is played this combat, the target loses an additional [blue]{ExtraHpLoss}[/blue] HP and gains an additional [blue]{ExtraStrength}[/blue] [gold]Strength[/gold].",
+
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "Lucky Rabbit",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "Draw [blue]{Cards}[/blue] {Cards:plural:card|cards}. Randomize the cost of cards in your [gold]Hand[/gold] this turn, and add [gold]Replay[/gold] this combat to those that cost [blue]0[/blue].",
 

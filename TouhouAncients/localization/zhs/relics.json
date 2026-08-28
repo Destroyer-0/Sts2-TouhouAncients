@@ -687,7 +687,7 @@
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "喝完酒变勇程度的能力。",
 
   "TOUHOUANCIENTS-DOWSING_ROD.title": "纳兹琳灵摆",
-  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处花费[blue]{Gold}[/blue][gold]金币[/gold]雇佣纳兹琳寻宝。\n从记录的卡牌中选择任意张加入牌组，并有概率挖出一些[jitter][gold]秘宝[/gold][/jitter]！",
+  "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处雇佣纳兹琳[gold]寻宝[/gold]。",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "不管怎样都能找回宝塔程度的能力。",
   "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "选择要拿走的卡牌",
 
