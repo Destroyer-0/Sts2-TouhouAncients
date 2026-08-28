@@ -1,26 +1,18 @@
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using HarmonyLib;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
-using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.Hooks;
 
 namespace TouhouAncients.Scripts.relics;
 
 [Pool(typeof(EventRelicPool))]
-public class WindPriestessWine : TouhouAncientRelics
+public class WindPriestessWine : TouhouAncientRelics, IPlayerEnergyGainedListener
 {
     public override bool IsAllowed(IRunState runState) => runState.Players.Count == 1;
 
@@ -55,49 +47,33 @@ public class WindPriestessWine : TouhouAncientRelics
 
         AddEnergyGain(player.PlayerCombatState.MaxEnergy);
 
-        await TryDraw();
+        await TryDraw(player);
     }
 
-    public override decimal ModifyEnergyGain(Player player, decimal amount)
+    public async Task AfterPlayerEnergyGained(PlayerEnergyGainContext context)
     {
-        if (player == base.Owner) TouhouAncients_EnergyGainedCounter += (int)amount;
-        return amount;
-    }
-    
-    public override async Task AfterModifyingEnergyGain()
-    {
-        await TryDraw();
+        if (context.Player != base.Owner) return;
+
+        AddEnergyGain(context.Amount);
+        await TryDraw(context.Player);
     }
 
-    private async Task TryDraw()
+    private async Task TryDraw(Player player)
     {
-        if (!LocalContext.NetId.HasValue) return;
-
         while (TouhouAncients_EnergyGainedCounter >= DynamicVars.Energy.IntValue)
         {
             TouhouAncients_EnergyGainedCounter -= DynamicVars.Energy.IntValue;
             Flash();
-            var ctx = new HookPlayerChoiceContext(
-                base.Owner, LocalContext.NetId.Value, GameActionType.CombatPlayPhaseOnly);
-
-            await CardPileCmd.Draw(ctx, DynamicVars.Cards.IntValue, base.Owner, fromHandDraw: false);
+            await CardPileCmd.Draw(
+                new ThrowingPlayerChoiceContext(),
+                DynamicVars.Cards.IntValue,
+                player,
+                fromHandDraw: false);
         }
     }
 
     public void AddEnergyGain(int amount)
     {
         TouhouAncients_EnergyGainedCounter += amount;
-    }
-}
-
-[HarmonyPatch(typeof(Hook), nameof(Hook.ModifyEnergyGain))]
-public static class WindPriestessWine_ModifyEnergyGain_Patch
-{
-    [HarmonyPostfix]
-    private static void Postfix(Player player, ref IEnumerable<AbstractModel> modifiers)
-    {
-        var relic = player?.GetRelic<WindPriestessWine>();
-        if (relic != null && !modifiers.Contains(relic))
-            modifiers = modifiers.Append(relic).ToList();
     }
 }
