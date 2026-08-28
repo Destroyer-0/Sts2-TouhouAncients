@@ -61,13 +61,6 @@ public sealed class AncientRunSavedData
         }
     }
 
-    public static void ResetApplied()
-    {
-        IsApplied = false;
-        TouhouAncientsConfig.ForcedAncient_2_Run = ForcedAncientOption.None;
-        TouhouAncientsConfig.ForcedAncient_3_Run = ForcedAncientOption.None;
-        TouhouAncientsConfig.BannedMask_Run = null;
-    }
 
     public byte[] EncodeTrailer()
     {

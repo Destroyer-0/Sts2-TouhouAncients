@@ -4,7 +4,6 @@ using System.Reflection;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Multiplayer;
-using MegaCrit.Sts2.Core.Multiplayer.Game.Lobby;
 using MegaCrit.Sts2.Core.Multiplayer.Messages.Lobby;
 using MegaCrit.Sts2.Core.Multiplayer.Serialization;
 using MegaCrit.Sts2.Core.Multiplayer.Transport;
@@ -22,20 +21,6 @@ namespace TouhouAncients.Scripts.Patches;
 /// </summary>
 public static class ForcedAncientSyncPatch
 {
-    /// <summary>
-    /// 主机/单人开局：先把本机设置提交为局内数据，再发出开局消息。
-    /// 客户端不走此方法。
-    /// </summary>
-    [HarmonyPatch(typeof(StartRunLobby), "BeginRunForAllPlayers")]
-    public static class BeginRunForAllPlayers_Prefix
-    {
-        [HarmonyPrefix]
-        private static void Prefix()
-        {
-            AncientRunSavedData.CommitFromLocalConfig();
-        }
-    }
-
     /// <summary>
     /// 单人开局可能不经过大厅。这里用本机设置覆盖上一局残留的局内数据。
     /// </summary>
