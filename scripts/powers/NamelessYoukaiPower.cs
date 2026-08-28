@@ -54,13 +54,14 @@ public class NamelessYoukaiPower : TouhouAncientPowerModel
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new EnergyVar(1),
         new PowerVar<StrengthPower>(1m),
         new DynamicVar(StrengthAppliedKey, 0m),
         new StringVar("Card")
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>(),HoverTipFactory.FromCard(GetInternalData<Data>().previousCard)];
+        [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromCard(PreviousCard)];
 
     protected override object InitInternalData()
     {

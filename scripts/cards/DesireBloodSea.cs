@@ -6,8 +6,10 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.monsters;
@@ -36,6 +38,10 @@ public class DesireBloodSea : TouhouAncientCards
     {
     }
 
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.FromPower<StrengthPower>()];
+    
     /// <summary>
     /// 基础数值：目标失去 4 生命、获得 1 力量。
     /// 额外失去生命（ExtraHpLoss）与额外力量（ExtraStrength）随实例持久化，

@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -44,5 +45,13 @@ public class DreamSealSabi : ReimuBossDreamSealStatus
         if (card == this) return true;
         if (autoPlayType != AutoPlayType.None) return true;
         return card.Type != CardType.Attack;
+    }
+
+    public override decimal ModifyDamageCap(Creature? target, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    {
+        if (dealer != base.Owner.Creature) return decimal.MaxValue;
+        CardPile? pile = base.Pile;
+        if (pile == null || pile.Type != PileType.Hand) return decimal.MaxValue;
+        return 0m;
     }
 }

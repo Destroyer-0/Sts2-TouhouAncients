@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using TouhouAncients.Scripts.powers;
@@ -99,12 +100,38 @@ public class NamelessYoukai : TouhouAncientCards
     /// <summary>
     /// 收集所有角色卡池（颜色）中与指定牌稀有度相同的可选牌，排除原卡所在的卡池（颜色）。
     /// </summary>
-    private static List<CardModel> GetSameRarityColoredCards(CardModel card, Player player)
+    private List<CardModel> GetSameRarityColoredCards(CardModel card, Player player)
     {
-        return ModelDb.AllCharacterCardPools
-            .Where(pool => pool.GetType() != card.Pool.GetType())
-            .SelectMany(pool => pool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint))
+        List<CardPoolModel> list1 = this.Owner.UnlockState.CardPools.ToList();
+        if (list1.Count > 1)
+        {
+            list1.Remove(this.Owner.Character.CardPool);
+        }
+
+        return list1.SelectMany(pool => pool.GetUnlockedCards(this.Owner.UnlockState, this.Owner.RunState.CardMultiplayerConstraint))
+            .Where(c =>
+            {
+                if (c is { IsBasicStrikeOrDefend: false } and { ShouldShowInCardLibrary: true, CanBeGeneratedInCombat: true } && (!c.Tags.Contains(CardTag.OstyAttack) || this.Owner.IsOstyAlive))
+                {
+                    if (c is Dualcast)
+                    {
+                        PlayerCombatState playerCombatState = this.Owner.PlayerCombatState;
+                        if (playerCombatState == null || playerCombatState.OrbQueue.Orbs.Count <= 0)
+                        {
+                            return false;
+                        }
+                    }
+
+                    int baseStarCost = c.BaseStarCost;
+                    PlayerCombatState playerCombatState2 = this.Owner.PlayerCombatState;
+                    return baseStarCost <= ((playerCombatState2 != null) ? new int?(playerCombatState2.Stars) : null);
+                }
+
+                return false;
+            })
             .Where(c => c.Rarity == card.Rarity && c.Id != card.Id && c.CanBeGeneratedInCombat)
+            .OrderBy(c => c.Id)
             .ToList();
+
     }
 }

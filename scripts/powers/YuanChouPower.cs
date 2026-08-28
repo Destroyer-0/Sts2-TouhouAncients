@@ -34,6 +34,13 @@ public class YuanChouPower : TouhouAncientPowerModel
     // /// </summary>
     // public Creature? Source { get; set; }
 
+    
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        ((StringVar)base.DynamicVars["Applier"]).StringValue = applier.Name;
+        return Task.CompletedTask;
+    }
+    
     /// <summary>
     /// 敌人对来源造成的伤害降低 25%
     /// </summary>

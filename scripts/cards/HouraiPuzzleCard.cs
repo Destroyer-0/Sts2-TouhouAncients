@@ -25,7 +25,7 @@ namespace TouhouAncients.Scripts.cards;
 /// </summary>
 public abstract class HouraiPuzzleCard : TouhouAncientCards
 {
-    public override string? Author => "东方光耀夜 Touhou Lost Branch of Legend";
+    public override string? Author => "东方光耀夜\nTouhou Lost Branch of Legend";
     public enum PuzzleCardName
     {
         龙颈之玉 = 0,
