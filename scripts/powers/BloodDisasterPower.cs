@@ -118,7 +118,7 @@ public class BloodDisasterPower : TouhouAncientPowerModel
     private void ChangeAmount()
     {
         NCreature? node = NCombatRoom.Instance?.GetCreatureNode(base.Owner);
-        float scale = 1f + CurrentStrength * 0.1f;
+        float scale = Math.Max(1, 1f + CurrentStrength * 0.1f);
         node?.ScaleTo(scale, 0f);
         InvokeDisplayAmountChanged();
         if (node == null || Owner.Monster is not ToutetsuYuumaMonster)
