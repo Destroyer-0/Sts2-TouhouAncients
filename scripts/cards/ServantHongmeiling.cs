@@ -20,6 +20,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class ServantHongmeiling : TouhouAncientCards
 {
+    public override string? Author => "しらび";
+    
     private const int energyCost = 2;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;

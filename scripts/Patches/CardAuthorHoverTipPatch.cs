@@ -30,34 +30,50 @@ public static class CardAuthorHoverTipPatch
     private const string AuthorTitleKey = "TOUHOUANCIENTS-TOUHOUANCIENTAUTHOR.title";
 
     /// <summary>
-    /// 当前处于"衍生卡预览"上下文的嵌套深度（FromCardWithCardHoverTips 求值 HoverTips 期间大于 0）。
+    /// 处于"卡牌预览"上下文中的卡牌模板实例栈（<see cref="HoverTipFactory.FromCard"/> 调用压栈，
+    /// HoverTips 求值匹配后弹栈）。
     /// 使用 [ThreadStatic] 保证多人/异步环境下各线程互不干扰。
-    /// 用计数器而非布尔值：HoverTips 求值过程中可能嵌套调用 FromCardWithCardHoverTips，
-    /// 计数器保证最外层退出后才关闭标记。
+    /// 用栈而非布尔值：HoverTips 求值过程中可能嵌套调用 FromCard（卡内嵌卡的预览），
+    /// 栈能精确匹配"当前正在生成预览的卡牌模板实例"。
     /// </summary>
     [ThreadStatic]
-    private static int _derivedPreviewDepth;
+    private static Stack<CardModel> _previewCards;
 
-    /// <summary>进入衍生卡预览上下文（FromCardWithCardHoverTips 的 Prefix 调用）。</summary>
-    internal static void EnterDerivedPreviewContext()
+    /// <summary>惰性初始化线程本地栈（[ThreadStatic] 字段的初始化器不会在每个线程执行）。</summary>
+    private static Stack<CardModel> PreviewCards => _previewCards ??= new Stack<CardModel>();
+
+    /// <summary>进入卡牌预览上下文（<see cref="HoverTipFactory.FromCard"/> 的 Postfix 调用，压入被预览的卡牌模板实例）。</summary>
+    internal static void EnterDerivedPreviewContext(CardModel card)
     {
-        _derivedPreviewDepth++;
+        if (card != null)
+        {
+            PreviewCards.Push(card);
+        }
     }
 
-    /// <summary>退出衍生卡预览上下文（FromCardWithCardHoverTips 的 Postfix 调用）。</summary>
-    internal static void ExitDerivedPreviewContext()
+    /// <summary>
+    /// 判断指定实例是否正处于"卡牌预览"上下文中（栈顶实例与它引用相等，且为 canonical 模板实例）。
+    /// 匹配成功后弹栈（一次性消费），保证栈不残留、后续图鉴等场景悬停不受影响。
+    /// </summary>
+    private static bool IsDerivedPreview(CardModel instance)
     {
-        if (_derivedPreviewDepth > 0)
+        var stack = _previewCards;
+        if (stack == null || stack.Count == 0) return false;
+
+        // 只匹配 canonical（不可变模板）实例：真实手牌/牌组卡是 mutable，绝不会误判
+        if (stack.Peek() is { } top && ReferenceEquals(top, instance) && instance.IsCanonical)
         {
-            _derivedPreviewDepth--;
+            stack.Pop();
+            return true;
         }
+        return false;
     }
 
     [HarmonyPostfix]
     private static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
     {
-        // 衍生卡预览（FromCardWithCardHoverTips）不显示绘师
-        if (_derivedPreviewDepth > 0) return;
+        // 卡牌预览（FromCard 生成）不显示绘师
+        if (IsDerivedPreview(__instance)) return;
 
         // 只有东方卡牌且设置了绘师才显示
         if (__instance is not TouhouAncientCards { Author: { Length: > 0 } author }) return;
@@ -66,37 +82,32 @@ public static class CardAuthorHoverTipPatch
         __result = new IHoverTip[] { new HoverTip(title, author) }.Concat(__result);
     }
 }
-
 /// <summary>
-/// Patch <see cref="HoverTipFactory.FromCardWithCardHoverTips{T}"/>：在求值衍生卡 HoverTips 期间
-/// 打开"衍生卡预览"标记，使绘师 HoverTip 不插入到衍生卡预览中。
+/// Patch <see cref="HoverTipFactory.FromCard(CardModel, bool)"/>：当该方法被调用生成卡牌预览时，
+/// 将被预览的卡牌模板实例压栈，使 <see cref="CardAuthorHoverTipPatch"/> 在随后的 HoverTips 求值中
+/// 识别出"衍生卡预览"场景并跳过绘师。
 ///
-/// 注意：FromCardWithCardHoverTips 内部对 ModelDb.Card&lt;T&gt;().HoverTips 的求值是同步发生的
-/// （作为 Concat 的参数立即求值），因此 Prefix 打开标记、原方法体求值、Postfix 关闭标记
-/// 在同一个线程内顺序执行，标记能准确覆盖求值窗口。
+/// 注意：<see cref="HoverTipFactory.FromCardWithCardHoverTips{T}"/> 内部会先调用 FromCard 生成预览，
+/// 再对同一张卡（ModelDb.Card&lt;T&gt;() 的 canonical 实例）求值 HoverTips，二者在同一线程内
+/// 顺序同步执行，因此压栈后立即匹配弹栈，标记能准确覆盖求值窗口，且不会残留影响图鉴等场景。
 /// </summary>
 [HarmonyPatch]
 public static class CardAuthorDerivedPreviewPatch
 {
     /// <summary>
-    /// 通过 TargetMethod 精确定位泛型方法定义 FromCardWithCardHoverTips&lt;T&gt;。
-    /// 泛型方法定义只有一份 IL，patch 后对所有泛型实例（T 为引用类型时共享代码）生效。
+    /// 通过 TargetMethod 精确匹配非泛型重载 FromCard(CardModel, bool)。
+    /// （HoverTipFactory 还有一个泛型重载 FromCard&lt;T&gt;(bool)，必须指定参数类型以免歧义。）
     /// </summary>
     private static System.Reflection.MethodBase TargetMethod()
     {
-        return typeof(HoverTipFactory).GetMethods()
-            .First(m => m.Name == nameof(HoverTipFactory.FromCardWithCardHoverTips) && m.IsGenericMethodDefinition);
-    }
-
-    [HarmonyPrefix]
-    private static void Prefix()
-    {
-        CardAuthorHoverTipPatch.EnterDerivedPreviewContext();
+        return typeof(HoverTipFactory).GetMethod(
+            nameof(HoverTipFactory.FromCard),
+            new[] { typeof(CardModel), typeof(bool) });
     }
 
     [HarmonyPostfix]
-    private static void Postfix()
+    private static void Postfix(CardModel card)
     {
-        CardAuthorHoverTipPatch.ExitDerivedPreviewContext();
+        CardAuthorHoverTipPatch.EnterDerivedPreviewContext(card);
     }
 }

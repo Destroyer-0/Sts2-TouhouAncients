@@ -378,12 +378,12 @@
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.title": "蛊毒魔盒",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.description": "拾起时，将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
   "TOUHOUANCIENTS-MEDICINE_POISON_BOX.eventDescription": "将你[gold]牌组[/gold]中的所有[gold]打击[/gold]变化为[gold]蛇咬[/gold]并[gold]附魔[/gold]：[purple]蛊毒3[/purple]。",
-  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "八个无名小人偶，山中偶遇大宝箱。欣喜掀盖毒蛇现，八个只剩七。",
+  "TOUHOUANCIENTS-MEDICINE_POISON_BOX.flavor": "八个无名小人偶，山中偶遇大宝箱。欣喜开盖毒蛇现，八个只剩七。",
 
   "TOUHOUANCIENTS-LILY_BELL_DIARY.title": "铃色的日记本",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.description": "拾起时，将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-LILY_BELL_DIARY.eventDescription": "将[blue]1[/blue]张[gold]铃兰[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "一个无名小人偶，合书封笔只一人。沉眠花海梦往生，一个也不剩。",
+  "TOUHOUANCIENTS-LILY_BELL_DIARY.flavor": "一个无名小人偶，合书封笔再无人。沉眠花海忆往生，一个也不剩。",
 
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.title": "幸福的秘药",
   "TOUHOUANCIENTS-HAPPINESS_ELIXIR.description": "拾起时，获得一瓶[green]卡米莉亚[/green]。第二幕的[gold]Boss[/gold]战结束后额外掉落一瓶。",
@@ -402,11 +402,11 @@
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "恶毒的童话书",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "在每场战斗开始时，所有敌人获得[blue]{ThornsAmount}[/blue]层[gold]荆棘[/gold]。在你的回合开始时，获得[blue]{Power}[/blue]点[gold]力量[/gold]。",
-  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "四个无名小人偶，共赴森林寻解药。瘴气浓郁迷归路，四个只剩三。",
+  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "四个无名小人偶，共赴森林寻草药。瘴气浓郁迷归路，四个只剩三。",
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "荒疫特调",
   "TOUHOUANCIENTS-PLAGUE_BLEND.description": "在每回合开始时获得{Energy:energyIcons()}。第[blue]{TriggerTurn}[/blue]回合开始时，给予自身[blue]{PoisonAmount}[/blue]层[gold]中毒[/gold]。",
-  "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "五个无名小人偶，结伴同逛黑市场。美酒入喉心作痛，五个只剩四。",
+  "TOUHOUANCIENTS-PLAGUE_BLEND.flavor": "五个无名小人偶，结伴同逛黑市场。美酒入喉心酣醉，五个只剩四。",
 
   "TOUHOUANCIENTS-SILENCE_DOLL.title": "缄默魔偶",
   "TOUHOUANCIENTS-SILENCE_DOLL.description": "每回合开始时，选择一张上回合进入过[gold]弃牌堆[/gold]的卡牌放入[gold]手牌[/gold]，这张牌直到打出前获得[gold]保留[/gold]。",

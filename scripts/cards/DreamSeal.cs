@@ -22,6 +22,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class DreamSeal : TouhouAncientCards
 {
+    public override string? Author => "久蒼穹";
+    
     private const int energyCost = 1;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;

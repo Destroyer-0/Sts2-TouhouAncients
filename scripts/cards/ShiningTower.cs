@@ -28,6 +28,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class ShiningTower : TouhouAncientCards
 {
+    public override string? Author => "hayaten";
+    
     private const int energyCost = 3;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Event;

@@ -28,6 +28,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class TheMillionPoundNote : TouhouAncientCards
 {
+    public override string? Author => "黄瓜";
+
     private const int energyCost = 0;
     private const CardType type = CardType.Curse;
     private const CardRarity rarity = CardRarity.Curse;

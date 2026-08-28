@@ -28,6 +28,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class LilyBell : TouhouAncientCards
 {
+    public override string? Author => "かぎやま";
+    
     private const int energyCost = 0;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;

@@ -20,6 +20,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(StatusCardPool))]
 public class DreamSealWabi : ReimuBossDreamSealStatus
 {
+    public override string? Author => "遥雨るつき";
     public DreamSealWabi() : base(true)
     {
     }

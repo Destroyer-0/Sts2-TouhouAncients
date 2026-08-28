@@ -14,6 +14,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class SatoriEye : TouhouAncientCards
 {
+    public override string? Author => "ひなすみれ";
+
     private const int energyCost = 0;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;

@@ -24,13 +24,14 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class ServantSakuya : TouhouAncientCards
 {
+    public override string? Author => "しらび";
+    
     private const int energyCost = 1;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
-
-
+    
     protected override HashSet<CardTag> CanonicalTags => new HashSet<CardTag> { CardTag.Minion };
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

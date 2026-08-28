@@ -23,13 +23,13 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(StatusCardPool))]
 public class DesireBloodSea : TouhouAncientCards
 {
+    public override string? Author => "冰绫月雅";
+    
     private const int energyCost = 1;
     private const CardType type = CardType.Status;
     private const CardRarity rarity = CardRarity.Status;
-    
     public override bool CanBeGeneratedByModifiers => false;
 
-    public override string? Author => "冰绫月雅";
     public override int MaxUpgradeLevel => -1;
 
     public DesireBloodSea() : base(energyCost, type, rarity, CustomTargetType.Anyone, true)
@@ -43,9 +43,9 @@ public class DesireBloodSea : TouhouAncientCards
     /// </summary>
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("HpLoss", 4m),
+        new DynamicVar("HpLoss", 3m),
         new DynamicVar("Strength", 1m),
-        new DynamicVar("ExtraHpLoss", 4m),
+        new DynamicVar("ExtraHpLoss", 3m),
         new DynamicVar("ExtraStrength", 1m)
     ];
 

@@ -34,7 +34,7 @@ public class MurderousLily : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(2)
+        new CardsVar(1)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -115,7 +115,7 @@ public class MurderousLily : TouhouAncientRelics
         var player = base.Owner;
         var results = new List<CardPileAddResult>();
         Flash();
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < DynamicVars.Cards.IntValue; i++)
         {
             var card = player.RunState.CreateCard(ModelDb.Card<KillingAura>(), player);
             results.Add(await CardPileCmd.Add(card, PileType.Deck));

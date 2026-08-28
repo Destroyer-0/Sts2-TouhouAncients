@@ -17,6 +17,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class Tribute : TouhouAncientCards
 {
+    public override string? Author => "MuseDash";
+    
     private const int RequiredGold = 250;
 
     public override bool CanBeGeneratedByModifiers => false;

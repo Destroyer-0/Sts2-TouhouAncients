@@ -27,6 +27,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class PoorestForm : TouhouAncientCards
 {
+    public override string? Author => "べらぼう";
+
     private const int energyCost = 3;
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Ancient;

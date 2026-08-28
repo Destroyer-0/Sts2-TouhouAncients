@@ -29,6 +29,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class AllCreationHisou : TouhouAncientCards
 {
+    public override string? Author => "竜崎いち";
+
     private const int energyCost = 3;
     private const CardType type = CardType.Power;
     private const CardRarity rarity = CardRarity.Ancient;

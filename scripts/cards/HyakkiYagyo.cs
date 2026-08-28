@@ -15,6 +15,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class HyakkiYagyo : TouhouAncientCards
 {
+    public override string? Author => "抽风男";
+    
     private const int energyCost = 1;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;

@@ -29,6 +29,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class MasterSpark : TouhouAncientCards
 {
+    public override string? Author => "菊月";
+
     private const int energyCost = 0;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;

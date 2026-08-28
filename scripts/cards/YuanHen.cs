@@ -20,6 +20,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(CurseCardPool))]
 public class YuanHen : TouhouAncientCards
 {
+    public override string? Author => "はなだひょう";
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;
 

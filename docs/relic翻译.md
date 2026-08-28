@@ -2388,4 +2388,29 @@
 | `KEYSTONE_FLOATING_CANNON.description` | "使用"→"打出"（英文已为 played，无实质变化） |
 | `MINI_HAKKERO` / `MUSHROOM_BENTO` / `OVERFLOWING_DEFILEMENT` / `TREMBLING_FROZEN_STAR` / `PURGATORY_EMBERS` / `ESTRANGED_HEART` / `SILENCE_DOLL` / `BATTERY_BILI` 等 | 中文补充 `[gold]手牌[/gold]` / `[gold]抽牌堆[/gold]` 标记，英文描述无需变更 |
 
+## 无名小人偶倒数童谣（2026-08-28 补译 flavor）
+
+这组 flavor 是"十个小人偶"式的倒数童谣（10→1→none），改编自被遗弃人偶的第一人称视角。中文以七言句式呈现，英文采用《无人生还》(And Then There Were None) 童谣的两句式结构：`[数字] little nameless dolls ...; one ... and then there were [N].`。`and` 前不加逗号，铃色的日记本主语用 `She`，其余用 `One`。
+
+### 英文翻译
+
+| 键名 | 中文 flavor | English flavor |
+|------|------|---------|
+| `CHILDHOOD_BAG` | 十个无名小人偶，高高兴兴上学去。污浊大河浪汹涌，十个只剩九。 | Ten little nameless dolls went off to school; one was swept away by the rushing foul river and then there were nine. |
+| `STAGE_DEVICE` | 九个无名小人偶，邀约上台共起舞。乐曲癫狂无止休，九个只剩八。 | Nine little nameless dolls danced at the ball; one kept dancing and then there were eight. |
+| `MEDICINE_POISON_BOX` | 八个无名小人偶，山中偶遇大宝箱。欣喜掀盖毒虫溢，八个只剩七。 | Eight little nameless dolls found a box in the hills; one opened it to find a venomous snake and then there were seven. |
+| `RIBBON_BOW` | 七个无名小人偶，精心打扮欲争艳。妒火蚀心不可谏，七个只剩六。 | Seven little nameless dolls dressed up to compete; one was slain by a jealous hand and then there were six. |
+| `ROSE_CROWN` | 六个无名小人偶，权力熏心争王位。血染金冠魂归天，六个只剩五。 | Six little nameless dolls sought the golden crown; one won no favor from the people and then there were five. |
+| `PLAGUE_BLEND` | 五个无名小人偶，结伴同逛黑市场。美酒入喉心作痛，五个只剩四。 | Five little nameless dolls drank at the black market; one was lost to the wine and then there were four. |
+| `MALICIOUS_FAIRY_TALE` | 四个无名小人偶，共赴森林寻解药。瘴气浓郁迷归路，四个只剩三。 | Four little nameless dolls roamed the magic woods; one lost the way and then there were three. |
+| `SILENCE_DOLL` | 三个无名小人偶，避难误入魔女屋。恶咒封口作傀儡，三个只剩两。 | Three little nameless dolls crossed a witch's door; one was made a voiceless puppet and then there were two. |
+| `HAPPINESS_ELIXIR` | 两个无名小人偶，惊魂未定待宁神。违背医嘱把药吞，两个只剩一。 | Two little nameless dolls, shaken, sought calm; one took too much of the potion and then there was one. |
+| `LILY_BELL_DIARY` | 一个无名小人偶，合书封笔只一人。沉眠花海梦往生，一个也不剩。 | One little nameless doll was left at last; she slept alone in the lily field and then there were none. |
+
+### Neta / 文化梗说明
+- 结构致敬《无人生还》的十个小印第安人童谣：数字从 ten 递减到 none
+- 背景为被遗弃人偶的第一人称回忆：十个玩偶分别来自主人、主人其他玩偶、主人童年玩伴的过家家玩偶，逐个因各种原因消失，最后主角被遗弃在铃兰花田
+- 英文有意含蓄处理：用"欢宴中被遗忘""毒蛇""嫉妒之手""不得民心""醉于酒""迷路不返""无声傀儡""药过量""独眠花田"等意象暗示，不直白点破"遗弃""抑郁"等词
+- 铃色的日记本（主角）用 `She`，其余用 `One`，以区分主角与其他玩偶
+
 
