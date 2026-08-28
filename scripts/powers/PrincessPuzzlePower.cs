@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.monsters;
 
 namespace TouhouAncients.Scripts.powers;
 
@@ -109,11 +110,17 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>
     /// 标记指定玩家完成指定类型的谜题。
     /// 当该类型的谜题首次达成"所有玩家都完成"时，未解开谜题数减一并刷新格挡总量。
+    /// 每次有新玩家完成时，通知辉夜怪物同步谜题图标的漂浮演出透明度。
     /// </summary>
     public void CompletePuzzle(int puzzleType, Player player)
     {
         if (puzzleType < 0 || puzzleType >= _completedPlayers.Length) return;
         if (!_completedPlayers[puzzleType].Add(player)) return;
+
+        if (base.Owner.Monster is HouraisanKaguyaMonster kaguya)
+        {
+            kaguya.NotifyPuzzleProgress(puzzleType);
+        }
 
         int playerCount = base.Owner.CombatState?.Players.Count ?? 1;
         if (_completedPlayers[puzzleType].Count >= playerCount)
@@ -122,6 +129,36 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
             RefreshGainBlock();
             InvokeDisplayAmountChanged();
         }
+    }
+
+    /// <summary>
+    /// 指定谜题类型当前已完成的玩家数量（供漂浮演出按玩家比例计算透明度）。
+    /// </summary>
+    public int GetCompletedPlayerCount(int puzzleType)
+    {
+        if (puzzleType < 0 || puzzleType >= _completedPlayers.Length) return 0;
+        return _completedPlayers[puzzleType].Count;
+    }
+
+    /// <summary>
+    /// 指定谜题类型当前尚未完成的玩家显示名列表（多人模式悬停提示用）。
+    /// 单人模式始终返回空列表（不显示悬停提示）。
+    /// </summary>
+    public IReadOnlyList<string> GetIncompletePlayerNames(int puzzleType)
+    {
+        if (puzzleType < 0 || puzzleType >= _completedPlayers.Length) return Array.Empty<string>();
+
+        ICombatState? combatState = base.Owner.CombatState;
+        if (combatState == null || combatState.Players.Count <= 1)
+        {
+            return Array.Empty<string>();
+        }
+
+        HashSet<Player> completed = _completedPlayers[puzzleType];
+        return combatState.Players
+            .Where(p => !completed.Contains(p))
+            .Select(p => p.Creature.Name)
+            .ToList();
     }
 
     /// <summary>

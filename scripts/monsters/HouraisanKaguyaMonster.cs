@@ -13,11 +13,13 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -53,10 +55,15 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     /// <summary>五道难题释放后，辉夜曲淡入时长（秒）。</summary>
     private const float FiveDifficultProblemsBgmFadeInSeconds = 2f;
 
+    /// <summary>五道难题漂浮谜题演出辅助（挂在场景根节点的脚本）。</summary>
+    private HouraisanKaguyaVisuals? _kaguyaVisuals;
+
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
+
+        _kaguyaVisuals = base.Creature.GetCreatureNode()?.Visuals as HouraisanKaguyaVisuals;
         // 第一回合无实体
         await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
     }
@@ -123,6 +130,11 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
                 1.5f, CardPreviewStyle.HorizontalLayout);
         }
 
+        await Cmd.Wait(2f);
+
+        // 演出：五个谜题图标出现在辉夜周围并开始环绕旋转
+        _kaguyaVisuals?.ShowPuzzles();
+        
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
 
         if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter && !string.IsNullOrEmpty(encounter.BgmFileName))
@@ -180,5 +192,43 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
             await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), this.Creature,
                 -(Math.Min(20, doomPower / 2)), base.Creature, null);
         }
+    }
+
+    /// <summary>
+    /// 谜题进度回调（由 <see cref="PrincessPuzzlePower.CompletePuzzle"/> 调用）：
+    /// 玩家解开某道谜题后，按该谜题当前已完成玩家数与总玩家数的比例
+    /// 更新漂浮演出中对应谜题图标的透明度（多人模式下等比例下降）。
+    /// </summary>
+    public void NotifyPuzzleProgress(int puzzleType)
+    {
+        HouraisanKaguyaVisuals? visuals = _kaguyaVisuals;
+        if (visuals == null)
+        {
+            return;
+        }
+
+        PrincessPuzzlePower? puzzlePower = base.Creature.GetPower<PrincessPuzzlePower>();
+        if (puzzlePower == null)
+        {
+            return;
+        }
+
+        int completedCount = puzzlePower.GetCompletedPlayerCount(puzzleType);
+        int playerCount = base.Creature.CombatState?.Players.Count ?? 1;
+        visuals.UpdatePuzzleTransparency(puzzleType, completedCount, playerCount);
+    }
+
+    /// <summary>
+    /// 获取指定谜题类型尚未完成的玩家显示名列表（漂浮谜题悬停提示用，仅多人模式有内容）。
+    /// </summary>
+    public IReadOnlyList<string> GetIncompletePuzzlePlayerNames(int puzzleType)
+    {
+        PrincessPuzzlePower? puzzlePower = base.Creature.GetPower<PrincessPuzzlePower>();
+        if (puzzlePower == null)
+        {
+            return Array.Empty<string>();
+        }
+
+        return puzzlePower.GetIncompletePlayerNames(puzzleType);
     }
 }
