@@ -23,6 +23,10 @@ namespace TouhouAncients.Scripts.monsters;
 /// </summary>
 public sealed class LingLingMonster : TouhouAncientMonsterBase
 {
+    protected override bool HasAnimation => false;
+
+    public override bool IsPrimaryMonster => false;
+
     // --- HP：括号外为高阶，括号内为低阶 ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
         AscensionLevel.ToughEnemies, 13, 12);

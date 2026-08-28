@@ -38,6 +38,8 @@ internal static class NBestiaryAncientSectionPatch
         (typeof(FantasyMushroomMonster), typeof(KirisameMarisaEncounter)),
         (typeof(YorigamiJoonMonster), typeof(YorigamiSistersEncounter)),
         (typeof(YorigamiShionMonster), typeof(YorigamiSistersEncounter)),
+        (typeof(MedicineMelancholyMonster), typeof(MedicineMelancholyEncounter)),
+        (typeof(LingLingMonster), typeof(MedicineMelancholyEncounter)),
         (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter)),
         (typeof(ToutetsuYuumaMonster), typeof(ToutetsuYuumaEncounter)),
     ];

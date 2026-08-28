@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -23,6 +24,7 @@ public class MedicineMelancholyAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/MedicineMelancholy.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/MedicineMelancholy.png";
 
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<MedicineMelancholyEncounter>();
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
             AncientOption<ChildhoodBag>(),

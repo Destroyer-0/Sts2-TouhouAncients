@@ -20,18 +20,20 @@ namespace TouhouAncients.Scripts.monsters;
 /// </summary>
 public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
 {
+    protected override bool HasAnimation => false;
+    
     // --- HP：括号外为高阶，括号内为低阶 ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 183, 173);
+        AscensionLevel.ToughEnemies, 174, 165);
 
     // --- 数值 ---
     /// <summary>夜莺与玫瑰：每段伤害，低阶 6 / 高阶 7。</summary>
     private int NightingaleRoseDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 7, 6);
+        AscensionLevel.DeadlyEnemies, 6, 5);
 
     /// <summary>光荣的荆棘路：基础伤害，低阶 12 / 高阶 13。</summary>
     private int GloryThornyPathDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 13, 12);
+        AscensionLevel.DeadlyEnemies, 11, 10);
 
     private const int SnowAppleWeak = 2;
 

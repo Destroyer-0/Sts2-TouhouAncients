@@ -20,17 +20,17 @@ public sealed class MedicineMelancholyEncounter : TouhouAncientEncounter
     /// <summary>预置槽位：梅蒂欣本体 + 铃铃（左侧随从）。</summary>
     public override IReadOnlyList<string> Slots =>
     [
-        "medicine", "lingling"
+        "medicine", "lily"
     ];
 
-    public override string? BgmFileName => null;
+    public override string? BgmFileName => "Medicine.mp3";
 
     public override string? CustomScenePath => "res://scenes/encounters/medicine_melancholy.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [
         (ModelDb.Monster<MedicineMelancholyMonster>().ToMutable(), "medicine"),
-        (ModelDb.Monster<LingLingMonster>().ToMutable(), "lingling")
+        (ModelDb.Monster<LingLingMonster>().ToMutable(), "lily")
     ];
 
     public MedicineMelancholyEncounter() : base(RoomType.Monster)

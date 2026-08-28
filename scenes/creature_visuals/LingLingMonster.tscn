@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj4w5btwq621u"]
+
+[ext_resource type="Texture2D" uid="uid://b2owbbv1cvmdc" path="res://images/sprite/medicine/lily.png" id="1_fua8i"]
+
+[node name="Lily" type="Node2D"]
+texture_filter = 1
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-2, -78)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fua8i")
+offset = Vector2(-1.333, -32)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -62.0
+offset_top = -155.0
+offset_right = 60.0
+offset_bottom = -14.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -91)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -151)

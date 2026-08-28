@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcgh0eo3d1h6"]
+
+[ext_resource type="Texture2D" uid="uid://dcrdmkoumrc03" path="res://images/sprite/medicine/medicine.png" id="1_jfh40"]
+
+[node name="MedicineMelancholy" type="Node2D"]
+texture_filter = 1
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(10, -109)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_jfh40")
+offset = Vector2(-1.333, -32)
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -90.0
+offset_top = -252.0
+offset_right = 94.0
+offset_bottom = -2.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(6, -127)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(6, -280)
