@@ -119,13 +119,6 @@ public class ChildhoodBag : TouhouAncientRelics
             }
         }
 
-        // 如果没有金币奖励，也额外添加一瓶污浊药水
-        if (!modified)
-        {
-            rewards.Add(new PotionReward(ModelDb.Potion<FoulPotion>().ToMutable(), player));
-            modified = true;
-        }
-
         return modified;
     }
 
