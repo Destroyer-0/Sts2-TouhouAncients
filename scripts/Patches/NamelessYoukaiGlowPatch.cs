@@ -44,6 +44,7 @@ public static class NamelessYoukaiGlowPatch
     {
         if (card == null) return false;
         if (card.Owner?.Creature == null) return false;
+        if (!card.CanPlay()) return false;
 
         NamelessYoukaiPower? power = card.Owner.Creature.GetPowerInstances<NamelessYoukaiPower>().FirstOrDefault();
         if (power == null) return false;
