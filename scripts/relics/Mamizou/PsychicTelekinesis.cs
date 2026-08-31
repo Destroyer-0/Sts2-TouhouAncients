@@ -72,8 +72,8 @@ public class PsychicTelekinesis : TouhouAncientRelics
         var copyCount = base.DynamicVars["Copies"].IntValue;
         for (int i = 0; i < copyCount; i++)
         {
-            var copy = (CardModel)cardPlay.Card.MutableClone();
-            await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Discard, creator: base.Owner);
+            CardModel card = cardPlay.Card.CreateClone();
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Discard, base.Owner);
         }
     }
 }
