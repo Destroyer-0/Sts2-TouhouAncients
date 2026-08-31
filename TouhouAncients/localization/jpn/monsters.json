@@ -46,7 +46,7 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.PALE_WHITE_WATERFALL.title": "Pale White Waterfall",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FALSE_MOON.title": "False Moon",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.title": "Eternal Night Return",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.puzzleHover.incomplete": "Not yet solved:\n{PlayerNames}",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.puzzleHover.incomplete": "[purple]Not yet solved:[/purple]\n{PlayerNames}",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.name": "Yuuma Toutetsu",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.GREED.title": "Endless Greed",

@@ -103,8 +103,8 @@
   "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
   "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
 
-  "TOUHOUANCIENTS-GUARDING_POWER.title": "Venomous Guard",
-  "TOUHOUANCIENTS-GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
+  "TOUHOUANCIENTS-POISON_GUARDING_POWER.title": "Venomous Guard",
+  "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
 
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "Avaricious Calamity",
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.",
