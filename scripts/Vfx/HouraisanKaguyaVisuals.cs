@@ -1,11 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Godot;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.HoverTips;
+using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.monsters;
+using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts.Vfx;
 
@@ -36,6 +40,7 @@ public partial class HouraisanKaguyaVisuals : NCreatureVisuals
 
     /// <summary>本地化表：怪物文本。</summary>
     private const string MonstersLocTable = "monsters";
+    private const string CardLocTable = "cards";
 
     /// <summary>本地化键：未完成玩家悬停提示。</summary>
     private const string PuzzleHoverIncompleteKey =
@@ -203,10 +208,20 @@ public partial class HouraisanKaguyaVisuals : NCreatureVisuals
         {
             return;
         }
-
+        
+        TouhouAncientRelics relic = puzzleType switch
+        {
+            0 => ModelDb.Relic<RyukeiNoTama>(),
+            1 => ModelDb.Relic<HinezumiNoKawagoromo>(),
+            2 => ModelDb.Relic<TsubameNoKoyasugai>(),
+            3 => ModelDb.Relic<HotokeMishiIshiNoHachi>(),
+            4 => ModelDb.Relic<HouraiNoTamae>()
+        };
+        ;
         LocString description = new LocString(MonstersLocTable, PuzzleHoverIncompleteKey);
         description.Add("PlayerNames", string.Join(", ", incompletePlayers));
-        NHoverTipSet.CreateAndShow(hitbox, new HoverTip(description), HoverTip.GetHoverTipAlignment(hitbox))?.SetFollowOwner();
+        NHoverTipSet.CreateAndShow(hitbox, new HoverTip(relic.Title, description, relic.Icon),
+            HoverTip.GetHoverTipAlignment(hitbox))?.SetFollowOwner();
     }
 
     /// <summary>鼠标移出谜题图标：移除对应 HoverTip。</summary>
