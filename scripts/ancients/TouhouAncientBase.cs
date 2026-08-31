@@ -25,8 +25,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// 可选：挑战战斗的 Encounter。返回非 null 时，Ancient 事件的选项列表末尾会追加一个
     /// "挑战"选项（参照 PUNCH_OFF 的本地化与选项实现），点击后进入该 Encounter 的战斗。
     /// 挑战战斗是终点（不返回事件页，参照 PUNCH_OFF / DenseVegetation）：胜利后走标准战斗
-    /// 奖励流程在战斗结束时弹出奖励页（奖励为该玩家随机池里的全部遗物），并恢复已损失生命值
-    /// 的 50%（由 ChallengeRewards 回调处理）。
+    /// 奖励流程在战斗结束时弹出奖励页（奖励为该玩家随机池里的全部遗物），并恢复已损失生命值 的 50%（由 ChallengeRewards 回调处理）。
     /// 默认返回 null（不启用挑战）。启用时请在子类中返回对应的 Encounter。
     /// </summary>
     public virtual TouhouAncientEncounter? ChallengeEncounter => null;

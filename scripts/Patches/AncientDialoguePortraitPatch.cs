@@ -176,7 +176,7 @@ public static class AncientDialoguePortraitPatch
     /// <summary>
     /// Merge all variant icons horizontally at full size (no scaling).
     /// First variant uses <paramref name="defaultTex"/> (already loaded by caller),
-    /// remaining variants are loaded via <paramref name="getTex"/> from SpeakerProfiles.
+    /// remaining variants are loaded via <paramref name="getTex"/> from the profiles.
     /// </summary>
     private static Texture2D MergeAllVariants(string ancientEntry, Texture2D defaultTex,
         System.Func<AncientSpeakerProfile, Texture2D> getTex)
