@@ -99,12 +99,11 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
             return;
         }
 
-        await GainBlockOnTurnStart();
+        await CreatureCmd.GainBlock(base.Owner, base.DynamicVars[GainBlockKey].IntValue, ValueProp.Unpowered, null);
     }
 
     private async Task GainBlockOnTurnStart()
     {
-        await CreatureCmd.GainBlock(base.Owner, base.DynamicVars[GainBlockKey].IntValue, ValueProp.Move, null);
     }
 
     /// <summary>
