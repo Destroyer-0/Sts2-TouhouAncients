@@ -19,11 +19,7 @@ using TouhouAncients.Scripts.powers;
 namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
-/// 极奢形态 Power (Single)
-/// - 打出非X费牌不再消耗能量，改为 1:10 消耗启动资金
-/// - 启动资金不足时改为消耗金币
-/// - 通过 TryModifyEnergyCostInCombat 将所有手牌费用置 0
-/// - 在 AfterCardPlayed 中根据原耗能扣除资金/金币
+/// 极奢形态 
 /// </summary>
 public class RichestFormPower : TouhouAncientPowerModel
 {
@@ -57,7 +53,6 @@ public class RichestFormPower : TouhouAncientPowerModel
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
-        if (!Owner.IsPlayer) return 0;
         if (player != base.Owner.Player)
             return amount;
         return amount + Amount;
