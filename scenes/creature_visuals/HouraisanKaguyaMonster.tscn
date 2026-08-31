@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://boi0qgh3ad0gh" path="res://images/sprite/marisa/flight.png" id="3_5q3vq"]
 [ext_resource type="Texture2D" uid="uid://ccxu5itybn7h1" path="res://images/sprite/marisa/damage.png" id="4_2yeiu"]
 [ext_resource type="Texture2D" uid="uid://bvn40ua5cw2ey" path="res://images/sprite/marisa/damage2.png" id="5_bs1sh"]
-[ext_resource type="Texture2D" uid="uid://dit0kqusn0r5a" path="res://images/sprite/kaguya/蓬莱山辉夜（永夜抄立绘）.png" id="6_v0abm"]
 [ext_resource type="Texture2D" uid="uid://b5aqxv46l8gk6" path="res://images/sprite/marisa/jump_fall.png" id="7_2o2we"]
+[ext_resource type="Texture2D" uid="uid://dmt6dbx4g832j" path="res://images/sprite/kaguya/Kaguya.png" id="7_jrgus"]
 [ext_resource type="Texture2D" uid="uid://3jb7a57ounb2" path="res://images/sprite/marisa/jump_rise.png" id="8_jrgus"]
 [ext_resource type="Texture2D" uid="uid://ceky61uto5c73" path="res://images/sprite/marisa/shot_front.png" id="9_883hp"]
 [ext_resource type="Texture2D" uid="uid://bxwyhc7iei7vu" path="res://images/sprite/marisa/roll.png" id="10_ampe7"]
@@ -150,7 +150,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_v0abm")
+"texture": ExtResource("7_jrgus")
 }],
 "loop": true,
 "name": &"idle",
@@ -443,7 +443,7 @@ tracks/10/path = NodePath("Puzzle0:z_index")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 7.5, 10.5),
+"times": PackedFloat32Array(0, 6, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, -10, 0]
@@ -467,7 +467,7 @@ tracks/12/path = NodePath("Puzzle2:z_index")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 3, 6),
+"times": PackedFloat32Array(0, 1.6, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, -10, 0]
@@ -479,7 +479,7 @@ tracks/13/path = NodePath("Puzzle3:z_index")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [-10, 0]
@@ -509,21 +509,22 @@ script = ExtResource("16_visuals")
 [node name="Visuals" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(0, -112)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0.99999994, -163)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_olr8y")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.31769514
 offset = Vector2(-2, -29.333336)
 
 [node name="PuzzleRoot" type="Node2D" parent="Visuals"]
-position = Vector2(0, 224)
-scale = Vector2(2, 2)
+position = Vector2(0, 279.99994)
+scale = Vector2(3, 2.5)
 
 [node name="Puzzle0" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-189.69844, -102.3177)
-scale = Vector2(0.124451905, 0.124451905)
+position = Vector2(-195.90514, -145.83057)
+scale = Vector2(0.11126191, 0.11126191)
 texture = ExtResource("17_puzzle0")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle0"]
@@ -536,8 +537,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle1" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-105.23904, -214.54317)
-scale = Vector2(0.09044676, 0.09044676)
+position = Vector2(-28.1846, -231.08739)
+scale = Vector2(0.08545837, 0.08545837)
 texture = ExtResource("18_puzzle1")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle1"]
@@ -550,8 +551,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle2" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(124.675385, -207.19168)
-scale = Vector2(0.09268169, 0.09268169)
+position = Vector2(178.49442, -173.92976)
+scale = Vector2(0.102774575, 0.102774575)
 texture = ExtResource("19_puzzle2")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle2"]
@@ -564,8 +565,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle3" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(182.27899, -90.33574)
-scale = Vector2(0.12805247, 0.12805247)
+position = Vector2(138.50168, -53.23879)
+scale = Vector2(0.13930573, 0.13930573)
 texture = ExtResource("20_puzzle3")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle3"]
@@ -578,8 +579,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle4" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-12.016914, -25.578705)
-scale = Vector2(0.14767279, 0.14767279)
+position = Vector2(-92.90638, -35.936405)
+scale = Vector2(0.14455146, 0.14455146)
 texture = ExtResource("21_puzzle4")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle4"]
@@ -594,20 +595,21 @@ offset_bottom = 205.0
 libraries = {
 &"": SubResource("AnimationLibrary_puzzle")
 }
+speed_scale = 1.5
 
 [node name="Bounds" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = -122.0
-offset_top = -304.0
-offset_right = 118.0
-offset_bottom = -21.0
+offset_left = -158.0
+offset_top = -358.0
+offset_right = 160.0
+offset_bottom = 37.0
 
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -128)
+position = Vector2(0, -203)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -283)
+position = Vector2(-2, -433)
