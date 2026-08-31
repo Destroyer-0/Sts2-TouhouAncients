@@ -79,8 +79,7 @@ public class Yishixingqile : TouhouAncientRelics
                     {
                         var inventory = room.Inventory;
                         NMerchantSlot slot = inventory.GetAllSlots().FirstOrDefault(s => s.Entry == chosen);
-                        VfxCmd.PlayNonCombatVfx(room, slot.GlobalPosition,
-                            "vfx/vfx_starry_impact");
+                        VfxCmd.PlayNonCombatVfx(room, slot.GlobalPosition, "vfx/vfx_starry_impact");
                     }
                 }
             }
