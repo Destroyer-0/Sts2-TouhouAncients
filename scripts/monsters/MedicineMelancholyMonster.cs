@@ -47,10 +47,10 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        // 初始荆棘 1
-        await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), base.Creature, GloryThornyThorns, base.Creature, null);
         // 初始毒人偶 1（铃铃天生带有毒人偶 1）
         await PowerCmd.Apply<PoisonDollPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        // 初始荆棘 1
+        await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), base.Creature, GloryThornyThorns, base.Creature, null);
     }
 
     // --- 状态机：四技能依次循环 ---
@@ -118,7 +118,7 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 我可爱的铃铃：自身获得 2 力量；梅蒂欣获得 1 层毒人偶；铃铃获得 1 回合烈毒护身。
+    /// 我可爱的铃铃：自身获得 2 力量；梅蒂欣获得 1 层毒人偶；梅蒂欣获得 1 回合烈毒护身。
     /// </summary>
     private async Task OhMyCuteLingLingMove(IReadOnlyList<Creature> targets)
     {
@@ -131,7 +131,7 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
             .FirstOrDefault(c => c is { Monster: LingLingMonster, IsDead: false });
         if (lingLing != null)
         {
-            await PowerCmd.Apply<GuardingPower>(choiceContext, lingLing, 1m, base.Creature, null);
+            await PowerCmd.Apply<PoisonGuardingPower>(choiceContext, base.Creature, 1m, base.Creature, null);
         }
     }
 }
