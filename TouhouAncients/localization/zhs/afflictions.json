@@ -6,5 +6,7 @@
   "TOUHOUANCIENTS-WEIGHTED.title": "沉重",
   "TOUHOUANCIENTS-COLLATERAL.description": "获得[gold]保留[/gold]与[red]不可被打出[/red]，[blue]{Amount}[/blue]回合后移除此效果。",
   "TOUHOUANCIENTS-COLLATERAL.extraCardText": "{Amount}回合后移除抵押物效果。",
-  "TOUHOUANCIENTS-COLLATERAL.title": "抵押物"
+  "TOUHOUANCIENTS-COLLATERAL.title": "抵押物",
+  "TOUHOUANCIENTS-SEALED.description": "无法被打出。其对应的[gold]封魔阵[/gold]被消耗后，解除封印。",
+  "TOUHOUANCIENTS-SEALED.title": "封印"
 }

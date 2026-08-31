@@ -318,3 +318,43 @@
 |------|------|
 | `PRINCESS_PUZZLE_POWER` | description 中 `{Amount}` → `[blue]12[/blue]`（zhs 已硬编码）；smartDescription 第二行为 `{PuzzleNum}`/`{GainBlock}` 加 `[red]`/`[blue]` 标记，eng/jpn 同步 |
 | `YUAN_CHOU_POWER` | description/smartDescription 中"来源"→`[gold]{Applier}[/gold]`，eng/jpn 已同步 |
+
+---
+
+## 增量更新（2026-08-31）：梦想封印·侘/寂 → 封魔阵 + 封印侵蚀
+
+### 卡牌重做（cards.json + 代码）
+
+删除状态卡牌 `TOUHOUANCIENTS-DREAM_SEAL_WABI`（梦想封印·侘）与 `TOUHOUANCIENTS-DREAM_SEAL_SABI`（梦想封印·寂），合并为一张新状态牌：
+
+| 键 | 中文 |
+|------|------|
+| `TOUHOUANCIENTS-SEAL_CIRCLE.title` | 封魔阵 |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.description` | `{SealedText}`（由代码动态填充，见下） |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle` | 被消耗时，解除对应卡牌的封印状态。 |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed` | 被消耗时，解除{Card}的封印状态。 |
+
+描述三态（`SealCircle.AddExtraArgsToDescription` 从本地化表读取，覆盖 `SealedText` 变量）：
+- 非战斗（图鉴/牌组）：读 `descriptionIdle`。
+- 战斗中已配对：读 `descriptionSealed`，`{Card}` 替换为被封印牌名。
+- 战斗中未配对（无合法目标）：空白。
+
+悬停显示：战斗中已配对时，`ExtraHoverTips` 用 `HoverTipFactory.FromCard(_sealedCard)` 展示被封印牌的卡面悬停。
+
+### 新侵蚀（afflictions.json）
+
+| 键 | 中文 |
+|------|------|
+| `TOUHOUANCIENTS-SEALED.title` | 封印 |
+| `TOUHOUANCIENTS-SEALED.description` | 无法被打出。其对应的[gold]封魔阵[/gold]被消耗后，解除封印。 |
+
+悬停显示：被封印的牌悬停时，`Sealed.ExtraHoverTips` 显示「无法打出」关键字 + 对应的封魔阵卡牌卡面（`HoverTipFactory.FromCard(_sealCircle)`）。
+
+### 怪物逻辑（HakureiReimuMonster.cs）
+
+- 梦想封印：造成伤害后，向每个目标玩家的**弃牌堆**加入 **3 张封魔阵**（原为抽牌堆各 1 张侘/寂）。
+- 每张封魔阵加入弃牌堆时自动配对（`AfterCardEnteredCombat`）：从玩家的抽牌堆/手牌/弃牌堆中随机找一张「无侵蚀、非状态/诅咒/任务」的牌，施加「封印」侵蚀，两两对应。
+- 封魔阵进消耗堆时解除对应牌封印；若被封印牌已移出游戏（`HasBeenRemovedFromState`）则跳过。
+- 删除 `DreamSealWabi` / `DreamSealSabi` / `ReimuBossDreamSealStatus` 及两个临时 Power。
+
+> **同步状态**：本次仅同步 zhs（用户要求不同步 eng/jpn，eng/jpn 暂保留旧条目）。

@@ -310,8 +310,8 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 梦想封印：造成伤害，并向每个目标玩家的抽牌堆加入"梦想封印·侘"与"梦想封印·寂"。
-    /// 若该牌已存在于玩家牌堆中，则将其移动至抽牌堆并升级。
+    /// 梦想封印：造成伤害，并向每个目标玩家的弃牌堆加入 3 张"封魔阵"。
+    /// 每张封魔阵加入后会自动寻找一张牌为其添加侵蚀"封印"并两两对应。
     /// </summary>
     private async Task DreamSealMove(IReadOnlyList<Creature> targets)
     {
@@ -327,8 +327,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             Player? player = target.Player;
             if (player == null) continue;
 
-            await AddOrUpgradeDreamSeal<DreamSealWabi>(player);
-            await AddOrUpgradeDreamSeal<DreamSealSabi>(player);
+            await CardPileCmd.AddToCombatAndPreview<SealCircle>(player.Creature, PileType.Discard, 3, null, CardPilePosition.Random);
         }
     }
 
@@ -388,45 +387,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     }
 
     // --- 私有辅助 ---
-
-    /// <summary>
-    /// 对指定玩家执行"梦想封印·X"的加入/升级逻辑：
-    /// 若抽牌堆/手牌/弃牌堆/消耗堆中不存在该牌，生成并放入抽牌堆；
-    /// 否则将该牌移动至抽牌堆并升级。
-    /// </summary>
-    private async Task AddOrUpgradeDreamSeal<T>(Player player) where T : ReimuBossDreamSealStatus
-    {
-        ReimuBossDreamSealStatus? existing = FindDreamSealInCombatPiles<T>(player);
-        if (existing == null)
-        {
-            // 不存在：生成并放入抽牌堆
-            //var newCard = player.RunState.CreateCard(ModelDb.Card<T>(), player);
-            await CardPileCmd.AddToCombatAndPreview<T>(player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
-           // await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Draw, null, CardPilePosition.Random);
-            //await CardPileCmd.Add(newCard, PileType.Draw);
-        }
-        else
-        {
-            // 存在：移动至抽牌堆并升级
-            await CardPileCmd.Add(existing, PileType.Draw, CardPilePosition.Random);
-            existing.FakeUpgrade();
-        }
-    }
-
-    /// <summary>
-    /// 在玩家的抽牌堆/手牌/弃牌堆/消耗堆中查找指定类型的卡牌实例。
-    /// </summary>
-    private static ReimuBossDreamSealStatus? FindDreamSealInCombatPiles<T>(Player player) where T : ReimuBossDreamSealStatus
-    {
-        foreach (PileType pileType in new[] { PileType.Draw, PileType.Hand, PileType.Discard, PileType.Exhaust })
-        {
-            var  found = pileType.GetPile(player).Cards.FirstOrDefault(c => c is T);
-            if (found != null) return (ReimuBossDreamSealStatus)found;
-        }
-        return null;
-    }
-
-    // --- 灵符演出 ---
 
     /// <summary>
     /// 甩出 7 张灵符：从灵梦中心（VfxSpawnPosition）飞向 Amulet1~7 的目标位置。
