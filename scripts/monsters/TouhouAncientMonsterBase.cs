@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
@@ -15,6 +16,8 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 {
     private AnimatedSprite2D? _animatedSprite2D;
     private Tween? _bodyMoveTween;
+    private CancellationTokenSource? _moveCts;
+    private MonsterAnimationStateMachine? _animationMachine;
 
     /// <summary>
     /// 是否拥有帧动画（AnimatedSprite2D）。
@@ -90,7 +93,6 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         if (HasAnimation && visuals.GetNodeOrNull<AnimatedSprite2D>("%Visuals") is AnimatedSprite2D sprite)
         {
             _animatedSprite2D = sprite;
-            sprite.AnimationFinished += OnAnimationFinished;
         }
 
         return visuals;
@@ -117,15 +119,34 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     }
 
     /// <summary>
-    /// 当前状态下使用的常态循环动画。
+    /// 动画状态机（懒构建）。子类通过 <see cref="ConfigureAnimationStateMachine"/> 注册自定义动画状态；
+    /// 所有动画控制统一走 Anim.Trigger / Anim.TriggerLoop。
     /// </summary>
-    protected virtual string CurrentLoopAnimation => "idle";
+    protected MonsterAnimationStateMachine Anim
+    {
+        get
+        {
+            if (_animationMachine == null)
+            {
+                _animationMachine = new MonsterAnimationStateMachine(MyAnimatedSprite2D)
+                {
+                    IsDeathLocked = () => IsDeathAnimationLocked,
+                };
+                // 默认状态表：idle 循环；hurt 一次性（播完由状态机内部回到打断前状态）；die 一次性
+                _animationMachine.RegisterLoop("idle");
+                _animationMachine.RegisterOneShot("hurt");
+                _animationMachine.RegisterOneShot("die");
+                ConfigureAnimationStateMachine(_animationMachine);
+            }
+            return _animationMachine;
+        }
+    }
 
     /// <summary>
-    /// 是否允许游戏的 Hit 触发器播放 hurt 动画。
-    /// 特殊状态下可重写此属性以保持当前动画。
+    /// 子类在此注册自定义动画状态（循环 / 一次性 / 完成转移 / 进入退出钩子）。
+    /// 例如：animationMachine.RegisterLoop("dash"); animationMachine.RegisterOneShot("throw");
     /// </summary>
-    public virtual bool ShouldPlayHurtAnimation => true;
+    protected virtual void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine) { }
 
     /// <summary>
     /// 死后仍要播非 die 动画时返回 true（例如紫苑双生倒地等待复活）。
@@ -162,21 +183,34 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 
         StopBodyMoveAndResetPosition();
         if (!ShouldKeepAnimatingWhileDead)
-            PlayAnimation("die");
+            Anim.Trigger("die");
     }
 
     /// <summary>
-    /// 创建绑定到显示节点的位移 Tween。死后会立刻杀掉并锁回原位，避免冲锋半路把尸体带走。
+    /// 供子类位移 Tween 等待用（await tween.AwaitFinished(MoveCancellationToken)）。
+    /// 死亡 / 创建新位移 Tween 时取消，防止协程卡死：
+    /// Godot 的 Tween.Kill() 不触发 Finished 信号，若 Move 协程挂在 AwaitFinished 上会永远等待；
+    /// 通过 CancellationToken 主动取消，等待方立即返回。
+    /// </summary>
+    protected CancellationToken MoveCancellationToken => _moveCts?.Token ?? CancellationToken.None;
+
+    /// <summary>
+    /// 创建绑定到显示节点的位移 Tween。死后会立刻杀掉并锁回原位，避免冲锋半路把尸体带走；
+    /// 创建新 Tween 时取消旧的等待（多段位移 Tween 前一个被 Kill 也不会卡死等待方）。
     /// </summary>
     protected Tween CreateBodyMoveTween(Node2D body)
     {
+        _moveCts?.Cancel();
+        _moveCts?.Dispose();
+        _moveCts = new CancellationTokenSource();
+
         _bodyMoveTween?.Kill();
         if (IsCreatureDead)
         {
             body.Position = Vector2.Zero;
+            _bodyMoveTween = null;
             Tween killed = body.CreateTween();
             killed.Kill();
-            _bodyMoveTween = null;
             return killed;
         }
 
@@ -200,6 +234,11 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 
     private void StopBodyMoveAndResetPosition()
     {
+        // 死亡瞬间：所有等待中的位移 Tween 协程立即返回，防止协程卡死
+        _moveCts?.Cancel();
+        _moveCts?.Dispose();
+        _moveCts = null;
+
         _bodyMoveTween?.Kill();
         _bodyMoveTween = null;
 
@@ -220,44 +259,9 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         return base.GenerateAnimator(controller);
     }
 
-    /// <summary>
-    /// 返回指定非循环动画播放结束后应衔接的动画。
-    /// 返回 null 表示不自动切换。
-    /// </summary>
-    protected virtual string? GetNextAnimation(string finishedAnimation)
-    {
-        if (IsDeathAnimationLocked)
-            return null;
-        return finishedAnimation == "hurt" ? CurrentLoopAnimation : null;
-    }
-
-    protected virtual void PlayAnimation(string animationName)
-    {
-        if (!HasAnimation) return;
-        if (IsDeathAnimationLocked && animationName != "die")
-            return;
-        MyAnimatedSprite2D.Animation = animationName;
-        MyAnimatedSprite2D.Play();
-    }
-
-    protected void PlayCurrentLoopAnimation()
-    {
-        PlayAnimation(CurrentLoopAnimation);
-    }
-
     internal void HandleHitAnimationTrigger()
     {
-        if (!HasAnimation || !ShouldPlayHurtAnimation || IsDeathAnimationLocked)
-            return;
-
-        if (MyAnimatedSprite2D.SpriteFrames.HasAnimation("hurt"))
-            PlayAnimation("hurt");
-    }
-
-    private void OnAnimationFinished()
-    {
-        string? nextAnimation = GetNextAnimation(MyAnimatedSprite2D.Animation);
-        if (nextAnimation != null)
-            PlayAnimation(nextAnimation);
+        if (!HasAnimation) return;
+        Anim.HandleHit();
     }
 }

@@ -25,11 +25,26 @@ namespace TouhouAncients.Scripts.monsters;
 
 public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 {
-    protected override string CurrentLoopAnimation => IsJoonAlive() ? "idle" : "spell";
-
-    public override bool ShouldPlayHurtAnimation => NextMove != StunnedState;
-
     protected override bool ShouldKeepAnimatingWhileDead => Creature.HasPower<TwinSoulPower>();
+
+    // --- 动画状态表 ---
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
+    {
+        // 循环归属：女苑存活 → idle，否则 → spell（阶段2施法姿态）
+        animationMachine.LoopResolver = () => IsJoonAlive() ? "idle" : "spell";
+        // 眩晕期间禁止受击动画
+        animationMachine.ShouldPlayHurt = () => NextMove != StunnedState;
+
+        // 循环：idle / spell / rush
+        animationMachine.RegisterLoop("idle");
+        animationMachine.RegisterLoop("spell");
+        animationMachine.RegisterLoop("rush");
+        // 一次性：damage；die 进入时播放 AnimationPlayer 死亡浮空，退出时复位
+        animationMachine.RegisterOneShot("damage");
+        animationMachine.RegisterOneShot("die",
+            onEnter: () => AnimationPlayer?.Play("float"),
+            onExit: () => AnimationPlayer?.Play("RESET"));
+    }
 
     // --- 本地化 ---
     private static readonly LocString _absoluteLoserLine =
@@ -68,7 +83,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     {
         SelfRepairState!.FollowUpState = _rootBranch;
         SetMoveImmediate(SelfRepairState, forceTransition: true);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     public override bool ShouldFadeAfterDeath => true; //IsJoonAlive();
@@ -146,7 +161,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         {
             if (!base.Creature.HasPower<TwinSoulPower>())
             {
-                PlayAnimation("die");
+                Anim.Trigger("die");
                 await YorigamiJoonMonster.FadeRetainedVisualAfterShionDeath();
             }
 
@@ -158,7 +173,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             bool isWaitingToRevive = base.Creature.IsDead;
             await PowerCmd.Remove<TwinSoulPower>(base.Creature);
 
-            PlayAnimation("die");
+            Anim.Trigger("die");
 
             if (isWaitingToRevive)
             {
@@ -172,7 +187,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     public void SetSelfRepairState()
     {
-        PlayAnimation("damage");
+        Anim.Trigger("damage");
         SetMoveImmediate(SelfRepairState);
     }
 
@@ -193,30 +208,11 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 直接控制 AnimatedSprite2D 播放指定动画。
-    /// </summary>
-    protected override void PlayAnimation(string animationName)
-    {
-        if (IsDeathAnimationLocked && animationName != "die")
-            return;
-
-        bool wasDie = MyAnimatedSprite2D.Animation == "die";
-        bool willBeDie = animationName == "die";
-
-        if (willBeDie && !wasDie)
-            AnimationPlayer?.Play("float");
-        else if (!willBeDie && wasDie)
-            AnimationPlayer?.Play("RESET");
-
-        base.PlayAnimation(animationName);
-    }
-
-    /// <summary>
     /// 厄运传播：给予 1 虚弱 + 灾厄。
     /// </summary>
     private async Task DoomSpreadMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("spell");
+        Anim.Trigger("spell");
         await Cmd.Wait(0.5f);
         ScatterNegativeGlyphs(targets, count: 10, scatterRadius: 200f);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadWeak, base.Creature,
@@ -224,7 +220,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature,
             null);
         await Cmd.Wait(0.75f);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -232,8 +228,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task FeatherPluckingMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("rush");
-
+        Anim.Trigger("rush");
         // 找到最左侧玩家
         Vector2? targetPos = null;
         foreach (Creature target in targets)
@@ -278,7 +273,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             await Cmd.Wait(0.3f);
         }
 
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -286,7 +281,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task AbsoluteLoserMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("spell");
+        Anim.Trigger("spell");
         // 给所有敌人（包括女苑如果还活着）施加灾厄
         var allys = base.CombatState.Allies.Where(c => !c.IsDead).ToList();
         allys.Add(Creature);
@@ -310,7 +305,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// </summary>
     private Task StunnedMove(IReadOnlyList<Creature> targets)
     {
-        //PlayAnimation("die");
         TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
         VfxCmd.PlayOnCreatureCenter(Creature, "vfx/vfx_scream");
         float scale = 2f;
@@ -321,7 +315,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             nGroundFireVfx.Scale = Vector2.One * scale;
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nGroundFireVfx);
         }
-        PlayAnimation("spell");
+        Anim.Trigger("spell");
         return Task.CompletedTask;
     }
 
@@ -329,7 +323,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// </summary>
     private Task SelfRepairMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("damage");
+        Anim.Trigger("damage");
         return Task.CompletedTask;
     }
 

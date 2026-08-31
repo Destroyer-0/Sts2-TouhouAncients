@@ -50,13 +50,21 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
     public override bool ShouldFadeAfterDeath => true;
     public override bool ShouldDisappearFromDoom => false;
-    
-    
-    protected override string? GetNextAnimation(string finishedAnimation)
+
+    // --- 动画状态表 ---
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
     {
-        return finishedAnimation == "attack"
-            ? CurrentLoopAnimation
-            : base.GetNextAnimation(finishedAnimation);
+        // 循环：idle / money / prepare / spell / roll / tornado_1 / tornado_2
+        // 一次性：attack（播完显式 TriggerLoop 回循环，时间驱动）/ spell_pre
+        animationMachine.RegisterLoop("idle");
+        animationMachine.RegisterLoop("money");
+        animationMachine.RegisterLoop("prepare");
+        animationMachine.RegisterLoop("spell");
+        animationMachine.RegisterLoop("roll");
+        animationMachine.RegisterLoop("tornado_1");
+        animationMachine.RegisterLoop("tornado_2");
+        animationMachine.RegisterOneShot("spell_pre");
+        animationMachine.RegisterOneShot("attack");
     }
     
     // --- 死亡前对话 ---
@@ -78,7 +86,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         }
 
         StopWealthGlyphs();
-        PlayAnimation("die");
+        Anim.Trigger("die");
     }
 
     public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature)
@@ -230,7 +238,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task BubbleQueenMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("money");
+        Anim.Trigger("money");
         StartWealthGlyphs();
         await Cmd.Wait(0.5f);
         var pos = base.Creature.GetCreatureNode().VfxSpawnPosition;
@@ -243,7 +251,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         SfxCmd.Play("event:/sfx/ui/gold/gold_2");
         await Cmd.Wait(0.6f);
         StopWealthGlyphs();
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -251,7 +259,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task GoldenTornadoMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("tornado_1");
+        Anim.Trigger("tornado_1");
         
         NCreature myNode = base.Creature.GetCreatureNode();
         Node2D body = myNode?.Visuals.GetCurrentBody();
@@ -266,7 +274,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         }
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
-        PlayAnimation("tornado_2");
+        Anim.Trigger("tornado_2");
         var land = targets.Count > 0 ? NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition : Vector2.Left * 350;
 
         var rushTween2 = CreateBodyMoveTween(body);
@@ -283,7 +291,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         
         await Cmd.Wait(0.5f);
 
-        PlayAnimation("roll");
+        Anim.Trigger("roll");
         
         Vector2 returnStart = body.Position;
         Vector2 returnEnd = Vector2.Zero;
@@ -300,11 +308,11 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         ).SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
         await Cmd.Wait(0.5f);
         
-        PlayAnimation("prepare");
+        Anim.Trigger("prepare");
         await Cmd.Wait(0.25f);
         
         await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -317,7 +325,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         TalkCmd.Play(_scatterWealthLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
 
         await Cmd.Wait(0.5f);
-        PlayAnimation("attack");
+        Anim.Trigger("attack");
         await Cmd.Wait(0.2f);
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(ScatterWealthUppercutDamage)
@@ -326,7 +334,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(1f);
-        //PlayAnimation("idle");
         // 扣除玩家一半王国资产
         // if (halfRoyalties > 0)
         // {
@@ -339,14 +346,14 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task CelebrityBurnMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("spell_pre");
+        Anim.Trigger("spell_pre");
         await Cmd.Wait(0.2f);
-        PlayAnimation("spell");
+        Anim.Trigger("spell");
         // TODO: 动画 - await CreatureCmd.TriggerAnim(base.Creature, "Cast", 0.5f);
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
         await Cmd.Wait(0.8f);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     private NJoonWealthBurstVfx? _wealthBurstVfx;

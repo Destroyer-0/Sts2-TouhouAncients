@@ -81,7 +81,19 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     /// <summary>
     /// 梦想天生准备演出中是否禁止受击动画（jump_rise / spell 期间不播 hurt）。
     /// </summary>
-    public override bool ShouldPlayHurtAnimation => !_isFantasyNaturePrepAnimating;
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
+    {
+        animationMachine.ShouldPlayHurt = () => !_isFantasyNaturePrepAnimating;
+
+        // 循环：idle / spell_2（准备姿态循环保持）/ jump_fall（落地循环）
+        // 一次性：jump_rise / spell_1（播完显式切 spell_2）/ land
+        animationMachine.RegisterLoop("idle");
+        animationMachine.RegisterLoop("spell_2");
+        animationMachine.RegisterLoop("jump_fall");
+        animationMachine.RegisterOneShot("jump_rise");
+        animationMachine.RegisterOneShot("spell_1");
+        animationMachine.RegisterOneShot("land");
+    }
 
     /// <summary>当前是否处于梦想天生准备演出（jump_rise → spell_1 → spell_2）中。</summary>
     private bool _isFantasyNaturePrepAnimating;
@@ -152,7 +164,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         Vector2 bodyOrigin = body?.Position ?? Vector2.Zero;
         _fantasyNatureLiftOffset = bodyOrigin + Vector2.Up * 100f;
 
-        PlayAnimation("jump_rise");
+        Anim.Trigger("jump_rise");
         if (body != null)
         {
             var riseTween = CreateBodyMoveTween(body);
@@ -161,9 +173,9 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             await Cmd.Wait(0.35f);
         }
 
-        PlayAnimation("spell_1");
+        Anim.Trigger("spell_1");
         await Cmd.Wait(0.4f);
-        PlayAnimation("spell_2");
+        Anim.Trigger("spell_2");
         await Cmd.Wait(0.2f);
     }
 
@@ -285,7 +297,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         Node2D? body = creatureNode?.Visuals.GetCurrentBody();
 
         // jump_fall（循环）回到原位
-        PlayAnimation("jump_fall");
+        Anim.Trigger("jump_fall");
         if (body != null)
         {
             var fallTween = CreateBodyMoveTween(body);
@@ -295,7 +307,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         }
 
         // land（不循环）
-        PlayAnimation("land");
+        Anim.Trigger("land");
         await Cmd.Wait(0.3f);
 
         // 释放梦想天生后移除翱翔
@@ -305,7 +317,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         }
         
         // 回到 idle 并把 7 张灵符从自己身上甩出至目标位置
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
         await ThrowOutAllAmulets();
     }
 

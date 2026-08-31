@@ -35,7 +35,24 @@ namespace TouhouAncients.Scripts.monsters;
 /// </summary>
 public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 {
-    protected override string CurrentLoopAnimation => NextMove != MasterSparkState ? "idle" : "spell";
+    // --- 动画状态表 ---
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
+    {
+        // 循环：idle（默认）/ dash（飞行）/ roll（空中翻滚）/ jump_rise / jump_fall / shot_2 / spell（蓄力保持）/ masterspark
+        // 一次性：dash_start / dash_end / shot_1 / throw
+        animationMachine.RegisterLoop("idle");
+        animationMachine.RegisterLoop("dash");
+        animationMachine.RegisterLoop("roll");
+        animationMachine.RegisterLoop("jump_rise");
+        animationMachine.RegisterLoop("jump_fall");
+        animationMachine.RegisterLoop("shot_2");
+        animationMachine.RegisterLoop("spell");
+        animationMachine.RegisterLoop("masterspark");
+        animationMachine.RegisterOneShot("dash_start");
+        animationMachine.RegisterOneShot("dash_end");
+        animationMachine.RegisterOneShot("shot_1");
+        animationMachine.RegisterOneShot("throw");
+    }
 
     // --- HP ---
     /// <summary>
@@ -193,12 +210,12 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         }
 
         // 冲刺起手：dash_start（短暂延迟）
-        PlayAnimation("dash_start");
+        Anim.Trigger("dash_start");
         SfxCmd.Play("event:/sfx/enemy/enemy_attacks/thieving_hopper/thieving_hopper_steal");
         await Cmd.Wait(0.25f);
 
         // 开始飞行：dash（循环）冲向玩家（撞击瞬间偷牌并造成伤害）
-        PlayAnimation("dash");
+        Anim.Trigger("dash");
         if (creatureNode != null && body != null)
         {
             // 冲至玩家所在位置（撞击点）
@@ -292,9 +309,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         await Cmd.Wait(0.25f);
 
         // 落地：dash_end
-        PlayAnimation("dash_end");
+        Anim.Trigger("dash_end");
         await Cmd.Wait(0.3f);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -309,7 +326,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         Vector2 bodyOrigin = body?.Position ?? Vector2.Zero;
 
         // 跳起：播放 jump_rise 同时把角色往上升
-        PlayAnimation("jump_rise");
+        Anim.Trigger("jump_rise");
         if (body != null)
         {
             var riseTween = CreateBodyMoveTween(body);
@@ -319,7 +336,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         }
 
         // 空中翻滚 roll 约 1 秒，期间生成蘑菇召唤
-        PlayAnimation("roll");
+        Anim.Trigger("roll");
         int toSummon = Math.Min(FungusExpertSummonCount, MaxMushroomCount - AliveMushroomCount);
         for (int i = 0; i < toSummon; i++)
         {
@@ -328,7 +345,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         await Cmd.Wait(1f);
 
         // 落地：jump_fall 回到原地
-        PlayAnimation("jump_fall");
+        Anim.Trigger("jump_fall");
         if (body != null)
         {
             var fallTween = CreateBodyMoveTween(body);
@@ -336,7 +353,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
             await Cmd.Wait(0.35f);
         }
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -344,9 +361,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task StellarFantasyMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("shot_1");
+        Anim.Trigger("shot_1");
         await Cmd.Wait(0.25f);
-        PlayAnimation("shot_2");
+        Anim.Trigger("shot_2");
         await DamageCmd.Attack(StellarFantasyDamage)
             .FromMonster(this)
             .WithHitCount(StellarFantasyHits)
@@ -354,7 +371,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
             .Execute(null);
         await Cmd.Wait(0.3f);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -362,7 +379,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task BlackHoleEdgeMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("throw");
+        Anim.Trigger("throw");
         await DamageCmd.Attack(BlackHoleEdgeDamage)
             .FromMonster(this)
             //.WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/the_kin_priest/the_kin_priest_soul_grenade")
@@ -372,7 +389,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             .Execute(null);
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, BlackHoleEdgeWeak, base.Creature, null);
         await Cmd.Wait(0.3f);
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
@@ -381,7 +398,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     private async Task MasterSparkChargeMove(IReadOnlyList<Creature> targets)
     {
         // 蓄力动画保持到下一回合发射极限火花（不在本方法结尾恢复 idle）
-        PlayAnimation("spell");
+        Anim.Trigger("spell");
         await CreatureCmd.GainBlock(base.Creature, MasterSparkChargeBlock, ValueProp.Unpowered, null);
         await ReturnStolenCards();
 
@@ -400,7 +417,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task MasterSparkMove(IReadOnlyList<Creature> targets)
     {
-        PlayAnimation("masterspark");
+        Anim.Trigger("masterspark");
 
         NGame.Instance?.ScreenShake(ShakeStrength.TooMuch, ShakeDuration.Long);
         // 生成极限火花光束素材，scale.y 在 0.5 秒内从 0 变化至 1
@@ -454,7 +471,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             await Cmd.Wait(0.5f);
             masterspark.QueueFreeSafely();
         }
-        PlayCurrentLoopAnimation();
+        Anim.TriggerLoop();
     }
 
     /// <summary>
