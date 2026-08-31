@@ -12,5 +12,4 @@ namespace TouhouAncients.Scripts.Afflictions;
 /// </summary>
 public abstract class TouhouAncientAfflictionModel : AfflictionModel, ICustomModel
 {
-    
 }

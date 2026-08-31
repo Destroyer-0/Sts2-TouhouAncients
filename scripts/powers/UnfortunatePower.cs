@@ -75,11 +75,9 @@ public class UnfortunatePower : TouhouAncientPowerModel
         if (alreadyTriggered) return;
         if (dealer == null) return;
 
-        // 标记已触发，同一张牌本次打出不再触发
         data.triggeredCards[cardSource] = true;
 
         Flash();
-        // 攻击来源失去王国资产
         var royal = dealer.GetPowerAmount<RoyaltiesPower>();
         if (royal > 0)
         {

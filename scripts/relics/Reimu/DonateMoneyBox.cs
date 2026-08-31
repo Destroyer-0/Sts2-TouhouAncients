@@ -33,7 +33,6 @@ public class DonateMoneyBox : TouhouAncientRelics
         if (room is not RestSiteRoom) return;
 
         Flash();
-
         var rewards = new List<Reward>
         {
             new CardReward(CardCreationOptions.ForRoom(base.Owner, RoomType.Monster), 3, base.Owner),
