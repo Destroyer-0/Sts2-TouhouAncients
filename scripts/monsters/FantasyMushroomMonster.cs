@@ -96,6 +96,6 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task HealMove(IReadOnlyList<Creature> targets)
     {
-        await CreatureCmd.Heal(base.Creature, HealAmount);
+        await CreatureCmd.Heal(base.Creature, HealAmount* base.Creature.CombatState.Players.Count);
     }
 }
