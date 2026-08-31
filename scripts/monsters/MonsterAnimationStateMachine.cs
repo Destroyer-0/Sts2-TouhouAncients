@@ -16,14 +16,23 @@ public sealed class MonsterAnimState
     public Action? OnEnter { get; set; }
     public Action? OnExit { get; set; }
 
+    /// <summary>
+    /// 播放该动画期间是否允许被受击（hurt）打断。
+    /// 返回 false 的动画（如蓄力、必杀演出）播放期间忽略受击触发，避免打断演出。
+    /// 委托形式支持动态条件（如紫苑眩晕期间禁止打断）。
+    /// </summary>
+    public Func<bool> CanBeInterruptedByHit { get; set; }
+
     public MonsterAnimState(string name, bool isLooping,
-        Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null)
+        Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null,
+        Func<bool>? canBeInterruptedByHit = null)
     {
         Name = name;
         IsLooping = isLooping;
         NextStateResolver = nextStateResolver;
         OnEnter = onEnter;
         OnExit = onExit;
+        CanBeInterruptedByHit = canBeInterruptedByHit ?? (() => true);
     }
 }
 
@@ -55,8 +64,11 @@ public sealed class MonsterAnimationStateMachine
     /// <summary>死亡锁定委托（替代旧 IsDeathAnimationLocked）。死后除 die 外所有转移被忽略。</summary>
     public Func<bool> IsDeathLocked { get; set; } = static () => false;
 
-    /// <summary>是否允许受击动画（替代旧 ShouldPlayHurtAnimation）。</summary>
-    public Func<bool> ShouldPlayHurt { get; set; } = static () => true;
+    /// <summary>
+    /// 未显式指定 <see cref="MonsterAnimState.CanBeInterruptedByHit"/> 的状态的默认受击打断条件。
+    /// 全局条件（如紫苑眩晕期间、灵梦准备演出期间禁止打断）可在此设置，个别状态再显式覆盖。
+    /// </summary>
+    public Func<bool> DefaultCanBeInterruptedByHit { get; set; } = static () => true;
 
     /// <summary>动画自然播放完成（非循环动画播到最后一帧）时触发，参数为完成的动画名。</summary>
     public event Action<string>? AnimationFinished;
@@ -69,18 +81,20 @@ public sealed class MonsterAnimationStateMachine
 
     /// <summary>注册一个循环动画状态（播放后保持循环，直到显式切换）。</summary>
     public MonsterAnimState RegisterLoop(string name, Func<string>? nextStateResolver = null,
-        Action? onEnter = null, Action? onExit = null)
-        => RegisterState(name, isLooping: true, nextStateResolver, onEnter, onExit);
+        Action? onEnter = null, Action? onExit = null, Func<bool>? canBeInterruptedByHit = null)
+        => RegisterState(name, isLooping: true, nextStateResolver, onEnter, onExit, canBeInterruptedByHit);
 
     /// <summary>注册一个一次性动画状态（非循环，播完停在最后一帧，由 NextStateResolver 决定去向）。</summary>
     public MonsterAnimState RegisterOneShot(string name, Func<string>? nextStateResolver = null,
-        Action? onEnter = null, Action? onExit = null)
-        => RegisterState(name, isLooping: false, nextStateResolver, onEnter, onExit);
+        Action? onEnter = null, Action? onExit = null, Func<bool>? canBeInterruptedByHit = null)
+        => RegisterState(name, isLooping: false, nextStateResolver, onEnter, onExit, canBeInterruptedByHit);
 
     public MonsterAnimState RegisterState(string name, bool isLooping,
-        Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null)
+        Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null,
+        Func<bool>? canBeInterruptedByHit = null)
     {
-        var state = new MonsterAnimState(name, isLooping, nextStateResolver, onEnter, onExit);
+        var state = new MonsterAnimState(name, isLooping, nextStateResolver, onEnter, onExit,
+            canBeInterruptedByHit ?? DefaultCanBeInterruptedByHit);
         _states[name] = state;
         return state;
     }
@@ -118,6 +132,10 @@ public sealed class MonsterAnimationStateMachine
             _currentState.OnExit?.Invoke();
 
         _currentState = state;
+        // 离开 hurt 恢复流程：显式切换到其他动画时清除被打断前状态残留
+        if (name != "hurt")
+            _preHurtState = null;
+
         state.OnEnter?.Invoke();
         _sprite.Animation = name;
         _sprite.Play();
@@ -135,16 +153,21 @@ public sealed class MonsterAnimationStateMachine
     /// <summary>
     /// 受击入口（由引擎 Hit 触发器调用）。
     /// 记录打断前的循环动画，播放 hurt；hurt 播完由 <see cref="OnAnimationFinished"/> 回到打断前状态。
+    /// 当前状态 <see cref="MonsterAnimState.CanBeInterruptedByHit"/> 返回 false 时忽略受击。
     /// </summary>
     public void HandleHit()
     {
-        if (!ShouldPlayHurt() || IsDeathLocked())
+        if (IsDeathLocked())
             return;
         if (!HasAnimation("hurt"))
             return;
+        // 当前状态不允许被受击打断（如蓄力 / 必杀演出）时忽略
+        if (_currentState is { } state && !state.CanBeInterruptedByHit())
+            return;
 
-        // 仅当当前是循环动画时记录打断前状态（一次性动画被打断后回默认循环，与原行为一致）
-        if (_currentState is { IsLooping: true })
+        // 记录打断前的循环动画（当前是循环动画且不在 hurt 恢复流程中时）；
+        // 连续受击时保留第一次记录的打断前状态，避免第二次 hurt 播完错误回默认循环
+        if (_currentState is { IsLooping: true } && !IsCurrentAnimation("hurt"))
             _preHurtState = _currentState.Name;
 
         Trigger("hurt");
@@ -195,12 +218,19 @@ public sealed class MonsterAnimationStateMachine
         if (finished == null)
             return;
 
-        // 受击恢复优先：hurt 播完回到打断前状态
-        if (finished.Name == "hurt" && _preHurtState != null)
+        // 受击恢复：hurt 播完回到打断前的动画；无打断前状态（开场未播任何动画 / 打断一次性动画）回默认循环
+        if (finished.Name == "hurt")
         {
-            string restore = _preHurtState;
-            _preHurtState = null;
-            Trigger(restore);
+            if (_preHurtState != null)
+            {
+                string restore = _preHurtState;
+                _preHurtState = null;
+                Trigger(restore);
+            }
+            else
+            {
+                TriggerLoop();
+            }
             return;
         }
 

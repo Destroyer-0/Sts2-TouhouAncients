@@ -32,8 +32,8 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     {
         // 循环归属：女苑存活 → idle，否则 → spell（阶段2施法姿态）
         animationMachine.LoopResolver = () => IsJoonAlive() ? "idle" : "spell";
-        // 眩晕期间禁止受击动画
-        animationMachine.ShouldPlayHurt = () => NextMove != StunnedState;
+        // 眩晕期间禁止受击打断（全局默认，个别状态可显式覆盖）
+        animationMachine.DefaultCanBeInterruptedByHit = () => NextMove != StunnedState;
 
         // 循环：idle / spell / rush
         animationMachine.RegisterLoop("idle");

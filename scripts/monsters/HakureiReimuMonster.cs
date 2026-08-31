@@ -79,11 +79,12 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     private HakureiReimuVisuals? _reimuVisuals;
 
     /// <summary>
-    /// 梦想天生准备演出中是否禁止受击动画（jump_rise / spell 期间不播 hurt）。
+    /// 梦想天生准备演出中禁止受击动画（jump_rise / spell_1 / spell_2 期间不播 hurt）。
     /// </summary>
     protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
     {
-        animationMachine.ShouldPlayHurt = () => !_isFantasyNaturePrepAnimating;
+        // 准备演出期间全局禁止受击打断；演出结束（_isFantasyNaturePrepAnimating = false）后恢复
+        animationMachine.DefaultCanBeInterruptedByHit = () => !_isFantasyNaturePrepAnimating;
 
         // 循环：idle / spell_2（准备姿态循环保持）/ jump_fall（落地循环）
         // 一次性：jump_rise / spell_1（播完显式切 spell_2）/ land
