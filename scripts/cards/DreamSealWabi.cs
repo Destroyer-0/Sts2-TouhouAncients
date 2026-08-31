@@ -9,12 +9,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 梦想封印·侘：1 费状态卡牌，可无限升级。
-/// 打出获得 1 层易伤（每次升级额外获得 1 层）。
+/// 打出使自身在本回合失去 1 点敏捷（每次升级额外失去 1 点）。
 /// 如果这张牌在你的手中，你不能打出技能牌。
 /// </summary>
 [Pool(typeof(StatusCardPool))]
@@ -27,7 +28,7 @@ public class DreamSealWabi : ReimuBossDreamSealStatus
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, base.Owner.Creature,
+        await PowerCmd.Apply<DreamSealWabiDexterityDownPower>(choiceContext, base.Owner.Creature,
             base.DynamicVars["Amount"].BaseValue, base.Owner.Creature, this);
     }
 

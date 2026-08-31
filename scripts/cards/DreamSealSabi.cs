@@ -10,12 +10,13 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 梦想封印·寂：1 费状态卡牌，可无限升级。
-/// 打出获得 1 层虚弱（每次升级额外获得 1 层）。
+/// 打出使自身在本回合失去 1 点力量（每次升级额外失去 1 点）。
 /// 如果这张牌在你的手中，你不能打出攻击牌。
 /// </summary>
 [Pool(typeof(StatusCardPool))]
@@ -28,7 +29,7 @@ public class DreamSealSabi : ReimuBossDreamSealStatus
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<WeakPower>(choiceContext, base.Owner.Creature,
+        await PowerCmd.Apply<DreamSealSabiStrengthDownPower>(choiceContext, base.Owner.Creature,
             base.DynamicVars["Amount"].BaseValue, base.Owner.Creature, this);
     }
 
@@ -45,13 +46,5 @@ public class DreamSealSabi : ReimuBossDreamSealStatus
         if (card == this) return true;
         if (autoPlayType != AutoPlayType.None) return true;
         return card.Type != CardType.Attack;
-    }
-
-    public override decimal ModifyDamageCap(Creature? target, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
-    {
-        if (dealer != base.Owner.Creature) return decimal.MaxValue;
-        CardPile? pile = base.Pile;
-        if (pile == null || pile.Type != PileType.Hand) return decimal.MaxValue;
-        return 0m;
     }
 }

@@ -49,7 +49,7 @@ public abstract class ReimuBossDreamSealStatus : TouhouAncientCards
     public override int MaxUpgradeLevel => 0;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DynamicVar("Amount", 1m)];
+        [new DynamicVar("Amount", 2m)];
     
     
     public void FakeUpgrade()
