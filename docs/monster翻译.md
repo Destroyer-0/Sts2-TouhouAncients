@@ -50,22 +50,22 @@
 #### 中文原文
 ```json
 "TOUHOUANCIENTS-DREAM_SEAL_WABI.title": "梦想封印·侘",
-"TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "获得[blue]1[/blue]层[gold]易伤[/gold]。如果这张牌在你的手中，你不能打出技能牌。",
-"TOUHOUANCIENTS-DREAM_SEAL_WABI.descriptionUpgraded": "获得[blue]{Amount:diff()}[/blue]层[gold]易伤[/gold]。如果这张牌在你的手中，你不能打出技能牌。",
+"TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "你在本回合失去[blue]1[/blue]点[gold]敏捷[/gold]。如果这张牌在你的手中，你不能打出技能牌。",
+"TOUHOUANCIENTS-DREAM_SEAL_WABI.descriptionUpgraded": "你在本回合失去[blue]{Amount:diff()}[/blue]点[gold]敏捷[/gold]。如果这张牌在你的手中，你不能打出技能牌。",
 "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "梦想封印·寂",
-"TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "获得[blue]1[/blue]层[gold]虚弱[/gold]。如果这张牌在你的手中，你不能打出攻击牌。",
-"TOUHOUANCIENTS-DREAM_SEAL_SABI.descriptionUpgraded": "获得[blue]{Amount:diff()}[/blue]层[gold]虚弱[/gold]。如果这张牌在你的手中，你不能打出攻击牌。"
+"TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "你在本回合失去[blue]1[/blue]点[gold]力量[/gold]。如果这张牌在你的手中，你不能打出攻击牌。",
+"TOUHOUANCIENTS-DREAM_SEAL_SABI.descriptionUpgraded": "你在本回合失去[blue]{Amount:diff()}[/blue]点[gold]力量[/gold]。如果这张牌在你的手中，你不能打出攻击牌。"
 ```
 
 #### 英文翻译
 | 字段 | 翻译 |
 |------|------|
 | `DREAM_SEAL_WABI.title` | `Dream Seal: Wabi` |
-| `DREAM_SEAL_WABI.description` | `Apply [blue]1[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.` |
-| `DREAM_SEAL_WABI.descriptionUpgraded` | `Apply [blue]{Amount:diff()}[/blue] [gold]Vulnerable[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.` |
+| `DREAM_SEAL_WABI.description` | `Lose [blue]1[/blue] [gold]Dexterity[/gold] this turn. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.` |
+| `DREAM_SEAL_WABI.descriptionUpgraded` | `Lose [blue]{Amount:diff()}[/blue] [gold]Dexterity[/gold] this turn. While this card is in your [gold]Hand[/gold], you cannot play Skill cards.` |
 | `DREAM_SEAL_SABI.title` | `Dream Seal: Sabi` |
-| `DREAM_SEAL_SABI.description` | `Apply [blue]1[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.` |
-| `DREAM_SEAL_SABI.descriptionUpgraded` | `Apply [blue]{Amount:diff()}[/blue] [gold]Weak[/gold]. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.` |
+| `DREAM_SEAL_SABI.description` | `Lose [blue]1[/blue] [gold]Strength[/gold] this turn. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.` |
+| `DREAM_SEAL_SABI.descriptionUpgraded` | `Lose [blue]{Amount:diff()}[/blue] [gold]Strength[/gold] this turn. While this card is in your [gold]Hand[/gold], you cannot play Attack cards.` |
 
 ### 固有能力：`TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER`
 
