@@ -37,7 +37,6 @@ public class Baibaixiangxiangruanruan : TouhouAncientRelics
             var cloned = base.Owner.RunState.CloneCard(defend);
             CardCmd.Upgrade(cloned);
             results.Add(await CardPileCmd.Add(cloned, PileType.Deck));
-            await CardPileCmd.Add(cloned, PileType.Deck);
         }
         
         CardCmd.PreviewCardPileAdd(results, 2f);
