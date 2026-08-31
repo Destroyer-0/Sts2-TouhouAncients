@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class WindPriestessWine : TouhouAncientRelics, IPlayerEnergyGainedListener
 {
-    public override bool IsAllowed(IRunState runState) => runState.Players.Count == 1;
+   // public override bool IsAllowed(IRunState runState) => runState.Players.Count == 1;
 
 
     [SavedProperty]
