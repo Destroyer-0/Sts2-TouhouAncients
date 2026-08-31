@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Enchantments;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
@@ -53,11 +54,10 @@ public class Tsukumogami : TouhouAncientEnchantmentModel
     /// 回合结束时：如果这张牌在本回合没有被打出，计数-1。
     /// 计数归零后附魔失效，并无论何处自动打出。
     /// </summary>
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task AfterAutoPostPlayPhaseEntered(PlayerChoiceContext choiceContext, Player player)
     {
         if (!HasCard) return;
-        if (!participants.Contains(Card.Owner.Creature)) return;
-        if (side != base.Card.Owner.Creature.Side) return;
+        if (player!= Card.Owner) return;
         if (base.Status != EnchantmentStatus.Normal) return;
 
         if (playedThisTurn)

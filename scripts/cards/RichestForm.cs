@@ -58,7 +58,7 @@ public class RichestForm : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var creature = base.Owner.Creature;
-        Owner.PlayerCombatState.GainEnergy(base.DynamicVars["Energy2"].IntValue);
+        await PlayerCmd.GainEnergy(base.DynamicVars["Energy2"].IntValue,Owner);
         var power = await PowerCmd.Apply<RichestFormPower>(choiceContext, creature, DynamicVars["Energy3"].IntValue, creature, this);
         if (power != null)
         {
