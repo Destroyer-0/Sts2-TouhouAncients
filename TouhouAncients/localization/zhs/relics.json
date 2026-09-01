@@ -676,9 +676,9 @@
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "无论如何都会沉船程度的能力。",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙发簪",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "每场战斗你首次死亡时，恢复[blue]{Percent}%[/blue]生命值，之后的回合由霍青娥接管。",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "每场战斗你首次死亡时，回复到最大生命值的[blue]{Percent}%[/blue]，[aqua]从下个回合开始，霍青娥接管你的回合。[/aqua]",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "霍青娥",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "霍青娥接管回合后，回合开始时使你失去6点生命并获得{energyPrefix:energyIcons(1)}。她更喜欢耗能高的卡牌。",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "[aqua]霍青娥[/aqua]接管回合后，回合开始时使你失去5点生命并获得{energyPrefix:energyIcons(1)}，然后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "让僵尸出现在你草坪上程度的能力。",
 
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "鲵吞亭特调",

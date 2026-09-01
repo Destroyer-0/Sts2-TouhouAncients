@@ -111,5 +111,8 @@
 
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "饥渴摄食",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.description": "在这个回合，接下来[blue]{Amount}[/blue]张打出的牌获得[gold]消耗[/gold]并使[gold]饕餮尤魔[/gold]增加[blue]10%[/blue]的[red]最大生命[/red]。",
-  "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.smartDescription": "在这个回合，接下来[blue]{Amount}[/blue]张打出的牌获得[gold]消耗[/gold]并使[gold]饕餮尤魔[/gold]增加[blue]10%[/blue]的[red]最大生命[/red]。"
+  "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.smartDescription": "在这个回合，接下来[blue]{Amount}[/blue]张打出的牌获得[gold]消耗[/gold]并使[gold]饕餮尤魔[/gold]增加[blue]10%[/blue]的[red]最大生命[/red]。",
+
+  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.title": "走火入魔",
+  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "回合开始时，[aqua]霍青娥[/aqua]接管你的回合：\n立即失去[blue]5[/blue]点生命并获得{energyPrefix:energyIcons(1)}，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。"
 }

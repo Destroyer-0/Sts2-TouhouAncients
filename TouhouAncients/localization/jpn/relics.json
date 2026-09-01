@@ -676,9 +676,9 @@
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "The ability to make any ship sink no matter what.",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal [blue]{Percent}%[/blue] HP. Seiga Kaku takes over for subsequent turns.",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "Seiga Kaku",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After Seiga Kaku takes over, lose [blue]6[/blue] HP and gain {energyPrefix:energyIcons(1)} at the start of your turn. She prefers higher-cost cards.",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal to [blue]{Percent}%[/blue] of your Max HP. [aqua]Starting next turn, Seiga Kaku takes over your turn.[/aqua]",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "[aqua]Seiga Kaku[/aqua]",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After [aqua]Seiga Kaku[/aqua] takes over, at the start of your turn lose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "The ability to make zombies appear on your lawn.",
 
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "Nidomitei's Special Blend",
