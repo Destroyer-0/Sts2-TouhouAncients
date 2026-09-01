@@ -58,11 +58,10 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     {
         await base.AfterAddedToRoom();
         // 三层提升初始生命到三层数值（Creature 构造阶段无法获取幕号，故在此调整）。
-        // 使用内部 API 直接调整，避免 GainMaxHp 触发 AfterGainMaxHp 等 Hook
+        // 使用基类方法覆写并按多人模式重新缩放，避免 GainMaxHp 触发 AfterGainMaxHp 等 Hook
         if (CurrentActNumber == 3 && InitialHpAct3 > InitialHp)
         {
-            base.Creature.SetMaxHpInternal(InitialHpAct3);
-            base.Creature.SetCurrentHpInternal(InitialHpAct3);
+            SetActInitialHp(InitialHpAct3);
         }
         await PowerCmd.Apply<MinionPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
         await PowerCmd.Apply<FungalPower>(new ThrowingPlayerChoiceContext(), base.Creature, (decimal)GetActValue(2, (3, 3)), base.Creature, null);

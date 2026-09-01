@@ -83,6 +83,30 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         return fallback;
     }
 
+    /// <summary>
+    /// 按幕数覆写初始生命：将怪物的最大生命与当前生命设为指定幕的数值，
+    /// 并重新应用多人模式血量缩放（生命 × 玩家数 × 幕缩放系数）。
+    /// 必须在 <see cref="AfterAddedToRoom"/> 中调用——Creature 构造函数读取
+    /// MinInitialHp/MaxInitialHp 时 CombatState 尚未绑定、无法获取幕号，
+    /// 而多人缩放已在 CombatState.CreateCreature 时基于默认生命执行过，
+    /// 此处覆写后若不重新缩放，多人翻倍的生命会被重置为固定值。
+    /// 内部通过原版 ScaleMonsterHpForMultiplayer 缩放，单机（playerCount == 1）自动跳过。
+    /// </summary>
+    /// <param name="actHp">当前幕的目标生命值。</param>
+    protected void SetActInitialHp(int actHp)
+    {
+        base.Creature.SetMaxHpInternal(actHp);
+        base.Creature.SetCurrentHpInternal(actHp);
+
+        if (base.Creature.CombatState is { } combatState)
+        {
+            base.Creature.ScaleMonsterHpForMultiplayer(
+                combatState.Encounter,
+                combatState.Players.Count,
+                combatState.RunState.CurrentActIndex);
+        }
+    }
+
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Magic;
 
     public override NCreatureVisuals? CreateCustomVisuals()

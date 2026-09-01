@@ -127,8 +127,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         await base.AfterAddedToRoom();
         if (CurrentActNumber == 3 )
         {
-            base.Creature.SetMaxHpInternal(InitialHpAct3);
-            base.Creature.SetCurrentHpInternal(InitialHpAct3);
+            SetActInitialHp(InitialHpAct3);
         }
         // 施加量 = 每蘑菇提供的活力值（Counter 类型，层数即活力值）
         await PowerCmd.Apply<MagicianPower>(new ThrowingPlayerChoiceContext(), base.Creature, MasterSparkChargeVigorPerMushroom, base.Creature, null);

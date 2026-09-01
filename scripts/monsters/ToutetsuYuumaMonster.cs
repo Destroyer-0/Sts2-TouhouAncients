@@ -77,12 +77,12 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     {
         List<MonsterState> list = new List<MonsterState>();
 
-        MoveState greed = new MoveState("GREED", GreedMove, new BuffIntent(), new CardDebuffIntent());
+        MoveState greed = new MoveState("GREED", GreedMove, new BuffIntent(), new StatusIntent(GreedCardsPerPile * 2));
         MoveState cutHeart = new MoveState("CUT_HERAT", CutHeartMove,
             new MultiAttackIntent(CutHeartDamage, CutHeartHits));
         MoveState drinkBlood = new MoveState("DRINK_BLOOD", DrinkBloodMove,
             new SingleAttackIntent(DrinkBloodDamage), new DebuffIntent());
-        MoveState feast = new MoveState("TOUTETSU_FEAST", FeastMove, new DebuffIntent());
+        MoveState feast = new MoveState("TOUTETSU_FEAST", FeastMove, new CardDebuffIntent(), new DebuffIntent());
 
         MoveState chaosHell = new MoveState("CHAOS_HELL", ChaosHellMove,
             new MultiAttackIntent(ChaosHellBaseDamage, () => _chaosHellCombo), new BuffIntent());
