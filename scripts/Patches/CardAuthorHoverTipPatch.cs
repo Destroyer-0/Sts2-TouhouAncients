@@ -74,6 +74,7 @@ public static class CardAuthorHoverTipPatch
     {
         // 卡牌预览（FromCard 生成）不显示绘师
         if (IsDerivedPreview(__instance)) return;
+        if (__instance.IsInCombat) return;
 
         // 只有东方卡牌且设置了绘师才显示
         if (__instance is not TouhouAncientCards { Author: { Length: > 0 } author }) return;

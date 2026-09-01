@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjr1b0nox5pdu"
-path="res://.godot/imported/时雨-灵梦.png-233cd31be91bbb2f5941513eeaca56af.ctex"
+uid="uid://b60ce0vhpkq3s"
+path="res://.godot/imported/SealCircle.png-757fca1f5cf78711ad2a8f3a9442c932.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/cards/时雨-灵梦.png"
-dest_files=["res://.godot/imported/时雨-灵梦.png-233cd31be91bbb2f5941513eeaca56af.ctex"]
+source_file="res://images/cards/SealCircle.png"
+dest_files=["res://.godot/imported/SealCircle.png-757fca1f5cf78711ad2a8f3a9442c932.ctex"]
 
 [params]
 

@@ -82,7 +82,7 @@ public class WitchsCauldron : TouhouAncientRelics
         {
             var newCard = CardFactory.CreateRandomCardForTransform(card, isInCombat: false, base.Owner.PlayerRng.Transformations);
             await CardCmd.Transform(card, newCard);
-            CardCmd.Preview(newCard);
+            //CardCmd.Preview(newCard);
         }
     }
 }

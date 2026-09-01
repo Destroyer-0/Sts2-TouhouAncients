@@ -27,6 +27,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(StatusCardPool))]
 public class SealCircle : TouhouAncientCards
 {
+    public override string? Author => "TOKIAME";
+    
     private const int energyCost = 1;
     private const CardType type = CardType.Status;
     private const CardRarity rarity = CardRarity.Status;
@@ -53,6 +55,16 @@ public class SealCircle : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
+    /// <summary>
+    /// 战斗中已配对时，悬停显示被封印牌（若未配对则为空，不显示额外悬停）。
+    /// </summary>
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+        HoverTipFactory.FromAffliction<Sealed>(1).Concat(
+        CombatManager.Instance.IsInProgress && _sealedCard != null
+            ? [HoverTipFactory.FromCard(_sealedCard)]
+            : []);
+    
+    
     /// <summary>
     /// 描述三态：
     /// - 非战斗：读取 descriptionIdle（解除对应卡牌的封印状态。）
@@ -81,13 +93,6 @@ public class SealCircle : TouhouAncientCards
         description.Add("SealedText", text);
     }
 
-    /// <summary>
-    /// 战斗中已配对时，悬停显示被封印牌（若未配对则为空，不显示额外悬停）。
-    /// </summary>
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        CombatManager.Instance.IsInProgress && _sealedCard != null
-            ? [HoverTipFactory.FromCard(_sealedCard)]
-            : [];
 
     /// <summary>
     /// 进入战斗牌堆（加入弃牌堆）时自动配对。

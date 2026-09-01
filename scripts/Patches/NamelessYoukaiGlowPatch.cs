@@ -78,7 +78,7 @@ public static class NamelessYoukaiGlowPatch
         if (!__instance.IsNodeReady() || __instance.CardNode == null) return;
         CardModel? card = __instance.CardNode.Model;
         NCardHighlight? highlight = __instance.CardNode.CardHighlight;
-        if (card == null || highlight == null) return;
+        if (card == null) return;
 
         // 首次遇到时缓存默认材质（此时 Material 还是场景里的默认 card_ripple 材质）
         DefaultMaterials.GetValue(highlight, h => (ShaderMaterial)h.Material);
@@ -86,16 +86,24 @@ public static class NamelessYoukaiGlowPatch
         bool shouldFlow = IsNamelessYoukaiEligible(card);
         if (shouldFlow)
         {
-            ShaderMaterial? instance = GetFlowMaterialFor(highlight);
-            if (instance == null) return; // shader 加载失败，退回默认发光
-            ApplyMaterial(highlight, instance);
+            // 仅在尚未应用流光材质时才替换材质并重播动画，避免每帧重复替换/打断 tween
+            if (!IsFlowMaterialApplied(highlight))
+            {
+                ShaderMaterial? instance = GetFlowMaterialFor(highlight);
+                if (instance == null) return; // shader 加载失败，退回默认发光
+                ApplyMaterial(highlight, instance);
+                // 重新播放显示动画（作用于新的 _shaderMaterial）
+                highlight.AnimShow();
+            }
             // shader 内部自绘红蓝颜色，Modulate 恢复为白色
             highlight.Modulate = Colors.White;
-            // 重新播放显示动画（作用于新的 _shaderMaterial）
-            highlight.AnimShow();
         }
         else
         {
+            // 只有本 patch 之前真的替换了流光材质时才恢复默认材质与原版颜色；
+            // 从未被本 patch 动过的牌完全放手，避免清除原版金光或其他 mod 自定义的颜色/材质。
+            if (!IsFlowMaterialApplied(highlight)) return;
+
             if (DefaultMaterials.TryGetValue(highlight, out ShaderMaterial? defaultMaterial))
             {
                 ApplyMaterial(highlight, defaultMaterial);
@@ -108,6 +116,15 @@ public static class NamelessYoukaiGlowPatch
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// 判断该高亮节点当前是否正使用本 patch 的红蓝流光材质。
+    /// </summary>
+    private static bool IsFlowMaterialApplied(NCardHighlight highlight)
+    {
+        return FlowMaterials.TryGetValue(highlight, out ShaderMaterial? flowMaterial) &&
+               ReferenceEquals(highlight.Material, flowMaterial);
     }
 
     /// <summary>

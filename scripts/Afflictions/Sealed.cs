@@ -50,7 +50,7 @@ public sealed class Sealed : TouhouAncientAfflictionModel
 
         return keywords.Add(CardKeyword.Unplayable);
     }
-
+    
     /// <summary>
     /// 对应的封魔阵进入消耗堆时，解除这张牌的封印。
     /// 若这张牌已被移出游戏（消耗/转换/移除），则跳过解除。
