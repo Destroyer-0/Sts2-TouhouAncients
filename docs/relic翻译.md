@@ -2219,6 +2219,19 @@
 | `.seigatitle` | `Seiga Kaku` |
 | `.seigadescription` | `After Seiga Kaku takes over, lose [blue]6[/blue] HP and gain {energyPrefix:energyIcons(1)} at the start of your turn. She prefers higher-cost cards.` |
 
+### 邪仙发簪（2026-09-01 重做：死亡救活 + 走火入魔接管）
+- zhs `.description` 改为："每场战斗你首次死亡时，回复到最大生命值的[blue]{Percent}%[/blue]，下个回合开始时，霍青娥接管你的回合。"（Percent 由 50 改为 40）
+- zhs `.seigadescription` 改为："霍青娥接管回合后，回合开始时使你失去5点生命并获得{energyPrefix:energyIcons(1)}，然后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。"
+- eng/jpn `.description` → `The first time you die each combat, heal to [blue]{Percent}%[/blue] of your Max HP. Seiga Kaku takes over your turn starting next turn.`
+- eng/jpn `.seigadescription` → `After Seiga Kaku takes over, at the start of your turn lose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.`
+- 2026-09-01 追加：遗物中所有"霍青娥 / Seiga Kaku"（description / seigatitle / seigadescription）用 `[aqua]` 包裹，与走火入魔 Power 描述保持一致
+- 新增 Power `POSSESSED_BY_SEIGA_POWER`（走火入魔 / Demonic Possession）：
+  - zhs：`每个回合开始时，本回合由[purple]霍青娥[/purple]接管：立即失去[blue]5[/blue]点生命并获得{energyPrefix:energyIcons(1)}，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。`
+  - eng/jpn：`At the start of each turn, [purple]Seiga Kaku[/purple] takes over: lose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.`
+- 2026-09-01 描述微调：`[purple]` → `[aqua]`，改为"接管你的回合"，加换行
+  - zhs：`回合开始时，[aqua]霍青娥[/aqua]接管你的回合：\n立即失去[blue]5[/blue]点生命并获得{energyPrefix:energyIcons(1)}，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。`
+  - eng/jpn：`At the start of your turn, [aqua]Seiga Kaku[/aqua] takes over your turn:\nLose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.`
+
 ### 新增遗物 flavor 补译
 | 遗物 | 中文 flavor | 英文 flavor |
 |------|------------|------------|
