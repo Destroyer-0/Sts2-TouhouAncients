@@ -126,7 +126,6 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
         {
             base.DynamicVars[PuzzleNumKey].BaseValue = Math.Max(0, base.DynamicVars[PuzzleNumKey].IntValue - 1);
             RefreshGainBlock();
-            InvokeDisplayAmountChanged();
         }
     }
 

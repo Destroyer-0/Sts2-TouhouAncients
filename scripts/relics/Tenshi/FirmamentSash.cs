@@ -71,6 +71,11 @@ public class FirmamentSash : TouhouAncientRelics
         {
             return amount;
         }
+
+        if (props.HasFlag(ValueProp.Unblockable))
+        {
+            return amount;
+        }
         
         // if (!props.IsCardOrMonsterMove())
         // {
