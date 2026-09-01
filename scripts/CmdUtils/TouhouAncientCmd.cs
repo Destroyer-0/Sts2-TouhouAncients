@@ -1,5 +1,7 @@
 ﻿using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.cardTags;
 
@@ -21,5 +23,28 @@ public static class TouhouAncientCmd
     public static bool IsKoishi(CardModel card)
     {
         return card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientKoishiUnplayable);
+    }
+
+    public static bool IsPlayerDamageIncludePet(Player player, Creature? dealer)
+    {
+        if (dealer == player.Creature) return true;
+        return dealer is { IsPet: true } && dealer.PetOwner?.Creature == player.Creature;
+    }
+
+    public static bool IsPlayerDamageIncludePet(Player player, ref Creature? dealer)
+    {
+        if (dealer == player.Creature) return true;
+        if (dealer is { IsPet: true } && dealer.PetOwner?.Creature == player.Creature)
+        {
+            dealer = dealer.PetOwner.Creature;
+            return true;
+        }
+        return false;
+    }
+    public static bool IsPlayerDamageIncludePet(Creature? player, Creature? dealer)
+    {
+        if (dealer == null) return false;
+        if (dealer == player) return true;
+        return dealer is { IsPet: true } && dealer.PetOwner?.Creature == player;
     }
 }

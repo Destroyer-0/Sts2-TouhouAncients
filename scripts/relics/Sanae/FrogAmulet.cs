@@ -25,18 +25,18 @@ public class FrogAmulet : TouhouAncientRelics
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer,
         DamageResult results, ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (dealer != base.Owner.Creature) return;
-        if (cardSource == null) return;
-
-        damageDealtThisTurn += Mathf.FloorToInt(results.TotalDamage * (1 - (float)extraDamagePercent));
-        if (damageDealtThisTurn <= 0) return;
-        if (_bombPower == null)
+        if (dealer != null && (dealer == base.Owner.Creature || dealer.PetOwner?.Creature == base.Owner.Creature) && props.IsPoweredAttack() && results.TotalDamage > 0)
         {
-            _bombPower = (TheBombPower?)await PowerCmd.Apply<TheBombPower>(
-                choiceContext, base.Owner.Creature, 2m, base.Owner.Creature, null);
-        }
+            damageDealtThisTurn += Mathf.FloorToInt(results.TotalDamage * (1 - (float)extraDamagePercent));
+            if (damageDealtThisTurn <= 0) return;
+            if (_bombPower == null)
+            {
+                _bombPower = (TheBombPower?)await PowerCmd.Apply<TheBombPower>(
+                    choiceContext, base.Owner.Creature, 2m, base.Owner.Creature, null);
+            }
 
-        _bombPower?.SetDamage(damageDealtThisTurn);
+            _bombPower?.SetDamage(damageDealtThisTurn);
+        }
     }
 
     public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)

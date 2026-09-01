@@ -66,7 +66,7 @@ public class DetectiveStory : TouhouAncientRelics
         if (cardSource == null) return 0m;
         if (target == null || !target.IsAlive || !target.IsEnemy) return 0m;
         if (!props.IsPoweredAttack()) return 0m;
-        if (dealer != base.Owner?.Creature) return 0m;
+        if (!TouhouAncientCmd.IsPlayerDamageIncludePet(Owner, dealer)) return 0m;
 
         // 检查敌人意图是否为攻击
         var isAttacking = target.Monster?.NextMove?.Intents.Any(i => i.IntentType == IntentType.Attack) == true;

@@ -50,11 +50,6 @@ public class UnfortunatePower : TouhouAncientPowerModel
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        // 不追踪紫苑自己打出的牌
-        if (cardPlay.Card.Owner.Creature == base.Owner)
-        {
-            return Task.CompletedTask;
-        }
         // 只追踪攻击牌
         if (cardPlay.Card.Type != CardType.Attack)
         {
@@ -70,11 +65,18 @@ public class UnfortunatePower : TouhouAncientPowerModel
     {
         if (target != base.Owner) return;
         if (cardSource == null) return;
+        if (!props.IsPoweredCardOrMonsterMoveBlock()) return;
+        
+        if (dealer is { IsPet: true, PetOwner: { } owner })
+        {
+            dealer = owner.Creature;
+        }
+
+        if (dealer == null) return;
+
         Data data = GetInternalData<Data>();
         if (!data.triggeredCards.TryGetValue(cardSource, out bool alreadyTriggered)) return;
         if (alreadyTriggered) return;
-        if (dealer == null) return;
-
         data.triggeredCards[cardSource] = true;
 
         Flash();

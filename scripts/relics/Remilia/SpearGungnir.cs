@@ -36,9 +36,9 @@ public class SpearGungnir : TouhouAncientRelics
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer,
         DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (dealer != base.Owner.Creature) return;
+        if (!TouhouAncientCmd.IsPlayerDamageIncludePet(Owner, dealer)) return;
         if (cardSource == null) return;
-        if (props.HasFlag(ValueProp.Unblockable)) return;
+        if (!props.IsPoweredAttack()) return;
         if (result.UnblockedDamage <= 0) return;
         if (cardSource is GungnirSpearCard) return;
         if (result.TotalDamage <= 0m) return;

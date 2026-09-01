@@ -59,7 +59,9 @@ public class DeathBlackCrown : TouhouAncientRelics
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
+        if (cardSource == null) return 1m;
         if (cardSource?.Owner != base.Owner) return 1m;
+        if (!TouhouAncientCmd.IsPlayerDamageIncludePet(cardSource.Owner, dealer)) return 1m;
         if (!props.IsPoweredAttack()) return 1m;
         if (CardsPlayedThisTurn >= 2) return 1m;
 

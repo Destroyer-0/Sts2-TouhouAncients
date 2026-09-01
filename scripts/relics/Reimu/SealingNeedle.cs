@@ -33,24 +33,10 @@ public class SealingNeedle : TouhouAncientRelics
     /// </summary>
     private Dictionary<CardModel, HashSet<Creature>> pendingWeakTargets = new();
 
-    /// <summary>
-    /// 模型被克隆（多人联机）时，重置追踪字典。
-    /// MutableClone 使用 MemberwiseClone 浅拷贝，若不重置，克隆体与原实例会共享同一个字典引用，导致数据不同步。
-    /// </summary>
     protected override void AfterCloned()
     {
         base.AfterCloned();
         pendingWeakTargets = new Dictionary<CardModel, HashSet<Creature>>();
-    }
-
-    /// <summary>
-    /// 判断伤害来源是否为遗物拥有者本人，或拥有者召唤的 Osty 宠物。
-    /// Osty 攻击卡牌的 Owner 是玩家，但其伤害的 dealer 是 Osty 本体，因此需要单独判断。
-    /// </summary>
-    private bool IsOwnerDealing(Creature? dealer)
-    {
-        if (dealer == base.Owner?.Creature) return true;
-        return dealer?.Monster is Osty && dealer.PetOwner?.Creature == base.Owner?.Creature;
     }
 
     /// <summary>
@@ -72,10 +58,12 @@ public class SealingNeedle : TouhouAncientRelics
     public override Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result,
         ValueProp props, Creature target, CardModel? cardSource)
     {
-        if (!IsOwnerDealing(dealer)) return Task.CompletedTask;
+        if (!TouhouAncientCmd.IsPlayerDamageIncludePet(Owner, dealer)) return Task.CompletedTask;
+        if (!props.IsPoweredAttack()) return Task.CompletedTask;
         if (cardSource == null) return Task.CompletedTask;
+        
         if (!target.IsAlive || !target.IsEnemy) return Task.CompletedTask;
-        if (!pendingWeakTargets.TryGetValue(cardSource, out HashSet<Creature> targets)) return Task.CompletedTask;
+        if (!pendingWeakTargets.TryGetValue(cardSource, out var targets)) return Task.CompletedTask;
 
         targets.Add(target);
         return Task.CompletedTask;
@@ -89,7 +77,7 @@ public class SealingNeedle : TouhouAncientRelics
     {
         if (cardPlay.Card.Owner != base.Owner) return;
         if (cardPlay.Card.Type != CardType.Attack) return;
-        if (!pendingWeakTargets.Remove(cardPlay.Card, out HashSet<Creature> targets)) return;
+        if (!pendingWeakTargets.Remove(cardPlay.Card, out var targets)) return;
 
         foreach (Creature target in targets)
         {
@@ -110,7 +98,7 @@ public class SealingNeedle : TouhouAncientRelics
             return 0m;
         }
 
-        if (IsOwnerDealing(dealer))
+        if (TouhouAncientCmd.IsPlayerDamageIncludePet(Owner, dealer))
         {
             return target.GetPowerAmount<WeakPower>();
         }

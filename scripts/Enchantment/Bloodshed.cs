@@ -57,13 +57,13 @@ public class Bloodshed : TouhouAncientEnchantmentModel
     {
         if (cardSource != base.Card) return;
         if (base.Status != EnchantmentStatus.Normal) return;
-        if (dealer == null) return;
-        if (dealer != base.Card.Owner?.Creature) return;
+        if (!TouhouAncientCmd.IsPlayerDamageIncludePet(Card.Owner, dealer)) return;
+        if (!props.IsPoweredAttack()) return;
 
         var healAmount = result.TotalDamage;
         if (healAmount <= 0) return;
 
-        await CreatureCmd.Heal(dealer, healAmount);
+        await CreatureCmd.Heal(Card.Owner.Creature, healAmount);
         canHeal = false;
     }
 }
