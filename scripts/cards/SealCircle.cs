@@ -44,6 +44,9 @@ public class SealCircle : TouhouAncientCards
     /// <summary>是否已尝试过配对（防止 AfterCardEnteredCombat 重复触发）。</summary>
     private bool _pairingAttempted;
 
+    protected override bool ShouldGlowRedInternal => _sealedCard is { Pile.Type: PileType.Hand };
+
+
     public SealCircle() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
