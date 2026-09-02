@@ -6,6 +6,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Nodes.Combat;
@@ -219,27 +220,70 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     protected CancellationToken MoveCancellationToken => _moveCts?.Token ?? CancellationToken.None;
 
     /// <summary>
-    /// 创建绑定到显示节点的位移 Tween。死后会立刻杀掉并锁回原位，避免冲锋半路把尸体带走；
+    /// 当前可用于位移的 body 节点。怪物已死、节点/body 不存在或已失效时返回 null。
+    /// 供子类位移动画统一防御判空，避免每个技能重复编写空引用检查。
+    /// </summary>
+    protected Node2D? CurrentBody
+    {
+        get
+        {
+            if (IsCreatureDead) return null;
+            NCreature? node = Creature.GetCreatureNode();
+            Node2D? body = node?.Visuals.GetCurrentBody();
+            return node != null && body != null && GodotObject.IsInstanceValid(body) ? body : null;
+        }
+    }
+
+    /// <summary>
+    /// 创建绑定到显示节点的位移 Tween。节点不可用或怪物已死时返回 null（调用方静默跳过）；
+    /// 死后会立刻杀掉并锁回原位，避免冲锋半路把尸体带走；
     /// 创建新 Tween 时取消旧的等待（多段位移 Tween 前一个被 Kill 也不会卡死等待方）。
     /// </summary>
-    protected Tween CreateBodyMoveTween(Node2D body)
+    protected Tween? CreateBodyMoveTween(Node2D body)
     {
         _moveCts?.Cancel();
         _moveCts?.Dispose();
         _moveCts = new CancellationTokenSource();
 
         _bodyMoveTween?.Kill();
-        if (IsCreatureDead)
+
+        if (IsCreatureDead || !GodotObject.IsInstanceValid(body))
         {
-            body.Position = Vector2.Zero;
+            if (GodotObject.IsInstanceValid(body))
+                body.Position = Vector2.Zero;
             _bodyMoveTween = null;
-            Tween killed = body.CreateTween();
-            killed.Kill();
-            return killed;
+            return null;
         }
 
         _bodyMoveTween = body.CreateTween();
         return _bodyMoveTween;
+    }
+
+    /// <summary>
+    /// 安全地在 body 上执行一段位移 Tween 并等待 duration 秒。
+    /// body 不可用或怪物已死时静默跳过（不崩溃、不卡死）。
+    /// 回调签名：void setup(Node2D body, Tween tween)，在其中配置 TweenProperty / TweenMethod。
+    /// </summary>
+    protected async Task MoveBody(Action<Node2D, Tween> setupTween, float duration)
+    {
+        Node2D? body = CurrentBody;
+        if (body == null) return;
+
+        Tween? tween = CreateBodyMoveTween(body);
+        if (tween == null) return;
+
+        setupTween(body, tween);
+        await Cmd.Wait(duration, MoveCancellationToken);
+    }
+
+    /// <summary>
+    /// 安全地将 body 瞬移到指定局部位置。body 不可用或怪物已死时静默忽略。
+    /// </summary>
+    protected void SnapBodyPosition(Vector2 position)
+    {
+        Node2D? body = CurrentBody;
+        if (body == null) return;
+        SetBodyPosition(body, position);
     }
 
     /// <summary>

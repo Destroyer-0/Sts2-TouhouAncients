@@ -240,19 +240,16 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             }
         }
 
-        NCreature myNode = base.Creature.GetCreatureNode();
-        Node2D body = myNode?.Visuals.GetCurrentBody();
+        NCreature? myNode = base.Creature.GetCreatureNode();
 
         // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
-        if (myNode != null && body != null )
+        if (myNode != null)
         {
             var rushTarget = targetPos.HasValue
                 ? Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f)
                 : Vector2.Left * 1800;
-            var rushTween = CreateBodyMoveTween(body);
-            rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
-                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.4f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", rushTarget, 0.3f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.4f);
         }
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
@@ -263,15 +260,9 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         ScatterNegativeGlyphs(targets, count: 8, scatterRadius: 180f);
 
         // 瞬移到右侧，然后 Tween 平滑返回原位
-        if (myNode != null && body != null)
-        {
-            SetBodyPosition(body, Vector2.Right * 600f);
-            await Cmd.Wait(0.1f);
-            var returnTween = CreateBodyMoveTween(body);
-            returnTween.TweenProperty(body, "position", Vector2.Zero, 0.25f)
-                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.3f);
-        }
+        SnapBodyPosition(Vector2.Right * 600f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
 
         Anim.TriggerLoop();
     }

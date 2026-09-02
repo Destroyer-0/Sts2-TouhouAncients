@@ -215,16 +215,14 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
         // 开始飞行：dash（循环）冲向玩家（撞击瞬间偷牌并造成伤害）
         Anim.Trigger("dash");
-        if (creatureNode != null && body != null)
+        if (creatureNode != null)
         {
             // 冲至玩家所在位置（撞击点）
             var impactOffset = playerPos.HasValue
-                ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X- 600f)
+                ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X - 600f)
                 : Vector2.Left * 1800;
-            var rushTween = CreateBodyMoveTween(body);
-            rushTween.TweenProperty(body, "position", impactOffset, 0.15f)
-                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.2f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", impactOffset, 0.15f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.2f);
         }
 
         // 撞击瞬间：偷走每个玩家弃牌堆顶的牌
@@ -294,15 +292,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         // }
         
         // 从右侧返回：带着被偷的牌飞回（dash 循环动画贯穿整个飞行）
-        if (body != null)
-        {
-            SetBodyPosition(body, Vector2.Right * 600f);
-            await Cmd.Wait(0.1f);
-            var returnTween = CreateBodyMoveTween(body);
-            returnTween.TweenProperty(body, "position", bodyOrigin, 0.25f)
-                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.3f);
-        }
+        SnapBodyPosition(Vector2.Right * 600f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
 
         // 飞行结束后短暂延迟
         await Cmd.Wait(0.25f);
@@ -328,10 +320,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         Anim.Trigger("jump_rise");
         if (body != null)
         {
-            var riseTween = CreateBodyMoveTween(body);
-            riseTween.TweenProperty(body, "position", bodyOrigin + Vector2.Up * 200f, 0.3f)
-                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.35f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin + Vector2.Up * 200f, 0.3f)
+                .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.35f);
         }
 
         // 空中翻滚 roll 约 1 秒，期间生成蘑菇召唤
@@ -347,10 +337,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         Anim.Trigger("jump_fall");
         if (body != null)
         {
-            var fallTween = CreateBodyMoveTween(body);
-            fallTween.TweenProperty(body, "position", bodyOrigin, 0.3f)
-                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.35f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.3f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.35f);
         }
         Anim.TriggerLoop();
     }
@@ -361,7 +349,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     private async Task StellarFantasyMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("shot_1");
-        await Cmd.Wait(0.25f);
+        await Cmd.Wait(0.4f);
         Anim.Trigger("shot_2");
         await DamageCmd.Attack(StellarFantasyDamage)
             .FromMonster(this)
@@ -369,7 +357,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             .WithAttackerFx(null, $"event:/sfx/enemy/enemy_attacks/turret_operator/turret_operator_attack")
             .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
             .Execute(null);
-        await Cmd.Wait(0.3f);
+        await Cmd.Wait(0.5f);
         Anim.TriggerLoop();
     }
 
@@ -396,7 +384,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task MasterSparkChargeMove(IReadOnlyList<Creature> targets)
     {
-        // 蓄力动画保持到下一回合发射极限火花（不在本方法结尾恢复 idle）
         Anim.Trigger("spell");
         await CreatureCmd.GainBlock(base.Creature, MasterSparkChargeBlock, ValueProp.Unpowered, null);
         await ReturnStolenCards();

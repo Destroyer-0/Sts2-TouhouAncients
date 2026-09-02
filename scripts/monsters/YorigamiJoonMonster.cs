@@ -261,26 +261,29 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     {
         Anim.Trigger("tornado_1");
         
-        NCreature myNode = base.Creature.GetCreatureNode();
-        Node2D body = myNode?.Visuals.GetCurrentBody();
+        NCreature? myNode = base.Creature.GetCreatureNode();
         // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
-        if (myNode != null && body != null)
+        if (myNode != null)
         {
             var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y + 800f);
-            var rushTween = CreateBodyMoveTween(body);
-            rushTween.TweenProperty(body, "position", rushTarget, 0.3f)
-                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-            await Cmd.Wait(0.4f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", rushTarget, 0.3f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.4f);
         }
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         Anim.Trigger("tornado_2");
-        var land = targets.Count > 0 ? NCombatRoom.Instance.GetCreatureNode(targets[0]).GlobalPosition - myNode.GlobalPosition : Vector2.Left * 350;
 
-        var rushTween2 = CreateBodyMoveTween(body);
-        rushTween2.TweenProperty(body, "position", land, 0.5f)
-            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-        await Cmd.Wait(0.5f);
+        // 冲向落点：仅在节点与 body 都可用时执行位移，避免空引用 / 无效 Tween
+        if (myNode != null)
+        {
+            NCreature? targetNode = targets.Count > 0 ? NCombatRoom.Instance?.GetCreatureNode(targets[0]) : null;
+            var land = targetNode != null
+                ? targetNode.GlobalPosition - myNode.GlobalPosition
+                : Vector2.Left * 350;
+
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", land, 0.5f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.5f);
+        }
         
         //NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(GoldenTornadoDamage)
@@ -293,20 +296,22 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
         Anim.Trigger("roll");
         
-        Vector2 returnStart = body.Position;
-        Vector2 returnEnd = Vector2.Zero;
-        float arcHeight = 100f;
+        // 弧形返回原位：仅在 body 可用时执行位移，避免空引用 / 无效 Tween
+        if (CurrentBody != null)
+        {
+            Vector2 returnStart = CurrentBody.Position;
+            Vector2 returnEnd = Vector2.Zero;
+            float arcHeight = 100f;
 
-        var returnTween = CreateBodyMoveTween(body);
-        returnTween.TweenMethod(
-            Callable.From<float>(t =>
-            {
-                SetBodyPosition(body, returnStart.Lerp(returnEnd, t)
-                    + new Vector2(0, -10 * arcHeight * t * (1 - t)));
-            }),
-            0f, 1f, 0.5f
-        ).SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad);
-        await Cmd.Wait(0.5f);
+            await MoveBody((b, tween) => tween.TweenMethod(
+                Callable.From<float>(t =>
+                {
+                    SetBodyPosition(b, returnStart.Lerp(returnEnd, t)
+                        + new Vector2(0, -10 * arcHeight * t * (1 - t)));
+                }),
+                0f, 1f, 0.5f
+            ).SetEase(Tween.EaseType.InOut).SetTrans(Tween.TransitionType.Quad), 0.5f);
+        }
         
         Anim.Trigger("prepare");
         await Cmd.Wait(0.25f);
@@ -333,7 +338,9 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
-        await Cmd.Wait(1f);
+        await Cmd.Wait(0.8f);
+        Anim.TriggerLoop();
+        await Cmd.Wait(0.2f);
         // 扣除玩家一半王国资产
         // if (halfRoyalties > 0)
         // {
