@@ -3,9 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Godot;
-using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Audio;
-using MegaCrit.Sts2.Core.Bindings.MegaSpine;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models.Monsters;
@@ -157,9 +155,9 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
                 {
                     IsDeathLocked = () => IsDeathAnimationLocked,
                 };
-                // 默认状态表：idle 循环；hurt 一次性（播完由状态机内部回到打断前状态）；die 一次性
+                // 默认状态表：idle 循环；hurt 插播一次性（播完由状态机内部恢复到被打断前动画）；die 一次性
                 _animationMachine.RegisterLoop("idle");
-                _animationMachine.RegisterOneShot("hurt");
+                _animationMachine.RegisterOneShot("hurt", restoresPreviousOnFinish: true);
                 _animationMachine.RegisterOneShot("die");
                 ConfigureAnimationStateMachine(_animationMachine);
             }
@@ -313,18 +311,6 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         Node2D? body = Creature.GetCreatureNode()?.Visuals?.GetCurrentBody();
         if (body != null)
             body.Position = Vector2.Zero;
-    }
-
-    // public override async Task AfterAddedToRoom()
-    // {
-    //     await base.AfterAddedToRoom();
-    //     MyAnimatedSprite2D.AnimationFinished += OnAnimationFinished;
-    // }
-
-    public override CreatureAnimator GenerateAnimator(MegaSprite controller)
-    {
-        //MyAnimatedSprite2D.AnimationFinished += OnAnimationFinished;
-        return base.GenerateAnimator(controller);
     }
 
     internal void HandleHitAnimationTrigger()

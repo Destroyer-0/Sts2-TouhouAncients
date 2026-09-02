@@ -26,6 +26,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
+using TouhouAncients.Scripts.Vfx;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -150,20 +151,10 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         MoveState masterSpark = new MoveState("MASTER_SPARK", MasterSparkMove,
             new SingleAttackIntent(MasterSparkDamage), new BuffIntent());
 
-        // 随机分支：星辰幻想 / 黑洞边缘（均不可连续使用）
-        // RandomBranchState randomBranch = new RandomBranchState("RAND_BRANCH");
-        // randomBranch.AddBranch(stellarFantasy, MoveRepeatType.CannotRepeat);
-        // randomBranch.AddBranch(blackHoleEdge, MoveRepeatType.CannotRepeat);
-
         // 蘑菇分支：蘑菇少于上限时召唤，否则直接路由到随机分支（不空过）
         ConditionalBranchState mushroomBranch = new ConditionalBranchState("MUSHROOM_BRANCH");
         mushroomBranch.AddState(fungusExpert, () => AliveMushroomCount < MaxMushroomCount);
         mushroomBranch.AddState(stellarFantasy, () => AliveMushroomCount >= MaxMushroomCount);
-
-        // 分支后判定：星辰幻想与黑洞边缘都用过一次后，必定进入极限火花·蓄力
-        // ConditionalBranchState afterBranch = new ConditionalBranchState("AFTER_BRANCH");
-        // afterBranch.AddState(charge, () => _hasUsedStellarFantasy && _hasUsedBlackHoleEdge);
-        // afterBranch.AddState(randomBranch, () => !_hasUsedStellarFantasy || !_hasUsedBlackHoleEdge);
 
         escapeVelocity.FollowUpState = mushroomBranch;
         fungusExpert.FollowUpState = stellarFantasy;
@@ -179,8 +170,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         list.Add(charge);
         list.Add(masterSpark);
         list.Add(mushroomBranch);
-        // list.Add(randomBranch);
-        // list.Add(afterBranch);
 
         return new MonsterMoveStateMachine(list, escapeVelocity);
     }
@@ -280,17 +269,6 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             }
         }
 
-        // if (creatureNode != null && body != null)
-        // {
-        //     var rushTarget = playerPos.HasValue
-        //         ? Vector2.Right * (playerPos.Value.X - creatureNode.GlobalPosition.X - 600f)
-        //         : Vector2.Left * 1800;
-        //     var rushTween2 = body.CreateTween();
-        //     rushTween2.TweenProperty(body, "position", rushTarget, 0.2f)
-        //         .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
-        //     await Cmd.Wait(0.25f);
-        // }
-        
         // 从右侧返回：带着被偷的牌飞回（dash 循环动画贯穿整个飞行）
         SnapBodyPosition(Vector2.Right * 600f);
         await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.25f)
@@ -344,12 +322,27 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 星辰幻想：先摆出起手式（shot_1），再以射击姿态（shot_2）进行 4 段多段攻击。
+    /// 星辰幻想：先摆出起手式（shot_1），随后向左侧发射 4~8 颗超高速旋转的星星弹幕（star_blue.png 粒子），
+    /// 再以射击姿态（shot_2）进行 4 段多段攻击。
     /// </summary>
     private async Task StellarFantasyMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("shot_1");
         await Cmd.Wait(0.4f);
+
+        // 起手式结束后：从魔理沙特效出生点向左侧发射 4~8 颗星星（GPUParticles2D 一次性齐射，播完自动删除）
+        NCreature? creatureNode = base.Creature.GetCreatureNode();
+        if (creatureNode != null && NCombatRoom.Instance?.CombatVfxContainer != null)
+        {
+            // GD.Randi 纯随机，不占用游戏 Rng 随机数流
+            int starCount = 4 + (int)(GD.Randi() % 5u); // 4~8
+            NMarisaStellarStarsVfx? starsVfx = NMarisaStellarStarsVfx.Create(creatureNode.VfxSpawnPosition, starCount);
+            if (starsVfx != null)
+            {
+                NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(starsVfx);
+            }
+        }
+
         Anim.Trigger("shot_2");
         await DamageCmd.Attack(StellarFantasyDamage)
             .FromMonster(this)
@@ -363,17 +356,49 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
     /// <summary>
     /// 黑洞边缘：投掷（throw）造成伤害并给玩家施加虚弱。
+    /// 延迟 0.25 秒后从魔理沙向玩家抛出一个沿抛物线旋转飞行的瓶子（shot_fb.png），
+    /// 瓶子到达落点后播放命中演出并触发伤害，攻击结算后销毁瓶子特效。
     /// </summary>
     private async Task BlackHoleEdgeMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("throw");
+
+        // 延迟 0.25 秒后抛出瓶子：选择最左侧玩家作为落点（本机演出）
+        await Cmd.Wait(0.25f);
+
+        NMarisaBottleVfx? bottleVfx = null;
+        NCreature? creatureNode = base.Creature.GetCreatureNode();
+        if (!base.Creature.IsDead && creatureNode != null && NCombatRoom.Instance?.CombatVfxContainer != null)
+        {
+            Vector2 source = creatureNode.VfxSpawnPosition;
+            Vector2 target = source;
+            if (targets.Count > 0)
+            {
+                NCreature? targetNode = targets[0].GetCreatureNode();
+                if (targetNode != null)
+                {
+                    target = targetNode.GlobalPosition;
+                }
+                else
+                {
+                    target = source + Vector2.Left * 600f;
+                }
+            }
+
+            bottleVfx = NMarisaBottleVfx.Create(source, target);
+            if (bottleVfx != null)
+            {
+                NCombatRoom.Instance.CombatVfxContainer.AddChildSafely(bottleVfx);
+            }
+        }
+
         await DamageCmd.Attack(BlackHoleEdgeDamage)
             .FromMonster(this)
-            //.WithAttackerFx(null, "event:/sfx/enemy/enemy_attacks/the_kin_priest/the_kin_priest_soul_grenade")
             .WithWaitBeforeHit(1f, 1f)
-            .WithHitVfxNode((Creature t) => NKinPriestGrenadeVfx.Create(t))
+            .WithHitVfxNode(NKinPriestGrenadeVfx.Create)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, BlackHoleEdgeWeak, base.Creature, null);
         await Cmd.Wait(0.3f);
         Anim.TriggerLoop();

@@ -48,6 +48,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     private int SealingNeedleDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 5, 4);
 
+    private const int DreamSealMoveCardNum = 3;
     private const int SealingNeedleHits = 3;
 
     private int TenbuHurricaneKickDamage => AscensionHelper.GetValueIfAscension(
@@ -86,8 +87,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         // 准备演出期间全局禁止受击打断；演出结束（_isFantasyNaturePrepAnimating = false）后恢复
         animationMachine.DefaultCanBeInterruptedByHit = () => !_isFantasyNaturePrepAnimating;
 
-        // 循环：idle / spell_2（准备姿态循环保持）/ jump_fall（落地循环）
-        // 一次性：jump_rise / spell_1（播完显式切 spell_2）/ land
         animationMachine.RegisterLoop("idle");
         animationMachine.RegisterLoop("spell_2");
         animationMachine.RegisterLoop("jump_fall");
@@ -216,11 +215,10 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         // 意图显示按每个目标玩家各自计算（DreamNatureIntent 内部按传入目标玩家取生命）
         MoveState dreamNature = new MoveState(FantasyNatureMoveId, FantasyNatureMove,
             new DreamNatureIntent());
-//            new MultiAttackIntent(0, FantasyNatureHits));
 
         // 梦想封印：造成伤害并向每位玩家加入/升级状态卡牌
         MoveState dreamSeal = new MoveState("DREAM_SEAL", DreamSealMove,
-            new SingleAttackIntent(DreamSealDamage), new StatusIntent(2));
+            new SingleAttackIntent(DreamSealDamage), new StatusIntent(DreamSealMoveCardNum), new CardDebuffIntent());
 
         // 八方鬼缚阵：获得格挡 + 倒映 + 残影
         MoveState octagonal = new MoveState("OCTAGONAL_BINDING_ARRAY", OctagonalBindingArrayMove,
@@ -269,7 +267,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         CurrentMoveKey = FantasyNatureMoveId;
 
         // --- 攻击 ---
-        //SfxCmd.Play(AttackSfx);
         await CreatureCmd.TriggerAnim(base.Creature, "Attack", 0.3f);
 
         var a = await PowerCmd.Apply<FakeDreamFantasyPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
@@ -340,7 +337,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             Player? player = target.Player;
             if (player == null) continue;
 
-            await CardPileCmd.AddToCombatAndPreview<SealCircle>(player.Creature, PileType.Discard, 3, null, CardPilePosition.Random);
+            await CardPileCmd.AddToCombatAndPreview<SealCircle>(player.Creature, PileType.Discard, DreamSealMoveCardNum, null, CardPilePosition.Random);
         }
     }
 

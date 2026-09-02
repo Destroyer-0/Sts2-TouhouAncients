@@ -45,7 +45,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 14, 13);
 
     private const int EternalNightReturnStrength = 3;
-    private const int BaseBlockPerPuzzle = 12;
+    private const int BaseBlockPerPuzzle = 15;
 
     private const int EternalNightReturnHeal = 30;
 

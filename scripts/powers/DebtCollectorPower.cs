@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.powers;
@@ -84,6 +85,12 @@ public class DebtCollectorPower : TouhouAncientPowerModel
 
         foreach (KeyValuePair<Creature, decimal> kvp in data.pendingRoyaltyLoss)
         {
+            var creatureNode = kvp.Key.GetCreatureNode();
+            if (creatureNode != null)
+            {
+                VfxCmd.PlayVfx(creatureNode.GlobalPosition, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+                SfxCmd.Play("event:/sfx/ui/gold/gold_2");
+            }
             await PowerCmd.Apply<RoyaltiesPower>(choiceContext, kvp.Key, -kvp.Value,
                 base.Owner, null);
 

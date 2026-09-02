@@ -291,7 +291,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = -72.0
 offset_top = -239.0
-offset_right = 188.0
+offset_right = 156.0
 offset_bottom = 1.0
 
 [node name="CenterPos" type="Marker2D" parent="."]

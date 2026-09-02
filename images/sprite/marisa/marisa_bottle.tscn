@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqtxhxx4k4vts"]
+
+[ext_resource type="Texture2D" uid="uid://c0vt17o01qesa" path="res://images/sprite/marisa/shot_fb.png" id="1_tex"]
+[ext_resource type="Script" uid="uid://c185rkw0l3kxw" path="res://scripts/Vfx/NMarisaBottleVfx.cs" id="2_script"]
+
+[sub_resource type="Curve" id="Curve_alpha"]
+_data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_alpha"]
+curve = SubResource("Curve_alpha")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trail"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector3(0, 0, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.4
+scale_max = 0.5
+alpha_curve = SubResource("CurveTexture_alpha")
+
+[node name="MarisaBottle" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("2_script")
+
+[node name="Bottle" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_tex")
+
+[node name="Trail" type="GPUParticles2D" parent="."]
+texture_filter = 1
+emitting = false
+amount = 24
+texture = ExtResource("1_tex")
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_trail")

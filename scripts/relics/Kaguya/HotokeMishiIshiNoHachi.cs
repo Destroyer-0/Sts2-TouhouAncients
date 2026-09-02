@@ -17,7 +17,6 @@ namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 佛御石之钵：拾起时，失去30最大生命；战斗开始时，获得5敏捷与30格挡。
-/// 当你受到伤害后，下回合获得10格挡。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class HotokeMishiIshiNoHachi : TouhouAncientRelics
@@ -33,8 +32,7 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
     [
         new DynamicVar("MaxHpLoss", MaxHpLoss),
         new DynamicVar("Dexterity", DexterityAmount),
-        new DynamicVar("StartBlock", StartBlock),
-        new DynamicVar("PostDamageBlock", PostDamageBlock),
+        new BlockVar(StartBlock, ValueProp.Unpowered),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -56,7 +54,7 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
         if (creature == null) return;
 
         await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), creature, DexterityAmount, creature, null);
-        await CreatureCmd.GainBlock(creature, DynamicVars["StartBlock"].BaseValue, ValueProp.Unpowered, null);
+        await CreatureCmd.GainBlock(creature, DynamicVars.Block, null);
     }
 
     // /// <summary>

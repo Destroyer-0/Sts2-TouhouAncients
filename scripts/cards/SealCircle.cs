@@ -89,7 +89,7 @@ public class SealCircle : TouhouAncientCards
         }
         else
         {
-            text = string.Empty;
+            text = new LocString("cards", Id.Entry + ".descriptionIdle").GetFormattedText();
         }
 
         ((StringVar)DynamicVars["SealedText"]).StringValue = text;
@@ -110,7 +110,7 @@ public class SealCircle : TouhouAncientCards
         _pairingAttempted = true;
 
         Player player = card.Owner;
-        if (player == null || player.PlayerCombatState == null) return;
+        if (player.PlayerCombatState == null) return;
 
         // 候选范围：抽牌堆/手牌/弃牌堆，排除自己
         var candidates = PileType.Draw.GetPile(player).Cards

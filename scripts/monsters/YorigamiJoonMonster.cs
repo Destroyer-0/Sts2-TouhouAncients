@@ -262,7 +262,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         Anim.Trigger("tornado_1");
         
         NCreature? myNode = base.Creature.GetCreatureNode();
-        // Rush 穿过玩家：Tween 平滑移动到玩家左侧（穿过玩家后离开屏幕左侧）
         if (myNode != null)
         {
             var rushTarget = Vector2.Up * (myNode.GlobalPosition.Y + 800f);
@@ -285,7 +284,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.5f);
         }
         
-        //NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(GoldenTornadoDamage)
             .FromMonster(this)
             .WithHitCount(GoldenTornadoHits)
@@ -322,7 +320,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
     /// <summary>
     /// 散财上勾拳：基础伤害 + 玩家王国资产层数一半的额外伤害。
-    /// 合并为一次攻击判定。同时扣除玩家一半王国资产。
+    /// 合并为一次攻击判定。
     /// </summary>
     private async Task ScatterWealthUppercutMove(IReadOnlyList<Creature> targets)
     {
@@ -341,11 +339,6 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         await Cmd.Wait(0.8f);
         Anim.TriggerLoop();
         await Cmd.Wait(0.2f);
-        // 扣除玩家一半王国资产
-        // if (halfRoyalties > 0)
-        // {
-        //     await PowerCmd.Apply<RoyaltiesPower>(new ThrowingPlayerChoiceContext(), player.Creature, -halfRoyalties, base.Creature, null);
-        // }
     }
     
     /// <summary>

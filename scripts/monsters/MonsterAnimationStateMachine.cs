@@ -1,31 +1,39 @@
 using System;
-using System.Threading.Tasks;
 using Godot;
 
 namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
-/// 单个动画状态：动画名、是否循环、播放完成后的下一个状态解析器、进入/退出钩子。
+/// 单个动画状态（状态机内部数据，不可变）：动画名、是否循环、播放完成后的下一个状态解析器、
+/// 进入/退出钩子、受击打断条件、是否为插播动画（播完恢复打断前状态）。
 /// 解析器返回 null 表示不自动转移（由演出逻辑显式切换，保持时间驱动）。
 /// </summary>
-public sealed class MonsterAnimState
+internal sealed class MonsterAnimState
 {
     public string Name { get; }
     public bool IsLooping { get; }
-    public Func<string>? NextStateResolver { get; set; }
-    public Action? OnEnter { get; set; }
-    public Action? OnExit { get; set; }
+    public Func<string>? NextStateResolver { get; }
+    public Action? OnEnter { get; }
+    public Action? OnExit { get; }
 
     /// <summary>
     /// 播放该动画期间是否允许被受击（hurt）打断。
     /// 返回 false 的动画（如蓄力、必杀演出）播放期间忽略受击触发，避免打断演出。
     /// 委托形式支持动态条件（如紫苑眩晕期间禁止打断）。
     /// </summary>
-    public Func<bool> CanBeInterruptedByHit { get; set; }
+    public Func<bool> CanBeInterruptedByHit { get; }
+
+    /// <summary>
+    /// 是否为插播动画：播完后恢复到被打断前正在播的动画，而非走 <see cref="NextStateResolver"/>。
+    /// 典型场景是 hurt：受击打断当前动画，播完回到打断前状态。
+    /// 属性化后，未来任何需要相同"打断后恢复"语义的插播动画（如弹反演出）
+    /// 注册时置为 true 即可复用同一套恢复逻辑，无需按名字特判。
+    /// </summary>
+    public bool RestoresPreviousOnFinish { get; }
 
     public MonsterAnimState(string name, bool isLooping,
         Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null,
-        Func<bool>? canBeInterruptedByHit = null)
+        Func<bool>? canBeInterruptedByHit = null, bool restoresPreviousOnFinish = false)
     {
         Name = name;
         IsLooping = isLooping;
@@ -33,6 +41,7 @@ public sealed class MonsterAnimState
         OnEnter = onEnter;
         OnExit = onExit;
         CanBeInterruptedByHit = canBeInterruptedByHit ?? (() => true);
+        RestoresPreviousOnFinish = restoresPreviousOnFinish;
     }
 }
 
@@ -55,9 +64,6 @@ public sealed class MonsterAnimationStateMachine
     private MonsterAnimState? _currentState;
     private string? _preHurtState;
 
-    /// <summary>当前正在播放的动画名。</summary>
-    public string? CurrentAnimationName => _currentState?.Name;
-
     /// <summary>当前循环归属动画解析器（替代旧 CurrentLoopAnimation）。</summary>
     public Func<string> LoopResolver { get; set; } = static () => "idle";
 
@@ -70,9 +76,6 @@ public sealed class MonsterAnimationStateMachine
     /// </summary>
     public Func<bool> DefaultCanBeInterruptedByHit { get; set; } = static () => true;
 
-    /// <summary>动画自然播放完成（非循环动画播到最后一帧）时触发，参数为完成的动画名。</summary>
-    public event Action<string>? AnimationFinished;
-
     public MonsterAnimationStateMachine(AnimatedSprite2D sprite)
     {
         _sprite = sprite;
@@ -80,28 +83,25 @@ public sealed class MonsterAnimationStateMachine
     }
 
     /// <summary>注册一个循环动画状态（播放后保持循环，直到显式切换）。</summary>
-    public MonsterAnimState RegisterLoop(string name, Func<string>? nextStateResolver = null,
+    public void RegisterLoop(string name, Func<string>? nextStateResolver = null,
         Action? onEnter = null, Action? onExit = null, Func<bool>? canBeInterruptedByHit = null)
         => RegisterState(name, isLooping: true, nextStateResolver, onEnter, onExit, canBeInterruptedByHit);
 
     /// <summary>注册一个一次性动画状态（非循环，播完停在最后一帧，由 NextStateResolver 决定去向）。</summary>
-    public MonsterAnimState RegisterOneShot(string name, Func<string>? nextStateResolver = null,
-        Action? onEnter = null, Action? onExit = null, Func<bool>? canBeInterruptedByHit = null)
-        => RegisterState(name, isLooping: false, nextStateResolver, onEnter, onExit, canBeInterruptedByHit);
+    public void RegisterOneShot(string name, Func<string>? nextStateResolver = null,
+        Action? onEnter = null, Action? onExit = null, Func<bool>? canBeInterruptedByHit = null,
+        bool restoresPreviousOnFinish = false)
+        => RegisterState(name, isLooping: false, nextStateResolver, onEnter, onExit, canBeInterruptedByHit,
+            restoresPreviousOnFinish);
 
-    public MonsterAnimState RegisterState(string name, bool isLooping,
+    private void RegisterState(string name, bool isLooping,
         Func<string>? nextStateResolver = null, Action? onEnter = null, Action? onExit = null,
-        Func<bool>? canBeInterruptedByHit = null)
+        Func<bool>? canBeInterruptedByHit = null, bool restoresPreviousOnFinish = false)
     {
         var state = new MonsterAnimState(name, isLooping, nextStateResolver, onEnter, onExit,
-            canBeInterruptedByHit ?? DefaultCanBeInterruptedByHit);
+            canBeInterruptedByHit ?? DefaultCanBeInterruptedByHit, restoresPreviousOnFinish);
         _states[name] = state;
-        return state;
     }
-
-    public bool HasState(string name) => _states.ContainsKey(name);
-
-    public bool IsCurrentAnimation(string name) => _currentState?.Name == name;
 
     /// <summary>SpriteFrames 中是否存在该动画。</summary>
     public bool HasAnimation(string name) => _sprite.SpriteFrames.HasAnimation(name);
@@ -132,8 +132,9 @@ public sealed class MonsterAnimationStateMachine
             _currentState.OnExit?.Invoke();
 
         _currentState = state;
-        // 离开 hurt 恢复流程：显式切换到其他动画时清除被打断前状态残留
-        if (name != "hurt")
+        // 离开插播恢复流程：显式切换到非插播动画时清除被打断前状态残留；
+        // 目标仍是插播动画（如连续 hurt）则保留记录，供播完恢复打断前的动画
+        if (!state.RestoresPreviousOnFinish)
             _preHurtState = null;
 
         state.OnEnter?.Invoke();
@@ -165,51 +166,12 @@ public sealed class MonsterAnimationStateMachine
         if (_currentState is { } state && !state.CanBeInterruptedByHit())
             return;
 
-        // 记录打断前的循环动画（当前是循环动画且不在 hurt 恢复流程中时）；
+        // 记录打断前的循环动画（当前是循环动画且不在插播恢复流程中时）；
         // 连续受击时保留第一次记录的打断前状态，避免第二次 hurt 播完错误回默认循环
-        if (_currentState is { IsLooping: true } && !IsCurrentAnimation("hurt"))
+        if (_currentState is { IsLooping: true, RestoresPreviousOnFinish: false })
             _preHurtState = _currentState.Name;
 
         Trigger("hurt");
-    }
-
-    /// <summary>
-    /// 等待当前动画自然播放完成（仅对非循环动画有意义；循环动画永不播完）。
-    /// 节点退出场景树时立即返回 false，避免挂起（参考 TweenHelper.AwaitFinished 的取消模式）。
-    /// </summary>
-    public async Task<bool> WaitForAnimationFinished(Node owner)
-    {
-        if (!GodotObject.IsInstanceValid(_sprite) || !_sprite.IsInsideTree())
-            return false;
-
-        var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
-        bool resolved = false;
-
-        void OnFinished()
-        {
-            if (resolved) return;
-            resolved = true;
-            tcs.TrySetResult(true);
-        }
-
-        void OnExiting()
-        {
-            if (resolved) return;
-            resolved = true;
-            tcs.TrySetResult(false);
-        }
-
-        _sprite.AnimationFinished += OnFinished;
-        owner.TreeExiting += OnExiting;
-        try
-        {
-            return await tcs.Task;
-        }
-        finally
-        {
-            _sprite.AnimationFinished -= OnFinished;
-            owner.TreeExiting -= OnExiting;
-        }
     }
 
     private void OnAnimationFinished()
@@ -218,8 +180,9 @@ public sealed class MonsterAnimationStateMachine
         if (finished == null)
             return;
 
-        // 受击恢复：hurt 播完回到打断前的动画；无打断前状态（开场未播任何动画 / 打断一次性动画）回默认循环
-        if (finished.Name == "hurt")
+        // 插播恢复：插播动画（hurt）播完回到被打断前的动画；
+        // 无打断前状态（开场未播任何动画 / 打断一次性动画）回默认循环
+        if (finished.RestoresPreviousOnFinish)
         {
             if (_preHurtState != null)
             {
