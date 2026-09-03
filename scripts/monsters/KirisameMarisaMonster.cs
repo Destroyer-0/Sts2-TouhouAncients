@@ -222,7 +222,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             if (target.IsDead || player == null) continue;
 
             CardPile discardPile = PileType.Discard.GetPile(player);
-            CardModel? cardToSteal = discardPile.Cards.LastOrDefault();
+            CardModel? cardToSteal = discardPile.Cards.FirstOrDefault();
             if (cardToSteal == null) continue;
 
             await CardPileCmd.RemoveFromCombat(cardToSteal);

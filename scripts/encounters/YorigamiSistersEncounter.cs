@@ -27,9 +27,5 @@ public sealed class YorigamiSistersEncounter : TouhouAncientEncounter
         (ModelDb.Monster<YorigamiShionMonster>().ToMutable(), "shion"),
     ];
 
-    public YorigamiSistersEncounter() : base(RoomType.Monster)
-    {
-    }
-
     public override bool IsValidForAct(ActModel act) => false;
 }

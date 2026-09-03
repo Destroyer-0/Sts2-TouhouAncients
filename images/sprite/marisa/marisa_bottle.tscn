@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c185rkw0l3kxw" path="res://scripts/Vfx/NMarisaBottleVfx.cs" id="2_script"]
 
 [sub_resource type="Curve" id="Curve_alpha"]
-_data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.49723762), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_alpha"]
@@ -19,8 +19,8 @@ spread = 0.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
-scale_min = 0.4
-scale_max = 0.5
+scale_min = 3.0
+scale_max = 3.0
 alpha_curve = SubResource("CurveTexture_alpha")
 
 [node name="MarisaBottle" type="Node2D"]
@@ -34,7 +34,7 @@ texture = ExtResource("1_tex")
 [node name="Trail" type="GPUParticles2D" parent="."]
 texture_filter = 1
 emitting = false
-amount = 24
+amount = 12
 texture = ExtResource("1_tex")
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_trail")

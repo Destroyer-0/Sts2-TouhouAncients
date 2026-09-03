@@ -30,6 +30,9 @@ public class BloodDisasterPower : TouhouAncientPowerModel
     /// <summary>倍率上限（隐藏，不写入本地化）。</summary>
     private const decimal MaxMultiplier = 999999m;
 
+    /// <summary>hover 描述中"当前翻 X 倍"所用运行时变量的键名。</summary>
+    private const string _multiplierKey = "Multiplier";
+
     public int CurrentStrength
     {
         get
@@ -68,6 +71,14 @@ public class BloodDisasterPower : TouhouAncientPowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override int DisplayAmount => (int)CurrentMultiplier;
+
+    /// <summary>
+    /// hover 描述中"当前翻 X 倍"所用的运行时变量，值为当前倍率 <see cref="CurrentMultiplier"/>。
+    /// PowerModel 的 hover 文本只自动填充固定变量（Amount = 层数，此处恒为 1），
+    /// 因此倍率必须用自定义 DynamicVar 承载，并在 <see cref="ChangeAmount"/> 中随力量变化实时更新。
+    /// </summary>
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new DynamicVar(_multiplierKey, 1m)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
@@ -111,12 +122,12 @@ public class BloodDisasterPower : TouhouAncientPowerModel
         if (power == this || power is StrengthPower)
         {
             ChangeAmount();
-            //base.DynamicVars["Multiplier"].BaseValue = CurrentMultiplier;
         }
     }
 
     private void ChangeAmount()
     {
+        base.DynamicVars[_multiplierKey].BaseValue = CurrentMultiplier;
         NCreature? node = NCombatRoom.Instance?.GetCreatureNode(base.Owner);
         float scale = Math.Max(1, 1f + CurrentStrength * 0.1f);
         node?.ScaleTo(scale, 0f);

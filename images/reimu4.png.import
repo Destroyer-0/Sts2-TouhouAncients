@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvlywtkknl5sh"
-path="res://.godot/imported/猯藏2.jpg-4f6c2e54c2f45db88aa5bf7fe303f8e3.ctex"
+uid="uid://cs2tm2ic2bp38"
+path="res://.godot/imported/reimu4.png-4bea85ffa475a13fb91f10588deee19e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/temp/猯藏2.jpg"
-dest_files=["res://.godot/imported/猯藏2.jpg-4f6c2e54c2f45db88aa5bf7fe303f8e3.ctex"]
+source_file="res://images/reimu4.png"
+dest_files=["res://.godot/imported/reimu4.png-4bea85ffa475a13fb91f10588deee19e.ctex"]
 
 [params]
 

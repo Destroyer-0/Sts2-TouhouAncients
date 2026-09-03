@@ -33,7 +33,7 @@ public sealed class MedicineMelancholyEncounter : TouhouAncientEncounter
         (ModelDb.Monster<LingLingMonster>().ToMutable(), "lily")
     ];
 
-    public MedicineMelancholyEncounter() : base(RoomType.Monster)
+    public MedicineMelancholyEncounter() : base()
     {
     }
 

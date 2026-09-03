@@ -720,5 +720,10 @@
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "Tanuki’s Smoking Pipe",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "At the end of your turn, [gold]Transform[/gold] any number of cards in your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.selectionScreenPrompt": "Choose cards to [gold]Transform[/gold].",
-  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": ""
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": "",
+
+  "TOUHOUANCIENTS-HEAVY_DICE.title": "Loaded Dice",
+  "TOUHOUANCIENTS-HEAVY_DICE.description": "At the end of your turn, you may choose a card in your [gold]Hand[/gold] and record it. After your draw phase ends, if you have a recorded card, you may discard a card and add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
+  "TOUHOUANCIENTS-HEAVY_DICE.selectionScreenPrompt": "Choose a card in your [gold]Hand[/gold] to record.",
+  "TOUHOUANCIENTS-HEAVY_DICE.flavor": "Only cheaters who get caught can be called cheaters."
 }

@@ -30,9 +30,5 @@ public sealed class HakureiReimuEncounter : TouhouAncientEncounter
         (ModelDb.Monster<HakureiReimuMonster>().ToMutable(), "reimu")
     ];
 
-    public HakureiReimuEncounter() : base(RoomType.Monster)
-    {
-    }
-
     public override bool IsValidForAct(ActModel act) => false;
 }

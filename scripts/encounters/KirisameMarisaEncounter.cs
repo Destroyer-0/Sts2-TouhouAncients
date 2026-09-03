@@ -34,7 +34,7 @@ public sealed class KirisameMarisaEncounter : TouhouAncientEncounter
         (ModelDb.Monster<FantasyMushroomMonster>().ToMutable(), "mushroom2")
     ];
 
-    public KirisameMarisaEncounter() : base(RoomType.Monster)
+    public KirisameMarisaEncounter() : base()
     {
     }
 

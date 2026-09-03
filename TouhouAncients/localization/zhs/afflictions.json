@@ -8,6 +8,6 @@
   "TOUHOUANCIENTS-COLLATERAL.extraCardText": "{Amount}回合后移除抵押物效果。",
   "TOUHOUANCIENTS-COLLATERAL.title": "抵押物",
   
-  "TOUHOUANCIENTS-SEALED.description": "无法被打出。其对应的[gold]封魔阵[/gold]被消耗后，解除封印。",
+  "TOUHOUANCIENTS-SEALED.description": "无法被打出。其对应的[gold]封魔阵[/gold]被消耗后，解除[red]封印[/red]。",
   "TOUHOUANCIENTS-SEALED.title": "封印"
 }

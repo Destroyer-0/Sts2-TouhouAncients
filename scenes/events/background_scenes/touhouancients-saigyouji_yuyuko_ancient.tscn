@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlh1gehunh7p3"]
+[gd_scene load_steps=4 format=3 uid="uid://dlh1gehunh7p3"]
 
 [ext_resource type="Texture2D" uid="uid://bcrxxcrn7r8es" path="res://images/SaigyoujiYuyuko.png" id="1_w4om5"]
+[ext_resource type="Texture2D" uid="uid://bmnghp36vmhhd" path="res://images/yuyuko2.png" id="2_rlxto"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_r16se"]
 
 [node name="SaigyoujiYuyukoAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +15,16 @@ offset_top = -60.0
 offset_right = 2240.0
 offset_bottom = 1140.0
 texture = ExtResource("1_w4om5")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -158.0
+offset_top = -64.0
+offset_right = 832.0
+offset_bottom = 492.0
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("2_rlxto")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_r16se")
