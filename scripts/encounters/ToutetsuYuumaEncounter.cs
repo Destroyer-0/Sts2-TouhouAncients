@@ -36,7 +36,7 @@ public sealed class ToutetsuYuumaEncounter : TouhouAncientEncounter
         (ModelDb.Monster<ToutetsuYuumaMonster>().ToMutable(), "yuuma")
     ];
 
-    public ToutetsuYuumaEncounter() : base(RoomType.Monster)
+    public ToutetsuYuumaEncounter() : base()
     {
     }
 

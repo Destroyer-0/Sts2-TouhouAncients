@@ -41,7 +41,7 @@ public sealed class HouraisanKaguyaEncounter : TouhouAncientEncounter
         (ModelDb.Monster<HouraisanKaguyaMonster>().ToMutable(), "kaguya")
     ];
 
-    public HouraisanKaguyaEncounter() : base(RoomType.Monster)
+    public HouraisanKaguyaEncounter() : base()
     {
     }
 

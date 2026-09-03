@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts;
 public class HakureiReimuAncient : TouhouAncientBase
 {
     public override int? ShowAct => 2;
-    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.5f);
+    public override Color ButtonColor => new(0.9f, 0.25f, 0.25f, 0.65f);
     public override Color DialogueColor => new(0.9f, 0.25f, 0.25f, 1f);
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";

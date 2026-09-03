@@ -31,11 +31,12 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
             AncientOption<SunkenAnchorGhost>(),
             AncientOption<NidomiteiSpecialBlend>(),
             AncientOption<PsychicTelekinesis>(),
-            //AncientOption<WickedHermitHairpin>(),
+            AncientOption<WickedHermitHairpin>(),
             AncientOption<DowsingRod>(),
             AncientOption<DragonVeinVessel>(),
             AncientOption<DisillusionTrident>(),
-            AncientOption<TunakiSmokingPipe>()
+            AncientOption<TunakiSmokingPipe>(),
+            AncientOption<HeavyDice>()
             //AncientOption<OneEyedKarakasa>(),
             //AncientOption<HyakkiYagyoScroll>(),
             //AncientOption<NohMask>()
