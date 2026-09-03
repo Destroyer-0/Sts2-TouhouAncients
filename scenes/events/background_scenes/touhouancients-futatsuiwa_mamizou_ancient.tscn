@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://iytnkehoxs1m"]
+[gd_scene load_steps=4 format=3 uid="uid://iytnkehoxs1m"]
 
 [ext_resource type="Texture2D" uid="uid://duwjrtbq0mitl" path="res://images/FutatsuiwaMamizou.png" id="1_to032"]
+[ext_resource type="Texture2D" uid="uid://io0pu60pjqup" path="res://images/猯藏2.jpg" id="2_b4w3x"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_41d2p"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +15,15 @@ offset_top = -219.0
 offset_right = 2248.0
 offset_bottom = 1581.0
 texture = ExtResource("1_to032")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -186.0
+offset_top = -138.00002
+offset_right = 1680.0
+offset_bottom = 1195.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_b4w3x")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_41d2p")

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvgfpqetd50uv"]
+[gd_scene load_steps=5 format=3 uid="uid://bvgfpqetd50uv"]
 
-[ext_resource type="Texture2D" uid="uid://c1e0qqnyg0ghm" path="res://sprite/HakureiReimu.png" id="1_ck6q7"]
+[ext_resource type="Texture2D" uid="uid://c1e0qqnyg0ghm" path="res://images/HakureiReimu.png" id="1_ck6q7"]
+[ext_resource type="Texture2D" uid="uid://cblcgso3wgulp" path="res://images/reimu2.png" id="2_fsngo"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_fn1je"]
+[ext_resource type="Texture2D" uid="uid://t15k5p4l7rtt" path="res://images/reimu3.png" id="3_hwtdq"]
 
 [node name="HakureiReimuAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +16,24 @@ offset_top = -157.0
 offset_right = 2202.0
 offset_bottom = 1677.0
 texture = ExtResource("1_ck6q7")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -168.99998
+offset_top = -156.99998
+offset_right = 1683.0
+offset_bottom = 1001.0
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_fsngo")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -206.0
+offset_top = -79.00002
+offset_right = 1234.0
+offset_bottom = 733.0
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_hwtdq")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_fn1je")

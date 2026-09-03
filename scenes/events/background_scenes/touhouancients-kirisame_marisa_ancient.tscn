@@ -2,18 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://48paalpd2v8v" path="res://images/KirisameMarisa.png" id="1_bw5gw"]
 [ext_resource type="Texture2D" uid="uid://cagamjjmt6v5g" path="res://images/Marisa2.png" id="2_uuj7r"]
-
-[sub_resource type="GDScript" id="GDScript_uuj7r"]
-resource_name = "RandomChange"
-script/source = "extends Node
-@onready var sprite_a: TextureRect = $\"../Marisa1\"
-@onready var sprite_b: TextureRect = $\"../Marisa2\"
-
-func _ready() -> void:
-	var show_a: bool = randi() % 2 == 0   # 随机 true/false
-	sprite_a.visible = show_a
-	sprite_b.visible = not show_a
-"
+[ext_resource type="Script" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_random"]
 
 [node name="WatariNinaAncient" type="Control"]
 layout_mode = 3
@@ -36,4 +25,4 @@ offset_bottom = 1325.0
 texture = ExtResource("2_uuj7r")
 
 [node name="Node" type="Node" parent="."]
-script = SubResource("GDScript_uuj7r")
+script = ExtResource("3_random")
