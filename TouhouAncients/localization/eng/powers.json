@@ -108,12 +108,16 @@
 
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "Avaricious Calamity",
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Amount}[/blue] times.",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Multiplier}[/blue] times.",
 
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "Ravenous Feeding",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.description": "This turn, the next [blue]{Amount}[/blue] cards played gain [gold]Exhaust[/gold] and increase [gold]Yuuma Toutetsu[/gold]’s [red]Max HP[/red] by [blue]10%[/blue].",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.smartDescription": "This turn, the next [blue]{Amount}[/blue] cards played gain [gold]Exhaust[/gold] and increase [gold]Yuuma Toutetsu[/gold]’s [red]Max HP[/red] by [blue]10%[/blue].",
 
   "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.title": "Demonic Possession",
-  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "At the start of your turn, [aqua]Seiga Kaku[/aqua] takes over your turn:\nLose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right."
+  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "At the start of your turn, [aqua]Seiga Kaku[/aqua] takes over your turn:\nLose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
+
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "Loaded Record",
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.description": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold]."
 }

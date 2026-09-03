@@ -106,13 +106,17 @@
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "本回合，[gold]梅蒂欣·梅兰可莉[/gold]将所有对[purple]铃铃[/purple]发起的攻击伤害转移至自身。",
 
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "贪婪祸劫",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "每拥有[blue]1[/blue]点[gold]力量[/gold]，失去生命值或被施加[gold]灾厄[/gold]层数就翻倍一次。\n[jitter]血池的恐惧、悲喜、憎恶和怨叹，一切仿佛都注入了我的体内！[/jitter]",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "每拥有[blue]1[/blue]点[gold]力量[/gold]，失去生命值或被施加[gold]灾厄[/gold]层数就翻倍一次。\n当前翻[blue]{Amount}[/blue]倍。\n[jitter]血池的恐惧、悲喜、憎恶和怨叹，一切仿佛都注入了我的体内！[/jitter]",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "每拥有[blue]1[/blue]点[gold]力量[/gold]，失去生命值或被施加[gold]灾厄[/gold]层数就翻倍一次。\n[jitter][red]血池的恐惧、悲喜、憎恶和怨叹，一切仿佛都注入了我的体内！[/red][/jitter]",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "每拥有[blue]1[/blue]点[gold]力量[/gold]，失去生命值或被施加[gold]灾厄[/gold]层数就翻倍一次。\n当前翻[blue]{Multiplier}[/blue]倍。\n[jitter][red]血池的恐惧、悲喜、憎恶和怨叹，一切仿佛都注入了我的体内！[/red][/jitter]",
 
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "饥渴摄食",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.description": "在这个回合，接下来[blue]{Amount}[/blue]张打出的牌获得[gold]消耗[/gold]并使[gold]饕餮尤魔[/gold]增加[blue]10%[/blue]的[red]最大生命[/red]。",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.smartDescription": "在这个回合，接下来[blue]{Amount}[/blue]张打出的牌获得[gold]消耗[/gold]并使[gold]饕餮尤魔[/gold]增加[blue]10%[/blue]的[red]最大生命[/red]。",
 
   "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.title": "走火入魔",
-  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "回合开始时，[aqua]霍青娥[/aqua]接管你的回合：\n立即失去[blue]5[/blue]点生命并获得{energyPrefix:energyIcons(1)}，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。"
+  "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "回合开始时，[aqua]霍青娥[/aqua]接管你的回合：\n立即失去[blue]5[/blue]点生命并获得{energyPrefix:energyIcons(1)}，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
+
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "灌铅记录",
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.description": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。"
 }
