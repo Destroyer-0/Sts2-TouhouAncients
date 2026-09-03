@@ -45,7 +45,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 14, 13);
 
     private const int EternalNightReturnStrength = 3;
-    private const int BaseBlockPerPuzzle = 15;
+    private const int BaseBlockPerPuzzle = 12;
 
     private const int EternalNightReturnHeal = 30;
 
@@ -57,6 +57,12 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
     /// <summary>五道难题漂浮谜题演出辅助（挂在场景根节点的脚本）。</summary>
     private HouraisanKaguyaVisuals? _kaguyaVisuals;
+
+    /// <summary>觉醒后的循环动画名（真月形态 idle，使用 Kaguya.png）。</summary>
+    private const string AwakenedIdleAnimation = "awakened_idle";
+
+    /// <summary>是否已觉醒：施放五道难题后切换为 Kaguya.png 立绘，直到战斗结束不再变回。</summary>
+    private bool _awakenedToTrueForm;
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
@@ -103,6 +109,33 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         return new MonsterMoveStateMachine(list, fiveDifficultProblems);
     }
 
+    /// <summary>
+    /// 注册动画状态：施放五道难题后切换为觉醒形态循环动画 <see cref="AwakenedIdleAnimation"/>
+    /// （真月形态，使用 Kaguya.png）。注册为循环动画后，觉醒形态下受击 hurt 播完能恢复到
+    /// awakened_idle 而非切回默认 idle（旧立绘）。
+    /// </summary>
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
+    {
+        animationMachine.RegisterLoop(AwakenedIdleAnimation);
+    }
+
+    /// <summary>
+    /// 施放五道难题后切换为觉醒形态（Kaguya.png 立绘）。仅切换一次，直到战斗结束不再变回。
+    /// 默认形态（旧立绘）在场景中已设置水平镜像（flip_h = true）；觉醒形态立绘朝左，
+    /// 切换动画前先取消镜像（FlipH = false）。
+    /// </summary>
+    private void SwitchToTrueForm()
+    {
+        if (_awakenedToTrueForm)
+        {
+            return;
+        }
+
+        _awakenedToTrueForm = true;
+        MyAnimatedSprite2D.FlipH = false;
+        Anim.Trigger(AwakenedIdleAnimation);
+    }
+
     // --- 技能方法 ---
 
     /// <summary>
@@ -132,7 +165,8 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
         await Cmd.Wait(2f);
 
-        // 演出：五个谜题图标出现在辉夜周围并开始环绕旋转
+        // 演出：辉夜切换为真月形态（Kaguya.png 立绘），五个谜题图标出现在她周围并开始环绕旋转
+        SwitchToTrueForm();
         _kaguyaVisuals?.ShowPuzzles();
         
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
