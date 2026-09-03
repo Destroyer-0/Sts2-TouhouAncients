@@ -573,8 +573,8 @@
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初的神灵",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。\n[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "在每场战斗开始时，获得[blue]{IntangibleAmount}[/blue]层[gold]无实体[/gold]。在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。\n[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",

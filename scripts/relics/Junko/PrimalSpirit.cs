@@ -70,23 +70,17 @@ public class PrimalSpirit : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar(_triggerTurnKey, 5m),
-        new DynamicVar("IntangibleAmount", 1m)
+        new DynamicVar(_triggerTurnKey, 5m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<IntangiblePower>(),
         HoverTipFactory.FromPower<TheGambitPower>()
     ];
 
-    /// <summary>
-    /// 战斗开始时获得 1 层无实体
-    /// </summary>
     public override async Task BeforeCombatStart()
     {
         HasTriggered = false;
-        await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["IntangibleAmount"].BaseValue, base.Owner.Creature, null);
     }
 
     /// <summary>

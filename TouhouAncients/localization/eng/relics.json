@@ -573,8 +573,8 @@
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "Primal Spirit",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "At the start of each combat, gain [blue]{IntangibleAmount}[/blue] [gold]Intangible[/gold]. At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.\n[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "At the start of each combat, gain [blue]{IntangibleAmount}[/blue] [gold]Intangible[/gold]. At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.\n[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
