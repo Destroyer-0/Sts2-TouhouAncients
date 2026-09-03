@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bgoj5y0ld1ibp"]
+[gd_scene load_steps=45 format=3 uid="uid://bgoj5y0ld1ibp"]
 
 [ext_resource type="Texture2D" uid="uid://dua4igr2qkf6e" path="res://images/sprite/marisa/flight_front.png" id="1_v0abm"]
 [ext_resource type="Texture2D" uid="uid://c1n3eo6nrni28" path="res://images/sprite/marisa/landing.png" id="2_tgmv4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvn40ua5cw2ey" path="res://images/sprite/marisa/damage2.png" id="5_bs1sh"]
 [ext_resource type="Texture2D" uid="uid://b5aqxv46l8gk6" path="res://images/sprite/marisa/jump_fall.png" id="7_2o2we"]
 [ext_resource type="Texture2D" uid="uid://dmt6dbx4g832j" path="res://images/sprite/kaguya/Kaguya.png" id="7_jrgus"]
+[ext_resource type="Texture2D" uid="uid://b8pt47gnj5iy2" path="res://images/sprite/kaguya/6B蓬莱山輝夜(旧).png" id="22_kaguya_old"]
 [ext_resource type="Texture2D" uid="uid://3jb7a57ounb2" path="res://images/sprite/marisa/jump_rise.png" id="8_jrgus"]
 [ext_resource type="Texture2D" uid="uid://ceky61uto5c73" path="res://images/sprite/marisa/shot_front.png" id="9_883hp"]
 [ext_resource type="Texture2D" uid="uid://bxwyhc7iei7vu" path="res://images/sprite/marisa/roll.png" id="10_ampe7"]
@@ -150,10 +151,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_jrgus")
+"texture": ExtResource("22_kaguya_old")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jrgus")
+}],
+"loop": true,
+"name": &"awakened_idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -511,6 +520,7 @@ unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0.99999994, -163)
 scale = Vector2(0.4, 0.4)
+flip_h = true
 sprite_frames = SubResource("SpriteFrames_olr8y")
 animation = &"idle"
 autoplay = "idle"
