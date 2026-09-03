@@ -17,6 +17,7 @@ offset_bottom = 1140.0
 texture = ExtResource("1_w4om5")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = -158.0
 offset_top = -64.0
