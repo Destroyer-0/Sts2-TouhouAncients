@@ -32,10 +32,7 @@ public class HungryInstinctPower : TouhouAncientPowerModel
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DynamicVar("Amount", 0m)];
-
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
 
