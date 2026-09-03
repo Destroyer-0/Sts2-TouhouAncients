@@ -87,7 +87,7 @@
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "封魔阵",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
     "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "被消耗时，解除对应卡牌的封印状态。",
-    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "被消耗时，解除{Card}的封印状态。",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "被消耗时，解除[gold]{Card}[/gold]的封印状态。",
 
     "TOUHOUANCIENTS-YUAN_HEN.title": "遗恨",
     "TOUHOUANCIENTS-YUAN_HEN.description": "如果这张牌在你的[gold]手牌[/gold]中，你从非手牌区打出牌时，将一张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。",

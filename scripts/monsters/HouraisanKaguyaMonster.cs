@@ -145,6 +145,8 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task FiveDifficultProblemsMove(IReadOnlyList<Creature> targets)
     {
+        SwitchToTrueForm();
+        
         foreach (Creature target in targets.Where(t => !t.IsDead))
         {
             Player? player = target.Player;
@@ -165,8 +167,6 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
         await Cmd.Wait(2f);
 
-        // 演出：辉夜切换为真月形态（Kaguya.png 立绘），五个谜题图标出现在她周围并开始环绕旋转
-        SwitchToTrueForm();
         _kaguyaVisuals?.ShowPuzzles();
         
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
