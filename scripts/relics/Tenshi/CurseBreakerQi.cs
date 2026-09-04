@@ -87,6 +87,7 @@ public class CurseBreakerQi : TouhouAncientRelics
             (from c in ModelDb.CardPool<CurseCardPool>()
                     .GetUnlockedCards(base.Owner.UnlockState, base.Owner.RunState.CardMultiplayerConstraint)
                 where c.CanBeGeneratedByModifiers
+                where c.Type is CardType.Curse
                 select c).ToHashSet();
         var rng = player.RunState.Rng.Shuffle;
         var cursesToAdd = availableCurses.ToList().UnstableShuffle(rng).Take(9);
