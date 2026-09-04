@@ -24,12 +24,13 @@ public sealed class ToutetsuYuumaEncounter : TouhouAncientEncounter
 
     public override float GetCameraScaling()
     {
-        return 0.9f;
+        return 0.8f;
     }
 
     public override string? BgmFileName => "Yuuma.mp3";
 
     public override string? CustomScenePath => "res://scenes/encounters/toutetsu_yuuma.tscn";
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/toutetsu_yuuma.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [

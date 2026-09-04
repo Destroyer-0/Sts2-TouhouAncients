@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://hj7xn0qgh5c"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_hdkxc"]
+[ext_resource type="Texture2D" uid="uid://bd2j5sms5xxg1" path="res://images/sprite/map/map_yuuma.jpg" id="2_ia426"]
+
+[node name="YuumaBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hdkxc")
+
+[node name="Visual" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1280.0
+offset_top = -640.0
+offset_right = 1280.0
+offset_bottom = 800.0
+texture = ExtResource("2_ia426")
+expand_mode = 1
+stretch_mode = 6
