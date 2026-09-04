@@ -42,11 +42,11 @@ public sealed class FantasyMushroomMonster : TouhouAncientMonsterBase
     /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
     /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 31, 28);
+        AscensionLevel.ToughEnemies, 21, 19);
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 53, 48);
+        AscensionLevel.ToughEnemies, 36, 33);
 
     public override DamageSfxType TakeDamageSfxType => DamageSfxType.Plant;
     

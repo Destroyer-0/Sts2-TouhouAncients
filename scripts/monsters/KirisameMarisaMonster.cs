@@ -62,7 +62,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     /// MinInitialHp/MaxInitialHp 时 Creature 尚未绑定，无法获取幕号。
     /// </summary>
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 186, 176);
+        AscensionLevel.ToughEnemies, 188, 178);
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
@@ -89,7 +89,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
     private int BlackHoleEdgeWeak => 2;
 
-    private int MasterSparkChargeBlock => GetActValue(16, (3, 30));
+    private int MasterSparkChargeBlock => GetActValue(24, (3, 40));
 
     private int MasterSparkChargeVigorPerMushroom => GetActValue(6, (3, 10));
 

@@ -34,7 +34,7 @@ namespace TouhouAncients.Scripts.encounters;
 /// </summary>
 public abstract class TouhouAncientEncounter : CustomEncounterModel
 {
-    protected TouhouAncientEncounter() : base(RoomType.Boss)
+    protected TouhouAncientEncounter() : base(RoomType.Monster)
     {
     }
 
