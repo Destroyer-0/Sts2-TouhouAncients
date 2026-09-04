@@ -51,12 +51,25 @@ public class Zhangeweilaiba : TouhouAncientRelics
         Player owner = Owner;
         CardCreationOptions options = CardCreationOptions.ForNonCombatWithUniformOdds([owner.Character.CardPool], (CardModel c) => c.EnergyCost.CostsX || c.HasStarCostX).WithFlags(CardCreationFlags.NoRarityModification | CardCreationFlags.NoUpgradeRoll);
         List<CardCreationResult> list = CardFactory.CreateForReward(base.Owner, options.GetPossibleCards(owner).Count(), options).ToList();
+
+        // 符合条件的卡牌数量不大于 1 时，不显示选卡界面。
+        // 恰好只有 1 张时直接把该牌加入牌组；0 张时什么都不做。
+        if (list.Count == 1)
+        {
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(list[0].Card, PileType.Deck));
+            return;
+        }
+        if (list.Count <= 0)
+        {
+            return;
+        }
+
         foreach (CardModel item in await
                      CardSelectCmd.FromSimpleGridForRewards(
                          prefs: new CardSelectorPrefs(
                              RelicModel.L10NLookup(base.Id.Entry + ".selectionScreenPrompt"),
                              1,
-                            1
+                             1
                              ), context: new BlockingPlayerChoiceContext(), cards: list, player: base.Owner))
         {
             CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(item, PileType.Deck));
