@@ -56,11 +56,10 @@ public class LifeMustPerish : TouhouAncientCards
         var power = await PowerCmd.Apply<LifeMustPerishPower>(
             choiceContext,
             base.Owner.Creature,
-            9999,
+            base.DynamicVars["Countdown"].IntValue,
             base.Owner.Creature,
             this
         );
-        power?.SetStartingTurns(base.DynamicVars["Countdown"].IntValue);
     }
 
     protected override void OnUpgrade()

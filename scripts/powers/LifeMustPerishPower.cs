@@ -41,30 +41,6 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
         HoverTipFactory.FromPower<DoomPower>()
     ];
 
-    private class Data
-    {
-        public int remainingTurns;
-    }
-
-    protected override object InitInternalData()
-    {
-        return new Data();
-    }
-
-    public override int DisplayAmount => RemainingTurns;
-
-    public void SetStartingTurns(int turns) => RemainingTurns = turns;
-    
-    public int RemainingTurns
-    {
-        get => GetInternalData<Data>().remainingTurns;
-        set
-        {
-            AssertMutable();
-            GetInternalData<Data>().remainingTurns = value;
-            InvokeDisplayAmountChanged();
-        }
-    }
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
         DamageResult result, ValueProp props,
@@ -76,7 +52,7 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
 
         Flash();
         // 延长1回合（增加层数即延长）
-        RemainingTurns++;
+        await PowerCmd.ModifyAmount(choiceContext, this, 1, null, null, true);
         // 给予自身灾厄
         await PowerCmd.Apply<DoomPower>(choiceContext, base.Owner, base.DynamicVars["SelfDoomAmount"].BaseValue, base.Owner, null);
     }
@@ -95,7 +71,7 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
         if (base.Owner.IsDead) return;
         // 减少计数
 
-        if (RemainingTurns <= 1)
+        if (Amount <= 1)
         {
             Flash();
             // 触发：清除所有敌人的人工制品并给予9999层灾厄
@@ -118,7 +94,7 @@ public class LifeMustPerishPower : TouhouAncientPowerModel
         else
         {
             Flash();
-            RemainingTurns--;
+            await PowerCmd.Decrement(this);
         }
     }
 }
