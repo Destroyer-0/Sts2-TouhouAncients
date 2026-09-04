@@ -664,8 +664,8 @@
   "TOUHOUANCIENTS-GRILLED_MISO.flavor": "哦~真正的烤味噌……可带劲啦~",
 
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "可靠的弟子狸",
-  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "在你的回合开始时，随机将[blue]{Cards}[/blue]张[gold]仆从俯冲[/gold]、[gold]仆从打击[/gold]、[gold]仆从防御[/gold]放入[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "哎呀，有这么一群可靠的手下就是让老朽安心。",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "在你的回合开始时，随机将[blue]{Cards}[/blue]张[gold]仆从俯冲[/gold]、[gold]仆从打击[/gold]、[gold]仆从捐躯[/gold]放入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "哎呀，那位宇宙来的先生的小弟形象看着也挺顺眼的呢。",
 
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "赤云指虎",
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.description": "当你不以自动打出的方式打出[gold]攻击牌[/gold]时，随机打出[gold]手牌[/gold]中另一张[gold]攻击牌[/gold]。",
