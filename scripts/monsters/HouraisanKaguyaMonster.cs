@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,9 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.Background;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.powers;
@@ -146,6 +149,8 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private async Task FiveDifficultProblemsMove(IReadOnlyList<Creature> targets)
     {
         SwitchToTrueForm();
+        // 背景开场为暗色（kaguya_background.tscn 根节点 modulate），释放五道难题后 1 秒转亮。
+        (NCombatRoom.Instance?.Background as TouhouAncientBackground)?.FadeTo(Colors.White, 1f);
         
         foreach (Creature target in targets.Where(t => !t.IsDead))
         {

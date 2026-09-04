@@ -32,7 +32,7 @@ public sealed class HouraisanKaguyaEncounter : TouhouAncientEncounter
     // /// <summary>
     // /// 专属战斗背景：以 Map_Kaguya.png（1280×720）为主场景的背景场景。
     // /// </summary>
-    // public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/houraisan_kaguya/kaguya_background.tscn";
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/kaguya_background.tscn";
 
     public override string? CustomScenePath => "res://scenes/encounters/houraisan_kaguya.tscn";
 
