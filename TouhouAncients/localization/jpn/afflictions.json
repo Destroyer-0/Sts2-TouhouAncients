@@ -7,5 +7,8 @@
 
   "TOUHOUANCIENTS-COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
   "TOUHOUANCIENTS-COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
-  "TOUHOUANCIENTS-COLLATERAL.title": "Collateral"
+  "TOUHOUANCIENTS-COLLATERAL.title": "Collateral",
+
+  "TOUHOUANCIENTS-SEALED.description": "Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold], remove [red]Sealed[/red].",
+  "TOUHOUANCIENTS-SEALED.title": "Sealed"
 }

@@ -107,7 +107,7 @@
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
 
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "Avaricious Calamity",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\n[jitter][red]The fear, joy, sorrow, hatred, and resentment of the Blood Pool... It all feels as though it has flowed into my body![/red][/jitter]",
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Multiplier}[/blue] times.",
 
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "Ravenous Feeding",

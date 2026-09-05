@@ -51,30 +51,27 @@ public class StardustBroom : TouhouAncientRelics
         // 房间计数：每经过3个房间获得1充能
         TouhouAncients_RoomsSinceLastCharge++;
 
+
+        // 消耗充能逻辑（参照 WingedBoots）：进入新楼层的第一个房间时消耗1充能
+        if (TouhouAncients_Charges > 0 && base.Owner.RunState is RunState { CurrentRoomCount: <= 1, VisitedMapCoords.Count: > 1 } runState)
+        {
+            var lastCoord = runState.VisitedMapCoords[^2];
+            var lastPoint = runState.Map.GetPoint(lastCoord);
+            if (lastPoint != null && !lastPoint.Children.Contains(runState.CurrentMapPoint))
+            {
+                TouhouAncients_Charges--;
+                InvokeDisplayAmountChanged();
+                Flash();
+            }
+        }
+        
+
         if (TouhouAncients_RoomsSinceLastCharge >= RoomsPerCharge && TouhouAncients_Charges < MaxCharges)
         {
             TouhouAncients_Charges++;
             TouhouAncients_RoomsSinceLastCharge = 0;
             Flash();
             InvokeDisplayAmountChanged();
-            return;
         }
-
-        // 消耗充能逻辑（参照 WingedBoots）：进入新楼层的第一个房间时消耗1充能
-        if (TouhouAncients_Charges <= 0) return;
-        if (!(base.Owner.RunState is RunState runState)) return;
-        if (runState.CurrentRoomCount > 1) return;
-        if (runState.VisitedMapCoords.Count <= 1) return;
-
-        // 检查是否使用了自由移动（进入非默认路径的房间）
-        var lastCoord = runState.VisitedMapCoords[^2];
-        var lastPoint = runState.Map.GetPoint(lastCoord);
-        if (lastPoint == null) return;
-        if (lastPoint.Children.Contains(runState.CurrentMapPoint)) return;
-
-        // 使用了自由移动，消耗1充能
-        TouhouAncients_Charges--;
-        InvokeDisplayAmountChanged();
-        Flash();
     }
 }

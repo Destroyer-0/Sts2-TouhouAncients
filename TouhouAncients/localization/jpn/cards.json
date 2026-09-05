@@ -91,11 +91,10 @@
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
     "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.",
 
-    "TOUHOUANCIENTS-DREAM_SEAL_WABI.title": "Dream Seal: Wabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_WABI.description": "Lose [blue]{Amount}[/blue] [gold]Dexterity[/gold] this turn.\nWhile this card is in your [gold]Hand[/gold], you cannot play Skill cards.",
-
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.title": "Dream Seal: Sabi",
-    "TOUHOUANCIENTS-DREAM_SEAL_SABI.description": "Lose [blue]{Amount}[/blue] [gold]Strength[/gold] this turn.\nWhile this card is in your [gold]Hand[/gold], you cannot play Attack cards.",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from the corresponding card.",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold].",
 
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "Jewel from the Dragon's Neck",
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "Whenever you play a card, this card's cost is reduced by [blue]{CostReduce}[/blue] this turn.",

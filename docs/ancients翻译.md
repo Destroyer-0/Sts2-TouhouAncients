@@ -1141,3 +1141,15 @@ You remind me of someone annoying. |
 | `talk.MOKOUMOD-MOKOU_MOD.0-2.ancient` | 这里的宝贝随便拿随便拿~可一定要带着俺们最强的组合拿下胜利呐。 | Take any treasure you like~ But make sure to bring our strongest combo to victory. |
 | `talk.MOKOUMOD-MOKOU_MOD.0-2.next` | 继续 | Continue |
 | `talk.MOKOUMOD-MOKOU_MOD.0-3.char` | 会赢的。放心吧。 | I'll win. Don't worry. |
+
+## 增量更新（2026-09-05，基于提交 03d562157257de8b5d7cd926ffbc74a48e21fff5）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT.epithet` | 永不盛放的幽冥之花 | The Never-Blooming Cherry of the Netherworld |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.ANY.2-0r.ancient` | 要不要和老朽喝一杯？希望你能有天狗的酒量。 | Care for a drink with this old one? I hope you can hold your liquor like a tengu. |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.3-0r.next` | 继续 | Continue |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NUEMOD-NUE_MOD.3-1r.char` | ……猯藏你这家伙真是啰嗦。快给我拿点宝贝来。 | ...Mamizou, you’re so long-winded. Hurry up and bring me some treasures. |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient` | 呵呵，老朽见过太多沉默的家伙，她们的秘密往往最有趣。 | Hehe, I’ve seen too many quiet types. Their secrets are often the most interesting. |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient` | 想达成目标，可万万不能被冲昏了头脑，不能心急呐。 | To achieve your goal, you must never let yourself get carried away. Don’t be hasty. |
+| `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient` | 嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。 | Ho~ ho~ ho~ Set aside some of your wariness and agitation. This old one will help you deal with a few troubles. |

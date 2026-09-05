@@ -358,3 +358,38 @@
 - 删除 `DreamSealWabi` / `DreamSealSabi` / `ReimuBossDreamSealStatus` 及两个临时 Power。
 
 > **同步状态**：本次仅同步 zhs（用户要求不同步 eng/jpn，eng/jpn 暂保留旧条目）。
+
+## 增量更新（2026-09-05，基于提交 03d562157257de8b5d7cd926ffbc74a48e21fff5）
+
+### 封印侵蚀与封魔阵
+
+| 键名 | English |
+|------|---------|
+| `TOUHOUANCIENTS-SEALED.title` | Sealed |
+| `TOUHOUANCIENTS-SEALED.description` | Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold], remove [red]Sealed[/red]. |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.title` | Sealing Circle |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.description` | `{SealedText}` |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle` | When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from the corresponding card. |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed` | When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold]. |
+
+### 贪婪祸劫能力
+
+| 键名 | English |
+|------|---------|
+| `TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description` | For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\n[jitter][red]The fear, joy, sorrow, hatred, and resentment of the Blood Pool... It all feels as though it has flowed into my body![/red][/jitter] |
+
+### 鬼人正邪怪物
+
+| 键名 | English |
+|------|---------|
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.title` | Reforged Tsukumogami |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.banter1` | O forgotten cards, fight for me! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.banter2` | Let those who abandoned you feel our power! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.banter3` | Heaven and earth are not benevolent; they treat all things as straw dogs. Those who refuse to accept it, come with me and raise a storm of rebellion! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.DREAM_BOW.title` | Dream Bow of Heaven and Earth |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.DECREE_OF_DEFIANCE.title` | Decree of Defiance |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.DECREE_OF_DEFIANCE.banter1` | Let this unjust world burn! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.title` | Silent Weeping |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter1` | Never give up! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter2` | It's time for you to show what you can do! |
+| `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter3` | Once you set foot on this path of carnage, there's no turning back! |

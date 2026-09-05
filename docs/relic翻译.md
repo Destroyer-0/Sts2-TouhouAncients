@@ -2441,5 +2441,22 @@ zhs 描述从两段精简为一段（删除"选择记录卡牌 + 挖宝"第二�
 
 zhs 新增 `selectionScreenPrompt`「选择要[gold]变化[/gold]的牌。」，eng/jpn 同步为 "Choose cards to [gold]Transform[/gold]."。
 
+## 增量更新（2026-09-05，基于提交 03d562157257de8b5d7cd926ffbc74a48e21fff5）
+
+| 键名 | English |
+|------|---------|
+| `TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description` | At the start of your turn, randomly add [blue]{Cards}[/blue] [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Sacrifice[/gold] to your [gold]Hand[/gold]. |
+| `TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor` | Oh my, that universe boy's little underling is quite easy on the eyes too. |
+| `TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor` | The boundary between humans and youkai has long since blurred beneath those iron fists. |
+| `TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor` | Her soul was reborn twice: once as a ghost when her ship sank to the bottom of the sea, and again when that ship, laden with Buddha's light, came sailing anew. |
+| `TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor` | People fear her name as a wicked hermit, yet they all yearn for that forbidden power. |
+| `TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor` | Tengu, humans, oni—I don't mind who my drinking companions are. |
+| `TOUHOUANCIENTS-DOWSING_ROD.flavor` | "My lady, how did you lose something important again?" |
+| `TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.flavor` | Feng shui is just a form of cheating when you get down to it. |
+| `TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor` | Careful not to scare that poorly cute child. |
+| `TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor` | Hehe, this is a treasure this old one paid dearly to acquire. |
+| `TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor` | Empty string, per the localization rule. |
+| `TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor` | Wine and tobacco are the treasures of this world. |
+
 
 
