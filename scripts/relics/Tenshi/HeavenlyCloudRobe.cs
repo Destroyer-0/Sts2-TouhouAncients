@@ -32,7 +32,7 @@ public class HeavenlyCloudRobe : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("BuffAmount", 3)
+        new DynamicVar("BuffAmount", 4)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
