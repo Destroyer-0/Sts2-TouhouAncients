@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -46,6 +47,7 @@ public class InvisibilityCloth : TouhouAncientRelics
         if (base.Owner?.Creature?.CombatState == null) return;
         Flash();
         base.Status = RelicStatus.Active;
+        InvokeDisplayAmountChanged();
 
         await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m,
             base.Owner.Creature, null);
@@ -74,6 +76,8 @@ public class InvisibilityCloth : TouhouAncientRelics
 
         Flash();
         // 失去壁垒状态
+        base.Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
         var barricade = target.GetPower<BarricadePower>();
         if (barricade != null)
         {
@@ -81,5 +85,12 @@ public class InvisibilityCloth : TouhouAncientRelics
         }
 
         await PowerCmd.Apply<RingingPower>(choiceContext, target, 1m, target, null);
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        base.Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
+        return base.AfterCombatEnd(room);
     }
 }

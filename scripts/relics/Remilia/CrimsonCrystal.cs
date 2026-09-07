@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -40,6 +41,11 @@ public class CrimsonCrystal : TouhouAncientRelics
     public override Task AfterCurrentHpChanged(Creature creature, decimal delta)
     {
         if (creature != base.Owner.Creature)
+        {
+            return Task.CompletedTask;
+        }
+
+        if (RunManager.Instance.IsGameOver)
         {
             return Task.CompletedTask;
         }

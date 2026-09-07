@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -11,6 +12,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -59,6 +61,12 @@ public class SoulLattern : TouhouAncientRelics
     /// </summary>
     public override async Task AfterCurrentHpChanged(Creature creature, decimal delta)
     {
+        if (creature.IsDead) return;
+        if (RunManager.Instance.IsGameOver) return;
+        if (!CombatManager.Instance.IsInProgress)
+        {
+            return;
+        }
         if (hasTriggeredThisCombat) return;
         if (delta >= 0m) return;
         if (!creature.IsAlive || creature.CurrentHp < creature.MaxHp * 0.5m)
