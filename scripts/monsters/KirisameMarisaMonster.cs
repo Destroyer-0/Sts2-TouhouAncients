@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Powers.Mocks;
 using MegaCrit.Sts2.Core.MonsterMoves;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -93,6 +94,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
     private int MasterSparkChargeVigorPerMushroom => GetActValue(6, (3, 10));
 
+    /// <summary>极限火花·蓄力时每个蘑菇为魔理沙恢复的生命值（按幕数值）。</summary>
+    private int MasterSparkChargeHealPerMushroom => GetActValue(7, (3, 16));
+
     private int MasterSparkDamage => GetActValue(30, (3, 40));
 
     private int MasterSparkStrength => GetActValue(3, (3, 4));
@@ -131,7 +135,9 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             SetActInitialHp(InitialHpAct3);
         }
         // 施加量 = 每蘑菇提供的活力值（Counter 类型，层数即活力值）
-        await PowerCmd.Apply<MagicianPower>(new ThrowingPlayerChoiceContext(), base.Creature, MasterSparkChargeVigorPerMushroom, base.Creature, null);
+        var magicianPower = await PowerCmd.Apply<MagicianPower>(new ThrowingPlayerChoiceContext(), base.Creature, MasterSparkChargeVigorPerMushroom, base.Creature, null);
+        if (magicianPower == null) return;
+        magicianPower.SetHeal(MasterSparkChargeHealPerMushroom);
     }
 
     // --- 状态机 ---
@@ -405,7 +411,8 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 极限火花·蓄力：播放蓄力动画（spell）并保持到发射，获得格挡，归还偷走的牌到手牌，每个存活蘑菇提供 10 点活力。
+    /// 极限火花·蓄力：播放蓄力动画（spell）并保持到发射，获得格挡，归还偷走的牌到手牌，
+    /// 每个存活蘑菇使魔理沙恢复生命并提供活力（数量 = 当前存活蘑菇数）。
     /// </summary>
     private async Task MasterSparkChargeMove(IReadOnlyList<Creature> targets)
     {
@@ -414,12 +421,19 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         await ReturnStolenCards();
 
         TalkCmd.Play(_prepareLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
-        int vigorAmount = base.Creature.GetPower<MagicianPower>()?.Amount ?? MasterSparkChargeVigorPerMushroom;
-        vigorAmount *= AliveMushroomCount;
-        if (vigorAmount > 0)
-        {
-            await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), base.Creature, vigorAmount, base.Creature, null);
-        }
+        int mushroomCount = AliveMushroomCount;
+        if (mushroomCount <= 0) return;
+        
+        MagicianPower? magicianPower = base.Creature.GetPower<MagicianPower>();
+        int healPerMushroom = magicianPower?.DynamicVars["Heal"].IntValue ?? MasterSparkChargeHealPerMushroom;
+        int vigorPerMushroom = magicianPower?.Amount ?? MasterSparkChargeVigorPerMushroom;
+
+        magicianPower?.TryFlash();
+        // 每个存活蘑菇使魔理沙恢复生命并提供活力
+        int healAmount = healPerMushroom * mushroomCount;
+        await CreatureCmd.Heal(base.Creature, healAmount);
+        int vigorAmount = vigorPerMushroom * mushroomCount;
+        await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), base.Creature, vigorAmount, base.Creature, null);
     }
 
     /// <summary>

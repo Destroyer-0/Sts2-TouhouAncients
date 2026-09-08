@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -38,6 +39,14 @@ public class Dongnichangshu : TouhouAncientRelics
         HoverTipFactory.Static(StaticHoverTip.Block),
     ];
 
+    public override Task BeforeCombatStart()
+    {
+        _triggeredThisTurn = false;
+        Status = RelicStatus.Active;
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (!participants.Contains(Owner.Creature))
@@ -46,6 +55,13 @@ public class Dongnichangshu : TouhouAncientRelics
         }
         if (side == base.Owner.Creature.Side)
         {
+            // 第一回合（TurnNumber == 1）不重置：若战前格挡（如佛御石之钵的开场 30 格挡）已触发，
+            // 该触发计入第一回合的"每回合首次"名额，故保持锁定状态直至下一回合。
+            // 第二回合起每个玩家回合开始时重新计数。
+            if (base.Owner.PlayerCombatState.TurnNumber == 1)
+            {
+                return;
+            }
             _triggeredThisTurn = false;
             Status = RelicStatus.Active;
             InvokeDisplayAmountChanged();
@@ -67,8 +83,15 @@ public class Dongnichangshu : TouhouAncientRelics
         await CreatureCmd.LoseBlock(new ThrowingPlayerChoiceContext(), creature, creature.Block - limit, creature);
         await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
         await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), base.DynamicVars.Cards.BaseValue, base.Owner, fromHandDraw: false);
-        
+
         Status = RelicStatus.Normal;
         InvokeDisplayAmountChanged();
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
+        return base.AfterCombatEnd(room);
     }
 }

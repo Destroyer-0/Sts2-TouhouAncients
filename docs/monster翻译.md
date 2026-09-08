@@ -146,6 +146,15 @@
 |------|------|
 | UNFORTUNATE_POWER | 数值 5/10 → 6/6，`{Amount2}` → `{Amount}`（zhs 同改） |
 | MAGICIAN_POWER（新增） | 普通的魔法使 → Ordinary Magician：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold] |
+
+### 普通的魔法使（2026-09-08 新增回血效果，eng/jpn 同步）
+- 效果新增：准备发射极限火花时，场上每存在一个蘑菇，魔理沙恢复生命并提供活力（生命数值按幕：2 幕 7 / 3 幕 16）
+- zhs 措辞由「场上的每个蘑菇为魔理沙提供活力」改为「场上每存在一个蘑菇，魔理沙恢复生命并获得活力」
+- 新增动态变量 `{Heal}`（每蘑菇恢复值，`MagicianPower` 新增 `Heal` 动态变量，运行时按幕设置）
+| 字段 | 翻译 |
+|------|------|
+| `.description` | `When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]7[/blue] HP and gains [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]` |
+| `.smartDescription` | `When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]{Heal}[/blue] HP and gains [blue]{Amount}[/blue] [gold]Vigor[/gold].\n[gold]"The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]!"[/gold]` |
 | I_WILL_RETURN_IT_POWER（新增） | 我会还给你的！→ I'll Return It!：When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n"Heheh, just take them once I'm dead and gone." |
 | FUNGAL_POWER（改名） | 菌类 → 共生 → 孢子喷发 → Spore Eruption：On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].（孢子心灵 → Spore Mind，与 MUSHROOM_BENTO 遗物一致） |
 

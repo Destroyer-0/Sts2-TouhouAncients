@@ -63,8 +63,10 @@ public class DesireBloodSea : TouhouAncientCards
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         Creature target = cardPlay.Target!;
-
-
+        
+        await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+        VfxCmd.PlayOnCreatureCenter(target, "vfx/vfx_bloody_impact");
+        
         await CreatureCmd.Damage(choiceContext, [target], base.DynamicVars["HpLoss"].BaseValue,
             ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move,
             base.Owner.Creature, this, cardPlay);

@@ -67,8 +67,8 @@
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "Ordinary Magician",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], each mushroom on the field grants Marisa [blue]{Amount}[/blue] [gold]Vigor[/gold].\n\"[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]！[/gold]\"",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]7[/blue] HP and gains [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]{Heal}[/blue] HP and gains [blue]{Amount}[/blue] [gold]Vigor[/gold].\n[gold]\"The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]!\"[/gold]",
 
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "Marisa Stole the Precious Thing",
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
