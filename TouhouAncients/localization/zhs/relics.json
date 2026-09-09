@@ -318,7 +318,7 @@
   "TOUHOUANCIENTS-GLOWING_BAMBOO.flavor": "自然现象？……还是月球科技？嘘！这可是商业机密。",
 
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.title": "隐身布",
-  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]、[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",
+  "TOUHOUANCIENTS-INVISIBILITY_CLOTH.description": "在每场战斗开始时，获得[gold]壁垒[/gold]、[blue]{Block}[/blue]点[gold]格挡[/gold]与[blue]1[/blue][gold]敏捷[/gold]。每场战斗首次受到未被格挡的攻击伤害时，失去[gold]壁垒[/gold]并进入1回合[purple]昏眩[/purple]。",
   "TOUHOUANCIENTS-INVISIBILITY_CLOTH.flavor": "虽然能隐去人的身形，但布本身的身形没有被隐去。",
 
   "TOUHOUANCIENTS-BLOOD_YIN_YANG_ORB.title": "沥血阴阳玉",
