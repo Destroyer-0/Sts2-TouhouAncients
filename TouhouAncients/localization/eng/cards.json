@@ -3,10 +3,10 @@
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "Draw [blue]{Cards}[/blue] {Cards:plural:card|cards}. Randomize the cost of cards in your [gold]Hand[/gold] this turn, and add [gold]Replay[/gold] this combat to those that cost [blue]0[/blue].",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "Satori's 3rd Eye",
-    "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]Scry[/gold] [blue]{SatoriScry}[/blue].\nReturn this card to your [gold]Hand[/gold]. Increase this card’s cost this turn by {Energy:energyIcons()}.\n[purple][jitter]Now the real climax begins![/jitter][/purple]",
+    "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]Scry[/gold] [blue]{SatoriScry}[/blue].\nReturn this card to your [gold]Hand[/gold]. Increase this card's cost this turn by {Energy:energyIcons()}.\n[purple][jitter]Now the real climax begins![/jitter][/purple]",
 
     "TOUHOUANCIENTS-TRIBUTE.title": "Tribute",
-    "TOUHOUANCIENTS-TRIBUTE.description": "Removed from your [gold]Deck[/gold] after accumulating [blue]{Remaining}[/blue] [gold]Gold[/gold] in tribute.\n[fade_in]I’m adorable, give me money![/fade_in]",
+    "TOUHOUANCIENTS-TRIBUTE.description": "Removed from your [gold]Deck[/gold] after accumulating [blue]{Remaining}[/blue] [gold]Gold[/gold] in tribute.\n[fade_in]I'm adorable, give me money![/fade_in]",
 
     "TOUHOUANCIENTS-DREAM_SEAL.title": "Dream Seal",
     "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf an enemy intents to Attack, Apply [blue]1[/blue] [gold]Vulnerable[/gold], it loses {StrengthLoss:diff()} [gold]Strength[/gold] this turn.\n[b]Extermination, decided.[/b]",
@@ -23,26 +23,23 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "Heaven of Scarlet Perception for All Humankind",
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:Upgrade, |}Play and [gold]Exhaust[/gold] all cards in your [gold]Hand[/gold] and [gold]Exhaust Pile[/gold].\n[red]The weather in the sky, the stability of the earth, and the temperament of man are all in the palm of my hand![/red]",
 
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
-
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "Magic Mallet",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card’s cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card's cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
 
-    "TOUHOUANCIENTS-LILY_BELL.title": "Lily　of the Valley",
+    "TOUHOUANCIENTS-LILY_BELL.title": "Lily of the Valley",
     "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()} and draw {Cards} cards. Apply {PoisonSelf} [gold]Poison[/gold] to yourself.\nAt end of your turn, if this card is in your [gold]Hand[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to ALL enemies, increase the Energy gained by {energyPrefix:energyIcons(1)}, and increase the [gold]Poison[/gold] applied to yourself by [blue]1[/blue].",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "All Life Must Perish",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive unblocked damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",
 
     "TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.title": "Ultramarine Orb Elixir",
-	"TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "When your HP would be reduced to [blue]0[/blue], if this card is in your hand, discard it and heal [green]{HealPercent}%[/green] of your Max HP instead. Increase [pink]Impurity[/pink] by [blue]1[/blue], then lose [blue]{BaseMaxHpLoss}[/blue] × [pink]Impurity[/pink] Max HP.{InCombat:\n([red]{ShouldLose}[/red] Max HP will be lost.)|}",
+	"TOUHOUANCIENTS-KONSHII_NO_KUSURI_CARD.description": "When your HP would be reduced to [blue]0[/blue], if this card is in your hand, discard it and heal [green]{HealPercent}%[/green] of your Max HP instead. Increase [pink]Impurity[/pink] by [blue]1[/blue], then lose [blue]{BaseMaxHpLoss}[/blue]*[pink]Impurity[/pink] Max HP.{InCombat:\n([red]{ShouldLose}[/red] Max HP will be lost.)|}",
 
     "TOUHOUANCIENTS-MASTER_SPARK.title": "Master Spark",
-    "TOUHOUANCIENTS-MASTER_SPARK.description": "Deal {Damage:diff()} damage X+{ExtraHit} times to ALL enemies.\n{IfUpgraded:show:Triple|Double} X and gain {Energy:energyIcons()} if it’s {Need:diff()} or more.\n[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]！[/gold]",
+    "TOUHOUANCIENTS-MASTER_SPARK.description": "Deal {Damage:diff()} damage X+{ExtraHit} times to ALL enemies.\n{IfUpgraded:show:Triple|Double} X and gain {Energy:energyIcons()} if it's {Need:diff()} or more.\n[gold]The most important thing about danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
 
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.title": "Miracle of the Sea Opening",
-    "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "Deal damage equal to half of each enemy’s current HP to ALL enemies.",
+    "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "Deal damage equal to half of each enemy's current HP to ALL enemies.",
 
     "TOUHOUANCIENTS-THE_KOISHI_EYE.title": "The Closed Eye",
     "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "Randomly play {Cards:diff()} cards from your [gold]Draw Pile[/gold], [gold]Hand[/gold], or [gold]Discard Pile[/gold].\n[gold]Enchant[/gold] a random Attack among them with [purple]Instinct[/purple]. Gain [red]Unconscious[/red] on a random card among them.",
@@ -64,18 +61,18 @@
     "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy.",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card’s cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card's cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "Frenzied Feast",
-    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren’t [gold]Frenzied Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].\n[jitter][i]All shall become my food!![/i][/jitter]",
+    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]Frenzied Feast[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].\n[jitter][i]All shall become my food!![/i][/jitter]",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to [gold]Exhaust[/gold].",
 
     "TOUHOUANCIENTS-HEAVEN_SAGE.title": "Heaven Sage",
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
-    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target’s [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target's [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
 
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Unidentified Youkai",
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into {IfUpgraded:show:[gold]Upgraded[/gold] |}cards from other [gold]colors[/gold] of the same rarity.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
@@ -109,7 +106,7 @@
 
     "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "Sea of Desire and Blood",
     "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "The target loses [blue]{HpLoss}[/blue] HP and gains [blue]{Strength}[/blue] [gold]Strength[/gold].\nEach time this card is played this combat, the target loses an additional [blue]{ExtraHpLoss}[/blue] HP and gains an additional [blue]{ExtraStrength}[/blue] [gold]Strength[/gold].",
-    
+
     "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
     "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards."
 }

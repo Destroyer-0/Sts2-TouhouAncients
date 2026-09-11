@@ -22,9 +22,6 @@
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "全人類の緋想天",
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:アップグレードし, |}[gold]手札[/gold]と[gold]廃棄札[/gold]のカードをすべてプレイし、[gold]廃棄[/gold]する。\n[red]空の天気も、地の安定も、人の気質も私の掌の上！[/red]",
-
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.title": "全人类的绯想天（废案1）",
-    "TOUHOUANCIENTS-ALL_CREATION_HISOU_OLD.description": "本场战斗所有队友已拥有与之后获得的[gold]正面效果[/gold]层数增加[blue]1[/blue]。\n所有队友获得{Energy:energyIcons()}、{singleStarIcon}。抽[blue]1[/blue]张牌。[gold]铸造[/gold][blue]9[/blue]。[gold]召唤[/gold][blue]5[/blue]。获得[blue]1[/blue][gold]力量[/gold]、[blue]1[/blue][gold]敏捷[/gold]、[blue]1[/blue][gold]集中[/gold]。",
 	
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌の魔力",
     "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card’s cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
@@ -110,7 +107,7 @@
 
     "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "Sea of Desire and Blood",
     "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "The target loses [blue]{HpLoss}[/blue] HP and gains [blue]{Strength}[/blue] [gold]Strength[/gold].\nEach time this card is played this combat, the target loses an additional [blue]{ExtraHpLoss}[/blue] HP and gains an additional [blue]{ExtraStrength}[/blue] [gold]Strength[/gold].",
-    
+
     "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
     "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold]."
 }
