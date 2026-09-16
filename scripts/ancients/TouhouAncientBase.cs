@@ -6,9 +6,11 @@ using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
@@ -200,6 +202,40 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// 默认返回 <see cref="ButtonColor"/>。
     /// </summary>
     public virtual Color GetOptionButtonColor(int optionIndex) => ButtonColor;
+
+    /// <summary>
+    /// 第一幕（Act 1）先古之民的「涅奥式」入场表现。
+    /// 原版 <see cref="AncientEventModel"/> 里只在这两处判断 <c>this is Neow</c>：
+    ///   1) 进入事件前把当前生命清零，使随后「回满生命」计算出的是完整的满血回复量
+    ///      （写入 <see cref="AncientEventModel.HealedAmount"/>，供事件布局播放治疗特效）；
+    ///   2) 事件开始后让顶栏生命条从 0 补间到当前血量（<c>NTopBarHp.LerpAtNeow</c>）。
+    /// 本 Mod 位于第一幕的先古之民（<see cref="ShowAct"/> == 1）应与涅奥表现一致，
+    /// 因此在此按同样的条件复刻这两步，其余幕的先古之民不受影响。
+    ///
+    /// 使用 override 而不是 Harmony Transpiler：<c>BeforeEventStarted</c> 是 async 方法，
+    /// 真实逻辑在编译器生成的状态机 MoveNext 中，改 IL 既脆弱又可能波及原版事件；
+    /// override 只影响本 Mod 的子类。
+    /// </summary>
+    protected override async Task BeforeEventStarted(bool isPreFinished)
+    {
+        bool isAct1Ancient = ShowAct == 1;
+
+        // 与涅奥一致：非读档恢复（非 pre-finished）时才清零，读档恢复不重置生命。
+        if (isAct1Ancient && !isPreFinished)
+        {
+            Owner!.Creature.SetCurrentHpInternal(0m);
+        }
+
+        await base.BeforeEventStarted(isPreFinished);
+
+        // base 已完成回满并写入 HealedAmount，此时再播放顶栏生命条的补间演出（与涅奥时机一致）。
+        // 这里与涅奥一样是"发起后不等待"的演出，用弃元显式忽略返回的 Task；
+        // 若直接 await 会阻塞事件初始化直到补间结束。
+        if (isAct1Ancient && !isPreFinished && NRun.Instance != null)
+        {
+            _ = TaskHelper.RunSafely(NRun.Instance.GlobalUi.TopBar.Hp.LerpAtNeow());
+        }
+    }
 
     public override bool IsValidForAct(ActModel act)
     {
