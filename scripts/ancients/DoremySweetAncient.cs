@@ -33,18 +33,19 @@ public class DoremySweetAncient : TouhouAncientBase
     /// </summary>
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
+            AncientOption<SupremeDream>(),
+            AncientOption<RevivalDream>(),
+            AncientOption<BygoneDream>()
+        ),
+        MakePool(
             AncientOption<IridescentDream>(relicPrep: PrepIridescentDream),
             AncientOption<MeltingWaxDream>(),
             AncientOption<BlazingFlameDream>()),
         MakePool(
             AncientOption<SinisterPactDream>(),
             AncientOption<FlowingSplendorDream>(),
-            AncientOption<BloodbathDream>()),
-        MakePool(
-            AncientOption<SupremeDream>(),
-            AncientOption<RevivalDream>(),
-            AncientOption<BygoneDream>()
-        ));
+            AncientOption<BloodbathDream>())
+        );
 
     /// <summary>
     /// 虹光之梦的文本依赖当前角色的初始遗物与初始卡牌：描述里的
