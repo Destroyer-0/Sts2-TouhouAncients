@@ -749,9 +749,14 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient": "呵呵，老朽见过太多沉默的家伙，她们的秘密往往最有趣。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.DEFECT.0-0r.ancient": "……老朽见过另一个新生的面具妖怪也有和你一样的疑惑。只有不断学习，才能找到真正的自我。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.0-0r.ancient": "哎呀，阁下难道是储君殿下？老朽听说过您的来历，不知俺们能否做些特产交易呢？",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.char": "喂，我要投诉你！你上次给我的“特产”怎么是一堆叶子！",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.char": "喂，我要投诉！你上次给我的“特产”怎么是一堆叶子！",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.next": "继续",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-1.ancient": "哎呀——真不好意思上次拿错东西了。作为赔礼，俺给您补偿点宝贝吧~",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "想达成目标，可万万不能被冲昏了头脑，不能心急呐。",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。"
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。",
+
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "哆来咪·苏伊特",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.epithet": "遂古之初的旧梦使",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.firstVisitEver.0-0.ancient": "这个角色还在制作中！",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.ANY.0-0r.ancient": "这个角色还在制作中！"
 }

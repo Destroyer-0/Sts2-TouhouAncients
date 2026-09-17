@@ -725,5 +725,50 @@
   "TOUHOUANCIENTS-HEAVY_DICE.title": "灌铅骰子",
   "TOUHOUANCIENTS-HEAVY_DICE.description": "回合结束时，你可以选择一张手牌并记录。你的抽牌阶段结束后，如果你有记录的牌，则可以弃置一张牌并将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
   "TOUHOUANCIENTS-HEAVY_DICE.selectionScreenPrompt": "选择一张手牌记录",
-  "TOUHOUANCIENTS-HEAVY_DICE.flavor": "只有被抓到的出千才能被称为作弊。"
+  "TOUHOUANCIENTS-HEAVY_DICE.flavor": "只有被抓到的出千才能被称为作弊。",
+
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光之梦",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "拾起时，将{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]|你的初始[gold]遗物[/gold]替换为[gold]先古[/gold]版本}，将{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|一张初始卡牌}从你的[gold]牌组[/gold]中移除。",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "将{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]|你的初始[gold]遗物[/gold]替换为[gold]先古[/gold]版本}，将{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|一张初始卡牌}从你的[gold]牌组[/gold]中移除。",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "熔蜡之梦",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "回合开始时，若你的生命值低于[blue]{HpThreshold}%[/blue]则获得[blue]{RegenGain}[/blue]层[gold]再生[/gold]，如果你在一场战斗中通过此方式获得[blue]{RegenLimit}[/blue]点[gold]再生[/gold]，则此遗物永久失效。",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "燎烛之梦",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]至亮之焰[/gold]放入你的[gold]手牌[/gold]，其拥有[gold]保留[/gold]、[gold]消耗[/gold]。",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "邪契之梦",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻获得他所出售的[red]所有[/red]物品。[gold]商店[/gold]涨价至[blue]{PriceIncrease}%[/blue]。",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "瑰琦之梦",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "拾起时，为[gold]牌组[/gold]中的一对[gold]打击[/gold]和[gold]防御[/gold]附魔：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.eventDescription": "为[gold]牌组[/gold]中的一对[gold]打击[/gold]和[gold]防御[/gold]附魔：[purple]华彩[/purple]。",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血之梦",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",
+  "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]幕[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]张牌。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "每当你进入新的[gold]幕[/gold]时：获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。获得[blue]{Gold}[/blue][gold]金币[/gold]。将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。获得[blue]{Cards}[/blue]张牌。随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-REVIVAL_DREAM.title": "复甦之梦",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.description": "接下来[blue]{Combats}[/blue]场战斗中的敌人将只有[blue]{Hp}[/blue]点生命。",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BYGONE_DREAM.title": "往昔之梦",
+  "TOUHOUANCIENTS-BYGONE_DREAM.description": "拾起时，获得一件被遗忘的旧日[gold]遗物[/gold]。获得一张被遗忘的旧日卡牌。",
+  "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "获得一件被遗忘的旧日[gold]遗物[/gold]。获得一张被遗忘的旧日卡牌。",
+  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
+  "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]商人[/gold]现在会出售[gold]先古之民遗物[/gold]。",
+  "TOUHOUANCIENTS-FANTASY_DREAM.flavor": ""
 }
