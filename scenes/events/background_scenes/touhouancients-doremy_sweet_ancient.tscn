@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpocfv0i15iny"]
+
+[ext_resource type="Texture2D" uid="uid://d073e1rtaq6tj" path="res://images/DoremySweet.png" id="1_tqx83"]
+
+[node name="DoremySweetAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -170.0
+offset_right = 2240.0
+offset_bottom = 1323.0
+texture = ExtResource("1_tqx83")
