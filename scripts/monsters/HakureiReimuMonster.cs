@@ -254,6 +254,12 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         return new MonsterMoveStateMachine(list, dreamNature);
     }
 
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    {
+        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
+    }
+
+
     // --- 技能方法 ---
     /// <summary>
     /// 梦想天生：准备演出（jump_rise 上移 80px → spell_1 → spell_2 循环）已在
@@ -313,7 +319,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         {
             await PowerCmd.Remove<SoarPower>(base.Creature);
         }
-        
+
         // 回到 idle 并把 7 张灵符从自己身上甩出至目标位置
         Anim.TriggerLoop();
         await ThrowOutAllAmulets();

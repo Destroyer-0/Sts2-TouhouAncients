@@ -737,7 +737,7 @@
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "燎烛之梦",
-  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]至亮之焰[/gold]放入你的[gold]手牌[/gold]，其拥有[gold]保留[/gold]、[gold]消耗[/gold]。",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "在每场战斗开始时，将[blue]{Cards}[/blue]张[gold]至亮之焰[/gold]放入你的[gold]手牌[/gold]，其拥有[gold]消耗[/gold]。",
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "邪契之梦",
@@ -752,7 +752,7 @@
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血之梦",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "坦克斯即便在梦里也总是大喊着要与我一战，我每次只好想点办法让他睡过去了。",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",
   "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]幕[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]张牌。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",

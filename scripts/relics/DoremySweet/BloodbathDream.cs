@@ -26,8 +26,8 @@ public class BloodbathDream : TouhouAncientRelics
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ..HoverTipFactory.FromCardWithCardHoverTips<PainCurse>(true),
-        ..HoverTipFactory.FromCardWithCardHoverTips<Maul>(true)
+        ..HoverTipFactory.FromCardWithCardHoverTips<PainCurse>(),
+        ..HoverTipFactory.FromCardWithCardHoverTips<Maul>()
     ];
 
     public override bool HasUponPickupEffect => true;

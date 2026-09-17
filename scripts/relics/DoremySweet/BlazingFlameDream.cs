@@ -23,8 +23,7 @@ public class BlazingFlameDream : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromCardWithCardHoverTips<BrightestFlame>(true)
-            .Append(HoverTipFactory.FromKeyword(CardKeyword.Retain))
+        HoverTipFactory.FromCardWithCardHoverTips<BrightestFlame>()
             .Append(HoverTipFactory.FromKeyword(CardKeyword.Exhaust));
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
@@ -41,8 +40,7 @@ public class BlazingFlameDream : TouhouAncientRelics
         for (int i = 0; i < amount; i++)
         {
             var card = player.Creature.CombatState.CreateCard<BrightestFlame>(player);
-            // 先赋予关键词再加入手牌，避免玩家看到未附带关键词的牌
-            CardCmd.ApplyKeyword(card, CardKeyword.Retain, CardKeyword.Exhaust);
+            CardCmd.ApplyKeyword(card, CardKeyword.Exhaust);
             cards.Add(card);
         }
 
