@@ -1,6 +1,7 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics.DoremySweet;
 
 namespace TouhouAncients.Scripts;
@@ -11,12 +12,6 @@ namespace TouhouAncients.Scripts;
 ///
 /// 仅出现在第一幕（<see cref="ShowAct"/> == 1），与涅奥同池均匀抽取，
 /// 相关注入逻辑见 <c>scripts/Patches/Act1AncientPoolPoolPatch.cs</c>。
-///
-/// 图标暂时沿用博丽灵梦的素材作为占位；补上
-/// <c>images/icon/MapNode/DoremySweet_MapNode.png</c>、
-/// <c>images/icon/MapNode/Outline/DoremySweet_MapNode.png</c>、
-/// <c>images/icon/Character/DoremySweet.png</c>、
-/// <c>images/icon/Character/Outline/DoremySweet.png</c> 后替换此处四条路径即可。
 /// </summary>
 public class DoremySweetAncient : TouhouAncientBase
 {
@@ -28,25 +23,46 @@ public class DoremySweetAncient : TouhouAncientBase
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HakureiReimu.png";
-    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HakureiReimu.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/DoremySweet.png";
+    public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/DoremySweet.png";
 
     /// <summary>
-    /// TODO（待定）：设计稿的「第一行 / 第二行 / 第三行 / 第四行」尚未映射到选项池。
     /// BaseLib 的 OptionPools 只支持 1 / 2 / 3 个池子，与此处的四行分组对不上，
     /// 因此在确认映射规则前先用「单池」占位：BaseLib 会从池中随机抽 3 个作为选项。
     /// 确认后请改为对应的 MakePool 组合。
     /// </summary>
     protected override OptionPools MakeOptionPools => new OptionPools(
         MakePool(
-            AncientOption<IridescentDream>(),
+            AncientOption<IridescentDream>(relicPrep: PrepIridescentDream),
             AncientOption<MeltingWaxDream>(),
-            AncientOption<BlazingFlameDream>(),
+            AncientOption<BlazingFlameDream>()),
+        MakePool(
             AncientOption<SinisterPactDream>(),
             AncientOption<FlowingSplendorDream>(),
-            AncientOption<BloodbathDream>(),
+            AncientOption<BloodbathDream>()),
+        MakePool(
             AncientOption<SupremeDream>(),
             AncientOption<RevivalDream>(),
             AncientOption<BygoneDream>()
         ));
+
+    /// <summary>
+    /// 虹光之梦的文本依赖当前角色的初始遗物与初始卡牌：描述里的
+    /// <c>{StarterRelic.StringValue:cond:具体名称|泛化文本}</c> 只有在事件界面渲染之前
+    /// 就填好 <c>StringValue</c>，玩家在选项提示里看到的才是具体名称。
+    ///
+    /// BaseLib 的 <c>AncientOption&lt;T&gt;</c> 把这个时机通过 <c>relicPrep</c> 暴露出来，
+    /// 对应原版 Orobas 事件里调用 <c>TouchOfOrobas.SetupForPlayer</c> 的做法。
+    /// 该阶段遗物自身的 Owner 尚未设置，所以这里用 ancient 事件自己的 <see cref="Owner"/>；
+    /// 若 Owner 为空（例如在没有对局上下文时枚举选项），则跳过预准备，文本退回泛化形式。
+    /// </summary>
+    private RelicModel PrepIridescentDream(IridescentDream relic)
+    {
+        if (Owner != null)
+        {
+            relic.SetupForPlayer(Owner);
+        }
+
+        return relic;
+    }
 }
