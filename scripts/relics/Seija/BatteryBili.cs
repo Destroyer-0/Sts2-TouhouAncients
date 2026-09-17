@@ -30,8 +30,8 @@ public class BatteryBili : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Amount",3m),
-        new DynamicVar("GalvanizedDamage",GalvanizedDamage),
+        new DynamicVar("Amount", 3m),
+        new DynamicVar("GalvanizedDamage", GalvanizedDamage),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
