@@ -1,6 +1,3 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
@@ -21,29 +18,20 @@ public class HouraisanKaguyaAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HouraisanKaguya.png";
 
     public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HouraisanKaguyaEncounter>();
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<KonshiiNoKusuri>(),
-            AncientOption<RyukeiNoTama>(),
-            AncientOption<HinezumiNoKawagoromo>(),
-            AncientOption<TsubameNoKoyasugai>(),
-            AncientOption<HotokeMishiIshiNoHachi>(),
-            AncientOption<HouraiNoTamae>(),
-            AncientOption<EienteiZakushi>(),
-            AncientOption<KaguyaSecretTreasure>()
-        ));
-
-    protected override IEnumerable<EventOption> GetAncientOptions() => BaseOptionPool;
-
-    private IEnumerable<EventOption> BaseOptionPool =>
+    
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
     [
-        RelicOption<KonshiiNoKusuri>(),
-        RelicOption<RyukeiNoTama>(),
-        RelicOption<HinezumiNoKawagoromo>(),
-        RelicOption<TsubameNoKoyasugai>(),
-        RelicOption<HotokeMishiIshiNoHachi>().ThatDecreasesMaxHp(30),
-        RelicOption<HouraiNoTamae>(),
-        RelicOption<EienteiZakushi>(),
-        RelicOption<KaguyaSecretTreasure>()
+        (CreateTARelicOptionPool(
+            TARelicOption<RyukeiNoTama>(),
+            TARelicOption<HinezumiNoKawagoromo>(),
+            TARelicOption<TsubameNoKoyasugai>(),
+            TARelicOption<HotokeMishiIshiNoHachi>(),
+            TARelicOption<HouraiNoTamae>()
+        ), 2),
+        CreateTARelicOptionPool(
+            TARelicOption<KonshiiNoKusuri>(),
+            TARelicOption<EienteiZakushi>(),
+            TARelicOption<KaguyaSecretTreasure>()
+        )
     ];
 }
