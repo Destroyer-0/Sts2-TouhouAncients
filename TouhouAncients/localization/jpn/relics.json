@@ -475,8 +475,8 @@
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "A spring of endless life.",
 
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "Buddha's Stone Bowl",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "Upon pickup, lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{StartBlock}[/blue] [gold]Block[/gold].",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "Lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{StartBlock}[/blue] [gold]Block[/gold].",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "Upon pickup, lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{Block}[/blue] [gold]Block[/gold].",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "Lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{Block}[/blue] [gold]Block[/gold].",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "The diamond of a Buddha’s body.",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "Jeweled Branch of Hourai",

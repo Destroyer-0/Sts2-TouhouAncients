@@ -475,8 +475,8 @@
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.flavor": "无限的生命之泉。",
 
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "佛御石之钵",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{StartBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "拾起时，失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "失去[blue]{MaxHpLoss}[/blue]点最大生命值。在每场战斗开始时，获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]与[blue]{Block}[/blue]点[gold]格挡[/gold]。",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "佛体的金刚石。",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "蓬莱的玉枝",
