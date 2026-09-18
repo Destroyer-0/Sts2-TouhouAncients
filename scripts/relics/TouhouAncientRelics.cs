@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using TouhouAncients.Scripts;
 
@@ -9,7 +10,10 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public virtual string DefaultFileName => "default";
-    
+
+    /// <summary>先古之民选项条件：返回 false 时本遗物不会被抽为选项。由 TouhouAncientBase 在抽取前统一判定。</summary>
+    public virtual bool CanAppear(Player? player) => true;
+
     // 小图标（原版85x85）
     public override string PackedIconPath => TouhouAncientCmd.CheckPathExistsWithFallback(
         $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png",
