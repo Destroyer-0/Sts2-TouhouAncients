@@ -1,7 +1,4 @@
 using System.Collections.Generic;
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Ancients;
@@ -96,22 +93,23 @@ public class YorigamiSisterAncient : TouhouAncientBase
 
     public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<YorigamiSistersEncounter>();
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<PossessionSpirit>()
-        ),
-        MakePool(
-            AncientOption<MillionPounds>(),
-            AncientOption<PureGoldBracelet>(),
-            AncientOption<ChanelHandbag>(),
-            AncientOption<JyoonFan>()
-        ),
-        MakePool(
-            AncientOption<BlackCatDoll>(),
-            AncientOption<OilFutures>(),
-            AncientOption<SmokedFan>(),
-            AncientOption<GrilledMiso>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<PossessionSpirit>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<MillionPounds>(),
+            TARelicOption<PureGoldBracelet>(),
+            TARelicOption<ChanelHandbag>(),
+            TARelicOption<JyoonFan>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<BlackCatDoll>(),
+            TARelicOption<OilFutures>(),
+            TARelicOption<SmokedFan>(),
+            TARelicOption<GrilledMiso>()
+            )
+    ];
 
 }

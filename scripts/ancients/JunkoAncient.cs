@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using TouhouAncients.Scripts.relics;
@@ -19,21 +17,22 @@ public class JunkoAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/Junko.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/Junko.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<CeaselessResentment>(),
-            AncientOption<DeathBlackCrown>(),
-            AncientOption<TremblingFrozenStar>()
-        ),
-        MakePool(
-            AncientOption<MurderousLily>(),
-            AncientOption<HellOfBullets>(),
-            AncientOption<PureConfidence>()
-        ),
-        MakePool(
-            AncientOption<IllusoryProjection>(),
-            AncientOption<PrimalSpirit>(),
-            AncientOption<OverflowingDefilement>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<CeaselessResentment>(),
+            TARelicOption<DeathBlackCrown>(),
+            TARelicOption<TremblingFrozenStar>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<MurderousLily>(),
+            TARelicOption<HellOfBullets>(),
+            TARelicOption<PureConfidence>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<IllusoryProjection>(),
+            TARelicOption<PrimalSpirit>(),
+            TARelicOption<OverflowingDefilement>()
+            )
+    ];
 }

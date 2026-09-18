@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -18,17 +16,22 @@ public class InabaTewiAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/InabaTewi.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/InabaTewi.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<WhiteRabbitAmulet>(),
-            AncientOption<CarrotNecklace>(),
-            AncientOption<FourLeafClover>(),
-            AncientOption<RabbitHornContract>(),
-            AncientOption<RabbitsFoot>(),
-            AncientOption<LuckyTreasureChest>(),
-            AncientOption<RabbitsCage>(),
-            AncientOption<OokunineshiProtrayal>(),
-            AncientOption<SuspiciousToken>(),
-            AncientOption<GlowingBamboo>()
-        ));
+    /// <summary>三个选项共用同一个池（池内不重复）。</summary>
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        (MainPool, 3)
+    ];
+
+    private TARelicOptionPool MainPool => CreateTARelicOptionPool(
+        TARelicOption<WhiteRabbitAmulet>(),
+        TARelicOption<CarrotNecklace>(),
+        TARelicOption<FourLeafClover>(),
+        TARelicOption<RabbitHornContract>(),
+        TARelicOption<RabbitsFoot>(),
+        TARelicOption<LuckyTreasureChest>(),
+        TARelicOption<RabbitsCage>(),
+        TARelicOption<OokunineshiProtrayal>(),
+        TARelicOption<SuspiciousToken>(),
+        TARelicOption<GlowingBamboo>()
+        );
 }

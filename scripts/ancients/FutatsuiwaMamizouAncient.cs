@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -24,23 +22,27 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/FutatsuiwaMamizou.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/FutatsuiwaMamizou.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<ReliableTanukiDisciple>(),
-            AncientOption<CrimsonCloudKnuckles>(),
-            AncientOption<SunkenAnchorGhost>(),
-            AncientOption<NidomiteiSpecialBlend>(),
-            AncientOption<PsychicTelekinesis>(),
-            AncientOption<WickedHermitHairpin>(),
-            AncientOption<DowsingRod>(),
-            AncientOption<DragonVeinVessel>(),
-            AncientOption<DisillusionTrident>(),
-            AncientOption<TunakiSmokingPipe>(),
-            AncientOption<HeavyDice>()
-            //AncientOption<OneEyedKarakasa>(),
-            //AncientOption<HyakkiYagyoScroll>(),
-            //AncientOption<NohMask>()
-        )
-    );
+    /// <summary>三个选项共用同一个池（池内不重复）。</summary>
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        (MainPool, 3)
+    ];
+
+    private TARelicOptionPool MainPool => CreateTARelicOptionPool(
+        TARelicOption<ReliableTanukiDisciple>(),
+        TARelicOption<CrimsonCloudKnuckles>(),
+        TARelicOption<SunkenAnchorGhost>(),
+        TARelicOption<NidomiteiSpecialBlend>(),
+        TARelicOption<PsychicTelekinesis>(),
+        TARelicOption<WickedHermitHairpin>(),
+        TARelicOption<DowsingRod>(),
+        TARelicOption<DragonVeinVessel>(),
+        TARelicOption<DisillusionTrident>(),
+        TARelicOption<TunakiSmokingPipe>(),
+        TARelicOption<HeavyDice>()
+        //TARelicOption<OneEyedKarakasa>(),
+        //TARelicOption<HyakkiYagyoScroll>(),
+        //TARelicOption<NohMask>()
+        );
 }
 

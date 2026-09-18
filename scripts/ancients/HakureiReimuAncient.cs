@@ -1,6 +1,3 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
@@ -26,20 +23,21 @@ public class HakureiReimuAncient : TouhouAncientBase
 
     public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<HakureiReimuEncounter>();
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<HakureiGohei>(),
-            AncientOption<SubspaceHole>(),
-            AncientOption<HakureiAmulet>()
-        ),
-        MakePool(
-            AncientOption<MiniShrine>(),
-            AncientOption<DonateMoneyBox>()
-        ),
-        MakePool(
-            AncientOption<YinYangOrb>(),
-            AncientOption<SealingNeedle>(),
-            AncientOption<DuplexBarrier>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<HakureiGohei>(),
+            TARelicOption<SubspaceHole>(),
+            TARelicOption<HakureiAmulet>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<MiniShrine>(),
+            TARelicOption<DonateMoneyBox>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<YinYangOrb>(),
+            TARelicOption<SealingNeedle>(),
+            TARelicOption<DuplexBarrier>()
+            )
+    ];
 }

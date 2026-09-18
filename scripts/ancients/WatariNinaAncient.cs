@@ -1,7 +1,4 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
-using Godot;
+﻿using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
@@ -25,54 +22,22 @@ public class WatariNinaAncient : TouhouAncientBase
     // 历史记录图标路径
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/WatariNina.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/WatariNina.png";
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<Zhangeweilaiba>(),
-            AncientOption<Yiyandingzhen>(),
-            AncientOption<Huoyantuxi>(),
-            AncientOption<Bileihaopaiduozhua>(),
-            AncientOption<Baibaixiangxiangruanruan>(),
-            AncientOption<Geishehuaxiaojie>(),
-            AncientOption<Sheyaotebieqiang>(),
-            AncientOption<Yishixingqile>(),
-            AncientOption<Yonghengkaijiawangchaole>(),
-            AncientOption<Dongnichangshu>()
-        ));
+    /// <summary>三个选项共用同一个池（池内不重复）。</summary>
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        (MainPool, 3)
+    ];
 
-    //
-    // private WeightedList<AncientOption> OptionPool2 =>
-    // [
-    //     AncientOption<Zhangeweilaiba>(3),
-    //     AncientOption<Zhangeweilaiba>(3),
-    //     AncientOption<Zhangeweilaiba>(2)
-    // ];
-    //
-    // private WeightedList<AncientOption> OptionPool3
-    // {
-    //     get
-    //     {
-    //         WeightedList<AncientOption> list = new WeightedList<AncientOption>();
-    //
-    //         list.Add(AncientOption<Zhangeweilaiba>(), 3);
-    //         list.Add(AncientOption<Zhangeweilaiba>(), 1);
-    //         list.Add(AncientOption<Zhangeweilaiba>(), 2);
-    //         
-    //         return list;
-    //     }
-    // }
-
-
-    // public override IEnumerable<EventOption> AllPossibleOptions =>
-    // [
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>(),
-    //     RelicOption<Zhangeweilaiba>()
-    // ];
+    private TARelicOptionPool MainPool => CreateTARelicOptionPool(
+        TARelicOption<Zhangeweilaiba>(),
+        TARelicOption<Yiyandingzhen>(),
+        TARelicOption<Huoyantuxi>(),
+        TARelicOption<Bileihaopaiduozhua>(),
+        TARelicOption<Baibaixiangxiangruanruan>(),
+        TARelicOption<Geishehuaxiaojie>(),
+        TARelicOption<Sheyaotebieqiang>(),
+        TARelicOption<Yishixingqile>(),
+        TARelicOption<Yonghengkaijiawangchaole>(),
+        TARelicOption<Dongnichangshu>()
+        );
 }

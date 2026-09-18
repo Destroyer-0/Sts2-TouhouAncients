@@ -1,8 +1,6 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Ancients;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
@@ -64,21 +62,23 @@ public class ToutetsuYuumaAncient : TouhouAncientBase
         };
     }
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<BottomlessStomach>(),
-            AncientOption<SkySwallowingSpoon>(),
-            AncientOption<GuiltlessFace>()
-        ),
-        MakePool(
-            AncientOption<GluttonousFang>(),
-            AncientOption<GreedyEye>(),
-            AncientOption<RigidDesireProof>(),
-            AncientOption<CursedBlood>()
-        ),
-        MakePool(
-            AncientOption<BloodlickingTongue>(),
-            AncientOption<PurgatoryEmbers>(),
-            AncientOption<EstrangedHeart>())
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<BottomlessStomach>(),
+            TARelicOption<SkySwallowingSpoon>(),
+            TARelicOption<GuiltlessFace>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<GluttonousFang>(),
+            TARelicOption<GreedyEye>(),
+            TARelicOption<RigidDesireProof>(),
+            TARelicOption<CursedBlood>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<BloodlickingTongue>(),
+            TARelicOption<PurgatoryEmbers>(),
+            TARelicOption<EstrangedHeart>()
+            )
+    ];
 }

@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -24,22 +22,23 @@ public class SaigyoujiYuyukoAncient : TouhouAncientBase
     /// 第二行（战斗）：弹幕的亡灵、幽灵折扇、墨染的樱花、幽魂酒盅
     /// 第三行（后期）：人魂灯、黄泉期票、西行妖枯枝
     /// </summary>
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<RepositoryOfHirokawa>(),
-            AncientOption<SkyHat>(),
-            AncientOption<SoulButterfly>()
-        ),
-        MakePool(
-            AncientOption<DanmukuGhost>(),
-            AncientOption<GhostFan>(),
-            AncientOption<InkDyedCherryBlossoms>(),
-            AncientOption<SoulSakeCup>()
-        ),
-        MakePool(
-            AncientOption<SoulLattern>(),
-            AncientOption<TicketToNetherworld>(),
-            AncientOption<SaigyoujiBranch>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<RepositoryOfHirokawa>(),
+            TARelicOption<SkyHat>(),
+            TARelicOption<SoulButterfly>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<DanmukuGhost>(),
+            TARelicOption<GhostFan>(),
+            TARelicOption<InkDyedCherryBlossoms>(),
+            TARelicOption<SoulSakeCup>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<SoulLattern>(),
+            TARelicOption<TicketToNetherworld>(),
+            TARelicOption<SaigyoujiBranch>()
+            )
+    ];
 }

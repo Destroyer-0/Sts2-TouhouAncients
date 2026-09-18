@@ -1,6 +1,3 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
@@ -22,25 +19,23 @@ public class RemiliaScarletAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/RemiliaScarlet.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/RemiliaScarlet.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<NobleBrooch>(),
-            AncientOption<CrimsonCrystal>(),
-            AncientOption<NightServant>()
-        ),
-        MakePool(
-            AncientOption<CrimsonChalice>(),
-            AncientOption<BloodFang>(),
-            AncientOption<PreservedRedFog>()
-        ),
-        MakePool(
-            AncientOption<DraculaLegacy>(),
-            AncientOption<SpearGungnir>(),
-            AncientOption<LordsSunscreenCream>()
-        )
-        // MakePool(
-        //     AncientOption<SpearGungnir>(),
-        //     AncientOption<NightServant>()
-        // )
-        );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<NobleBrooch>(),
+            TARelicOption<CrimsonCrystal>(),
+            TARelicOption<NightServant>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<CrimsonChalice>(),
+            TARelicOption<BloodFang>(),
+            TARelicOption<PreservedRedFog>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<DraculaLegacy>(),
+            TARelicOption<SpearGungnir>(),
+            TARelicOption<LordsSunscreenCream>()
+            )
+        // TARelicOptionPool(TARelicOption<SpearGungnir>(), TARelicOption<NightServant>())
+    ];
 }

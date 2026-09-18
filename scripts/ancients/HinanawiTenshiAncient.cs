@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using TouhouAncients.Scripts.relics;
@@ -22,25 +20,28 @@ public class HinanawiTenshiAncient : TouhouAncientBase
     /// <summary>
     /// 池子2依照玩家是否是储君选择给予 天界冷漠（储君权重3，其他人权重1）/天宇诏令（储君权重0，其他人权重2）
     /// </summary>
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<MysticFortunePeach>(),
-            AncientOption<HolyArmor>(),
-            AncientOption<HeavenlyRevelation>()
-            //, AncientOption<CurseBreakerQi>()
-        ),
-        MakePool(
-            AncientOption<FirmamentSash>(weight:3),
-            AncientOption<CurseBreakerQi>(weight:3),
-            AncientOption<CelestialIndifference>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 3 : 1),
-            AncientOption<CosmicDecree>(weight: base.Owner == null ? 2 : base.Owner.Character is Regent ? 0 : 2)
-            //, AncientOption<SupremeHeavenSeal>()
-        ),
-        MakePool(
-            AncientOption<HisouSword>(),
-            AncientOption<KeystoneFloatingCannon>(),
-            AncientOption<HeavenlyCloudRobe>()
-            //AncientOption<KeystoneFloatingCannon>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<MysticFortunePeach>(),
+            TARelicOption<HolyArmor>(),
+            TARelicOption<HeavenlyRevelation>()
+            //, TARelicOption<CurseBreakerQi>()
+            ),
+        CreateTARelicOptionPool(
+            // 权重：FirmamentSash / CurseBreakerQi 为 3；CelestialIndifference 在天子时为 3、否则 2；
+            // CosmicDecree 在天子时不出现（权重 0）。
+            TARelicOption<FirmamentSash>(3),
+            TARelicOption<CurseBreakerQi>(3),
+            TARelicOption<CelestialIndifference>(Owner?.Character is Regent ? 3 : 1),
+            TARelicOption<CosmicDecree>(Owner?.Character is Regent ? 0 : 2)
+            //, TARelicOption<SupremeHeavenSeal>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<HisouSword>(),
+            TARelicOption<KeystoneFloatingCannon>(),
+            TARelicOption<HeavenlyCloudRobe>()
+            //TARelicOption<KeystoneFloatingCannon>()
+            )
+    ];
 }

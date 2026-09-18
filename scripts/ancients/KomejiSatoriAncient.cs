@@ -1,10 +1,7 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Random;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -21,65 +18,26 @@ public class KomejiSatoriAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KomejiSatori.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KomejiSatori.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<TheThirdEye>()
-        ),
-        MakePool(
-            AncientOption<HellOrin>(),
-            AncientOption<HellOkuu>(),
-            AncientOption<DustyRose>()
-        ),
-        MakePool(
-            AncientOption<MindProbe>(),
-            AncientOption<MemoryFlask>(),
-            AncientOption<BrainInAVat>(),
-            AncientOption<OblivionFragment>(),
-            AncientOption<DetectiveStory>(),
-            AncientOption<BitterCoffee>()
-        ));
-
-    protected override IReadOnlyList<EventOption> GenerateInitialOptions()
-    {
-        List<EventOption> list = Pool1.ToList();
-        List<EventOption> list2 = Pool2.ToList();
-        List<EventOption> list3 = Pool3.ToList();
-        list.UnstableShuffle(base.Rng);
-        list2.UnstableShuffle(base.Rng);
-        list3.UnstableShuffle(base.Rng);
-        return
-        [
-            RelicOption<TheThirdEye>(),
-            list[0],
-            list2[0],
-            list3[0]
-        ];
-    }
-
-    protected override IEnumerable<EventOption> GetAncientOptions() => Pool0.Concat(Pool1).Concat(Pool2).Concat(Pool3);
-
-    private IEnumerable<EventOption> Pool0 =>
+    /// <summary>本 Ancient 的选项（四行 = 四个选项）。</summary>
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
     [
-        RelicOption<TheThirdEye>(),
-    ];
-    private IEnumerable<EventOption> Pool1 =>
-    [
-        RelicOption<HellOrin>(),
-        RelicOption<HellOkuu>(),
-        RelicOption<DustyRose>()
-    ];
-
-    private IEnumerable<EventOption> Pool2 =>
-    [
-        RelicOption<MindProbe>(),
-        RelicOption<DetectiveStory>(),
-        RelicOption<BitterCoffee>(),
-    ];
-
-    private IEnumerable<EventOption> Pool3 =>
-    [
-        RelicOption<OblivionFragment>(),
-        RelicOption<BrainInAVat>(),
-        RelicOption<MemoryFlask>()
+        CreateTARelicOptionPool(
+            TARelicOption<TheThirdEye>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<HellOrin>(),
+            TARelicOption<HellOkuu>(),
+            TARelicOption<DustyRose>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<MindProbe>(),
+            TARelicOption<DetectiveStory>(),
+            TARelicOption<BitterCoffee>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<OblivionFragment>(),
+            TARelicOption<BrainInAVat>(),
+            TARelicOption<MemoryFlask>()
+            )
     ];
 }

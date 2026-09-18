@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -19,18 +17,22 @@ public class KijinSeijaAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KijinSeija.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KijinSeija.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<InvisibilityCloth>(),
-            AncientOption<BloodYinYangOrb>(),
-            AncientOption<RebellionHorn>(),
-            AncientOption<BatteryBili>(),
-            AncientOption<GhostLantern>(),
-            AncientOption<MagicMallet>(),
-            AncientOption<FoldingUmbrella>(),
-            AncientOption<FakeSpiritOrb>(),
-            AncientOption<HungryBackpack>(),
-            AncientOption<DreamHeavenBow>()
-        )
-    );
+    /// <summary>三个选项共用同一个池（池内不重复）。</summary>
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        (MainPool, 3)
+    ];
+
+    private TARelicOptionPool MainPool => CreateTARelicOptionPool(
+        TARelicOption<InvisibilityCloth>(),
+        TARelicOption<BloodYinYangOrb>(),
+        TARelicOption<RebellionHorn>(),
+        TARelicOption<BatteryBili>(),
+        TARelicOption<GhostLantern>(),
+        TARelicOption<MagicMallet>(),
+        TARelicOption<FoldingUmbrella>(),
+        TARelicOption<FakeSpiritOrb>(),
+        TARelicOption<HungryBackpack>(),
+        TARelicOption<DreamHeavenBow>()
+        );
 }

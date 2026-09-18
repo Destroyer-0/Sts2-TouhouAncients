@@ -1,6 +1,3 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Events;
@@ -26,21 +23,23 @@ public class KirisameMarisaAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KirisameMarisa.png";
     
     public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<KirisameMarisaEncounter>();
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<MiniHakkero>(),
-            AncientOption<LoveColorFlashlight>(),
-            AncientOption<CometAccelerator>()
-        ),
-        MakePool(
-            AncientOption<KompeitoPot>(),
-            AncientOption<StardustBroom>(),
-            AncientOption<WitchsCauldron>(),
-            AncientOption<BottledGalaxy>()
-        ),
-        MakePool(
-            AncientOption<UnstableBottle>(),
-            AncientOption<Globe>(),
-            AncientOption<MushroomBento>()
-        ));
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<MiniHakkero>(),
+            TARelicOption<LoveColorFlashlight>(),
+            TARelicOption<CometAccelerator>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<KompeitoPot>(),
+            TARelicOption<StardustBroom>(),
+            TARelicOption<WitchsCauldron>(),
+            TARelicOption<BottledGalaxy>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<UnstableBottle>(),
+            TARelicOption<Globe>(),
+            TARelicOption<MushroomBento>()
+            )
+    ];
 }

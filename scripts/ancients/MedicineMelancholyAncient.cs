@@ -1,7 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
@@ -25,22 +23,23 @@ public class MedicineMelancholyAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/MedicineMelancholy.png";
 
     public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<MedicineMelancholyEncounter>();
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<ChildhoodBag>(),
-            AncientOption<RoseCrown>(),
-            AncientOption<LilyBellDiary>(),
-            AncientOption<SilenceDoll>()
-        ),
-        MakePool(
-            AncientOption<PlagueBlend>(),
-            AncientOption<MaliciousFairyTale>(),
-            AncientOption<MedicinePoisonBox>()
-        ),
-        MakePool(
-            AncientOption<HappinessElixir>(),
-            AncientOption<RibbonBow>(),
-            AncientOption<StageDevice>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<ChildhoodBag>(),
+            TARelicOption<RoseCrown>(),
+            TARelicOption<LilyBellDiary>(),
+            TARelicOption<SilenceDoll>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<PlagueBlend>(),
+            TARelicOption<MaliciousFairyTale>(),
+            TARelicOption<MedicinePoisonBox>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<HappinessElixir>(),
+            TARelicOption<RibbonBow>(),
+            TARelicOption<StageDevice>()
+            )
+    ];
 }

@@ -1,7 +1,5 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Extensions;
-using BaseLib.Utils;
-using Godot;
+﻿using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics;
 
@@ -21,21 +19,22 @@ public class KotiyaSanaeAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KotiyaSanae.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/KotiyaSanae.png";
 
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<MoriyaGohei>(),
-            AncientOption<DayKakusei>(),
-            AncientOption<WindPriestessWine>()
-        ),
-        MakePool(
-            AncientOption<SnakeAmulet>(),
-            AncientOption<FrogAmulet>(),
-            AncientOption<HisoutensokuModel>()
-        ),
-        MakePool(
-            AncientOption<SailorSuit>(),
-            AncientOption<GiftFromMountain>(),
-            AncientOption<MiracleNoble>()
-        )
-    );
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<MoriyaGohei>(),
+            TARelicOption<DayKakusei>(),
+            TARelicOption<WindPriestessWine>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<SnakeAmulet>(),
+            TARelicOption<FrogAmulet>(),
+            TARelicOption<HisoutensokuModel>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<SailorSuit>(),
+            TARelicOption<GiftFromMountain>(),
+            TARelicOption<MiracleNoble>()
+            )
+    ];
 }
