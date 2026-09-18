@@ -1,6 +1,5 @@
-using BaseLib.Abstracts;
-using BaseLib.Utils;
 using Godot;
+using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics.DoremySweet;
 
@@ -27,43 +26,32 @@ public class DoremySweetAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/DoremySweet.png";
 
     /// <summary>
-    /// BaseLib 的 OptionPools 只支持 1 / 2 / 3 个池子，与此处的四行分组对不上，
-    /// 因此在确认映射规则前先用「单池」占位：BaseLib 会从池中随机抽 3 个作为选项。
-    /// 确认后请改为对应的 MakePool 组合。
+    /// 本 Ancient 的选项（三行 = 三个选项）。
+    /// 虹光之梦的描述含 <c>{StarterRelic.StringValue:cond:具体名称|泛化文本}</c>，必须在事件界面渲染之前
+    /// 就填好 StringValue，玩家在选项里看到的才是具体名称（对应原版 Orobas 的 <c>TouchOfOrobas.SetupForPlayer</c>），
+    /// 因此用 <c>Prep</c> 预准备；此阶段遗物自身的 Owner 尚未设置，用古代事件自己的 <see cref="Owner"/>。
+    /// 「先驱之梦」的可用性由遗物自己的 <see cref="TouhouAncientRelics.CanAppear"/> 声明，条件不满足时基类会把它从候选中剔除。
     /// </summary>
-    protected override OptionPools MakeOptionPools => new OptionPools(
-        MakePool(
-            AncientOption<SupremeDream>(),
-            AncientOption<RevivalDream>(),
-            AncientOption<BygoneDream>()
-        ),
-        MakePool(
-            AncientOption<IridescentDream>(relicPrep: PrepIridescentDream),
-            AncientOption<MeltingWaxDream>(),
-            AncientOption<BlazingFlameDream>()),
-        MakePool(
-            AncientOption<SinisterPactDream>(),
-            AncientOption<FlowingSplendorDream>(),
-            AncientOption<BloodbathDream>())
-        );
-
-    /// <summary>
-    /// 虹光之梦的文本依赖当前角色的初始遗物与初始卡牌：描述里的
-    /// <c>{StarterRelic.StringValue:cond:具体名称|泛化文本}</c> 只有在事件界面渲染之前
-    /// 就填好 <c>StringValue</c>，玩家在选项提示里看到的才是具体名称。
-    ///
-    /// BaseLib 的 <c>AncientOption&lt;T&gt;</c> 把这个时机通过 <c>relicPrep</c> 暴露出来，
-    /// 对应原版 Orobas 事件里调用 <c>TouchOfOrobas.SetupForPlayer</c> 的做法。
-    /// 该阶段遗物自身的 Owner 尚未设置，所以这里用 ancient 事件自己的 <see cref="Owner"/>；
-    /// 若 Owner 为空（例如在没有对局上下文时枚举选项），则跳过预准备，文本退回泛化形式。
-    /// </summary>
-    private RelicModel PrepIridescentDream(IridescentDream relic)
-    {
-        if (Owner != null)
-        {
-            relic.SetupForPlayer(Owner);
-        }
-
-        return relic;
-    }
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
+    [
+        CreateTARelicOptionPool(
+            TARelicOption<SupremeDream>(),
+            TARelicOption<RevivalDream>(),
+            TARelicOption<BygoneDream>(),
+            TARelicOption<PioneerDream>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<IridescentDream>().Prep((IridescentDream relic) =>
+            {
+                if (Owner != null) relic.SetupForPlayer(Owner);
+            }),
+            TARelicOption<MeltingWaxDream>(),
+            TARelicOption<BlazingFlameDream>()
+            ),
+        CreateTARelicOptionPool(
+            TARelicOption<SinisterPactDream>(),
+            TARelicOption<FlowingSplendorDream>(),
+            TARelicOption<BloodbathDream>()
+            )
+    ];
 }

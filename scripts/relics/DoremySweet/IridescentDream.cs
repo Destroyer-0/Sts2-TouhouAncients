@@ -111,10 +111,10 @@ public class IridescentDream : TouhouAncientRelics
 
     /// <summary>
     /// 在「事件选项生成」阶段预准备数据。
-    /// 由 <c>DoremySweetAncient</c> 通过 <c>AncientOption&lt;T&gt;</c> 的 <c>relicPrep</c> 回调调用，
+    /// 由 <c>DoremySweetAncient</c> 的选项候选（<c>TARelicOption&lt;IridescentDream&gt;().Prep(...)</c>）在构造时调用，
     /// 对应的就是原版 Orobas 事件里调用 <c>TouchOfOrobas.SetupForPlayer</c> 的时机。
     ///
-    /// 注意：此阶段遗物自身的 Owner 尚未设置（BaseLib 文档有明确说明），
+    /// 注意：此阶段遗物自身的 Owner 尚未设置，
     /// 所以必须由调用方把玩家传进来。
     /// </summary>
     /// <param name="player">正在生成遗物选项的玩家。</param>
