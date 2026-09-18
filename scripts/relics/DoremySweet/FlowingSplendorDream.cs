@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -26,6 +27,22 @@ public class FlowingSplendorDream : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [..HoverTipFactory.FromEnchantment<Glam>()];
 
     public override bool HasUponPickupEffect => true;
+
+    /// <summary>选项条件：能凑齐一对可附魔「华彩」的基础打击与防御，否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        Glam glam = ModelDb.Enchantment<Glam>();
+        List<CardModel> basics = PileType.Deck.GetPile(player).Cards
+            .Where(c => c.Rarity == CardRarity.Basic)
+            .ToList();
+
+        bool hasStrike = basics.Any(c => c.Tags.Contains(CardTag.Strike) && glam.CanEnchant(c));
+        bool hasDefend = basics.Any(c => c.Tags.Contains(CardTag.Defend) && glam.CanEnchant(c));
+
+        return hasStrike && hasDefend;
+    }
 
     public override Task AfterObtained()
     {

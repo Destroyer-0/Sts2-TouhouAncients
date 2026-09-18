@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
@@ -23,6 +24,14 @@ public class MedicinePoisonBox : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromCardWithCardHoverTips<Snakebite>().Concat(HoverTipFactory.FromEnchantment<MedicinePoison>(3));
 
     public override bool HasUponPickupEffect => true;
+
+    /// <summary>选项条件：牌组里至少有一张「打击」，否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return player.Deck.Cards.Any(c => c.Tags.Contains(CardTag.Strike));
+    }
 
     public override async Task AfterObtained()
     {

@@ -51,6 +51,14 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
         new EnergyVar(1)
     ];
 
+    /// <summary>选项条件：最大生命值大于 1，否则不出现（拾起后每回合会失去 1 点最大生命）。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return player.Creature.MaxHp > 1m;
+    }
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.ForEnergy(this),

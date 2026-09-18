@@ -28,6 +28,14 @@ public class GrilledMiso : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
+    /// <summary>选项条件：牌组里至少有一张可升级的牌，否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return player.Deck.Cards.Any(c => c.IsUpgradable);
+    }
+
     public override async Task AfterObtained()
     {
         List<CardModel> list = (await CardSelectCmd.FromDeckForUpgrade(prefs: new CardSelectorPrefs(CardSelectorPrefs.UpgradeSelectionPrompt, base.DynamicVars.Cards.IntValue), player: base.Owner)).ToList();

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -27,6 +28,14 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
     private const decimal PostDamageBlock = 10m;
 
     public override bool HasUponPickupEffect => true;
+
+    /// <summary>选项条件：最大生命值大于 MaxHpLoss，否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return player.Creature.MaxHp > MaxHpLoss;
+    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

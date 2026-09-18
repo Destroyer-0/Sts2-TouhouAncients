@@ -46,6 +46,22 @@ public class BottomlessStomach : TouhouAncientRelics
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_ConsumedCount;
 
+    /// <summary>选项条件：至少有一个可吞噬的遗物（既非初始、也非先古），否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        HashSet<ModelId> startingRelicIds = player.Character.StartingRelics.Select(r => r.Id).ToHashSet();
+        HashSet<ModelId> ancientRelicIds = ModelDb.AllAncients
+            .SelectMany(x => x.AllPossibleOptions)
+            .Select(o => o.Relic?.CanonicalInstance)
+            .OfType<RelicModel>()
+            .Select(r => r.Id)
+            .ToHashSet();
+
+        return player.Relics.Any(r => !startingRelicIds.Contains(r.Id) && !ancientRelicIds.Contains(r.Id));
+    }
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new MaxHpVar(7),
