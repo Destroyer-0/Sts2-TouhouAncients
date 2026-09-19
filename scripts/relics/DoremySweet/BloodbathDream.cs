@@ -21,7 +21,7 @@ public class BloodbathDream : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("Curses", 1),
-        new CardsVar(1)
+        new CardsVar(2)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

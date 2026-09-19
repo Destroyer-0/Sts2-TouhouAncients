@@ -34,7 +34,7 @@ public class SinisterPactDream : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("ShopIndex", 1),
-        new DynamicVar("PriceIncrease", 300)
+        new DynamicVar("PriceIncrease", 100)
     ];
 
     public override Task AfterRoomEntered(AbstractRoom room)
@@ -150,6 +150,6 @@ public class SinisterPactDream : TouhouAncientRelics
         if (entry is MerchantCardRemovalEntry) return originalPrice;
 
         var multiplier = base.DynamicVars["PriceIncrease"].BaseValue / 100m;
-        return originalPrice * multiplier;
+        return originalPrice * (1 + multiplier);
     }
 }

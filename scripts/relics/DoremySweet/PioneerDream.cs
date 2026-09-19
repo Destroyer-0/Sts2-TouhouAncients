@@ -117,6 +117,8 @@ public class PioneerDream : TouhouAncientRelics
 
             // 初始牌（打击 / 防御 / 角色初始牌）的稀有度都是 Basic。
             if (model.Rarity == CardRarity.Basic) continue;
+            if (model.Rarity == CardRarity.Curse) continue;
+            if (model.Rarity == CardRarity.Quest) continue;
 
             result.Add(card!);
         }
