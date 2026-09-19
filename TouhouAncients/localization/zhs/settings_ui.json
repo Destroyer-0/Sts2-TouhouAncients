@@ -1,6 +1,10 @@
 {
   "TOUHOUANCIENTS.mod_title":"东方先古之民",
 
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "初始先古之民配置",
+  "TOUHOUANCIENTS-BAN_NEOW.title": "禁用 涅奥（1层）",
+  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "禁用 哆来咪·苏伊特（1层）",
+
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "禁用先古之民",
   
   "TOUHOUANCIENTS-BAN_ALL_BASEGAME.title": "一键禁用所有原版先古之民",

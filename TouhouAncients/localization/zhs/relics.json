@@ -655,7 +655,7 @@
   "TOUHOUANCIENTS-OIL_FUTURES.selectionScreenPrompt": "选择一张[red]诅咒[/red]放入[gold]手牌[/gold]",
 
   "TOUHOUANCIENTS-SMOKED_FAN.title": "烟熏的团扇",
-  "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-SMOKED_FAN.description": "所有精英敌人变为[blue]1[/blue]生命。每次击败精英后，将一张[red]愧疚[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-SMOKED_FAN.flavor": "来自贫穷神的悲恸。",
 
   "TOUHOUANCIENTS-GRILLED_MISO.title": "烤味噌",
@@ -672,7 +672,7 @@
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "人类与妖怪的界限在那双铁拳之下早已模糊。",
 
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "沉锚幽灵",
-  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "回合开始时获得{Energy:energyIcons()}。每场战斗开始时，将随机[blue]{Cards}[/blue]张牌从[gold]抽牌堆[/gold]置入[gold]弃牌堆[/gold]。",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "在每回合开始时获得{Energy:energyIcons()}。每场战斗开始时，将随机[blue]{Cards}[/blue]张牌从[gold]抽牌堆[/gold]置入[gold]弃牌堆[/gold]。",
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "她的灵魂曾重生过两次，一次在船沉入海底时化作幽灵，而另一次则伴随着那艘满载佛光的船驶来而新生。",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙发簪",
@@ -741,7 +741,7 @@
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "邪契之梦",
-  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻获得他所出售的[red]所有[/red]物品。[gold]商店[/gold]涨价至[blue]{PriceIncrease}%[/blue]。",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻获得他所出售的[red]所有[/red]物品。[gold]商店[/gold]涨价[blue]{PriceIncrease}%[/blue]。",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "瑰琦之梦",

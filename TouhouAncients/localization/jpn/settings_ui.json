@@ -1,6 +1,10 @@
 {
   "TOUHOUANCIENTS.mod_title": "東方エンシェント",
 
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
+  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow (Act 1)",
+  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet (Act 1)",
+
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "エンシェントを無効化",
 
   "TOUHOUANCIENTS-BAN_ALL_BASEGAME.title": "ベースゲームのエンシェントをすべて無効化",
