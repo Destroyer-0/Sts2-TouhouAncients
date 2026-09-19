@@ -24,6 +24,11 @@ namespace TouhouAncients.Scripts.Patches;
 /// 与原版抽中的先古之民（第一幕是涅奥）合并成一个候选列表重新均匀抽取，
 /// 使每个候选的出现概率相同（涅奥与每个自定义先古之民各占 1/(N+1)）。
 ///
+/// 禁用：配置「初始先古之民配置」里的「禁用涅奥」生效于本补丁——涅奥被禁用时不再进入
+/// 上述候选列表，第一幕只从本 Mod 的一层先古之民中抽取；本 Mod 的一层先古之民被禁用时
+/// （<see cref="TouhouAncientsConfig.IsAncientBanned(Type)"/>）由 <see cref="CollectAct1Candidates"/>
+/// 提前剔除。若涅奥与所有一层先古之民都被禁用，则兜底保留原版抽签结果。
+///
 /// 只对第一幕生效：
 ///   - <c>____sharedAncientSubset != null</c> 说明是第二幕及之后，直接跳过，完全交给 BaseLib；
 ///   - <c>Index != 0</c> 再兜一层（原版 Overgrowth / Underdocks 的 Index 都是 0）。
@@ -65,6 +70,7 @@ internal static class Act1AncientPoolPatch
         if (candidates.Count == 0)
         {
             // 没有可用的自定义先古之民：保持原版抽签结果（涅奥）。
+            // 即使涅奥被禁用也在此兜底保留，避免第一幕没有可抽取的先古之民。
             return;
         }
 
@@ -74,7 +80,15 @@ internal static class Act1AncientPoolPatch
             return;
         }
 
-        List<AncientEventModel> pool = new List<AncientEventModel> { current };
+        List<AncientEventModel> pool = new List<AncientEventModel>();
+
+        // 涅奥被禁用（配置「初始先古之民配置 · 禁用涅奥」）时不再进入抽取池，
+        // 第一幕只从本 Mod 的一层先古之民中抽。
+        if (!TouhouAncientsConfig.IsBaseGameAncientBanned(current.GetType()))
+        {
+            pool.Add(current);
+        }
+
         pool.AddRange(candidates);
 
         // 用派生 RNG 而不是直接消耗传入的 rng（= State.Rng.UpFront）：

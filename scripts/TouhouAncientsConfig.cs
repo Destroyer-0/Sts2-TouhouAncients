@@ -95,11 +95,13 @@ public class TouhouAncientsConfig : SimpleModConfig
         if (BanYuuma) mask |= 1UL << 20;
         if (BanYorigami) mask |= 1UL << 21;
         if (BanMamizou) mask |= 1UL << 22;
+        if (BanNeow) mask |= 1UL << 23;
+        if (BanDoremySweet) mask |= 1UL << 24;
         return mask;
     }
 
     /// <summary>
-    /// 返回 Type 对应的禁用位（0~22）；未识别的 Ancient 返回 -1。
+    /// 返回 Type 对应的禁用位（0~24）；未识别的 Ancient 返回 -1。
     /// 位序必须与 <see cref="BuildBannedMask"/> 保持一致。
     /// </summary>
     private static int GetBanBit(Type type)
@@ -129,6 +131,8 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(ToutetsuYuumaAncient) => 20,
             nameof(YorigamiSisterAncient) => 21,
             nameof(FutatsuiwaMamizouAncient) => 22, // 猯藏 Ancient 类暂被注释，恢复时取消注释（BuildBannedMask 已预留第 22 位）
+            nameof(Neow) => 23, // 原版涅奥，仅第一幕出现，禁用判定见 IsBaseGameAncientBanned 与 Act1AncientPoolPatch
+            nameof(DoremySweetAncient) => 24, // 哆来咪·苏伊特，仅第一幕出现，与涅奥同池抽取
             _ => -1
         };
     }
@@ -170,6 +174,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(ToutetsuYuumaAncient) => BanYuuma,
             nameof(YorigamiSisterAncient) => BanYorigami,
             nameof(FutatsuiwaMamizouAncient) => !EnableTestContentMamizou || BanMamizou,
+            nameof(DoremySweetAncient) => BanDoremySweet,
             _ => false
         };
     }
@@ -202,6 +207,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(Tezcatara) => BanTezcataras,
             nameof(Darv) => BanDarv,
             nameof(Tanx) => BanTanx,
+            nameof(Neow) => BanNeow,
             _ => false
         };
     }
@@ -242,6 +248,25 @@ public class TouhouAncientsConfig : SimpleModConfig
     
     
     
+    /// <summary>
+    /// 初始先古之民配置：只作用于**第一幕**出现的先古之民
+    /// （原版涅奥 <c>Neow</c> 与本 Mod 哆来咪·苏伊特 <c>DoremySweetAncient</c>）。
+    /// 二者同池均匀抽取，禁用后该先古之民不再参与第一幕抽取；
+    /// 若两个都被禁用且本 Mod 没有其它一层先古之民，则兜底保留原版抽签结果（涅奥），
+    /// 避免第一幕没有可抽取的先古之民。
+    /// </summary>
+    [ConfigSection("InitialAncientConfig")]
+
+    /// <summary>
+    /// 禁用涅奥（原版，仅第一幕出现）
+    /// </summary>
+    public static bool BanNeow { get; set; } = false;
+
+    /// <summary>
+    /// 禁用哆来咪·苏伊特（仅第一幕出现）
+    /// </summary>
+    public static bool BanDoremySweet { get; set; } = false;
+
     /// <summary>
     /// 配置该列表中先古之民不出现
     /// </summary>
