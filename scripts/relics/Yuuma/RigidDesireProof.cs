@@ -50,7 +50,9 @@ public class RigidDesireProof : TouhouAncientRelics
         if (autoPlayType != AutoPlayType.None) return true;
 
         int limit = DynamicVars["TypeLimit"].IntValue;
-        var cardPlay = CombatManager.Instance.History.Entries.OfType<CardPlayStartedEntry>().Where(x => x.HappenedThisTurn(Owner.Creature.CombatState)).ToList();
+        var cardPlay = CombatManager.Instance.History.Entries.OfType<CardPlayStartedEntry>()
+            .Where(x => x.HappenedThisTurn(Owner.Creature.CombatState) && x.Actor == Owner.Creature)
+            .ToList();
         if (cardPlay.Count < limit - 1) return true;
         for (int i = cardPlay.Count - limit + 1; i < cardPlay.Count; i++)
         {
