@@ -20,8 +20,8 @@ public class DoremySweetAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.45f, 0.35f, 0.7f, 0.75f);
     public override Color DialogueColor => new(0.55f, 0.45f, 0.85f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/DoremySweet_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/DoremySweet_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/DoremySweet.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/DoremySweet.png";
 
