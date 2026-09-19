@@ -12,23 +12,15 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TouhouAncients.Scripts.Afflictions;
-using TouhouAncients.Scripts.monsters;
 
 namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
 /// 饥渴本能：玩家身上的可消耗计数 Buff（Counter 类型，层数递减）。
-/// 效果：接下来的 {Amount} 张打出的牌获得[消耗]；且每打出 1 张受影响的牌，
-/// 饕餮尤魔增加当前最大生命 10% 的生命上限（上限 10 亿，超出后不再增加）。
+/// 效果：接下来的 {Amount} 张打出的牌获得[消耗]。
 /// </summary>
 public class HungryInstinctPower : TouhouAncientPowerModel
 {
-    /// <summary>尤魔生命上限增长阈值（10 亿），达到后不再增加。</summary>
-    private const decimal MaxMaxHp = 1_000_000_000m;
-
-    /// <summary>每次触发增加的生命上限比例（10%）。</summary>
-    private const decimal MaxHpGainPercent = 0.10m;
-
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -99,33 +91,13 @@ public class HungryInstinctPower : TouhouAncientPowerModel
     }
 
     /// <summary>
-    /// 玩家打出牌后：若本 Power 还有剩余层数，则饕餮尤魔增加 10% 当前最大生命（上限 10 亿），层数 -1。
+    /// 玩家打出牌后：若本 Power 还有剩余层数，则层数 -1。
     /// 饥渴本能每触发一次只结算一次（用户确认：每层饥渴本能触发一次）。
     /// </summary>
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (base.Amount <= 0) return;
         if (cardPlay.Card.Owner?.Creature != base.Owner) return;
-
-        // 找到饕餮尤魔（本战斗中的尤魔本体）
-        Creature? yuuma = base.Owner.CombatState?
-            .Enemies
-            .FirstOrDefault(c => c is { Monster: ToutetsuYuumaMonster, IsDead: false });
-        if (yuuma != null && yuuma.MaxHp < MaxMaxHp)
-        {
-            decimal gain = System.Math.Floor(yuuma.MaxHp * MaxHpGainPercent);
-            // 不超过上限
-            decimal newMaxHp = yuuma.MaxHp + gain;
-            if (newMaxHp > MaxMaxHp)
-            {
-                gain = MaxMaxHp - yuuma.MaxHp;
-            }
-
-            if (gain > 0m)
-            {
-                await CreatureCmd.GainMaxHp(yuuma, gain);
-            }
-        }
 
         Flash();
         await PowerCmd.Decrement(this);
