@@ -43,7 +43,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
 
     /// <summary>剔骨啖髓：基础伤害，低阶 16 / 高阶 17。</summary>
     private int DrinkBloodDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 17, 16);
+        AscensionLevel.DeadlyEnemies, 24, 23);
 
     private const int DrinkBloodVulnerable = 2;
 
@@ -81,7 +81,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         MoveState cutHeart = new MoveState("CUT_HERAT", CutHeartMove,
             new MultiAttackIntent(CutHeartDamage, CutHeartHits));
         MoveState drinkBlood = new MoveState("DRINK_BLOOD", DrinkBloodMove,
-            new SingleAttackIntent(DrinkBloodDamage), new DebuffIntent());
+            new SingleAttackIntent(DrinkBloodDamage));
         MoveState feast = new MoveState("TOUTETSU_FEAST", FeastMove, new CardDebuffIntent(), new DebuffIntent());
 
         MoveState chaosHell = new MoveState("CHAOS_HELL", ChaosHellMove,
@@ -167,7 +167,6 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
-        await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, DrinkBloodVulnerable, base.Creature, null);
     }
 
     /// <summary>
