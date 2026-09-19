@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -17,6 +18,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.Background;
 using TouhouAncients.Scripts.cards;
@@ -70,6 +72,62 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     /// <summary>是否已觉醒：施放五道难题后切换为 Kaguya.png 立绘，直到战斗结束不再变回。</summary>
     private bool _awakenedToTrueForm;
 
+    // --- 台词 ---
+
+    /// <summary>战斗开始时的开场台词（在首回合之前播放一次）。</summary>
+    private static readonly LocString _battleStartLine =
+        new LocString("monsters", "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter1");
+
+    /// <summary>首次施放永夜归返时的台词。</summary>
+    private static readonly LocString _eternalNightReturnLine =
+        new LocString("monsters", "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.banter");
+
+    /// <summary>
+    /// 五道难题施放时的台词本地化键。该条文本内部使用 SmartFormat 的 choose 分支，
+    /// 依据代码传入的 PlayerCount 变量决定称呼：玩家数为 1 时输出「你」，多人时输出「你们」。
+    /// </summary>
+    private const string FiveDifficultProblemsLineKey =
+        "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter2";
+
+    /// <summary>是否已播放过首次永夜归返台词（永夜归返在状态机循环中会重复出现，仅首次播放）。</summary>
+    private bool _eternalNightReturnBanterPlayed;
+
+    /// <summary>
+    /// 是否跳过辉夜的常规台词：单人模式下唯一玩家为妹红时返回 true。
+    /// 妹红的彩蛋台词（<c>MOKOU_BANTER</c> / <c>MOKOU_BANTER2</c>）由 <see cref="HouraiPuzzleCard"/> 另行播放，
+    /// 此时辉夜的常规台词不触发，避免两套台词混在一起。
+    /// </summary>
+    private bool ShouldSkipBanter
+    {
+        get
+        {
+            if (base.Creature.CombatState is not { } combatState)
+            {
+                return false;
+            }
+
+            if (combatState.Players.Count != 1)
+            {
+                return false;
+            }
+
+            return combatState.Players[0].Character.Id.Entry.Contains("MOKOU", StringComparison.OrdinalIgnoreCase);
+        }
+    }
+
+    /// <summary>
+    /// 播放辉夜的台词（紫色气泡，长时长）。单人妹红局直接跳过，不创建气泡。
+    /// </summary>
+    private void PlayBanter(LocString line)
+    {
+        if (ShouldSkipBanter)
+        {
+            return;
+        }
+
+        TalkCmd.Play(line, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+    }
+
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
@@ -83,6 +141,17 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         // 第一回合无实体
         await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
         RefreshIntangibleTransparency();
+    }
+
+    /// <summary>
+    /// 战斗开始时播放开场台词。该钩子在所有怪物的显示节点生成之后、开战横幅与首回合之前触发，
+    /// 因此气泡能正常挂在辉夜身上（此时无实体已由 <see cref="AfterAddedToRoom"/> 施加完毕）。
+    /// 单人妹红局跳过（见 <see cref="ShouldSkipBanter"/>）。
+    /// </summary>
+    public override Task BeforeCombatStart()
+    {
+        PlayBanter(_battleStartLine);
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -208,6 +277,14 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task FiveDifficultProblemsMove(IReadOnlyList<Creature> targets)
     {
+        // 台词：传入玩家数，文本内 choose 分支据此在「你」与「你们」之间选择
+        // （无法取得战斗状态时按单人处理，保证变量始终存在，避免 choose 落到默认分支；
+        //  单人妹红局由 PlayBanter 内部跳过）
+        int playerCount = base.Creature.CombatState?.Players.Count ?? 1;
+        LocString line = new LocString("monsters", FiveDifficultProblemsLineKey);
+        line.Add("PlayerCount", playerCount);
+        PlayBanter(line);
+
         SwitchToTrueForm();
         // 背景开场为暗色（kaguya_background.tscn 根节点 modulate），释放五道难题后 1 秒转亮。
         (NCombatRoom.Instance?.Background as TouhouAncientBackground)?.FadeTo(Colors.White, 1f);
@@ -272,10 +349,18 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 永夜归返：获得 3 点力量并恢复 30 点生命。
+    /// 永夜归返：获得 3 点力量并恢复 30 点生命。首次施放时额外播放台词。
     /// </summary>
     private async Task EternalNightReturnMove(IReadOnlyList<Creature> targets)
     {
+        // 永夜归返会在状态机循环中重复出现，台词仅在首次施放时播放
+        // （单人妹红局由 PlayBanter 内部跳过）
+        if (!_eternalNightReturnBanterPlayed)
+        {
+            _eternalNightReturnBanterPlayed = true;
+            PlayBanter(_eternalNightReturnLine);
+        }
+
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, EternalNightReturnStrength, base.Creature, null);
         await CreatureCmd.Heal(base.Creature, EternalNightReturnHeal* base.Creature.CombatState.Players.Count);
         var poisonPowers = base.Creature.GetPowerAmount<PoisonPower>();

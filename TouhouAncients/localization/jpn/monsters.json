@@ -43,9 +43,12 @@
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER": "Go to hell with your difficult problems!",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2": "For the sake of the others... I’ll spare you this once.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.title": "Five Difficult Problems",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter1": "These five problems have already sent countless challengers fleeing in defeat.",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter2": "How many of them can you solve?",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.PALE_WHITE_WATERFALL.title": "Pale White Waterfall",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FALSE_MOON.title": "False Moon",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.title": "Eternal Night Return",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.banter": "Behold the power that commands eternity.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.puzzleHover.incomplete": "[purple]Not yet solved:[/purple]\n{PlayerNames}",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.name": "Yuuma Toutetsu",
