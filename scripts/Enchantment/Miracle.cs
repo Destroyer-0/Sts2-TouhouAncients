@@ -51,8 +51,6 @@ public class Miracle : TouhouAncientEnchantmentModel
         var isRegent = player.Relics.Any(x => x is DivineRight or DivineDestiny);
         var isNecrobinder = player.Relics.Any(x => x is BoundPhylactery or PhylacteryUnbound);
 
-        // 牌池返回的是 canonical 模板，不能调 CanEnchant：其他模组的 Harmony 补丁可能读 card.Owner，
-        // 而 Owner 会 AssertMutable。这里只用模板上安全的字段过滤；生成战斗实例后再 CanEnchant。
         bool IsAllowed(CardModel c) =>
             CanEnchantCardType(c.Type)
             && (isRegent || c is { CanonicalStarCost: < 0, HasStarCostX: false })

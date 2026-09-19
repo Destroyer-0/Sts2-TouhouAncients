@@ -79,7 +79,7 @@ public class KoishiUnplayableSingleton : CustomSingletonModel
     public KoishiUnplayableSingleton() : base(HookType.Combat)
     {
     }
-
+    
     public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
     {
         if (card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientKoishiUnplayable) && autoPlayType == AutoPlayType.None)
