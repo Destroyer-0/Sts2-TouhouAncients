@@ -27,7 +27,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(StatusCardPool))]
 public class SealCircle : TouhouAncientCards
 {
-    public override string? Author => "TOKIAME";
+    public override string? Author => "凡事看谁快";
     
     private const int energyCost = 1;
     private const CardType type = CardType.Status;
