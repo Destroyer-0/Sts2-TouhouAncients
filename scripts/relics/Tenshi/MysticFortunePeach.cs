@@ -44,7 +44,7 @@ public class MysticFortunePeach : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != base.Owner || !CombatManager.Instance.IsInProgress)
             return;
