@@ -25,7 +25,6 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
     private const decimal MaxHpLoss = 30m;
     private const decimal DexterityAmount = 5m;
     private const decimal StartBlock = 30m;
-    private const decimal PostDamageBlock = 10m;
 
     public override bool HasUponPickupEffect => true;
 
