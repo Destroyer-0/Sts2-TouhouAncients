@@ -13,7 +13,8 @@ namespace TouhouAncients.Scripts.monsters;
 
 public abstract class TouhouAncientMonsterBase : CustomMonsterModel
 {
-    private AnimatedSprite2D? _animatedSprite2D;
+    private NCreature? _spriteOwnerNode;
+    private AnimatedSprite2D? _sprite;
     private Tween? _bodyMoveTween;
     private CancellationTokenSource? _moveCts;
     private MonsterAnimationStateMachine? _animationMachine;
@@ -111,39 +112,41 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     public override NCreatureVisuals? CreateCustomVisuals()
     {
         string scenePath = $"res://scenes/creature_visuals/{GetType().Name}.tscn";
-        var visuals = NodeFactory<NCreatureVisuals>.CreateFromScene(scenePath);
-
-        if (HasAnimation && visuals.GetNodeOrNull<AnimatedSprite2D>("%Visuals") is AnimatedSprite2D sprite)
-        {
-            _animatedSprite2D = sprite;
-        }
-
-        return visuals;
+        return NodeFactory<NCreatureVisuals>.CreateFromScene(scenePath);
     }
 
-    public AnimatedSprite2D MyAnimatedSprite2D
+    /// <summary>
+    /// 当前还活着的显示精灵（AnimatedSprite2D）；需要额外节点（如 AnimationPlayer）的怪可基于它继续查找。
+    /// 怪物模型的生命周期比显示节点长：节点可能被回收（灾厄处决会把显示节点渐隐后 QueueFree），
+    /// 也可能被重建，因此这里不长期持有节点，而是"取当前节点 → 取精灵"并缓存当次结果，
+    /// 命中缓存只需一次 IsInstanceValid；节点换人或缓存失效时重新解析，解析不到返回 null（调用方静默跳过）。
+    /// 这是全类型内唯一判断显示节点存活的地方，其余代码一律通过本属性访问显示节点。
+    /// </summary>
+    protected AnimatedSprite2D? Sprite
     {
         get
         {
-            // 无帧动画的怪物不尝试获取 AnimatedSprite2D
-            if (!HasAnimation) return null!;
+            // 无帧动画的怪物（纯静态贴图）没有 AnimatedSprite2D
+            if (!HasAnimation)
+                return null;
 
-            if (_animatedSprite2D == null)
-            {
-                var body = base.Creature.GetCreatureNode()?.Visuals.GetCurrentBody();
-                if (body is AnimatedSprite2D sprite)
-                {
-                    _animatedSprite2D = sprite;
-                }
-            }
+            NCreature? creatureNode = base.Creature.GetCreatureNode();
+            if (_spriteOwnerNode == creatureNode && GodotObject.IsInstanceValid(_sprite))
+                return _sprite;
 
-            return _animatedSprite2D!;
+            _spriteOwnerNode = creatureNode;
+            _sprite = creatureNode != null && GodotObject.IsInstanceValid(creatureNode)
+                ? creatureNode.Visuals.GetCurrentBody() as AnimatedSprite2D
+                : null;
+
+            return _sprite;
         }
     }
 
     /// <summary>
     /// 动画状态机（懒构建）。子类通过 <see cref="ConfigureAnimationStateMachine"/> 注册自定义动画状态；
     /// 所有动画控制统一走 Anim.Trigger / Anim.TriggerLoop。
+    /// 状态机不持有精灵，改为每次向 <see cref="Sprite"/> 解析，显示节点被回收或重建都能自动跟上。
     /// </summary>
     protected MonsterAnimationStateMachine Anim
     {
@@ -151,7 +154,7 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         {
             if (_animationMachine == null)
             {
-                _animationMachine = new MonsterAnimationStateMachine(MyAnimatedSprite2D)
+                _animationMachine = new MonsterAnimationStateMachine(() => Sprite)
                 {
                     IsDeathLocked = () => IsDeathAnimationLocked,
                 };
@@ -202,6 +205,9 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     {
         await base.BeforeDeath(creature);
         if (creature != Creature || !HasAnimation)
+            return;
+
+        if (Creature.GetCreatureNode() == null)
             return;
 
         StopBodyMoveAndResetPosition();

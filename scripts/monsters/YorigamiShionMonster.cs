@@ -87,7 +87,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     }
 
     public override bool ShouldFadeAfterDeath => true; //IsJoonAlive();
-    public override bool ShouldDisappearFromDoom => IsJoonAlive();
+    public override bool ShouldDisappearFromDoom => !IsJoonAlive();
 
 
     // --- 出生 Buff ---
@@ -118,7 +118,13 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         MoveState absoluteLoser = new MoveState("ABSOLUTE_LOSER", AbsoluteLoserMove, new DebuffIntent());
         absoluteLoser.FollowUpState = absoluteLoser;
 
-        StunnedState = new MoveState("STUNNED", StunnedMove, new StunIntent());
+        // MustPerformOnceBeforeTransitioning 必须为 true：
+        // 眩晕是在敌方回合结束时（灾厄处决）通过 SetMoveImmediate 施加的，此时 _performedFirstMove 已为 true，
+        // 若允许立即转移，玩家回合开始时的 RollMove 会直接跳到 FollowUpState，导致 StunnedMove 的对话、特效与动画被跳过。
+        StunnedState = new MoveState("STUNNED", StunnedMove, new StunIntent())
+        {
+            MustPerformOnceBeforeTransitioning = true
+        };
         // 眩晕结束后进入阶段2
         StunnedState.FollowUpState = absoluteLoser;
 
@@ -192,20 +198,14 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     }
 
 
-    private AnimationPlayer? _animationPlayer;
-
-    private AnimationPlayer? AnimationPlayer
-    {
-        get
-        {
-            if (_animationPlayer == null)
-            {
-                _animationPlayer = MyAnimatedSprite2D?.GetParent()?.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
-            }
-
-            return _animationPlayer;
-        }
-    }
+    /// <summary>
+    /// 死亡浮空演出用的 AnimationPlayer。
+    /// 直接基于 <see cref="TouhouAncientMonsterBase.Sprite"/> 现取现用，不做缓存：
+    /// 显示节点会被灾厄处决等流程回收、也可能被重建，缓存节点只会额外引入失效与归属判断。
+    /// 取不到时返回 null，调用处的 `?.` 自然成为空操作。
+    /// </summary>
+    private AnimationPlayer? AnimationPlayer =>
+        Sprite?.GetParent()?.GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
 
     /// <summary>
     /// 厄运传播：给予 1 虚弱 + 灾厄。
@@ -294,8 +294,9 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// <summary>
     /// 眩晕状态：播放 die 动画并触发对话。
     /// </summary>
-    private Task StunnedMove(IReadOnlyList<Creature> targets)
+    private async Task StunnedMove(IReadOnlyList<Creature> targets)
     {
+        await Cmd.Wait(0.1f);
         TalkCmd.Play(_absoluteLoserLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
         VfxCmd.PlayOnCreatureCenter(Creature, "vfx/vfx_scream");
         float scale = 2f;
@@ -307,7 +308,6 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(nGroundFireVfx);
         }
         Anim.Trigger("spell");
-        return Task.CompletedTask;
     }
 
     /// <summary>

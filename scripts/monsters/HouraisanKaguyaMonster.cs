@@ -52,6 +52,9 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
     private const int EternalNightReturnHeal = 30;
 
+    /// <summary>拥有无实体期间，辉夜立绘的透明度（其余时间恢复为 1）。</summary>
+    private const float IntangibleAlpha = 0.6f;
+
     /// <summary>五道难题发放的谜题卡数量（五种各一张）。</summary>
     private const int PuzzleCardCount = 5;
 
@@ -73,8 +76,62 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         await base.AfterAddedToRoom();
 
         _kaguyaVisuals = base.Creature.GetCreatureNode()?.Visuals as HouraisanKaguyaVisuals;
+        // 无实体期间立绘半透明：先订阅能力施加 / 移除事件，再施加无实体，
+        // 施加后再同步一次透明度（事件可能在施加过程中触发，这里做兜底刷新）
+        base.Creature.PowerApplied += AfterPowerApplied;
+        base.Creature.PowerRemoved += AfterPowerRemoved;
         // 第一回合无实体
         await PowerCmd.Apply<IntangiblePower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        RefreshIntangibleTransparency();
+    }
+
+    /// <summary>
+    /// 怪物移出房间时取消能力事件订阅，避免事件残留引用已结束战斗的怪物。
+    /// </summary>
+    public override void BeforeRemovedFromRoom()
+    {
+        base.Creature.PowerApplied -= AfterPowerApplied;
+        base.Creature.PowerRemoved -= AfterPowerRemoved;
+    }
+
+    /// <summary>
+    /// 能力被施加回调：获得无实体时把立绘透明度降为 <see cref="IntangibleAlpha"/>。
+    /// </summary>
+    private void AfterPowerApplied(PowerModel power)
+    {
+        if (power is IntangiblePower)
+        {
+            RefreshIntangibleTransparency();
+        }
+    }
+
+    /// <summary>
+    /// 能力被移除回调：失去无实体（含回合结束自然过期归零）时把立绘透明度恢复正常。
+    /// </summary>
+    private void AfterPowerRemoved(PowerModel power)
+    {
+        if (power is IntangiblePower)
+        {
+            RefreshIntangibleTransparency();
+        }
+    }
+
+    /// <summary>
+    /// 根据当前是否拥有无实体刷新立绘透明度：
+    /// 拥有时 alpha 为 <see cref="IntangibleAlpha"/>，否则恢复为 1（保留原本的 RGB）。
+    /// 显示节点不可用时静默跳过，避免在显示节点已回收的流程中抛异常导致战斗卡死。
+    /// </summary>
+    private void RefreshIntangibleTransparency()
+    {
+        AnimatedSprite2D? sprite = Sprite;
+        if (sprite == null)
+        {
+            return;
+        }
+
+        Color color = sprite.Modulate;
+        color.A = base.Creature.HasPower<IntangiblePower>() ? IntangibleAlpha : 1f;
+        sprite.Modulate = color;
     }
 
     // --- 状态机 ---
@@ -135,7 +192,10 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         }
 
         _awakenedToTrueForm = true;
-        MyAnimatedSprite2D.FlipH = false;
+        if (Sprite is { } sprite)
+        {
+            sprite.FlipH = false;
+        }
         Anim.Trigger(AwakenedIdleAnimation);
     }
 

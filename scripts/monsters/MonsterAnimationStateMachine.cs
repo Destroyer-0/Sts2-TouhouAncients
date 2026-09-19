@@ -59,7 +59,16 @@ internal sealed class MonsterAnimState
 /// </summary>
 public sealed class MonsterAnimationStateMachine
 {
-    private readonly AnimatedSprite2D _sprite;
+    /// <summary>
+    /// 精灵解析器：每次操作时向基类询问"当前还活着的显示精灵"。
+    /// 状态机不长期持有节点引用——怪物模型的生命周期比显示节点长（节点可能被灾厄处决等流程
+    /// QueueFree，也可能被重建），一旦缓存就必然要在每个入口补一遍失效判断，反而更容易在死亡钩子里抛异常。
+    /// </summary>
+    private readonly Func<AnimatedSprite2D?> _resolveSprite;
+
+    /// <summary>当前已订阅 AnimationFinished 的精灵；显示节点重建时会随之转移到新精灵。</summary>
+    private AnimatedSprite2D? _subscribedSprite;
+
     private readonly Dictionary<string, MonsterAnimState> _states = new();
     private MonsterAnimState? _currentState;
     private string? _preHurtState;
@@ -76,10 +85,39 @@ public sealed class MonsterAnimationStateMachine
     /// </summary>
     public Func<bool> DefaultCanBeInterruptedByHit { get; set; } = static () => true;
 
-    public MonsterAnimationStateMachine(AnimatedSprite2D sprite)
+    /// <summary>
+    /// 构造状态机。<paramref name="resolveSprite"/> 由基类提供，用于在每次操作时解析当前显示精灵，
+    /// 解析不到（节点已被回收 / 尚未创建）返回 null，状态机随即静默跳过本次操作。
+    /// </summary>
+    public MonsterAnimationStateMachine(Func<AnimatedSprite2D?> resolveSprite)
     {
-        _sprite = sprite;
-        _sprite.AnimationFinished += OnAnimationFinished;
+        _resolveSprite = resolveSprite;
+    }
+
+    /// <summary>
+    /// 解析当前显示精灵，并保证 AnimationFinished 订阅始终绑在它身上。
+    /// 精灵为空或节点已释放时返回 null；订阅的转移在这里统一处理，调用方无需关心节点生命周期。
+    /// </summary>
+    private AnimatedSprite2D? ResolveSprite()
+    {
+        AnimatedSprite2D? sprite = _resolveSprite();
+
+        if (!ReferenceEquals(sprite, _subscribedSprite))
+        {
+            if (_subscribedSprite is { } oldSprite && GodotObject.IsInstanceValid(oldSprite))
+            {
+                oldSprite.AnimationFinished -= OnAnimationFinished;
+            }
+
+            _subscribedSprite = sprite;
+
+            if (sprite is { } newSprite && GodotObject.IsInstanceValid(newSprite))
+            {
+                newSprite.AnimationFinished += OnAnimationFinished;
+            }
+        }
+
+        return GodotObject.IsInstanceValid(sprite) ? sprite : null;
     }
 
     /// <summary>注册一个循环动画状态（播放后保持循环，直到显式切换）。</summary>
@@ -103,19 +141,28 @@ public sealed class MonsterAnimationStateMachine
         _states[name] = state;
     }
 
-    /// <summary>SpriteFrames 中是否存在该动画。</summary>
-    public bool HasAnimation(string name) => _sprite.SpriteFrames.HasAnimation(name);
+    /// <summary>SpriteFrames 中是否存在该动画；精灵不可用时返回 false。</summary>
+    public bool HasAnimation(string name)
+    {
+        AnimatedSprite2D? sprite = ResolveSprite();
+        return sprite != null && sprite.SpriteFrames.HasAnimation(name);
+    }
 
     /// <summary>
     /// 转移到指定动画（等价旧 PlayAnimation）。
     /// 死亡锁定时忽略除 die 外的所有转移；动画未注册时允许播放但记录警告。
+    /// 精灵不可用（显示节点已被回收）时静默忽略。
     /// </summary>
     public void Trigger(string name)
     {
+        AnimatedSprite2D? sprite = ResolveSprite();
+        if (sprite == null)
+            return;
+
         if (IsDeathLocked() && name != "die")
             return;
 
-        if (!_sprite.SpriteFrames.HasAnimation(name))
+        if (!sprite.SpriteFrames.HasAnimation(name))
         {
             GD.PushWarning($"MonsterAnimationStateMachine: 动画 '{name}' 不存在于 SpriteFrames，忽略转移。");
             return;
@@ -125,7 +172,7 @@ public sealed class MonsterAnimationStateMachine
         {
             // 未注册的动画：允许播放（兼容直调），但不参与状态表转移语义
             GD.PushWarning($"MonsterAnimationStateMachine: 动画 '{name}' 未注册，按普通动画播放。");
-            state = new MonsterAnimState(name, _sprite.SpriteFrames.GetAnimationLoop(name));
+            state = new MonsterAnimState(name, sprite.SpriteFrames.GetAnimationLoop(name));
         }
 
         if (_currentState != null && !ReferenceEquals(_currentState, state))
@@ -138,13 +185,16 @@ public sealed class MonsterAnimationStateMachine
             _preHurtState = null;
 
         state.OnEnter?.Invoke();
-        _sprite.Animation = name;
-        _sprite.Play();
+        sprite.Animation = name;
+        sprite.Play();
     }
 
-    /// <summary>播放当前循环归属动画（等价旧 PlayCurrentLoopAnimation）。</summary>
+    /// <summary>播放当前循环归属动画（等价旧 PlayCurrentLoopAnimation）；精灵不可用时静默忽略。</summary>
     public void TriggerLoop()
     {
+        if (ResolveSprite() == null)
+            return;
+
         string loopName = LoopResolver();
         if (string.IsNullOrEmpty(loopName))
             return;
@@ -155,12 +205,17 @@ public sealed class MonsterAnimationStateMachine
     /// 受击入口（由引擎 Hit 触发器调用）。
     /// 记录打断前的循环动画，播放 hurt；hurt 播完由 <see cref="OnAnimationFinished"/> 回到打断前状态。
     /// 当前状态 <see cref="MonsterAnimState.CanBeInterruptedByHit"/> 返回 false 时忽略受击。
+    /// 精灵不可用时静默忽略。
     /// </summary>
     public void HandleHit()
     {
+        AnimatedSprite2D? sprite = ResolveSprite();
+        if (sprite == null)
+            return;
+
         if (IsDeathLocked())
             return;
-        if (!HasAnimation("hurt"))
+        if (!sprite.SpriteFrames.HasAnimation("hurt"))
             return;
         // 当前状态不允许被受击打断（如蓄力 / 必杀演出）时忽略
         if (_currentState is { } state && !state.CanBeInterruptedByHit())
