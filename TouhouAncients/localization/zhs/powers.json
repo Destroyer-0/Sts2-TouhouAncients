@@ -88,7 +88,7 @@
 
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "公主的谜题",
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "每道未完成的[purple]谜题[/purple]将在回合开始时为[gold]蓬莱山辉夜[/gold]提供[blue]12[/blue]点[gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "每道未完成的[purple]谜题[/purple]将在回合开始时为[gold]蓬莱山辉夜[/gold]提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有[red]{PuzzleNum}[/red]道谜题未被解开，将获得[blue]{GainBlock}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "每道未完成的[purple]谜题[/purple]将在回合开始时为[gold]蓬莱山辉夜[/gold]提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n还有[red]{PuzzleNum}[/red]道谜题未被解开，将获得[blue]{GainBlock}[/blue]点[gold]格挡[/gold]。\n[thinky_dots][i]无法解决的五个难题。\n但是，经过漫长的岁月加上幻想的力量，已经足以解决那些问题了。[/i][[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "炽火灼身",
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "在你的回合开始时，将[blue]1[/blue]张[gold]灼伤[/gold]加入你的[gold]弃牌堆[/gold]。",

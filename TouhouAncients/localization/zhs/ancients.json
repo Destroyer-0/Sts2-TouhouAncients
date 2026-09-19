@@ -772,14 +772,14 @@
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-0r.next": "癫狂",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-1r.char": "[jitter]砍下河谷卫士的头颅，劈碎驭风行者的躯骨，击穿沙漠部族的心脏！军团！卫兵！是谁暗杀了主将！是谁当了这个该死的叛徒！[/jitter]",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-1r.next": "癫狂",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-2r.char": "[jitter]是弗洛伊德！是荣格！是洛夫特拉夫特！还是[red]瓦库[/red]？是[b][red]我！！！[/b][/red][/jitter]",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-2r.char": "[jitter]是弗洛伊德？是荣格？是洛夫特拉夫特？还是[red]瓦库[/red]？是[b][red]我！！！[/red][/b][/jitter]",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-2r.next": "继续",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.IRONCLAD.0-3r.ancient": "……看来你还没彻底把军团的往事忘记呢。",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-0r.char": "[jitter]去年的今天正适合攀上山顶，快，放下那蓝色的碎片，不要把它装进羊皮缝制的口袋。[/jitter]",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-0r.next": "癫狂",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-1r.char": "[jitter]有眼无珠的腐殖质！连马萨雷斯的信徒都比她们识货！但即使是巨蠕虫也不能把那污血一饮而尽！[/jitter]",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-1r.next": "癫狂",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-2r.char": "[jitter]……开口是弱小……[/jitter]",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-2r.next": "继续",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SLIENT.0-3r.ancient": "……呵呵，有时候还是开口沟通才方便解决问题呢。"
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-0r.char": "[jitter]去年的今天正适合攀上山顶，快，放下那蓝色的碎片，不要把它装进羊皮缝制的口袋。[/jitter]",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-0r.next": "癫狂",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-1r.char": "[jitter]有眼无珠的腐殖质！连马萨雷斯的信徒都比她们识货！但即使是巨蠕虫也不能把那污血一饮而尽！[/jitter]",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-1r.next": "癫狂",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-2r.char": "[jitter]……开口是弱小……[/jitter]",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-2r.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.SILENT.0-3r.ancient": "……呵呵，有时候还是开口沟通才方便解决问题呢。"
 }

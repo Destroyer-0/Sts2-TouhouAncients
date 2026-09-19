@@ -1,9 +1,9 @@
 {
   "TOUHOUANCIENTS.mod_title": "Touhou Ancients",
 
-  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
-  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow (Act 1)",
-  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet (Act 1)",
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Act 1 Ancient Configuration",
+  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
+  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "Disable Ancients",
 

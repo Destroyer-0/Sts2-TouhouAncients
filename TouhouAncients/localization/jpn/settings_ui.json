@@ -1,9 +1,9 @@
 {
   "TOUHOUANCIENTS.mod_title": "東方エンシェント",
 
-  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
-  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow (Act 1)",
-  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet (Act 1)",
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "第1層 Ancient Configuration",
+  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
+  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "エンシェントを無効化",
 
