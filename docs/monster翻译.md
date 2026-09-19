@@ -402,3 +402,38 @@
 | `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter1` | Never give up! |
 | `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter2` | It's time for you to show what you can do! |
 | `TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SLIENT_WEEPING.banter3` | Once you set foot on this path of carnage, there's no turning back! |
+
+## 增量更新（2026-09-19）：辉夜战斗台词
+
+### 台词（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter1` | 到现在为止，已经使无数人败退的这五个难题。 | These five problems have already sent countless challengers fleeing in defeat. |
+| `HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter2` | `{PlayerCount:choose(1):你\|你们}能解开几个呢？` | How many of them can you solve? |
+| `HOURAISAN_KAGUYA_MONSTER.moves.ETERNAL_NIGHT_RETURN.banter` | 见识操纵永远的力量吧。 | Behold the power that commands eternity. |
+
+### 单/多人称呼的富文本设计
+
+- 原 `{multiplayer:你们|你}` 不是本体启用的 SmartFormat 格式化器（`LocManager.LoadLocFormatters` 只注册了 `choose` / `cond` / `plural` / `ismatch` 等），会触发格式化异常并被 `LocManager.SmartFormat` 捕获后原样返回占位符文本，因此改用 `choose`。
+- 写法：`{PlayerCount:choose(1):玩家数为 1 时的文本|其余情况的文本}`，与本体 `{Amount:choose(1):...}`、`{Skills:choose(1):一|{:diff()}}` 保持一致；`choose` 按值的字符串形式比较分支键，不依赖语言文化（不会像 `plural` 那样受 zhs 复数规则影响）。
+- 代码侧（`HouraisanKaguyaMonster.FiveDifficultProblemsMove`）传入变量：`line.Add("PlayerCount", base.Creature.CombatState.Players.Count);`。若忘记传变量，`choose` 无法命中分支键 `1`，文本会一直走默认分支（「你们」）。
+
+### 播放时机（HouraisanKaguyaMonster.cs）
+
+| 台词 | 时机 |
+|------|------|
+| `FIVE_DIFFICULT_PROBLEMS.banter1` | `BeforeCombatStart()`：所有怪物的显示节点生成之后、开战横幅与首回合之前触发，气泡可正常挂在辉夜身上 |
+| `FIVE_DIFFICULT_PROBLEMS.banter2` | `FiveDifficultProblemsMove` 开头，每次施放都播放 |
+| `ETERNAL_NIGHT_RETURN.banter` | `EternalNightReturnMove` 开头，仅首次播放（`_eternalNightReturnBanterPlayed` 标记；永夜归返在状态机循环中会重复出现） |
+
+### 单人妹红局的差分（HouraisanKaguyaMonster.cs）
+
+以上三条辉夜台词在**单人模式且唯一玩家为妹红**时整体跳过，不创建气泡：
+
+- 判定属性 `ShouldSkipBanter`：`CombatState.Players.Count == 1` 且 `CombatState.Players[0].Character.Id.Entry` 含 `MOKOU`（`StringComparison.OrdinalIgnoreCase`，与 `HouraiPuzzleCard` 的判定一致）。
+- 所有播报统一走私有方法 `PlayBanter(LocString line)`，跳过逻辑只在这一处，三条台词的调用点无需各自判断。
+- 妹红的彩蛋台词（`MOKOU_BANTER` / `MOKOU_BANTER2`）由 `HouraiPuzzleCard` 单独播放，此处跳过可避免两套台词混播；多人模式下即使队伍里有妹红，辉夜台词仍正常播放。
+
+> jpn 与 eng 内容一致（jpn 用英语填充）。
+
