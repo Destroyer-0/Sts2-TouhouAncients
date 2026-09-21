@@ -5,11 +5,9 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -51,15 +49,12 @@ public class BottomlessStomach : TouhouAncientRelics
     {
         if (player?.Creature == null) return false;
 
-        HashSet<ModelId> startingRelicIds = player.Character.StartingRelics.Select(r => r.Id).ToHashSet();
-        HashSet<ModelId> ancientRelicIds = ModelDb.AllAncients
-            .SelectMany(x => x.AllPossibleOptions)
-            .Select(o => o.Relic?.CanonicalInstance)
-            .OfType<RelicModel>()
-            .Select(r => r.Id)
-            .ToHashSet();
-
-        return player.Relics.Any(r => !startingRelicIds.Contains(r.Id) && !ancientRelicIds.Contains(r.Id));
+        // 统一用 Rarity 判断，不列举具体遗物：
+        // - 初始遗物（Rarity 为 Starter）：包含「欧洛巴斯之触」等升级后的版本，
+        //   它们已不在 Character.StartingRelics 列表里，但 Rarity 仍是 Starter；
+        // - 先古遗物（Rarity 为 Ancient）：覆盖所有先古事件的选项遗物，
+        //   不必再遍历 ModelDb.AllAncients 去收集 AllPossibleOptions。
+        return player.Relics.Any(r => r.Rarity != RelicRarity.Starter && r.Rarity != RelicRarity.Ancient);
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -87,15 +82,11 @@ public class BottomlessStomach : TouhouAncientRelics
     {
         var player = base.Owner;
 
-        // 获取初始遗物列表
-        var startingRelicIds = player.Character.StartingRelics.Select(r => r.Id).ToHashSet();
-        var ancientRelics = ModelDb.AllAncients.SelectMany(x => x.AllPossibleOptions)
-            .Select((EventOption o) => o.Relic?.CanonicalInstance).OfType<RelicModel>().Select(x => x.Id).ToHashSet();
-
-
-        // 收集要吞噬的遗物（排除初始遗物和自身）
+        // 统一用 Rarity 判断（同 CanAppear）：
+        // - 初始遗物 Rarity 为 Starter，含「欧洛巴斯之触」等升级后的版本；
+        // - 先古遗物 Rarity 为 Ancient，本遗物自身也是 Ancient 稀有度，因此已自动排除。
         var toConsume = player.Relics
-            .Where(r => !startingRelicIds.Contains(r.Id) && r != this && !ancientRelics.Contains(r.Id))
+            .Where(r => r.Rarity != RelicRarity.Starter && r.Rarity != RelicRarity.Ancient)
             .ToList();
 
         int count = toConsume.Count;
