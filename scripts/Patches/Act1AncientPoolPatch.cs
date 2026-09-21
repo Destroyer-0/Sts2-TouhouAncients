@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Unlocks;
 
@@ -18,81 +20,113 @@ namespace TouhouAncients.Scripts.Patches;
 /// 又硬编码为单个涅奥，所以 BaseLib 的 <c>AddCustomAncientsToPool</c> 与 <c>IsValidForAct</c>
 /// 都够不到第一幕。
 ///
-/// 本补丁直接给第一幕的 <c>GetUnlockedAncients</c> 追加候选——与 RitsuLib 的
-/// <c>DynamicActContentPatcher</c> 注入按幕先古之民是同一套机制。原版的 <c>rng.NextItem</c> 会自动
-/// 把它们与涅奥同池均匀抽取（各占 1/(N+1)），因此不需要重抽，也不影响原版随机流。
+/// 实现：Transpiler 在 <c>ActModel.GenerateRooms</c> 里 <c>callvirt GetUnlockedAncients</c> 之后插入一次
+/// <see cref="AppendAct1Ancients"/> 调用，把本 Mod 的一层先古之民追加进候选。原版的
+/// <c>rng.NextItem</c> 会自动把它们与涅奥同池均匀抽取（各占 1/(N+1)），因此不需要重抽，
+/// 也不影响原版随机流。
 ///
-/// 只追加本 Mod 自己的 <see cref="TouhouAncientBase.ShowAct"/> == 1 的先古之民：其他 Mod 的一层
-/// 先古之民由它们自己用同样的方式注入（BaseLib 没有一层注入通道，只声明 <c>IsValidForAct</c>
-/// 不会让它们出现在第一幕）。追加前按 Id 去重，别的补丁已注入过的同一个先古之民不会被算两次。
+/// **为什么 patch <c>ActModel.GenerateRooms</c> 而不是各幕的 <c>GetUnlockedAncients</c>**：
+/// 后者是 abstract、每个幕各一份实现（原版 4 个幕 + 其他 Mod 的幕），想劫持全部幕就得在启动期
+/// 反射枚举 <c>ModelDb.AllAbstractModelSubtypes</c>；而前者是基类上的**非抽象**单一实现
+/// （<c>public void</c>，子类不可 override），patch 它就等于覆盖所有幕——<c>GetUnlockedAncients</c>
+/// 是虚调用，会自然派发到各幕自己的实现，无需知道它们分别在哪。
+/// 好处：既不枚举 Mod 类型（避开 <c>ReflectionHelper.ModTypes</c> 在 ModManager 初始化完成前
+/// 抛异常的坑，也不会连带中断 <c>Entry.Init()</c> 的后续初始化），也能自动覆盖其他 Mod 的幕；
+/// 同时不再依赖挂载时机，无需额外的 Bootstrap 类。
+///
+/// 只追加本 Mod 自己的 <see cref="TouhouAncientBase.ShowAct"/> == 1 的先古之民，且仅当
+/// <c>act.Index == 0</c>（第一幕）时追加；二/三幕与共享池完全不动。追加前按 Id 去重，
+/// 别的补丁已注入过的同一个先古之民不会被算两次。
 /// </summary>
-[HarmonyPatch]
+[HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
 internal static class Act1AncientPoolPatch
 {
     /// <summary>
-    /// 要 patch 的目标：各幕声明实现的 <c>GetUnlockedAncients(UnlockState)</c>。
-    /// 该方法在 <see cref="ActModel"/> 上是 abstract，具体实现分散在各幕（含 Mod 幕继承的基类实现），
-    /// 所以沿 BaseType 向上找「声明且非抽象」的那一个，并按方法去重。
+    /// 原版 <c>ActModel.GenerateRooms</c> 里被虚调用的候选来源方法，Transpiler 以它的调用点为锚。
+    /// 它是 abstract，所以 IL 里的 <c>callvirt</c> 指向的正是 <see cref="ActModel"/> 上声明的这一个。
     /// </summary>
-    private static IEnumerable<MethodBase> TargetMethods()
-    {
-        HashSet<MethodBase> seen = new HashSet<MethodBase>();
+    private static readonly MethodInfo? GetUnlockedAncientsMethod =
+        AccessTools.Method(typeof(ActModel), nameof(ActModel.GetUnlockedAncients), [typeof(UnlockState)]);
 
-        foreach (Type type in ModelDb.AllAbstractModelSubtypes)
+    /// <summary>要插入的追加方法，见 <see cref="AppendAct1Ancients"/>。</summary>
+    private static readonly MethodInfo? AppendMethod =
+        AccessTools.Method(typeof(Act1AncientPoolPatch), nameof(AppendAct1Ancients));
+
+    /// <summary>
+    /// 在 <c>callvirt GetUnlockedAncients</c> 之后插入 <c>ldarg.0</c> + <c>call AppendAct1Ancients</c>。
+    ///
+    /// 该调用点求值后的栈恰好是 <c>[IEnumerable&lt;AncientEventModel&gt;]</c>，紧跟其后压入 <c>this</c>
+    /// 就凑成 <see cref="AppendAct1Ancients"/>(<c>candidates, act</c>) 的实参顺序——这也是为什么
+    /// 该方法的参数顺序是「候选在前、幕实例在后」。插入位置在 <c>Concat(_sharedAncientSubset)</c> 之前，
+    /// 因此 <c>BanAncientPatch</c> 在 <c>Concat</c> 之后插入的过滤逻辑会一并对本 Mod 追加的先古之民生效。
+    /// </summary>
+    [HarmonyTranspiler]
+    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        List<CodeInstruction> codes = instructions.ToList();
+
+        if (GetUnlockedAncientsMethod == null || AppendMethod == null)
         {
-            if (type == null || type.IsAbstract || type.IsInterface || !typeof(ActModel).IsAssignableFrom(type))
+            Log.Error("[TouhouAncients] Act1AncientPoolPatch: 无法解析 GetUnlockedAncients / AppendAct1Ancients，跳过本次注入。");
+            return codes;
+        }
+
+        CodeInstruction[] injected =
+        [
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Call, AppendMethod)
+        ];
+
+        int insertions = 0;
+
+        for (int i = 0; i < codes.Count; i++)
+        {
+            if (!codes[i].Calls(GetUnlockedAncientsMethod))
             {
                 continue;
             }
 
-            MethodInfo? method = FindDeclaredGetUnlockedAncients(type);
-            if (method != null && seen.Add(method))
-            {
-                yield return method;
-            }
+            codes.InsertRange(i + 1, injected);
+            i += injected.Length;
+            insertions++;
         }
-    }
 
-    /// <summary>
-    /// 沿 BaseType 向上找声明了 <c>GetUnlockedAncients(UnlockState)</c> 的非抽象方法，找不到返回 null。
-    /// </summary>
-    private static MethodInfo? FindDeclaredGetUnlockedAncients(Type actType)
-    {
-        const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
-        Type[] parameters = [typeof(UnlockState)];
-
-        for (Type? type = actType; type != null && typeof(ActModel).IsAssignableFrom(type); type = type.BaseType)
+        if (insertions == 0)
         {
-            if (type.GetMethod(nameof(ActModel.GetUnlockedAncients), flags, null, parameters, null) is { IsAbstract: false } method)
-            {
-                return method;
-            }
+            // 原版 GenerateRooms 的 IL 结构变了（游戏更新）：不中断补丁，只是第一幕不再有本 Mod 先古之民。
+            Log.Error("[TouhouAncients] Act1AncientPoolPatch: 未能在 ActModel.GenerateRooms 里定位 GetUnlockedAncients 调用点，第一幕先古之民注入未生效。");
+        }
+        else
+        {
+            Log.Info($"[TouhouAncients] Act1AncientPoolPatch: 已在 ActModel.GenerateRooms 注入 {insertions} 处第一幕先古之民追加。");
         }
 
-        return null;
+        return codes;
     }
 
     /// <summary>
     /// 把本 Mod 的一层先古之民追加进候选列表。只处理第一幕（原版 Overgrowth / Underdocks 的
     /// <c>Index</c> 都是 0），二/三幕与共享池完全不动。
+    ///
+    /// 参数顺序由 Transpiler 的栈布局决定（候选在前、幕实例在后），不要随意调整。
     /// </summary>
-    [HarmonyPostfix]
-    private static void AddAct1Ancients(ActModel __instance, ref IEnumerable<AncientEventModel> __result)
+    private static IEnumerable<AncientEventModel> AppendAct1Ancients(IEnumerable<AncientEventModel> candidates, ActModel act)
     {
-        if (__instance.Index != 0 || __result == null)
+        List<AncientEventModel> existing = candidates.ToList();
+
+        if (act.Index != 0)
         {
-            return;
+            return existing;
         }
 
-        List<AncientEventModel> existing = __result.ToList();
-        List<AncientEventModel> candidates = CollectAct1Ancients(existing);
-        if (candidates.Count == 0)
+        List<AncientEventModel> extra = CollectAct1Ancients(existing);
+        if (extra.Count == 0)
         {
-            return;
+            return existing;
         }
 
         // 追加在末尾：原版 NextItem 按下标抽取，候选顺序只取决于排序结果，各端一致。
-        __result = existing.Concat(candidates);
+        return existing.Concat(extra);
     }
 
     /// <summary>

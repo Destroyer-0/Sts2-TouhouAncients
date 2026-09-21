@@ -115,9 +115,6 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         }
     }
 
-    /// <summary>
-    /// 播放辉夜的台词（紫色气泡，长时长）。单人妹红局直接跳过，不创建气泡。
-    /// </summary>
     private void PlayBanter(LocString line)
     {
         if (ShouldSkipBanter)
@@ -125,7 +122,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
             return;
         }
 
-        TalkCmd.Play(line, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+        TalkCmd.Play(line, base.Creature, VfxColor.White, VfxDuration.VeryLong);
     }
 
     // --- 出生 Buff ---
@@ -143,16 +140,6 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         RefreshIntangibleTransparency();
     }
 
-    /// <summary>
-    /// 战斗开始时播放开场台词。该钩子在所有怪物的显示节点生成之后、开战横幅与首回合之前触发，
-    /// 因此气泡能正常挂在辉夜身上（此时无实体已由 <see cref="AfterAddedToRoom"/> 施加完毕）。
-    /// 单人妹红局跳过（见 <see cref="ShouldSkipBanter"/>）。
-    /// </summary>
-    public override Task BeforeCombatStart()
-    {
-        PlayBanter(_battleStartLine);
-        return Task.CompletedTask;
-    }
 
     /// <summary>
     /// 怪物移出房间时取消能力事件订阅，避免事件残留引用已结束战斗的怪物。
@@ -277,13 +264,8 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task FiveDifficultProblemsMove(IReadOnlyList<Creature> targets)
     {
-        // 台词：传入玩家数，文本内 choose 分支据此在「你」与「你们」之间选择
-        // （无法取得战斗状态时按单人处理，保证变量始终存在，避免 choose 落到默认分支；
-        //  单人妹红局由 PlayBanter 内部跳过）
-        int playerCount = base.Creature.CombatState?.Players.Count ?? 1;
-        LocString line = new LocString("monsters", FiveDifficultProblemsLineKey);
-        line.Add("PlayerCount", playerCount);
-        PlayBanter(line);
+        PlayBanter(_battleStartLine);
+        await Cmd.Wait(1f);
 
         SwitchToTrueForm();
         // 背景开场为暗色（kaguya_background.tscn 根节点 modulate），释放五道难题后 1 秒转亮。
@@ -313,6 +295,14 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
         
         await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
 
+        // 台词：传入玩家数，文本内 choose 分支据此在「你」与「你们」之间选择
+        // （无法取得战斗状态时按单人处理，保证变量始终存在，避免 choose 落到默认分支；
+        //  单人妹红局由 PlayBanter 内部跳过）
+        int playerCount = base.Creature.CombatState?.Players.Count ?? 1;
+        LocString line = new LocString("monsters", FiveDifficultProblemsLineKey);
+        line.Add("PlayerCount", playerCount);
+        PlayBanter(line);
+        
         if (base.Creature.CombatState.Encounter is TouhouAncientEncounter encounter && !string.IsNullOrEmpty(encounter.BgmFileName))
         {
             EncounterBgm.Start(encounter.BgmFileName, FiveDifficultProblemsBgmFadeInSeconds);
