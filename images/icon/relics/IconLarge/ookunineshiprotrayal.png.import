@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm5s4g02bq2bl"
-path="res://.godot/imported/ookunineshiprotrayal.png-55759156473b6f477a4a8373a0799bc4.ctex"
+uid="uid://u1g2dfv5ryd5"
+path="res://.godot/imported/OokunineshiProtrayal.png-30736eab7e5c117ce9b73c02803a7f50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/ookunineshiprotrayal.png"
-dest_files=["res://.godot/imported/ookunineshiprotrayal.png-55759156473b6f477a4a8373a0799bc4.ctex"]
+source_file="res://images/icon/relics/IconLarge/OokunineshiProtrayal.png"
+dest_files=["res://.godot/imported/OokunineshiProtrayal.png-30736eab7e5c117ce9b73c02803a7f50.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dob34rpkc0k86"
-path="res://.godot/imported/yinyangorb.png-d8e981cc00a4169ba69146bf2b3f15a2.ctex"
+uid="uid://djiv0w1onpqmk"
+path="res://.godot/imported/YinYangOrb.png-c42fc6c9a1345ece4b983beb6f7f9010.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/yinyangorb.png"
-dest_files=["res://.godot/imported/yinyangorb.png-d8e981cc00a4169ba69146bf2b3f15a2.ctex"]
+source_file="res://images/icon/relics/YinYangOrb.png"
+dest_files=["res://.godot/imported/YinYangOrb.png-c42fc6c9a1345ece4b983beb6f7f9010.ctex"]
 
 [params]
 

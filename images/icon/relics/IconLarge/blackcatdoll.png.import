@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cje7dp3b0fv0i"
-path="res://.godot/imported/blackcatdoll.png-51c561da101168011d83a9f681f47101.ctex"
+uid="uid://bhn8yd3btkl6r"
+path="res://.godot/imported/BlackCatDoll.png-5b181e3350dc3e7d3048e4ca40cd7bf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/blackcatdoll.png"
-dest_files=["res://.godot/imported/blackcatdoll.png-51c561da101168011d83a9f681f47101.ctex"]
+source_file="res://images/icon/relics/IconLarge/BlackCatDoll.png"
+dest_files=["res://.godot/imported/BlackCatDoll.png-5b181e3350dc3e7d3048e4ca40cd7bf3.ctex"]
 
 [params]
 

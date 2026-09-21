@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jg0skcujo8vt"
-path="res://.godot/imported/yonghengkaijiawangchaole.png-7a20f91ecaec41c4281ed2de226fcf92.ctex"
+uid="uid://do077snjwij3l"
+path="res://.godot/imported/Yonghengkaijiawangchaole.png-38ee7667b98837beda1db781ef4048be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/yonghengkaijiawangchaole.png"
-dest_files=["res://.godot/imported/yonghengkaijiawangchaole.png-7a20f91ecaec41c4281ed2de226fcf92.ctex"]
+source_file="res://images/icon/relics/IconLarge/Yonghengkaijiawangchaole.png"
+dest_files=["res://.godot/imported/Yonghengkaijiawangchaole.png-38ee7667b98837beda1db781ef4048be.ctex"]
 
 [params]
 

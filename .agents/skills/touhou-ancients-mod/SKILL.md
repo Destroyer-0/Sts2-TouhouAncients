@@ -30,7 +30,7 @@ Follow this skill when working in the TouhouAncients repository.
 - Use namespace `TouhouAncients.Scripts.relics`.
 - Inherit `TouhouAncientRelics`.
 - Add `[Pool(typeof(SharedRelicPool))]`.
-- The base class resolves icons from the lowercase class name under `res://images/icon/relics/`.
+- The base class resolves icons from the class name under `res://images/icon/relics/` (`{ClassName}.png`, big icon `IconLarge/{ClassName}.png`).
 - In multiplayer-sensitive hooks, check ownership such as `player != base.Owner`.
 - Register a type in `Entry.cs` with `SavedPropertiesTypeCache.InjectTypeIntoCache` only when it has `[SavedProperty]`.
 

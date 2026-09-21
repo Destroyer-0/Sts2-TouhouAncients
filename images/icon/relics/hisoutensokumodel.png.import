@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c15qhow60sirs"
-path="res://.godot/imported/hisoutensokumodel.png-f77cea82230fbc8b7471490c6ffc696d.ctex"
+uid="uid://bqtp8k6k0byyo"
+path="res://.godot/imported/HisoutensokuModel.png-8e37634c83c18b6be829e93bb73ac49a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/hisoutensokumodel.png"
-dest_files=["res://.godot/imported/hisoutensokumodel.png-f77cea82230fbc8b7471490c6ffc696d.ctex"]
+source_file="res://images/icon/relics/HisoutensokuModel.png"
+dest_files=["res://.godot/imported/HisoutensokuModel.png-8e37634c83c18b6be829e93bb73ac49a.ctex"]
 
 [params]
 

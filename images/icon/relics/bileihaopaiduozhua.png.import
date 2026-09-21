@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://67m564v38khl"
-path="res://.godot/imported/bileihaopaiduozhua.png-a24aa1bec3eafdb0951a93d831194ba5.ctex"
+uid="uid://bbsloavka8py0"
+path="res://.godot/imported/Bileihaopaiduozhua.png-2b4995c201510ae826d1b89d222ff94e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/bileihaopaiduozhua.png"
-dest_files=["res://.godot/imported/bileihaopaiduozhua.png-a24aa1bec3eafdb0951a93d831194ba5.ctex"]
+source_file="res://images/icon/relics/Bileihaopaiduozhua.png"
+dest_files=["res://.godot/imported/Bileihaopaiduozhua.png-2b4995c201510ae826d1b89d222ff94e.ctex"]
 
 [params]
 

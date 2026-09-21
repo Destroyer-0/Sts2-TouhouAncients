@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjfvn2o2alr3s"
-path="res://.godot/imported/fakespiritorb.png-e2ae0ca3e05e341ccd5589be01e4b7dc.ctex"
+uid="uid://3p533f3nohhm"
+path="res://.godot/imported/FakeSpiritOrb.png-cf069e025ebdbf5c4ecb6e856dafd0d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/fakespiritorb.png"
-dest_files=["res://.godot/imported/fakespiritorb.png-e2ae0ca3e05e341ccd5589be01e4b7dc.ctex"]
+source_file="res://images/icon/relics/FakeSpiritOrb.png"
+dest_files=["res://.godot/imported/FakeSpiritOrb.png-cf069e025ebdbf5c4ecb6e856dafd0d6.ctex"]
 
 [params]
 

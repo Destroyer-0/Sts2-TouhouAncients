@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cptpw20iqphrf"
-path="res://.godot/imported/ryukeinotama.png-ec1b6764c4e747443027c313d401120c.ctex"
+uid="uid://dqqruivp3mx3i"
+path="res://.godot/imported/RyukeiNoTama.png-23bc566ccac893382bea12d779f986a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/ryukeinotama.png"
-dest_files=["res://.godot/imported/ryukeinotama.png-ec1b6764c4e747443027c313d401120c.ctex"]
+source_file="res://images/icon/relics/RyukeiNoTama.png"
+dest_files=["res://.godot/imported/RyukeiNoTama.png-23bc566ccac893382bea12d779f986a9.ctex"]
 
 [params]
 

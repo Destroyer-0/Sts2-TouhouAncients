@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmmjxuqhuogkr"
-path="res://.godot/imported/smokedfan.png-562002afe3059e9d8bf4390c9a46fe12.ctex"
+uid="uid://cxlxwpojx8aft"
+path="res://.godot/imported/SmokedFan.png-82c2a31821b8aba6191010b13e21b761.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/smokedfan.png"
-dest_files=["res://.godot/imported/smokedfan.png-562002afe3059e9d8bf4390c9a46fe12.ctex"]
+source_file="res://images/icon/relics/SmokedFan.png"
+dest_files=["res://.godot/imported/SmokedFan.png-82c2a31821b8aba6191010b13e21b761.ctex"]
 
 [params]
 

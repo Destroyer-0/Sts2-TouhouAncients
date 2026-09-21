@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djlgl46ui2o4m"
-path="res://.godot/imported/tsubamenokoyasugai.png-c13bebf78b5e695b126ed911c66cb9b4.ctex"
+uid="uid://b2tuyfjep6cvy"
+path="res://.godot/imported/TsubameNoKoyasugai.png-51a51dbf21b424b6ba22544057b42f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/tsubamenokoyasugai.png"
-dest_files=["res://.godot/imported/tsubamenokoyasugai.png-c13bebf78b5e695b126ed911c66cb9b4.ctex"]
+source_file="res://images/icon/relics/TsubameNoKoyasugai.png"
+dest_files=["res://.godot/imported/TsubameNoKoyasugai.png-51a51dbf21b424b6ba22544057b42f69.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctuucr110ronf"
-path="res://.godot/imported/invisibilitycloth.png-10193aeb638992fa4225c0cd799ff868.ctex"
+uid="uid://bq5dmpod712ci"
+path="res://.godot/imported/InvisibilityCloth.png-1552548dd88f0d02882cbd8ad230d7ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/invisibilitycloth.png"
-dest_files=["res://.godot/imported/invisibilitycloth.png-10193aeb638992fa4225c0cd799ff868.ctex"]
+source_file="res://images/icon/relics/InvisibilityCloth.png"
+dest_files=["res://.godot/imported/InvisibilityCloth.png-1552548dd88f0d02882cbd8ad230d7ee.ctex"]
 
 [params]
 

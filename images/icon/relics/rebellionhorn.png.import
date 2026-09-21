@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwhumdv3cear6"
-path="res://.godot/imported/rebellionhorn.png-3a9d88ff3c27d8b9e39b73b5df6b0973.ctex"
+uid="uid://bc8clpqjvtpnf"
+path="res://.godot/imported/RebellionHorn.png-525e45fbfbc70eaafdc10577038e9643.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/rebellionhorn.png"
-dest_files=["res://.godot/imported/rebellionhorn.png-3a9d88ff3c27d8b9e39b73b5df6b0973.ctex"]
+source_file="res://images/icon/relics/RebellionHorn.png"
+dest_files=["res://.godot/imported/RebellionHorn.png-525e45fbfbc70eaafdc10577038e9643.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgbcacgwp77p5"
-path="res://.godot/imported/yishixingqile.png-a901c0ff7c27da5b904500f8ec91fd85.ctex"
+uid="uid://dbxvxolqp410e"
+path="res://.godot/imported/Yishixingqile.png-79aba58a8fb756449d594be8753813ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/yishixingqile.png"
-dest_files=["res://.godot/imported/yishixingqile.png-a901c0ff7c27da5b904500f8ec91fd85.ctex"]
+source_file="res://images/icon/relics/IconLarge/Yishixingqile.png"
+dest_files=["res://.godot/imported/Yishixingqile.png-79aba58a8fb756449d594be8753813ec.ctex"]
 
 [params]
 

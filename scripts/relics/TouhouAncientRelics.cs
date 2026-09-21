@@ -16,18 +16,18 @@ public abstract class TouhouAncientRelics : CustomRelicModel
 
     // 小图标（原版85x85）
     public override string PackedIconPath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png",
+        $"res://images/icon/relics/{GetType().Name}.png",
         $"res://images/icon/relics/{DefaultFileName}.png");
 
     // 轮廓图标（原版85x85）
     protected override string PackedIconOutlinePath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png",
+        $"res://images/icon/relics/{GetType().Name}.png",
         $"res://images/icon/relics/{DefaultFileName}.png");
 
     // 大图标（原版256x256）
     protected override string BigIconPath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/icon/relics/IconLarge/{GetType().Name.ToLowerInvariant()}.png",
+        $"res://images/icon/relics/IconLarge/{GetType().Name}.png",
         TouhouAncientCmd.CheckPathExistsWithFallback(
-            $"res://images/icon/relics/{GetType().Name.ToLowerInvariant()}.png",
+            $"res://images/icon/relics/{GetType().Name}.png",
             $"res://images/icon/relics/IconLarge/{DefaultFileName}.png"));
 }

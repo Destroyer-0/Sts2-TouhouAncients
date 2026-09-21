@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc3tq8kdu1t3q"
-path="res://.godot/imported/suspicioustoken.png-a1529dc2b72c467d701ff9e230099bba.ctex"
+uid="uid://ddscnp2t37xkg"
+path="res://.godot/imported/SuspiciousToken.png-bc0a90b4cb4712f4027ba08c4d0e5897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/suspicioustoken.png"
-dest_files=["res://.godot/imported/suspicioustoken.png-a1529dc2b72c467d701ff9e230099bba.ctex"]
+source_file="res://images/icon/relics/SuspiciousToken.png"
+dest_files=["res://.godot/imported/SuspiciousToken.png-bc0a90b4cb4712f4027ba08c4d0e5897.ctex"]
 
 [params]
 

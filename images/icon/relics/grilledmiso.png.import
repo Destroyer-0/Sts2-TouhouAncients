@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bieabjmpmk2lt"
-path="res://.godot/imported/grilledmiso.png-f87e1bbe4389bebe150c972727485186.ctex"
+uid="uid://lyjlxhfayq7i"
+path="res://.godot/imported/GrilledMiso.png-1e4def1ab655e608847cdccdc9a90057.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/grilledmiso.png"
-dest_files=["res://.godot/imported/grilledmiso.png-f87e1bbe4389bebe150c972727485186.ctex"]
+source_file="res://images/icon/relics/GrilledMiso.png"
+dest_files=["res://.godot/imported/GrilledMiso.png-1e4def1ab655e608847cdccdc9a90057.ctex"]
 
 [params]
 

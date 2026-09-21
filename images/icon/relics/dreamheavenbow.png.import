@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brbp5hjq65dnk"
-path="res://.godot/imported/dreamheavenbow.png-a2d5a631e9407c3e7666e690b25a97c3.ctex"
+uid="uid://cmfhug17wwtas"
+path="res://.godot/imported/DreamHeavenBow.png-13145e4a9873e7e3ee307a4cac3003c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/dreamheavenbow.png"
-dest_files=["res://.godot/imported/dreamheavenbow.png-a2d5a631e9407c3e7666e690b25a97c3.ctex"]
+source_file="res://images/icon/relics/DreamHeavenBow.png"
+dest_files=["res://.godot/imported/DreamHeavenBow.png-13145e4a9873e7e3ee307a4cac3003c2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bss48u2faq4yc"
-path="res://.godot/imported/moriyagohei.png-b674d743635bc9c469f0e62476015ec4.ctex"
+uid="uid://cxl3h0bun6v7h"
+path="res://.godot/imported/MoriyaGohei.png-c970ba164f65aa7049425fe83b4e6dd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/moriyagohei.png"
-dest_files=["res://.godot/imported/moriyagohei.png-b674d743635bc9c469f0e62476015ec4.ctex"]
+source_file="res://images/icon/relics/MoriyaGohei.png"
+dest_files=["res://.godot/imported/MoriyaGohei.png-c970ba164f65aa7049425fe83b4e6dd1.ctex"]
 
 [params]
 

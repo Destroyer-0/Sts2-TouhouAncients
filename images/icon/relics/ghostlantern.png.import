@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g111i58undix"
-path="res://.godot/imported/ghostlantern.png-87574628da28ca602fd643e5bacd1b14.ctex"
+uid="uid://dk7rfftsb6ffc"
+path="res://.godot/imported/GhostLantern.png-f4ac3bbfbeba1cf47f526dffd7fb1ef8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/ghostlantern.png"
-dest_files=["res://.godot/imported/ghostlantern.png-87574628da28ca602fd643e5bacd1b14.ctex"]
+source_file="res://images/icon/relics/GhostLantern.png"
+dest_files=["res://.godot/imported/GhostLantern.png-f4ac3bbfbeba1cf47f526dffd7fb1ef8.ctex"]
 
 [params]
 

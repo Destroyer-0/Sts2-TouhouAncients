@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e3wvbphvkmrp"
-path="res://.godot/imported/huoyantuxi.png-20dbe5efdfb53aa124d1460ea3bb94eb.ctex"
+uid="uid://b1psmey1cqoiw"
+path="res://.godot/imported/Huoyantuxi.png-73e8c6ccafefabfd5956efbe1b7f099b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/huoyantuxi.png"
-dest_files=["res://.godot/imported/huoyantuxi.png-20dbe5efdfb53aa124d1460ea3bb94eb.ctex"]
+source_file="res://images/icon/relics/Huoyantuxi.png"
+dest_files=["res://.godot/imported/Huoyantuxi.png-73e8c6ccafefabfd5956efbe1b7f099b.ctex"]
 
 [params]
 

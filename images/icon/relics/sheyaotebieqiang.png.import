@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpw5dlnbiy6nj"
-path="res://.godot/imported/sheyaotebieqiang.png-1fdd01864bdf2d589678b4af7106bfa9.ctex"
+uid="uid://b45buitm2seh3"
+path="res://.godot/imported/Sheyaotebieqiang.png-d5b82657ccd0fe6c4e16be4658493348.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/sheyaotebieqiang.png"
-dest_files=["res://.godot/imported/sheyaotebieqiang.png-1fdd01864bdf2d589678b4af7106bfa9.ctex"]
+source_file="res://images/icon/relics/Sheyaotebieqiang.png"
+dest_files=["res://.godot/imported/Sheyaotebieqiang.png-d5b82657ccd0fe6c4e16be4658493348.ctex"]
 
 [params]
 

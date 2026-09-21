@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbgnv5c5cl7jm"
-path="res://.godot/imported/hinezuminokawagoromo.png-461bc638d3e0c086f1c66035784c69a7.ctex"
+uid="uid://errldl7mqqc0"
+path="res://.godot/imported/HinezumiNoKawagoromo.png-3bba884d8f8c0af9c597badda1115145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/hinezuminokawagoromo.png"
-dest_files=["res://.godot/imported/hinezuminokawagoromo.png-461bc638d3e0c086f1c66035784c69a7.ctex"]
+source_file="res://images/icon/relics/HinezumiNoKawagoromo.png"
+dest_files=["res://.godot/imported/HinezumiNoKawagoromo.png-3bba884d8f8c0af9c597badda1115145.ctex"]
 
 [params]
 

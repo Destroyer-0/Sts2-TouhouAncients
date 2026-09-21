@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpnoyt0s4jvu"
-path="res://.godot/imported/batterybili.png-071e48293d6631f46eed16ebdf46500f.ctex"
+uid="uid://d3b0yavi4gqh4"
+path="res://.godot/imported/BatteryBili.png-c1294f70923d345357e0dff3515a7333.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/batterybili.png"
-dest_files=["res://.godot/imported/batterybili.png-071e48293d6631f46eed16ebdf46500f.ctex"]
+source_file="res://images/icon/relics/BatteryBili.png"
+dest_files=["res://.godot/imported/BatteryBili.png-c1294f70923d345357e0dff3515a7333.ctex"]
 
 [params]
 
