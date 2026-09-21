@@ -32,25 +32,30 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
         HoverTipFactory.ForEnergy(this),
     ];
 
+    /// <summary>
+    /// 战斗未进行期间（战斗入场阶段）累积的覆甲数量，等待玩家回合开始重置能量时一次性结算为能量。
+    /// </summary>
     private int _shouldAddEnergyAfterReset;
-    private bool _canAddEnergy;
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
         if (room is CombatRoom)
         {
-            _canAddEnergy = false;
             Flash();
             await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(),base.Owner.Creature, base.DynamicVars["PlatingPower"].BaseValue, base.Owner.Creature, null);
         }
     }
 
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        _shouldAddEnergyAfterReset = 0;
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterEnergyReset(Player player)
     {
         if (player != Owner) return;
-        if (_canAddEnergy) return;
         if (_shouldAddEnergyAfterReset <= 0) return;
-        _canAddEnergy = true;
         Flash();
         await PlayerCmd.GainEnergy(_shouldAddEnergyAfterReset, base.Owner);
         _shouldAddEnergyAfterReset = 0;
@@ -69,7 +74,7 @@ public class Yonghengkaijiawangchaole : TouhouAncientRelics
         if (power is PlatingPower platingPower && power.Owner == base.Owner.Creature && amount > 0)
         {
             GD.PrintErr($"获得覆甲{amount}，当前层数={platingPower.Amount}");
-            if (_canAddEnergy)
+            if (CombatManager.Instance.IsInProgress)
             {
                 Flash();
                 await PlayerCmd.GainEnergy(1m, base.Owner);
