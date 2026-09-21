@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bvn40ua5cw2ey" path="res://images/sprite/marisa/damage2.png" id="5_bs1sh"]
 [ext_resource type="Texture2D" uid="uid://b5aqxv46l8gk6" path="res://images/sprite/marisa/jump_fall.png" id="7_2o2we"]
 [ext_resource type="Texture2D" uid="uid://dmt6dbx4g832j" path="res://images/sprite/kaguya/Kaguya.png" id="7_jrgus"]
-[ext_resource type="Texture2D" uid="uid://b8pt47gnj5iy2" path="res://images/sprite/kaguya/6B蓬莱山輝夜(旧).png" id="22_kaguya_old"]
 [ext_resource type="Texture2D" uid="uid://3jb7a57ounb2" path="res://images/sprite/marisa/jump_rise.png" id="8_jrgus"]
 [ext_resource type="Texture2D" uid="uid://ceky61uto5c73" path="res://images/sprite/marisa/shot_front.png" id="9_883hp"]
 [ext_resource type="Texture2D" uid="uid://bxwyhc7iei7vu" path="res://images/sprite/marisa/roll.png" id="10_ampe7"]
@@ -17,11 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://dj8q3chu7gjti" path="res://images/sprite/marisa/attack_throw_a.png" id="14_sm15p"]
 [ext_resource type="Texture2D" uid="uid://ctdjbnpihhpkh" path="res://images/sprite/marisa/attack_throw_b.png" id="15_8tpeg"]
 [ext_resource type="Script" uid="uid://ccratu3tsctmf" path="res://scripts/Vfx/HouraisanKaguyaVisuals.cs" id="16_visuals"]
-[ext_resource type="Texture2D" uid="uid://cptpw20iqphrf" path="res://images/icon/relics/RyukeiNoTama.png" id="17_puzzle0"]
-[ext_resource type="Texture2D" uid="uid://dbgnv5c5cl7jm" path="res://images/icon/relics/HinezumiNoKawagoromo.png" id="18_puzzle1"]
-[ext_resource type="Texture2D" uid="uid://djlgl46ui2o4m" path="res://images/icon/relics/TsubameNoKoyasugai.png" id="19_puzzle2"]
-[ext_resource type="Texture2D" uid="uid://bu28tl1g2dcud" path="res://images/icon/relics/HotokeMishiIshiNoHachi.png" id="20_puzzle3"]
-[ext_resource type="Texture2D" uid="uid://nx6t5ft0piro" path="res://images/icon/relics/HouraiNoTamae.png" id="21_puzzle4"]
+[ext_resource type="Texture2D" uid="uid://brxwyfcrndy66" path="res://images/icon/relics/RyukeiNoTama.png" id="18_jrgus"]
+[ext_resource type="Texture2D" uid="uid://bubsk7v0rk5jk" path="res://images/icon/relics/HinezumiNoKawagoromo.png" id="19_883hp"]
+[ext_resource type="Texture2D" uid="uid://cf8k82tm8vhhb" path="res://images/icon/relics/TsubameNoKoyasugai.png" id="20_ampe7"]
+[ext_resource type="Texture2D" uid="uid://bkvmrsxhneee6" path="res://images/icon/relics/HotokeMishiIshiNoHachi.png" id="21_j2ffx"]
+[ext_resource type="Texture2D" uid="uid://bsm0r24blv5qr" path="res://images/icon/relics/HouraiNoTamae.png" id="22_4i3bg"]
+[ext_resource type="Texture2D" uid="uid://b8pt47gnj5iy2" path="res://images/sprite/kaguya/6B蓬莱山輝夜(旧).png" id="22_kaguya_old"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxbod"]
 atlas = ExtResource("1_v0abm")
@@ -99,6 +99,14 @@ region = Rect2(128, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("7_jrgus")
+}],
+"loop": true,
+"name": &"awakened_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nxbod")
 }, {
 "duration": 1.0,
@@ -155,14 +163,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_jrgus")
-}],
-"loop": true,
-"name": &"awakened_idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -520,22 +520,22 @@ unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(0.99999994, -163)
 scale = Vector2(0.4, 0.4)
-flip_h = true
 sprite_frames = SubResource("SpriteFrames_olr8y")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.31769514
 offset = Vector2(-2, -29.333336)
+flip_h = true
 
 [node name="PuzzleRoot" type="Node2D" parent="Visuals"]
 position = Vector2(0, 279.99994)
-scale = Vector2(3, 2.5)
+scale = Vector2(3, 3)
 
 [node name="Puzzle0" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
 position = Vector2(-195.90514, -145.83057)
 scale = Vector2(0.11126191, 0.11126191)
-texture = ExtResource("17_puzzle0")
+texture = ExtResource("18_jrgus")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle0"]
 layout_mode = 3
@@ -549,7 +549,7 @@ offset_bottom = 205.0
 texture_filter = 1
 position = Vector2(-28.1846, -231.08739)
 scale = Vector2(0.08545837, 0.08545837)
-texture = ExtResource("18_puzzle1")
+texture = ExtResource("19_883hp")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle1"]
 layout_mode = 3
@@ -563,7 +563,7 @@ offset_bottom = 205.0
 texture_filter = 1
 position = Vector2(178.49442, -173.92976)
 scale = Vector2(0.102774575, 0.102774575)
-texture = ExtResource("19_puzzle2")
+texture = ExtResource("20_ampe7")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle2"]
 layout_mode = 3
@@ -577,7 +577,7 @@ offset_bottom = 205.0
 texture_filter = 1
 position = Vector2(138.50168, -53.23879)
 scale = Vector2(0.13930573, 0.13930573)
-texture = ExtResource("20_puzzle3")
+texture = ExtResource("21_j2ffx")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle3"]
 layout_mode = 3
@@ -591,7 +591,7 @@ offset_bottom = 205.0
 texture_filter = 1
 position = Vector2(-92.90638, -35.936405)
 scale = Vector2(0.14455146, 0.14455146)
-texture = ExtResource("21_puzzle4")
+texture = ExtResource("22_4i3bg")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle4"]
 layout_mode = 3
