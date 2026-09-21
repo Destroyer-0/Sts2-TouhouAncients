@@ -89,7 +89,7 @@
 
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess’s Puzzle",
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]12[/blue] [gold]Block[/gold] at the start of her turn.",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n[red]{PuzzleNum}[/red] puzzles remain unsolved, granting [blue]{GainBlock}[/blue] [gold]Block[/gold].",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n[red]{PuzzleNum}[/red] puzzles remain unsolved, granting [blue]{GainBlock}[/blue] [gold]Block[/gold].\n[thinky_dots][i]There were five impossible requests that nobody could solve.\nHowever, the long passing of years and the power of phantasm were enough for these requests to be fulfilled.[/i][/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "Scorching Body",
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "At the start of your turn, add [blue]1[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",

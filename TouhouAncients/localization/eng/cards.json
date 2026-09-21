@@ -11,13 +11,13 @@
     "TOUHOUANCIENTS-DREAM_SEAL.title": "Dream Seal",
     "TOUHOUANCIENTS-DREAM_SEAL.description": "Deal {Damage:diff()} damage [blue]6[/blue] times to ALL enemies.\nIf an enemy intents to Attack, Apply [blue]1[/blue] [gold]Vulnerable[/gold], it loses {StrengthLoss:diff()} [gold]Strength[/gold] this turn.\n[b]Extermination, decided.[/b]",
 
-    "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "Servant of Time",
+    "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "Minion of Time",
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "Add {Cards:diff()} [gold]Shiv[/gold] into your [gold]Hand[/gold].\nAt the end of this turn, for each card [gold]Exhausted[/gold] this turn, deal {Damage:diff()} damage to the target.",
 
-    "TOUHOUANCIENTS-SERVANT_PATCHOULI.title": "Servant of Magic",
-    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "Add [gold]Ethereal[/gold] to all non-Servant cards in your [gold]Hand[/gold].\nGain {Energy:energyIcons()}.\nAdd {Cards} [gold]Dazed[/gold] into your [gold]Hand[/gold].",
+    "TOUHOUANCIENTS-SERVANT_PATCHOULI.title": "Minion of Magic",
+    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "Add [gold]Ethereal[/gold] to all non-Minion cards in your [gold]Hand[/gold].\nGain {Energy:energyIcons()}.\nAdd {Cards} [gold]Dazed[/gold] into your [gold]Hand[/gold].",
 
-    "TOUHOUANCIENTS-SERVANT_HONGMEILING.title": "Servant of Qi",
+    "TOUHOUANCIENTS-SERVANT_HONGMEILING.title": "Minion of Qi",
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "Gain {Block:diff()} [gold]Block[/gold].\nThis turn, gain [gold]Vigor[/gold] equal to half the Attack damage prevented by [gold]Block[/gold].",
 
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.title": "Heaven of Scarlet Perception for All Humankind",
