@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duqwud6w873bb"
-path="res://.godot/imported/sailorsuit.png-b8a0a1d6d950c37944ca677c3412d864.ctex"
+uid="uid://nx3i5kkww3wl"
+path="res://.godot/imported/SailorSuit.png-53462dac8e362a08b8fd1c27a3757396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/sailorsuit.png"
-dest_files=["res://.godot/imported/sailorsuit.png-b8a0a1d6d950c37944ca677c3412d864.ctex"]
+source_file="res://images/icon/relics/IconLarge/SailorSuit.png"
+dest_files=["res://.godot/imported/SailorSuit.png-53462dac8e362a08b8fd1c27a3757396.ctex"]
 
 [params]
 

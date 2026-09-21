@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu28tl1g2dcud"
-path="res://.godot/imported/hotokemishiishinohachi.png-81ca65863f051f5361f274783471b0cb.ctex"
+uid="uid://j1kt5lhra78b"
+path="res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/hotokemishiishinohachi.png"
-dest_files=["res://.godot/imported/hotokemishiishinohachi.png-81ca65863f051f5361f274783471b0cb.ctex"]
+source_file="res://images/icon/relics/HotokeMishiIshiNoHachi.png"
+dest_files=["res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"]
 
 [params]
 

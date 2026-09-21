@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blxbtvin8qj3v"
-path="res://.godot/imported/hungrybackpack.png-a5dd5e8295aac46c231d167a1410974f.ctex"
+uid="uid://ckv7i04bw3e3a"
+path="res://.godot/imported/HungryBackpack.png-898a140b2581ed58161dcaca9311eeeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/hungrybackpack.png"
-dest_files=["res://.godot/imported/hungrybackpack.png-a5dd5e8295aac46c231d167a1410974f.ctex"]
+source_file="res://images/icon/relics/HungryBackpack.png"
+dest_files=["res://.godot/imported/HungryBackpack.png-898a140b2581ed58161dcaca9311eeeb.ctex"]
 
 [params]
 

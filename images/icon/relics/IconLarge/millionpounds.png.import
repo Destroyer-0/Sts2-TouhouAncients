@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ir4qa04rso7q"
-path="res://.godot/imported/millionpounds.png-4e5cf48bd7f0f9b5b54e81b612b051e3.ctex"
+uid="uid://cgpswicfa0tbe"
+path="res://.godot/imported/MillionPounds.png-933ab00552700e9b34a3cac60d0a0714.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/millionpounds.png"
-dest_files=["res://.godot/imported/millionpounds.png-4e5cf48bd7f0f9b5b54e81b612b051e3.ctex"]
+source_file="res://images/icon/relics/IconLarge/MillionPounds.png"
+dest_files=["res://.godot/imported/MillionPounds.png-933ab00552700e9b34a3cac60d0a0714.ctex"]
 
 [params]
 

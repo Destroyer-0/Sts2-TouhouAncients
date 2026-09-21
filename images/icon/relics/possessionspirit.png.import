@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5wktlux32njv"
-path="res://.godot/imported/possessionspirit.png-13e9f6cb695dc52bdb758687e204c050.ctex"
+uid="uid://bc8b76iwm0j4q"
+path="res://.godot/imported/PossessionSpirit.png-a23bf75d44e1d47d010328834d20a127.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/possessionspirit.png"
-dest_files=["res://.godot/imported/possessionspirit.png-13e9f6cb695dc52bdb758687e204c050.ctex"]
+source_file="res://images/icon/relics/PossessionSpirit.png"
+dest_files=["res://.godot/imported/PossessionSpirit.png-a23bf75d44e1d47d010328834d20a127.ctex"]
 
 [params]
 

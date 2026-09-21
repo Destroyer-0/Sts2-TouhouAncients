@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nx6t5ft0piro"
-path="res://.godot/imported/hourainotamae.png-c84ddcf2d5e865e71f703372a158f108.ctex"
+uid="uid://dvm76jdyuwlr0"
+path="res://.godot/imported/HouraiNoTamae.png-f22fed71b108d1711e21fcaf67aedd8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/hourainotamae.png"
-dest_files=["res://.godot/imported/hourainotamae.png-c84ddcf2d5e865e71f703372a158f108.ctex"]
+source_file="res://images/icon/relics/HouraiNoTamae.png"
+dest_files=["res://.godot/imported/HouraiNoTamae.png-f22fed71b108d1711e21fcaf67aedd8d.ctex"]
 
 [params]
 

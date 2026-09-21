@@ -17,7 +17,7 @@
 ## 遗物开发规则
 - 所有遗物继承 `TouhouAncientRelics`（继承 `CustomRelicModel`），命名空间 `TouhouAncients.Scripts.relics`
 - 必须加 `[Pool(typeof(SharedRelicPool))]` 属性
-- 图标路径自动解析: `res://icon/relics/{类名小写}.png`
+- 图标路径自动解析: `res://images/icon/relics/{类名}.png`（大图标 `res://images/icon/relics/IconLarge/{类名}.png`）
 - 多人模式: 每个 Hook 检查 `player != base.Owner`
 - 只有 `[SavedProperty]` 字段才需要在 `Entry.cs` 注册 `InjectTypeIntoCache`
 - 新 Ancient 角色: 创建在 `scripts/ancients/`，继承 `CustomAncientModel`，池子用 `MakePool` / `AncientOption<T>`

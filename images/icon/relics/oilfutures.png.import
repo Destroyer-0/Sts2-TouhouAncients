@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnu8p2fg8q5lk"
-path="res://.godot/imported/oilfutures.png-7af9f2fd222e8616831489ec1a8238bc.ctex"
+uid="uid://prffa6cfpppc"
+path="res://.godot/imported/OilFutures.png-d21241a9355c70e37599394ce57925bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/oilfutures.png"
-dest_files=["res://.godot/imported/oilfutures.png-7af9f2fd222e8616831489ec1a8238bc.ctex"]
+source_file="res://images/icon/relics/OilFutures.png"
+dest_files=["res://.godot/imported/OilFutures.png-d21241a9355c70e37599394ce57925bd.ctex"]
 
 [params]
 

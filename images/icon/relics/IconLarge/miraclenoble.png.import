@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l838lisatkeq"
-path="res://.godot/imported/miraclenoble.png-d8110e9d8391a5c488090b965c5013c7.ctex"
+uid="uid://3njr7f61l5f2"
+path="res://.godot/imported/MiracleNoble.png-fce7b8a3e6f0e4f8e29a805c60751276.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/miraclenoble.png"
-dest_files=["res://.godot/imported/miraclenoble.png-d8110e9d8391a5c488090b965c5013c7.ctex"]
+source_file="res://images/icon/relics/IconLarge/MiracleNoble.png"
+dest_files=["res://.godot/imported/MiracleNoble.png-fce7b8a3e6f0e4f8e29a805c60751276.ctex"]
 
 [params]
 

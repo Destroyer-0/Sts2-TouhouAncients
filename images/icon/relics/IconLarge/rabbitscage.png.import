@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciehk2g36mdfn"
-path="res://.godot/imported/rabbitscage.png-430faa03a68f72bc9458b7758cfecd72.ctex"
+uid="uid://r4vn0f36grwk"
+path="res://.godot/imported/RabbitsCage.png-38d28dfbebc85b3cac5c41de5ba45ad5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/rabbitscage.png"
-dest_files=["res://.godot/imported/rabbitscage.png-430faa03a68f72bc9458b7758cfecd72.ctex"]
+source_file="res://images/icon/relics/IconLarge/RabbitsCage.png"
+dest_files=["res://.godot/imported/RabbitsCage.png-38d28dfbebc85b3cac5c41de5ba45ad5.ctex"]
 
 [params]
 

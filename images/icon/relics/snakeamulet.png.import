@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wkn7kkyfgbap"
-path="res://.godot/imported/snakeamulet.png-579a125d8f348947a41e1f79f0f9ce21.ctex"
+uid="uid://d243pxfkk44w2"
+path="res://.godot/imported/SnakeAmulet.png-15f1ba5756d83fce228bdb96434674ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/snakeamulet.png"
-dest_files=["res://.godot/imported/snakeamulet.png-579a125d8f348947a41e1f79f0f9ce21.ctex"]
+source_file="res://images/icon/relics/SnakeAmulet.png"
+dest_files=["res://.godot/imported/SnakeAmulet.png-15f1ba5756d83fce228bdb96434674ad.ctex"]
 
 [params]
 

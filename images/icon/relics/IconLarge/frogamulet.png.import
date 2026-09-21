@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bocqwm08ah3e1"
-path="res://.godot/imported/frogamulet.png-55222496483625a165e6fa65a9933a44.ctex"
+uid="uid://r1u7wvg1y4f6"
+path="res://.godot/imported/FrogAmulet.png-631cceb82af1de29cd131948438f0b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/frogamulet.png"
-dest_files=["res://.godot/imported/frogamulet.png-55222496483625a165e6fa65a9933a44.ctex"]
+source_file="res://images/icon/relics/IconLarge/FrogAmulet.png"
+dest_files=["res://.godot/imported/FrogAmulet.png-631cceb82af1de29cd131948438f0b1a.ctex"]
 
 [params]
 

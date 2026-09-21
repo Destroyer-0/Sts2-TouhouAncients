@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drmouuu3j2p3m"
-path="res://.godot/imported/jyoonfan.png-33ae1bfe2907b3e0712c087e54845491.ctex"
+uid="uid://bnm7u0uiw0w07"
+path="res://.godot/imported/JyoonFan.png-46486e4a5fca147bdbe102fa3fd83a2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/jyoonfan.png"
-dest_files=["res://.godot/imported/jyoonfan.png-33ae1bfe2907b3e0712c087e54845491.ctex"]
+source_file="res://images/icon/relics/IconLarge/JyoonFan.png"
+dest_files=["res://.godot/imported/JyoonFan.png-46486e4a5fca147bdbe102fa3fd83a2e.ctex"]
 
 [params]
 

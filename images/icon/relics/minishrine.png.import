@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbaqi70w6drdd"
-path="res://.godot/imported/minishrine.png-4d9e00485528d45e8679a735edd1d557.ctex"
+uid="uid://dpdjgq7vhk2mg"
+path="res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/minishrine.png"
-dest_files=["res://.godot/imported/minishrine.png-4d9e00485528d45e8679a735edd1d557.ctex"]
+source_file="res://images/icon/relics/MiniShrine.png"
+dest_files=["res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"]
 
 [params]
 

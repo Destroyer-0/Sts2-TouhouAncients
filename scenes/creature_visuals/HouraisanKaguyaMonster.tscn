@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://dj8q3chu7gjti" path="res://images/sprite/marisa/attack_throw_a.png" id="14_sm15p"]
 [ext_resource type="Texture2D" uid="uid://ctdjbnpihhpkh" path="res://images/sprite/marisa/attack_throw_b.png" id="15_8tpeg"]
 [ext_resource type="Script" uid="uid://ccratu3tsctmf" path="res://scripts/Vfx/HouraisanKaguyaVisuals.cs" id="16_visuals"]
-[ext_resource type="Texture2D" uid="uid://cptpw20iqphrf" path="res://images/icon/relics/ryukeinotama.png" id="17_puzzle0"]
-[ext_resource type="Texture2D" uid="uid://dbgnv5c5cl7jm" path="res://images/icon/relics/hinezuminokawagoromo.png" id="18_puzzle1"]
-[ext_resource type="Texture2D" uid="uid://djlgl46ui2o4m" path="res://images/icon/relics/tsubamenokoyasugai.png" id="19_puzzle2"]
-[ext_resource type="Texture2D" uid="uid://bu28tl1g2dcud" path="res://images/icon/relics/hotokemishiishinohachi.png" id="20_puzzle3"]
-[ext_resource type="Texture2D" uid="uid://nx6t5ft0piro" path="res://images/icon/relics/hourainotamae.png" id="21_puzzle4"]
+[ext_resource type="Texture2D" uid="uid://cptpw20iqphrf" path="res://images/icon/relics/RyukeiNoTama.png" id="17_puzzle0"]
+[ext_resource type="Texture2D" uid="uid://dbgnv5c5cl7jm" path="res://images/icon/relics/HinezumiNoKawagoromo.png" id="18_puzzle1"]
+[ext_resource type="Texture2D" uid="uid://djlgl46ui2o4m" path="res://images/icon/relics/TsubameNoKoyasugai.png" id="19_puzzle2"]
+[ext_resource type="Texture2D" uid="uid://bu28tl1g2dcud" path="res://images/icon/relics/HotokeMishiIshiNoHachi.png" id="20_puzzle3"]
+[ext_resource type="Texture2D" uid="uid://nx6t5ft0piro" path="res://images/icon/relics/HouraiNoTamae.png" id="21_puzzle4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxbod"]
 atlas = ExtResource("1_v0abm")

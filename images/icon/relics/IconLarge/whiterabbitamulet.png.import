@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdb1jt21yg5ti"
-path="res://.godot/imported/whiterabbitamulet.png-ab01b8689b237001fc235dacdadde15f.ctex"
+uid="uid://b7mrq20vetlva"
+path="res://.godot/imported/WhiteRabbitAmulet.png-d8aeb49a8b16c357187b56edb6405a70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/whiterabbitamulet.png"
-dest_files=["res://.godot/imported/whiterabbitamulet.png-ab01b8689b237001fc235dacdadde15f.ctex"]
+source_file="res://images/icon/relics/IconLarge/WhiteRabbitAmulet.png"
+dest_files=["res://.godot/imported/WhiteRabbitAmulet.png-d8aeb49a8b16c357187b56edb6405a70.ctex"]
 
 [params]
 

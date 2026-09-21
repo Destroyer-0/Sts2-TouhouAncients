@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bddepufbgylw2"
-path="res://.godot/imported/baibaixiangxiangruanruan.png-9a7432045bb204e3255ab378703c806e.ctex"
+uid="uid://byqpfyii6v4a"
+path="res://.godot/imported/Baibaixiangxiangruanruan.png-c9250a193aebab5833c55c6b5ede3704.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/baibaixiangxiangruanruan.png"
-dest_files=["res://.godot/imported/baibaixiangxiangruanruan.png-9a7432045bb204e3255ab378703c806e.ctex"]
+source_file="res://images/icon/relics/IconLarge/Baibaixiangxiangruanruan.png"
+dest_files=["res://.godot/imported/Baibaixiangxiangruanruan.png-c9250a193aebab5833c55c6b5ede3704.ctex"]
 
 [params]
 

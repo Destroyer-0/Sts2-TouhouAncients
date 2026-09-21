@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3loffnwisf0y"
-path="res://.godot/imported/windpriestesswine.png-8989edba5c994f44199a9ff4e476722d.ctex"
+uid="uid://c813fj111fd0f"
+path="res://.godot/imported/WindPriestessWine.png-64c4b01e5c29841ff6e897d70c6309e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/windpriestesswine.png"
-dest_files=["res://.godot/imported/windpriestesswine.png-8989edba5c994f44199a9ff4e476722d.ctex"]
+source_file="res://images/icon/relics/WindPriestessWine.png"
+dest_files=["res://.godot/imported/WindPriestessWine.png-64c4b01e5c29841ff6e897d70c6309e1.ctex"]
 
 [params]
 

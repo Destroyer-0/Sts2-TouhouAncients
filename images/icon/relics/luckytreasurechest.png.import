@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fm3qm3rst4cg"
-path="res://.godot/imported/luckytreasurechest.png-481c915d483241f19aab2be586315063.ctex"
+uid="uid://d1gjlt2eejxst"
+path="res://.godot/imported/LuckyTreasureChest.png-7731cd0a61e74e9d1b97cc2ae33f2438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/luckytreasurechest.png"
-dest_files=["res://.godot/imported/luckytreasurechest.png-481c915d483241f19aab2be586315063.ctex"]
+source_file="res://images/icon/relics/LuckyTreasureChest.png"
+dest_files=["res://.godot/imported/LuckyTreasureChest.png-7731cd0a61e74e9d1b97cc2ae33f2438.ctex"]
 
 [params]
 

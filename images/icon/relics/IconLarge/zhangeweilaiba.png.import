@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh1ffrnxun741"
-path="res://.godot/imported/zhangeweilaiba.png-0a893e2b1c2a3faec528b630e00a7194.ctex"
+uid="uid://by7o1bn0fv3yk"
+path="res://.godot/imported/Zhangeweilaiba.png-d44889924e52ac748085fc50c63f9eb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/zhangeweilaiba.png"
-dest_files=["res://.godot/imported/zhangeweilaiba.png-0a893e2b1c2a3faec528b630e00a7194.ctex"]
+source_file="res://images/icon/relics/IconLarge/Zhangeweilaiba.png"
+dest_files=["res://.godot/imported/Zhangeweilaiba.png-d44889924e52ac748085fc50c63f9eb2.ctex"]
 
 [params]
 

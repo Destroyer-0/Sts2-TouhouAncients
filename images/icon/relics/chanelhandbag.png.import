@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhfb7souw2c2i"
-path="res://.godot/imported/chanelhandbag.png-49b35494ae63f4e4386c20d0a5a9083a.ctex"
+uid="uid://c83i3uuokgfvx"
+path="res://.godot/imported/ChanelHandbag.png-6fb45ffa552485ec24791f9e3c754946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/chanelhandbag.png"
-dest_files=["res://.godot/imported/chanelhandbag.png-49b35494ae63f4e4386c20d0a5a9083a.ctex"]
+source_file="res://images/icon/relics/ChanelHandbag.png"
+dest_files=["res://.godot/imported/ChanelHandbag.png-6fb45ffa552485ec24791f9e3c754946.ctex"]
 
 [params]
 

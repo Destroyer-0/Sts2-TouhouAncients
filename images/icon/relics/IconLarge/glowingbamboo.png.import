@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qs6fja5mb44y"
-path="res://.godot/imported/glowingbamboo.png-124ae4e4333b3402e882a9f6a146f24f.ctex"
+uid="uid://jm3mdemciphv"
+path="res://.godot/imported/GlowingBamboo.png-fe1e2f6cccce4b268a062819031f7933.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/glowingbamboo.png"
-dest_files=["res://.godot/imported/glowingbamboo.png-124ae4e4333b3402e882a9f6a146f24f.ctex"]
+source_file="res://images/icon/relics/IconLarge/GlowingBamboo.png"
+dest_files=["res://.godot/imported/GlowingBamboo.png-fe1e2f6cccce4b268a062819031f7933.ctex"]
 
 [params]
 

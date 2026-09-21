@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsn3jaivo7t6"
-path="res://.godot/imported/geishehuaxiaojie.png-2ed7e73ebc7a779ecfe05925f5b74ffa.ctex"
+uid="uid://53bir4v7pplv"
+path="res://.godot/imported/Geishehuaxiaojie.png-7156df1026d179527b6b240c45942bae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/geishehuaxiaojie.png"
-dest_files=["res://.godot/imported/geishehuaxiaojie.png-2ed7e73ebc7a779ecfe05925f5b74ffa.ctex"]
+source_file="res://images/icon/relics/Geishehuaxiaojie.png"
+dest_files=["res://.godot/imported/Geishehuaxiaojie.png-7156df1026d179527b6b240c45942bae.ctex"]
 
 [params]
 

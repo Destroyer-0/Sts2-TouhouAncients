@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ujsy0yftgfh"
-path="res://.godot/imported/rabbitsfoot.png-f4598aa73924a174bc6da6688b1d7bd3.ctex"
+uid="uid://cifeggxdpsg0h"
+path="res://.godot/imported/RabbitsFoot.png-ebb1f724414e1f9fe4733a538660b941.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/rabbitsfoot.png"
-dest_files=["res://.godot/imported/rabbitsfoot.png-f4598aa73924a174bc6da6688b1d7bd3.ctex"]
+source_file="res://images/icon/relics/RabbitsFoot.png"
+dest_files=["res://.godot/imported/RabbitsFoot.png-ebb1f724414e1f9fe4733a538660b941.ctex"]
 
 [params]
 

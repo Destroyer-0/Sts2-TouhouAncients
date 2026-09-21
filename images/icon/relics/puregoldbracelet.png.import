@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://barc50qccyax8"
-path="res://.godot/imported/puregoldbracelet.png-76f6f760d7bd12b86d041b814c76cc12.ctex"
+uid="uid://b614b1elhvtq2"
+path="res://.godot/imported/PureGoldBracelet.png-3eac20857372e40435f22db836fa8224.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/puregoldbracelet.png"
-dest_files=["res://.godot/imported/puregoldbracelet.png-76f6f760d7bd12b86d041b814c76cc12.ctex"]
+source_file="res://images/icon/relics/PureGoldBracelet.png"
+dest_files=["res://.godot/imported/PureGoldBracelet.png-3eac20857372e40435f22db836fa8224.ctex"]
 
 [params]
 

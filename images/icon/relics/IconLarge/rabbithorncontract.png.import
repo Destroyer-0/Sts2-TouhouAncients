@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmoxliphc4hi4"
-path="res://.godot/imported/rabbithorncontract.png-bf3df8267c13a8e35660abdccaae20ee.ctex"
+uid="uid://cpbo1hi5gwa7x"
+path="res://.godot/imported/RabbitHornContract.png-84ca2c28c3000d292efd16e2dd4cf1d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/rabbithorncontract.png"
-dest_files=["res://.godot/imported/rabbithorncontract.png-bf3df8267c13a8e35660abdccaae20ee.ctex"]
+source_file="res://images/icon/relics/IconLarge/RabbitHornContract.png"
+dest_files=["res://.godot/imported/RabbitHornContract.png-84ca2c28c3000d292efd16e2dd4cf1d0.ctex"]
 
 [params]
 

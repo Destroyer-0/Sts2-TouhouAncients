@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2l27k4dkbdk"
-path="res://.godot/imported/yiyandingzhen.png-50bb968b83a41ca73d7ec321340052a5.ctex"
+uid="uid://d1cu725ik86v4"
+path="res://.godot/imported/Yiyandingzhen.png-1370e76557bb5806545746871e550d97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/yiyandingzhen.png"
-dest_files=["res://.godot/imported/yiyandingzhen.png-50bb968b83a41ca73d7ec321340052a5.ctex"]
+source_file="res://images/icon/relics/IconLarge/Yiyandingzhen.png"
+dest_files=["res://.godot/imported/Yiyandingzhen.png-1370e76557bb5806545746871e550d97.ctex"]
 
 [params]
 

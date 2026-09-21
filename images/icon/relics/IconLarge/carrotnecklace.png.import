@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxiw17ktry7np"
-path="res://.godot/imported/carrotnecklace.png-7c2fbef5bb937427e48ff2649262a07b.ctex"
+uid="uid://dtff7aqmxfvva"
+path="res://.godot/imported/CarrotNecklace.png-91bafe05e4d7079321c43851f9bfb099.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/carrotnecklace.png"
-dest_files=["res://.godot/imported/carrotnecklace.png-7c2fbef5bb937427e48ff2649262a07b.ctex"]
+source_file="res://images/icon/relics/IconLarge/CarrotNecklace.png"
+dest_files=["res://.godot/imported/CarrotNecklace.png-91bafe05e4d7079321c43851f9bfb099.ctex"]
 
 [params]
 

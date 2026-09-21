@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci62ppd8mv5q0"
-path="res://.godot/imported/daykakusei.png-a23726c591eaf83b08a45d045d8eca49.ctex"
+uid="uid://bdg2thjgcsgia"
+path="res://.godot/imported/DayKakusei.png-77aa462037523f688ec85579241c6367.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/daykakusei.png"
-dest_files=["res://.godot/imported/daykakusei.png-a23726c591eaf83b08a45d045d8eca49.ctex"]
+source_file="res://images/icon/relics/DayKakusei.png"
+dest_files=["res://.godot/imported/DayKakusei.png-77aa462037523f688ec85579241c6367.ctex"]
 
 [params]
 

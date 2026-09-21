@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpdbtwqs8n5xf"
-path="res://.godot/imported/fourleafclover.png-8a2f919b6be3782e53ca8f08e353ab5e.ctex"
+uid="uid://ccs2o4rhag7v2"
+path="res://.godot/imported/FourLeafClover.png-5472cba813b877490de2c64f60f247b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/fourleafclover.png"
-dest_files=["res://.godot/imported/fourleafclover.png-8a2f919b6be3782e53ca8f08e353ab5e.ctex"]
+source_file="res://images/icon/relics/IconLarge/FourLeafClover.png"
+dest_files=["res://.godot/imported/FourLeafClover.png-5472cba813b877490de2c64f60f247b7.ctex"]
 
 [params]
 

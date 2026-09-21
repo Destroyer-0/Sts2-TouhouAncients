@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb62ufg83luc5"
-path="res://.godot/imported/magicmallet.png-aeb3b2d82697cbda48ec00a241dfa903.ctex"
+uid="uid://b8iqnx5iosfmb"
+path="res://.godot/imported/MagicMallet.png-e08d118828f7009793ea48433b6b961b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/magicmallet.png"
-dest_files=["res://.godot/imported/magicmallet.png-aeb3b2d82697cbda48ec00a241dfa903.ctex"]
+source_file="res://images/icon/relics/MagicMallet.png"
+dest_files=["res://.godot/imported/MagicMallet.png-e08d118828f7009793ea48433b6b961b.ctex"]
 
 [params]
 

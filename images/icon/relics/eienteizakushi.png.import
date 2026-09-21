@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fu0l4htsmngy"
-path="res://.godot/imported/eienteizakushi.png-ce005c8e47e862edcddfb9aa8af9eb12.ctex"
+uid="uid://do6aiul7pjmmo"
+path="res://.godot/imported/EienteiZakushi.png-7ae83ce0a07dcd80985fb31f19d13c6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/eienteizakushi.png"
-dest_files=["res://.godot/imported/eienteizakushi.png-ce005c8e47e862edcddfb9aa8af9eb12.ctex"]
+source_file="res://images/icon/relics/EienteiZakushi.png"
+dest_files=["res://.godot/imported/EienteiZakushi.png-7ae83ce0a07dcd80985fb31f19d13c6b.ctex"]
 
 [params]
 

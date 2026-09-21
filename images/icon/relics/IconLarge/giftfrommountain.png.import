@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n1730cbm0oiw"
-path="res://.godot/imported/giftfrommountain.png-5c6b16fc6c1196df960a3c627a0f0698.ctex"
+uid="uid://c67ujeqyk4kka"
+path="res://.godot/imported/GiftFromMountain.png-cb02973fec48b086faa64235fadad598.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/giftfrommountain.png"
-dest_files=["res://.godot/imported/giftfrommountain.png-5c6b16fc6c1196df960a3c627a0f0698.ctex"]
+source_file="res://images/icon/relics/IconLarge/GiftFromMountain.png"
+dest_files=["res://.godot/imported/GiftFromMountain.png-cb02973fec48b086faa64235fadad598.ctex"]
 
 [params]
 
