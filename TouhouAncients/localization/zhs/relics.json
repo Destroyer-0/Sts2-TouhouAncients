@@ -578,7 +578,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",
-"TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，吞噬你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "拾起时，[red]吞噬[/red]你初始遗物与先古遗物以外的全部遗物，每个为你提供[blue]{MaxHp}[/blue][gold]最大生命[/gold]，每[blue]{StrengthTrigger}[/blue]个提供[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中[/gold]，每[blue]{EnergyTrigger}[/blue]个提供每回合额外{Energy:energyIcons()}，每[blue]{DrawTrigger}[/blue]个提供每回合额外抽[blue]{CardsPerTurn}[/blue]张牌。",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "无论实体还是灵体，有机物还是无机物，任何事物都会被她囫囵吞入肚中。",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "暴食之齿",
@@ -755,8 +755,8 @@
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",
-  "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]幕[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]张牌。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
-  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "每当你进入新的[gold]幕[/gold]时：获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。获得[blue]{Gold}[/blue][gold]金币[/gold]。将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。获得[blue]{Cards}[/blue]张牌。随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]幕[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]组卡牌奖励。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "每当你进入新的[gold]幕[/gold]时：获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。获得[blue]{Gold}[/blue][gold]金币[/gold]。将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。获得[blue]{Cards}[/blue]组卡牌奖励。随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
   "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-REVIVAL_DREAM.title": "复甦之梦",
