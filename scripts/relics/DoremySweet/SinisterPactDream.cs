@@ -34,7 +34,7 @@ public class SinisterPactDream : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("ShopIndex", 1),
-        new DynamicVar("PriceIncrease", 100)
+        new DynamicVar("PriceIncrease", 50)
     ];
 
     public override Task AfterRoomEntered(AbstractRoom room)
