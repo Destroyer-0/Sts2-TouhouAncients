@@ -19,13 +19,6 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
 /// 虹光之梦：拾起时，将你的初始遗物替换为先古版本，并将「古老牙齿」所指代的初始卡牌从牌组中移除。
-///
-/// 与效果相关的三个目标必须在「事件选项生成」阶段就确定下来（见 <see cref="SetupForPlayer"/>），
-/// 而不能等到 <see cref="AfterObtained"/>：
-/// 事件界面在玩家拾起之前就会渲染遗物描述，而描述中的
-/// <c>{StarterRelic.StringValue:cond:...|...}</c> 需要在那之前已经填好 <c>StringValue</c>，
-/// 否则只会一直显示兜底的泛化文本。原版 <see cref="TouchOfOrobas"/> 与 <see cref="ArchaicTooth"/>
-/// 也是由 Orobas 事件在生成选项时调用各自的 SetupForPlayer，走的正是同一条路。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class IridescentDream : TouhouAncientRelics

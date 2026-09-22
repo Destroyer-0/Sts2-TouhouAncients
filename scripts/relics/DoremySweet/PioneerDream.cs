@@ -16,19 +16,6 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
 /// 先驱之梦：拾起时，将随机一张上一场战斗的非初始卡牌加入你的牌组。
-///
-/// 「上一场战斗的非初始卡牌」= **上一局**（存档的运行历史里最新的一条记录）中本玩家的牌组里、
-/// 除初始牌（<see cref="CardRarity.Basic"/>：打击 / 防御 / 角色初始牌）以外的牌。
-/// 随机取其中一张，连同它当时的升级等级与附魔一起加入牌组。
-///
-/// 要点：
-/// 1) 没有选择窗口：拾起后立即获得并 preview
-/// 2) 数据来源是存档里的运行历史文件（<c>SaveManager</c> 的 <c>saves/history/{StartTime}.run</c>）。
-/// 3) 没有上一局、或上一局牌组里除初始牌以外没有别的牌时，本遗物的选项不会出现
-/// 4) 仅单人生效：运行历史文件按 profile 分别存在各自机器上。原版每个客户端都会为**所有玩家**
-///    生成事件选项（<c>EventSynchronizer.BeginEvent</c>），选中后只广播下标、由各端用同一个下标
-///    在本机执行（<c>OptionIndexChosenMessage</c>），因此各端算出的选项必须逐项一致。
-///    多人时各端读到的「上一局牌组」不是同一份数据，选项会不一致 → 直接不生成该选项。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class PioneerDream : TouhouAncientRelics
