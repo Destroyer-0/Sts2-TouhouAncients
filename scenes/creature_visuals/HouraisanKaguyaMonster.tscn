@@ -118,7 +118,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.116667, 0.116667), Vector2(0.14025, 0.14025), Vector2(0.15, 0.15), Vector2(0.14025, 0.14025), Vector2(0.116667, 0.116667), Vector2(0.093083, 0.093083), Vector2(0.083333, 0.083333), Vector2(0.093083, 0.093083)]
+"values": [Vector2(0.700002, 0.700002), Vector2(0.8415, 0.8415), Vector2(0.9, 0.9), Vector2(0.8415, 0.8415), Vector2(0.700002, 0.700002), Vector2(0.558498, 0.558498), Vector2(0.499998, 0.499998), Vector2(0.558498, 0.558498)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -142,7 +142,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.148333, 0.148333), Vector2(0.146333, 0.146333), Vector2(0.127, 0.127), Vector2(0.1015, 0.1015), Vector2(0.085, 0.085), Vector2(0.087, 0.087), Vector2(0.106333, 0.106333), Vector2(0.131833, 0.131833)]
+"values": [Vector2(0.889998, 0.889998), Vector2(0.877998, 0.877998), Vector2(0.762, 0.762), Vector2(0.609, 0.609), Vector2(0.51, 0.51), Vector2(0.522, 0.522), Vector2(0.637998, 0.637998), Vector2(0.790998, 0.790998)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -166,7 +166,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.13625, 0.13625), Vector2(0.111417, 0.111417), Vector2(0.089667, 0.089667), Vector2(0.08375, 0.08375), Vector2(0.097083, 0.097083), Vector2(0.121917, 0.121917), Vector2(0.143667, 0.143667), Vector2(0.149583, 0.149583)]
+"values": [Vector2(0.8175, 0.8175), Vector2(0.668502, 0.668502), Vector2(0.538002, 0.538002), Vector2(0.5025, 0.5025), Vector2(0.582498, 0.582498), Vector2(0.731502, 0.731502), Vector2(0.862002, 0.862002), Vector2(0.897498, 0.897498)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -190,7 +190,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.097083, 0.097083), Vector2(0.08375, 0.08375), Vector2(0.089667, 0.089667), Vector2(0.111417, 0.111417), Vector2(0.13625, 0.13625), Vector2(0.149583, 0.149583), Vector2(0.143667, 0.143667), Vector2(0.121917, 0.121917)]
+"values": [Vector2(0.582498, 0.582498), Vector2(0.5025, 0.5025), Vector2(0.538002, 0.538002), Vector2(0.668502, 0.668502), Vector2(0.8175, 0.8175), Vector2(0.897498, 0.897498), Vector2(0.862002, 0.862002), Vector2(0.731502, 0.731502)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -214,7 +214,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.085, 0.085), Vector2(0.1015, 0.1015), Vector2(0.127, 0.127), Vector2(0.146333, 0.146333), Vector2(0.148333, 0.148333), Vector2(0.131833, 0.131833), Vector2(0.106333, 0.106333), Vector2(0.087, 0.087)]
+"values": [Vector2(0.51, 0.51), Vector2(0.609, 0.609), Vector2(0.762, 0.762), Vector2(0.877998, 0.877998), Vector2(0.889998, 0.889998), Vector2(0.790998, 0.790998), Vector2(0.637998, 0.637998), Vector2(0.522, 0.522)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -303,8 +303,8 @@ scale = Vector2(3, 3)
 
 [node name="Puzzle0" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-195.90514, -145.83057)
-scale = Vector2(0.11126191, 0.11126191)
+position = Vector2(-150.63899, -203.09409)
+scale = Vector2(0.5634196, 0.5634196)
 texture = ExtResource("18_jrgus")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle0"]
@@ -317,8 +317,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle1" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-28.1846, -231.08739)
-scale = Vector2(0.08545837, 0.08545837)
+position = Vector2(89.7282, -226.22955)
+scale = Vector2(0.52158266, 0.52158266)
 texture = ExtResource("19_883hp")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle1"]
@@ -331,8 +331,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle2" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(178.49442, -173.92976)
-scale = Vector2(0.102774575, 0.102774575)
+position = Vector2(206.09573, -113.64851)
+scale = Vector2(0.7263196, 0.7263196)
 texture = ExtResource("20_ampe7")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle2"]
@@ -345,8 +345,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle3" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(138.50168, -53.23879)
-scale = Vector2(0.13930573, 0.13930573)
+position = Vector2(37.6649, -20.926853)
+scale = Vector2(0.89471567, 0.89471567)
 texture = ExtResource("21_j2ffx")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle3"]
@@ -359,8 +359,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle4" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-92.90638, -35.936405)
-scale = Vector2(0.14455146, 0.14455146)
+position = Vector2(-182.84985, -76.19751)
+scale = Vector2(0.7944412, 0.7944412)
 texture = ExtResource("22_4i3bg")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle4"]

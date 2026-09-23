@@ -38,7 +38,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 255, 240);
+        AscensionLevel.ToughEnemies, 265, 248);
 
     // --- 伤害/数值 ---
     private int PaleWhiteWaterfallDamage => AscensionHelper.GetValueIfAscension(
@@ -48,9 +48,11 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
     private int FalseMoonDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 14, 13);
+    
+    private int PuzzleBlock => AscensionHelper.GetValueIfAscension(
+        AscensionLevel.DeadlyEnemies, 12, 10);
 
     private const int EternalNightReturnStrength = 3;
-    private const int BaseBlockPerPuzzle = 12;
 
     private const int EternalNightReturnHeal = 30;
 
@@ -293,7 +295,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
         _kaguyaVisuals?.ShowPuzzles();
         
-        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, BaseBlockPerPuzzle, base.Creature, null);
+        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, PuzzleBlock, base.Creature, null);
 
         // 台词：传入玩家数，文本内 choose 分支据此在「你」与「你们」之间选择
         // （无法取得战斗状态时按单人处理，保证变量始终存在，避免 choose 落到默认分支；
