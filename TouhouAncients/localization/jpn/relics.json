@@ -102,8 +102,8 @@
   "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "Mistress only drinks [red]Type B blood[/red]. —Sakuya Izayoi",
 
   "TOUHOUANCIENTS-BLOOD_FANG.title": "Blood Fang",
-  "TOUHOUANCIENTS-BLOOD_FANG.description": "Upon pickup, lose half of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-BLOOD_FANG.eventDescription": "Lose half of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-BLOOD_FANG.description": "Upon pickup, lose [blue]33%[/blue] of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-BLOOD_FANG.eventDescription": "Lose [blue]{LoseHp}[/blue] Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "She always spills so much blood when she drinks, staining her dress a deep [red]crimson[/red].",
 
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "Crimson Crystal",

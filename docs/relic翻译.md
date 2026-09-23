@@ -2459,4 +2459,18 @@ zhs 新增 `selectionScreenPrompt`「选择要[gold]变化[/gold]的牌。」，
 | `TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor` | Wine and tobacco are the treasures of this world. |
 
 
+## 增量更新（2026-09-23）
+
+### 殷红之牙（BLOOD_FANG，失去量改为 33% 并实时显示）
+
+「失去最大生命的一半」改为「失去最大生命值的 33%」（向下取整，最少 1 点）；`eventDescription` 改用 `{LoseHp}` 动态变量实时显示将要失去的最大生命值，变量在事件选项生成阶段由 `SetupForPlayer` 按玩家当前最大生命填好。最大生命为 1 时该遗物不再作为选项出现。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.description` | 拾起时，失去最大生命值的[blue]33%[/blue]，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | Upon pickup, lose [blue]33%[/blue] of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple]. |
+| `.eventDescription` | 失去[blue]{LoseHp}[/blue]点最大生命，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | Lose [blue]{LoseHp}[/blue] Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple]. |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+
 

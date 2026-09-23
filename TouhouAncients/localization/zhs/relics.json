@@ -102,8 +102,8 @@
   "TOUHOUANCIENTS-CRIMSON_CHALICE.flavor": "大小姐只喝[red]B型血[/red]。——十六夜咲夜",
 
   "TOUHOUANCIENTS-BLOOD_FANG.title": "殷红之牙",
-  "TOUHOUANCIENTS-BLOOD_FANG.description": "拾起时，失去最大生命的一半，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-BLOOD_FANG.eventDescription": "失去最大生命的一半，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BLOOD_FANG.description": "拾起时，失去最大生命值的[blue]33%[/blue]，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-BLOOD_FANG.eventDescription": "失去[blue]{LoseHp}[/blue]点最大生命，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-BLOOD_FANG.flavor": "她吸血时总会洒出很多血液，结果将衣服染成了一片[red]赤红[/red]。",
 
   "TOUHOUANCIENTS-CRIMSON_CRYSTAL.title": "绯红晶石",
@@ -764,13 +764,13 @@
   "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-BYGONE_DREAM.title": "往昔之梦",
-  "TOUHOUANCIENTS-BYGONE_DREAM.description": "拾起时，获得一件被遗忘的旧日[gold]遗物[/gold]。获得一张被遗忘的旧日卡牌。",
-  "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "获得一件被遗忘的旧日[gold]遗物[/gold]。获得一张被遗忘的旧日卡牌。",
+  "TOUHOUANCIENTS-BYGONE_DREAM.description": "拾起时，获得一件被遗忘的旧日[gold]遗物[/gold]，获得一张被遗忘的旧日卡牌。",
+  "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "获得一件被遗忘的旧日[gold]遗物[/gold]，获得一张被遗忘的旧日卡牌。",
   "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-PIONEER_DREAM.title": "先驱之梦",
-  "TOUHOUANCIENTS-PIONEER_DREAM.description": "拾起时，将随机一张[purple]上一场战斗[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "将随机一张[purple]上一场战斗[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-PIONEER_DREAM.description": "拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
