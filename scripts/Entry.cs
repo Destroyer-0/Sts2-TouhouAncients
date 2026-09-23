@@ -51,6 +51,8 @@ public class Entry
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.TouhouAncients");
         harmony.PatchAll();
+        // 订阅「命运」额外文本的描述修改事件（不依赖静态构造）
+        FateMarkPatch.Initialize();
         // 订阅战斗开始/结束事件，为挑战战斗（YorigamiSistersEncounter）播放自定义 BGM
         EncounterBgm.Initialize();
         // 注册挑战 Encounter 为 RunState Hook 监听者：使其 TryModifyRewards 生效

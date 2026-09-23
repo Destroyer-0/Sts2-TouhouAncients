@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf4tmrk0v3lay"]
+
+[ext_resource type="Shader" uid="uid://d3h4m1stwnd00" path="res://shaders/fate_blood_mist.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fate_mist"]
+shader = ExtResource("1_shader")
+shader_parameter/intensity = 0.85
+shader_parameter/pulse_speed = 0.55
+shader_parameter/mist_width = 0.22
+shader_parameter/noise_scale = 6.0
+shader_parameter/edge_stretch = 3.5
+shader_parameter/finger_amount = 0.55
+shader_parameter/mist_color = Color(0.3, 0.01, 0.03, 1)
+shader_parameter/mist_edge_color = Color(0.85, 0.1, 0.07, 1)
+shader_parameter/speck_amount = 0.35
+shader_parameter/bat_alpha = 0.5
+shader_parameter/bat_color = Color(0.72, 0.03, 0.06, 1)
+shader_parameter/bat_scale = 1.0
+shader_parameter/bat_offset = Vector2(0, 0)
+shader_parameter/flap_speed = 2.6
+shader_parameter/flap_amount = 0.12
+shader_parameter/bat_glow = 0.3
+shader_parameter/corner_radius = 0.055
+shader_parameter/card_aspect = 1.4067
+
+[node name="FateMarkOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BloodMist" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fate_mist")
+layout_mode = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+mouse_filter = 2
