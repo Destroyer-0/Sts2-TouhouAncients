@@ -2472,5 +2472,38 @@ zhs 新增 `selectionScreenPrompt`「选择要[gold]变化[/gold]的牌。」，
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
+### 命运吊坠（FATE_PENDANT，新增遗物）
+
+**键名**: `TOUHOUANCIENTS-FATE_PENDANT`
+
+#### 中文原文
+```json
+"TOUHOUANCIENTS-FATE_PENDANT.title": "命运吊坠",
+"TOUHOUANCIENTS-FATE_PENDANT.description": "在你的回合开始时，蕾米莉亚会将随机[blue]{Cards}[/blue]张[gold]手牌[/gold]标记为[purple]命运[/purple]。如果本回合你打出的首张牌为[purple]命运[/purple]，获得{Energy:energyIcons()}。",
+"TOUHOUANCIENTS-FATE_PENDANT.flavor": "命运之轮不停地旋转。",
+"TOUHOUANCIENTS-FATE_PENDANT.fateTitle": "命运",
+"TOUHOUANCIENTS-FATE_PENDANT.fateDescription": "如果你打出的首张牌为此牌，获得{Energy:energyIcons()}。",
+"TOUHOUANCIENTS-FATE_PENDANT.fateExtraText": "命运的指引",
+"TOUHOUANCIENTS-FATE_PENDANT.approval": "呵呵，这样才对~"
+```
+
+#### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Pendant of Fate` |
+| `.description` | `At the start of your turn, Remilia marks [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] as [purple]Fate[/purple]. If the first card you play this turn is a [purple]Fate[/purple] card, gain {Energy:energyIcons()}.` |
+| `.flavor` | `The wheel of fate never stops turning.` |
+| `.fateTitle` | `Fate` |
+| `.fateDescription` | `If the first card you play is this card, gain {Energy:energyIcons()}.` |
+| `.fateExtraText` | `Guided by Fate` |
+| `.approval` | `Hehe, that's Better` |
+
+#### 说明
+- 本遗物除标题与描述外，还有一组「命运」标记专用的本地化键（`fateTitle` / `fateDescription` / `fateExtraText`）与战斗中的赞许气泡（`approval`），因此条目数比其他遗物多。
+- `.fateTitle` / `.fateDescription` 用于标记牌的 HoverTip；`.fateExtraText` 是卡面上追加的紫色额外文本；`.approval` 是打出首张命运牌触发效果时播放的气泡台词。
+- `{Energy:energyIcons()}` 统一用能量图标渲染，因此 `.fateDescription` 与 `.approval` 中涉及能量的部分也走同一写法，便于日后统一调整数值。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
 
 
