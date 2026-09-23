@@ -130,6 +130,14 @@
   "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "Accept or defy your fate? Make your choice.",
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "Choose up to [blue]2[/blue] cards to [gold]Transform[/gold]",
 
+  "TOUHOUANCIENTS-FATE_PENDANT.title": "Pendant of Fate",
+  "TOUHOUANCIENTS-FATE_PENDANT.description": "At the start of your turn, [red]Remilia[/red] marks [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] as [purple]Fate[/purple]. If the first card you play this turn is a [purple]Fate[/purple] card, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-FATE_PENDANT.flavor": "The wheel of fate never stops turning.",
+  "TOUHOUANCIENTS-FATE_PENDANT.fateTitle": "Fate",
+  "TOUHOUANCIENTS-FATE_PENDANT.fateDescription": "If the first card you play is this card, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-FATE_PENDANT.fateExtraText": "Guided by Fate",
+  "TOUHOUANCIENTS-FATE_PENDANT.approval": "[red][shake]Hehe, that's Better[/shake][/red]",
+
   "TOUHOUANCIENTS-THE_THIRD_EYE.title": "The Third Eye",
   "TOUHOUANCIENTS-THE_THIRD_EYE.description": "At the start of each combat, gain [blue]2[/blue] [gold]Weak[/gold], [gold]Scry[/gold] [blue]5[/blue], and add [blue]1[/blue] [gold]Eye of Satori[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "Ordinary people can act freely only because they cannot read each other's hearts.",
