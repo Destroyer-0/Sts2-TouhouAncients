@@ -29,6 +29,10 @@ public class MeltingWaxDream : TouhouAncientRelics
     /// <summary>永久失效后，遗物会被标记为已用尽。</summary>
     public override bool IsUsedUp => TouhouAncients_Expired;
 
+    public override bool ShowCounter => !IsUsedUp;
+
+    public override int DisplayAmount => _regenGainedThisCombat;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("HpThreshold", 50),
@@ -76,5 +80,6 @@ public class MeltingWaxDream : TouhouAncientRelics
             TouhouAncients_Expired = true;
             base.Status = RelicStatus.Disabled;
         }
+        InvokeDisplayAmountChanged();
     }
 }
