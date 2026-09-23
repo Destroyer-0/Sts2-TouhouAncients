@@ -28,7 +28,12 @@ public class RemiliaScarletAncient : TouhouAncientBase
             ),
         CreateTARelicOptionPool(
             TARelicOption<CrimsonChalice>(),
-            TARelicOption<BloodFang>(),
+            // 殷红之牙的事件描述要实时显示「会失去的最大生命值」，必须在事件界面渲染前就填好，
+            // 因此用 Prep 预准备；此阶段遗物自身的 Owner 尚未设置，用古代事件自己的 Owner。
+            TARelicOption<BloodFang>().Prep((BloodFang relic) =>
+            {
+                if (Owner != null) relic.SetupForPlayer(Owner);
+            }),
             TARelicOption<PreservedRedFog>()
             ),
         CreateTARelicOptionPool(
