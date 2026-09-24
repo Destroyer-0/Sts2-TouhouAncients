@@ -55,6 +55,13 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// </summary>
     protected abstract IReadOnlyList<TARelicOptionGroup> TARelicOptionPools { get; }
 
+    /// <summary>
+    /// 可选：追加在遗物选项之后的额外（非遗物）选项。
+    /// 与挑战选项一样只在生成阶段追加，不参与池的抽取与去重，也不会进入挑战奖励的遗物列表。
+    /// 注意：BaseLib 兼容用的 <see cref="MakeOptionPools"/> 只能装遗物候选，额外选项不会出现在那里。
+    /// </summary>
+    protected virtual IEnumerable<EventOption> ExtraOptions => [];
+
     /// <summary>按遗物创建一个候选（weight 传 0 表示不出现）。</summary>
     protected TARelicOption TARelicOption<T>(int weight = 1) where T : RelicModel
         => new(RelicOption<T>()) { Weight = weight };
@@ -67,10 +74,11 @@ public abstract class TouhouAncientBase : CustomAncientModel
     private IEnumerable<EventOption> ChallengeOptions =>
         ChallengeEncounter == null ? [] : [CreateChallengeOption()];
 
-    /// <summary>遗物池的候选 + 挑战选项，供图鉴 / 控制台 / 调试选项使用。</summary>
+    /// <summary>遗物池的候选 + 额外选项 + 挑战选项，供图鉴 / 控制台 / 调试选项使用。</summary>
     private IEnumerable<EventOption> AllOptions =>
     [
         .. TARelicOptionPools.SelectMany(group => group.Pool.Options),
+        .. ExtraOptions,
         .. ChallengeOptions
     ];
 
@@ -109,8 +117,9 @@ public abstract class TouhouAncientBase : CustomAncientModel
             }
         }
 
-        // 遗物选项用于挑战奖励（上面的 options 会被追加挑战选项，所以要单独保留一份）。
+        // 遗物选项用于挑战奖励（上面的 options 会被追加额外选项与挑战选项，所以要单独保留一份）。
         _generatedRelicOptions = [.. options];
+        options.AddRange(ExtraOptions);
         options.AddRange(ChallengeOptions);
         return options;
     }

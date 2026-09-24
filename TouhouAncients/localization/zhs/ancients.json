@@ -758,6 +758,11 @@
 
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "哆来咪·苏伊特",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.epithet": "遂古之初的梦境使",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.title": "离开梦境",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.description": "醒来……前去面见涅奥。",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient": "[thinky_dots]是吗……那么祝您有个愉快的梦醒时分。[thinky_dots]",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.silent": "[thinky_dots][sine]梦境逐渐溶解……[/sine][/thinky_dots]",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.firstVisitEver.0-0.ancient": "欢迎来到梦世界~在你的躯体被涅奥重塑前，还请你在这里暂留一会儿哦。",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.ANY.0-0r.ancient": "晚安。晚安。属于您的槐安，即将建成。",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.ANY.1-0.ancient": "你能看到……那些来自先古之树的梦吗？",

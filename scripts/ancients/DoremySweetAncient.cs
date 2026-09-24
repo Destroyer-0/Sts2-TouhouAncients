@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
@@ -53,5 +54,15 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<FlowingSplendorDream>(),
             TARelicOption<BloodbathDream>()
             )
+    ];
+
+    /// <summary>
+    /// 追加在三个遗物选项之后的第 4 个选项「离开梦境」：放弃哆来咪的遗物，改为进入涅奥的房间。
+    /// 逐玩家独立（只替换选择者自己在事件同步器里的那一份实例），其他玩家仍留在本页选自己的遗物，
+    /// 互不影响；实现与存档语义见 <see cref="LeaveDreamReentry"/>。
+    /// </summary>
+    protected override IEnumerable<EventOption> ExtraOptions =>
+    [
+        LeaveDreamReentry.CreateOption(this)
     ];
 }

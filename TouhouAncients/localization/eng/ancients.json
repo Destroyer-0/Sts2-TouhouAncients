@@ -742,5 +742,10 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.next": "Continue",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-1.ancient": "Oh dear—my apologies for grabbing the wrong thing last time. As an apology, allow this one to make it up to you with some treasures~",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "To achieve your goal, you must never let yourself get carried away. Don’t be hasty.",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "Ho~ ho~ ho~ Set aside some of your wariness and agitation. This old one will help you deal with a few troubles."
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "Ho~ ho~ ho~ Set aside some of your wariness and agitation. This old one will help you deal with a few troubles.",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.title": "Leave the Dream",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.description": "Awaken... and go meet Neow.",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient": "Is that so... Then I hope you have a pleasant awakening.",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.next": "Continue",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.silent": ""
 }

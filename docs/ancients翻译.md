@@ -1153,3 +1153,16 @@ You remind me of someone annoying. |
 | `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient` | 呵呵，老朽见过太多沉默的家伙，她们的秘密往往最有趣。 | Hehe, I’ve seen too many quiet types. Their secrets are often the most interesting. |
 | `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient` | 想达成目标，可万万不能被冲昏了头脑，不能心急呐。 | To achieve your goal, you must never let yourself get carried away. Don’t be hasty. |
 | `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient` | 嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。 | Ho~ ho~ ho~ Set aside some of your wariness and agitation. This old one will help you deal with a few troubles. |
+
+## 增量更新（2026-09-24，哆来咪「离开梦境」）
+
+> 新增 5 条：选项文本 2 条、告别台词与「继续」2 条、末行哨兵空文本 1 条。
+> 注意：哆来咪其余条目（title / epithet / talk.*）此前尚未翻译，本次只补新增条目。
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.title` | 离开梦境 | Leave the Dream |
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.description` | 醒来……前去面见涅奥。 | Awaken... and go meet Neow. |
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient` | 是吗……那么祝您有个愉快的梦醒时分。 | Is that so... Then I hope you have a pleasant awakening. |
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.next` | 继续 | Continue |
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.silent` | （空文本，末行哨兵） | (empty string, sentinel line) |
