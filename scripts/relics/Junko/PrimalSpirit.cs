@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -50,7 +51,16 @@ public class PrimalSpirit : TouhouAncientRelics
             {
                 return -1;
             }
+            // Owner 的 getter 会 AssertMutable()，canonical 上读会抛异常，所以先判 IsCanonical。
             if (base.IsCanonical)
+            {
+                return -1;
+            }
+
+            // Owner 的实际可空性：mutable 克隆在绑定玩家之前 Owner == null（图鉴 / 其他模组的预览 UI）。
+            // 属性签名是非空的，这里用可空局部变量承接，避免 IDE 判成"恒为 false"。
+            Player? owner = Owner;
+            if (owner == null)
             {
                 return -1;
             }
@@ -59,7 +69,12 @@ public class PrimalSpirit : TouhouAncientRelics
             {
                 return triggerTurn;
             }
-            int roundNumber = base.Owner.Creature.CombatState.RoundNumber;
+            var combatState = owner.Creature.CombatState;
+            if (combatState == null)
+            {
+                return -1;
+            }
+            int roundNumber = combatState.RoundNumber;
             if (roundNumber >= triggerTurn)
             {
                 return -1;
