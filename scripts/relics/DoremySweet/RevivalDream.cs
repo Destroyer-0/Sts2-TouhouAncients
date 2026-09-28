@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -8,54 +9,69 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
 /// 复甦之梦：接下来3场战斗中的敌人将只有1点生命。
-/// 剩余场次显示为遗物计数，用尽后不再触发。
+/// 已生效场次用 <c>[SavedProperty]</c> 保存（参照原版「羽翼之靴」/本 Mod「二重结界」），
+/// 读档后剩余场次照旧，不会重新回满；用尽后遗物永久失效。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class RevivalDream : TouhouAncientRelics
 {
-    /// <summary>剩余生效场次。</summary>
-    private int _combatsRemaining;
+    /// <summary>生效场次上限。</summary>
+    private const int CombatCount = 3;
+
+    /// <summary>描述与计数器共用的 DynamicVar 键。</summary>
+    private const string CombatsKey = "Combats";
+
+    /// <summary>已生效的战斗场次。</summary>
+    private int _combatsUsed;
 
     /// <summary>当前这场战斗是否生效（供战斗中新增敌人时复用判断）。</summary>
     private bool _activeThisCombat;
 
-    private bool _initialized;
+    /// <summary>
+    /// 已生效场次：随存档保存，读档时由 setter 恢复剩余场次、计数器与失效状态。
+    /// </summary>
+    [SavedProperty]
+    public int TouhouAncients_CombatsUsed
+    {
+        get => _combatsUsed;
+        set
+        {
+            AssertMutable();
+            _combatsUsed = Math.Clamp(value, 0, CombatCount);
+            base.DynamicVars[CombatsKey].BaseValue = CombatCount - _combatsUsed;
+            InvokeDisplayAmountChanged();
+            if (IsUsedUp) base.Status = RelicStatus.Disabled;
+        }
+    }
 
-    public override bool IsUsedUp => _combatsRemaining <= 0;
+    public override bool IsUsedUp => _combatsUsed >= CombatCount;
 
     public override bool ShowCounter => !IsUsedUp;
 
-    public override int DisplayAmount => _combatsRemaining;
+    public override int DisplayAmount => CombatCount - _combatsUsed;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("Combats", 3),
+        new DynamicVar(CombatsKey, CombatCount),
         new DynamicVar("Hp", 1)
     ];
 
-    /// <summary>
-    /// 首次取用时把剩余场次初始化为配置值（DynamicVars 在克隆后可用）。
-    /// </summary>
-    private void EnsureInitialized()
-    {
-        if (_initialized) return;
-        _combatsRemaining = base.DynamicVars["Combats"].IntValue;
-        _initialized = true;
-    }
-
     public override async Task BeforeCombatStart()
     {
-        EnsureInitialized();
-
-        _activeThisCombat = _combatsRemaining > 0;
+        _activeThisCombat = !IsUsedUp;
         if (!_activeThisCombat) return;
 
         await ApplyToEnemies();
+        if (_activeThisCombat)
+        {
+            TouhouAncients_CombatsUsed++;
+        }
     }
 
     /// <summary>战斗中后续加入的敌人同样处理（如事件/召唤物）。</summary>
@@ -66,23 +82,6 @@ public class RevivalDream : TouhouAncientRelics
 
         Flash();
         await CreatureCmd.SetCurrentHp(creature, base.DynamicVars["Hp"].BaseValue);
-    }
-
-    public override Task AfterCombatEnd(CombatRoom room)
-    {
-        EnsureInitialized();
-
-        if (_activeThisCombat)
-        {
-            _combatsRemaining--;
-            if (_combatsRemaining < 0) _combatsRemaining = 0;
-        }
-
-        _activeThisCombat = false;
-        base.Status = IsUsedUp ? RelicStatus.Disabled : RelicStatus.Normal;
-        InvokeDisplayAmountChanged();
-
-        return Task.CompletedTask;
     }
 
     private async Task ApplyToEnemies()
