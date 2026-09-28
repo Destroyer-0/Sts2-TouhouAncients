@@ -1,4 +1,4 @@
-﻿# Sts2-TouhouAncients
+# Sts2-TouhouAncients
 杀戮尖塔2，东方先古之民
 依赖于BaseLib3.1.0(如有更新会说明)
 
@@ -86,6 +86,7 @@
 | 一时兴起的消费 | `TOUHOUANCIENTS-YISHIXINGQILE` | 拾起时获得112金币。消费后随机一件商品价格降至0。 | — |
 | 固若金汤的圣铠 | `TOUHOUANCIENTS-YONGHENGKAIJIAWANGCHAOLE` | 战斗开始时获得7层覆甲。获得覆甲时获得1能量。 | — |
 | 激寒大地的重冰 | `TOUHOUANCIENTS-ZHIHUIJIZHONGBING` | 战斗开始时获得3个额外充能球栏位。未打出任何牌结束时，获得3临时集中，生成2个冰霜充能球。 | — |
+| 无穷无尽的愤怒 | `TOUHOUANCIENTS-WUQIONGWUJINDEFENNU` | 回合开始时，将一张带有随机附魔的群情激愤（多人）/愤怒（单人）加入手牌。 | — |
 
 #### 蕾米莉亚·斯卡雷特（三层）
 | 遗物 | 代号 | 效果 | 衍生 |
