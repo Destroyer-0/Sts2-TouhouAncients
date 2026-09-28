@@ -29,7 +29,23 @@ public class SinisterPactDream : TouhouAncientRelics
 {
     /// <summary>已进入过的商店数量。</summary>
     [SavedProperty]
-    public int TouhouAncients_MerchantVisit { get; set; } = 0;
+    public int TouhouAncients_MerchantVisit
+    {
+        get => merchantVisit;
+        set
+        {
+            AssertMutable();
+            merchantVisit = value;
+
+            if (merchantVisit >= DynamicVars["ShopIndex"].IntValue)
+            {
+                Status = RelicStatus.Disabled;
+                InvokeDisplayAmountChanged();
+            }
+        }
+    }
+
+    private int merchantVisit;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -135,11 +151,6 @@ public class SinisterPactDream : TouhouAncientRelics
             NMapScreen.Instance.SetTravelEnabled(enabled: true);
         }
 
-        if (TouhouAncients_MerchantVisit >= DynamicVars["ShopIndex"].IntValue)
-        {
-            Status = RelicStatus.Disabled;
-            InvokeDisplayAmountChanged();
-        }
     }
 
     public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal originalPrice)
