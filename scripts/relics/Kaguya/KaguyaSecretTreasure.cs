@@ -43,10 +43,8 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player != base.Owner || base.Owner.Creature.CombatState.RoundNumber != 1)
-        {
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
             return;
-        }
 
         _selectedCardModel.Clear();
         Flash();

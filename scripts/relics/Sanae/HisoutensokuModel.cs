@@ -32,9 +32,9 @@ public class HisoutensokuModel : TouhouAncientRelics
     /// </summary>
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != base.Owner) return;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
         if (combatState != player.Creature.CombatState) return;
-        if (player.Creature.CombatState?.RoundNumber != 1) return;
 
         Flash();
 

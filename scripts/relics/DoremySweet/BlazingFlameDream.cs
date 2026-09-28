@@ -28,8 +28,8 @@ public class BlazingFlameDream : TouhouAncientRelics
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player != base.Owner) return;
-        if (player.Creature.CombatState?.RoundNumber != 1) return;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
 
         var amount = base.DynamicVars.Cards.IntValue;
         if (amount <= 0) return;

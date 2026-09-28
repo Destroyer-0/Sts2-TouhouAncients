@@ -24,8 +24,6 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class BatteryBili : TouhouAncientRelics
 {
-    private bool _activated;
-
     private const int GalvanizedDamage = 6;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -37,12 +35,6 @@ public class BatteryBili : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromAffliction<Galvanized>(GalvanizedDamage);
 
-    public override Task BeforeCombatStart()
-    {
-        _activated = false;
-        return Task.CompletedTask;
-    }
-
     private HashSet<CardModel> _affectedCards = new();
 
     protected override void AfterCloned()
@@ -53,12 +45,8 @@ public class BatteryBili : TouhouAncientRelics
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != base.Owner) return;
-        if (_activated) return;
-        if (player.Creature.CombatState == null) return;
-        if (player.Creature.CombatState.RoundNumber > 1) return;
-
-        _activated = true;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
 
         // 从抽牌堆中选至多3张能力牌
         var drawPile = PileType.Draw.GetPile(player);

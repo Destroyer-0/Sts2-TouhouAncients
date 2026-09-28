@@ -33,7 +33,7 @@ public class Geishehuaxiaojie : TouhouAncientRelics
 
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        if (side == base.Owner.Creature.Side && combatState.RoundNumber <= 1)
+        if (side == base.Owner.Creature.Side && Owner.PlayerCombatState.TurnNumber  <= 1 && participants.Contains(Owner.Creature))
         {
             _powers.Clear();
             Flash();

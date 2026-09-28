@@ -78,7 +78,7 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("BurnCount", 3m),
-        new BlockVar(BlockAmount, ValueProp.Move| ValueProp.Unpowered),
+        new BlockVar(BlockAmount, ValueProp.Move | ValueProp.Unpowered),
         new DynamicVar("Thorns", ThornsAmount),
     ];
 
@@ -89,20 +89,22 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
     /// <summary>
     /// 战斗开始时，将3张灼伤放入抽牌堆。
     /// </summary>
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+        ICombatState combatState)
     {
-        if (player == base.Owner && combatState.RoundNumber == 1)
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
+        
+        Flash();
+        List<CardModel> list = new List<CardModel>();
+        for (int i = 0; i < base.DynamicVars["BurnCount"].IntValue; i++)
         {
-            Flash();
-            List<CardModel> list = new List<CardModel>();
-            for (int i = 0; i < base.DynamicVars["BurnCount"].IntValue; i++)
-            {
-                list.Add(combatState.CreateCard<Burn>(base.Owner));
-            }
-
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Draw, creator: base.Owner, CardPilePosition.Random));
-            await Cmd.Wait(2f);
+            list.Add(combatState.CreateCard<Burn>(base.Owner));
         }
+
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Draw, creator: base.Owner,
+            CardPilePosition.Random));
+        await Cmd.Wait(2f);
     }
 
 
@@ -120,24 +122,30 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
         await PowerCmd.Apply<ThornsPower>(context, base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
     }
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
+        DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target != base.Owner.Creature) return;
         if (cardSource is Burn)
         {
             await CreatureCmd.GainBlock(base.Owner.Creature, DynamicVars.Block, null);
-            await PowerCmd.Apply<ThornsPower>(choiceContext, base.Owner.Creature, ThornsAmount, base.Owner.Creature, null);
-            await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, base.Owner.Creature, 1m, base.Owner.Creature, null);
+            await PowerCmd.Apply<ThornsPower>(choiceContext, base.Owner.Creature, ThornsAmount, base.Owner.Creature,
+                null);
+            await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, base.Owner.Creature, 1m, base.Owner.Creature,
+                null);
         }
     }
 
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource, CardPlay? cardPlay)
     {
-        if (target != base.Owner.Creature) return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
+        if (target != base.Owner.Creature)
+            return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
         if (cardSource is Burn)
         {
             return -10000;
         }
+
         return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
     }
 

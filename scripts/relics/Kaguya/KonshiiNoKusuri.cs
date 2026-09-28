@@ -79,9 +79,8 @@ public class KonshiiNoKusuri : TouhouAncientRelics
     /// </summary>
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != base.Owner) return;
-        if (Owner.Creature.CombatState == null) return;
-        if (combatState.RoundNumber != 1) return;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
 
         // 重置运行时标记
 

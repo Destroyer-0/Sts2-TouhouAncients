@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -33,12 +34,11 @@ public class DreamHeavenBow : TouhouAncientRelics
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player != base.Owner) return;
-
-        var combatState = player.Creature.CombatState;
-        if (combatState == null || combatState.RoundNumber != 1) return;
-
-        var enemies = combatState.HittableEnemies;
+        if (player != Owner)
+            return;
+        if (Owner.Creature.CombatState == null || Owner.PlayerCombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
+        var enemies = Owner.Creature.CombatState.HittableEnemies;
         if (enemies.Count <= 0) return;
 
         Flash();
@@ -57,9 +57,11 @@ public class DreamHeavenBow : TouhouAncientRelics
         // 对生命值最高的敌人：1次基础伤害 + 额外2次伤害 = 共3次
         for (var index = 0; index < 2; index++)
         {
-            await CreatureCmd.Damage(choiceContext, highestHpEnemies, baseDamage, ValueProp.Unpowered, base.Owner.Creature);
+            await CreatureCmd.Damage(choiceContext, highestHpEnemies, baseDamage, ValueProp.Unpowered,
+                base.Owner.Creature);
         }
 
-        await PowerCmd.Apply<WeakPower>(choiceContext, highestHpEnemies, base.DynamicVars["Weak"].BaseValue, base.Owner.Creature, null);
+        await PowerCmd.Apply<WeakPower>(choiceContext, highestHpEnemies, base.DynamicVars["Weak"].BaseValue,
+            base.Owner.Creature, null);
     }
 }

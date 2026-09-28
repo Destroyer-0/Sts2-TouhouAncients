@@ -28,11 +28,11 @@ public class MillionPounds : TouhouAncientRelics
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != base.Owner) return;
-        if (player.Creature.CombatState?.RoundNumber != 1) return;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
 
         Flash();
-        var note = player.Creature.CombatState.CreateCard<TheMillionPoundNote>(player);
+        var note = Owner.Creature.CombatState.CreateCard<TheMillionPoundNote>(player);
         await CardPileCmd.AddGeneratedCardsToCombat([note], PileType.Hand, creator: base.Owner);
     }
 }

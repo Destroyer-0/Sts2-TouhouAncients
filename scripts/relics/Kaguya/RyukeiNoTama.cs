@@ -53,10 +53,10 @@ public class RyukeiNoTama : TouhouAncientRelics
 
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != base.Owner) return;
-        if (player.Creature.CombatState?.RoundNumber != 1) return;
+        if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
+            return;
         
-        sevenStar = player.Creature.CombatState.CreateCard<SevenStars>(player);
+        sevenStar = Owner.Creature.CombatState.CreateCard<SevenStars>(player);
         Flash();
         CardCmd.Upgrade(sevenStar);
         await CardPileCmd.AddGeneratedCardsToCombat([sevenStar], PileType.Hand, creator: base.Owner);
