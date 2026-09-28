@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
@@ -38,6 +38,13 @@ public class WatariNinaAncient : TouhouAncientBase
         TARelicOption<Sheyaotebieqiang>(),
         TARelicOption<Yishixingqile>(),
         TARelicOption<Yonghengkaijiawangchaole>(),
-        TARelicOption<Dongnichangshu>()
+        TARelicOption<Dongnichangshu>(),
+        TARelicOption<Wuqiongwujindefennu>().Prep((Wuqiongwujindefennu relic) =>
+        {
+            // 事件描述要按当前人数写出群情激愤 / 愤怒，必须在选项渲染前填好；
+            // 此阶段遗物自身的 Owner 尚未设置，用古代事件自己的 Owner。
+            if (Owner != null) relic.SetupForPlayer(Owner);
+        }),
+        TARelicOption<Jinsiliangjideyingzhang>()
         );
 }
