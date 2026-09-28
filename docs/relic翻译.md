@@ -1,4 +1,4 @@
-﻿# relics.json 翻译记录
+# relics.json 翻译记录
 
 > 翻译依据：`zhs/relics.json` → `eng/relics.json`
 > 规则参考：`.agents/skills/translate/SKILL.md`、`docs/翻译术语表.md`
@@ -2502,6 +2502,216 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - 本遗物除标题与描述外，还有一组「命运」标记专用的本地化键（`fateTitle` / `fateDescription` / `fateExtraText`）与战斗中的赞许气泡（`approval`），因此条目数比其他遗物多。
 - `.fateTitle` / `.fateDescription` 用于标记牌的 HoverTip；`.fateExtraText` 是卡面上追加的紫色额外文本；`.approval` 是打出首张命运牌触发效果时播放的气泡台词。
 - `{Energy:energyIcons()}` 统一用能量图标渲染，因此 `.fateDescription` 与 `.approval` 中涉及能量的部分也走同一写法，便于日后统一调整数值。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-09-26，基于提交 28e0c4b 之后的 zhs 变更）
+
+### 1. 哆来咪「梦境」系列遗物（新增，共 33 条键）
+
+`zhs/relics.json` 在「灌铅骰子」之后新增整组梦境遗物，此前 `eng/`、`jpn/` 均无对应条目。顺序与 zhs 一致。
+
+#### 虹光之梦 `IRIDESCENT_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Iridescent Dream` |
+| `.description` | `Upon pickup, {StarterRelic.StringValue:cond:replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]\|replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]\|a Starter card} from your [gold]Deck[/gold].` |
+| `.eventDescription` | `{StarterRelic.StringValue:cond:Replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]\|Replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]\|a Starter card} from your [gold]Deck[/gold].` |
+| `.flavor` | `""`（留空） |
+
+#### 熔蜡之梦 `MELTING_WAX_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Melting Wax Dream` |
+| `.description` | `At the start of your turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.` |
+| `.flavor` | `""`（留空） |
+
+#### 燎烛之梦 `BLAZING_FLAME_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Blazing Candle Dream` |
+| `.description` | `At the start of each combat, put [blue]{Cards}[/blue] [gold]Blazing Flame[/gold] into your [gold]Hand[/gold]. They have [gold]Exhaust[/gold].` |
+| `.flavor` | `""`（留空） |
+
+#### 邪契之梦 `SINISTER_PACT_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Sinister Pact Dream` |
+| `.description` | `When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares. [gold]Merchant[/gold] prices increase by [blue]{PriceIncrease}%[/blue].` |
+| `.flavor` | `""`（留空） |
+
+#### 瑰琦之梦 `FLOWING_SPLENDOR_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Flowing Splendor Dream` |
+| `.description` | `Upon pickup, [gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].` |
+| `.eventDescription` | `[gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].` |
+| `.flavor` | `""`（留空） |
+
+#### 浴血之梦 `BLOODBATH_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Bloodbath Dream` |
+| `.description` | `Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
+| `.eventDescription` | `Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
+| `.flavor` | `""`（留空） |
+
+#### 至高之梦 `SUPREME_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Supreme Dream` |
+| `.description` | `Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.` |
+| `.eventDescription` | 同上，改为不换行的连续段落 |
+| `.flavor` | `""`（留空） |
+
+#### 复甦之梦 `REVIVAL_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Revival Dream` |
+| `.description` | `Enemies in your next [blue]{Combats}[/blue] combats will have only [blue]{Hp}[/blue] HP.` |
+| `.flavor` | `""`（留空） |
+
+#### 往昔之梦 `BYGONE_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Bygone Dream` |
+| `.description` | `Upon pickup, obtain a forgotten relic from the past and a forgotten card from the past.` |
+| `.eventDescription` | `Obtain a forgotten relic from the past and a forgotten card from the past.` |
+| `.flavor` | `""`（留空） |
+
+#### 先驱之梦 `PIONEER_DREAM`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Pioneer Dream` |
+| `.description` | `Upon pickup, add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
+| `.eventDescription` | `Add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
+| `.flavor` | `""`（留空） |
+
+#### 幻想之梦 `FANTASY_DREAM`（条目已存在，对应类暂未实现）
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Fantasy Dream` |
+| `.description` | `[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].` |
+| `.flavor` | `""`（留空） |
+
+### 2. 旧条目刷新（zhs 已改，译文跟进）
+
+| 键名 | 新译文要点 |
+|------|-----------|
+| `YIYANDINGZHEN.description` | `At the start of each turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.` |
+| `NOBLE_BROOCH.description` | `At the start of each turn, [gold]Transform[/gold] up to [blue]2[/blue] cards, ...` |
+| `DUSTY_ROSE.description` | `At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].`（随 cards.json 卡名统一为 `The Closed Eye`） |
+| `MALICIOUS_FAIRY_TALE.description` | `... At the start of each turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].` |
+| `HOTOKE_MISHI_ISHI_NO_HACHI.description` / `.eventDescription` | 格挡变量由 `{StartBlock}` 改为 `{Block}` |
+| `PRIMAL_SPIRIT.description` / `.eventDescription` | 删去已移除的「每场战斗开始时获得无实体」一句 |
+| `EIENTEI_ZAKUSHI.description` / `.eventDescription` | `At the start of each turn, ...`；`Potion Slot` → `Potion Slots` |
+| `PURGATORY_EMBERS.description` | `At the start of each turn, ...` |
+| `SMOKED_FAN.description` | **英文保持原译不动**：`Whenever you defeat an Elite, add a [red]Guilty[/red] to your [gold]Deck[/gold].`。本轮曾画蛇添足补过 `afterwards`，已还原 —— 「每次击败精英**后**」的时序由 `Whenever ...` 句式承担，英文首句加尾缀 `afterwards` 是冗余。 |
+| `RELIABLE_TANUKI_DISCIPLE.description` / `.flavor` | 仆从牌名更新为 `Minion Dive` / `Minion Strike` / `Minion Sacrifice`；风味文本改为 `Oh my, that universe boy's little underling is quite easy on the eyes too.` |
+| `SUNKEN_ANCHOR_GHOST.description` | `... place [blue]{Cards}[/blue] random cards from your [gold]Draw Pile[/gold] into your [gold]Discard Pile[/gold].` |
+
+> 「在你/每回合开始时」中的「每」在英文里统一用 `At the start of each turn`（仓库内既有 19 处同写法）。
+
+### 2.1 独立复核后的修正（卡名与日文用词）
+
+对照原版三语（`D:\STS2Code\localization`）与模组源码后修正：
+
+| 键名 | 原译文 | 修正为 | 依据 |
+|------|--------|--------|------|
+| `eng` `BLAZING_FLAME_DREAM.description` | `[gold]Blazing Flame[/gold]` | `[gold]Brightest Flame[/gold]` | 该遗物创建原版卡 `BrightestFlame`（`BlazingFlameDream.cs:42`），原版英文标题 `Brightest Flame` |
+| `jpn` `BLAZING_FLAME_DREAM.description` | `[gold]至亮の焰[/gold]` | `[gold]極光の炎[/gold]` | 原版日文 `BRIGHTEST_FLAME.title` |
+| `jpn` `BLOODBATH_DREAM.description` / `.eventDescription` | `[gold]撕咬[/gold]` | `[gold]引き裂き[/gold]` | 原版日文 `MAUL.title` |
+| `jpn` `FLOWING_SPLENDOR_DREAM.*` | `ディフェンド` / `華彩` | `防御` / `魅惑` | 原版日文 `DEFEND_*.title` / `GLAM.title` |
+| `jpn` `DUSTY_ROSE.description` | 英文整句 + `The Closed Eye` | 日文 `[gold]閉じた瞳[/gold]` | 本模组 `jpn/cards.json` 的 `THE_KOISHI_EYE.title` |
+| `jpn` 梦境遗物各条 | `先古` / `拾得時` | `エンシェント` / `取得時` | 原版日文 relic 用词（`TOUCH_OF_OROBAS`、`ARCHAIC_TOOTH`）；本模组 `jpn/settings_ui.json` 也用 `エンシェント` |
+| `jpn` `REVIVAL_DREAM.description` | `HPは…だけになる` | `HPが…だけになる` | 助词 |
+
+> 另：`eng`/`jpn` 的 `THE_FEAST.description` 卡名引号已去掉，改为 `[gold]Frenzied Feast[/gold]` / `[gold]「狂宴」[/gold]`。
+
+### 3. 顺带修正：`HELL_ORIN.description` 变量嵌套
+
+原译文写成 `[blue]{[gold]Corpse[/gold]PerKill}[/blue]`，变量名被 `[gold]` 标记切断，运行时无法解析。已按 zhs 的 `{CorpsePerKill}`（源码 `HellOrin.cs` 的 `DynamicVar("CorpsePerKill", 1)`）改为：
+
+`Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. ...`
+
+### 4. 关于 `GREED.description` 的 `{Times}`（已按源码改回变量）
+
+zhs 写的是 `[gold]重放[/gold][blue]{Times}[/blue]`，复核确认 `scripts/Enchantment/Greed.cs` 确实定义了 `new DynamicVar("Times", 1m)` 并交给 `StaticHoverTip.ReplayDynamic` 使用，因此**不能**硬编码成 `1`。英日均已改回 `{Times}`。此条已从 `docs/翻译待沟通.md` 的待确认清单中移除。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充；梦境遗物标题按现有日文风格译为「XXの夢」）。
+
+---
+
+## 增量更新（2026-09-27，渡里贝子新增遗物 2 件）
+
+`zhs/relics.json` 在「亘古不变的数字」之后新增 `WUQIONGWUJINDEFENNU`（3 条键）与 `JINSILIANGJIDEYINGZHANG`（5 条键），此前 `eng/`、`jpn/` 均无对应条目。顺序与 zhs 一致，两件均为渡里贝子（妮娜）先古的遗物。
+
+### 1. 无穷无尽的愤怒（WUQIONGWUJINDEFENNU，新增遗物）
+
+**键名**: `TOUHOUANCIENTS-WUQIONGWUJINDEFENNU`
+
+#### 中文原文
+```json
+"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "无穷无尽的愤怒",
+"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）加入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "不要愤怒，愤怒会降低你的理智。"
+```
+
+#### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Endless Fury` |
+| `.description` | `At the start of your turn, add a [gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer) with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].` |
+| `.flavor` | `Don't be angry. Anger dulls your reason.` |
+
+#### 说明
+- 卡名取 STS2 原版 `cards.json`：`OUTRAGE.title` = `Outrage`（多人限定牌「群情激愤」）、`ANGER.title` = `Anger`（单人替代牌「愤怒」），不另行翻译。
+- 「回合开始」沿用仓库既有写法 `At the start of your turn`；「加入手牌」沿用 `add … to your [gold]Hand[/gold]`（参考 `DUSTY_ROSE` / `THE_THIRD_EYE`）。
+- 「（多人）/（单人）」为原版没有的写法，按原版 `ftues.json` 的拼写取 `(multiplayer)` / `(singleplayer)`，保留中文的斜杠并列结构。
+- 「带有随机附魔的」译为 `with a random [gold]Enchantment[/gold]`，与仓库既有 `enchanted with [purple]{EnchantmentName}[/purple]` 系列句式一致。
+
+### 2. 近似两级的营帐（JINSILIANGJIDEYINGZHANG，新增遗物）
+
+**键名**: `TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG`
+
+#### 中文原文（2026-09-27 用户改稿后的最新版本）
+```json
+"TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "近似两级的营帐",
+"TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.description": "拾起时，[red]降级[/red]一张牌，随机[red]降级[/red]一张牌。获得[gold]微型帐篷[/gold]和随机[blue]{Relics}[/blue]件非先古的[gold]休息处[/gold]遗物。",
+"TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.eventDescription": "[red]降级[/red]一张牌，随机[red]降级[/red]一张牌。获得[gold]微型帐篷[/gold]和随机[blue]{Relics}[/blue]件非先古的[gold]休息处[/gold]遗物。",
+"TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.selectionScreenPrompt": "选择一张牌[red]降级[/red]",
+"TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.flavor": "游戏领域大神！"
+```
+
+#### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `The Nearly Two-Level Tent` |
+| `.description` | `Upon pickup, [red]Downgrade[/red] a card, then [red]Downgrade[/red] a random card. Gain a [gold]Miniature Tent[/gold] and [blue]{Relics}[/blue] random non-Ancient [gold]Rest Site[/gold] Relics.` |
+| `.eventDescription` | `[red]Downgrade[/red] a card, then [red]Downgrade[/red] a random card. Gain a [gold]Miniature Tent[/gold] and [blue]{Relics}[/blue] random non-Ancient [gold]Rest Site[/gold] Relics.` |
+| `.selectionScreenPrompt` | `Choose a card to [red]Downgrade[/red]` |
+| `.flavor` | `Miniature Tent is the best!` |
+
+#### 说明
+- 「降级」用原版术语 `[red]Downgrade[/red]`（原版 `REFLECTIONS` / `WELCOME_TO_WONGOS` 事件均为此写法），不用 Upgrade 的反义自造词。
+- 「微型帐篷」取原版遗物标题 `MINIATURE_TENT.title` = `Miniature Tent`；「休息处」取原版 `GIRYA` / `SHOVEL` / `MINIATURE_TENT` 描述里的 `[gold]Rest Sites[/gold]`。
+- 「非先古的」译为 `non-Ancient`：`Ancient` 既是原版稀有度（`RelicRarity.Ancient`）也是先古之民，此处指非先古版本的原版休息处遗物，故保留该修饰语。
+- 英文首句补 `then` 以承接中文逗号隐含的先后顺序（先玩家指定、后随机）。
+- **flavor 为用户指定的中英不一致**：zhs 保持「游戏领域大神！」，eng/jpn 写 `Miniature Tent is the best!`（用户明确指定，不做字面对应）。
+- 用户改稿删去了此前的「从牌组中选择一张已升级的牌」「以奖励列表的方式」「不会出现你已经拥有的」等措辞，译文随之删去，未做补充说明。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 

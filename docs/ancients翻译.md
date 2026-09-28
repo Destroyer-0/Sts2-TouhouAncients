@@ -1,4 +1,4 @@
-﻿# ancients.json 翻译记录
+# ancients.json 翻译记录
 
 > 翻译依据：`zhs/ancients.json` → `eng/ancients.json`
 
@@ -1166,3 +1166,120 @@ You remind me of someone annoying. |
 | `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient` | 是吗……那么祝您有个愉快的梦醒时分。 | Is that so... Then I hope you have a pleasant awakening. |
 | `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.next` | 继续 | Continue |
 | `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.silent` | （空文本，末行哨兵） | (empty string, sentinel line) |
+
+## 增量更新（2026-09-26，基于提交 28e0c4b 之后的 zhs 变更）
+
+### 1. 已改动条目（刷新）
+
+| 键名 | 中文（新） | English |
+|------|-----------|---------|
+| `TOUHOUANCIENTS.fight.description` | 与先古之民战斗，胜利后获取以上所有先古遗物选项 | Fight the Ancient, and obtain all the Ancient relic options above upon victory |
+| `TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_ANCIENT.epithet` | 永不盛放的幽冥之樱 | The Never-Blooming Cherry of the Netherworld |
+| `TOUHOUANCIENTS-SHAMYOUMARU_AYA_ANCIENT.epithet` | 速行的幻想记者 | The Fleet-Footed Fantasy Reporter |
+| `talk.HOURAISAN_KAGUYA_ANCIENT…MOKOU_MOD.4-1.ancient` | 等你待会儿死了，我会叫人把你这可燃垃圾丢回塔底去的。 | Once you're dead later, I'll have someone toss you back to the bottom of the tower—you combustible trash. |
+| `talk.HOURAISAN_KAGUYA_ANCIENT…MOKOU_MOD.5-1r.ancient` | （键由 5-0r 改为 5-1r，文本不变） | [sine](Yawn)[/sine] Take it or leave it, you stupid bird. |
+| `talk.FUTATSUIWA_MAMIZOU_ANCIENT.DEFECT.1-0r.ancient`（新增键） | 老朽会帮你留意你朋友的下落的，放心吧。 | This old one will keep an eye out for your friend. Rest easy. |
+
+### 2. 辉夜 × 妹红 4-0 新增对话
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `talk.HOURAISAN_KAGUYA_ANCIENT…MOKOU_MOD.4-0.char` | 等我凯旋，就来把你做成月人烧烤！ | Once I return in triumph, I'll turn you into a lunar barbecue! |
+| `talk.HOURAISAN_KAGUYA_ANCIENT…MOKOU_MOD.4-0.next` | 继续 | Continue |
+
+### 3. 哆来咪·苏伊特（新增先古之民，共 58 条）
+
+此前仅有「离开梦境」5 条，本次补齐 title / epithet / 全部台词。**英文**：
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `.title` | 哆来咪·苏伊特 | Doremy Sweet |
+| `.epithet` | 遂古之初的梦境使 | Dream-Shaper of the Primordial Dawn |
+| `.pages.INITIAL.options.LEAVE_DREAM.title` | 离开梦境 | Leave the Dream |
+| `.pages.INITIAL.options.LEAVE_DREAM.description` | 醒来……前去面见涅奥。 | Awaken... and go meet Neow. |
+| `.talk.LEAVE_DREAM.ancient` | 是吗……那么祝您有个愉快的梦醒时分。 | Is that so... Then I wish you a pleasant awakening. |
+| `.talk.LEAVE_DREAM.next` | 继续 | Continue |
+| `.talk.LEAVE_DREAM.silent` | 梦境逐渐溶解…… | The dream slowly dissolves...（保留 `[thinky_dots][sine]` 标记） |
+| `.talk.firstVisitEver.0-0.ancient` | 欢迎来到梦世界~在你的躯体被涅奥重塑前，还请你在这里暂留一会儿哦。 | Welcome to the Dream World~ Before Neow reshapes your body, do stay here for a little while, won't you? |
+| `.talk.ANY.0-0r.ancient` | 晚安。晚安。属于您的槐安，即将建成。 | Good night. Good night. Your Kaian shall soon be built. |
+| `.talk.ANY.1-0.ancient` | 你能看到……那些来自先古之树的梦吗？ | Can you see them... those dreams that drift from the Ancient Tree? |
+| `.talk.ANY.2-0r.ancient` | 呵呵，就当是做了一个梦而已…… | Hehe, just treat it as nothing more than a dream... |
+| `.talk.ANY.3-0r.ancient` | 在出发前，要听点睡前故事吗？ | Would you like a bedtime story before you set off? |
+| `.talk.ANY.4-0r.ancient` | 穿过冷之高原……呵呵，开个玩笑。 | Cross the Plateau of Leng, descend the seventy steps of light sleep, then descend the seven hundred steps of deep sleep... and you can open the door to the Architect's chamber from the other world... Hehe, just kidding. |
+| `.talk.ANY.5-0r.ancient` | 呵呵，也许我会在下一场梦境的游行中与你重逢。 | Hehe, perhaps we shall meet again in the next dream procession. |
+| `.talk.ANY.6-0r.ancient` | 祝你的旅途有个好梦。 | May your journey be filled with sweet dreams. |
+| `.talk.ANY.7-0r.ancient` | 梦中世界的深处与他人的梦境是连在一起的。 | Deep within the Dream World lies a connection to the dreams of others. |
+| `.talk.ANY.8-0r.ancient` | 好孩子就应该好好回到重生的的躯体里…… | Good children ought to return to their reborn bodies, rather than make trouble in the Dream World, don't you think? |
+| `.talk.ANY.9-0r.ancient` | 在这个世界的梦境维持秩序可比在幻想乡麻烦多了。 | Keeping order in this world's dreams is far more trouble than it is in Gensokyo. |
+| `.talk.ANY.10-0r.ancient` | 你也想加入梦境的游行吗？ | Would you like to join the dream procession as well? |
+| `.talk.ANY.11-0r.ancient` | 这一次你的旅途能为我的日记添加些什么呢？ | What will this journey of yours add to my diary, I wonder?（哆来咪的「梦日记」为东方一设） |
+| `.talk.IRONCLAD.0-0r.char` | 向修普诺斯发动的战争号角已经吹响…… | The war horn has sounded against Hypnos! Soldiers who crave glory, don that bronze armor at once! |
+| `.talk.IRONCLAD.0-0r.next` | 癫狂 | Frenzy |
+| `.talk.IRONCLAD.0-1r.char` | 砍下河谷卫士的头颅…… | Cleave the head from the Valleyguard, shatter the bones of the Wind Walkers, pierce the heart of the Desert Tribe! The Legion! The Guard! Who assassinated the general! Who played the damned traitor! |
+| `.talk.IRONCLAD.0-1r.next` | 癫狂 | Frenzy |
+| `.talk.IRONCLAD.0-2r.char` | 是洛夫克拉夫特？……是[b][red]我！！！[/red][/b] | Is it Lovecraft? Is it Heracles? Or is it [red]Vaku[/red]? It's [b][red]ME!!![/red][/b] |
+| `.talk.IRONCLAD.0-2r.next` | 继续 | Continue |
+| `.talk.IRONCLAD.0-3r.ancient` | ……看来你还没彻底把军团的往事忘记呢。 | ...It seems you haven't quite forgotten the Legion's past, have you. |
+| `.talk.SILENT.0-0r.char` | 去年的今天正适合攀上山顶…… | Today, last year, was the perfect day to climb to the summit. Quick, put down that blue fragment—do not slip it into a pouch sewn from sheepskin. |
+| `.talk.SILENT.0-0r.next` | 癫狂 | Frenzy |
+| `.talk.SILENT.0-1r.char` | 有眼无珠的腐殖质！…… | You blind humus! Even Mazaleth's followers know quality when they see it! But not even the Great Worm could drain that foul blood in one gulp! |
+| `.talk.SILENT.0-1r.next` | 癫狂 | Frenzy |
+| `.talk.SILENT.0-2r.char` | ……开口是弱小…… | ...To speak is to be weak... |
+| `.talk.SILENT.0-2r.next` | 继续 | Continue |
+| `.talk.SILENT.0-3r.ancient` | ……呵呵，有时候还是开口沟通才方便解决问题呢。 | ...Hehe, sometimes talking things out is the easier way to solve a problem. |
+| `.talk.DEFECT.0-0r.char` | <随机混乱的词句> | <random jumbled words> |
+| `.talk.DEFECT.0-0r.next` | 错乱 | Confused |
+| `.talk.DEFECT.0-1r.char` | <随机无序的词句> | <random disordered words> |
+| `.talk.DEFECT.0-1r.next` | 异常 | Anomaly |
+| `.talk.DEFECT.0-2r.char` | <0xDEADBEEF 0xC0FFEE 0x????????> | （原样保留） |
+| `.talk.DEFECT.0-2r.next` | 继续 | Continue |
+| `.talk.DEFECT.0-3r.ancient` | ……呵呵，仿生机器人也会梦到电子羊吗？ | ...Hehe, do bionic androids dream of electric sheep too? |
+| `.talk.NECROBINDER.0-0r.char` | 父亲，父亲！！等等！…… | Father, Father!! Wait! No!! Why has he taken you from me once again! |
+| `.talk.NECROBINDER.0-0r.next` | 癫狂 | Frenzy |
+| `.talk.NECROBINDER.0-1r.char` | 为什么世界会存在？……为什么奥斯提是左手而不是右手？ | Why does the world exist? Why do living things reproduce? Why is Osty a left hand and not a right one? |
+| `.talk.NECROBINDER.0-1r.next` | 癫狂 | Frenzy |
+| `.talk.NECROBINDER.0-2r.char` | 全新的秩序即将诞生！……被刻耳柏洛斯撕成碎片！ | A brand-new order is about to be born! The supreme king who fell from the divine court shall be torn to shreds by Cerberus amid the cheers of the Twelve! |
+| `.talk.NECROBINDER.0-2r.next` | 继续 | Continue |
+| `.talk.NECROBINDER.0-3r.ancient` | ……在梦中也无法放下那仇恨与牵挂吗？ | ...Even in a dream, you cannot set down that hatred and longing, can you? |
+| `.talk.REGENT.0-0r.char` | 该死的，舰长你为什么还不赶紧调转船舷？ | Damn it, Captain, why haven't you turned the ship around yet? |
+| `.talk.REGENT.0-0r.next` | 癫狂 | Frenzy |
+| `.talk.REGENT.0-1r.char` | 掏出你的光剑！不管是缇扬奇还是变形虫…… | Draw your lightsaber! Whether it's a Tiyanki or an amoeba, anything in my way must be destroyed! |
+| `.talk.REGENT.0-1r.next` | 癫狂 | Frenzy |
+| `.talk.REGENT.0-2r.char` | [orange]我[/orange]的征途将是星辰大海！ | [orange]My[/orange] journey shall be to the stars and the sea! |
+| `.talk.REGENT.0-2r.next` | 继续 | Continue |
+| `.talk.REGENT.0-3r.ancient` | ……呼呼呼，真是个可爱的暴君…… | ...Hehehe, what an adorable little tyrant... |
+| `.talk.REGENT.1-0r.char` | 我的玫瑰花！那无礼的庶民将她掳去了哪里？ | My rose! Where has that insolent commoner carried her off to? |
+| `.talk.REGENT.1-0r.next` | 癫狂 | Frenzy |
+| `.talk.REGENT.1-1r.char` | 在米勒星？埃德蒙斯星？还是曼恩星？ | On Miller? On Edmunds? Or on Mann? |
+| `.talk.REGENT.1-1r.next` | 癫狂 | Frenzy |
+| `.talk.REGENT.1-2r.char` | 为我的火箭装填！前进必须遵守黄金螺旋线！…… | Load my rocket! Our advance must follow the golden spiral! Set forth just like this from Cape Canaveral! |
+| `.talk.REGENT.1-2r.next` | 继续 | Continue |
+| `.talk.REGENT.1-3r.ancient` | ……在高塔的顶端，你会见到她的…… | ...At the top of the tower, you will meet her... |
+
+### 4. 哆来咪台词的文化梗说明
+
+- **癫狂 / 错乱 / 异常** — 角色在中了哆来咪的梦境后说出的胡话，`.next` 按钮改为该胡话的关键词，而非「继续」。英文对应 `Frenzy`（错乱、发狂）／`Confused`（沿用异眼顶真的 `[red]Confused[/red]`）／`Anomaly`。
+- **修普诺斯（Hypnos）** — 希腊神话的睡神，与梦境主题呼应；铁甲战士把它当作敌国名呼喊。
+- **河谷卫士 / 驭风行者 / 沙漠部族** — 铁甲战士军团往事中的三个敌手，直译保留意象。
+- **卡纳维纳尔角 / 米勒星 / 埃德蒙斯星 / 曼恩星** — 现实中的卡纳维拉尔角与《星际穿越》的三颗星球；储君在梦里把它们当成自己的征途。
+- **缇扬奇（Tiyanki）** — 《群星》中的太空巨兽；储君胡话中与变形虫并列为「挡路的敌人」。
+- **刻耳柏洛斯 / 十二人众 / 坠落神庭** — 亡灵契约师复仇线的末世幻想。
+- **奥斯提（Osty）** — 官方英文名，见术语表。
+- **槐安** — 典出「南柯一梦」（槐安国）；用户指定专名为 `Kaian`。
+- **冷之高原** — 克苏鲁体系的 `Plateau of Leng`（用户确认用官方名）。
+- **修普诺斯 / 缇扬奇 / 米勒星·埃德蒙斯星·曼恩星 / 卡纳维纳尔角 / 刻耳柏洛斯 / 赫拉克勒斯 / 十二人众 / 坠落神庭** — 均经用户逐条确认，写法见 `docs/翻译术语表.md`。
+
+> **jpn 处理**：哆来咪整段在 `jpn/` 中此前即为英文（仅「离开梦境」5 条为英文），故本次新增内容同样以英文填充；辉夜、文、幽幽子、狸猫等段落按现有日文风格继续用日文。
+
+### 5. 独立复核后的修正
+
+对照原版三语与源码复核后修正：
+
+| 键名 | 问题 | 修正 |
+|------|------|------|
+| `talk.DOREMY_SWEET_ANCIENT.IRONCLAD.0-2r.char` | 专有名词写成 `Vaku` | 改为原版名 **`Vakuu`**（`VAKUU.title`），英日同步 |
+| `talk.DOREMY_SWEET_ANCIENT.LEAVE_DREAM.ancient` | `[thinky_dots]` 未闭合 | 三语均改为 `[/thinky_dots]`（原版 PAEL 全部同写法），中文侧已同步修正 |
+| `talk.HAKUREI_REIMU_ANCIENT.ANY.0-0r.ancient` | `[u]` 未闭合（zhs 为 `[u]那家伙[/u]`），属既有缺陷 | 补上 `[/u]`，英日同步 |
+| `TOUHOUANCIENTS.fight.description`（jpn） | 同一句里混用 `エンシェント` 与中文词 `先古` | 统一为 `エンシェント` |
+
+另：复核确认本轮新增的其它专有名词无误 —— `Mazaleth`（马萨雷斯）、`Hypnos`（修普诺斯）、`Tiyanki`（缇扬奇）、`Osty`（奥斯提）均与原版/术语表一致；`4-0r` → `4-1` 与 `5-0r` → `5-1r` 的键名调整与 `AncientDialoguePortraitPatch.cs` 的 `{dialogueIndex}-{lineIndex}{r}` 命名规则相符。

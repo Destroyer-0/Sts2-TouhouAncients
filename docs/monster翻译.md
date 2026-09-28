@@ -437,3 +437,23 @@
 
 > jpn 与 eng 内容一致（jpn 用英语填充）。
 
+## 增量更新（2026-09-26）：灵梦梦想天生台词
+
+### 台词（monsters.json）
+
+| 键 | 中文 | English |
+|------|------|---------|
+| `HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.banter` | 做好被退治的觉悟吧！ | Prepare yourself to be exterminated! |
+
+该条 zhs 早已存在（本次之前 eng/jpn 缺失），本次补齐 eng/jpn；jpn 与 eng 内容一致（jpn 用英语填充）。
+
+### 播放时机（HakureiReimuMonster.cs）
+
+| 台词 | 时机 |
+|------|------|
+| `FANTASY_NATURE.banter` | `ForceDreamNatureNext()` 开头，即「无差别降伏」计数归零、意图强制切换至梦想天生时播放一次（气泡时长走 `Custom` 自动计算，不传 `duration`） |
+
+- 第一回合开场那个**固定**的梦想天生**不播**这条台词：它由 `AfterAddedToRoom()` + 状态机初始状态进入，不经过 `ForceDreamNatureNext()`。
+- `ForceDreamNatureNext()` 全仓库只有 `IndiscriminateSubjugationPower.TryTrigger()` 一个调用点，因此"只能由无差别降伏触发"这一约束无需额外判断条件。
+- 气泡颜色 `VfxColor.White`。
+
