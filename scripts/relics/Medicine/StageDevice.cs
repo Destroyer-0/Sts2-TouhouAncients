@@ -48,6 +48,7 @@ public class StageDevice : TouhouAncientRelics
         {
             return ;
         }
+        if (CombatManager.Instance.PlayersTakingExtraTurn.Count > 0) return; // 额外回合跳过
         Flash();
 
         var playerCreature = base.Owner.Creature;
