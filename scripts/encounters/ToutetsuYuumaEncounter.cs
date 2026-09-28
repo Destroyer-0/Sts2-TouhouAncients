@@ -30,7 +30,7 @@ public sealed class ToutetsuYuumaEncounter : TouhouAncientEncounter
     public override string? BgmFileName => "Yuuma.mp3";
 
     public override string? CustomScenePath => "res://scenes/encounters/toutetsu_yuuma.tscn";
-    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/toutetsu_yuuma.tscn";
+    //public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/toutetsu_yuuma.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [
