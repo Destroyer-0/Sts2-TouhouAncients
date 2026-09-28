@@ -95,6 +95,7 @@ public class Yumeiro : TouhouAncientEnchantmentModel
             {
                 if (e is Bloodshed) return false;
                 if (e is DeprecatedEnchantment) return false;
+                if (e.IsMock) return false;
                 if (e is Yumeiro) return false;
                 if (e is Goopy) return false;
                 if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;
@@ -110,7 +111,8 @@ public class Yumeiro : TouhouAncientEnchantmentModel
         {
             var randomEnchantment =
                 availableEnchantments.UnstableShuffle(player.RunState.Rng.CombatCardGeneration).First();
-            CardCmd.Enchant(randomEnchantment.ToMutable(), card, 3m);
+            CardCmd.Enchant(randomEnchantment.ToMutable(), card,
+                TouhouAncientEnchantmentModel.GetRandomEnchantAmount(randomEnchantment));
         }
     }
 
