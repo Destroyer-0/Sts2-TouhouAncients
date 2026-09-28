@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves;
@@ -19,6 +20,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
@@ -103,6 +105,15 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     /// </summary>
     private Vector2? _fantasyNatureLiftOffset;
 
+    // --- 台词 ---
+
+    /// <summary>
+    /// 切换进入梦想天生时的台词。仅由「无差别降伏」计数归零强制切换意图时播放
+    /// （<see cref="ForceDreamNatureNext"/>），开场固定的第一回合梦想天生不播放。
+    /// </summary>
+    private static readonly LocString _fantasyNatureLine =
+        new LocString("monsters", "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.banter");
+
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
     {
@@ -183,11 +194,15 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     /// <summary>
     /// 将当前意图立即切换至梦想天生，并保证梦想天生先执行一次，
     /// 执行完毕后回到触发切换前"原先的下一个意图"。
+    /// 切换时播放梦想天生台词（气泡时长按文本长度自动计算）；
     /// 全部灵符激活后先收回，再播放准备演出（spell_2 姿态），切换意图后进入翱翔。
     /// </summary>
     internal async Task ForceDreamNatureNext()
     {
         if (_dreamNatureMove == null) return;
+
+        // 切换进入梦想天生的台词（本方法只由无差别降伏触发，故第一回合的固定梦想天生不会播放）
+        TalkCmd.Play(_fantasyNatureLine, base.Creature, VfxColor.White);
 
         // 全部灵符已激活：先渐隐并收回灵符，再摆出 spell_2 准备姿态
         await RetractAllAmulets();
