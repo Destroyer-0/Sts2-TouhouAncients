@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -29,6 +30,8 @@ public class Jinsiliangjideyingzhang : TouhouAncientRelics
     private const int RandomRestRelicCount = 2;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Relics", RandomRestRelicCount)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => HoverTipFactory.FromRelic<MiniatureTent>();
 
     public override bool HasUponPickupEffect => true;
 
