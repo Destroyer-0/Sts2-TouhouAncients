@@ -16,8 +16,8 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.545f, 0.353f, 0.169f, 0.7f);
     public override Color DialogueColor => new(0.545f, 0.353f, 0.169f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/HakureiReimu_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HakureiReimu_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/FutatsuiwaMamizou_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/FutatsuiwaMamizou_MapNode.png";
 
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/FutatsuiwaMamizou.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/FutatsuiwaMamizou.png";
