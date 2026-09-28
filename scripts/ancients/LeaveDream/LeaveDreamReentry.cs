@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Runs.History;
 using MegaCrit.Sts2.Core.Saves;
 
 namespace TouhouAncients.Scripts;
@@ -93,6 +94,10 @@ internal static class LeaveDreamReentry
             return;
         }
 
+        // 把本页那些没被选中的遗物选项写进跑步历史，历史界面会渲染成「跳过了 XXX」。
+        // 必须在下面替换/清理事件实例之前做 —— 那时实例的 Owner 和选项都还在。
+        RecordSkippedAncientChoices(ancient);
+
         var runState = player.RunState;
         var sync = RunManager.Instance.EventSynchronizer;
 
@@ -138,6 +143,44 @@ internal static class LeaveDreamReentry
 
         await neow.AfterEventStarted();
         await LeaveDreamSequence.Play(neow, player);
+    }
+
+    /// <summary>
+    /// 把哆来咪本页**未被选中**的选项记进跑步历史（历史界面会渲染成「跳过了 XXX」）。
+    ///
+    /// 只写未选中的那些，不能连选中的一起写：历史取值用的是
+    /// <c>GetAncientPickedChoiceLoc()</c>，而它是 <c>FirstOrDefault(o =&gt; o.WasChosen)</c> ——
+    /// 只认第一条。如果这里把「离开梦境」也记成已选中，它就会占了那个位置，
+    /// 玩家之后在涅奥房间里真正选中的遗物反而不会显示。
+    ///
+    /// 原版是在 <c>AncientEventModel.Done()</c> → <c>UpdateRunHistory()</c> 里整页记录的，
+    /// 而「离开梦境」不能走 <c>Done()</c>（那会把事件收尾成 DONE 页，而我们要切到涅奥房间），
+    /// 所以这里自己记一部分。
+    /// </summary>
+    private static void RecordSkippedAncientChoices(TouhouAncientBase ancient)
+    {
+        if (!RunManager.Instance.IsInProgress)
+        {
+            return;
+        }
+
+        var owner = ancient.Owner;
+        var entry = owner?.RunState.CurrentMapPointHistoryEntry?.GetEntry(owner.NetId);
+        if (entry == null)
+        {
+            Log.Error("[TouhouAncients] 离开梦境：拿不到跑步历史条目，「跳过了……」的记录不会出现。");
+            return;
+        }
+
+        foreach (var option in ancient.CurrentOptions)
+        {
+            if (option.WasChosen)
+            {
+                continue;
+            }
+
+            entry.AncientChoices.Add(new AncientChoiceHistoryEntry(option.Title, wasChosen: false));
+        }
     }
 
     /// <summary>
