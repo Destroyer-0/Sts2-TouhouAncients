@@ -11,7 +11,9 @@ namespace TouhouAncients.Scripts;
 /// 称号：梦之世界的支配者
 ///
 /// 仅出现在第一幕（<see cref="ShowAct"/> == 1），与涅奥同池均匀抽取，
-/// 相关注入逻辑见 <c>scripts/Patches/Act1AncientPoolPoolPatch.cs</c>。
+/// 相关注入逻辑见 <c>scripts/Patches/Act1AncientPoolPatch.cs</c>。
+/// 她顶替的是涅奥，所以带 Modifier 的局（每日 / 自定义挑战）里这一页与原版涅奥一致：只有 Modifier 选项，
+/// 不出现她自己的遗物选项与「离开梦境」（见 <see cref="TouhouAncientBase.GenerateInitialOptions"/>）。
 /// </summary>
 public class DoremySweetAncient : TouhouAncientBase
 {

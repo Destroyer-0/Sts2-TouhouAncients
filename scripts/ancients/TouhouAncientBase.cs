@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Random;
@@ -93,6 +94,21 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
+        // 带 RunModifier 的局（每日 / 自定义挑战）：第一幕第一间房整页只有 Modifier 的涅奥选项，
+        // 与原版涅奥在同样处境下的行为一致（Neow.GenerateInitialOptions 就是这个二选一）。
+        // 这时不摆本 Mod 的遗物选项，也不摆额外选项（离开梦境）；一个 Modifier 选项都没有时返回空表，
+        // 事件会和原版一样当场判为完成、只剩「继续」。没有 Modifier 的局（标准局 / 没勾 Modifier 的
+        // 自定义挑战）走下面的原逻辑，选项完全不变。
+        if (ShowAct == 1 && Owner is { } modifierRunOwner && modifierRunOwner.RunState.Modifiers.Count > 0)
+        {
+            _generatedRelicOptions = [];
+
+            var modifierRunOptions = RunModifierOptions;
+            return modifierRunOptions.Count > 0
+                ? new[] { modifierRunOptions[0] }
+                : Array.Empty<EventOption>();
+        }
+
         // 挑战战斗是共享事件，共享事件的事件级 Rng 不含玩家槽位（全员同池）；
         // 用 Rng(Player, Id) 派生独立 RNG，让多人各玩家看到各自的选项，且各端规则一致。
         var rng = ChallengeEncounter != null ? new Rng(Owner!, Id) : Rng;
@@ -122,6 +138,67 @@ public abstract class TouhouAncientBase : CustomAncientModel
         options.AddRange(ExtraOptions);
         options.AddRange(ChallengeOptions);
         return options;
+    }
+
+    /// <summary>带 Modifier 的局里本页唯一的选项链（照 <c>Neow.ModifierOptions</c> 构造，延迟构建）。</summary>
+    private List<EventOption>? _runModifierOptions;
+
+    private List<EventOption> RunModifierOptions => _runModifierOptions ??= BuildRunModifierOptions();
+
+    /// <summary>照 <c>Neow.GenerateInitialOptions</c>：逐个问 Modifier 要涅奥选项，返回 null 的跳过。</summary>
+    private List<EventOption> BuildRunModifierOptions()
+    {
+        var options = new List<EventOption>();
+        if (Owner is not { } player)
+        {
+            return options;
+        }
+
+        foreach (var modifier in player.RunState.Modifiers)
+        {
+            var grant = modifier.GenerateNeowOption(this);
+            if (grant == null)
+            {
+                continue; // 该 Modifier 不提供涅奥选项
+            }
+
+            var optionIndex = options.Count;
+            options.Add(new EventOption(
+                this,
+                () => OnRunModifierOptionChosen(grant, optionIndex),
+                modifier.NeowOptionTitle,
+                modifier.NeowOptionDescription,
+                modifier.Id.Entry,
+                modifier.HoverTips.ToArray()));
+        }
+
+        return options;
+    }
+
+    /// <summary>
+    /// 照 <c>Neow.OnModifierOptionSelected</c>：先发奖，再翻到下一个 Modifier 选项，最后一个收尾。
+    /// 收尾用 <see cref="Done"/>（比 <c>SetEventFinished</c> 多一步跑步历史记录）；发奖抛异常只记日志，
+    /// 否则页面会停在「选项已置灰又没有新选项」的状态上卡死。
+    /// </summary>
+    private async Task OnRunModifierOptionChosen(Func<Task> grant, int index)
+    {
+        try
+        {
+            await grant();
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"[TouhouAncients] RunModifier 的涅奥奖励发放失败（第 {index + 1} 个），已跳过：{ex}");
+        }
+
+        var options = RunModifierOptions;
+        if (index + 1 >= options.Count)
+        {
+            Done();
+            return;
+        }
+
+        SetEventState(InitialDescription, [options[index + 1]]);
     }
 
     /// <summary>按权重随机取一个候选。</summary>
