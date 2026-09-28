@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://orx5e0yia7vh"
-path="res://.godot/imported/缸中之脑.png-3d12b3398dad5393ca2be361c811a570.ctex"
+uid="uid://bqru1q160gmyb"
+path="res://.godot/imported/TheThirdEye.png-4ef071bcf4e8b076c9c05862f27b3a53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/缸中之脑.png"
-dest_files=["res://.godot/imported/缸中之脑.png-3d12b3398dad5393ca2be361c811a570.ctex"]
+source_file="res://images/icon/relics/IconLarge/TheThirdEye.png"
+dest_files=["res://.godot/imported/TheThirdEye.png-4ef071bcf4e8b076c9c05862f27b3a53.ctex"]
 
 [params]
 

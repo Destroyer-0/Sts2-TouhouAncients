@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5h34ytyxmbmi"
-path="res://.godot/imported/遗忘残片（涅奥版）.png-647b6215ad54c4b21d71dc1037f5d5d6.ctex"
+uid="uid://bbk67si0wam3b"
+path="res://.godot/imported/BitterCoffee.png-be2ae884657c0366003a0074f48371de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/遗忘残片（涅奥版）.png"
-dest_files=["res://.godot/imported/遗忘残片（涅奥版）.png-647b6215ad54c4b21d71dc1037f5d5d6.ctex"]
+source_file="res://images/icon/relics/BitterCoffee.png"
+dest_files=["res://.godot/imported/BitterCoffee.png-be2ae884657c0366003a0074f48371de.ctex"]
 
 [params]
 

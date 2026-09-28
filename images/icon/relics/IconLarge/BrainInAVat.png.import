@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3det0m5wkcb"
-path="res://.godot/imported/地狱鸦羽.png-bf690c4dfc3783a5e8b8d9124f591336.ctex"
+uid="uid://gcjv448p3fbr"
+path="res://.godot/imported/BrainInAVat.png-e53565dbc0e1734eb36a5ed74d523227.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/地狱鸦羽.png"
-dest_files=["res://.godot/imported/地狱鸦羽.png-bf690c4dfc3783a5e8b8d9124f591336.ctex"]
+source_file="res://images/icon/relics/IconLarge/BrainInAVat.png"
+dest_files=["res://.godot/imported/BrainInAVat.png-e53565dbc0e1734eb36a5ed74d523227.ctex"]
 
 [params]
 

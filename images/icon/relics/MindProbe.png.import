@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dph384e2jkb6j"
-path="res://.godot/imported/第三只眼.png-db797298636f31d37ebaaa82d89fd28b.ctex"
+uid="uid://dppbx7de75hp0"
+path="res://.godot/imported/MindProbe.png-6a1f36e59dfe545672fbb76651083664.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/第三只眼.png"
-dest_files=["res://.godot/imported/第三只眼.png-db797298636f31d37ebaaa82d89fd28b.ctex"]
+source_file="res://images/icon/relics/MindProbe.png"
+dest_files=["res://.godot/imported/MindProbe.png-6a1f36e59dfe545672fbb76651083664.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dppbx7de75hp0"
-path="res://.godot/imported/心灵探测仪.png-f9d91540bd476d4e2eab79977155e694.ctex"
+uid="uid://c14yeladup6v"
+path="res://.godot/imported/HellOrin.png-4b854fadfe0dd5bc5cea43b7e96c16cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/心灵探测仪.png"
-dest_files=["res://.godot/imported/心灵探测仪.png-f9d91540bd476d4e2eab79977155e694.ctex"]
+source_file="res://images/icon/relics/HellOrin.png"
+dest_files=["res://.godot/imported/HellOrin.png-4b854fadfe0dd5bc5cea43b7e96c16cd.ctex"]
 
 [params]
 

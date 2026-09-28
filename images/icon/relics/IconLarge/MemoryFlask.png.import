@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqdhklc82scgc"
-path="res://.godot/imported/记忆烧瓶.png-02d21ae3130789f63d78e325409c936e.ctex"
+uid="uid://rndo5q0copl2"
+path="res://.godot/imported/MemoryFlask.png-45fc428fded653f6397d351f24a136db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/记忆烧瓶.png"
-dest_files=["res://.godot/imported/记忆烧瓶.png-02d21ae3130789f63d78e325409c936e.ctex"]
+source_file="res://images/icon/relics/IconLarge/MemoryFlask.png"
+dest_files=["res://.godot/imported/MemoryFlask.png-45fc428fded653f6397d351f24a136db.ctex"]
 
 [params]
 

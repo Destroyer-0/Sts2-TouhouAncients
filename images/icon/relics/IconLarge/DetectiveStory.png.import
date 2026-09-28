@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do6kjsgm7f5jr"
-path="res://.godot/imported/尘封蔷薇.png-a39504c03da3c9653021630bff2736a1.ctex"
+uid="uid://w2bmd0jc00e2"
+path="res://.godot/imported/DetectiveStory.png-6bf843852fc6d72cb5476d3805cc8c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/尘封蔷薇.png"
-dest_files=["res://.godot/imported/尘封蔷薇.png-a39504c03da3c9653021630bff2736a1.ctex"]
+source_file="res://images/icon/relics/IconLarge/DetectiveStory.png"
+dest_files=["res://.godot/imported/DetectiveStory.png-6bf843852fc6d72cb5476d3805cc8c9c.ctex"]
 
 [params]
 
