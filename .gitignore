@@ -12,3 +12,6 @@ obj/
 *.user
 *.DotSettings.user
 *.code-workspace
+
+# Machine-local config (absolute paths differ per machine)
+.agents/local.md

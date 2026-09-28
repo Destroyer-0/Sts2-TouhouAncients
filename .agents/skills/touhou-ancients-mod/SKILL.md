@@ -14,7 +14,10 @@ Follow this skill when working in the TouhouAncients repository.
    - Read `docs/项目参考.md` for existing project patterns, paths, naming rules, and known APIs.
    - Read `docs/STS2战斗流程完整钩子生命周期.md` for combat and room hook ordering.
    - Read existing TouhouAncients implementations that are closest to the requested feature.
-3. Use `E:\STS2\src\Core` and `E:\STS2\localization\zhs` only when project documentation and local examples do not answer the question, or when the user explicitly asks to compare against vanilla STS2 source.
+3. To compare against vanilla STS2 source, first locate it on this machine: read the machine-local pointer file `.agents/local.md` and take the `sts2-src` value as the source root (it contains `src\Core\` and `localization\zhs\`).
+   - Never assume a fixed drive letter or hardcode an absolute source path; the location differs per machine.
+   - If `.agents/local.md` is missing or has no `sts2-src` entry, ask the user for the path instead of guessing.
+   - Use that source only when project documentation and local examples do not answer the question, or when the user explicitly asks to compare against vanilla STS2 source.
 4. If an original design/specification is missing or uncertain, tell the user before inventing mechanics.
 
 ## Collaboration Rules
