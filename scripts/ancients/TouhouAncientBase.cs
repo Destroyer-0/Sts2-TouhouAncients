@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -94,19 +94,14 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
-        // 带 RunModifier 的局（每日 / 自定义挑战）：第一幕第一间房整页只有 Modifier 的涅奥选项，
-        // 与原版涅奥在同样处境下的行为一致（Neow.GenerateInitialOptions 就是这个二选一）。
-        // 这时不摆本 Mod 的遗物选项，也不摆额外选项（离开梦境）；一个 Modifier 选项都没有时返回空表，
-        // 事件会和原版一样当场判为完成、只剩「继续」。没有 Modifier 的局（标准局 / 没勾 Modifier 的
-        // 自定义挑战）走下面的原逻辑，选项完全不变。
-        if (ShowAct == 1 && Owner is { } modifierRunOwner && modifierRunOwner.RunState.Modifiers.Count > 0)
+        if (ShowAct == 1 && Owner is { RunState.Modifiers.Count: > 0 })
         {
-            _generatedRelicOptions = [];
-
             var modifierRunOptions = RunModifierOptions;
-            return modifierRunOptions.Count > 0
-                ? new[] { modifierRunOptions[0] }
-                : Array.Empty<EventOption>();
+            if (modifierRunOptions.Count > 0)
+            {
+                _generatedRelicOptions = [];
+                return new[] { modifierRunOptions[0] };
+            }
         }
 
         // 挑战战斗是共享事件，共享事件的事件级 Rng 不含玩家槽位（全员同池）；
@@ -177,19 +172,19 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     /// <summary>
     /// 照 <c>Neow.OnModifierOptionSelected</c>：先发奖，再翻到下一个 Modifier 选项，最后一个收尾。
-    /// 收尾用 <see cref="Done"/>（比 <c>SetEventFinished</c> 多一步跑步历史记录）；发奖抛异常只记日志，
-    /// 否则页面会停在「选项已置灰又没有新选项」的状态上卡死。
+    /// 收尾用 <see cref="Done"/>（比 <c>SetEventFinished</c> 多一步跑步历史记录）。
+    ///
+    /// 发奖抛异常**不**兜，与 <c>Neow.OnModifierOptionSelected</c> / 四季映姬的写法逐字一致：
+    /// 异常会穿出 <c>EventOption.Chosen</c>（它已经把 <c>WasChosen</c> 置位、且这类选项
+    /// <c>DisableOnChosen</c> 为 true），于是按钮再次点击时静默返回、页面停在
+    /// 「选项已置灰又没有新选项」上，只能读档重来（存档不记 <c>WasChosen</c>，读档重建事件实例）。
+    /// 这是刻意的取舍：不替第三方 Modifier 的 bug 兜底。异常本身不会丢 —— <c>EventSynchronizer</c>
+    /// 用 <c>TaskHelper.RunSafely</c> 起这个任务，那里会先 <c>Log.Error</c> + Sentry 再把任务留成
+    /// faulted（最终由 <c>AwaitPendingOptionTasks</c> 吃掉）。
     /// </summary>
     private async Task OnRunModifierOptionChosen(Func<Task> grant, int index)
     {
-        try
-        {
-            await grant();
-        }
-        catch (Exception ex)
-        {
-            Log.Error($"[TouhouAncients] RunModifier 的涅奥奖励发放失败（第 {index + 1} 个），已跳过：{ex}");
-        }
+        await grant();
 
         var options = RunModifierOptions;
         if (index + 1 >= options.Count)
