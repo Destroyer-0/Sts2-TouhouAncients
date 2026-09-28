@@ -1,7 +1,7 @@
 {
   "TOUHOUANCIENTS.mod_title": "東方エンシェント",
 
-  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "第1層 Ancient Configuration",
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
   "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
 
@@ -38,10 +38,6 @@
   "TOUHOUANCIENTS-BAN_JUNKO.title": "純狐を無効化（第3層）",
   "TOUHOUANCIENTS-BAN_YUUMA.title": "饕餮尤魔を無効化（第3層）",
 
-  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "Ban Yorigami Sister(Act 2)",
-  "TOUHOUANCIENTS-BAN_MAMIZOU.title": "Ban Mamizou (Act 2/3)",
-
-  "TOUHOUANCIENTS-TEST_CONTENT.title": "Test Content",
-  "TOUHOUANCIENTS-TEST_CONTENT.description": "The balance, art, and text of the following content are still being adjusted and will not appear by default.",
-  "TOUHOUANCIENTS-ENABLE_TEST_CONTENT_MAMIZOU.title": "Enable Test Content: Mamizou Futatsuiwa"
+  "TOUHOUANCIENTS-BAN_YORIGAMI.title": "依神姉妹を無効化（第2層）",
+  "TOUHOUANCIENTS-BAN_MAMIZOU.title": "二ッ岩マミゾウを無効化（第2/3層）"
 }
