@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -94,19 +94,20 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
-        // 带 RunModifier 的局（每日 / 自定义挑战）：第一幕第一间房整页只有 Modifier 的涅奥选项，
-        // 与原版涅奥在同样处境下的行为一致（Neow.GenerateInitialOptions 就是这个二选一）。
-        // 这时不摆本 Mod 的遗物选项，也不摆额外选项（离开梦境）；一个 Modifier 选项都没有时返回空表，
-        // 事件会和原版一样当场判为完成、只剩「继续」。没有 Modifier 的局（标准局 / 没勾 Modifier 的
-        // 自定义挑战）走下面的原逻辑，选项完全不变。
         if (ShowAct == 1 && Owner is { } modifierRunOwner && modifierRunOwner.RunState.Modifiers.Count > 0)
         {
             _generatedRelicOptions = [];
 
             var modifierRunOptions = RunModifierOptions;
-            return modifierRunOptions.Count > 0
-                ? new[] { modifierRunOptions[0] }
-                : Array.Empty<EventOption>();
+            if (modifierRunOptions.Count > 0)
+            {
+                return [modifierRunOptions[0]];
+            }
+
+            if (modifierRunOwner.RunState.GameMode != GameMode.Standard)
+            {
+                return Array.Empty<EventOption>();
+            }
         }
 
         // 挑战战斗是共享事件，共享事件的事件级 Rng 不含玩家槽位（全员同池）；
