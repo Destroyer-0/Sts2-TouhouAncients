@@ -1,4 +1,4 @@
-﻿{
+{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
@@ -46,6 +46,17 @@
   "TOUHOUANCIENTS-DONGNICHANGSHU.title": "亘古不变的数字",
   "TOUHOUANCIENTS-DONGNICHANGSHU.description": "每回合你的[gold]格挡[/gold]首次大于[blue]{BlockLimit}[/blue]时，将[gold]格挡[/gold]降低至[blue]{BlockLimit}[/blue]，获得{Energy:energyIcons()}并抽[blue]{Cards}[/blue]张牌。",
   "TOUHOUANCIENTS-DONGNICHANGSHU.flavor": "东尼意思。",
+
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "无穷无尽的愤怒",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的{AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]|[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）}加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "不要愤怒，愤怒会降低你的理智。",
+
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "近似两级的营帐",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.description": "拾起时，[red]降级[/red]一张牌，随机[red]降级[/red]一张牌。获得[gold]微型帐篷[/gold]和随机[blue]{Relics}[/blue]件非先古的[gold]休息处[/gold]遗物。",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.eventDescription": "[red]降级[/red]一张牌，随机[red]降级[/red]一张牌。获得[gold]微型帐篷[/gold]和随机[blue]{Relics}[/blue]件非先古的[gold]休息处[/gold]遗物。",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.selectionScreenPrompt": "选择一张牌[red]降级[/red]",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.flavor": "游戏领域大神！",
 
   "TOUHOUANCIENTS-MORIYA_GOHEI.title": "守矢御币",
   "TOUHOUANCIENTS-MORIYA_GOHEI.description": "拾起时，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
@@ -758,8 +769,8 @@
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血之梦",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Curses}[/blue]张[red]疼痛[/red]与[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。\n如果你在本回合中没有打出过攻击牌，则失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。如果你在本回合中没有打出过攻击牌，则失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",

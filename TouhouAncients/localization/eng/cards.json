@@ -1,4 +1,4 @@
-﻿{
+{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "Bare White Rabbit of Good Fortune",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "Draw [blue]{Cards}[/blue] {Cards:plural:card|cards}. Randomize the cost of cards in your [gold]Hand[/gold] this turn, and add [gold]Replay[/gold] this combat to those that cost [blue]0[/blue].",
 
@@ -27,7 +27,7 @@
     "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card's cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "Lily of the Valley",
-    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()} and draw {Cards} cards. Apply {PoisonSelf} [gold]Poison[/gold] to yourself.\nAt end of your turn, if this card is in your [gold]Hand[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to ALL enemies, increase the Energy gained by {energyPrefix:energyIcons(1)}, and increase the [gold]Poison[/gold] applied to yourself by [blue]1[/blue].",
+    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, it is [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "All Life Must Perish",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "After {Countdown:inverseDiff()} turns, remove all [gold]Artifact[/gold] from enemies and apply [blue]9999[/blue] [gold]Doom[/gold] to ALL enemies.\nWhen you receive unblocked damage, extend the countdown by [blue]1[/blue] turn and apply [blue]{SelfDoom}[/blue] [gold]Doom[/gold] to yourself.",

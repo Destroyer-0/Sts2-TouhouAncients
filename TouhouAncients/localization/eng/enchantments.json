@@ -32,13 +32,13 @@
     "TOUHOUANCIENTS-OATH.title": "Covenant",
 
     "TOUHOUANCIENTS-WANDERING.description": "Up to [blue]{BaseRemainingChance}[/blue] times each turn, if the last card played was an [gold]Attack[/gold], return this card to your [gold]Hand[/gold] and gain [blue]{BlockAmount}[/blue] [gold]Block[/gold].",
-	"TOUHOUANCIENTS-WANDERING.extraCardText": "Lingering Regrets: {RemainingChance} left",
+    "TOUHOUANCIENTS-WANDERING.extraCardText": "Lingering Regrets: {RemainingChance} left",
     "TOUHOUANCIENTS-WANDERING.title": "Lingering Regrets",
 
     "TOUHOUANCIENTS-YUMEIRO.title": "Dream Colored",
     "TOUHOUANCIENTS-YUMEIRO.description": "Costs [blue]1[/blue] less. When played, draw [blue]1[/blue] card, replace [purple]Dream Colored[/purple] with a different enchantment.",
 
-    "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]1[/blue]. If there is any card with [purple]Greed[/purple] in your [gold]Hand[/gold], they must be played before other cards.",
+    "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. If a card with this enchantment is in your [gold]Hand[/gold], you must play cards with this enchantment first.",
     "TOUHOUANCIENTS-GREED.title": "Greed",
 
     "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]{Times}[/blue].\n[red]At the end of combat, this card will be devoured by Yuuma Toutetsu.[/red]",

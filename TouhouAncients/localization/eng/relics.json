@@ -1,4 +1,4 @@
-﻿{
+{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "Foresight X",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "Upon pickup, choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "Choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
@@ -30,7 +30,7 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "Snake",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "Snecko's True Gaze",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of your turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of each turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "One True Gaze confirms it: way too costly.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "Choose a card to make it free this turn.",
 
@@ -46,6 +46,16 @@
   "TOUHOUANCIENTS-DONGNICHANGSHU.title": "The Permanence Fifteen",
   "TOUHOUANCIENTS-DONGNICHANGSHU.description": "The first time your [gold]Block[/gold] exceeds [blue]{BlockLimit}[/blue] each turn, reduce your [gold]Block[/gold] to [blue]{BlockLimit}[/blue], gain {Energy:energyIcons()}, and draw [blue]{Cards}[/blue] cards.",
   "TOUHOUANCIENTS-DONGNICHANGSHU.flavor": "There's a Bowlbug on your lawn.",
+
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "Endless Fury",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "At the start of your turn, add a [gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer) with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "Don't be angry. Anger dulls your reason.",
+
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "The Nearly Two-Level Tent",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.description": "Upon pickup, [red]Downgrade[/red] a card, then [red]Downgrade[/red] a random card. Gain a [gold]Miniature Tent[/gold] and [blue]{Relics}[/blue] random non-Ancient [gold]Rest Site[/gold] Relics.",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.eventDescription": "[red]Downgrade[/red] a card, then [red]Downgrade[/red] a random card. Gain a [gold]Miniature Tent[/gold] and [blue]{Relics}[/blue] random non-Ancient [gold]Rest Site[/gold] Relics.",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.selectionScreenPrompt": "Choose a card to [red]Downgrade[/red]",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.flavor": "Miniature Tent is the best!",
 
   "TOUHOUANCIENTS-MORIYA_GOHEI.title": "Moriya Gohei",
   "TOUHOUANCIENTS-MORIYA_GOHEI.description": "Upon pickup, choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
@@ -126,7 +136,7 @@
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] cards to [gold]Duplicate[/gold]. Add a [red]Folly[/red] to your [gold]Deck[/gold].",
 
   "TOUHOUANCIENTS-NOBLE_BROOCH.title": "Noble Brooch",
-  "TOUHOUANCIENTS-NOBLE_BROOCH.description": "At the start of your turn, [gold]Transform[/gold] up to [blue]2[/blue] cards, then you may [gold]Transform[/gold] those cards again.",
+  "TOUHOUANCIENTS-NOBLE_BROOCH.description": "At the start of each turn, [gold]Transform[/gold] up to [blue]2[/blue] cards, then you may [gold]Transform[/gold] those cards again.",
   "TOUHOUANCIENTS-NOBLE_BROOCH.flavor": "Accept or defy your fate? Make your choice.",
   "TOUHOUANCIENTS-NOBLE_BROOCH.selectionScreenPrompt": "Choose up to [blue]2[/blue] cards to [gold]Transform[/gold]",
 
@@ -143,7 +153,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "Ordinary people can act freely only because they cannot read each other's hearts.",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "Hell's Cat Cart",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "Whenever a non-minion enemy dies, gain [blue]{[gold]Corpse[/gold]PerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at [gold]Rest Site[/gold].",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. You may [purple]Reignite[/purple] at [gold]Rest Site[/gold].",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "A Gothic-clad black cat prowls the streets of Former Hell, ferrying the bodies and souls of the departed on their final journey.",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "Hell's Crow Feathers",
@@ -169,7 +179,7 @@
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forget": "Forgotten cards:\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "Dusty Rose",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "At the start of your turn, add [blue]1[/blue] [gold]Closed Eye[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "The door to her room in the Palace of the Earth Spirits is never closed, yet even as the roses wilt and dust gathers, her lively yet hazy figure never appears.",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "Energizing Coffee",
@@ -409,7 +419,7 @@
   "TOUHOUANCIENTS-ROSE_CROWN.flavor": "Six little nameless dolls vied for the throne, drunk on power; one was undone by a black-hearted reporter's rumors and then there were five.",
 
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.title": "Malicious Fairy Tale",
-  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "At the start of each combat, ALL enemies gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold]. At the start of your turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].",
+  "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.description": "At the start of each combat, ALL enemies gain [blue]{ThornsAmount}[/blue] [gold]Thorns[/gold]. At the start of each turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].",
   "TOUHOUANCIENTS-MALICIOUS_FAIRY_TALE.flavor": "Four little nameless dolls roamed the magic forest; one lost the way and then there were three.",
 
   "TOUHOUANCIENTS-PLAGUE_BLEND.title": "Blight Blend",
@@ -492,8 +502,8 @@
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.flavor": "Branches of silver, stems of gold, and fruits of jade.",
 
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.title": "Eientei Zakushi",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
-  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slot[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of your turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.description": "Upon pickup, gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of each turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
+  "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.eventDescription": "Gain [blue]{PotionSlots}[/blue] [gold]Potion Slots[/gold] and fill all empty [gold]Potion Slots[/gold] with random [gold]Potions[/gold]. At the start of each turn, for each [gold]Potion[/gold] you have, deal [blue]{DamagePerPotion}[/blue] damage to a random enemy.",
   "TOUHOUANCIENTS-EIENTEI_ZAKUSHI.flavor": "Help me! Eirin!",
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "Kaguya's Secret Treasure",
@@ -586,7 +596,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
-  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, [red]Devour[/red] ALL relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()}. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
+  "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, [red]Devour[/red] ALL relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()} each turn. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.flavor": "Whether physical or spiritual, organic or inorganic — anything and everything goes straight down her gullet.",
 
   "TOUHOUANCIENTS-GLUTTONOUS_FANG.title": "Gluttonous Jaws",
@@ -617,7 +627,7 @@
   "TOUHOUANCIENTS-CURSED_BLOOD.flavor": "The fear, joy, hatred, and lament of life — all of it is what oil, the blood of the earth, truly is.",
 
   "TOUHOUANCIENTS-PURGATORY_EMBERS.title": "Purgatory Embers",
-  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of your turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold], add [gold]Ethereal[/gold] to them, then add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
+  "TOUHOUANCIENTS-PURGATORY_EMBERS.description": "At the start of each turn, choose any number of cards from your [gold]Exhaust Pile[/gold] to put into your [gold]Hand[/gold], add [gold]Ethereal[/gold] to them, then add that many [gold]Burn[/gold] to your [gold]Draw Pile[/gold].",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.flavor": "\"(Yawn—) Says they're gonna conquer the world, yet here they are, lazing around just like me.\" — Chiyari Tenkajin",
   "TOUHOUANCIENTS-PURGATORY_EMBERS.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
 
@@ -672,7 +682,7 @@
   "TOUHOUANCIENTS-GRILLED_MISO.flavor": "Oh~ real grilled miso... now that's the good stuff~",
 
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "Reliable Tanuki Disciple",
-  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "At the start of your turn, randomly add [blue]{Cards}[/blue] [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Sacrifice[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "At the start of each turn, randomly add [blue]{Cards}[/blue] [gold]Minion Dive[/gold], [gold]Minion Strike[/gold], or [gold]Minion Sacrifice[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "Oh my, that universe boy's little underling is quite easy on the eyes too.",
 
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "Crimson Cloud Knuckles",
@@ -680,7 +690,7 @@
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.flavor": "The boundary between humans and youkai has long since blurred beneath those iron fists.",
 
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.title": "Sunken Anchor Ghost",
-  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of your turn. At the start of each combat, place [blue]{Cards}[/blue] random cards into your [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.description": "Gain {Energy:energyIcons()} at the start of each turn. At the start of each combat, place [blue]{Cards}[/blue] random cards from your [gold]Draw Pile[/gold] into your [gold]Discard Pile[/gold].",
   "TOUHOUANCIENTS-SUNKEN_ANCHOR_GHOST.flavor": "Her soul was reborn twice: once as a ghost when her ship sank to the bottom of the sea, and again when that ship, laden with Buddha's light, came sailing anew.",
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
@@ -733,5 +743,55 @@
   "TOUHOUANCIENTS-HEAVY_DICE.title": "Loaded Dice",
   "TOUHOUANCIENTS-HEAVY_DICE.description": "At the end of your turn, you may choose a card in your [gold]Hand[/gold] and record it. After your draw phase ends, if you have a recorded card, you may discard a card and add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
   "TOUHOUANCIENTS-HEAVY_DICE.selectionScreenPrompt": "Choose a card in your [gold]Hand[/gold] to record.",
-  "TOUHOUANCIENTS-HEAVY_DICE.flavor": "Only cheaters who get caught can be called cheaters."
+  "TOUHOUANCIENTS-HEAVY_DICE.flavor": "Only cheaters who get caught can be called cheaters.",
+
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "Iridescent Dream",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "Upon pickup, {StarterRelic.StringValue:cond:replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "{StarterRelic.StringValue:cond:Replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|Replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "Melting Wax Dream",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "At the start of your turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "Blazing Candle Dream",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "At the start of each combat, put [blue]{Cards}[/blue] [gold]Brightest Flame[/gold] into your [gold]Hand[/gold]. They have [gold]Exhaust[/gold].",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares. [gold]Merchant[/gold] prices increase by [blue]{PriceIncrease}%[/blue].",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "Flowing Splendor Dream",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "Upon pickup, [gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.eventDescription": "[gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "Bloodbath Dream",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-SUPREME_DREAM.title": "Supreme Dream",
+  "TOUHOUANCIENTS-SUPREME_DREAM.description": "Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",
+  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "Whenever you enter a new [gold]Act[/gold]: Gain [blue]{Potions}[/blue] [gold]Potions[/gold]. Gain [blue]{Gold}[/blue] [gold]Gold[/gold]. Increase your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue]. Gain [blue]{Cards}[/blue] card rewards. Randomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",
+  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-REVIVAL_DREAM.title": "Revival Dream",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.description": "Enemies in your next [blue]{Combats}[/blue] combats will have only [blue]{Hp}[/blue] HP.",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-BYGONE_DREAM.title": "Bygone Dream",
+  "TOUHOUANCIENTS-BYGONE_DREAM.description": "Upon pickup, obtain a forgotten relic from the past and a forgotten card from the past.",
+  "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "Obtain a forgotten relic from the past and a forgotten card from the past.",
+  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-PIONEER_DREAM.title": "Pioneer Dream",
+  "TOUHOUANCIENTS-PIONEER_DREAM.description": "Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",
+  "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].",
+  "TOUHOUANCIENTS-FANTASY_DREAM.flavor": ""
 }

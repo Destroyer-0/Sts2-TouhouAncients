@@ -43,7 +43,7 @@
 
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "豪奢化",
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "Gain [blue]5[/blue] [gold]Energy[/gold] at the start of each turn. Whenever you play a card, cards of the same type cost [blue]1[/blue] more this turn.",
-  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "Gain {Amount:energyIcons()} at the start of each turn. Whenever you play a card, cards of the same type cost [blue]{Amount}[/blue] more this turn.",
+  "TOUHOUANCIENTS-RICHEST_FORM_POWER.smartDescription": "Gain {Amount:energyIcons()} at the start of each turn. Whenever you play a card, cards of the same type cost [blue]{ExtraCost}[/blue] more this turn.",
 
   "TOUHOUANCIENTS-POOREST_FORM_POWER.title": "極貧化",
   "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]7[/blue] [gold]Doom[/gold] to a random enemy [blue]1[/blue] time.",
@@ -67,24 +67,24 @@
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "Ordinary Magician",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]7[/blue] HP and gains [blue]10[/blue] [gold]Vigor[/gold].\n[gold]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/gold]",
-  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]{Heal}[/blue] HP and gains [blue]{Amount}[/blue] [gold]Vigor[/gold].\n[gold]\"The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]!\"[/gold]",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]7[/blue] HP and gains [blue]10[/blue] [gold]Vigor[/gold].\n[gold][i]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/i][/gold]",
+  "TOUHOUANCIENTS-MAGICIAN_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]{Heal}[/blue] HP and gains [blue]{Amount}[/blue] [gold]Vigor[/gold].\n[gold][i]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/i][/gold]",
 
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.title": "Marisa Stole the Precious Thing",
-  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
-  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n\"Heheh, just take them once I’m dead and gone.\"",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n[i]Heheh, just take them once I'm dead and gone.[/i]",
+  "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n[i]Heheh, just take them once I'm dead and gone.[/i]",
 
   "TOUHOUANCIENTS-FUNGAL_POWER.title": "Symbiosis",
   "TOUHOUANCIENTS-FUNGAL_POWER.description": "On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
   "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "On death, add {Amount} [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
 
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "Indiscriminate Subjugation",
-  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "After dealing [blue]7[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to Fantasy Nature.",
-  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "After dealing [blue]{HitsLeft}[/blue] instances of unblocked damage with any skill other than Fantasy Nature, switch the next intent to [gold]Fantasy Nature[/gold].",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "After dealing [blue]7[/blue] instances of unblocked damage with any skill other than [gold]Fantasy Nature[/gold], switch the next intent to [gold]Fantasy Nature[/gold].\n[i]Since you've made your choice, surely you're [b]prepared[/b] for what comes next.[/i]",
+  "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.smartDescription": "After dealing [blue]{HitsLeft}[/blue] instances of unblocked damage with any skill other than [gold]Fantasy Nature[/gold], switch the next intent to [gold]Fantasy Nature[/gold].\n[i]Since you've made your choice, surely you're [b]prepared[/b] for what comes next.[/i]",
 
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.title": "Nameless Youkai",
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.description": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]1[/blue] [gold]Strength[/gold] this turn.",
-  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain [blue]1[/blue] [gold]Energy[/gold] and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.",
+  "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.\nThe last card played was [gold]{Card}[/gold].",
 
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess’s Puzzle",
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]12[/blue] [gold]Block[/gold] at the start of her turn.",
@@ -106,8 +106,8 @@
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
 
   "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.title": "Avaricious Calamity",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\n[jitter][red]The fear, joy, sorrow, hatred, and resentment of the Blood Pool... It all feels as though it has flowed into my body![/red][/jitter]",
-  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Multiplier}[/blue] times.",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.description": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\n[jitter][red][i]The fear, joy, sorrow, hatred, and resentment of the Blood Pool... It all feels as though it has flowed into my body![/i][/red][/jitter]",
+  "TOUHOUANCIENTS-BLOOD_DISASTER_POWER.smartDescription": "For each [blue]1[/blue] [gold]Strength[/gold] you have, HP loss or [gold]Doom[/gold] applied is doubled once.\nCurrently doubled [blue]{Multiplier}[/blue] times.\n[jitter][red][i]The fear, joy, sorrow, hatred, and resentment of the Blood Pool... It all feels as though it has flowed into my body![/i][/red][/jitter]",
 
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.title": "Ravenous Feeding",
   "TOUHOUANCIENTS-HUNGRY_INSTINCT_POWER.description": "This turn, the next [blue]{Amount}[/blue] cards played gain [gold]Exhaust[/gold].",
@@ -116,7 +116,7 @@
   "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.title": "Demonic Possession",
   "TOUHOUANCIENTS-POSSESSED_BY_SEIGA_POWER.description": "At the start of your turn, [aqua]Seiga Kaku[/aqua] takes over your turn:\nLose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
 
-  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "Loaded Record",
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "\"Cardsharp\"",
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.description": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold]."
 }

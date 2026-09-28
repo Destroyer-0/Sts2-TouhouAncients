@@ -38,7 +38,7 @@
     "TOUHOUANCIENTS-YUMEIRO.description": "コストを[blue]1[/blue]下げる。プレイ後、カードを1枚引く。[purple]夢色[/purple]を別のエンチャントに変化させる。",
     "TOUHOUANCIENTS-YUMEIRO.title": "夢色",
 
-    "TOUHOUANCIENTS-GREED.description": "[gold]エターナル[/gold]と[gold]リプレイ[/gold][blue]1[/blue]を得る。[gold]手札[/gold]に[purple]貪欲[/purple]を持つカードがある場合、他のカードより先に[purple]貪欲[/purple]を持つカードをプレイしなければならない。",
+    "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. If a card with this enchantment is in your [gold]Hand[/gold], you must play cards with this enchantment first.",
     "TOUHOUANCIENTS-GREED.title": "貪欲",
 
 	"TOUHOUANCIENTS-BLOOD_POND.description": "エナジーと[gold]スター[/gold]のコストが[blue]0[/blue]になる。[gold]リプレイ[/gold][blue]{Times}[/blue]を得る。\n[red]戦闘終了時、このカードは饕餮尤魔に呑み込まれる。[/red]",

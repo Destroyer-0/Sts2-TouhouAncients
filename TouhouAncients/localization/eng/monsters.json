@@ -38,6 +38,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.TENBU_HURRICANE_KICK.title": "Yin-Yang Orb",
   "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.SUBSPACE_ACUPRESSURE.title": "Divine Descent Ritual",
   "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.title": "Fantasy Nature",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.banter": "Prepare yourself to be exterminated!",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.name": "Kaguya Houraisan",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER": "Go to hell with your requests!",
@@ -75,6 +76,7 @@
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.REPAIR.title": "Saigyouji’s Nirvana Without Remainder",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.FINAL.title": "Soul-Returning Butterfly: Eight-Tenths Bloom",
 
+  "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.name": "Seija Kijin",
   "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.title": "Reforged Tsukumogami",
   "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.banter1": "O forgotten cards, fight for me!",
   "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.FIGHT_FOR_ME.banter2": "Let those who abandoned you feel our power!",
