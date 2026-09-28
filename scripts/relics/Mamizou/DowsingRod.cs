@@ -260,7 +260,9 @@ public class DowsingRodRestSiteOption : RestSiteOption
         {
             if (IsEnabled)
             {
-                return new LocString("rest_site_ui", "OPTION_TREASURE.description");
+                LocString locString = new LocString("rest_site_ui", "OPTION_TREASURE.description");
+                locString.Add(_relic.DynamicVars.Gold);
+                return locString;
             }
 
             return new LocString("rest_site_ui", "OPTION_TREASURE.descriptionDisabled");
