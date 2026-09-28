@@ -103,6 +103,36 @@ public class IridescentDream : TouhouAncientRelics
     public override bool HasUponPickupEffect => true;
 
     /// <summary>
+    /// 选项条件：牌组里必须有「古老牙齿」所指代的初始卡牌，且初始遗物必须有对应的先古版本。
+    /// 两者缺一，此遗物拾起后都不会产生任何效果（描述也只能显示泛化文本），
+    /// 所以直接不出现——原版 Orobas 是靠 <c>TouchOfOrobas.SetupForPlayer</c> / <c>ArchaicTooth.SetupForPlayer</c>
+    /// 的返回值决定要不要把选项放进池来达到同样效果。
+    /// </summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return FindStarterCard(player) != null && HasUpgradedStarterRelic(player);
+    }
+
+    /// <summary>牌组里「古老牙齿」所指代的初始卡牌；没有则返回 <c>null</c>。</summary>
+    private static CardModel? FindStarterCard(Player player)
+        => player.Deck.Cards.FirstOrDefault(c => StarterCardIds.Contains(c.Id));
+
+    /// <summary>
+    /// 初始遗物是否有对应的先古版本。复用原版 <see cref="TouchOfOrobas.GetUpgradedStarterRelic"/> 的对照表，
+    /// 该方法查不到时返回 <see cref="Circlet"/>（无对应升级版的兜底），这里即视为「没有升级版遗物」。
+    /// </summary>
+    private static bool HasUpgradedStarterRelic(Player player)
+    {
+        var starterRelic = player.Relics.FirstOrDefault(r => r.Rarity == RelicRarity.Starter);
+        if (starterRelic == null) return false;
+
+        var upgraded = ModelDb.Relic<TouchOfOrobas>().GetUpgradedStarterRelic(starterRelic);
+        return upgraded.Id != ModelDb.Relic<Circlet>().Id;
+    }
+
+    /// <summary>
     /// 在「事件选项生成」阶段预准备数据。
     /// 由 <c>DoremySweetAncient</c> 的选项候选（<c>TARelicOption&lt;IridescentDream&gt;().Prep(...)</c>）在构造时调用，
     /// 对应的就是原版 Orobas 事件里调用 <c>TouchOfOrobas.SetupForPlayer</c> 的时机。
@@ -123,9 +153,7 @@ public class IridescentDream : TouhouAncientRelics
         }
 
         // 2) 「古老牙齿」所指代的初始卡牌
-        StarterCard = player.Deck.Cards
-            .FirstOrDefault(c => StarterCardIds.Contains(c.Id))
-            ?.ToSerializable();
+        StarterCard = FindStarterCard(player)?.ToSerializable();
     }
 
     /// <summary>
@@ -183,7 +211,7 @@ public class IridescentDream : TouhouAncientRelics
         var preparedCardId = _starterCard?.Id;
         var starterCard = preparedCardId != null
             ? player.Deck.Cards.FirstOrDefault(c => c.Id == preparedCardId)
-            : player.Deck.Cards.FirstOrDefault(c => StarterCardIds.Contains(c.Id));
+            : FindStarterCard(player);
 
         if (starterCard != null)
         {
