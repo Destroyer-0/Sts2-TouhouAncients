@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Godot;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -13,6 +14,7 @@ using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Events;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Screens.ScreenContext;
 
 namespace TouhouAncients.Scripts;
 
@@ -75,6 +77,13 @@ internal static class LeaveDreamSequence
             LineText = new LocString("ancients", LeaveDreamReentry.DialogueSentinelKey),
             Speaker = AncientDialogueSpeaker.Ancient,
         };
+
+        // 先清掉对话容器里残留的入场台词。原版点完选项会走 EventModel.SetEventState
+        // → EventRoom.RefreshEventState → ClearDialogue；「离开梦境」不改变事件状态，
+        // 所以这一步必须自己做，否则 SetDialogue 只是把新台词追加在旧台词之后，
+        // 第 0 行仍然是旧台词（点了选项台词不变），第 1 行才闪出告别台词并立刻切到涅奥，
+        // 末行「梦境逐渐溶解……」永远不会显示。
+        layout.ClearDialogue();
 
         _pendingContinue = new TaskCompletionSource();
         layout.SetDialogue(new List<AncientDialogueLine> { line, caption });
@@ -162,17 +171,44 @@ internal static class LeaveDreamSequence
             return;
         }
 
-        // 先挂进房间容器：位于旧房间之下、UI 之上，溶解过程中就会被逐渐露出来。
-        // （排在旧房间前面，截图失败退化成淡出时也能正确露出涅奥房。）
+        // 先挂进房间容器：位于旧房间之下，溶解过程中会被覆盖层逐渐露出来。
         container.AddChildSafely(newRoom);
         container.MoveChild(newRoom, 0);
 
-        // 溶解：截取当前画面（含那句字幕）盖在最上层，用原版 dissolve 着色器逐渐溶解掉。
+        // 溶解：覆盖层显示旧房间的实时画面，用原版 dissolve 着色器把 threshold 从 1 补间到 0，
+        // 逐渐溶解掉旧房间、露出下面已经就位的涅奥房间。
+        // 演出结束后覆盖层（连同被搬进它的旧房间）由 Play 自己释放，容器里就只剩涅奥房间。
         await NLeaveDreamDissolve.Play(oldRoom, newRoom);
 
-        // 先摘下来再交给原版 API：SetCurrentScene 会释放容器里其余子节点（即溶解覆盖层与旧房间），
-        // 若新房间还挂在容器里会被一并释放。
-        container.RemoveChildSafely(newRoom);
-        NRun.Instance?.SetCurrentRoom(newRoom);
+        RegisterCurrentRoom(container, newRoom);
+    }
+
+    /// <summary>
+    /// 把一个**已经挂在房间容器里**的房间登记为容器的当前场景，不触碰容器里的其他子节点。
+    ///
+    /// 这里刻意不用 <c>NRun.SetCurrentRoom</c>：它会走 <c>NSceneContainer.SetCurrentScene</c>，
+    /// 而后者会先把容器里**所有**子节点 RemoveChild + QueueFree —— 包括我们的涅奥房间。
+    /// 若为了避开这一点而先把涅奥房间摘出容器，它会离开场景树，而
+    /// <c>NEventRoom._ExitTree</c> 会执行 <c>_cts.Cancel()</c>、退订 <c>_event.StateChanged</c>
+    /// 与各选项的 <c>BeforeChosen</c>；再次进树时 <c>_Ready</c> 不会重跑，这些订阅无法恢复，
+    /// 结果是涅奥房间点了选项之后界面再也不刷新（表现为卡死）。
+    ///
+    /// 涅奥房间从加入容器起就没有离开过场景树，因此这里只需补上「登记」这一步：
+    /// 写入容器的当前场景字段，并让 <c>ActiveScreenContext</c> 重新评估输入目标。
+    /// </summary>
+    private static void RegisterCurrentRoom(Node container, NEventRoom room)
+    {
+        var field = AccessTools.Field(typeof(NSceneContainer), "_currentScene");
+        if (field == null)
+        {
+            Log.Error("[TouhouAncients] 离开梦境：无法解析 NSceneContainer._currentScene，"
+                      + "涅奥房间没有登记为当前场景（原版后续取事件房间时可能拿到 null）。");
+        }
+        else
+        {
+            field.SetValue(container, room);
+        }
+
+        ActiveScreenContext.Instance.Update();
     }
 }
