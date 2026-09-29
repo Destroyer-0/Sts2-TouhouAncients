@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -20,6 +22,7 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 无底之胃：吞噬你初始遗物以外的全部遗物，每个为你提供8最大生命，
 /// 每4个提供1力量、1敏捷，每8个提供1能量上限，每12个提供每回合额外抽一。
+/// 三色钥匙（绿/红/蓝）关系到隐藏区域的解锁，属于特殊遗物，永不被吞噬。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class BottomlessStomach : TouhouAncientRelics
@@ -44,17 +47,41 @@ public class BottomlessStomach : TouhouAncientRelics
     public override bool ShowCounter => true;
     public override int DisplayAmount => TouhouAncients_ConsumedCount;
 
-    /// <summary>选项条件：至少有一个可吞噬的遗物（既非初始、也非先古），否则不出现。</summary>
-    public override bool CanAppear(Player? player)
-    {
-        if (player?.Creature == null) return false;
+    /// <summary>
+    /// 特殊保留的遗物关键字：三色钥匙是解锁隐藏区域的关键道具，
+    /// 一旦被吞噬便无法找回，因此即使稀有度符合条件也绝不吞噬。
+    /// </summary>
+    private static readonly string[] PreservedRelicKeywords =
+    [
+        "EMERALD_KEY",
+        "RUBY_KEY",
+        "SAPPHIRE_KEY",
+    ];
 
+    /// <summary>
+    /// 该遗物能否被吞噬。
+    /// 排除初始遗物、先古遗物，以及三色钥匙等特殊遗物。
+    /// </summary>
+    private static bool CanDevour(RelicModel relic)
+    {
         // 统一用 Rarity 判断，不列举具体遗物：
         // - 初始遗物（Rarity 为 Starter）：包含「欧洛巴斯之触」等升级后的版本，
         //   它们已不在 Character.StartingRelics 列表里，但 Rarity 仍是 Starter；
         // - 先古遗物（Rarity 为 Ancient）：覆盖所有先古事件的选项遗物，
         //   不必再遍历 ModelDb.AllAncients 去收集 AllPossibleOptions。
-        return player.Relics.Any(r => r.Rarity != RelicRarity.Starter && r.Rarity != RelicRarity.Ancient);
+        if (relic.Rarity == RelicRarity.Starter || relic.Rarity == RelicRarity.Ancient) return false;
+
+        // 特判：带 EMERALD_KEY / RUBY_KEY / SAPPHIRE_KEY 的遗物一律保留。
+        string entry = relic.Id.Entry;
+        return !PreservedRelicKeywords.Any(keyword => entry.Contains(keyword, StringComparison.OrdinalIgnoreCase));
+    }
+
+    /// <summary>选项条件：至少有一个可吞噬的遗物（既非初始、非先古，也不是三色钥匙），否则不出现。</summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (player?.Creature == null) return false;
+
+        return player.Relics.Any(CanDevour);
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -82,11 +109,12 @@ public class BottomlessStomach : TouhouAncientRelics
     {
         var player = base.Owner;
 
-        // 统一用 Rarity 判断（同 CanAppear）：
+        // 统一用 CanDevour 判断（同 CanAppear）：
         // - 初始遗物 Rarity 为 Starter，含「欧洛巴斯之触」等升级后的版本；
-        // - 先古遗物 Rarity 为 Ancient，本遗物自身也是 Ancient 稀有度，因此已自动排除。
+        // - 先古遗物 Rarity 为 Ancient，本遗物自身也是 Ancient 稀有度，因此已自动排除；
+        // - 三色钥匙（EMERALD_KEY / RUBY_KEY / SAPPHIRE_KEY）按关键字特判保留。
         var toConsume = player.Relics
-            .Where(r => r.Rarity != RelicRarity.Starter && r.Rarity != RelicRarity.Ancient)
+            .Where(CanDevour)
             .ToList();
 
         int count = toConsume.Count;

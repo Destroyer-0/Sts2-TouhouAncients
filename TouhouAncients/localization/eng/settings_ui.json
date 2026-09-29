@@ -4,6 +4,7 @@
   "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
   "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
+  "TOUHOUANCIENTS-ACT1_ANCIENT_BAN_WARNING.body": "If you have no other Act 1 Ancient available, this may cause the game to hang.",
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "Disable Ancients",
 
