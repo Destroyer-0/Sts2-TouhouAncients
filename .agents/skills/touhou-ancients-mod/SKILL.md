@@ -18,6 +18,7 @@ Follow this skill when working in the TouhouAncients repository.
    - Never assume a fixed drive letter or hardcode an absolute source path; the location differs per machine.
    - If `.agents/local.md` is missing or has no `sts2-src` entry, ask the user for the path instead of guessing.
    - Use that source only when project documentation and local examples do not answer the question, or when the user explicitly asks to compare against vanilla STS2 source.
+   - Read only the source tree the user pointed to. When the repo uses a member that this tree does not contain (e.g. `CardModel.GetResultLocationForCardPlay`, which `HyakkiYagyo` overrides), **stop and ask the user**: do not decompile/reflect the game DLL, do not consult another source tree, and do not decide on your own which side is authoritative.
 4. If an original design/specification is missing or uncertain, tell the user before inventing mechanics.
 
 ## Collaboration Rules
@@ -95,7 +96,14 @@ Follow this skill when working in the TouhouAncients repository.
 - Use `为它[gold]附魔[/gold]`.
 - Use `{EnchantmentName}` through a `StringVar`; do not hard-code the enchantment name.
 - Use the term `最大生命`; do not use `体力上限`.
-- Do not abbreviate descriptions, comments, or localization text, except for rich-text tags.
+- Keep description and localization text complete; do not abbreviate, except for rich-text tags.
+
+## Comments
+
+- Keep code comments short. Explain only why something is done or a gotcha; never restate the code.
+- Prefer a single `//` line. One comment block must not exceed 2-3 lines; cut anything non-essential.
+- One-sentence `///` summaries only. No usage examples, no background explanations, no per-parameter docs.
+- Localization JSON and in-game description text are exempt: those stay complete.
 
 ## Documentation Maintenance
 
