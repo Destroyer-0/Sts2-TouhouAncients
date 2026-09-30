@@ -79,7 +79,7 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play [blue]2[/blue] random recorded cards, then remove them from the record this combat.\nOnce all records are removed, remove this card from combat.",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.\nAt the start of combat, if Hyakki Yagyo's record pool is empty, remove it from the game (into the None pile).",
 
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
