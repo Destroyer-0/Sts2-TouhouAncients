@@ -76,8 +76,9 @@ public class TheFeast : TouhouAncientCards
         // 从抽牌堆中选择1~3张
         var min = DynamicVars["MinExhaust"].IntValue;
         var max = DynamicVars["MaxExhaust"].IntValue;
+        var actualMin = Math.Min(min, eligibleCards.Count);
         var actualMax = Math.Min(max, eligibleCards.Count);
-        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, min, actualMax);
+        var prefs = new CardSelectorPrefs(base.SelectionScreenPrompt, actualMin, actualMax);
         var selected = (await CardSelectCmd.FromSimpleGrid(
             choiceContext,
             eligibleCards,
