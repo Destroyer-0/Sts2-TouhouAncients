@@ -26,6 +26,7 @@ namespace TouhouAncients.Scripts.Rewards;
 /// </summary>
 public sealed class TranscribeReward : TouhouCustomReward
 {
+    protected override string? RewardIconPath => "res://images/icon/Character/FutatsuiwaMamizou.png";
     /// <summary>本奖励专属 RewardType，值由 BaseLib 的 [CustomEnum] 机制自动生成并注册读档工厂。</summary>
     [CustomEnum(null)] public static RewardType Transcribe;
 
@@ -86,9 +87,14 @@ public sealed class TranscribeReward : TouhouCustomReward
                 {
                     CardModel? model = ModelDb.GetByIdOrNull<CardModel>(x.Id!);
                     return (x, model);
-                });
+                }).ToList();
 
             string entry = ModelDb.Relic<HyakkiYagyoScroll>().Id.Entry;
+            if (cards.Count == 0)
+            {
+                return final.Append(new HoverTip(new LocString("relics", entry + ".transcribedTitle"), new LocString("relics", entry + ".transcribedDescriptionEmpty")));
+            }
+
             LocString description = new("relics", entry + ".transcribedDescription");
             description.Add("Cards", cards.Select(card => card.model.Title).ToList());
 

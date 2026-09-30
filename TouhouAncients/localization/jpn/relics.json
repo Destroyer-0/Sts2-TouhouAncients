@@ -1,4 +1,4 @@
-{
+﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "Foresight X",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "Upon pickup, choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "Choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
@@ -728,6 +728,7 @@
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to [gold]Hyakki Yagyo[/gold]'s record. [gold]Hyakki Yagyo[/gold] can record only one card per character; recording a card for a character that already has a record replaces that record.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "Transcribed",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|, }",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "Hehe, this is a treasure this old one paid dearly to acquire.",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",

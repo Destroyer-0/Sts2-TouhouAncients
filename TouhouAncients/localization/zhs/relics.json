@@ -729,6 +729,7 @@
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "查看来自指定角色的[gold]卡牌奖励[/gold]，选择的卡牌将被加入所有[gold]百鬼夜行[/gold]的记录中，若已存在该角色的记录则替换原先的记录牌。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "誊写记录",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|，}",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "呵呵，这可是老朽花了不少代价才搞到的宝贝呢。",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "超能念力",
