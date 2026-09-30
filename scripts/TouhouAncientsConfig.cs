@@ -1,7 +1,12 @@
 using System;
 using BaseLib.Config;
+using BaseLib.Config.UI;
+using Godot;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
+using MegaCrit.Sts2.addons.mega_text;
 
 namespace TouhouAncients.Scripts;
 
@@ -310,4 +315,92 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanYorigami { get; set; } = false;
     public static bool BanMamizou { get; set; } = false;
 
+    // ───────────────────────── 设置界面：第一幕先古之民全禁用提示 ─────────────────────────
+
+    /// <summary>警告行所在的分区名，与 [ConfigSection] 的字符串一致。</summary>
+    private const string InitialAncientSectionName = "InitialAncientConfig";
+
+    /// <summary>警告文案的本地化键（settings_ui）。</summary>
+    private const string Act1AncientBanWarningKey = "TOUHOUANCIENTS-ACT1_ANCIENT_BAN_WARNING.body";
+
+    /// <summary>在「初始先古之民配置」的两个开关下方补一行警告（涅奥与哆来咪同池，全禁用会抽空一层）。</summary>
+    public override void SetupConfigUI(Control optionContainer)
+    {
+        base.SetupConfigUI(optionContainer);
+
+        // 这行提示可有可无；BaseLib 会因 SetupConfigUI 抛异常把整页换成错误提示，所以出错只记日志。
+        try
+        {
+            AddAct1AncientBanWarning(optionContainer);
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[TouhouAncients] 设置页警告行创建失败：{ex}");
+        }
+    }
+
+    /// <summary>创建警告行，并订阅配置变化刷新显隐。</summary>
+    private void AddAct1AncientBanWarning(Control optionContainer)
+    {
+        Control? host = FindInitialAncientSectionContent(optionContainer);
+        if (host == null)
+        {
+            return;
+        }
+
+        string warningText = new LocString("settings_ui", Act1AncientBanWarningKey).GetFormattedText();
+        MegaRichTextLabel label = ModConfig.CreateRawLabelControl(warningText, 26);
+        label.FitContent = true;
+        label.AutowrapMode = TextServer.AutowrapMode.WordSmart;
+        label.SizeFlagsHorizontal = Control.SizeFlags.Fill | Control.SizeFlags.Expand;
+        // 暖红色，与设置页普通文字区分
+        label.AddThemeColorOverride("default_color", new Color(0.977f, 0.62f, 0.45f));
+
+        MarginContainer row = new MarginContainer
+        {
+            Name = "Act1AncientBanWarning",
+            Visible = false,
+            MouseFilter = Control.MouseFilterEnum.Ignore
+        };
+        row.AddThemeConstantOverride("margin_left", 12);
+        row.AddThemeConstantOverride("margin_right", 12);
+        row.AddThemeConstantOverride("margin_top", 8);
+        row.AddChild(label);
+        host.AddChild(row);
+
+        RefreshAct1AncientBanWarning(row);
+
+        // 回调登记进 BaseLib 的列表，设置页关闭时由 ClearUIEventHandlers 统一注销。
+        EventHandler onConfigChanged = (_, _) => RefreshAct1AncientBanWarning(row);
+        ConfigChanged += onConfigChanged;
+        _configChangedHandlers.Add(onConfigChanged);
+
+        Action onConfigReloaded = () => RefreshAct1AncientBanWarning(row);
+        OnConfigReloaded += onConfigReloaded;
+        _configReloadedHandlers.Add(onConfigReloaded);
+    }
+
+    /// <summary>取「初始先古之民配置」分区的内部容器；BaseLib 把分区节点命名为 CollapsibleSection_&lt;分区名&gt;。</summary>
+    private static VBoxContainer? FindInitialAncientSectionContent(Control optionContainer)
+    {
+        foreach (Node child in optionContainer.GetChildren())
+        {
+            if (child is NConfigCollapsibleSection section &&
+                section.Name.ToString().EndsWith(InitialAncientSectionName, StringComparison.Ordinal))
+            {
+                return section.ContentContainer;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>涅奥与哆来咪同时被禁用时才显示警告。</summary>
+    private static void RefreshAct1AncientBanWarning(Control row)
+    {
+        if (GodotObject.IsInstanceValid(row))
+        {
+            row.Visible = BanNeow && BanDoremySweet;
+        }
+    }
 }

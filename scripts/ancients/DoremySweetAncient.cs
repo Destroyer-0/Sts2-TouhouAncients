@@ -28,13 +28,6 @@ public class DoremySweetAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/DoremySweet.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/DoremySweet.png";
 
-    /// <summary>
-    /// 本 Ancient 的选项（三行 = 三个选项）。
-    /// 虹光之梦的描述含 <c>{StarterRelic.StringValue:cond:具体名称|泛化文本}</c>，必须在事件界面渲染之前
-    /// 就填好 StringValue，玩家在选项里看到的才是具体名称（对应原版 Orobas 的 <c>TouchOfOrobas.SetupForPlayer</c>），
-    /// 因此用 <c>Prep</c> 预准备；此阶段遗物自身的 Owner 尚未设置，用古代事件自己的 <see cref="Owner"/>。
-    /// 「先驱之梦」的可用性由遗物自己的 <see cref="TouhouAncientRelics.CanAppear"/> 声明，条件不满足时基类会把它从候选中剔除。
-    /// </summary>
     protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
     [
         CreateTARelicOptionPool(

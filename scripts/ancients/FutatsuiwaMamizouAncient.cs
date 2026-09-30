@@ -39,9 +39,9 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
         TARelicOption<DragonVeinVessel>(),
         TARelicOption<DisillusionTrident>(),
         TARelicOption<TunakiSmokingPipe>(),
-        TARelicOption<HeavyDice>()
+        TARelicOption<HeavyDice>(),
         //TARelicOption<OneEyedKarakasa>(),
-        //TARelicOption<HyakkiYagyoScroll>(),
+        TARelicOption<HyakkiYagyoScroll>()
         //TARelicOption<NohMask>()
         );
 }

@@ -1,4 +1,4 @@
-{
+﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
@@ -653,7 +653,7 @@
   "TOUHOUANCIENTS-MILLION_POUNDS.flavor": "哦~伙计，这得花不少钱。",
 
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.title": "纯金手镯",
-  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，弃置其中耗能低于[blue]{Threshold}[/blue]且不为X的牌。",
+  "TOUHOUANCIENTS-PURE_GOLD_BRACELET.description": "在每回合开始时额外抽[blue]{Cards}[/blue]张牌，丢弃其中耗能低于[blue]{Threshold}[/blue]且不为X的牌。",
   "TOUHOUANCIENTS-PURE_GOLD_BRACELET.flavor": "金银天下转，贫富朝夕变。哪个蠢家伙，居然想存钱？",
 
   "TOUHOUANCIENTS-CHANEL_HANDBAG.title": "香奈儿手包",
@@ -724,8 +724,12 @@
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "可得小心别把那孩子吓到了。",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行绘卷",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "拾起时，查看来自铁甲战士、静默猎者、储君、亡灵契约师、故障机器人的各[blue]{CardPacks}[/blue]组[gold]卡牌奖励[/gold]。将选择的[gold]卡牌奖励[/gold]合成为[gold]卡牌[/gold]：[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.eventDescription": "查看来自铁甲战士、静默猎者、储君、亡灵契约师、故障机器人的各[blue]{CardPacks}[/blue]组[gold]卡牌奖励[/gold]。将选择的[gold]卡牌奖励[/gold]合成为[gold]卡牌[/gold]：[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "拾起时，将1张[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]，然后[aqua]誊写[/aqua]来自[gold]铁甲战士、静默猎手、储君、亡灵契约师、故障机器人[/gold]的卡牌。每当你[gold]斩杀[/gold]时，战斗奖励增加一次随机其他角色的[aqua]誊写[/aqua]。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeTitle": "誊写",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "查看来自指定角色的[gold]卡牌奖励[/gold]，选择的卡牌将被加入所有[gold]百鬼夜行[/gold]的记录中，若已存在该角色的记录则替换原先的记录牌。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "誊写记录",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|，}",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "呵呵，这可是老朽花了不少代价才搞到的宝贝呢。",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "超能念力",
@@ -742,7 +746,7 @@
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": "酒和烟草乃是世间珍宝啊。",
 
   "TOUHOUANCIENTS-HEAVY_DICE.title": "灌铅骰子",
-  "TOUHOUANCIENTS-HEAVY_DICE.description": "回合结束时，你可以选择一张手牌并记录。你的抽牌阶段结束后，如果你有记录的牌，则可以弃置一张牌并将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
+  "TOUHOUANCIENTS-HEAVY_DICE.description": "回合结束时，你可以选择一张手牌并记录。你的抽牌阶段结束后，如果你有记录的牌，则可以丢弃一张牌并将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
   "TOUHOUANCIENTS-HEAVY_DICE.selectionScreenPrompt": "选择一张手牌记录",
   "TOUHOUANCIENTS-HEAVY_DICE.flavor": "只有被抓到的出千才能被称为作弊。",
 

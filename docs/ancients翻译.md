@@ -636,18 +636,18 @@ Ooh! Just as the rumors said... |
 | 字段 | 中文 | English |
 |------|------|---------|
 | `.title` | 二岩 猯藏（测试） | Mamizou Futatsuiwa (Test) |
-| `.epithet` | 外来的外来妖怪狸 | Outsider Bake-danuki From Outside |
+| `.epithet` | 外来的外来妖怪狸 | TOUHOUANCIENTS-Outsider Bake-danuki From Outside |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 佐渡的二岩是也~今后还请多多关照。老朽可是从幻想乡带来了不少宝贝来帮忙哦。 | The Niwa of Sado, at your service~ Please take care of me from now on. This old one has brought quite a few treasures from Gensokyo to help out. |
+| `talk.firstVisitEver.0-0.ancient` | 佐渡的二岩是也~今后还请多多关照。老朽可是从幻想乡带来了不少宝贝来帮忙哦。 | Futatsuiwa from Sado, at your service~ Please take care of me from now on. This old one has brought quite a few treasures from Gensokyo to help out. |
 | `talk.ANY.0-0r.ancient` | ………| ... |
 
 ### 对话翻译
 | 对话键 | 中文 | English |
 |--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | 佐渡的二岩是也~今后还请多多关照。老朽可是从幻想乡带来了不少宝贝来帮忙哦。 | The Niwa of Sado, at your service~ Please take care of me from now on. This old one has brought quite a few treasures from Gensokyo to help out. |
+| `talk.firstVisitEver.0-0.ancient` | 佐渡的二岩是也~今后还请多多关照。老朽可是从幻想乡带来了不少宝贝来帮忙哦。 | Futatsuiwa from Sado, at your service~ Please take care of me from now on. This old one has brought quite a few treasures from Gensokyo to help out. |
 | `talk.ANY.0-0r.ancient` | ………| ... |
 
 ---

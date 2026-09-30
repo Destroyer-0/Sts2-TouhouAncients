@@ -1,4 +1,4 @@
-{
+﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "Foresight X",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "Upon pickup, choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "Choose an [blue]X[/blue]-cost card from your character pool and add it to your [gold]Deck[/gold]. The effects of your cost [blue]X[/blue] cards are increased by [blue]{Increase}[/blue].",
@@ -723,8 +723,12 @@
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "Careful not to scare that poorly cute child.",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, view [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.eventDescription": "View [blue]{CardPacks}[/blue] [gold]Card Rewards[/gold] from The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect each. Combine the chosen [gold]Card Rewards[/gold] into a [gold]Card[/gold]: add [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, add 1 [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold], then [aqua]Transcribe[/aqua] one set of [gold]Card Rewards[/gold] from each of The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect. Whenever you [gold]kill[/gold] an enemy, combat rewards gain one extra [aqua]Transcribe[/aqua] of a random other character.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeTitle": "Transcribe",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to [gold]Hyakki Yagyo[/gold]'s record. [gold]Hyakki Yagyo[/gold] can record only one card per character; recording a card for a character that already has a record replaces that record.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "Transcribed",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|, }",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "Hehe, this is a treasure this old one paid dearly to acquire.",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",
