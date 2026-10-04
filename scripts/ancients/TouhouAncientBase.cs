@@ -102,7 +102,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
                 return [modifierRunOptions[0]];
             }
 
-            if (modifierRunOwner.RunState.GameMode != GameMode.Standard)
+            if (Owner.RunState.GameMode != GameMode.Standard)
             {
                 return Array.Empty<EventOption>();
             }

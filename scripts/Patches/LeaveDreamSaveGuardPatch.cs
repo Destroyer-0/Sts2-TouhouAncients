@@ -61,12 +61,10 @@ internal static class LeaveDreamSaveGuardPatch
             }
 
             preFinishedRoom = restored;
-            Log.Warn($"[TouhouAncients] 存档兜底：补回待恢复房间 {Describe(restored)}（调用方未提供）。");
         }
         catch (Exception ex)
         {
             // 兜底失败绝不能影响存档本身。
-            Log.Error($"[TouhouAncients] 存档兜底失败（这一笔按原样写入）：{ex.Message}");
         }
     }
 
