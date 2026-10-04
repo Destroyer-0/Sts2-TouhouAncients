@@ -1,4 +1,4 @@
-{
+﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸運の素兎",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "カードを[blue]{Cards}[/blue]枚引く。このターン、現在の[gold]手札[/gold]のコストはランダムに変化し、その中のコストが[blue]0[/blue]のカードが、この戦闘中[gold]リプレイ[/gold]を得る。",
 
@@ -58,7 +58,7 @@
     "TOUHOUANCIENTS-RICHEST_FORM.description": "Gain {Energy2:energyIcons()}.\nAt the start of your turn, gain {Energy3:energyIcons()}.\nWhenever you play a card, cards of the same type cost {Energy:energyIcons()} more this turn.",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "極貧化",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy.",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply {Amount} [gold]Doom[/gold] to a random enemy.",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
 
@@ -83,12 +83,12 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.\nAt the start of combat, if Hyakki Yagyo's record pool is empty, remove it from the game (into the None pile).",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.",
 
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
-    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from the corresponding card.",
-    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "When [gold]Exhausted[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold].",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from the corresponding card.",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold].",
 
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "Jewel from the Dragon's Neck",
     "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "Whenever you play a card, this card's cost is reduced by [blue]{CostReduce}[/blue] this turn.",
@@ -109,5 +109,14 @@
     "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "The target loses [blue]{HpLoss}[/blue] HP and gains [blue]{Strength}[/blue] [gold]Strength[/gold].\nEach time this card is played this combat, the target loses an additional [blue]{ExtraHpLoss}[/blue] HP and gains an additional [blue]{ExtraStrength}[/blue] [gold]Strength[/gold].",
 
     "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
-    "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold]."
+    "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].",
+
+    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Whisper",
+    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Add {Cards:diff()} random [gold]Attack[/gold] or [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Exhaust[/gold] and [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Deep Dream Oblivion[/gold] or [gold]Ominous Dream Eternal[/gold].",
+
+    "TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.title": "Deep Dream Oblivion",
+    "TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd {Cards:diff()} random [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Exhaust[/gold] and [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Whisper[/gold] or [gold]Ominous Dream Eternal[/gold].",
+
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "Ominous Dream Eternal",
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} random [gold]Attack[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Exhaust[/gold] and [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Whisper[/gold] or [gold]Deep Dream Oblivion[/gold]."
 }

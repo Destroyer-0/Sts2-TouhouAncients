@@ -508,7 +508,7 @@
 
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.title": "Kaguya's Secret Treasure",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.description": "At the start of each combat, choose one of [blue]{Cards}[/blue] [green]Upgraded[/green] cards from other characters' pools and add it to your [gold]Hand[/gold]. After playing this card, its original copy additionally appears in [gold]combat rewards[/gold].",
-  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "For an eternal life, saving up is naturally the most important thing.",
+  "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.flavor": "Witness the eternal and infinite future.",
   "TOUHOUANCIENTS-KAGUYA_SECRET_TREASURE.selectionScreenPrompt": "Choose a card",
 
   "TOUHOUANCIENTS-MINI_HAKKERO.title": "Mini Hakkero",
@@ -723,17 +723,17 @@
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "Careful not to scare that poorly cute child.",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, add 1 [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold], then [aqua]Transcribe[/aqua] one set of [gold]Card Rewards[/gold] from each of The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect. Whenever you [gold]kill[/gold] an enemy, combat rewards gain one extra [aqua]Transcribe[/aqua] of a random other character.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, add 1 [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold], then [aqua]Transcribe[/aqua] a card from each of The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect. Whenever [gold]Fatal[/gold], combat rewards gain an additional [aqua]Transcribe[/aqua] of a random other character.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeTitle": "Transcribe",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to [gold]Hyakki Yagyo[/gold]'s record. [gold]Hyakki Yagyo[/gold] can record only one card per character; recording a card for a character that already has a record replaces that record.",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "Transcribed",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to the record of every [gold]Hyakki Yagyo[/gold]. If a record for that character already exists, the chosen card replaces the previously recorded card.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "Transcribed Cards",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|, }",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "No cards from this character have been recorded in [gold]Hyakki Yagyo[/gold] yet.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "Hehe, this is a treasure this old one paid dearly to acquire.",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.description": "Whenever you draw a [gold]Power[/gold] card, draw [blue]{Cards}[/blue] additional cards. The first time you play a [gold]Power[/gold] each turn, add [blue]{Copies}[/blue] copies of it to your [gold]Discard Pile[/gold].",
-  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "",
+  "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.flavor": "\"So this time, the destination is a place called Preon, huh? —Don't worry! As long as we're inside a dream, my psychic powers are invincible! Fwahaha!!\"",
 
   "TOUHOUANCIENTS-NOH_MASK.title": "Noh Mask",
   "TOUHOUANCIENTS-NOH_MASK.description": "At the start of combat or whenever you shuffle your [gold]Draw Pile[/gold], randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], or [purple]Pleasure[/purple] to all cards. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
@@ -752,48 +752,53 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "Iridescent Dream",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "Upon pickup, {StarterRelic.StringValue:cond:replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "{StarterRelic.StringValue:cond:Replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|Replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "\"Dream Manager? Collect dream souls? Like bubbles! Interesting! Put my dream in a jar!!\"",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "Melting Wax Dream",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "At the start of your turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]\"Dream Manager? You must have seen many of my dreams... Now that you've taken it, let me sleep a little longer...\"[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "Blazing Candle Dream",
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "At the start of each combat, put [blue]{Cards}[/blue] [gold]Brightest Flame[/gold] into your [gold]Hand[/gold]. They have [gold]Exhaust[/gold].",
-  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "\"Oh, dear! You want Tezcatara's dream? You're such a cute little thing.\"",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares. [gold]Merchant[/gold] prices increase by [blue]{PriceIncrease}%[/blue].",
-  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "\"Heheh, a demon's dream is no simple thing. I'm sure you know the small price of a contract...\"",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "Flowing Splendor Dream",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "Upon pickup, [gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.eventDescription": "[gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].",
-  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "\"Dream Manager, I shall show you my dream. It is, naturally, the finest and most splendid of all.\"",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "Bloodbath Dream",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "\"DREAM MANAGER, FIGHT ME!!!—...Zzzzz\"",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "Supreme Dream",
   "TOUHOUANCIENTS-SUPREME_DREAM.description": "Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",
   "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "Whenever you enter a new [gold]Act[/gold]: Gain [blue]{Potions}[/blue] [gold]Potions[/gold]. Gain [blue]{Gold}[/blue] [gold]Gold[/gold]. Increase your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue]. Gain [blue]{Cards}[/blue] card rewards. Randomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",
-  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "",
+  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "[red]\"...LEAVE. MY. DOMAIN.\"[/red]",
 
   "TOUHOUANCIENTS-REVIVAL_DREAM.title": "Revival Dream",
   "TOUHOUANCIENTS-REVIVAL_DREAM.description": "Enemies in your next [blue]{Combats}[/blue] combats will have only [blue]{Hp}[/blue] HP.",
-  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "\"[sine]..soothe... my... puppet.. ..naturally... ...you.. will... receive....[/sine]\"",
 
   "TOUHOUANCIENTS-BYGONE_DREAM.title": "Bygone Dream",
   "TOUHOUANCIENTS-BYGONE_DREAM.description": "Upon pickup, obtain a forgotten relic from the past and a forgotten card from the past.",
   "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "Obtain a forgotten relic from the past and a forgotten card from the past.",
-  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "",
+  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "\"Ah, I still remember those cute girl companions of yours! They were quite the unusual bunch, ain't they?\"",
 
   "TOUHOUANCIENTS-PIONEER_DREAM.title": "Pioneer Dream",
   "TOUHOUANCIENTS-PIONEER_DREAM.description": "Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "",
+  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "(This relic will be migrated to another Ancient later.)",
+
+  "TOUHOUANCIENTS-REVELATION_DREAM.title": "Revelation Dream",
+  "TOUHOUANCIENTS-REVELATION_DREAM.description": "Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "Add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "\"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different.\"",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].",

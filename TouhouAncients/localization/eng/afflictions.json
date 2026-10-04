@@ -9,6 +9,6 @@
   "TOUHOUANCIENTS-COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
   "TOUHOUANCIENTS-COLLATERAL.title": "Collateral",
 
-  "TOUHOUANCIENTS-SEALED.description": "Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold], remove [red]Sealed[/red].",
+  "TOUHOUANCIENTS-SEALED.description": "Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove [red]Sealed[/red].",
   "TOUHOUANCIENTS-SEALED.title": "Sealed"
 }
