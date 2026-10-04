@@ -52,8 +52,17 @@ public sealed class Sealed : TouhouAncientAfflictionModel
     }
     
     /// <summary>
+    /// 解除这张牌的封印。对应的封魔阵被消耗或被变化时共用。
+    /// </summary>
+    public void Release()
+    {
+        if (!HasCard) return;
+        if (Card.HasBeenRemovedFromState) return;
+        Card.ClearAfflictionInternal();
+    }
+
+    /// <summary>
     /// 对应的封魔阵进入消耗堆时，解除这张牌的封印。
-    /// 若这张牌已被移出游戏（消耗/转换/移除），则跳过解除。
     /// </summary>
     public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
@@ -61,10 +70,7 @@ public sealed class Sealed : TouhouAncientAfflictionModel
         if (card != _sealCircle) return Task.CompletedTask;
         if (card.Pile?.Type == PileType.Exhaust)
         {
-            if (!Card.HasBeenRemovedFromState)
-            {
-                Card.ClearAfflictionInternal();
-            }
+            Release();
         }
 
         return Task.CompletedTask;

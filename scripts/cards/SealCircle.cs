@@ -134,6 +134,18 @@ public class SealCircle : TouhouAncientCards
     }
 
     /// <summary>
+    /// 封魔阵被变化时解除对应卡牌的封印。
+    /// 变化路径走 RemoveFromState，不进消耗堆也不触发 AfterCardChangedPiles，只能靠这个回调。
+    /// </summary>
+    public override void AfterTransformedFrom()
+    {
+        if (_sealedCard?.Affliction is Sealed sealedAffliction)
+        {
+            sealedAffliction.Release();
+        }
+    }
+
+    /// <summary>
     /// 本场战斗结束时清空配对数据（战斗内引用不跨战斗保存）。
     /// </summary>
     public override Task AfterCombatEnd(CombatRoom room)
