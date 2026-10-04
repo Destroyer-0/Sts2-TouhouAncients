@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpocfv0i15iny"]
+[gd_scene load_steps=4 format=3 uid="uid://bpocfv0i15iny"]
 
 [ext_resource type="Texture2D" uid="uid://d073e1rtaq6tj" path="res://images/DoremySweet.png" id="1_tqx83"]
+[ext_resource type="Texture2D" uid="uid://bjtywhi78dyfj" path="res://images/DoremySweet2.png" id="2_grvo8"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_robec"]
 
 [node name="DoremySweetAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +15,14 @@ offset_top = -170.0
 offset_right = 2240.0
 offset_bottom = 1323.0
 texture = ExtResource("1_tqx83")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -190.0
+offset_right = 2240.0
+offset_bottom = 1356.0
+texture = ExtResource("2_grvo8")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_robec")
