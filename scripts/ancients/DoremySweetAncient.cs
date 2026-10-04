@@ -34,7 +34,8 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<SupremeDream>(),
             TARelicOption<RevivalDream>(),
             TARelicOption<BygoneDream>(),
-            TARelicOption<PioneerDream>()
+            TARelicOption<PioneerDream>(),
+            TARelicOption<RevelationDream>()
             ),
         CreateTARelicOptionPool(
             TARelicOption<IridescentDream>().Prep((IridescentDream relic) =>
