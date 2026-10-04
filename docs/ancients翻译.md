@@ -1194,7 +1194,7 @@ You remind me of someone annoying. |
 | 键名 | 中文 | English |
 |------|------|---------|
 | `.title` | 哆来咪·苏伊特 | Doremy Sweet |
-| `.epithet` | 遂古之初的梦境使 | Dream-Shaper of the Primordial Dawn |
+| `.epithet` | 遂古之初的梦境使 | Dream Manager of the Primordial Dawn |
 | `.pages.INITIAL.options.LEAVE_DREAM.title` | 离开梦境 | Leave the Dream |
 | `.pages.INITIAL.options.LEAVE_DREAM.description` | 醒来……前去面见涅奥。 | Awaken... and go meet Neow. |
 | `.talk.LEAVE_DREAM.ancient` | 是吗……那么祝您有个愉快的梦醒时分。 | Is that so... Then I wish you a pleasant awakening. |

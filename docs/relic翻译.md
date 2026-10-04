@@ -2597,7 +2597,19 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `.title` | `Pioneer Dream` |
 | `.description` | `Upon pickup, add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
 | `.eventDescription` | `Add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
-| `.flavor` | `""`（留空） |
+| `.flavor` | `(This relic will be migrated to another Ancient later.)` |
+
+---
+
+## 增量更新（2026-10-03）
+
+### 超能念力（PSYCHIC_TELEKINESIS，新增 flavor）
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.flavor` | “在梦境之中，有什么是做不到的呢——呵呵哈哈！” | `"In the world of dreams, is there anything that can't be done—hehehaha!"` |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 #### 幻想之梦 `FANTASY_DREAM`（条目已存在，对应类暂未实现）
 
@@ -2613,6 +2625,33 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 |------|-----------|
 | `YIYANDINGZHEN.description` | `At the start of each turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.` |
 | `NOBLE_BROOCH.description` | `At the start of each turn, [gold]Transform[/gold] up to [blue]2[/blue] cards, ...` |
+
+---
+
+## 启示之梦
+
+**键名**: `TOUHOUANCIENTS-REVELATION_DREAM`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-REVELATION_DREAM.title": "启示之梦",
+"TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，将[blue]1[/blue]张[gold]幻梦呢喃[/gold]加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+"TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "将[blue]1[/blue]张[gold]幻梦呢喃[/gold]加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+"TOUHOUANCIENTS-REVELATION_DREAM.flavor": "“先子星上一切生物的原始脑都已在被创造时就进化完毕——因此你的、我的、它们的大脑在梦境中并没有本质的不同。”"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Revelation Dream` |
+| `.description` | `Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
+| `.eventDescription` | `Add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
+| `.flavor` | `"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different."` |
+
+### 备注
+- `.flavor` 与「先驱之梦」`PIONEER_DREAM.flavor` **完全一致**（用户指定），三语言同步该句。
+- 第二句「每当你休息时，你可以变化这张牌」指的是「幻梦呢喃」自身的「梦醒时」变化效果（见 `docs/cards翻译.md`），不是遗物的额外效果；英文沿用卡面同句式 `Whenever you rest, you may transform it.`。
+- `eventDescription` 按本项目惯例去掉开头的「拾起时，」。
 | `DUSTY_ROSE.description` | `At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].`（随 cards.json 卡名统一为 `The Closed Eye`） |
 | `MALICIOUS_FAIRY_TALE.description` | `... At the start of each turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].` |
 | `HOTOKE_MISHI_ISHI_NO_HACHI.description` / `.eventDescription` | 格挡变量由 `{StartBlock}` 改为 `{Block}` |
@@ -2647,11 +2686,72 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 `Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. ...`
 
+---
+
+## 增量更新（2026-10-03，哆来咪「梦境」系列 flavor）
+
+10 条 flavor（`FANTASY_DREAM` 在 zhs 为空，留空）。按用户说明，每条均为「对应角色对哆来咪（或哆来咪本尊）的台词」，翻译时对照原版 `ancients.json` 中各先古之民的英文语气；说话者已由用户确认。
+
+哆来咪的称呼「梦境使 / 梦境使者 / 梦的使者」统一译作 **Dream Manager**（称号与各条 flavor 一致）。
+
+| 键名 | 说话者 | 中文原文 | English |
+|------|--------|---------|---------|
+| `IRIDESCENT_DREAM.flavor` | Orobas | “梦的使者？收集梦魂？像泡泡！有意思！把我的梦装起来！” | `"Dream Manager? Collect dream souls? Like bubbles! Interesting! Put my dream in a jar!!"` |
+| `MELTING_WAX_DREAM.flavor` | Pael | [thinky_dots]“梦的使者？你应该见过很多我的梦……拿走以后就让我再睡一会儿吧……”[/thinky_dots] | `[thinky_dots]"Dream Manager? You must have seen many of my dreams... Now that you've taken it, let me sleep a little longer..."[/thinky_dots]` |
+| `BLAZING_FLAME_DREAM.flavor` | Tezcatara | “哦，亲爱的！你想要特兹卡塔拉的梦境？你真是个可爱的小家伙呢。” | `"Oh, dear! You want Tezcatara's dream? You're such a cute little thing."` |
+| `SINISTER_PACT_DREAM.flavor` | Vakuu | “呵呵，恶魔的梦可不是简单之物，我想你应该知道契约的小小代价……” | `"Heheh, a demon's dream is no simple thing. I'm sure you know the small price of a contract..."` |
+| `FLOWING_SPLENDOR_DREAM.flavor` | Nonupeipe | “梦境使者，我会向你展示我的梦境，那自然是最上等与华美的。” | `"Dream Manager, I shall show you my dream. It is, naturally, the finest and most splendid of all."` |
+| `BLOODBATH_DREAM.flavor` | Tanx | “梦境使者，与我一战！！！——……Zzzzz” | `"DREAM MANAGER, FIGHT ME!!!—...Zzzzz"` |
+| `SUPREME_DREAM.flavor` | The Architect | “……” | `"..."` |
+| `REVIVAL_DREAM.flavor` | Neow | “[sine]..安抚...我的... 傀儡.. ..自然... ...能拿到....[/sine]” | `"[sine]..soothe... my... puppet.. ..naturally... ...you.. will... receive....[/sine]"` |
+| `BYGONE_DREAM.flavor` | Darv | “啊，我还记得你那些可爱的女孩同伴呢！她们可真不同寻常，不是吗？” | `"Ah, I still remember those cute girl companions of yours! They were quite the unusual bunch, ain't they?"` |
+| `PIONEER_DREAM.flavor` | 系统备注 | （此遗物将在之后迁移给其他先古之民。） | `(This relic will be migrated to another Ancient later.)` |
+
+> 注：`PIONEER_DREAM.flavor` 原为哆来咪本尊台词（先子星原始脑），后由策划改为括号备注文本，三语言已同步替换。
+
+> 对话拟声/标签（`[thinky_dots]`、`[sine]`）与引号原样保留；zhs 的 `“ ”` 在 eng/jpn 中转为转义直引号 `\"`（与仓库既有写法一致）。
+>
+> 说话者已确认：Orobas / Pael / Tezcatara / Vakuu / Nonupeipe / Tanx / The Architect / Neow / Darv，`PIONEER_DREAM` 为哆来咪本尊。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
 ### 4. 关于 `GREED.description` 的 `{Times}`（已按源码改回变量）
 
 zhs 写的是 `[gold]重放[/gold][blue]{Times}[/blue]`，复核确认 `scripts/Enchantment/Greed.cs` 确实定义了 `new DynamicVar("Times", 1m)` 并交给 `StaticHoverTip.ReplayDynamic` 使用，因此**不能**硬编码成 `1`。英日均已改回 `{Times}`。此条已从 `docs/翻译待沟通.md` 的待确认清单中移除。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充；梦境遗物标题按现有日文风格译为「XXの夢」）。
+
+---
+
+## 增量更新（2026-10-03，辉夜姬秘宝 flavor 重译）
+
+zhs flavor 改为「见证永恒与无限的未来。」，与绀珠之药「净化掉污秽的过去。」构成对仗。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.flavor` | 见证永恒与无限的未来。 | `Witness the eternal and infinite future.` |
+
+对仗对照（动词 + the + 修饰语 + 时间名词）：
+
+- 绀珠之药：`Purify away the defiled past.`
+- 辉夜姬秘宝：`Witness the eternal and infinite future.`
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-03，超能念力 flavor 重译）
+
+zhs flavor 改为一段口语台词（说话者自称拥有「超能力」、目的地为「先子星」，语气自信张扬）。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.flavor` | “这次的目的地是叫先子星是吗？——放心吧，只要是在梦境里，我的超能力就是无敌的！呼哈哈！！” | `"So this time, the destination is a place called Preon, huh? —Don't worry! As long as we're inside a dream, my psychic powers are invincible! Fwahaha!!"` |
+
+- 「先子星」沿用既有译名 `Preon`。
+- 破折号「——」用 `—`；「呼哈哈」拟声译为 `Fwahaha`（得意、自信的笑声，配合句末 `!!`）。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 ---
 
@@ -2712,6 +2812,55 @@ jpn 与 eng 保持一致（jpn 文件用英文填充；梦境遗物标题按现�
 - 英文首句补 `then` 以承接中文逗号隐含的先后顺序（先玩家指定、后随机）。
 - **flavor 为用户指定的中英不一致**：zhs 保持「游戏领域大神！」，eng/jpn 写 `Miniature Tent is the best!`（用户明确指定，不做字面对应）。
 - 用户改稿删去了此前的「从牌组中选择一张已升级的牌」「以奖励列表的方式」「不会出现你已经拥有的」等措辞，译文随之删去，未做补充说明。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-01）
+
+### 1. 百鬼夜行绘卷（HYAKKI_YAGYO_SCROLL，补充 `transcribedDescriptionEmpty`）
+
+zhs 新增 `transcribedDescriptionEmpty`（誊写记录界面在该角色尚无记录时显示的占位文本），此前 eng/jpn 直接复制了中文，本次补齐译文。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.transcribedDescriptionEmpty` | 这名角色还没有任何牌被记录在[gold]百鬼夜行[/gold]中。 | No cards from this character have been recorded in [gold]Hyakki Yagyo[/gold] yet. |
+
+#### 说明
+- 动词沿用同组 `transcribeDescription` 已定的 `record`（`[gold]Hyakki Yagyo[/gold]'s record`），不另造 `log` / `save` 等词。
+- 「这名角色」在英文里用 `this character` 指代当前查看记录的角色，与 `transcribeDescription` 中的 `the specified character` 区分：前者是界面当前角色，后者是誊写目标角色。
+- 原版无同类空状态句式，按英文空状态文案习惯用 `yet` 收尾。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+### 2. 校对：百鬼夜行系列（HYAKKI_YAGYO_SCROLL / HYAKKI_YAGYO）
+
+逐条核对 zhs / eng / jpn 后修正 4 处：
+
+| 键名 | 原译文 | 修正为 | 依据 |
+|------|--------|--------|------|
+| `...SCROLL.transcribeDescription` | `...the chosen card is added to [gold]Hyakki Yagyo[/gold]'s record. [gold]Hyakki Yagyo[/gold] can record only one card per character; recording a card for a character that already has a record replaces that record.` | `...the chosen card is added to the record of every [gold]Hyakki Yagyo[/gold]. If a record for that character already exists, the chosen card replaces the previously recorded card.` | zhs 是「加入**所有**百鬼夜行的记录中」，`TranscribeReward.OnSelect` 也确实对牌组里每张百鬼夜行各写一份；后半句原文把同一件事解释了两遍，按 zhs 精简 |
+| `...SCROLL.transcribedTitle` | `Transcribed` | `Transcribed Cards` | zhs 是名词「誊写记录」，该 HoverTip 列出的就是牌名列表，过去分词单独作标题读不通 |
+| `...SCROLL.description` | `...one set of [gold]Card Rewards[/gold] from each of ...`；`Whenever you [gold]kill[/gold] an enemy` | `...a card from each of ...`；`Whenever [gold]Fatal[/gold]` | 前半句是旧 zhs「各一组卡牌奖励」的遗留措辞；后半句按原版关键字映射——zhs`[gold]斩杀[/gold]时` ↔ eng `If [gold]Fatal[/gold],`（`FEED` / `THE_HUNT` / `HAND_OF_GREED`），eng 里 `kill` 不是关键字 |
+| `HYAKKI_YAGYO.description`（cards.json） | 比 zhs 多出第三句 `At the start of combat, if Hyakki Yagyo's record pool is empty, remove it from the game (into the None pile).` | 删去该句 | zhs 只有两句，译文不得多于原文；该机制仍由 `HyakkiYagyo.BeforeCombatStart` 实现，只是不写进卡面 |
+
+> 未改动项：`title`、`flavor`、`transcribedDescription` 的分隔符（`，` ↔ `, `）、`transcribedDescriptionEmpty`、五个角色名（The Ironclad / The Silent / The Regent / The Necrobinder / The Defect，与 `characters.json` 一致）、关联键 `TOUHOUANCIENTS-TRANSCRIBE_REWARD`（gameplay_ui）中英一致。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-03，至高之梦 flavor 重译）
+
+zhs flavor 改为 `[red]“……离·开·我·的·领·域。”[/red]`（说话者为 The Architect，用「·」逐字分隔强化威压感）。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.flavor` | [red]“……离·开·我·的·领·域。”[/red] | `[red]"...LEAVE. MY. DOMAIN."[/red]` |
+
+- 中文用「·」逐字分隔表示强调；英文按用户要求**用大写表示强调**，并用句号切分单词以还原一字一顿的威压感。
+- 保留 `[red]` 包裹、引号（`“ ”` → 转义直引号 `\"`）与开头的省略号。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 

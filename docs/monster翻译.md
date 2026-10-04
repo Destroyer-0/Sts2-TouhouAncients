@@ -457,3 +457,29 @@
 - `ForceDreamNatureNext()` 全仓库只有 `IndiscriminateSubjugationPower.TryTrigger()` 一个调用点，因此"只能由无差别降伏触发"这一约束无需额外判断条件。
 - 气泡颜色 `VfxColor.White`。
 
+## 增量更新（2026-10-01）
+
+### 封魔阵（SEAL_CIRCLE，描述加入「变化」）
+
+`SealCircle` 现在被**变化**时也解除封印（新增 `AfterTransformedFrom`，与进消耗堆共用 `Sealed.Release()`），zhs 的 `descriptionIdle` / `descriptionSealed` 同步加入「或[gold]变化[/gold]」，eng/jpn 跟进。
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle` | 被[gold]消耗[/gold]或[gold]变化[/gold]时，解除对应卡牌的封印状态。 | When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from the corresponding card. |
+| `TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed` | 被[gold]消耗[/gold]或[gold]变化[/gold]时，解除[gold]{Card}[/gold]的封印状态。 | When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold]. |
+
+#### 说明
+- 「变化」沿用仓库既有的 `Transform` 关键字写法，被动语态取 `Transformed`，与同句的 `Exhausted` 平行（原版 `2025_03_13` 补丁说明也有 `when the card is Exhausted or Transformed` 的写法）。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+### 封印侵蚀（SEALED，描述同步加入「变化」）
+
+zhs 的 `SEALED.description` 同步改为「被消耗**或变化**后」，eng/jpn 跟进。
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-SEALED.description` | 获得[red]不能被打出[/red]。其对应的[gold]封魔阵[/gold]被消耗或变化后，解除[red]封印[/red]。 | Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove [red]Sealed[/red]. |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
