@@ -20,8 +20,24 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class MeltingWaxDream : TouhouAncientRelics
 {
+    private bool _isExpired;
+
     /// <summary>此遗物是否已永久失效。由 [SavedProperty] 标记，会随存档保存。</summary>
-    [SavedProperty] public bool TouhouAncients_Expired { get; set; }
+    [SavedProperty]
+    public bool TouhouAncients_Expired
+    {
+        get=>_isExpired;
+        set
+        {
+            AssertMutable();
+            _isExpired = value;
+            InvokeDisplayAmountChanged();
+            if (IsUsedUp)
+            {
+                base.Status = RelicStatus.Disabled;
+            }
+        }
+    }
 
     /// <summary>本场战斗中通过此遗物累计获得的再生点数（仅用于判断是否达到上限）。</summary>
     private int _regenGainedThisCombat;

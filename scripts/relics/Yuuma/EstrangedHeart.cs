@@ -39,6 +39,7 @@ public class EstrangedHeart : TouhouAncientRelics
             AssertMutable();
             cardsTaken = value;
             InvokeDisplayAmountChanged();
+            if(IsUsedUp) base.Status = RelicStatus.Disabled;
         }
     }
     
