@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
+using TouhouAncients.Scripts.Rewards;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -68,7 +69,7 @@ public class OokunineshiProtrayal : TouhouAncientRelics
         //rewards.Add(new GoldReward(base.DynamicVars.Gold.IntValue, player));
         if (room is CombatRoom combatRoom)
         {
-            var num = Owner.PlayerRng.Rewards.NextInt(13);
+            var num = Owner.PlayerRng.Rewards.NextInt(14);
             switch (num)
             {
                 case 0:
@@ -103,6 +104,9 @@ public class OokunineshiProtrayal : TouhouAncientRelics
                     var remain = _fakeRelics.Where(x => !playerRelic.Contains(x.Id.Entry)).ToList();
                     var fake = remain.Count > 0 ? remain.TakeRandom(1, player.PlayerRng.Rewards) : _fakeRelics.TakeRandom(1, player.PlayerRng.Rewards);
                     rewards.Add(new RelicReward(fake.First().ToMutable(), base.Owner));
+                    break;
+                case 11:
+                    rewards.Add(new UpgradeCardReward(player));
                     break;
                 default:
                     return false;
