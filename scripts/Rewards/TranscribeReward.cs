@@ -26,7 +26,7 @@ namespace TouhouAncients.Scripts.Rewards;
 /// </summary>
 public sealed class TranscribeReward : TouhouCustomReward
 {
-    protected override string? RewardIconPath => "res://images/icon/Character/FutatsuiwaMamizou.png";
+    protected override string? RewardIconPath => "res://images/icon/relics/IconLarge/HyakkiYagyoScroll.png";
     /// <summary>本奖励专属 RewardType，值由 BaseLib 的 [CustomEnum] 机制自动生成并注册读档工厂。</summary>
     [CustomEnum(null)] public static RewardType Transcribe;
 

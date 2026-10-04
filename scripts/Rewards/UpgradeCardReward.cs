@@ -37,7 +37,7 @@ public sealed class UpgradeCardReward : TouhouCustomReward
     protected override RewardType RewardType => UpgradeCard;
 
     /// <summary>复用原版休息处锻造图标：语义一致，且必然是已有资源。</summary>
-    protected override string? RewardIconPath => ImageHelper.GetImagePath("ui/rest_site/option_smith.png");
+    protected override string? RewardIconPath => ImageHelper.GetImagePath("ui/reward/reward_upgrade.png");
 
     /// <inheritdoc />
     public override LocString Description => LocalizedDescription(("cards", Amount));
