@@ -43,5 +43,8 @@
 
     "TOUHOUANCIENTS-BLOOD_POND.description": "Cost and [gold]Stars[/gold] cost become [blue]0[/blue]. Gain [gold]Replay[/gold] [blue]{Times}[/blue].\n[red]At the end of combat, this card will be devoured by Yuuma Toutetsu.[/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "Black Water",
-    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Every last one of these hatred-soaked organisms is combustible fuel!"
+    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Every last one of these hatred-soaked organisms is combustible fuel!",
+
+    "TOUHOUANCIENTS-ECHO.description": "When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.",
+    "TOUHOUANCIENTS-ECHO.title": "Echo"
 }

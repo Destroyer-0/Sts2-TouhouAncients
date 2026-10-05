@@ -43,5 +43,8 @@
 
 	"TOUHOUANCIENTS-BLOOD_POND.description": "エナジーと[gold]スター[/gold]のコストが[blue]0[/blue]になる。[gold]リプレイ[/gold][blue]{Times}[/blue]を得る。\n[red]戦闘終了時、このカードは饕餮尤魔に呑み込まれる。[/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "黒い水",
-    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎悪にまみれた有機物が全て燃料になるんだ。"
+    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎悪にまみれた有機物が全て燃料になるんだ。",
+
+    "TOUHOUANCIENTS-ECHO.description": "When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.",
+    "TOUHOUANCIENTS-ECHO.title": "Echo"
 }

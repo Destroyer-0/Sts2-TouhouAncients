@@ -111,6 +111,9 @@
     "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
     "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].",
 
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
+
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Add {Cards:diff()} random [gold]Attack[/gold] or [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold] and cost [blue]1[/blue] less until played.\nWhenever you rest, you may transform it into [gold]Deep Dream Insensate[/gold] or [gold]Ominous Dream Eternal[/gold].",
 

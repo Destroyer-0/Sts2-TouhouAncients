@@ -110,6 +110,9 @@
     "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
     "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards.",
 
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
+
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Add {Cards:diff()} random [gold]Attack[/gold] or [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold] and cost [blue]1[/blue] less until played.\nWhenever you rest, you may transform it into [gold]Deep Dream Insensate[/gold] or [gold]Ominous Dream Eternal[/gold].",
 

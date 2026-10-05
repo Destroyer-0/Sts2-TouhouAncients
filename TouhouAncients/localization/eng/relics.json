@@ -749,6 +749,15 @@
   "TOUHOUANCIENTS-HEAVY_DICE.selectionScreenPrompt": "Choose a card in your [gold]Hand[/gold] to record.",
   "TOUHOUANCIENTS-HEAVY_DICE.flavor": "Only cheaters who get caught can be called cheaters.",
 
+  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.title": "Ghost Thundercloud",
+  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.description": "At the start of your turn, if you took damage from an enemy last turn, gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards, and gain [blue]{Strength}[/blue] [gold]Strength[/gold] this turn.",
+  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "Bzzt bzzt~",
+
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "Echo Microphone",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "Upon pickup, choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "Choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "",
+
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "Iridescent Dream",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "Upon pickup, {StarterRelic.StringValue:cond:replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "{StarterRelic.StringValue:cond:Replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold]|Replace your Starter [gold]Relic[/gold] with its [gold]Ancient[/gold] version}, and remove {StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|a Starter card} from your [gold]Deck[/gold].",
@@ -764,7 +773,17 @@
 
   "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.title": "Wind Priestess Dream",
   "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.description": "The first [blue]{Cards}[/blue] card rewards you encounter get a random [gold]Enchantment[/gold]: [purple]Sharp[/purple] [blue]2[/blue]/[purple]Nimble[/purple] [blue]2[/blue]/[purple]Swift[/purple] [blue]1[/blue].",
-  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.flavor": "",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.flavor": "\"Whoa! What the heck! Pushing your wares in a dream is way too unfair! Let me in on it!\"",
+
+  "TOUHOUANCIENTS-METEOR_DREAM.title": "Meteor Dream",
+  "TOUHOUANCIENTS-METEOR_DREAM.description": "Upon pickup, mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.",
+  "TOUHOUANCIENTS-METEOR_DREAM.eventDescription": "Mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.",
+  "TOUHOUANCIENTS-METEOR_DREAM.flavor": "\"Heheh, haven't you seen enough of my dreams in Gensokyo? Take as much as you like.\"",
+
+  "TOUHOUANCIENTS-PARADISE_DREAM.title": "Paradise Dream",
+  "TOUHOUANCIENTS-PARADISE_DREAM.description": "Upon pickup, add a [gold]Youkai Extermination[/gold] to your [gold]Deck[/gold]. After defeating the Act 1 [gold]Boss[/gold], remove it from your [gold]Deck[/gold] and gain [blue]{Gold}[/blue] [gold]Gold[/gold] for each [blue]1[/blue] damage it has.",
+  "TOUHOUANCIENTS-PARADISE_DREAM.eventDescription": "Add a [gold]Youkai Extermination[/gold] to your [gold]Deck[/gold]. After defeating the Act 1 [gold]Boss[/gold], remove it from your [gold]Deck[/gold] and gain [blue]{Gold}[/blue] [gold]Gold[/gold] for each [blue]1[/blue] damage it has.",
+  "TOUHOUANCIENTS-PARADISE_DREAM.flavor": "\"Hey, hey, I'm saying—even in a dream, can't you fill my [gold]Offerings Box[/gold] with money just once? Please!\"",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].",
@@ -783,7 +802,7 @@
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "Boundary Dream",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "Upon pickup, lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "Lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "\"Heheh, Dream Manager... I'll leave the future of Gensokyo and Preon to your [sine]intervention[/sine] this time...\"",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "Supreme Dream",
   "TOUHOUANCIENTS-SUPREME_DREAM.description": "Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",

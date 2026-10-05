@@ -45,6 +45,6 @@
     "TOUHOUANCIENTS-BLOOD_POND.title": "黑水",
     "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎恶的有机物",
 
-    "TOUHOUANCIENTS-ECHO.description": "打出此牌后，将一张本回合费用[blue]+1[/blue]的复制品加入你的[gold]手牌[/gold]。",
+    "TOUHOUANCIENTS-ECHO.description": "打出此牌后，将一张本回合耗能增加[blue]1[/blue]的复制品加入你的[gold]手牌[/gold]。",
     "TOUHOUANCIENTS-ECHO.title": "回响"
 }

@@ -111,7 +111,7 @@
     "TOUHOUANCIENTS-SHINING_TOWER.description": "对所有敌人造成{Damage:diff()}点伤害并[gold]击晕[/gold]他们。\n斩杀时，获得[blue]{Gold}[/blue][gold]金币[/gold]。\n从你的[gold]牌组[/gold]中移除，并重新加入寻宝奖励中。",
 
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "妖怪治退",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "造成{Damage:diff()}点伤害[blue]2[/blue]次。\n斩杀时，获得{energyPrefix:energyIcons(1)}，这张牌在本局游戏中的伤害永久性增加[blue]{Increase}[/blue]。",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "造成{Damage:diff()}点伤害[blue]{Repeat}[/blue]次。\n[gold]斩杀[/gold]时，获得{energyPrefix:energyIcons(1)}，这张牌在本局游戏中的伤害永久性增加{Increase:diff()}。",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "幻梦无垠",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "将{Cards:diff()}张随机[gold]攻击牌[/gold]或[gold]技能牌[/gold]加入你的[gold]抽牌堆[/gold]，这些牌拥有[gold]虚无[/gold]且首次打出耗能减少[blue]1[/blue]。\n每当你休息时，你可以将此牌变化为[gold]深梦无觉[/gold]或[gold]噩梦无终[/gold]。",

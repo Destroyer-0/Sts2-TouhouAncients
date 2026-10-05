@@ -4,7 +4,7 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUNビール",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "ランダムな東方先古の民カード1枚を[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "東方先古の民カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "ミームコインは素晴らしい投資チャンスです！",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "しらなイチゴミルク",
