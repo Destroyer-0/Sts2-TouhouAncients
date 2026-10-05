@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using TouhouAncients.Scripts.cards;
@@ -38,23 +40,37 @@ public class ParadiseDream : TouhouAncientRelics
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
     }
 
-    /// <summary>击败第一幕 Boss 后：移除妖怪治退，按其当前伤害每点换 10 金币。</summary>
-    public override async Task AfterCombatVictory(CombatRoom room)
+    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        if (ParadiseDream_Resolved) return;
-        if (room.RoomType != RoomType.Boss) return;
-        if (base.Owner.RunState.CurrentActIndex != 0) return; // 第一幕
+        if (ParadiseDream_Resolved) return false;
+        if (room.RoomType != RoomType.Boss) return false;
+        if (base.Owner.RunState.CurrentActIndex != 0) return false; // 第一幕
 
         ParadiseDream_Resolved = true;
 
-        var card = base.Owner.Deck.Cards.OfType<YoukaiExtermination>().FirstOrDefault();
-        if (card == null) return;
+        var cards = base.Owner.Deck.Cards.OfType<YoukaiExtermination>();
 
-        int damage = card.CurrentDamage;
-        await CardPileCmd.RemoveFromDeck(card);
-        if (damage > 0)
+        var trigger = false;
+        foreach (var card in cards)
         {
-            await PlayerCmd.GainGold(damage * base.DynamicVars.Gold.BaseValue, base.Owner);
+            trigger = true;
+            // 取面板值：含锋利等附魔修正；牌在牌组里、战斗外，不会跑全局伤害 Hook
+            card.UpdateDynamicVarPreview(CardPreviewMode.None, null, card.DynamicVars);
+            int damage = (int)card.DynamicVars.Damage.PreviewValue;
+            Flash();
+            if (damage > 0)
+            {
+                rewards.Add(new GoldReward(damage * base.DynamicVars.Gold.IntValue, base.Owner));
+            }
         }
+
+        return trigger;
     }
+
+    public override async Task AfterModifyingRewards()
+    {
+        var cards = base.Owner.Deck.Cards.OfType<YoukaiExtermination>();
+        await CardPileCmd.RemoveFromDeck(cards.ToList());
+    }
+
 }
