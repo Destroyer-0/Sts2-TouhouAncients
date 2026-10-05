@@ -85,7 +85,7 @@ public class PrimalSpirit : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar(_triggerTurnKey, 5m)
+        new DynamicVar(_triggerTurnKey, 6m)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
