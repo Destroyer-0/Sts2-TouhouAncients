@@ -12,7 +12,7 @@ using TouhouAncients.Scripts.Rewards;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 梦境三牌（幻梦呢喃 / 深梦无觉 / 噩梦无终）共用：休息时追加一条「梦醒时」变化奖励，
+/// 梦境三牌（幻梦无垠 / 深梦无觉 / 噩梦无终）共用：休息时追加一条「梦醒时」变化奖励，
 /// 并从当前角色牌池按类型抽随机牌入堆。
 /// </summary>
 public abstract class DreamCycleCard : TouhouAncientCards
@@ -32,7 +32,10 @@ public abstract class DreamCycleCard : TouhouAncientCards
         return true;
     }
 
-    /// <summary>从当前角色牌池抽 <paramref name="count"/> 张指定类型的随机牌（去重）入堆，并附加消耗与虚无。</summary>
+    /// <summary>衍生牌「打出前」费用减少量；幻梦无垠为 1，其余为 0。</summary>
+    protected virtual int GeneratedCardCostReduction => 0;
+
+    /// <summary>从当前角色牌池抽 <paramref name="count"/> 张指定类型的随机牌（去重）入堆，附加虚无。</summary>
     protected async Task AddRandomDreamCards(PileType pile, int count, params CardType[] types)
     {
         var player = base.Owner;
@@ -50,8 +53,10 @@ public abstract class DreamCycleCard : TouhouAncientCards
             CardPilePosition.Random);
         foreach (var result in results)
         {
-            result.cardAdded.AddKeyword(CardKeyword.Exhaust);
             result.cardAdded.AddKeyword(CardKeyword.Ethereal);
+            // 费用-1 保留到首次打出
+            if (GeneratedCardCostReduction > 0)
+                result.cardAdded.EnergyCost.AddUntilPlayed(-GeneratedCardCostReduction);
         }
 
         CardCmd.PreviewCardPileAdd(results);

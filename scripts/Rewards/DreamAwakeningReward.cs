@@ -27,7 +27,7 @@ public sealed class DreamAwakeningReward : TouhouCustomReward
     [CustomEnum(null)]
     public static RewardType DreamAwakening;
 
-    /// <summary>源牌是哪一种梦境（1 幻梦呢喃 / 2 深梦无觉 / 3 噩梦无终）。读档后据此在牌组里找回牌。</summary>
+    /// <summary>源牌是哪一种梦境（1 幻梦无垠 / 2 深梦无觉 / 3 噩梦无终）。读档后据此在牌组里找回牌。</summary>
     private readonly int _kind;
 
     /// <summary>内存中的源牌实例；读档后为 null，退回按 <see cref="_kind"/> 查找。</summary>
@@ -121,7 +121,7 @@ public sealed class DreamAwakeningReward : TouhouCustomReward
         return to;
     }
 
-    // 梦境三牌的互相变化表：1 幻梦呢喃、2 深梦无觉、3 噩梦无终
+    // 梦境三牌的互相变化表：1 幻梦无垠、2 深梦无觉、3 噩梦无终
     private static int KindOf(CardModel card) =>
         card.Id == ModelDb.Card<IllusoryDreamWhisper>().Id ? 1 :
         card.Id == ModelDb.Card<DeepDreamSlumber>().Id ? 2 :

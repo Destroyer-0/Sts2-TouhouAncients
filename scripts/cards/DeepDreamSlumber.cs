@@ -12,8 +12,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 深梦无觉：获得6（9）格挡。将3（4）张随机技能牌加入抽牌堆，这些牌拥有消耗与虚无。
-/// 休息时可变化为幻梦呢喃或噩梦无终。
+/// 深梦无觉：获得9（12）格挡。将3（4）张随机技能牌加入抽牌堆，这些牌拥有虚无。
+/// 休息时可变化为幻梦无垠或噩梦无终。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class DeepDreamSlumber : DreamCycleCard
@@ -32,7 +32,7 @@ public class DeepDreamSlumber : DreamCycleCard
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(6m, ValueProp.Move),
+        new BlockVar(9m, ValueProp.Move),
         new CardsVar(3)
     ];
 

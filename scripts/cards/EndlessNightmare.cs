@@ -12,8 +12,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 噩梦无终：造成7（10）伤害。将3（4）张随机攻击牌加入抽牌堆，这些牌拥有消耗与虚无。
-/// 休息时可变化为幻梦呢喃或深梦无觉。
+/// 噩梦无终：造成11（15）伤害。将3（4）张随机攻击牌加入抽牌堆，这些牌拥有虚无。
+/// 休息时可变化为幻梦无垠或深梦无觉。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class EndlessNightmare : DreamCycleCard
@@ -30,7 +30,7 @@ public class EndlessNightmare : DreamCycleCard
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(7m, ValueProp.Move),
+        new DamageVar(11m, ValueProp.Move),
         new CardsVar(3)
     ];
 
@@ -46,7 +46,7 @@ public class EndlessNightmare : DreamCycleCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(4m);
         DynamicVars.Cards.UpgradeValueBy(1m);
     }
 

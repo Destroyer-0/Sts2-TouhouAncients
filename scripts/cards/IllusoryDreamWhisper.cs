@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 幻梦呢喃：将3（4）张随机攻击牌或技能牌加入抽牌堆，这些牌拥有消耗与虚无。
+/// 幻梦无垠：将3（4）张随机攻击牌或技能牌加入抽牌堆，这些牌拥有虚无，且首次打出费用-1。
 /// 休息时可变化为深梦无觉或噩梦无终。
 /// </summary>
 [Pool(typeof(EventCardPool))]
@@ -26,6 +26,8 @@ public class IllusoryDreamWhisper : DreamCycleCard
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+
+    protected override int GeneratedCardCostReduction => 1;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
