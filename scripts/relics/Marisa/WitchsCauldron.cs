@@ -3,8 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using Godot;
-using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Potions;
@@ -20,6 +18,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
+using TouhouAncients.Scripts.Rewards;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -59,31 +58,16 @@ public class WitchsCauldron : TouhouAncientRelics
     {
         Flash();
 
-        var potionRewards = new List<Reward>();
-        //var potionList = new List<PotionModel>();
+        var rewards = new List<Reward>();
         // 获得3瓶随机药水,其中一定有一瓶稀有药水
-        potionRewards.Add(new PotionReward(base.Owner));
-        potionRewards.Add(new PotionReward(base.Owner));
+        rewards.Add(new PotionReward(base.Owner));
+        rewards.Add(new PotionReward(base.Owner));
         var rarePotion = PotionFactory.GetPotionOptions(base.Owner).Where(p=>p.Rarity != PotionRarity.Rare).ToList();
         var potion = new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(), base.Owner);
-        potionRewards.Add(potion);
-        //var rewards = potionList.Select(r => new PotionReward(r.ToMutable(), base.Owner)).ToList<Reward>();
-        await new RewardsSet(base.Owner).WithCustomRewards(potionRewards).Offer();
-        // 变化至多一张牌
-        var prefs = new CardSelectorPrefs(new LocString("card_selection", "TO_TRANSFORM"), 0, 1);
-        var selected = (await CardSelectCmd.FromDeckForTransformation(base.Owner, prefs)).ToList();
-
-        if (selected.Count <= 0)
-        {
-            return;
-        }
-        
-        foreach (var card in selected)
-        {
-            var newCard = CardFactory.CreateRandomCardForTransform(card, isInCombat: false, base.Owner.PlayerRng.Transformations);
-            await CardCmd.Transform(card, newCard);
-            //CardCmd.Preview(newCard);
-        }
+        rewards.Add(potion);
+        // 变化至多一张牌也作为奖励，与药水同面板一起发放
+        rewards.Add(new TransformCardReward(base.Owner));
+        await new RewardsSet(base.Owner).WithCustomRewards(rewards).Offer();
     }
 }
 
