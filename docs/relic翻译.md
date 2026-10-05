@@ -2906,5 +2906,88 @@ zhs flavor 改为 `[red]“……离·开·我·的·领·域。”[/red]`（说
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
+---
+
+## 增量更新（2026-10-06，猯藏 / 哆来咪新增遗物 + 梦境 flavor 补全）
+
+基准提交 `8b336bfa`（`i18n: 更新本地化文本`）之后新增的四件遗物，以及两条新补写的梦境 flavor。
+
+### 亡灵雷云 `GHOST_THUNDER_CLOUD`（猯藏）
+
+**zhs 原文**
+- `.description`: `在你的回合开始时，如果你上回合受到过来自敌人的伤害，获得{Energy:energyIcons()}、抽[blue]{Cards}[/blue]张牌并在本回合获得[blue]{Strength}[/blue]点[gold]力量[/gold]。`
+- `.flavor`: `哔哩哔哩~`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Ghost Thundercloud` |
+| `.description` | `At the start of your turn, if you took damage from an enemy last turn, gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards, and gain [blue]{Strength}[/blue] [gold]Strength[/gold] this turn.` |
+| `.flavor` | `Bzzt bzzt~` |
+
+> 无「拾起时」句，按项目规则省略 `.eventDescription`。临时力量由 `GhostThunderCloudStrengthPower`（`TouhouAncientTemporaryStrengthPower`）承载，故译作 `this turn`。
+> flavor 的「哔哩哔哩」为电流拟声词（非视频网站梗），英文取 `Bzzt bzzt~`；同源的「哔哩电池」已译 `Zap Battery`。
+
+### 回音话筒 `ECHO_MICROPHONE`（猯藏）
+
+**zhs 原文**
+- `.description`: `拾起时，选择至多[blue]{Cards}[/blue]张牌，为它们[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。`
+- `.eventDescription`: `选择至多[blue]{Cards}[/blue]张牌，为它们[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。`
+- `.flavor`: `""`（留空）
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Echo Microphone` |
+| `.description` | `Upon pickup, choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+| `.eventDescription` | `Choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+| `.flavor` | `""`（留空） |
+
+> 「选择至多 N 张」沿用项目既有句式 `choose up to [blue]{N}[/blue] cards`（`GHOST_FAN` / `CARROT_NECKLACE`）；`{Cards}` 对应源码 `CardsVar(3)`。
+> 选择界面提示复用原版 `CardSelectorPrefs.EnchantSelectionPrompt`，项目无需额外键。
+> 附魔名 `{EnchantmentName}` 由 `StringVar` 传入 `ModelDb.Enchantment<Echo>().Title`。
+
+### 流星之梦 `METEOR_DREAM`（哆来咪）
+
+**zhs 原文**
+- `.description`: `拾起时，随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。`
+- `.eventDescription`: `随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。`
+- `.flavor`: `“嘿嘿，你在幻想乡难道还没有看够我的梦境吗？尽管拿去就是了。”`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Meteor Dream` |
+| `.description` | `Upon pickup, mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.` |
+| `.eventDescription` | `Mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.` |
+| `.flavor` | `"Heheh, haven't you seen enough of my dreams in Gensokyo? Take as much as you like."` |
+
+> 标记句照抄原版「皮草大衣」`FUR_COAT.description`：`Upon pickup, mark [blue]{Combats}[/blue] random combats.`；`{Combats}` 对应源码 `DynamicVar("Combats", 4m)`。
+
+### 乐园之梦 `PARADISE_DREAM`（哆来咪）
+
+**zhs 原文**
+- `.description`: `拾起时，将一张[gold]妖怪治退[/gold]加入你的[gold]牌组[/gold]。击败第一幕的[gold]Boss[/gold]后，将此牌从你的[gold]牌组[/gold]中移除，其每有[blue]1[/blue]点伤害就获得[blue]{Gold}[/blue][gold]金币[/gold]。`
+- `.eventDescription`: `将一张[gold]妖怪治退[/gold]加入你的[gold]牌组[/gold]。击败第一幕的[gold]Boss[/gold]后，将此牌从你的[gold]牌组[/gold]中移除，其每有[blue]1[/blue]点伤害就获得[blue]{Gold}[/blue][gold]金币[/gold]。`
+- `.flavor`: `“喂喂，我说，就算是在梦里，让我的[gold]赛钱箱[/gold]塞满钱一回行不行？拜托！”`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Paradise Dream` |
+| `.description` | `Upon pickup, add a [gold]Youkai Extermination[/gold] to your [gold]Deck[/gold]. After defeating the Act 1 [gold]Boss[/gold], remove it from your [gold]Deck[/gold] and gain [blue]{Gold}[/blue] [gold]Gold[/gold] for each [blue]1[/blue] damage it has.` |
+| `.eventDescription` | `Add a [gold]Youkai Extermination[/gold] to your [gold]Deck[/gold]. After defeating the Act 1 [gold]Boss[/gold], remove it from your [gold]Deck[/gold] and gain [blue]{Gold}[/blue] [gold]Gold[/gold] for each [blue]1[/blue] damage it has.` |
+| `.flavor` | `"Hey, hey, I'm saying—even in a dream, can't you fill my [gold]Offerings Box[/gold] with money just once? Please!"` |
+
+> 卡名 `妖怪治退` 译 `Youkai Extermination`（东方「妖怪退治」），必须与 `cards.json` 的 `YOUKAI_EXTERMINATION.title` 完全一致（两处均引用同一字符串）。
+> `Act 1 Boss` 取原版 `LAVA_ROCK.description`（`The Act 1 Boss drops ...`）；源码按 `CurrentActIndex != 0` 判定第一幕。
+
+### 补写的两条 flavor
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `WIND_PRIESTESS_DREAM.flavor` | “哇哦！搞什么啊！在梦里推销东西也太犯规了吧！带我一个啊！” | `"Whoa! What the heck! Pushing your wares in a dream is way too unfair! Let me in on it!"` |
+| `BOUNDARY_DREAM.flavor` | “呵呵，梦之支配者……幻想乡和先子星的未来这一次还请拜托你的[sine]干涉[/sine]了……” | `"Heheh, Dream Manager... I'll leave the future of Gensokyo and Preon to your [sine]intervention[/sine] this time..."` |
+
+> 两条 zhs 原为空串（上一轮增量记为「用户未给」），本次补齐。「梦之支配者」沿用既有称呼 `Dream Manager`；`[sine]` 标记与引号（`“ ”` → 转义直引号）原样保留。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
 
 

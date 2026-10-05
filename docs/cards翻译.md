@@ -56,3 +56,69 @@
 ### 备注
 - `{Card}` 由 `DreamAwakeningReward.Description` 传入卡牌 `Title`（嵌套 `LocString`，同原版 `SpecialCardReward`），**不要**改名为 `CardName` 之类的其他变量。
 - 奖励文本只有描述栏，没有独立标题栏，所以「梦醒时」这个名称必须写在描述里。
+
+---
+
+## 妖怪治退（`YOUKAI_EXTERMINATION`）
+
+**键名**: `TOUHOUANCIENTS-YOUKAI_EXTERMINATION`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "妖怪治退",
+"TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "造成{Damage:diff()}点伤害[blue]{Repeat}[/blue]次。\n[gold]斩杀[/gold]时，获得{energyPrefix:energyIcons(1)}，这张牌在本局游戏中的伤害永久性增加{Increase:diff()}。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Youkai Extermination` |
+| `.description` | `Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.` |
+
+### 备注
+- 多段伤害句式取原版 `CELESTIAL_MIGHT` / `GUNK_UP`：`Deal {Damage:diff()} damage ... times.`；本卡 `RepeatVar(2)` 不随升级变化，故按 zhs 保留 `[blue]{Repeat}[/blue]`（不加 `:diff()`）。
+- 「斩杀时」按项目已定映射译 `If [gold]Fatal[/gold],`（见 `relic翻译.md` 誊写卷轴条的复核表：对应原版 `FEED` / `THE_HUNT` / `HAND_OF_GREED`）。
+- 「永久性增加」取原版 `THE_SCYTHE` / `GENETIC_ALGORITHM`：`Permanently increase this card's damage by {Increase:diff()}.`；`{energyPrefix:energyIcons(1)}` 直接接 `gain`（同 `POSSESSED_BY_SEIGA_POWER`）。
+- 卡名须与 `relics.json` 的 `PARADISE_DREAM`（乐园之梦）描述里 `[gold]妖怪治退[/gold]` 完全一致 —— 两处均已译为 `Youkai Extermination`。
+- ⚠️ 顺带发现：`SHINING_TOWER.description`（光辉宝塔）用的是 `On [gold]Fatal[/gold],`，与项目已定映射 `If [gold]Fatal[/gold],` 不一致，待确认后统一。
+
+---
+
+## 附魔「回响」（`ECHO`，`enchantments.json`）
+
+> 本项目暂无独立的 `enchantments.json` 翻译记录文档，附魔条目暂记于本文件。
+
+**键名**: `TOUHOUANCIENTS-ECHO`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-ECHO.description": "打出此牌后，将一张本回合耗能增加[blue]1[/blue]的复制品加入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-ECHO.title": "回响"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Echo` |
+| `.description` | `When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.` |
+
+### 备注
+- 「打出此牌后」用 `When played,`（项目内 `EXORCISM` / `MIRACLE` 同写法）；「复制品」用原版 `ANGER` / `JUGGLING` 的 `add a copy of this card`。
+- 费用 +1 由 `copy.EnergyCost.AddThisTurnOrUntilPlayed(1)` 实现，故句尾限定 `this turn`；原版 `TRANSFIGURE` 的 `It costs an extra {Energy:energyIcons()}.` 不带回合限定，本处按机制补 `this turn`。
+- 复制品保留本附魔（可连锁、费用逐次递增），与 zhs 一样不在描述中额外说明。
+- 本附魔无 `extraCardText`（zhs 侧只有 `description` / `title`）。
+
+---
+
+## 「变化」奖励（`gameplay_ui.json`）
+
+**键名**: `TOUHOUANCIENTS-TRANSFORM_CARD_REWARD`
+
+| 字段 | 翻译 |
+|------|------|
+| `TOUHOUANCIENTS-TRANSFORM_CARD_REWARD` | `Transform {cards} card(s).` |
+
+### 备注
+- 与既有 `TOUHOUANCIENTS-UPGRADE_CARD_REWARD`（`Upgrade {cards} card(s).`）保持同一句式；`{cards}` 为小写变量名，不可改。
+- 本条与超ZUN啤酒（potions）的机制改动译文已在上一轮完成，此处仅作登记。
+
