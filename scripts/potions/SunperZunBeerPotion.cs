@@ -15,7 +15,7 @@ using TouhouAncients.Scripts.cards;
 namespace TouhouAncients.Scripts.potions;
 
 /// <summary>
-/// 超ZUN啤酒：将一张随机东方先古之民卡牌加入到手牌，这张牌在这回合免费打出。
+/// 超ZUN啤酒：从三张东方先古之民卡牌中选择一张加入手牌，这张牌在这回合免费打出。
 /// </summary>
 [Pool(typeof(SharedPotionPool))]
 public sealed class SuperZunBeerPotion : CustomPotionModel
@@ -38,12 +38,15 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
 
         if (ancientCards.Count == 0) return;
 
-        // 随机选一张
+        // 不用 CardFactory.GetDistinctForCombat：其 FilterForCombat 会剔除 Ancient 稀有度卡
         var rng = base.Owner.RunState.Rng.CombatCardGeneration;
-        var canonical = ancientCards.UnstableShuffle(rng).First();
+        var options = ancientCards.UnstableShuffle(rng).Take(3)
+            .Select(c => base.Owner.Creature.CombatState.CreateCard(c, base.Owner))
+            .ToList();
 
-        // 创建战斗实例，设为这回合免费，加入手牌
-        var card = base.Owner.Creature.CombatState.CreateCard(canonical, base.Owner);
+        var card = await CardSelectCmd.FromChooseACardScreen(choiceContext, options, base.Owner, canSkip: true);
+        if (card == null) return;
+
         card.SetToFreeThisTurn();
         await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, creator: base.Owner);
     }
