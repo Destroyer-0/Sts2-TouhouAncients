@@ -43,12 +43,16 @@ public class DoremySweetAncient : TouhouAncientBase
                 if (Owner != null) relic.SetupForPlayer(Owner);
             }),
             TARelicOption<MeltingWaxDream>(),
-            TARelicOption<BlazingFlameDream>()
+            TARelicOption<BlazingFlameDream>(),
+            TARelicOption<WindPriestessDream>(),
+            TARelicOption<MeteorDream>(),
+            TARelicOption<ParadiseDream>()
             ),
         CreateTARelicOptionPool(
             TARelicOption<SinisterPactDream>(),
             TARelicOption<FlowingSplendorDream>(),
-            TARelicOption<BloodbathDream>()
+            TARelicOption<BloodbathDream>(),
+            TARelicOption<BoundaryDream>()
             )
     ];
 

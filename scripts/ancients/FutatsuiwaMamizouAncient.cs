@@ -41,7 +41,9 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
         TARelicOption<TunakiSmokingPipe>(),
         TARelicOption<HeavyDice>(),
         //TARelicOption<OneEyedKarakasa>(),
-        TARelicOption<HyakkiYagyoScroll>()
+        TARelicOption<HyakkiYagyoScroll>(),
+        TARelicOption<GhostThunderCloud>(),
+        TARelicOption<EchoMicrophone>()
         //TARelicOption<NohMask>()
         );
 }
