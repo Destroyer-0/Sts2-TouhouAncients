@@ -23,10 +23,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class EchoMicrophone : TouhouAncientRelics
 {
-    private const int MaxCards = 3;
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new CardsVar(3),
         new StringVar("EnchantmentName", ModelDb.Enchantment<Echo>().Title.GetFormattedText())
     ];
 
@@ -47,12 +46,13 @@ public class EchoMicrophone : TouhouAncientRelics
     {
         var player = base.Owner;
         var enchantment = ModelDb.Enchantment<Echo>();
+        var maxCards = DynamicVars["Cards"].IntValue;
 
         var selected = (await CardSelectCmd.FromDeckForEnchantment(
             player,
             enchantment,
-            MaxCards,
-            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, MaxCards)
+            maxCards,
+            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, maxCards)
         )).ToList();
 
         foreach (var card in selected)
