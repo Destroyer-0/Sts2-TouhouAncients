@@ -23,19 +23,16 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class YoukaiExtermination : TouhouAncientCards
 {
-    private const int Hits = 2;
-    private const int BaseDamageNormal = 4;
-    private const int BaseDamageUpgraded = 6;
+    private const int BaseDamageNormal = 5;
 
     private int _currentDamage = BaseDamageNormal;
     private int _increasedDamage;
 
+    public override string? Author => "时雨";
     public YoukaiExtermination()
         : base(1, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy, true)
     {
     }
-
-    private int BaseDamage => IsUpgraded ? BaseDamageUpgraded : BaseDamageNormal;
 
     [SavedProperty]
     public int CurrentDamage
@@ -63,6 +60,7 @@ public class YoukaiExtermination : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(CurrentDamage, ValueProp.Move),
+        new RepeatVar(2),
         new IntVar("Increase", 1m),
     ];
 
@@ -78,7 +76,7 @@ public class YoukaiExtermination : TouhouAncientCards
             e => e.Powers.All(p => p.ShouldOwnerDeathTriggerFatal()));
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount(Hits)
+            .WithHitCount(DynamicVars.Repeat.IntValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
@@ -95,12 +93,13 @@ public class YoukaiExtermination : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        UpdateDamage();
+        base.DynamicVars["Increase"].UpgradeValueBy(1m);
+        BuffFromPlay(2);
     }
 
     protected override void AfterDowngraded()
     {
-        UpdateDamage();
+        BuffFromPlay(-2);
     }
 
     private void BuffFromPlay(int extraDamage)
@@ -111,6 +110,6 @@ public class YoukaiExtermination : TouhouAncientCards
 
     private void UpdateDamage()
     {
-        CurrentDamage = BaseDamage + IncreasedDamage;
+        CurrentDamage = BaseDamageNormal + IncreasedDamage;
     }
 }
