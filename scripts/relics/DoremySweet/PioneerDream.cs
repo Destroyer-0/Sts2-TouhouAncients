@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
@@ -101,6 +102,7 @@ public class PioneerDream : TouhouAncientRelics
             // 不应该再被复制进牌组，这里直接跳过。
             var model = ModelDb.GetByIdOrNull<CardModel>(id);
             if (model == null) continue;
+            if (model is DeprecatedCard) continue;
 
             // 初始牌（打击 / 防御 / 角色初始牌）的稀有度都是 Basic。
             if (model.Rarity == CardRarity.Basic) continue;
