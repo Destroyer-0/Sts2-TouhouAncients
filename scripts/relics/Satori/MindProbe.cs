@@ -46,6 +46,7 @@ public class MindProbe : TouhouAncientRelics
         if (dealer == null) return;
         if (dealer == base.Owner.Creature) return; // 不是自己打自己
         if (!result.WasFullyBlocked) return;
+        if (!props.IsCardOrMonsterMove()) return;
         if (!dealer.IsEnemy || _stunedEnemyCreature.Contains(dealer)) return;
         
         Flash();
@@ -70,23 +71,4 @@ public class MindProbe : TouhouAncientRelics
         // 传入下一意图 ID，眩晕回合结束后直接进入该意图，而不是停留在当前意图
         await CreatureCmd.Stun(enemy, nextState);
     }
-
-    // public override async Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount,
-    //     ValueProp props, Creature? dealer, CardModel? cardSource)
-    // {
-    //     if (target != base.Owner.Creature) return;
-    //     if (dealer == null) return;
-    //     if (!dealer.IsEnemy) return; // 只对敌人有效
-    //
-    //     if (amount <= 0) return;
-    //
-    //     var block = target.Block;
-    //     var diff = Math.Abs(amount - block);
-    //
-    //     if (diff <= 2m)
-    //     {
-    //         Flash();
-    //         await CreatureCmd.Stun(dealer);
-    //     }
-    // }
 }
