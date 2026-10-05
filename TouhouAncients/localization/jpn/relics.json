@@ -762,8 +762,12 @@
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "At the start of each combat, put [blue]{Cards}[/blue] [gold]Brightest Flame[/gold] into your [gold]Hand[/gold]. They have [gold]Exhaust[/gold].",
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "\"Oh, dear! You want Tezcatara's dream? You're such a cute little thing.\"",
 
+  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.title": "Wind Priestess Dream",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.description": "The first [blue]{Cards}[/blue] card rewards you encounter get a random [gold]Enchantment[/gold]: [purple]Sharp[/purple] [blue]2[/blue]/[purple]Nimble[/purple] [blue]2[/blue]/[purple]Swift[/purple] [blue]1[/blue].",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.flavor": "",
+
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
-  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares. [gold]Merchant[/gold] prices increase by [blue]{PriceIncrease}%[/blue].",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "\"Heheh, a demon's dream is no simple thing. I'm sure you know the small price of a contract...\"",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "Flowing Splendor Dream",
@@ -775,6 +779,11 @@
   "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "\"DREAM MANAGER, FIGHT ME!!!—...Zzzzz\"",
+
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "Boundary Dream",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "Upon pickup, lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "Lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "Supreme Dream",
   "TOUHOUANCIENTS-SUPREME_DREAM.description": "Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.",
@@ -796,8 +805,8 @@
   "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "(This relic will be migrated to another Ancient later.)",
 
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "Revelation Dream",
-  "TOUHOUANCIENTS-REVELATION_DREAM.description": "Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
-  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "Add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.description": "Upon pickup, choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "Choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
   "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "\"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different.\"",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",

@@ -1,5 +1,6 @@
 {
   "TOUHOUANCIENTS-UPGRADE_CARD_REWARD": "カードを{cards}枚アップグレードする。",
   "TOUHOUANCIENTS-TRANSCRIBE_REWARD": "Transcribe a card from {Character}.",
-  "TOUHOUANCIENTS-DREAM_AWAKENING_REWARD": "Upon waking, transform your {Card}."
+  "TOUHOUANCIENTS-DREAM_AWAKENING_REWARD": "Upon waking, transform your {Card}.",
+  "TOUHOUANCIENTS-TRANSFORM_CARD_REWARD": "Transform {cards} card(s)."
 }
