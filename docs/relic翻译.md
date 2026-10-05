@@ -2543,7 +2543,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Sinister Pact Dream` |
-| `.description` | `When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares. [gold]Merchant[/gold] prices increase by [blue]{PriceIncrease}%[/blue].` |
+| `.description` | `When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].` |
 | `.flavor` | `""`（留空） |
 
 #### 瑰琦之梦 `FLOWING_SPLENDOR_DREAM`
@@ -2635,8 +2635,8 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-REVELATION_DREAM.title": "启示之梦",
-"TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，将[blue]1[/blue]张[gold]幻梦呢喃[/gold]加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
-"TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "将[blue]1[/blue]张[gold]幻梦呢喃[/gold]加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+"TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+"TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
 "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "“先子星上一切生物的原始脑都已在被创造时就进化完毕——因此你的、我的、它们的大脑在梦境中并没有本质的不同。”"
 ```
 
@@ -2644,13 +2644,13 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Revelation Dream` |
-| `.description` | `Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
-| `.eventDescription` | `Add [blue]1[/blue] [gold]Illusory Dream Whisper[/gold] to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
+| `.description` | `Upon pickup, choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
+| `.eventDescription` | `Choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
 | `.flavor` | `"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different."` |
 
 ### 备注
 - `.flavor` 与「先驱之梦」`PIONEER_DREAM.flavor` **完全一致**（用户指定），三语言同步该句。
-- 第二句「每当你休息时，你可以变化这张牌」指的是「幻梦呢喃」自身的「梦醒时」变化效果（见 `docs/cards翻译.md`），不是遗物的额外效果；英文沿用卡面同句式 `Whenever you rest, you may transform it.`。
+- 第二句「每当你休息时，你可以变化这张牌」指的是所选梦境牌自身的「梦醒时」变化效果（见 `docs/cards翻译.md`），不是遗物的额外效果；英文沿用卡面同句式 `Whenever you rest, you may transform it.`。
 - `eventDescription` 按本项目惯例去掉开头的「拾起时，」。
 | `DUSTY_ROSE.description` | `At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].`（随 cards.json 卡名统一为 `The Closed Eye`） |
 | `MALICIOUS_FAIRY_TALE.description` | `... At the start of each turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].` |
@@ -2685,6 +2685,48 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 原译文写成 `[blue]{[gold]Corpse[/gold]PerKill}[/blue]`，变量名被 `[gold]` 标记切断，运行时无法解析。已按 zhs 的 `{CorpsePerKill}`（源码 `HellOrin.cs` 的 `DynamicVar("CorpsePerKill", 1)`）改为：
 
 `Whenever a non-minion enemy dies, gain [blue]{CorpsePerKill}[/blue] [gold]Corpse[/gold], {Energy:energyIcons()} and heal [blue]{HealPerKill}[/blue] HP. ...`
+
+---
+
+## 增量更新（2026-10-05，哆来咪新增两件遗物 + 邪契之梦改动）
+
+### 境界之梦 `BOUNDARY_DREAM`
+
+**zhs 原文**
+- `.description`: `拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。`
+- `.eventDescription`: `失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。`
+- `.flavor`: `""`（留空，用户未给）
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Boundary Dream` |
+| `.description` | `Upon pickup, lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.` |
+| `.eventDescription` | `Lose [blue]{HpLoss}[/blue] [red]HP[/red]. You may ignore the path to choose the next floor's [gold]?[/gold] or [gold]Shop[/gold] room.` |
+| `.flavor` | `""`（留空） |
+
+### 风祝之梦 `WIND_PRIESTESS_DREAM`
+
+**zhs 原文**
+- `.description`: `你遇到的前[blue]{Cards}[/blue]次卡牌奖励将获得随机附魔：[purple]锋利[/purple][blue]2[/blue]/[purple]灵巧[/purple][blue]2[/blue]/[purple]迅捷[/purple][blue]1[/blue]。`
+- `.flavor`: `""`（留空，用户未给）
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Wind Priestess Dream` |
+| `.description` | `The first [blue]{Cards}[/blue] card rewards you encounter get a random [gold]Enchantment[/gold]: [purple]Sharp[/purple] [blue]2[/blue]/[purple]Nimble[/purple] [blue]2[/blue]/[purple]Swift[/purple] [blue]1[/blue].` |
+| `.flavor` | `""`（留空） |
+
+> 无「拾起时」句，`.description` 与 `.eventDescription` 相同，按本项目规则省略 `.eventDescription`。附魔名沿用原版英文 `Sharp` / `Nimble` / `Swift`；`{Cards}` 对应源码 `CardsVar(3)`。
+
+### 邪契之梦 `SINISTER_PACT_DREAM`（改）
+
+删除「商店涨价 50%」，改为领取全部商品后加入一张原版诅咒「贪婪」（`Greed`）。
+
+| 字段 | 新译文 |
+|------|--------|
+| `.description` | `When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].` |
+
+zhs：`当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻获得他所出售的[red]所有[/red]物品，然后将一张[red]贪婪[/red]加入你的[gold]牌组[/gold]。`
 
 ---
 
