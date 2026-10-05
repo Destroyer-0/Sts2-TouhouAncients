@@ -3,13 +3,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Entities.Merchant;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
@@ -22,7 +21,7 @@ using MegaCrit.Sts2.Core.TestSupport;
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
-/// 邪契之梦：当你遇见第1个商人时，立刻获得他所出售的所有物品。商店涨价至500%。
+/// 邪契之梦：当你遇见第1个商人时，立刻获得他所出售的所有物品，然后将一张「贪婪」诅咒加入牌组。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class SinisterPactDream : TouhouAncientRelics
@@ -49,8 +48,7 @@ public class SinisterPactDream : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("ShopIndex", 1),
-        new DynamicVar("PriceIncrease", 50)
+        new DynamicVar("ShopIndex", 1)
     ];
 
     public override Task AfterRoomEntered(AbstractRoom room)
@@ -151,16 +149,7 @@ public class SinisterPactDream : TouhouAncientRelics
             NMapScreen.Instance.SetTravelEnabled(enabled: true);
         }
 
-    }
-
-    public override decimal ModifyMerchantPrice(Player player, MerchantEntry entry, decimal originalPrice)
-    {
-        if (player != base.Owner) return originalPrice;
-        if (!LocalContext.IsMe(base.Owner)) return originalPrice;
-        // 「移除卡牌」服务不参与涨价
-        if (entry is MerchantCardRemovalEntry) return originalPrice;
-
-        var multiplier = base.DynamicVars["PriceIncrease"].BaseValue / 100m;
-        return originalPrice * (1 + multiplier);
+        // 契约代价：领完全部商品后才塞进诅咒
+        await CardPileCmd.AddCurseToDeck<Greed>(base.Owner);
     }
 }
