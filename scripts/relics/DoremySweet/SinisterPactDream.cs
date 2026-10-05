@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Debug;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -17,6 +18,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
+using TouhouAncients.Scripts.cards;
 
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
@@ -46,6 +48,8 @@ public class SinisterPactDream : TouhouAncientRelics
 
     private int merchantVisit;
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        HoverTipFactory.FromCardWithCardHoverTips<Greed>();
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("ShopIndex", 1)
