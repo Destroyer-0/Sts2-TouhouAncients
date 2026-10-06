@@ -31,6 +31,7 @@
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]翻转了{character}倾向胜利的天平。",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.bgm": "颠倒世界观",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "梅蒂欣·梅兰可莉",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character}沉眠于[gold]{encounter}[/gold]的铃兰花海。",

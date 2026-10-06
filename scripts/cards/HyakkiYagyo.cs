@@ -36,7 +36,10 @@ public class HyakkiYagyo : TouhouAncientCards
     private const TargetType targetType = TargetType.None;
     private const bool shouldShowInCardLibrary = true;
 
-    /// <summary>持久化的誊写记录：每种角色最多一张，跨战斗与读档保留。</summary>
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
+
+
     private List<SerializableCard> _records = [];
 
     public IReadOnlyList<SerializableCard> Records => _records;
@@ -91,7 +94,7 @@ public class HyakkiYagyo : TouhouAncientCards
         // 牌组原件也在这个钩子的分发链上，只有战斗副本参与本场判定。
         if (!IsInCombatPile) return;
 
-        _combatRecords = [.. RecordOwner._records];
+        _combatRecords = [.. RecordOwner.Records];
         if (_combatRecords.Count > 0) return;
 
         await RemoveHyakkiYagyoFromCombat();
@@ -103,7 +106,7 @@ public class HyakkiYagyo : TouhouAncientCards
         if (card != this) return Task.CompletedTask;
         if (!IsInCombatPile) return Task.CompletedTask;
 
-        _combatRecords = [.. RecordOwner._records];
+        _combatRecords = [.. RecordOwner.Records];
         return Task.CompletedTask;
     }
 
@@ -176,7 +179,7 @@ public class HyakkiYagyo : TouhouAncientCards
     /// 记录只存在牌组里那一张上，所以读不到持有者时就是空。
     /// </summary>
     private IEnumerable<TranscribedCard> TranscribedCards =>
-        (CombatManager.Instance.IsInProgress ? _combatRecords : _records)
+        (CombatManager.Instance.IsInProgress ? _combatRecords : Records)
         .Where(saved => saved.Id != null)
         .Select(saved =>
         {

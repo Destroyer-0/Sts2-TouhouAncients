@@ -417,7 +417,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
     private async Task MasterSparkChargeMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("spell");
-        await CreatureCmd.GainBlock(base.Creature, MasterSparkChargeBlock, ValueProp.Unpowered, null);
+        await CreatureCmd.GainBlock(base.Creature, MasterSparkChargeBlock, ValueProp.Move, null);
         await ReturnStolenCards();
 
         TalkCmd.Play(_prepareLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);

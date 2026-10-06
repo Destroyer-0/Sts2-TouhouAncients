@@ -52,7 +52,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 120, 110);
+        AscensionLevel.ToughEnemies, 140, 132);
 
     // --- 伤害/数值 ---
     private int DoomSpreadDoom => AscensionHelper.GetValueIfAscension(
@@ -67,7 +67,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 18, 16);
 
     private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 60, 55);
+        AscensionLevel.DeadlyEnemies, 70, 66);
 
     // --- 状态（延迟初始化） ---
     public MoveState StunnedState;

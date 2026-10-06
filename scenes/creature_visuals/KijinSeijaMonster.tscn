@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3d3rv25uqa28"]
+
+[ext_resource type="Texture2D" uid="uid://0qmepdqkv0pq" path="res://images/sprite/seija/seija.png" id="1_2y8r0"]
+
+[node name="KijinSeijaMonster" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-16, -168.00002)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_2y8r0")
+flip_h = true
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -123.0
+offset_top = -364.0
+offset_right = 137.0
+offset_bottom = 31.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(8, -227)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(7, -455)

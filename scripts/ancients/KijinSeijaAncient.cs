@@ -1,6 +1,7 @@
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -10,6 +11,8 @@ public class KijinSeijaAncient : TouhouAncientBase
     public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.5f, 0.173f, 0.165f, 0.6f);
     public override Color DialogueColor => new(0.588f, 0.173f, 0.165f, 1f);
+
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<KijinSeijaEncounter>();
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/KijinSeija_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/KijinSeija_MapNode.png";

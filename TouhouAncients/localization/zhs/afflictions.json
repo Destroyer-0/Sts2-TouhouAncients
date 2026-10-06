@@ -9,5 +9,11 @@
   "TOUHOUANCIENTS-COLLATERAL.title": "抵押物",
   
   "TOUHOUANCIENTS-SEALED.description": "获得[red]不能被打出[/red]。其对应的[gold]封魔阵[/gold]被[gold]消耗[/gold]或[gold]变化[/gold]后，解除[red]封印[/red]。",
-  "TOUHOUANCIENTS-SEALED.title": "封印"
+  "TOUHOUANCIENTS-SEALED.title": "封印",
+
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.title": "魔力躁动",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.description": "当这张牌因[gold]打出[/gold]以外的原因进入[gold]弃牌堆[/gold]或[gold]消耗堆[/gold]时，转变为[purple]叛乱之潮[/purple]。",
+
+  "TOUHOUANCIENTS-REBELLION_TIDE.title": "叛乱之潮",
+  "TOUHOUANCIENTS-REBELLION_TIDE.description": "成为鬼人正邪的征招对象，打出后重置为[purple]魔力躁动[/purple]。"
 }

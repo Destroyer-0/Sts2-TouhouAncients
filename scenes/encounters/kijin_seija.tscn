@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b1ih3i5ci2g4b"]
+
+[node name="KijinSeija" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="silent1" type="Marker2D" parent="."]
+position = Vector2(1241, 370)
+
+[node name="silent2" type="Marker2D" parent="."]
+position = Vector2(1622, 370)
+
+[node name="silent3" type="Marker2D" parent="."]
+position = Vector2(1100, 592)
+
+[node name="silent4" type="Marker2D" parent="."]
+position = Vector2(1780, 595)
+
+[node name="seija" type="Marker2D" parent="."]
+position = Vector2(1445, 706)

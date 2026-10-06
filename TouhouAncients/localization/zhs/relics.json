@@ -751,7 +751,7 @@
   "TOUHOUANCIENTS-HEAVY_DICE.flavor": "只有被抓到的出千才能被称为作弊。",
 
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.title": "亡灵雷云",
-  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.description": "在你的回合开始时，如果你上回合受到过来自敌人的伤害，获得{Energy:energyIcons()}、抽[blue]{Cards}[/blue]张牌并在本回合获得[blue]{Strength}[/blue]点[gold]力量[/gold]。",
+  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.description": "在你的回合开始时，如果你上回合受到过来自敌人的未被格挡的伤害，获得{Energy:energyIcons()}、抽[blue]{Cards}[/blue]张牌并在本回合获得[blue]{Strength}[/blue]点[gold]力量[/gold]。",
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "哔哩哔哩~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "回音话筒",

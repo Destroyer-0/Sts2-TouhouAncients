@@ -31,6 +31,7 @@
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.bgm": "リバースイデオロギー",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "メディスン・メランコリー",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",

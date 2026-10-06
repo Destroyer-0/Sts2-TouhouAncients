@@ -118,5 +118,11 @@
 
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "\"老千\"",
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.description": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
-  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。"
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
+
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.title": "天地有用",
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.description": "战斗开始时，为所有玩家的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]魔力躁动[/purple]。\n本局中被移除的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]叛乱之潮[/purple]。",
+
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.title": "不语之物的本体",
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "这张牌被妖器再塑成了不语之物。"
 }
