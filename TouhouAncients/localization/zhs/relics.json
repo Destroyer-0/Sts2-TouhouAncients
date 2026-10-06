@@ -755,9 +755,9 @@
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "哔哩哔哩~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "回音话筒",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张牌，为它们[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张牌，为它们[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "回响形态了。回响形态。",
 
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光之梦",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "拾起时，将{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]|你的初始[gold]遗物[/gold]替换为[gold]先古[/gold]版本}，将{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|一张初始卡牌}从你的[gold]牌组[/gold]中移除。",
@@ -779,7 +779,7 @@
   "TOUHOUANCIENTS-METEOR_DREAM.title": "流星之梦",
   "TOUHOUANCIENTS-METEOR_DREAM.description": "拾起时，随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。",
   "TOUHOUANCIENTS-METEOR_DREAM.eventDescription": "随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。",
-  "TOUHOUANCIENTS-METEOR_DREAM.flavor": "“嘿嘿，你在幻想乡难道还没有看够我的梦境吗？尽管拿去就是了。”",
+  "TOUHOUANCIENTS-METEOR_DREAM.flavor": "“嘿嘿，那个能让人做清醒梦的眼罩是不是真的？如果是的话麻烦之后回去为我也准备一份Da☆Ze！”",
 
   "TOUHOUANCIENTS-PARADISE_DREAM.title": "乐园之梦",
   "TOUHOUANCIENTS-PARADISE_DREAM.description": "拾起时，将一张[gold]妖怪治退[/gold]加入你的[gold]牌组[/gold]。击败第一幕的[gold]Boss[/gold]后，将此牌从你的[gold]牌组[/gold]中移除，其每有[blue]1[/blue]点伤害就获得[blue]{Gold}[/blue][gold]金币[/gold]。",

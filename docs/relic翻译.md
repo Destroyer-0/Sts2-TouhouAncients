@@ -2950,16 +2950,19 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 **zhs 原文**
 - `.description`: `拾起时，随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。`
 - `.eventDescription`: `随机标记[blue]{Combats}[/blue]处战斗，这些战斗额外掉落一件随机遗物奖励。`
-- `.flavor`: `“嘿嘿，你在幻想乡难道还没有看够我的梦境吗？尽管拿去就是了。”`
+- `.flavor`: `“嘿嘿，那个能让人做清醒梦的眼罩是不是真的？如果是的话麻烦之后回去为我也准备一份Da☆Ze！”`
 
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Meteor Dream` |
 | `.description` | `Upon pickup, mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.` |
 | `.eventDescription` | `Mark [blue]{Combats}[/blue] random combats. Those combats drop an additional random [gold]Relic[/gold] reward.` |
-| `.flavor` | `"Heheh, haven't you seen enough of my dreams in Gensokyo? Take as much as you like."` |
+| `.flavor` | `"Heheh, is that eye mask that lets you have lucid dreams for real? If it is, then do me a favor and get one ready for me too when you go back Da☆Ze!"` |
 
 > 标记句照抄原版「皮草大衣」`FUR_COAT.description`：`Upon pickup, mark [blue]{Combats}[/blue] random combats.`；`{Combats}` 对应源码 `DynamicVar("Combats", 4m)`。
+> **2026-10-06 重译 flavor**：zhs 由哆来咪口吻改为魔理沙向哆来咪索要清醒梦眼罩，译文随之重写（旧译 `"Heheh, haven't you seen enough of my dreams in Gensokyo? Take as much as you like."` 作废）。
+> 「Da☆Ze」沿用项目既有魔理沙口癖译法，不译不拆（`LOVE_COLOR_FLASHLIGHT` / `MASTER_SPARK` / `KIRISAME_MARISA_ANCIENT`）。
+> 「眼罩」原版与项目均无既有术语，按字面取 `eye mask`；「做清醒梦」取 `have lucid dreams`（对应「清醒梦」lucid dream 通称）。
 
 ### 乐园之梦 `PARADISE_DREAM`（哆来咪）
 
