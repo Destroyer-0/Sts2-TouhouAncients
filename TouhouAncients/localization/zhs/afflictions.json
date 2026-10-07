@@ -13,7 +13,9 @@
 
   "TOUHOUANCIENTS-MANA_RESTLESSNESS.title": "魔力躁动",
   "TOUHOUANCIENTS-MANA_RESTLESSNESS.description": "当这张牌因[gold]打出[/gold]以外的原因进入[gold]弃牌堆[/gold]或[gold]消耗堆[/gold]时，转变为[purple]叛乱之潮[/purple]。",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.extraCardText": "[jitter]躁动不安[/jitter]",
 
   "TOUHOUANCIENTS-REBELLION_TIDE.title": "叛乱之潮",
-  "TOUHOUANCIENTS-REBELLION_TIDE.description": "成为鬼人正邪的征招对象，打出后重置为[purple]魔力躁动[/purple]。"
+  "TOUHOUANCIENTS-REBELLION_TIDE.description": "成为鬼人正邪的征招对象，打出后重置为[purple]魔力躁动[/purple]。",
+  "TOUHOUANCIENTS-REBELLION_TIDE.extraCardText": "起义的乱党"
 }

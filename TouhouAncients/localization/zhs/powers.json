@@ -121,8 +121,12 @@
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "已记录[gold]{RecordedCard}[/gold]。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有[gold]消耗[/gold]、[gold]虚无[/gold]。",
 
   "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.title": "天地有用",
-  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.description": "战斗开始时，为所有玩家的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]魔力躁动[/purple]。\n本局中被移除的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]叛乱之潮[/purple]。",
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.description": "战斗开始时，所有玩家的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]魔力躁动[/purple]。\n本场游戏中被移除的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]叛乱之潮[/purple]。\n[purple][i]那些目中无人的大人物们高高在上，蔑视我等为刍狗。\n他们踩着血汗构成的阶梯步步爬升，却称你们为累赘。\n[jitter]不甘被忽视与抛弃的弱者啊，随我一起掀起这下克上的风暴吧！[/jitter][/i][/purple]",
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.smartDescription": "战斗开始时，所有玩家的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]魔力躁动[/purple]。\n本场游戏中被移除的基础[gold]打击[/gold]与[gold]防御[/gold]牌被侵蚀为[purple]叛乱之潮[/purple]。\n（被移除的卡牌：{Cards:list:{}|、}）\n[purple][i]那些目中无人的大人物们高高在上，蔑视我等为刍狗。\n他们踩着血汗构成的阶梯步步爬升，却称你们为累赘。\n[jitter]不甘被忽视与抛弃的弱者啊，随我一起掀起这下克上的风暴吧！[/jitter][/i][/purple]",
 
-  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.title": "不语之物的本体",
-  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "这张牌被妖器再塑成了不语之物。"
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.title": "被抛弃者的复仇",
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "这张牌因[purple]被抛弃[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。",
+
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.title": "弱者的叛旗",
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "这张牌因[purple]不被重视[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。"
 }
