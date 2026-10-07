@@ -36,6 +36,15 @@ public sealed class TranscribeReward : TouhouCustomReward
     /// <summary>本次誊写的来源角色卡牌池：拾起时是固定五人的池，斩杀奖励是玩家已解锁的其他角色池。</summary>
     public CardPoolModel? Pool { get; init; }
 
+    /// <summary>
+    /// 候选牌在 Reward.Populate 里掷一次并缓存。若放到 OnSelect 里现掷，
+    /// 玩家在选牌界面点「跳过」后奖励按钮会重新可用，再点一次就重掷出新的一组牌。
+    /// </summary>
+    private List<CardModel> _options = [];
+
+    /// <inheritdoc />
+    public override bool IsPopulated => _options.Count > 0;
+
     public TranscribeReward(Player player)
         : base(player)
     {
@@ -116,6 +125,20 @@ public sealed class TranscribeReward : TouhouCustomReward
         }
     }
 
+    /// <summary>
+    /// 奖励集生成时掷出候选牌（与原版 CardReward 同一时点，两端 RNG 消耗一致）。
+    /// </summary>
+    public override void Populate()
+    {
+        if (_options.Count > 0) return;
+
+        CardPoolModel? pool = Pool;
+        if (pool == null) return;
+
+        _options = CardFactory.CreateForReward(Player, OptionCount, BuildCreationOptions(pool))
+            .Select(option => option.Card).ToList();
+    }
+
     /// <inheritdoc />
     public override void MarkContentAsSeen()
     {
@@ -126,20 +149,15 @@ public sealed class TranscribeReward : TouhouCustomReward
     protected override async Task<bool> OnSelect()
     {
         CardPoolModel? pool = Pool;
-        // 卡池取不到（存档里的角色已不存在）：不触发誊写，保留奖励按钮。
-        if (pool == null) return false;
+        // 卡池取不到（存档里的角色已不存在）或候选牌没掷出来：不触发誊写，保留奖励按钮。
+        if (pool == null || _options.Count == 0) return false;
 
         List<HyakkiYagyo> targets = DeckHyakkiYagyo.ToList();
         // 牌组中没有百鬼夜行：不触发誊写，保留奖励按钮。
         if (targets.Count == 0) return false;
 
-        List<CardCreationResult> options =
-            CardFactory.CreateForReward(Player, OptionCount, BuildCreationOptions(pool)).ToList();
-        if (options.Count == 0) return false;
-
-        List<CardModel> candidates = options.Select(option => option.Card).ToList();
         CardModel? picked = await CardSelectCmd.FromChooseACardScreen(
-            new BlockingPlayerChoiceContext(), candidates, Player, canSkip: true);
+            new BlockingPlayerChoiceContext(), _options, Player, canSkip: true);
 
         if (picked == null) return false;
 
