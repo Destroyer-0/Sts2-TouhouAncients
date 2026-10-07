@@ -10,7 +10,7 @@ public class ItalianCannon : TouhouAncientBadge
 {
     internal const string FlagId = "touhouancients-italiancannon";
 
-    public const int MinEnergySpent = 6;
+    public const int MinEnergySpent = 10;
 
     public ItalianCannon() : base(requiresWin: false, multiplayerOnly: false)
     {

@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs.History;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using TouhouAncients.Scripts.encounters;
 
 namespace TouhouAncients.Scripts.badges;
 
@@ -39,4 +40,8 @@ public abstract class TouhouAncientBadge(bool requiresWin, bool multiplayerOnly)
     /// <summary>本局访问过的全部地图节点（MapPointHistory 按层分组）。</summary>
     protected static IEnumerable<MapPointHistoryEntry> AllPoints(SerializableRun run) =>
         run.MapPointHistory.SelectMany(act => act);
+
+    /// <summary>该房间是否为东方先古之民的挑战战斗。</summary>
+    protected static bool IsAncientChallengeRoom(MapPointRoomHistoryEntry? room) =>
+        room?.ModelId is { } id && SaveUtil.EncounterOrDeprecated(id) is TouhouAncientEncounter;
 }
