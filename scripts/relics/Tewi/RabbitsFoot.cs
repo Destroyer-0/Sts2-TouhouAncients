@@ -29,7 +29,7 @@ public class RabbitsFoot : TouhouAncientRelics
     {
         if (base.Owner != player) return false;
 
-        alternatives.Add(new CardRewardAlternative(
+        AddCardRewardAlternative(alternatives, new CardRewardAlternative(
             _sellKey,
             OnSellCard,
             PostAlternateCardRewardAction.EndSelectionAndCompleteReward));

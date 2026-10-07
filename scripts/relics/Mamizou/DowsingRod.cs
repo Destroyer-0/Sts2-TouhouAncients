@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using HarmonyLib;
@@ -97,6 +96,16 @@ public class DowsingRod : TouhouAncientRelics
         if (player != base.Owner) return false;
         options.Add(new DowsingRodRestSiteOption(player, this));
         return true;
+    }
+
+    /// <summary>
+    /// 玩家拿走卡牌奖励（含替代选项）后记录没选的牌。派发会经过所有玩家的遗物，按 Owner 收口避免替别人记账。
+    /// </summary>
+    public override Task AfterRewardTaken(Player player, Reward reward)
+    {
+        if (player != base.Owner) return Task.CompletedTask;
+        if (reward is CardReward cardReward) DowsingRodCardRewardHelper.RecordRemainingCards(cardReward);
+        return Task.CompletedTask;
     }
 
     /// <summary>
@@ -290,7 +299,7 @@ public class DowsingRodRestSiteOption : RestSiteOption
 }
 
 /// <summary>
-/// Harmony 补丁：在卡牌奖励的 OnSkipped 时记录卡牌到寻龙尺。
+/// Harmony 补丁：整组跳过奖励时不走 AfterRewardTaken，在这里记录未选取的牌。
 /// </summary>
 [HarmonyPatch(typeof(CardReward), nameof(CardReward.OnSkipped))]
 public static class DowsingRodOnSkippedPatch
@@ -299,37 +308,6 @@ public static class DowsingRodOnSkippedPatch
     public static void Postfix(CardReward __instance)
     {
         DowsingRodCardRewardHelper.RecordRemainingCards(__instance);
-    }
-}
-
-/// <summary>
-/// Harmony 补丁：在卡牌奖励的 OnSelect 完成后记录剩余卡牌到寻龙尺。
-/// 使用 TargetMethod 模式访问 protected 方法。
-/// </summary>
-[HarmonyPatch]
-public static class DowsingRodOnSelectPatch
-{
-    [HarmonyPostfix]
-    private static void Postfix(CardReward __instance, ref Task<bool> __result)
-    {
-        var originalTask = __result;
-        __result = ContinueWithRecordRemaining(originalTask, __instance);
-    }
-
-    private static MethodBase TargetMethod()
-    {
-        return AccessTools.Method(typeof(CardReward), "OnSelect", Type.EmptyTypes);
-    }
-
-    private static async Task<bool> ContinueWithRecordRemaining(Task<bool> originalTask, CardReward instance)
-    {
-        var rewardComplete = await originalTask;
-        if (rewardComplete)
-        {
-            DowsingRodCardRewardHelper.RecordRemainingCards(instance);
-        }
-
-        return rewardComplete;
     }
 }
 
@@ -344,9 +322,12 @@ internal static class DowsingRodCardRewardHelper
         if (dowsingRod == null) return;
 
         var cardsField = AccessTools.Field(typeof(CardReward), "_cards");
-        if (cardsField?.GetValue(reward) is List<CardCreationResult> cards && cards.Count > 0)
-        {
-            dowsingRod.RecordSkippedCards(cards.Select(c => c.Card));
-        }
+        if (cardsField?.GetValue(reward) is not List<CardCreationResult> cards) return;
+
+        // 已进牌堆的牌说明玩家把它拿走了：「全都要」这类替代选项直接入组、不会从 _cards 移除。
+        List<CardModel> remaining = cards.Where(c => c.Card.Pile == null).Select(c => c.Card).ToList();
+        if (remaining.Count == 0) return;
+
+        dowsingRod.RecordSkippedCards(remaining);
     }
 }
