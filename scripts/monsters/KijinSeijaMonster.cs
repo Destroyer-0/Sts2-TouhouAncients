@@ -26,7 +26,8 @@ namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
 /// 鬼人正邪：逆转牌运的天邪鬼。
-/// 状态机：入口条件分支（妖器再塑可用？）→ 妖器再塑 / 天壤梦弓 → 逆命诏敕 → 条件分支（有不语之物？）→ 喑哑泣啼 / 顺延回入口。
+/// 状态机：入口条件分支（妖器再塑可用？）→ 妖器再塑 / 天壤梦弓 → 逆命诏敕 → 喑哑泣啼 → 入口。
+/// 天壤梦弓 / 逆命诏敕 之后各插一次判定：场上无不语之物且仍可征招时改判妖器再塑，妖器再塑后接回被打断的那一步。
 /// </summary>
 public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
 {
@@ -34,28 +35,38 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     private const int SummonsPerMove = 2;
     private const int DreamBowHits = 3;
     private const int DecreeVulnerable = 2;
-    private const int WeepingBuff = 3;
+    private const int WeepingBuff = 4;
+    private const int WeepingStrength = 2;
 
     protected override bool HasAnimation => false;
 
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 187, 178);
 
-    private int DreamBowDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
+    private int DreamBowDamage => 4;
 
     private int DecreeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
 
     private MoveState _fightForMe = null!;
+    private MoveState _fightForMeBeforeDecree = null!;
+    private MoveState _fightForMeBeforeWeeping = null!;
     private MoveState _dreamBow = null!;
     private MoveState _decree = null!;
     private MoveState _silentWeeping = null!;
     private ConditionalBranchState _entryBranch = null!;
-    private ConditionalBranchState _weepingBranch = null!;
+    private ConditionalBranchState _reinforceAfterDreamBow = null!;
+    private ConditionalBranchState _reinforceAfterDecree = null!;
 
     private int _fightForMeBanterIndex;
     private int _silentWeepingBanterIndex;
 
     /// <summary>历史牌是否可作为虚拟叛乱之潮的缓存（重建卡牌开销大）。</summary>
     private readonly Dictionary<SerializableCard, bool> _historyEligibleCache = new();
+
+    /// <summary>已被塑成不语之物的候选（战斗牌按实例、历史牌按存档条目；整场只出一次）。</summary>
+    private readonly HashSet<object> _consumedCandidates = new(ReferenceEqualityComparer.Instance);
+
+    /// <summary>应用在自身上的天地有用，用于刷新提示里的可用牌列表。</summary>
+    private ReverseHeavenPower? _reverseHeaven;
 
     /// <summary>场上存活的不语之物数量。</summary>
     private int AliveSilentObjectCount => base.CombatState.Enemies
@@ -64,10 +75,17 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     /// <summary>妖器再塑可用：可用列表含叛乱之潮，且衍生物未达上限。</summary>
     private bool CanUseFightForMe => AliveSilentObjectCount < MaxSilentObjects && BuildCandidates().Count > 0;
 
+    /// <summary>场上不存在不语之物但仍可征招：行动后改判妖器再塑。</summary>
+    private bool ShouldReinforce => AliveSilentObjectCount == 0 && CanUseFightForMe;
+
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<ReverseHeavenPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        // 台词随机起头，之后照常循环
+        _fightForMeBanterIndex = base.Rng.NextInt(3);
+        _silentWeepingBanterIndex = base.Rng.NextInt(3);
+        _reverseHeaven = await PowerCmd.Apply<ReverseHeavenPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        RefreshAvailableRemovedCards();
     }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -75,6 +93,9 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
         List<MonsterState> list = new List<MonsterState>();
 
         _fightForMe = new MoveState("FIGHT_FOR_ME", FightForMeMove, new SummonIntent());
+        // 中途改判的妖器再塑：打完接回被打断的那一步；状态名以 2/3 结尾，图鉴不列（引擎约定）
+        _fightForMeBeforeDecree = new MoveState("FIGHT_FOR_ME2", FightForMeMove, new SummonIntent());
+        _fightForMeBeforeWeeping = new MoveState("FIGHT_FOR_ME3", FightForMeMove, new SummonIntent());
         _dreamBow = new MoveState("DREAM_BOW", DreamBowMove,
             new MultiAttackIntent(DreamBowDamage, DreamBowHits));
         _decree = new MoveState("DECREE_OF_DEFIANCE", DecreeMove,
@@ -86,19 +107,28 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
         _entryBranch.AddState(_fightForMe, () => CanUseFightForMe);
         _entryBranch.AddState(_dreamBow, () => true);
 
-        // 喑哑泣啼分支：无不语之物则顺延回入口（因此可能再顺延至天壤梦弓）
-        _weepingBranch = new ConditionalBranchState("WEEPING_BRANCH");
-        _weepingBranch.AddState(_silentWeeping, () => AliveSilentObjectCount > 0);
-        _weepingBranch.AddState(_entryBranch, () => true);
+        // 场上被清空且仍可征招：梦弓 / 诏敕之后改判妖器再塑（泣啼后接入口分支，本来就会再判一次）
+        _reinforceAfterDreamBow = new ConditionalBranchState("REINFORCE_AFTER_DREAM_BOW");
+        _reinforceAfterDreamBow.AddState(_fightForMeBeforeDecree, () => ShouldReinforce);
+        _reinforceAfterDreamBow.AddState(_decree, () => true);
+
+        _reinforceAfterDecree = new ConditionalBranchState("REINFORCE_AFTER_DECREE");
+        _reinforceAfterDecree.AddState(_fightForMeBeforeWeeping, () => ShouldReinforce);
+        _reinforceAfterDecree.AddState(_silentWeeping, () => true);
 
         _fightForMe.FollowUpState = _dreamBow;
-        _dreamBow.FollowUpState = _decree;
-        _decree.FollowUpState = _weepingBranch;
+        _fightForMeBeforeDecree.FollowUpState = _decree;
+        _fightForMeBeforeWeeping.FollowUpState = _silentWeeping;
+        _dreamBow.FollowUpState = _reinforceAfterDreamBow;
+        _decree.FollowUpState = _reinforceAfterDecree;
         _silentWeeping.FollowUpState = _entryBranch;
 
         list.Add(_entryBranch);
-        list.Add(_weepingBranch);
+        list.Add(_reinforceAfterDreamBow);
+        list.Add(_reinforceAfterDecree);
         list.Add(_fightForMe);
+        list.Add(_fightForMeBeforeDecree);
+        list.Add(_fightForMeBeforeWeeping);
         list.Add(_dreamBow);
         list.Add(_decree);
         list.Add(_silentWeeping);
@@ -109,8 +139,6 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     /// <summary>妖器再塑：从可用列表抽牌塑成不语之物，最多两次且衍生物不超过上限。</summary>
     private async Task FightForMeMove(IReadOnlyList<Creature> targets)
     {
-        PlayCycledBanter(ref _fightForMeBanterIndex, 3, "FIGHT_FOR_ME", VfxColor.Purple, VfxDuration.VeryLong);
-
         List<Candidate> pool = BuildCandidates();
         int summoned = 0;
         while (summoned < SummonsPerMove && pool.Count > 0 && AliveSilentObjectCount < MaxSilentObjects)
@@ -120,9 +148,17 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
 
             CardModel? card = Materialize(chosen);
             if (card == null || !SilentObjectMonster.CanEmbody(card)) continue;
+            if (!await SummonSilentObject(card, chosen.Card != null)) continue;
 
-            await SummonSilentObject(card, chosen.Card != null);
+            _consumedCandidates.Add(chosen.Identity);
             summoned++;
+        }
+        RefreshAvailableRemovedCards();
+
+        // 没招出任何衍生物就不放台词
+        if (summoned > 0)
+        {
+            PlayCycledBanter(ref _fightForMeBanterIndex, 3, "FIGHT_FOR_ME", VfxColor.Purple, VfxDuration.VeryLong);
         }
 
         await Cmd.Wait(0.5f);
@@ -138,7 +174,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
             .Execute(null);
     }
 
-    /// <summary>逆命诏敕：造成伤害并给予易伤，随后获得 1 力量。</summary>
+    /// <summary>逆命诏敕：造成伤害并给予易伤。</summary>
     private async Task DecreeMove(IReadOnlyList<Creature> targets)
     {
         var decreeLine = new LocString("monsters", "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.DECREE_OF_DEFIANCE.banter1");
@@ -149,26 +185,37 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), targets, DecreeVulnerable, base.Creature, null);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
     }
 
-    /// <summary>喑哑泣啼：所有不语之物获得力量与敏捷。</summary>
+    /// <summary>喑哑泣啼：所有不语之物获得力量与敏捷，随后自身获得力量。</summary>
     private async Task SilentWeepingMove(IReadOnlyList<Creature> targets)
     {
-        PlayCycledBanter(ref _silentWeepingBanterIndex, 3, "SILENT_WEEPING", VfxColor.Gold, VfxDuration.Long);
-
         List<Creature> minions = base.CombatState.Enemies
             .Where(c => c is { Monster: SilentObjectMonster, IsDead: false })
             .ToList();
+
+        // 台词是对不语之物说的，场上没有衍生物时不播
+        if (minions.Count > 0)
+        {
+            PlayCycledBanter(ref _silentWeepingBanterIndex, 3, "SILENT_WEEPING", VfxColor.Gold, VfxDuration.Long);
+        }
+        else
+        {
+            var line = new LocString("monsters", $"TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SILENT_WEEPING.banter4");
+            TalkCmd.Play(line, base.Creature, VfxColor.Gold, VfxDuration.Long);
+        }
+
         foreach (Creature minion in minions)
         {
             await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), minion, WeepingBuff, base.Creature, null);
             await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), minion, WeepingBuff, base.Creature, null);
         }
+
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, WeepingStrength, base.Creature, null);
     }
 
-    /// <summary>召唤不语之物：先写入被代表的牌（创构时读 HP 与状态机），再移出游戏并加入战斗。</summary>
-    private async Task SummonSilentObject(CardModel card, bool fromPlayer)
+    /// <summary>召唤不语之物：先写入被代表的牌（创构时读 HP 与状态机），再移出游戏并加入战斗。返回是否真的入场。</summary>
+    private async Task<bool> SummonSilentObject(CardModel card, bool fromPlayer)
     {
         SilentObjectMonster monster = (SilentObjectMonster)ModelDb.Monster<SilentObjectMonster>().ToMutable();
         monster.InitFromCard(card, fromPlayer);
@@ -180,21 +227,39 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
         }
 
         string? slot = base.CombatState.Encounter?.GetNextSlot(base.CombatState);
-        if (string.IsNullOrEmpty(slot)) return;
+        if (string.IsNullOrEmpty(slot)) return false;
 
         await CreatureCmd.Add(monster, base.CombatState, CombatSide.Enemy, slot);
+        return true;
     }
 
-    /// <summary>意图为喑哑泣啼时不语之物全灭：改回入口分支的求值结果（保留二次顺延）。</summary>
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    /// <summary>刷新天地有用提示里的可用牌：只列本局被移除的基础打击/防御牌，同名只列一条。</summary>
+    private void RefreshAvailableRemovedCards()
     {
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
-        if (wasRemovalPrevented) return;
-        if (creature.Monster is not SilentObjectMonster) return;
-        if (base.Creature.IsDead || base.IsPerformingMove) return;
-        if (NextMove != _silentWeeping || AliveSilentObjectCount > 0) return;
+        if (_reverseHeaven == null) return;
 
-        SetMoveImmediate(CanUseFightForMe ? _fightForMe : _dreamBow, forceTransition: true);
+        List<string> titles = new();
+        foreach (Candidate candidate in BuildCandidates())
+        {
+            if (candidate.Serialized == null) continue;
+
+            string title = RemovedCardTitle(candidate.Serialized);
+            if (!titles.Contains(title)) titles.Add(title);
+        }
+        _reverseHeaven.SetAvailableRemovedCards(titles);
+    }
+
+    /// <summary>被移除牌的显示名（含升级后缀）；重建失败时退回卡牌 Id。</summary>
+    private static string RemovedCardTitle(SerializableCard serialized)
+    {
+        try
+        {
+            return CardModel.FromSerializable(serialized).Title;
+        }
+        catch
+        {
+            return serialized.Id?.Entry ?? "";
+        }
     }
 
     private void PlayCycledBanter(ref int index, int count, string moveKey, VfxColor color, VfxDuration duration)
@@ -220,14 +285,14 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
                          .Concat(playerCombatState.ExhaustPile.Cards))
             {
                 if (card.HasBeenRemovedFromState) continue;
-                if (card.Affliction is RebellionTide)
-                {
-                    result.Add(new Candidate(player, card, null));
-                }
+                if (card.Affliction is not RebellionTide) continue;
+                if (_consumedCandidates.Contains(card)) continue;
+                result.Add(new Candidate(player, card, null));
             }
 
             foreach (SerializableCard serialized in CollectRemovedCards(player))
             {
+                if (_consumedCandidates.Contains(serialized)) continue;
                 result.Add(new Candidate(player, null, serialized));
             }
         }
@@ -324,5 +389,8 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
         public string SortKey => Card != null
             ? $"{Owner.NetId}|C|{Card.Id}|{Card.CurrentUpgradeLevel}"
             : $"{Owner.NetId}|H|{Serialized!.Id}";
+
+        /// <summary>候选项身份：用于「已消耗」记录（战斗牌按实例、历史牌按条目，同名两张互不影响）。</summary>
+        public object Identity => Card ?? (object)Serialized!;
     }
 }

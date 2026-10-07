@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Enchantments;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -58,15 +59,27 @@ public sealed class SilentObjectMonster : TouhouAncientMonsterBase
     private bool _isGoopy;          // 黏糊：额外增加计数
 
     /// <summary>本机创建的卡面节点（仅展示用），死亡时统一清除。</summary>
-    private readonly List<NCard> _cardNodes = new();
+    private List<NCard> _cardNodes = [];
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        // 克隆是浅拷贝字段：不重建会与所有分身共享同一 List，一个分身死亡会连带清掉其他分身的卡面。
+        _cardNodes = [];
+    }
 
     protected override bool HasAnimation => false;
 
     public override bool IsPrimaryMonster => false;
 
+    /// <summary>战斗中按类别取名（打击 / 防御的付丧神化）；canonical（图鉴条目）用通用名。</summary>
+    public override LocString Title => new LocString("monsters", IsMutable
+        ? (_isAttack ? "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.nameStrike" : "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.nameGuard")
+        : "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.name");
+
     protected override int InitialHp => _isAttack
-        ? AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 21, 20)
-        : AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 26, 24);
+        ? AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 30, 29)
+        : AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 35, 34);
 
     /// <summary>
     /// 在 <see cref="CreatureCmd.Add"/> 之前写入被代表的牌与面板值——
@@ -151,6 +164,7 @@ public sealed class SilentObjectMonster : TouhouAncientMonsterBase
         if (cardPower != null)
         {
             cardPower.EmbodiedCard = _embodiedCard;
+            cardPower.FromDeck = !_fromPlayer;
         }
 
         // 活力：生成时获得 Amount 层活力

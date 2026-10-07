@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TouhouAncients.Scripts.Afflictions;
@@ -23,8 +24,18 @@ public class ReverseHeavenPower : TouhouAncientPowerModel
 
     public override PowerStackType StackType => PowerStackType.Single;
 
+    // 文本里用 {Cards:list:{}|、}：分隔符写在本地化文件里
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringListVar("Cards")];
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromAffliction<ManaRestlessness>().Concat(HoverTipFactory.FromAffliction<RebellionTide>());
+
+    /// <summary>刷新提示里的「仍可被塑成不语之物」的被移除牌（正邪每次召唤后由怪物侧调用）。</summary>
+    public void SetAvailableRemovedCards(IReadOnlyList<string> titles)
+    {
+        ((StringListVar)base.DynamicVars["Cards"]).Set(titles);
+        InvokeDisplayAmountChanged();
+    }
 
     public override async Task BeforeCombatStart()
     {
@@ -41,5 +52,29 @@ public class ReverseHeavenPower : TouhouAncientPowerModel
                 await CardCmd.Afflict<ManaRestlessness>(card, 1);
             }
         }
+    }
+
+
+    public override async Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (card.Affliction != null) return;
+        if (card.Rarity != CardRarity.Basic) return;
+        if (!card.Tags.Contains(CardTag.Strike) && !card.Tags.Contains(CardTag.Defend)) return;
+        if (card.Keywords.Contains(CardKeyword.Eternal)) return;
+
+        await CardCmd.Afflict<ManaRestlessness>(card, 1);
+    }
+
+    public override Task AfterRemoved(Creature oldOwner)
+    {
+        if (oldOwner.CombatState == null)
+            return Task.CompletedTask;
+        foreach (Player player in oldOwner.CombatState.Players.ToList())
+        {
+            foreach (CardModel card in player.PlayerCombatState.AllCards.Where(c => c.Affliction is ManaRestlessness or RebellionTide))
+                CardCmd.ClearAffliction(card);
+        }
+
+        return Task.CompletedTask;
     }
 }
