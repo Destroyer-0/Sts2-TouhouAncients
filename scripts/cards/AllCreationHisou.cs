@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using TouhouAncients.Scripts.badges;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -119,6 +120,12 @@ public class AllCreationHisou : TouhouAncientCards
             
             targetCard.ExhaustOnNextPlay = true;
             await CardCmd.AutoPlay(choiceContext, targetCard, null);
+
+            // 徽章「全人类都飞上天！」：本次实际打出的张数达标即置位
+            if (++hitNum == AllHumansFlyToTheSky.RequiredCards)
+            {
+                AllHumansFlyToTheSky.Unlock(player);
+            }
         }
 
 

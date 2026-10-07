@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models.PotionPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using TouhouAncients.Scripts.badges;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.Enchantment;
 using TouhouAncients.Scripts.encounters;
@@ -58,6 +59,11 @@ public class Entry
         // 注册挑战 Encounter 为 RunState Hook 监听者：使其 TryModifyRewards 生效
         // （挑战战斗不生成默认战斗奖励，只保留 StartChallenge 传入的挑战遗物）
         ModHelper.SubscribeForRunStateHooks("touhouancients.challenge", ChallengeRunStateHooks);
+        // 徽章「奇迹再现」的局内标志注册进 BaseLib 扩展存档，须早于序列化上下文初始化
+        MiracleAgain.RegisterSave();
+        ItalianCannon.RegisterSave();
+        ShrineMaidenOvertime.RegisterSave();
+        AllHumansFlyToTheSky.RegisterSave();
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册
