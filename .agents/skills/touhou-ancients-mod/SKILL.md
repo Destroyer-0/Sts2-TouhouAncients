@@ -27,6 +27,7 @@ Follow this skill when working in the TouhouAncients repository.
 - Before modifying code, explain the intended change and wait for user approval.
 - Do not silently change the user's design.
 - Do not implement a relic, card, ancient, enchantment, or other gameplay feature from your own design when the user has not provided the original requirements.
+- Never add, remove, or reword game text (localization titles, descriptions, flavor, prompts) without asking first. Only rich-text tags (`[gold]`, `[blue]`, `[red]`, etc.) may be added freely.
 
 ## Relics
 
