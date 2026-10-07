@@ -1,0 +1,15 @@
+{
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.ENTRY_BRANCH.FIGHT_FOR_ME": "Summon available",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.ENTRY_BRANCH.DREAM_BOW": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DREAM_BOW.FIGHT_FOR_ME2": "No Tsukumogami alive and summon available",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DREAM_BOW.DECREE_OF_DEFIANCE": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DECREE.FIGHT_FOR_ME3": "No Tsukumogami alive and summon available",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DECREE.SILENT_WEEPING": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KirisameMarisaMonster.MUSHROOM_BRANCH.FUNGUS_EXPERT": "Fewer than 5 mushrooms on the field",
+  "branch.TouhouAncients.Scripts.monsters.KirisameMarisaMonster.MUSHROOM_BRANCH.STELLAR_FANTASY": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CHAOS_HELL": "Not targeted by Sea of Desire and Blood for 3 turns in a row",
+  "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CUT_HERAT": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD": "Joon is alive",
+  "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER": "After Joon falls",
+  "ui.TouhouAncientsFantasyNatureNote": "Base damage is 1/12 of the player's current HP"
+}

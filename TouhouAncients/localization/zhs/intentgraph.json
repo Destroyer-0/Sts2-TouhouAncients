@@ -1,0 +1,15 @@
+{
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.ENTRY_BRANCH.FIGHT_FOR_ME": "仍可征招",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.ENTRY_BRANCH.DREAM_BOW": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DREAM_BOW.FIGHT_FOR_ME2": "场上无付丧神化卡牌且仍可征招",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DREAM_BOW.DECREE_OF_DEFIANCE": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DECREE.FIGHT_FOR_ME3": "场上无付丧神化卡牌且仍可征招",
+  "branch.TouhouAncients.Scripts.monsters.KijinSeijaMonster.REINFORCE_AFTER_DECREE.SILENT_WEEPING": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.KirisameMarisaMonster.MUSHROOM_BRANCH.FUNGUS_EXPERT": "场上奇幻蘑菇少于 5",
+  "branch.TouhouAncients.Scripts.monsters.KirisameMarisaMonster.MUSHROOM_BRANCH.STELLAR_FANTASY": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CHAOS_HELL": "连续3回合未成为「欲壑血海」的目标",
+  "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CUT_HERAT": "{otherwise}",
+  "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD": "女苑存活",
+  "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER": "女苑倒下后",
+  "ui.TouhouAncientsFantasyNatureNote": "基础伤害为玩家当前生命值的 1/12"
+}

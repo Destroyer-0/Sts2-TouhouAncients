@@ -1,0 +1,18 @@
+{
+  "TouhouAncients.Scripts.monsters.YorigamiShionMonster": {
+    "secondaryInitialStates": [
+      "ROOT"
+    ]
+  },
+  "TouhouAncients.Scripts.monsters.HakureiReimuMonster": {
+    "graphPatch": {
+      "labels": [
+        {
+          "x": 0.0,
+          "y": 0.55,
+          "text": "ui.TouhouAncientsFantasyNatureNote"
+        }
+      ]
+    }
+  }
+}
