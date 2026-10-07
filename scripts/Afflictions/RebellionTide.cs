@@ -15,6 +15,8 @@ public sealed class RebellionTide : TouhouAncientAfflictionModel
         return card.Rarity == CardRarity.Basic&& (card.Tags.Contains(CardTag.Strike)||card.Tags.Contains(CardTag.Defend));
     }
 
+    public override bool HasExtraCardText => true;
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card != Card) return;
