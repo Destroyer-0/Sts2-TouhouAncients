@@ -6,56 +6,81 @@
 
 ---
 
-## 幻梦无垠 / 深梦无觉 / 噩梦无终（梦境三牌）
+## 幻梦无垠 / 噩梦无终（梦境两牌）
 
-三张牌可经休息时的「梦醒时」奖励互相变化（见 `DreamAwakeningReward`）。三张牌生成的衍生牌只拥有[gold]虚无[/gold]（无消耗）；幻梦无垠生成的衍生牌额外「首次打出费用-1」。
+> 本次重做：删除「深梦无觉」，幻梦无垠改为攻防一体、噩梦无终改为不可打出的诅咒；三牌互相变化的「梦醒时」机制整体移除。
 
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "幻梦无垠",
-"TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "将[blue]{Cards:diff()}[/blue]张随机[gold]攻击牌[/gold]或[gold]技能牌[/gold]加入你的[gold]抽牌堆[/gold]，这些牌拥有[gold]虚无[/gold]，且首次打出时费用减少[blue]1[/blue]点。\n每当你休息时，你可以将其变化为[gold]深梦无觉[/gold]或[gold]噩梦无终[/gold]。",
-
-"TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.title": "深梦无觉",
-"TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n将[blue]{Cards:diff()}[/blue]张随机[gold]技能牌[/gold]加入你的[gold]抽牌堆[/gold]，这些牌拥有[gold]虚无[/gold]。\n每当你休息时，你可以将其变化为[gold]幻梦无垠[/gold]或[gold]噩梦无终[/gold]。",
+"TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。\n将{Cards:diff()}张随机牌加入你的[gold]抽牌堆[/gold]。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
 
 "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "噩梦无终",
-"TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "造成{Damage:diff()}点伤害。\n将[blue]{Cards:diff()}[/blue]张随机[gold]攻击牌[/gold]加入你的[gold]抽牌堆[/gold]，这些牌拥有[gold]虚无[/gold]。\n每当你休息时，你可以将其变化为[gold]幻梦无垠[/gold]或[gold]深梦无觉[/gold]。"
+"TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "每当你抽到这张牌时，失去{Energy:energyIcons()}。\n在休息处休息{Rests}次后，从你的[gold]牌组[/gold]中移除。"
 ```
 
 ### 英文翻译
 | 字段 | 翻译 |
 |------|------|
-| `.title` | `Illusory Dream Boundless` / `Deep Dream Insensate` / `Ominous Dream Eternal` |
-| `...ILLUSORY_DREAM_WHISPER.description` | `Add {Cards:diff()} random [gold]Attack[/gold] or [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold] and cost [blue]1[/blue] less until played.\nWhenever you rest, you may transform it into [gold]Deep Dream Insensate[/gold] or [gold]Ominous Dream Eternal[/gold].` |
-| `...DEEP_DREAM_SLUMBER.description` | `Gain {Block:diff()} [gold]Block[/gold].\nAdd {Cards:diff()} random [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Boundless[/gold] or [gold]Ominous Dream Eternal[/gold].` |
-| `...ENDLESS_NIGHTMARE.description` | `Deal {Damage:diff()} damage.\nAdd {Cards:diff()} random [gold]Attack[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Boundless[/gold] or [gold]Deep Dream Insensate[/gold].` |
+| `.title` | `Illusory Dream Boundless` / `Ominous Dream Eternal` |
+| `...ILLUSORY_DREAM_WHISPER.description` | `Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nAdd {Cards:diff()} random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.` |
+| `...ENDLESS_NIGHTMARE.description` | `Whenever you draw this card, lose {Energy:energyIcons()}.\nAfter you rest {Rests} times at a [gold]Rest Site[/gold], remove this card from your [gold]Deck[/gold].` |
 
 ### 备注
-- 标题统一为「X Dream YY」三段式；旧名「幻梦呢喃」的 `Illusory Dream Whisper` 已弃用，「无垠」取 `Boundless`。
-- **三张标题统一为「X Dream YY」三段式**（对应中文「[X梦][XX]」结构）：`Illusory Dream Boundless` / `Deep Dream Insensate` / `Ominous Dream Eternal`。`Boundless` 对「无垠」；`Insensate`（无知觉的）对「无觉」，不用 `Slumber` 以免与「沉睡」混淆；`Ominous` 对「噩」、`Eternal` 对「无终」，不用 `Nightmare`（那会把「噩+梦」合成一个词，破坏三段式）。
-- 「每当你休息时，你可以将其变化为 A 或 B」逐字对应 `Whenever you rest, you may transform it into A or B`；牌名沿用各卡 `title` 译文并用 `[gold]` 包裹。
-- 衍生牌：三张牌生成的牌只加 `CardKeyword.Ethereal`（已去掉 `Exhaust`）；幻梦无垠额外 `EnergyCost.AddUntilPlayed(-1)`（首次打出费用-1），英文 `cost [blue]1[/blue] less until played`。
-- 「张数」的 `{Cards:diff()}` **不加** `[blue]`（用户指定），页面上按升级差值（3→4）自带颜色；`{Block:diff()}` / `{Damage:diff()}` 也同为裸变量。
+- 标题沿用旧译：`Illusory Dream Boundless`（幻梦无垠）、`Ominous Dream Eternal`（噩梦无终）；`Deep Dream Insensate`（深梦无觉）随卡删除。
+- 「失去{Energy:energyIcons()}」照原版 `VOID.description` 的 `lose {Energy:energyIcons()}`（虚空也没写「不能被打出」，不可打出由关键词自带）。
+- `{Rests}` 是运行时动态变量（剩余休息次数 3→2→1），**不加** `[blue]`。
+- 「休息处」译 `[gold]Rest Site[/gold]`（同原版 `BYRDONIS_EGG.description`）。
+- 幻梦无垠的「随机牌」不再限定类型、不带虚无、不带费用-1（改为与「添柴」STOKE 同源），译 `random cards`。
 
 ---
 
-## 「梦醒时」奖励（`gameplay_ui.json`）
+## 三个梦奖励（`gameplay_ui.json`）
 
-**键名**: `TOUHOUANCIENTS-DREAM_AWAKENING_REWARD`
+**键名**: `TOUHOUANCIENTS-DREAM_CHOICE_INDIGO` / `TOUHOUANCIENTS-DREAM_CHOICE_AZURE` / `TOUHOUANCIENTS-DREAM_CHOICE_KARIYASU`
 
 ### 中文原文
 ```json
-"TOUHOUANCIENTS-DREAM_AWAKENING_REWARD": "梦醒时，变化你的{Card}。"
+"TOUHOUANCIENTS-DREAM_CHOICE_INDIGO": "绀色狂梦：幻梦变化时造成伤害必定增加。",
+"TOUHOUANCIENTS-DREAM_CHOICE_AZURE": "蔚蓝愁梦：幻梦变化时获得格挡必定增加。",
+"TOUHOUANCIENTS-DREAM_CHOICE_KARIYASU": "刈安迷梦：幻梦变化时生成卡牌数必定增加。"
 ```
 
 ### 英文翻译
 | 字段 | 翻译 |
 |------|------|
-| `TOUHOUANCIENTS-DREAM_AWAKENING_REWARD` | `Upon waking, transform your {Card}.` |
+| `...DREAM_CHOICE_INDIGO` | `Indigo Frenzied Dream: damage dealt always increases when the dream changes.` |
+| `...DREAM_CHOICE_AZURE` | `Azure Melancholic Dream: Block gained always increases when the dream changes.` |
+| `...DREAM_CHOICE_KARIYASU` | `Kariyasu Bewildering Dream: cards generated always increase when the dream changes.` |
 
 ### 备注
-- `{Card}` 由 `DreamAwakeningReward.Description` 传入卡牌 `Title`（嵌套 `LocString`，同原版 `SpecialCardReward`），**不要**改名为 `CardName` 之类的其他变量。
-- 奖励文本只有描述栏，没有独立标题栏，所以「梦醒时」这个名称必须写在描述里。
+- 三个梦是 BaseLib `CustomLinkedRewardSet`（Exclusive）里的一组奖励，选一个其余消失（见 `docs/项目参考.md` §9.8）。
+- 奖励按钮只有描述栏、没有独立标题栏，所以梦名必须写进描述里。
+- 旧键 `TOUHOUANCIENTS-DREAM_AWAKENING_REWARD`（`Upon waking, transform your {Card}.`）已删除。
+- 「刈安」是传统色名，音译为 `Kariyasu`。
+
+---
+
+## 泡影（`gameplay_ui.json`）
+
+**键名**: `TOUHOUANCIENTS-BUBBLE_ILLUSION`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-BUBBLE_ILLUSION.title": "泡影",
+"TOUHOUANCIENTS-BUBBLE_ILLUSION.description": "随机使造成的伤害变化[blue]-1~3[/blue]。\n随机使获得的格挡变化[blue]-1~3[/blue]。\n随机使生成的卡牌数变化[blue]-1~1[/blue]。\n变化后的最终数值不低于[blue]1[/blue]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Bubble Illusion` |
+| `.description` | `Randomly changes the damage dealt by [blue]-1~3[/blue].\nRandomly changes the Block gained by [blue]-1~3[/blue].\nRandomly changes the number of cards generated by [blue]-1~1[/blue].\nAfter the change, values are never lower than [blue]1[/blue].` |
+
+### 备注
+- 用 C# 构造 HoverTip（`new LocString("gameplay_ui", ...)`），同一套文案同时挂在**幻梦无垠卡面**（`IllusoryDreamWhisper.BubbleIllusionTip`）和**三个梦奖励**上；奖励的 tip 顺序是「幻梦无垠卡面 → 泡影说明」，**没有源牌时也保留泡影说明**。
+- 术语原名「幻梦」，改用「泡影」后英文暂定 `Bubble Illusion`（同 `docs/翻译术语表.md` 第七节，尚未最终确认）；jpn 与 eng 一致。
+- 数字按用户要求加 `[blue]` 标记。
 
 ---
 

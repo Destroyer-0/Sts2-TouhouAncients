@@ -2290,6 +2290,9 @@
 ### 狂飨（cards.json 追加台词）
 - `.description` 追加 `\n[jitter][i]All shall become my food!![/i][/jitter]`
 
+### 百鬼夜行（cards.json 追加台词）
+- `.description` 追加 `\n[b][thinky_dots]Heh, heh, heh! Let this old one have a bout with you![/thinky_dots][/b]`
+
 ### 寻宝（rest_site_ui.json 新增）
 | 字段 | 翻译 |
 |------|------|
@@ -2635,8 +2638,8 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-REVELATION_DREAM.title": "启示之梦",
-"TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
-"TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+"TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在休息处休息时，你可以随机变化这张牌的数值。",
+"TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在休息处休息时，你可以随机变化这张牌的数值。",
 "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "“先子星上一切生物的原始脑都已在被创造时就进化完毕——因此你的、我的、它们的大脑在梦境中并没有本质的不同。”"
 ```
 
@@ -2644,14 +2647,41 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Revelation Dream` |
-| `.description` | `Upon pickup, choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
-| `.eventDescription` | `Choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.` |
+| `.description` | `Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Boundless[/gold] to your [gold]Deck[/gold]. Whenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.` |
+| `.eventDescription` | `Add [blue]1[/blue] [gold]Illusory Dream Boundless[/gold] to your [gold]Deck[/gold]. Whenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.` |
 | `.flavor` | `"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different."` |
 
 ### 备注
-- `.flavor` 与「先驱之梦」`PIONEER_DREAM.flavor` **完全一致**（用户指定），三语言同步该句。
-- 第二句「每当你休息时，你可以变化这张牌」指的是所选梦境牌自身的「梦醒时」变化效果（见 `docs/cards翻译.md`），不是遗物的额外效果；英文沿用卡面同句式 `Whenever you rest, you may transform it.`。
+- 本次重做：不再三选一，固定给 1 张幻梦无垠；「深梦无觉」随卡删除，`Deep Dream Insensate` 不再出现。
+- 第二句「每当你在休息处休息时，你可以随机变化这张牌的数值」与幻梦无垠自身卡面同句，指卡牌自身的「幻梦变化」效果（见 `docs/cards翻译.md`），遗物不重复实现。
 - `eventDescription` 按本项目惯例去掉开头的「拾起时，」。
+
+---
+
+## 混沌之梦（新增）
+
+**键名**: `TOUHOUANCIENTS-CHAOS_DREAM`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-CHAOS_DREAM.title": "混沌之梦",
+"TOUHOUANCIENTS-CHAOS_DREAM.description": "拾起时，获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
+"TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
+"TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Chaos Dream` |
+| `.description` | `Upon pickup, gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [gold]Ominous Dream Eternal[/gold] to your [gold]Deck[/gold].` |
+| `.eventDescription` | `Gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [gold]Ominous Dream Eternal[/gold] to your [gold]Deck[/gold].` |
+| `.flavor` | `Guests who enter by the gate of horn shall depart by the door of ivory.` |
+
+### 备注
+- 句式模仿原版「涅奥骨骰」`NEOWS_BONES.description`（`获得[blue]{Relics}[/blue]件随机[gold]涅奥{Relics:plural:遗物|遗物}[/gold]。`）：把「涅奥」换成「哆来咪·苏伊特」（英文 `Doremy Sweet`），诅咒换成具体牌名「噩梦无终」（`Ominous Dream Eternal`），数量写死 `[blue]1[/blue]`。
+- 中文不用 `plural`（两分支相同、没有意义）：`[gold]哆来咪·苏伊特遗物[/gold]`；英文/日文才用 `{Relics:plural:relic|relics}`。
+- `.flavor` 取自希腊传说「梦境双门」——牛角门出真梦、象牙门出虚妄（见《奥德赛》《埃涅阿斯纪》），译 `Guests who enter by the gate of horn shall depart by the door of ivory.`。
 | `DUSTY_ROSE.description` | `At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].`（随 cards.json 卡名统一为 `The Closed Eye`） |
 | `MALICIOUS_FAIRY_TALE.description` | `... At the start of each turn, gain [blue]{Power}[/blue] [gold]Strength[/gold].` |
 | `HOTOKE_MISHI_ISHI_NO_HACHI.description` / `.eventDescription` | 格挡变量由 `{StartBlock}` 改为 `{Block}` |
@@ -2750,9 +2780,9 @@ zhs：`当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻
 | `SUPREME_DREAM.flavor` | The Architect | “……” | `"..."` |
 | `REVIVAL_DREAM.flavor` | Neow | “[sine]..安抚...我的... 傀儡.. ..自然... ...能拿到....[/sine]” | `"[sine]..soothe... my... puppet.. ..naturally... ...you.. will... receive....[/sine]"` |
 | `BYGONE_DREAM.flavor` | Darv | “啊，我还记得你那些可爱的女孩同伴呢！她们可真不同寻常，不是吗？” | `"Ah, I still remember those cute girl companions of yours! They were quite the unusual bunch, ain't they?"` |
-| `PIONEER_DREAM.flavor` | 系统备注 | （此遗物将在之后迁移给其他先古之民。） | `(This relic will be migrated to another Ancient later.)` |
+| `PIONEER_DREAM.flavor` | 系统备注 | （此遗物将在之后迁移给其他先古之民：阿加莎·克里斯Q。） | `(This relic will be migrated to another Ancient later: Agatha Chris Q.)` |
 
-> 注：`PIONEER_DREAM.flavor` 原为哆来咪本尊台词（先子星原始脑），后由策划改为括号备注文本，三语言已同步替换。
+> 注：`PIONEER_DREAM.flavor` 原为哆来咪本尊台词（先子星原始脑），后由策划改为括号备注文本，三语言已同步替换。本次追加迁移目标「阿加莎·克里斯Q」（音译 `Agatha Chris Q`）。
 
 > 对话拟声/标签（`[thinky_dots]`、`[sine]`）与引号原样保留；zhs 的 `“ ”` 在 eng/jpn 中转为转义直引号 `\"`（与仓库既有写法一致）。
 >
@@ -2780,6 +2810,21 @@ zhs flavor 改为「见证永恒与无限的未来。」，与绀珠之药「净
 
 - 绀珠之药：`Purify away the defiled past.`
 - 辉夜姬秘宝：`Witness the eternal and infinite future.`
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-09，百鬼夜行 cards.json 后半段重译）
+
+zhs 尾段台词改为「就让老朽看看你有几分能耐！」，eng/jpn 同步（旧译 `Let this old one have a bout with you!` 作废）。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `HYAKKI_YAGYO.description`（尾段） | `[b][thinky_dots]呵，呵，呵！就让老朽看看你有几分能耐！[/thinky_dots][/b]` | `[b][thinky_dots]Heh, heh, heh! Let this old one see what you're made of![/thinky_dots][/b]` |
+
+- 前两句（`Play {Cards} random recorded cards…` / `Once all records are removed…`）未改动。
+- 自称沿用猯藏既有译法 `this old one`（见 `ancients翻译.md`）。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
@@ -3020,3 +3065,17 @@ zhs 追加「未被格挡的」，eng/jpn 跟进。
 | `.title` | `Echo Microphone` |
 
 > **2026-10-08 校准**：zhs 标题由「回音话筒」改为「回音喇叭」，英文仍保留 `Echo Microphone`（`Echo` 附魔名一致）。
+
+---
+
+## 增量更新（2026-10-09，纳兹琳灵摆新增「失物招领」hover tip）
+
+`DowsingRod.ExtraHoverTips` 新增一条记录列表提示（写法沿用 `BRAIN_IN_A_VAT` 的 `.forgetTitle` / `.forgetNothing` / `.forget` 三键结构），原有的「寻宝」休息处提示保留在其前。
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.recordTitle` | 失物招领 | `Lost and Found` |
+| `.recordNothing` | 你还没有记录任何卡牌。 | `You haven't recorded any cards yet.` |
+| `.record` | 已记录的卡牌：\n{Cards:list:{}`\|`\n} | `Recorded cards:\n{Cards:list:{}`\|`\n}` |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。

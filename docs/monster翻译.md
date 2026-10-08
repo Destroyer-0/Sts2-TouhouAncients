@@ -526,7 +526,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `MANA_RESTLESSNESS.extraCardText` | [jitter]躁动不安[/jitter] | `[jitter]Restless[/jitter]` |
 | `REBELLION_TIDE.title` | 叛乱之潮 | `Rebellion Tide` |
 | `REBELLION_TIDE.description` | 成为鬼人正邪的征招对象，打出后重置为[purple]魔力躁动[/purple]。 | `Becomes a recruitment target for Seija Kijin; after being played, resets to [purple]Mana Restlessness[/purple].` |
-| `REBELLION_TIDE.extraCardText` | 起义的乱党 | `Rebel Rabble` |
+| `REBELLION_TIDE.extraCardText` | 起义的狂徒 | `Rebel Fanatic` |
 
 > 「侵蚀」对应 `Afflicted with` 关键字（`LILY_BELL` / `BLACK_CAT_DOLL` 句式），描述内不出现英文 Afflict 动词时按语义改述。
 > 「征召对象」对应正邪招式 `FIGHT_FOR_ME`（`Reforged Tsukumogami`）。
