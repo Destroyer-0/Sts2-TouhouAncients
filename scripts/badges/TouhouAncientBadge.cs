@@ -43,5 +43,5 @@ public abstract class TouhouAncientBadge(bool requiresWin, bool multiplayerOnly)
 
     /// <summary>该房间是否为东方先古之民的挑战战斗。</summary>
     protected static bool IsAncientChallengeRoom(MapPointRoomHistoryEntry? room) =>
-        room?.ModelId is { } id && SaveUtil.EncounterOrDeprecated(id) is TouhouAncientEncounter;
+        room?.ModelId is { } id && ModelDb.GetByIdOrNull<AbstractModel>(id) is TouhouAncientEncounter;
 }

@@ -166,7 +166,7 @@ public sealed class TranscribeReward : TouhouCustomReward
             target.Record(pool, picked);
         }
 
-        CardCmd.Preview(picked);
+        CardCmd.Preview(picked, 3f);
         return true;
     }
 
