@@ -79,7 +79,7 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.\n[b][thinky_dots]Heh, heh, heh! Let this old one see what you're made of![/thinky_dots][/b]",
 
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
@@ -114,11 +114,8 @@
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
-    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Add {Cards:diff()} random [gold]Attack[/gold] or [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold] and cost [blue]1[/blue] less until played.\nWhenever you rest, you may transform it into [gold]Deep Dream Insensate[/gold] or [gold]Ominous Dream Eternal[/gold].",
-
-    "TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.title": "Deep Dream Insensate",
-    "TOUHOUANCIENTS-DEEP_DREAM_SLUMBER.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd {Cards:diff()} random [gold]Skill[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Boundless[/gold] or [gold]Ominous Dream Eternal[/gold].",
+    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Gain [aqua]{Block:diff()}[/aqua] [gold]Block[/gold].\nDeal [purple]{Damage:diff()}[/purple] damage.\nAdd [orange]{Cards:diff()}[/orange] random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
 
     "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "Ominous Dream Eternal",
-    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "Deal {Damage:diff()} damage.\nAdd {Cards:diff()} random [gold]Attack[/gold] cards to your [gold]Draw Pile[/gold]. They have [gold]Ethereal[/gold].\nWhenever you rest, you may transform it into [gold]Illusory Dream Boundless[/gold] or [gold]Deep Dream Insensate[/gold]."
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "Whenever you draw this card, lose {Energy:energyIcons()}.\nAfter you rest [blue]{Rests}[/blue] times at a [gold]Rest Site[/gold], remove this card from your [gold]Deck[/gold]."
 }

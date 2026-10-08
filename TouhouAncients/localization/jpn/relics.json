@@ -708,6 +708,9 @@
   "TOUHOUANCIENTS-DOWSING_ROD.description": "Unchosen [gold]Card Rewards[/gold] are recorded. You may hire Nazrin for [gold]treasure hunting[/gold] at [gold]Rest Sites[/gold].",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "\"My lady, how did you lose something important again?\"",
   "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "Choose cards to take",
+  "TOUHOUANCIENTS-DOWSING_ROD.recordTitle": "Lost and Found",
+  "TOUHOUANCIENTS-DOWSING_ROD.recordNothing": "You haven't recorded any cards yet.",
+  "TOUHOUANCIENTS-DOWSING_ROD.record": "Recorded cards:\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "Dragon Vein Vessel",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "Mark [blue]1[/blue] path (does not include Boss rooms). Entering nodes on the path grants [blue]{Gold}[/blue] [gold]Gold[/gold]; if it is a combat, gain [blue]{Strength}[/blue] [gold]Strength[/gold] and [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] at the start, and gain [blue]{CardRewards}[/blue] extra [gold]Card Rewards[/gold].",
@@ -821,12 +824,17 @@
   "TOUHOUANCIENTS-PIONEER_DREAM.title": "Pioneer Dream",
   "TOUHOUANCIENTS-PIONEER_DREAM.description": "Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "(This relic will be migrated to another Ancient later.)",
+  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "(This relic will be migrated to another Ancient later: Agatha Chris Q.)",
 
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "Revelation Dream",
-  "TOUHOUANCIENTS-REVELATION_DREAM.description": "Upon pickup, choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
-  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "Choose [blue]1[/blue] of [gold]Illusory Dream Boundless[/gold], [gold]Deep Dream Insensate[/gold], or [gold]Ominous Dream Eternal[/gold] to add to your [gold]Deck[/gold]. Whenever you rest, you may transform it.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.description": "Upon pickup, add [blue]1[/blue] [gold]Illusory Dream Boundless[/gold] to your [gold]Deck[/gold]. Whenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
+  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "Add [blue]1[/blue] [gold]Illusory Dream Boundless[/gold] to your [gold]Deck[/gold]. Whenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
   "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "\"On Preon, the primal brains of every living thing had already finished evolving the moment they were created—so within dreams, your brain, mine, and theirs are not essentially different.\"",
+
+  "TOUHOUANCIENTS-CHAOS_DREAM.title": "Chaos Dream",
+  "TOUHOUANCIENTS-CHAOS_DREAM.description": "Upon pickup, gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [red]Ominous Dream Eternal[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "Gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [red]Ominous Dream Eternal[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "Guests who enter by the gate of horn shall depart by the door of ivory.",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].",

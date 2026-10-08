@@ -1,6 +1,10 @@
 {
   "TOUHOUANCIENTS-UPGRADE_CARD_REWARD": "升级 {cards} 张牌。",
   "TOUHOUANCIENTS-TRANSCRIBE_REWARD": "誊写来自{Character}的卡牌。",
-  "TOUHOUANCIENTS-DREAM_AWAKENING_REWARD": "梦醒时，变化你的{Card}。",
+  "TOUHOUANCIENTS-DREAM_CHOICE_INDIGO": "绀色狂梦：幻梦变化时造成伤害必定增加。",
+  "TOUHOUANCIENTS-DREAM_CHOICE_AZURE": "蔚蓝愁梦：幻梦变化时获得格挡必定增加。",
+  "TOUHOUANCIENTS-DREAM_CHOICE_KARIYASU": "刈安迷梦：幻梦变化时生成卡牌数必定增加。",
+  "TOUHOUANCIENTS-BUBBLE_ILLUSION.title": "泡影",
+  "TOUHOUANCIENTS-BUBBLE_ILLUSION.description": "随机使造成的伤害变化[blue]-1~3[/blue]。\n随机使获得的格挡变化[blue]-1~3[/blue]。\n随机使生成的卡牌数变化[blue]-1~1[/blue]。\n变化后的最终数值不低于[blue]1[/blue]。",
   "TOUHOUANCIENTS-TRANSFORM_CARD_REWARD": "变化 {cards} 张牌。"
 }

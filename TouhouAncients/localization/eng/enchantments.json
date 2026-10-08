@@ -46,5 +46,6 @@
     "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "Every last one of these hatred-soaked organisms is combustible fuel!",
 
     "TOUHOUANCIENTS-ECHO.description": "When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.",
+    "TOUHOUANCIENTS-ECHO.extraCardText": "YaHoo!!",
     "TOUHOUANCIENTS-ECHO.title": "Echo"
 }

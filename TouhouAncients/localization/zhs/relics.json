@@ -709,6 +709,9 @@
   "TOUHOUANCIENTS-DOWSING_ROD.description": "你没有选择的[gold]卡牌奖励[/gold]将会被记录。你可以在休息处雇佣纳兹琳[gold]寻宝[/gold]。",
   "TOUHOUANCIENTS-DOWSING_ROD.flavor": "“大人，您怎么又把重要的东西给弄丢了？”",
   "TOUHOUANCIENTS-DOWSING_ROD.selectionScreenPrompt": "选择要拿走的卡牌",
+  "TOUHOUANCIENTS-DOWSING_ROD.recordTitle": "失物招领",
+  "TOUHOUANCIENTS-DOWSING_ROD.recordNothing": "你还没有记录任何卡牌。",
+  "TOUHOUANCIENTS-DOWSING_ROD.record": "已记录的卡牌：\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.title": "龙脉之皿",
   "TOUHOUANCIENTS-DRAGON_VEIN_VESSEL.description": "标记[blue]1[/blue]条路线。进入路线上的节点获得[blue]{Gold}[/blue][gold]金币[/gold]，如果是战斗则战斗开始时获得[blue]{Strength}[/blue][gold]力量[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]，且额外掉落[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]。",
@@ -796,8 +799,8 @@
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "“梦境使者，我会向你展示我的梦境，那自然是最上等与华美的。”",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血之梦",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。\n如果你在本回合中没有打出过攻击牌，则失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。如果你在本回合中没有打出过攻击牌，则失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。\n如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "“梦境使者，与我一战！！！——……Zzzzz”",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界之梦",
@@ -822,12 +825,17 @@
   "TOUHOUANCIENTS-PIONEER_DREAM.title": "先驱之梦",
   "TOUHOUANCIENTS-PIONEER_DREAM.description": "拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "（此遗物将在之后迁移给其他先古之民。）",
+  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "（此遗物将在之后迁移给其他先古之民：阿加莎·克里斯Q。）",
 
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "启示之梦",
-  "TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
-  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "从[gold]幻梦无垠[/gold]、[gold]深梦无觉[/gold]、[gold]噩梦无终[/gold]中选择一张加入你的[gold]牌组[/gold]。每当你休息时，你可以变化这张牌。",
+  "TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在[gold]休息处[/gold]休息时，你可以随机变化这张牌的数值。",
+  "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在[gold]休息处[/gold]休息时，你可以随机变化这张牌的数值。",
   "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "“先子星上一切生物的原始脑都已在被创造时就进化完毕——因此你的、我的、它们的大脑在梦境中并没有本质的不同。”",
+
+  "TOUHOUANCIENTS-CHAOS_DREAM.title": "混沌之梦",
+  "TOUHOUANCIENTS-CHAOS_DREAM.description": "拾起时，获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]商人[/gold]现在会出售[gold]先古之民遗物[/gold]。",
