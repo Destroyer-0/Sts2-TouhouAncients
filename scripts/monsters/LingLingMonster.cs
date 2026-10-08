@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -26,6 +27,9 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
     protected override bool HasAnimation => false;
 
     public override bool IsPrimaryMonster => false;
+
+    // 灾厄处决不永久移除，交回幻象复活（参考原版寄生惧魔 / 利齿之眼）
+    public override bool ShouldDisappearFromDoom => false;
 
     // --- HP：括号外为高阶，括号内为低阶 ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
@@ -74,11 +78,27 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
 
     /// <summary>
     /// 铃铃倒下时：梅蒂欣的毒人偶层数减少 1（不会少于 1）。
-    /// 注意：铃铃带幻象会复活，此 Hook 只负责减层；实际是否移除由幻象机制决定。
+    /// 梅蒂欣倒下时：移除幻象让铃铃不再复活，并让保留的贴图正常风化消失。
     /// </summary>
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
     {
         await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+
+        // 梅蒂欣倒下：铃铃不再复活，后者交回原版死亡流程正常风化移除
+        if (creature != base.Creature && creature.Monster is MedicineMelancholyMonster)
+        {
+            await PowerCmd.Remove<IllusionPower>(base.Creature);
+
+            // 已被幻象保留的尸体不会再走任何死亡流程，手动补风化
+            if (base.Creature.IsDead)
+            {
+                FadeRetainedVisual();
+                RemoveFromCombat();
+            }
+
+            return;
+        }
+
         if (creature != base.Creature) return;
 
         Creature? medicine = FindMedicine();
@@ -88,6 +108,15 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
         if (doll == null || doll.Amount <= 1) return;
 
         await PowerCmd.ModifyAmount(choiceContext, doll, -1m, base.Creature, null);
+    }
+
+    /// <summary>把已死且节点已回收的铃铃移出战斗，避免残留实体被后续流程二次处理。</summary>
+    private void RemoveFromCombat()
+    {
+        ICombatState? combatState = base.Creature.CombatState;
+        bool performingMove = base.Creature.Monster is { IsPerformingMove: true };
+        CombatManager.Instance.RemoveCreature(base.Creature);
+        combatState?.RemoveCreature(base.Creature, unattach: performingMove);
     }
 
     /// <summary>

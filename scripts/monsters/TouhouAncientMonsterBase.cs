@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -213,6 +214,23 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
         StopBodyMoveAndResetPosition();
         if (!ShouldKeepAnimatingWhileDead)
             Anim.Trigger("die");
+    }
+
+    /// <summary>
+    /// 让被死亡机制保留（未移除）的显示节点补播原版死亡风化并回收。
+    /// 帧动画/静态贴图怪物没有 spine animator，原版靠 TriggerAnim("Dead") 的兜底会落空，只能手动补。
+    /// 节点不存在时静默跳过。
+    /// </summary>
+    protected void FadeRetainedVisual()
+    {
+        NCombatRoom? combatRoom = NCombatRoom.Instance;
+        NCreature? creatureNode = combatRoom?.GetCreatureNode(Creature);
+        if (combatRoom == null || creatureNode == null || !GodotObject.IsInstanceValid(creatureNode))
+            return;
+
+        // shouldRemove=true 且 ShouldFadeAfterDeath 时，原版 AnimDie 会自动播 NMonsterDeathVfx
+        creatureNode.StartDeathAnim(shouldRemove: true);
+        combatRoom.RemoveCreatureNode(creatureNode);
     }
 
     /// <summary>
