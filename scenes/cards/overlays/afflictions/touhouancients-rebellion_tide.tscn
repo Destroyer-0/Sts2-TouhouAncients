@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://shaders/afflictions/rebellion_tide.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flip"]
+shader = ExtResource("1_shader")
+shader_parameter/flip_degrees = 180.0
+
+[node name="RebellionTide" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ForceBackbufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="FlipOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_flip")
+layout_mode = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+mouse_filter = 2

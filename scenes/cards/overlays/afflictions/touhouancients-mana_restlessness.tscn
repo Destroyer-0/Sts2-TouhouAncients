@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://idmp1eaofi4l"]
+
+[ext_resource type="Shader" uid="uid://cw028d8432gkn" path="res://shaders/afflictions/mana_restlessness.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jitter"]
+shader = ExtResource("1_shader")
+shader_parameter/amplitude = 2.000000095
+shader_parameter/speed = 40.0000018525
+shader_parameter/tilt = 0.012
+
+[node name="ManaRestlessness" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ForceBackbufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="JitterOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jitter")
+layout_mode = 0
+offset_left = -166.0
+offset_top = -227.0
+offset_right = 166.0
+offset_bottom = 227.0
+mouse_filter = 2
