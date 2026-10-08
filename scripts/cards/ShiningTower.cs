@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -14,7 +16,10 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.TestSupport;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.relics;
 
@@ -23,7 +28,7 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 光辉宝塔：3费攻击，消耗。
 /// 对所有敌人造成30(升级后37)点伤害并击晕他们。
-/// 斩杀时，获得77金币。
+/// 斩杀时，获得{Gold}金币。
 /// 从你的牌组中移除，并重新加入寻宝奖励中。
 /// </summary>
 [Pool(typeof(EventCardPool))]
@@ -68,44 +73,54 @@ public class ShiningTower : TouhouAncientCards
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 参照 Feed 的斩杀判定：伤害前记录 shouldTriggerFatal
+        // 伤害前记下斩杀判定与特效坐标：伤害后 Creature 可能已被移出场景
         var enemies = base.CombatState.Enemies.Where(e => e.IsAlive).ToList();
-        var fatalStates = enemies.ToDictionary(
-            e => e,
-            e => e.Powers.All(p => p.ShouldOwnerDeathTriggerFatal()));
+        var fatalPositions = enemies
+            .Where(e => e.Powers.All(p => p.ShouldOwnerDeathTriggerFatal()))
+            .ToDictionary(
+                e => e,
+                e => TestMode.IsOff
+                    ? NCombatRoom.Instance?.GetCreatureNode(e)?.VfxSpawnPosition
+                    : null);
 
         // 对所有敌人造成伤害并击晕
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
+        AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(base.CombatState)
             .WithHitFx("vfx/vfx_starry_impact", null, "blunt_attack.mp3")
             .SpawningHitVfxOnEachCreature()
             .Execute(choiceContext);
 
+        // 同贪婪之手：只算被本次伤害斩杀的敌人，每个击杀各播一次金币特效
+        int killCount = 0;
+        foreach (var result in attackCommand.Results.SelectMany(r => r))
+        {
+            if (!result.WasTargetKilled || !fatalPositions.TryGetValue(result.Receiver, out var pos)) continue;
+            killCount++;
+            if (pos.HasValue)
+            {
+                VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
+            }
+        }
+
+        if (killCount > 0)
+        {
+            await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * killCount, base.Owner);
+        }
+
         // 击晕所有存活敌人
         foreach (var enemy in base.CombatState.Enemies.Where(e => e.IsAlive))
         {
             await CreatureCmd.Stun(enemy);
         }
-
-        await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * fatalStates.Count(x => x is { Value: true, Key.IsDead: true }), base.Owner);
         
-        var dowsingRod = base.Owner?.Relics.OfType<DowsingRod>().FirstOrDefault();
-        if (dowsingRod != null)
-        {
-            dowsingRod.AddTowerToStorage(this);
-        }
-    }
+        // 回收：有寻龙尺才把它放回寻宝奖励
+        base.Owner?.Relics.OfType<DowsingRod>().FirstOrDefault()?.AddTowerToStorage(this);
 
-    /// <summary>
-    /// 当卡牌被消耗（进入弃牌堆以外的移除）时，重新加入寻龙尺的存储。
-    /// </summary>
-    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
-    {
-        if (card != this || !CombatManager.Instance.IsInProgress) return;
-        if (card.Pile?.Type == PileType.Exhaust && oldPileType == PileType.Play)
+        // 打出的是战斗克隆体，牌组原牌由 DeckVersion 指向；无条件从牌组移除
+        if (this.DeckVersion is { } deckCard && deckCard.Pile?.Type == PileType.Deck)
         {
-            // 卡牌被消耗（正常打出后进入消耗堆），重新加入寻龙尺存储
+            await CardPileCmd.RemoveFromDeck(deckCard, showPreview: false);
         }
     }
 

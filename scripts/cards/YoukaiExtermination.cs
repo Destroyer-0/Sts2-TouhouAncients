@@ -23,7 +23,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class YoukaiExtermination : TouhouAncientCards
 {
-    private const int BaseDamageNormal = 5;
+    private const int BaseDamageNormal = 6;
 
     private int _currentDamage = BaseDamageNormal;
     private int _increasedDamage;

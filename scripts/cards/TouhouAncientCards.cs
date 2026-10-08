@@ -65,18 +65,13 @@ public static class AncientCardFramePatch
 		return nullable ?? master;
 	}
 
-	private unsafe static string GetAncientTextBgPath(CardModel model)
+	// 原版映射：None/Status/Curse 无专属底图退回 Skill，其余按自身类型取图
+	private static string GetAncientTextBgPath(CardModel model)
 	{
-		CardType type = model.Type;
-		if (1 == 0)
-		{
-		}
-		CardType val = ((int)type != 0 && (int)type - 4 > 1) ? model.Type : ((CardType)2);
-		if (1 == 0)
-		{
-		}
-		CardType val2 = val;
-		return ImageHelper.GetImagePath("atlases/compressed_atlas.sprites/ancient_text_bg_" + ((object)(*(CardType*)(&val2))/*cast due to .constrained prefix*/).ToString().ToLowerInvariant() + ".png.tres");
+		CardType bgType = model.Type is CardType.Attack or CardType.Skill or CardType.Power or CardType.Quest
+			? model.Type
+			: CardType.Skill;
+		return ImageHelper.GetImagePath($"atlases/compressed_atlas.sprites/ancient_text_bg_{bgType.ToString().ToLowerInvariant()}.png.tres");
 	}
 
 	private static string GetAncientBorderPath()
