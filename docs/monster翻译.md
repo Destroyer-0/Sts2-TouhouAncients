@@ -483,3 +483,69 @@ zhs 的 `SEALED.description` 同步改为「被消耗**或变化**后」，eng/j
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
+
+
+---
+
+## 增量更新（基准提交 db32c0f 之后）—— 鬼人正邪 / 不语之物
+
+### `KIJIN_SEIJA_MONSTER.mock` 台词调整
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `moves.FIGHT_FOR_ME.banter3` | 现在是下克上时间！ | `Now it''s time for an uprising!` |
+| `moves.SILENT_WEEPING.banter4` | 就算只有我一人，我也不会停止下克上的！ | `Even if I''m the only one left, I''ll never stop rising up!` |
+
+> 旧 `banter3` 译文（`Heaven and earth are not benevolent; they treat all things as straw dogs...`）作废；「下克上」沿用项目既有译法 `revolt from below` / `overthrow`（`KIJIN_SEIJA_ANCIENT.talk.ANY.5` / `.REGENT.0-2`），此处取更口语的 `uprising` / `rising up`。
+
+### 不语之物（SILENT_OBJECT_MONSTER）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `.name` | 付丧神化卡牌 | `Tsukumogami Card` |
+| `.nameStrike` | 打击（付丧神化） | `Strike (Tsukumogami)` |
+| `.nameGuard` | 防御（付丧神化） | `Defend (Tsukumogami)` |
+| `.moves.STRIKE.title` | 打击 | `Strike` |
+| `.moves.GUARD.title` | 防御 | `Defend` |
+
+> 「付丧神化」沿用项目既有 `Tsukumogami`（`TSUKUMOGAMI` 附魔、`FIGHT_FOR_ME.title` = `Reforged Tsukumogami`）；「打击/防御」取原版基础牌名 `Strike` / `Defend`。
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+
+---
+
+## 增量更新（基准提交 db32c0f 之后）
+
+### 新侵蚀：魔力躁动 / 叛乱之潮（afflictions.json）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `MANA_RESTLESSNESS.title` | 魔力躁动 | `Mana Restlessness` |
+| `MANA_RESTLESSNESS.description` | 当这张牌因[gold]打出[/gold]以外的原因进入[gold]弃牌堆[/gold]或[gold]消耗堆[/gold]时，转变为[purple]叛乱之潮[/purple]。 | `When this card enters your [gold]Discard Pile[/gold] or [gold]Exhaust Pile[/gold] for any reason other than being [gold]played[/gold], it turns into [purple]Rebellion Tide[/purple].` |
+| `MANA_RESTLESSNESS.extraCardText` | [jitter]躁动不安[/jitter] | `[jitter]Restless[/jitter]` |
+| `REBELLION_TIDE.title` | 叛乱之潮 | `Rebellion Tide` |
+| `REBELLION_TIDE.description` | 成为鬼人正邪的征招对象，打出后重置为[purple]魔力躁动[/purple]。 | `Becomes a recruitment target for Seija Kijin; after being played, resets to [purple]Mana Restlessness[/purple].` |
+| `REBELLION_TIDE.extraCardText` | 起义的乱党 | `Rebel Rabble` |
+
+> 「侵蚀」对应 `Afflicted with` 关键字（`LILY_BELL` / `BLACK_CAT_DOLL` 句式），描述内不出现英文 Afflict 动词时按语义改述。
+> 「征召对象」对应正邪招式 `FIGHT_FOR_ME`（`Reforged Tsukumogami`）。
+
+### 天地有用 `REVERSE_HEAVEN_POWER`（powers.json）
+
+| 键名 | English |
+|------|---------|
+| `.title` | `This Side Down` |
+| `.description` | 见 eng/powers.json（`{Cards}` 无，故 `description` 与 `smartDescription` 仅差被移除卡牌清单行） |
+
+> 标题「天地有用」为「天地不仁，以万物为刍狗」的反写，英译取 `This Side Down` 与 flavor 中的 `treating us as straw dogs` 呼应。
+> flavor 中的「下克上」沿用既有 `revolt from below`（`KIJIN_SEIJA_ANCIENT.talk.ANY.5`）。
+
+### 弃子的复仇 / 弱者的叛旗（powers.json）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `SILENT_OBJECT_CARD_POWER.title` | 弃子的复仇 | `Revenge of the Forsaken` |
+| `SILENT_OBJECT_CARD_2_POWER.title` | 弱者的叛旗 | `Banner of the Weak` |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。

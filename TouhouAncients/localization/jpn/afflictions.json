@@ -10,5 +10,13 @@
   "TOUHOUANCIENTS-COLLATERAL.title": "Collateral",
 
   "TOUHOUANCIENTS-SEALED.description": "Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove [red]Sealed[/red].",
-  "TOUHOUANCIENTS-SEALED.title": "Sealed"
+  "TOUHOUANCIENTS-SEALED.title": "Sealed",
+
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.title": "Mana Restlessness",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.description": "When this card enters your [gold]Discard Pile[/gold] or [gold]Exhaust Pile[/gold] for any reason other than being [gold]played[/gold], it turns into [purple]Rebellion Tide[/purple].",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.extraCardText": "[jitter]Restless[/jitter]",
+
+  "TOUHOUANCIENTS-REBELLION_TIDE.title": "Rebellion Tide",
+  "TOUHOUANCIENTS-REBELLION_TIDE.description": "Becomes a recruitment target for Seija Kijin; after being played, resets to [purple]Mana Restlessness[/purple].",
+  "TOUHOUANCIENTS-REBELLION_TIDE.extraCardText": "Rebel Rabble"
 }

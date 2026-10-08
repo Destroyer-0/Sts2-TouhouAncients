@@ -2724,9 +2724,12 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 | 字段 | 新译文 |
 |------|--------|
-| `.description` | `When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].` |
+| `.description` | `When you meet the [blue]1st[/blue] [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].` |
 
 zhs：`当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻获得他所出售的[red]所有[/red]物品，然后将一张[red]贪婪[/red]加入你的[gold]牌组[/gold]。`
+
+> **2026-10-08 序数词校准**：原译 `{ShopIndex}[/blue]th` 在 `ShopIndex=1` 时会显示 `1th`。经查源码，`{ShopIndex}` 恒为 `1`（`CanonicalVars` 里 `new DynamicVar("ShopIndex", 1)`，全仓库无其他赋值点），故直接硬编码 `1st`，与原版 STS2 序数词写法一致（`BRILLIANT_SCARF` 的 `5th` 等）。
+> 曾尝试用 `{ShopIndex:choose(...)}` 动态生成后缀，但英文序数规则依赖末两位（11/12/13 用 `th`，21/22/23 用 `st/nd/rd`），有限枚举无法覆盖 41/42/43，会落到默认值产生 `41th`，故弃用。
 
 ---
 
@@ -2994,3 +2997,26 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 
 
+
+
+---
+
+## 增量更新（基准提交 db32c0f 之后）
+
+### 亡灵雷云 `GHOST_THUNDER_CLOUD`（描述补「未被格挡的」）
+
+zhs 追加「未被格挡的」，eng/jpn 跟进。
+
+| 字段 | 翻译 |
+|------|------|
+| `.description` | `At the start of your turn, if you took unblocked damage from an enemy last turn, gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards, and gain [blue]{Strength}[/blue] [gold]Strength[/gold] this turn.` |
+
+> 「未被格挡的伤害」沿用原版 `unblocked damage` 表述（`ENVENOM` / `THE_GAMBIT` / `PAINFUL_STABS_POWER` 等）。
+
+### 回音话筒 → 回音喇叭 `ECHO_MICROPHONE`（标题变更）
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Echo Microphone` |
+
+> **2026-10-08 校准**：zhs 标题由「回音话筒」改为「回音喇叭」，英文仍保留 `Echo Microphone`（`Echo` 附魔名一致）。

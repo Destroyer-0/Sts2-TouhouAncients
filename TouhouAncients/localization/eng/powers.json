@@ -119,5 +119,15 @@
 
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.title": "\"Cardsharp\"",
   "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.description": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
-  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold]."
+  "TOUHOUANCIENTS-HEAVY_DICE_RECORD_POWER.smartDescription": "You have recorded [gold]{RecordedCard}[/gold]. After your draw phase ends, you may discard a card from your [gold]Hand[/gold] to add a copy of the recorded card to your [gold]Hand[/gold], with [gold]Exhaust[/gold] and [gold]Ethereal[/gold].",
+
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.title": "This Side Down",
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.description": "At the start of combat, all players' basic [gold]Strike[/gold] and [gold]Defend[/gold] cards are afflicted with [purple]Mana Restlessness[/purple].\nBasic [gold]Strike[/gold] and [gold]Defend[/gold] cards removed this run are afflicted with [purple]Rebellion Tide[/purple].\n[purple][i]The vaunted heroes sit high above, scorning us as straw dogs.\nThey tread the ladder your blood built, yet call you dead weight.\n[jitter]O weak ones, unwilling to be ignored or cast aside, rise with me—raise the storm from below, overturning those above![/jitter][/i][/purple]",
+  "TOUHOUANCIENTS-REVERSE_HEAVEN_POWER.smartDescription": "At the start of combat, all players' basic [gold]Strike[/gold] and [gold]Defend[/gold] cards are afflicted with [purple]Mana Restlessness[/purple].\nBasic [gold]Strike[/gold] and [gold]Defend[/gold] cards removed this run are afflicted with [purple]Rebellion Tide[/purple].\n(Removed cards: {Cards:list:{}|,})\n[purple][i]The vaunted heroes sit high above, scorning us as straw dogs.\nThey tread the ladder your blood built, yet call you dead weight.\n[jitter]O weak ones, unwilling to be ignored or cast aside, rise with me—raise the storm from below, overturning those above![/jitter][/i][/purple]",
+
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.title": "Revenge of the Forsaken",
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "This card went berserk under the influence of magic after being [purple]abandoned[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija.",
+
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.title": "Banner of the Weak",
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "This card went berserk under the influence of magic for being [purple]unappreciated[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija."
 }

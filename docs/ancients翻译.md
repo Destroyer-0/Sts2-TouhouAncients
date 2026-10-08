@@ -1283,3 +1283,32 @@ You remind me of someone annoying. |
 | `TOUHOUANCIENTS.fight.description`（jpn） | 同一句里混用 `エンシェント` 与中文词 `先古` | 统一为 `エンシェント` |
 
 另：复核确认本轮新增的其它专有名词无误 —— `Mazaleth`（马萨雷斯）、`Hypnos`（修普诺斯）、`Tiyanki`（缇扬奇）、`Osty`（奥斯提）均与原版/术语表一致；`4-0r` → `4-1` 与 `5-0r` → `5-1r` 的键名调整与 `AncientDialoguePortraitPatch.cs` 的 `{dialogueIndex}-{lineIndex}{r}` 命名规则相符。
+
+
+---
+
+## 增量更新（基准提交 db32c0f 之后）
+
+### 鬼人正邪挑战标题 `KIJIN_SEIJA_ANCIENT.fight.title`（ancients.json）
+
+| 字段 | 翻译 |
+|------|------|
+| `.fight.title` | `Challenge the Rebellious Amanojaku` |
+
+> 沿用 `Challenge the ...` 句式（`HAKUREI_REIMU_ANCIENT` / `HOURAISAN_KAGUYA_ANCIENT` / `TOUTETSU_YUUMA_ANCIENT`）；「天邪鬼」取 `Amanojaku`。
+
+### 梅蒂欣挑战标题修正 `MEDICINE_MELANCHOLY_ANCIENT.fight.title`
+
+| 字段 | 翻译 |
+|------|------|
+| `.fight.title` | `Challenge Medicine` → `Challenge Medicine Melancholy` |
+
+> zhs 由「挑战梅蒂欣」补全为「挑战梅蒂欣·梅兰可莉」（角色全名），英译同步补全。
+
+### 猯藏闲聊 `MAMIZOU_ANCIENT.talk.ANY.6-0r`
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `talk.ANY.6-0r.ancient` | 你是佛教派的还是道教派的？呵呵，别在意，老朽是两面派。 | `Are you on the Buddhist side or the Taoist side? Heheh, don’t mind it—this old one plays both sides.` |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。

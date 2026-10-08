@@ -750,7 +750,7 @@
   "TOUHOUANCIENTS-HEAVY_DICE.flavor": "Only cheaters who get caught can be called cheaters.",
 
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.title": "Ghost Thundercloud",
-  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.description": "At the start of your turn, if you took damage from an enemy last turn, gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards, and gain [blue]{Strength}[/blue] [gold]Strength[/gold] this turn.",
+  "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.description": "At the start of your turn, if you took unblocked damage from an enemy last turn, gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards, and gain [blue]{Strength}[/blue] [gold]Strength[/gold] this turn.",
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "Bzzt bzzt~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "Echo Microphone",
@@ -786,7 +786,7 @@
   "TOUHOUANCIENTS-PARADISE_DREAM.flavor": "\"Hey, hey, I'm saying—even in a dream, can't you fill my [gold]Offerings Box[/gold] with money just once? Please!\"",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
-  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]{ShopIndex}[/blue]th [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]1st[/blue] [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "\"Heheh, a demon's dream is no simple thing. I'm sure you know the small price of a contract...\"",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "Flowing Splendor Dream",
