@@ -3,60 +3,73 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 噩梦无终：造成11（15）伤害。将3（4）张随机攻击牌加入抽牌堆，这些牌拥有虚无。
-/// 休息时可变化为幻梦无垠或深梦无觉。
+/// 噩梦无终：不可打出的诅咒。抽到时失去 1 点能量；在休息处休息 3 次后从牌组移除。
 /// </summary>
 [Pool(typeof(EventCardPool))]
-public class EndlessNightmare : DreamCycleCard
+public class EndlessNightmare : TouhouAncientCards
 {
-    private const int energyCost = 2;
-    private const CardType type = CardType.Attack;
-    private const CardRarity rarity = CardRarity.Ancient;
-    private const TargetType targetType = TargetType.AnyEnemy;
-    private const bool shouldShowInCardLibrary = true;
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    private const int RestsToClear = 3;
 
     public override string? Author => "CAKEMOGO";
-    
+
+    public override bool UseAncientFrame => true;
+
+    public override int MaxUpgradeLevel => 0;
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
+
+    private int _restsRemaining = RestsToClear;
+
+    /// <summary>剩余休息次数，归 0 即从牌组移除。</summary>
+    [SavedProperty]
+    public int RestsRemaining
+    {
+        get => _restsRemaining;
+        set
+        {
+            AssertMutable();
+            _restsRemaining = value;
+            DynamicVars["Rests"].BaseValue = _restsRemaining;
+        }
+    }
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(11m, ValueProp.Move),
-        new CardsVar(3)
+        new EnergyVar(1),
+        new IntVar("Rests", RestsToClear)
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromCard<IllusoryDreamWhisper>(),
-        HoverTipFactory.FromCard<DeepDreamSlumber>()
-    ];
-
-    public EndlessNightmare() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
+    public EndlessNightmare() : base(-1, CardType.Curse, CardRarity.Curse, TargetType.None, true)
     {
     }
 
-    protected override void OnUpgrade()
+    /// <inheritdoc />
+    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
-        DynamicVars.Damage.UpgradeValueBy(4m);
-        DynamicVars.Cards.UpgradeValueBy(1m);
+        if (card != this) return;
+
+        await Cmd.Wait(0.25f);
+        await PlayerCmd.LoseEnergy(base.DynamicVars.Energy.IntValue, base.Owner);
     }
 
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    /// <inheritdoc />
+    public override async Task AfterRestSiteHeal(Player player, bool isMimicked)
     {
-        await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-            .FromCard(this, cardPlay)
-            .Targeting(cardPlay.Target)
-            .Execute(choiceContext);
+        if (player != base.Owner || isMimicked) return;
 
-        await AddRandomDreamCards(PileType.Draw, DynamicVars.Cards.IntValue, CardType.Attack);
+        RestsRemaining -= 1;
+        if (RestsRemaining > 0 || base.Pile?.Type != PileType.Deck) return;
+
+        await CardPileCmd.RemoveFromDeck(this);
     }
 }
