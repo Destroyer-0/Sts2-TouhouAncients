@@ -77,12 +77,30 @@ public class DowsingRod : TouhouAncientRelics
         TreasureHuntCount = 0;
     }
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        new HoverTip(
-            new LocString("rest_site_ui", "OPTION_TREASURE.name"),
-            DescriptionForTip())
-    ];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips
+    {
+        get
+        {
+            var tips = new List<IHoverTip>
+            {
+                new HoverTip(
+                    new LocString("rest_site_ui", "OPTION_TREASURE.name"),
+                    DescriptionForTip())
+            };
+
+            var title = new LocString("relics", base.Id.Entry + ".recordTitle");
+            if (_storedCards.Count == 0)
+            {
+                tips.Add(new HoverTip(title, new LocString("relics", base.Id.Entry + ".recordNothing")));
+                return tips;
+            }
+
+            var desc = new LocString("relics", base.Id.Entry + ".record");
+            desc.Add("Cards", _storedCards.Select(c => SaveUtil.CardOrDeprecated(c.Id!).Title).ToList());
+            tips.Add(new HoverTip(title, desc));
+            return tips;
+        }
+    }
 
     private LocString DescriptionForTip()
     {
@@ -162,8 +180,9 @@ public class DowsingRod : TouhouAncientRelics
         // 第一步：从存储的卡牌中选择任意张拿走
         if (_storedCards.Count > 0)
         {
+            // 必须走 LoadCard：FromSerializable 出来的牌无 Owner，CardPileCmd.Add 会直接抛
             var availableCards = _storedCards
-                .Select(s => new CardCreationResult(CardModel.FromSerializable(s)))
+                .Select(s => new CardCreationResult(base.Owner.RunState.LoadCard(s, base.Owner)))
                 .ToList();
 
             var selected = (await CardSelectCmd.FromSimpleGridForRewards(
@@ -179,12 +198,16 @@ public class DowsingRod : TouhouAncientRelics
             foreach (var card in selected)
             {
                 var match = _storedCards.FirstOrDefault(s => s.Id?.Entry == card.Id.Entry);
-                if (match != null)
-                {
-                    _storedCards.Remove(match);
-                    await CardPileCmd.Add(card, PileType.Deck);
-                    CardCmd.Preview(card);
-                }
+                if (match == null) continue;
+
+                _storedCards.Remove(match);
+                CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(card, PileType.Deck));
+            }
+
+            // 没选的牌只是临时实体，撤出本局作用域，别残留
+            foreach (var result in availableCards.Where(r => !selected.Contains(r.Card)))
+            {
+                base.Owner.RunState.RemoveCard(result.Card);
             }
 
             UpdateCardList();
@@ -234,19 +257,22 @@ public class DowsingRod : TouhouAncientRelics
         bool shouldOfferTower = false;
         bool hasTowerInDeck = PileType.Deck.GetPile(base.Owner).Cards.Any(c => c is ShiningTower);
 
-        if (!hasTowerInDeck && TreasureHuntCount >= ShiningTowerGuaranteeCount)
+        if (!hasTowerInDeck)
         {
-            shouldOfferTower = true;
-        }
-        else if (base.Owner.PlayerRng.Rewards.NextDouble() < 0.33)
-        {
-            shouldOfferTower = true;
-        }
+            if (TreasureHuntCount >= ShiningTowerGuaranteeCount)
+            {
+                shouldOfferTower = true;
+            }
+            else if (base.Owner.PlayerRng.Rewards.NextDouble() < 0.33)
+            {
+                shouldOfferTower = true;
+            }
 
-        if (shouldOfferTower)
-        {
-            var tower = base.Owner.RunState.CreateCard(ModelDb.Card<ShiningTower>(), base.Owner);
-            extraRewards.Add(new SpecialCardReward(tower, base.Owner));
+            if (shouldOfferTower)
+            {
+                var tower = base.Owner.RunState.CreateCard(ModelDb.Card<ShiningTower>(), base.Owner);
+                extraRewards.Add(new SpecialCardReward(tower, base.Owner));
+            }
         }
 
         // 展示额外奖励（可跳过）

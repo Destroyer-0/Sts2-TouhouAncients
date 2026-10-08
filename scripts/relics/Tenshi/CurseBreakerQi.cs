@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using TouhouAncients.Scripts.Afflictions;
 
 namespace TouhouAncients.Scripts.relics;
@@ -112,6 +113,7 @@ public class CurseBreakerQi : TouhouAncientRelics
         if (_firstCursePlayedThisTurn) return;
 
         _firstCursePlayedThisTurn = true;
+        base.Status = RelicStatus.Normal;
         Flash();
         await PowerCmd.Apply<StrengthPower>(context, base.Owner.Creature, 1m, base.Owner.Creature, null);
         await PlayerCmd.GainEnergy(1, base.Owner);
@@ -129,6 +131,15 @@ public class CurseBreakerQi : TouhouAncientRelics
         if (side == base.Owner.Creature.Side)
         {
             _firstCursePlayedThisTurn = false;
+            base.Status = RelicStatus.Active;
         }
+    }
+
+    // 战斗结束复位，避免遗物栏残留激活高亮
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        _firstCursePlayedThisTurn = false;
+        base.Status = RelicStatus.Normal;
+        return base.AfterCombatEnd(room);
     }
 }

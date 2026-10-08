@@ -38,9 +38,13 @@ public class CrimsonCloudKnuckles : TouhouAncientRelics
 
         if (handAttacks.Count == 0) return;
 
+        await Cmd.Wait(0.25f);
         Flash();
 
-        var target = handAttacks[base.Owner.RunState.Rng.CombatTargets.NextInt(handAttacks.Count)];
-        await CardCmd.AutoPlay(context, target, null);
+        var cardToPlay = handAttacks[base.Owner.RunState.Rng.CombatTargets.NextInt(handAttacks.Count)];
+
+        // 原牌目标可能已被打死，失效则回落随机
+        var autoTarget = cardPlay.Target is { IsAlive: true, IsEnemy: true } t ? t : null;
+        await CardCmd.AutoPlay(context, cardToPlay, autoTarget);
     }
 }
