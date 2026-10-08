@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0wn5mutkmfp6"
-path="res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"
+uid="uid://b4a1pijairrcr"
+path="res://.godot/imported/Echo.png-2340684ba1ea53525be2be7c988b0cd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/keystonefloatingcannon.png"
-dest_files=["res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"]
+source_file="res://images/icon/enchantment/Echo.png"
+dest_files=["res://.godot/imported/Echo.png-2340684ba1ea53525be2be7c988b0cd4.ctex"]
 
 [params]
 

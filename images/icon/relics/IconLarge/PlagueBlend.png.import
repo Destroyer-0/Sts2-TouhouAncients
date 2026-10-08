@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dikbiu5gba47o"
-path="res://.godot/imported/卡米利亚.png-fd35f7e535a1e19302fee95401bbe84e.ctex"
+uid="uid://bre1d4mesqfsv"
+path="res://.godot/imported/PlagueBlend.png-a41af8cffaab12d40ab28895b9f63039.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/potion/卡米利亚.png"
-dest_files=["res://.godot/imported/卡米利亚.png-fd35f7e535a1e19302fee95401bbe84e.ctex"]
+source_file="res://images/icon/relics/IconLarge/PlagueBlend.png"
+dest_files=["res://.godot/imported/PlagueBlend.png-a41af8cffaab12d40ab28895b9f63039.ctex"]
 
 [params]
 

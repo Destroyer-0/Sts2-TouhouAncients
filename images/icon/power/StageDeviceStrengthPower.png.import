@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0wn5mutkmfp6"
-path="res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"
+uid="uid://bkkt544ba77lb"
+path="res://.godot/imported/StageDeviceStrengthPower.png-bbc1c3c8daaac0147355a6b915dd16ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/keystonefloatingcannon.png"
-dest_files=["res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"]
+source_file="res://images/icon/power/StageDeviceStrengthPower.png"
+dest_files=["res://.godot/imported/StageDeviceStrengthPower.png-bbc1c3c8daaac0147355a6b915dd16ab.ctex"]
 
 [params]
 

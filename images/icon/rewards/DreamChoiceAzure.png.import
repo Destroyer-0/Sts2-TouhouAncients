@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0wn5mutkmfp6"
-path="res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"
+uid="uid://1o7r0w5rlp6p"
+path="res://.godot/imported/DreamChoiceAzure.png-d868b7b4e07129d0b429d849e55db231.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/keystonefloatingcannon.png"
-dest_files=["res://.godot/imported/keystonefloatingcannon.png-d0173fee38a6b0fe5ebf75f4188a5fc8.ctex"]
+source_file="res://images/icon/rewards/DreamChoiceAzure.png"
+dest_files=["res://.godot/imported/DreamChoiceAzure.png-d868b7b4e07129d0b429d849e55db231.ctex"]
 
 [params]
 
