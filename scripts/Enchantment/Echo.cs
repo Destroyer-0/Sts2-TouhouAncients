@@ -11,13 +11,15 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Echo : TouhouAncientEnchantmentModel
 {
+    public override bool HasExtraCardText => true;
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (!HasCard) return;
         if (cardPlay.Card != Card) return;
 
-        var copy = Card.Owner.RunState.CloneCard(Card);
+        var copy = cardPlay.Card.CreateClone();
         copy.EnergyCost.AddThisTurnOrUntilPlayed(1);
-        await CardPileCmd.Add(copy, PileType.Hand, clonedBy: this);
+        await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, Card.Owner);
     }
 }

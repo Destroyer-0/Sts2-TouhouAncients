@@ -17,9 +17,9 @@ public class SilentObjectCardPower : TouhouAncientPowerModel
     private const string AgitatedInCombatPrefix = "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER";
 
     /// <summary>图标复用原版 SwipePower（卡牌被敌方持有）。</summary>
-    public override string? CustomPackedIconPath => TouhouAncientCmd.CheckPathExists("res://images/atlases/power_atlas.sprites/swipe_power.tres");
+    public override string? CustomPackedIconPath => TouhouAncientCmd.CheckPathExists($"res://images/icon/power/MagicWalletPower.png");
 
-    public override string? CustomBigIconPath => TouhouAncientCmd.CheckPathExists("res://images/powers/swipe_power.png");
+    public override string? CustomBigIconPath => TouhouAncientCmd.CheckPathExistsWithFallback2($"res://images/icon/power/BigIcon/MagicWalletPower.png",CustomPackedIconPath);
 
     private CardModel? _embodiedCard;
     private bool _fromDeck = true;
