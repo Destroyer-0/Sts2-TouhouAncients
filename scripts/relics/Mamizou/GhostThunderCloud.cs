@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -41,11 +42,14 @@ public class GhostThunderCloud : TouhouAncientRelics
     public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result,
         ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (base.Owner == null || target != base.Owner.Creature) return Task.CompletedTask;
+        if (target != base.Owner.Creature) return Task.CompletedTask;
         if (dealer == null || dealer.Side != CombatSide.Enemy) return Task.CompletedTask;
+        if (props.HasFlag(ValueProp.Unpowered)) return Task.CompletedTask;
         if (result.UnblockedDamage <= 0) return Task.CompletedTask;
 
         _tookEnemyDamageSinceMyTurn = true;
+        Status = RelicStatus.Active;
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 
@@ -60,11 +64,15 @@ public class GhostThunderCloud : TouhouAncientRelics
         await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.IntValue, player);
         await PowerCmd.Apply<GhostThunderCloudStrengthPower>(choiceContext, player.Creature,
             base.DynamicVars["Strength"].BaseValue, player.Creature, null);
+        Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
     }
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
         _tookEnemyDamageSinceMyTurn = false;
+        Status = RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 }

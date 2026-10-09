@@ -26,8 +26,8 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class IllusoryDreamWhisper : TouhouAncientCards
 {
-    private const int BaseDamage = 5;
-    private const int BaseBlock = 5;
+    private const int BaseDamage = 7;
+    private const int BaseBlock = 7;
     private const int BaseCards = 2;
 
     public override string? Author => "半节";
@@ -98,15 +98,15 @@ public class IllusoryDreamWhisper : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        DamageBonus += 2;
-        BlockBonus += 2;
+        DamageBonus += 3;
+        BlockBonus += 3;
         CardsBonus += 1;
     }
 
     protected override void AfterDowngraded()
     {
-        DamageBonus -= 2;
-        BlockBonus -= 2;
+        DamageBonus -= 3;
+        BlockBonus -= 3;
         CardsBonus -= 1;
     }
 
