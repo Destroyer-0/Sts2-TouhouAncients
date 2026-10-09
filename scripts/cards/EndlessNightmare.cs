@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class EndlessNightmare : TouhouAncientCards
 {
-    private const int RestsToClear = 3;
+    private const int RestsToClear = 2;
 
     public override string? Author => "CAKEMOGO";
 
