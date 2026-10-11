@@ -16,6 +16,14 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     /// <summary>先古之民选项条件：返回 false 时本遗物不会被抽为选项。由 TouhouAncientBase 在抽取前统一判定。</summary>
     public virtual bool CanAppear(Player? player) => true;
 
+    /// <summary>玩家在当前地图点最后选的休息处选项 ID，没选过则为 null。
+    /// 供「选完某项不消耗其余选项」判定：RestSiteSynchronizer 在调 ShouldDisableRemainingRestSiteOptions 前刚写入该记录。</summary>
+    protected string? LastRestSiteChoice(Player player)
+    {
+        var choices = player.RunState.CurrentMapPointHistoryEntry?.GetEntry(player.NetId).RestSiteChoices;
+        return choices is { Count: > 0 } ? choices[^1] : null;
+    }
+
     /// <summary>
     /// 注册卡牌奖励的替代选项。原版 <c>CardRewardAlternative.Generate</c> 最多只接受 2 个（跳过恒占 1 个），
     /// 超了会抛异常、奖励永远领不掉，所以后来者挤掉先来者（同类遗物也互相挤）。

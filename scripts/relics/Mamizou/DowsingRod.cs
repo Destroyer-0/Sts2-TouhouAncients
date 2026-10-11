@@ -88,13 +88,9 @@ public class DowsingRod : TouhouAncientRelics
                     DescriptionForTip())
             };
 
-            var title = new LocString("relics", base.Id.Entry + ".recordTitle");
-            if (_storedCards.Count == 0)
-            {
-                tips.Add(new HoverTip(title, new LocString("relics", base.Id.Entry + ".recordNothing")));
-                return tips;
-            }
+            if (_storedCards.Count == 0) return tips;
 
+            var title = new LocString("relics", base.Id.Entry + ".recordTitle");
             var desc = new LocString("relics", base.Id.Entry + ".record");
             desc.Add("Cards", _storedCards.Select(c => SaveUtil.CardOrDeprecated(c.Id!).Title).ToList());
             tips.Add(new HoverTip(title, desc));

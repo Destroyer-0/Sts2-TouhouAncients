@@ -56,12 +56,9 @@ public class BrainInAVat : TouhouAncientRelics
     {
         get
         {
-            var title = new LocString("relics", base.Id.Entry + ".forgetTitle");
-            if (!HasBlockedCard)
-            {
-                return [new HoverTip(title, new LocString("relics", base.Id.Entry + ".forgetNothing"))];
-            }
+            if (!HasBlockedCard) return [];
 
+            var title = new LocString("relics", base.Id.Entry + ".forgetTitle");
             var description = new LocString("relics", base.Id.Entry + ".forget");
             var blockCardTextList = new List<string>();
             foreach (var cardId in BlockedCardIds)
