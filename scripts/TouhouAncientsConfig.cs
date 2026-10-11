@@ -102,11 +102,12 @@ public class TouhouAncientsConfig : SimpleModConfig
         if (BanMamizou) mask |= 1UL << 22;
         if (BanNeow) mask |= 1UL << 23;
         if (BanDoremySweet) mask |= 1UL << 24;
+        if (BanHiedaNoAkyuu) mask |= 1UL << 25;
         return mask;
     }
 
     /// <summary>
-    /// 返回 Type 对应的禁用位（0~24）；未识别的 Ancient 返回 -1。
+    /// 返回 Type 对应的禁用位（0~25）；未识别的 Ancient 返回 -1。
     /// 位序必须与 <see cref="BuildBannedMask"/> 保持一致。
     /// </summary>
     private static int GetBanBit(Type type)
@@ -138,6 +139,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(FutatsuiwaMamizouAncient) => 22, // 猯藏 Ancient 类暂被注释，恢复时取消注释（BuildBannedMask 已预留第 22 位）
             nameof(Neow) => 23, // 原版涅奥，仅第一幕出现，禁用判定见 IsBaseGameAncientBanned 与 Act1AncientPoolPatch
             nameof(DoremySweetAncient) => 24, // 哆来咪·苏伊特，仅第一幕出现，与涅奥同池抽取
+            nameof(HiedaNoAkyuuAncient) => 25, // 稗田阿求，仅第一幕出现，与涅奥、哆来咪同池抽取
             _ => -1
         };
     }
@@ -180,6 +182,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(YorigamiSisterAncient) => BanYorigami,
             nameof(FutatsuiwaMamizouAncient) => BanMamizou,
             nameof(DoremySweetAncient) => BanDoremySweet,
+            nameof(HiedaNoAkyuuAncient) => BanHiedaNoAkyuu,
             _ => false
         };
     }
@@ -255,9 +258,9 @@ public class TouhouAncientsConfig : SimpleModConfig
     
     /// <summary>
     /// 初始先古之民配置：只作用于**第一幕**出现的先古之民
-    /// （原版涅奥 <c>Neow</c> 与本 Mod 哆来咪·苏伊特 <c>DoremySweetAncient</c>）。
-    /// 二者同池均匀抽取，禁用后该先古之民不再参与第一幕抽取；
-    /// 若两个都被禁用且本 Mod 没有其它一层先古之民，则兜底保留原版抽签结果（涅奥），
+    /// （原版涅奥 <c>Neow</c> 与本 Mod 哆来咪·苏伊特 <c>DoremySweetAncient</c>、稗田阿求 <c>HiedaNoAkyuuAncient</c>）。
+    /// 三者同池均匀抽取，禁用后该先古之民不再参与第一幕抽取；
+    /// 若全部被禁用且本 Mod 没有其它一层先古之民，则兜底保留原版抽签结果（涅奥），
     /// 避免第一幕没有可抽取的先古之民。
     /// </summary>
     [ConfigSection("InitialAncientConfig")]
@@ -271,6 +274,11 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// 禁用哆来咪·苏伊特（仅第一幕出现）
     /// </summary>
     public static bool BanDoremySweet { get; set; } = false;
+
+    /// <summary>
+    /// 禁用稗田阿求（仅第一幕出现）
+    /// </summary>
+    public static bool BanHiedaNoAkyuu { get; set; } = false;
 
     /// <summary>
     /// 配置该列表中先古之民不出现
@@ -323,7 +331,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>警告文案的本地化键（settings_ui）。</summary>
     private const string Act1AncientBanWarningKey = "TOUHOUANCIENTS-ACT1_ANCIENT_BAN_WARNING.body";
 
-    /// <summary>在「初始先古之民配置」的两个开关下方补一行警告（涅奥与哆来咪同池，全禁用会抽空一层）。</summary>
+    /// <summary>在「初始先古之民配置」的开关下方补一行警告（三者同池，全禁用会抽空一层）。</summary>
     public override void SetupConfigUI(Control optionContainer)
     {
         base.SetupConfigUI(optionContainer);
@@ -395,12 +403,12 @@ public class TouhouAncientsConfig : SimpleModConfig
         return null;
     }
 
-    /// <summary>涅奥与哆来咪同时被禁用时才显示警告。</summary>
+    /// <summary>涅奥、哆来咪、稗田阿求同时被禁用时才显示警告。</summary>
     private static void RefreshAct1AncientBanWarning(Control row)
     {
         if (GodotObject.IsInstanceValid(row))
         {
-            row.Visible = BanNeow && BanDoremySweet;
+            row.Visible = BanNeow && BanDoremySweet && BanHiedaNoAkyuu;
         }
     }
 }
