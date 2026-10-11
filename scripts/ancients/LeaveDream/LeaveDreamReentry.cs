@@ -22,9 +22,10 @@ using MegaCrit.Sts2.Core.Saves;
 namespace TouhouAncients.Scripts;
 
 /// <summary>
-/// 「离开梦境」：哆来咪事件末尾追加的第 4 个选项。
+/// 「离开梦境」/「前去面见涅奥」：一层先古之民事件末尾追加的第 4 个选项。
+/// 哆来咪·苏伊特（LEAVE_DREAM）与稗田阿求（MEET_NEOW）共用本实现，差别只在选项名与台词键。
 ///
-/// 效果：放弃哆来咪的遗物，改为进入涅奥的房间。**逐玩家独立** —— 只替换选择者在本端
+/// 效果：放弃该先古之民的遗物，改为进入涅奥的房间。**逐玩家独立** —— 只替换选择者在本端
 /// <c>EventSynchronizer</c> 里的那一份 mutable 事件实例，其他玩家仍然留在哆来咪的选项页上，
 /// 互不影响；所有玩家选完之后照常前往下一个节点（由原版地图投票机制带全队走）。
 ///
@@ -48,20 +49,26 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 internal static class LeaveDreamReentry
 {
-    /// <summary>选项名（本地化键为 <c>{AncientId}.pages.INITIAL.options.{OptionName}</c>）。</summary>
-    private const string OptionName = "LEAVE_DREAM";
+    /// <summary>哆来咪的选项名（本地化键为 <c>{AncientId}.pages.INITIAL.options.{选项名}</c>）。</summary>
+    public const string LeaveDreamOptionName = "LEAVE_DREAM";
 
-    /// <summary>哆来咪台词："是吗……那么祝您有个愉快的梦醒时分。"</summary>
-    public const string DialogueLineKey = "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient";
+    /// <summary>稗田阿求的选项名。</summary>
+    public const string MeetNeowOptionName = "MEET_NEOW";
 
-    /// <summary>台词上的"继续"按钮文案。</summary>
-    public const string DialogueNextKey = "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.next";
+    /// <summary>台词键：<c>{AncientId}.talk.{选项名}.ancient</c>。</summary>
+    public static string DialogueLineKey(string ancientEntry, string optionName) =>
+        $"{ancientEntry}.talk.{optionName}.ancient";
+
+    /// <summary>台词上的"继续"按钮文案键。</summary>
+    public static string DialogueNextKey(string ancientEntry, string optionName) =>
+        $"{ancientEntry}.talk.{optionName}.next";
 
     /// <summary>
-    /// 末行哨兵（空文本）。原版规则是"最后一行不显示继续按钮"，所以台词需要第二行占位，
+    /// 末行哨兵（空文本）键。原版规则是"最后一行不显示继续按钮"，所以台词需要第二行占位，
     /// 玩家点"继续"后本类会立刻把这个空气泡隐藏掉。
     /// </summary>
-    public const string DialogueSentinelKey = "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.silent";
+    public static string DialogueSentinelKey(string ancientEntry, string optionName) =>
+        $"{ancientEntry}.talk.{optionName}.silent";
 
     /// <summary>
     /// 是否是「离开梦境」重进出来的涅奥房间：本幕抽中的先古之民是本 Mod 的一层先古之民
@@ -75,17 +82,17 @@ internal static class LeaveDreamReentry
     }
 
     /// <summary>创建第 4 个选项（非遗物，选项文本取自 ancients 本地化表）。</summary>
-    public static EventOption CreateOption(TouhouAncientBase ancient)
+    public static EventOption CreateOption(TouhouAncientBase ancient, string optionName)
     {
-        var textKey = $"{ancient.Id.Entry}.pages.INITIAL.options.{OptionName}";
-        return new EventOption(ancient, () => OnChosen(ancient), textKey, Array.Empty<IHoverTip>());
+        var textKey = $"{ancient.Id.Entry}.pages.INITIAL.options.{optionName}";
+        return new EventOption(ancient, () => OnChosen(ancient, optionName), textKey, Array.Empty<IHoverTip>());
     }
 
     /// <summary>
-    /// 点击「离开梦境」。该回调在所有端都会执行（非共享事件下由选项广播消息驱动），
+    /// 点击第 4 个选项。该回调在所有端都会执行（非共享事件下由选项广播消息驱动），
     /// 因此所有端的换入操作必须完全一致。
     /// </summary>
-    private static async Task OnChosen(TouhouAncientBase ancient)
+    private static async Task OnChosen(TouhouAncientBase ancient, string optionName)
     {
         var player = ancient.Owner;
         if (player == null)
@@ -142,7 +149,7 @@ internal static class LeaveDreamReentry
         }
 
         await neow.AfterEventStarted();
-        await LeaveDreamSequence.Play(neow, player);
+        await LeaveDreamSequence.Play(neow, player, ancient.Id.Entry, optionName);
     }
 
     /// <summary>

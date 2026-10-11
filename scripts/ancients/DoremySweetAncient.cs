@@ -64,6 +64,6 @@ public class DoremySweetAncient : TouhouAncientBase
     /// </summary>
     protected override IEnumerable<EventOption> ExtraOptions =>
     [
-        LeaveDreamReentry.CreateOption(this)
+        LeaveDreamReentry.CreateOption(this, LeaveDreamReentry.LeaveDreamOptionName)
     ];
 }

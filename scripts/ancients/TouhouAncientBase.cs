@@ -328,13 +328,18 @@ public abstract class TouhouAncientBase : CustomAncientModel
         {
             return false;
         }
+
         if (!ShowAct.HasValue)
         {
+            if (act.ActNumber() == 1)
+            {
+                return false;
+            }
             return base.IsValidForAct(act);
         }
-        
         return act.ActNumber() == ShowAct.Value;
     }
+
     public override bool ShouldForceSpawn(ActModel act, AncientEventModel? rngChosenAncient)
     {
         return TouhouAncientsConfig.IsAncientForced(this, act.ActNumber());

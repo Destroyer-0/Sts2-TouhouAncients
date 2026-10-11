@@ -42,7 +42,7 @@ internal static class LeaveDreamSequence
     }
 
     /// <summary>演出总入口：先播对话，再溶解换景。</summary>
-    public static async Task Play(Neow neow, Player player)
+    public static async Task Play(Neow neow, Player player, string ancientEntry, string optionName)
     {
         var oldRoom = NEventRoom.Instance;
         var layout = oldRoom?.Layout as NAncientEventLayout;
@@ -52,29 +52,29 @@ internal static class LeaveDreamSequence
             return;
         }
 
-        await PlayDialogue(layout);
+        await PlayDialogue(layout, ancientEntry, optionName);
         await SwitchToNeowRoom(neow, player, oldRoom);
     }
 
     /// <summary>
-    /// 播放哆来咪的告别台词并等待玩家点"继续"。
-    /// 台词写两行：第 1 行是告别台词（带「继续」），第 2 行是「梦境逐渐溶解……」这句末行字幕
+    /// 播放先古之民的告别台词并等待玩家点"继续"。
+    /// 台词写两行：第 1 行是告别台词（带「继续」），第 2 行是末行字幕
     /// ——原版规则下"最后一行"不显示继续按钮，所以必须留第二行占位。
     /// </summary>
-    private static async Task PlayDialogue(NAncientEventLayout layout)
+    private static async Task PlayDialogue(NAncientEventLayout layout, string ancientEntry, string optionName)
     {
         // 对话期间禁止点选项（进房时的按钮可能已被 AnimateButtonsIn 启用）。
         layout.DisableEventOptions();
 
         var line = new AncientDialogueLine("")
         {
-            LineText = new LocString("ancients", LeaveDreamReentry.DialogueLineKey),
-            NextButtonText = new LocString("ancients", LeaveDreamReentry.DialogueNextKey),
+            LineText = new LocString("ancients", LeaveDreamReentry.DialogueLineKey(ancientEntry, optionName)),
+            NextButtonText = new LocString("ancients", LeaveDreamReentry.DialogueNextKey(ancientEntry, optionName)),
             Speaker = AncientDialogueSpeaker.Ancient,
         };
         var caption = new AncientDialogueLine("")
         {
-            LineText = new LocString("ancients", LeaveDreamReentry.DialogueSentinelKey),
+            LineText = new LocString("ancients", LeaveDreamReentry.DialogueSentinelKey(ancientEntry, optionName)),
             Speaker = AncientDialogueSpeaker.Ancient,
         };
 
