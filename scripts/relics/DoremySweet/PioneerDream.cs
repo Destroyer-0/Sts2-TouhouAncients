@@ -17,6 +17,7 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
 /// 先驱之梦：拾起时，将随机一张上一场战斗的非初始卡牌加入你的牌组。
+/// 与稗田阿求的「幺乐藏品」机制相同，二者并存（分属不同先古之民）。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class PioneerDream : TouhouAncientRelics

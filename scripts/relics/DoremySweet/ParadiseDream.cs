@@ -22,8 +22,7 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class ParadiseDream : TouhouAncientRelics
 {
-    [SavedProperty]
-    public bool ParadiseDream_Resolved { get; set; }
+    [SavedProperty] public bool ParadiseDream_Resolved { get; set; }
 
     public override bool HasUponPickupEffect => true;
 
@@ -43,6 +42,7 @@ public class ParadiseDream : TouhouAncientRelics
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (ParadiseDream_Resolved) return false;
+        if (player != Owner) return false;
         if (room.RoomType != RoomType.Boss) return false;
         if (base.Owner.RunState.CurrentActIndex != 0) return false; // 第一幕
 
@@ -72,5 +72,4 @@ public class ParadiseDream : TouhouAncientRelics
         var cards = base.Owner.Deck.Cards.OfType<YoukaiExtermination>();
         await CardPileCmd.RemoveFromDeck(cards.ToList());
     }
-
 }
