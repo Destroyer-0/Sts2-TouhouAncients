@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjevbempi17xr"]
+
+[ext_resource type="Texture2D" uid="uid://x2ebmqk4047p" path="res://images/HiedaNoAkyuu.png" id="1_os3ib"]
+[ext_resource type="Texture2D" uid="uid://p4gsdhaiugx5" path="res://images/HiedaNoAkyuu2.png" id="2_os3ib"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_bci8x"]
+
+[node name="FutatsuiwaMamizouAncient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -219.0
+offset_right = 2240.0
+offset_bottom = 1511.0
+texture = ExtResource("1_os3ib")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -220.0
+offset_right = 2240.0
+offset_bottom = 1457.0
+texture = ExtResource("2_os3ib")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_bci8x")
