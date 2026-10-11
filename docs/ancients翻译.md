@@ -225,7 +225,7 @@ Ooh! Just as the rumors said... |
 | `talk.REGENT.0-0r.next` | 疑问 | Question |
 | `talk.REGENT.0-1r.char` | 喂！你在自言自语些什么？不过，我，储君，确实需要一些补给…… | Hey! Who are you muttering to? But well, I, the Regent, do need some supplies... |
 | `talk.REGENT.0-1r.next` | 继续 | Continue |
-| `talk.REGENT.0-2r.ancient` | “这家伙还真是懂得一些王室的礼仪。”呵呵，能让殿下您满意真是我的荣幸……[sine]（笑）[/sine] | "This one truly knows some royal etiquette." Heheh, it’s my honor to have pleased Your Highness...[sine](laugh)[/sine] |
+| `talk.REGENT.0-2r.ancient` | “这家伙还真是懂得一些王室的礼仪。”呵呵，能让殿下您满意真是我的荣幸……[sine]（笑）[/sine] | "This one truly knows some royal etiquette." Heheh, it’s my honor to have pleased Your Majesty...[sine](laugh)[/sine] |
 | `talk.REGENT.0-2r.next` | 恼怒 | Annoyed |
 | `talk.REGENT.0-3r.char` | 你那表情是怎么回事？ | What’s with that look on your face? |
 | `talk.SILENT.0-0r.ancient` | …… | ... |
@@ -1312,3 +1312,25 @@ You remind me of someone annoying. |
 | `talk.ANY.6-0r.ancient` | 你是佛教派的还是道教派的？呵呵，别在意，老朽是两面派。 | `Are you on the Buddhist side or the Taoist side? Heheh, don’t mind it—this old one plays both sides.` |
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-11，储君称谓统一为 Majesty）
+
+### 猯藏补齐 `REGENT.2-0r`
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `talk.FUTATSUIWA_MAMIZOU_ANCIENT.REGENT.2-0r.ancient` | 只是一点小小的敬意，殿下。老朽可不想被人说狸猫是小气的种族呐。 | Only a small token of respect, Your Majesty. This old one wouldn’t want the tanuki to be called a stingy race. |
+
+### 储君（Regent）称谓统一：Highness → Majesty
+
+`KOMEJI_SATORI` / `MAMIZOU` 中对储君的 `Highness` 统一改为 `Majesty`（eng / jpn 同步）：
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `talk.KOMEJI_SATORI_ANCIENT.REGENT.0-2r.ancient` | ...pleased Your **Highness**... | ...pleased Your **Majesty**... |
+| `talk.FUTATSUIWA_MAMIZOU_ANCIENT.REGENT.0-0.ancient` | His **Highness** the Regent | His **Majesty** the Regent |
+
+> `REGENT.2-0r` 的 eng 旧句（`...Your Highness. This old one wouldn’t want to be thought of as a stingy race.`）整句弃用，改用上表自译版。
+> zhs 侧「殿下」不变；`encounters.json` 的 `beneath the majesty of ...` 为另一语境，未改动。

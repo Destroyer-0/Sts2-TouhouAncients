@@ -3079,3 +3079,24 @@ zhs 追加「未被格挡的」，eng/jpn 跟进。
 | `.record` | 已记录的卡牌：\n{Cards:list:{}`\|`\n} | `Recorded cards:\n{Cards:list:{}`\|`\n}` |
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-12，妖魔图鉴新增「人妖名鉴」hover tip）
+
+`YokaiBestiary.ExtraHoverTips` 新增一条记录列表提示，显示本局已入册的怪物名（怪物名走 `MonsterModel.L10NMonsterLookup("{Id.Entry}.name")`，与 `MonsterModel.Title` 同一实现）。
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.recordTitle` | 人妖名鉴 | `Human-Yokai Register` |
+| `.record` | 已记录的怪物：\n{Monsters:list:{}`\|`\n} | `Recorded monsters:\n{Monsters:list:{}`\|`\n}` |
+
+jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+**行为变更（同批）**：三个遗物的空态 hover tip 全部取消 —— 没有记录时整条提示不出现。
+
+- `YokaiBestiary`（妖魔图鉴）：`recorded.Count == 0` → 返回空列表
+- `BrainInAVat`（缸中之脑）：`!HasBlockedCard` → 返回空列表
+- `DowsingRod`（寻龙尺）：`_storedCards.Count == 0` → 只保留原有的「寻宝」休息处提示
+
+**副作用**：`TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing` 与 `TOUHOUANCIENTS-DOWSING_ROD.recordNothing` 两个键现已无代码引用（三语文件里仍保留，未删除）。
