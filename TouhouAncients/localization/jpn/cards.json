@@ -1,6 +1,6 @@
 ﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸運の素兎",
-    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "カードを[blue]{Cards}[/blue]枚引く。このターン、現在の[gold]手札[/gold]のコストはランダムに変化し、その中のコストが[blue]0[/blue]のカードが、この戦闘中[gold]リプレイ[/gold]を得る。",
+    "TOUHOUANCIENTS-LUCKY_RABBIT.description": "カードを[blue]{Cards}[/blue]枚引く。\nこのターン、現在の[gold]手札[/gold]のコストはランダムに変化し、その中のコストが[blue]0[/blue]のカードが、この戦闘中[gold]リプレイ[/gold]を得る。",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "覚りの瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]占術[/gold][blue]{SatoriScry}[/blue]。\nこれを[gold]手札[/gold]に戻す。このターン、このカードのコストが{Energy:energyIcons()}増加する。\n[purple][jitter]さあ、これからが本番よ！[/jitter][/purple]",

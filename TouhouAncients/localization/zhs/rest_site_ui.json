@@ -12,5 +12,9 @@
 
   "OPTION_TREASURE.name": "寻宝",
   "OPTION_TREASURE.description": "花费[blue]{Gold}[/blue][gold]金币[/gold]雇佣纳兹琳寻宝。从记录的卡牌中选择任意张加入牌组。并有概率挖出一些[jitter][gold]秘宝[/gold][/jitter]!",
-  "OPTION_TREASURE.descriptionDisabled": "你的[gold]金币[/gold]不够雇佣纳兹琳哦！"
+  "OPTION_TREASURE.descriptionDisabled": "你的[gold]金币[/gold]不够雇佣纳兹琳哦！",
+
+  "OPTION_SIGNED_SHIKISHI.name": "签售",
+  "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "你没有可用于[pink]签售[/pink]的[purple]亲笔[/purple]色纸！",
+  "OPTION_SIGNED_SHIKISHI.description": "从你的[gold]牌组[/gold]中移除一张带有[purple]亲笔[/purple][gold]附魔[/gold]的牌。\n不占用休息处选项。"
 }

@@ -110,6 +110,11 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-0.char": "能在这里见到博丽巫女真是令人欣喜。",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-0.next": "继续",
   "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KEINEMOD-KEINE_MOD.0-1.ancient": "啊啊——不瞒你说……比起坐在这儿等别人解决事情，还是自己亲手去退治适合我的风格……",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-0.ancient": "天邪鬼？你来这里干什么？梦想——",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-0.next": "继续",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-1.char": "喂喂，我可是要上去推翻建筑师的！妖怪巫女别碍着我！",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-1.next": "继续",
+  "TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-2.ancient": "……也罢。既然你愿意接这苦差事……就破例招待你一次吧。",
   
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.title": "蕾米莉亚·斯卡雷特",
   "TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT.epithet": "鲜红的荣耀女王",
@@ -751,12 +756,26 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.SILENT.0-0r.ancient": "呵呵，老朽见过太多沉默的家伙，她们的秘密往往最有趣。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.DEFECT.0-0r.ancient": "……老朽见过另一个新生的面具妖怪也有和你一样的疑惑。只有不断学习，才能找到真正的自我。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.DEFECT.1-0r.ancient": "老朽会帮你留意你朋友的下落的，放心吧。",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.0-0r.ancient": "哎呀，阁下难道是储君殿下？老朽听说过您的来历，不知俺们能否做些特产交易呢？",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.0-0.ancient": "哎呀，阁下难道是储君殿下？老朽听说过您的来历，不知俺们能否做些特产交易呢？",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.char": "喂，我要投诉！你上次给我的“特产”怎么是一堆叶子！",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-0.next": "继续",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.1-1.ancient": "哎呀——真不好意思上次拿错东西了。作为赔礼，俺给您补偿点宝贝吧~",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.2-0r.ancient": "只是一点小小的敬意，殿下。老朽可不想被人说狸猫是小气的种族呐。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "想达成目标，可万万不能被冲昏了头脑，不能心急呐。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。",
+
+
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.title": "稗田 阿求",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.epithet": "时间线的撰写者",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.title": "婉拒",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.description": "前去面见涅奥。",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.ancient": "[thinky_dots]祝您好运。[/thinky_dots]",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.next": "继续",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.silent": "[thinky_dots][sine]你从茫茫的记忆海洋中醒来……[/sine][/thinky_dots]",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.firstVisitEver.0-0.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.0-0r.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.1-0r.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
+
 
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "哆来咪·苏伊特",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.epithet": "遂古之初的梦境使",
@@ -819,5 +838,12 @@
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.REGENT.1-1r.next": "癫狂",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.REGENT.1-2r.char": "[jitter]为我的火箭装填！轨道必须遵守黄金螺旋线！在卡拉维纳尔角就这样出发向前！[/jitter]",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.REGENT.1-2r.next": "继续",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.REGENT.1-3r.ancient": "……在高塔的顶端，你会见到她的……"
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.REGENT.1-3r.ancient": "……在高塔的顶端，你会见到她的……",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-0.ancient": "啊，天邪鬼居然会出现在梦境世界里……话说回来，探女她似乎和天邪鬼也是同一种族的呢。",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-0.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-1.char": "哈啊？我跟那种高高在上的天探女可不是一回事！",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-1.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-2.char": "就算是同一种族，我也迟早有一天会把她连着整个自视甚高的月都都推翻掉的！",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-2.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-3.ancient": "呼呼呼，我会看着的……"
 }

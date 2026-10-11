@@ -117,5 +117,18 @@
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "获得[aqua]{Block:diff()}[/aqua]点[gold]格挡[/gold]。\n造成[purple]{Damage:diff()}[/purple]点伤害。\n将[orange]{Cards:diff()}[/orange]张随机牌加入你的[gold]抽牌堆[/gold]。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
 
     "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "噩梦无终",
-    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "每当你抽到这张牌时，失去{Energy:energyIcons()}。\n在[gold]休息处[/gold]休息[blue]{Rests}[/blue]次后，从你的[gold]牌组[/gold]中移除。"
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "每当你抽到这张牌时，失去{Energy:energyIcons()}。\n在[gold]休息处[/gold]休息[blue]{Rests}[/blue]次后，从你的[gold]牌组[/gold]中移除。",
+
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "迷之树叶",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "打出[purple]{CardStr}。[/purple]\n每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "伪装",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。",
+
+    "TOUHOUANCIENTS-YAMA_PUNISHMENT.title": "阎罗之罪罚",
+    "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "被[gold]消耗[/gold]时，从你的[gold]牌组[/gold]中移除。",
+
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "积劳成疾",
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "抽到时，给予自身[blue]1[/blue][gold]虚弱[/gold]。"
 }

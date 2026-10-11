@@ -154,7 +154,7 @@
   "TOUHOUANCIENTS-THE_THIRD_EYE.flavor": "常人之所以能自由行动，只因读不透他人的心声。",
 
   "TOUHOUANCIENTS-HELL_ORIN.title": "地狱猫车",
-  "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue][gold]尸体[/gold]、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][purple]复燃[/purple]。",
+  "TOUHOUANCIENTS-HELL_ORIN.description": "每当一个非[gold]爪牙[/gold]的敌人死亡时，获得[blue]{CorpsePerKill}[/blue][gold]尸体[/gold]、{Energy:energyIcons()}并恢复[blue]{HealPerKill}[/blue]点生命。你可以在[gold]休息处[/gold][red]复燃[/red]。",
   "TOUHOUANCIENTS-HELL_ORIN.flavor": "身着哥特装的黑猫穿行于旧地狱的街道，引领逝者的躯体与灵魂搭上终末的旅行。",
 
   "TOUHOUANCIENTS-HELL_OKUU.title": "地狱鸦羽",
@@ -535,8 +535,8 @@
   "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "世上本没有魔法扫帚，坐的人多了，也便有了。",
 
   "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "魔女的炼药锅",
-  "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "拾起时，获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
-  "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold]炼药。",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.description": "拾起时，获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold][orange]炼药[/orange]。",
+  "TOUHOUANCIENTS-WITCHS_CAULDRON.eventDescription": "获得[blue]2[/blue]个[gold]药水栏位[/gold]。你可以在[gold]休息处[/gold][orange]炼药[/orange]。",
   "TOUHOUANCIENTS-WITCHS_CAULDRON.flavor": "炼药锅里有股洗不掉的蘑菇味。",
 
   "TOUHOUANCIENTS-UNSTABLE_BOTTLE.title": "不稳定魔瓶",
@@ -697,7 +697,7 @@
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙发簪",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "每场战斗你首次死亡时，回复到最大生命值的[blue]{Percent}%[/blue]，[aqua]从下个回合开始，霍青娥接管你的回合。[/aqua]",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "霍青娥",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "[aqua]霍青娥[/aqua]接管回合后，回合开始时使你失去5点生命并获得{energyPrefix:energyIcons(1)}，然后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "[aqua]霍青娥[/aqua]接管回合后，回合开始时使你失去[red]5[/red]点生命并获得{energyPrefix:energyIcons(1)}，然后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "世人都畏惧她的邪仙之名，却又都对那份禁忌的力量趋之若鹜。",
 
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "鲵吞亭特调",
@@ -839,5 +839,77 @@
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]商人[/gold]现在会出售[gold]先古之民遗物[/gold]。",
-  "TOUHOUANCIENTS-FANTASY_DREAM.flavor": ""
+  "TOUHOUANCIENTS-FANTASY_DREAM.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_BRUSH.title": "御阿礼·笔",
+  "TOUHOUANCIENTS-MIARE_BRUSH.description": "接下来的[blue]{Combats}[/blue]场战斗额外掉落[blue]1[/blue]组[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-MIARE_BRUSH.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_INK.title": "御阿礼·墨",
+  "TOUHOUANCIENTS-MIARE_INK.description": "拾起时，为你[gold]牌组[/gold]中所有除[gold]打击[/gold]与[gold]防御[/gold]以外的[gold]初始牌[/gold][gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-MIARE_INK.eventDescription": "为你[gold]牌组[/gold]中所有除[gold]打击[/gold]与[gold]防御[/gold]以外的[gold]初始牌[/gold][gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-MIARE_INK.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_PAPER.title": "御阿礼·纸",
+  "TOUHOUANCIENTS-MIARE_PAPER.description": "拾起时，获得[blue]1[/blue]组[green]升级过[/green]的[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-MIARE_PAPER.eventDescription": "获得[blue]1[/blue]组[green]升级过[/green]的[gold]卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-MIARE_PAPER.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_INKSTONE.title": "御阿礼·砚",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.description": "拾起时，从[blue]3[/blue]张[gold]能力牌[/gold]中选择[blue]1[/blue]张加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.eventDescription": "从[blue]3[/blue]张[gold]能力牌[/gold]中选择[blue]1[/blue]张加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.flavor": "",
+
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.title": "幺乐藏品",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.description": "拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.eventDescription": "将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "",
+
+  "TOUHOUANCIENTS-READING_GLASSES.title": "老花镜",
+  "TOUHOUANCIENTS-READING_GLASSES.description": "拾起时，将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。",
+  "TOUHOUANCIENTS-READING_GLASSES.eventDescription": "将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。",
+  "TOUHOUANCIENTS-READING_GLASSES.flavor": "",
+
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "妖魔图鉴",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "每当你遇到敌人时，记录其名称。再次遇到的名称存在于记录中的敌人将只有[blue]1[/blue]点生命值。",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "过目不忘",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "已记录的怪物：\n{Monsters:list:{}|\n}",
+
+  "TOUHOUANCIENTS-CALMING_TEA.title": "宁神红茶",
+  "TOUHOUANCIENTS-CALMING_TEA.description": "回合结束时，若你处于负面状态，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。",
+  "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
+
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "侦探小说手稿",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "回合结束时，若所有敌人都不处于攻击意图，则在下回合获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "签名色纸",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "",
+
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "山茶花发饰",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "每当你在[gold]休息处[/gold]休息时，你可以[gold]变化[/gold]一张牌。",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "",
+
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.title": "精装封皮",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.description": "你在非战斗房间中获得的卡牌将自动[green]升级[/green]。",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "",
+
+  "TOUHOUANCIENTS-SAKURA_COMB.title": "樱色发梳",
+  "TOUHOUANCIENTS-SAKURA_COMB.description": "每当你进入[gold]休息处[/gold]或遇到[gold]先古之民[/gold]时，获得[blue]{MaxHp}[/blue]点[gold]最大生命[/gold]，然后将一张[red]阎罗之罪罚[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "",
+
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.title": "古代标本",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.description": "[gold]精英[/gold]敌人的生命值减少[blue]{Percent}%[/blue]。",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "",
+
+  "TOUHOUANCIENTS-BLANK_ROSTER.title": "空白名册",
+  "TOUHOUANCIENTS-BLANK_ROSTER.description": "拾起时，随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-BLANK_ROSTER.eventDescription": "随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-BLANK_ROSTER.flavor": "",
+
+  "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": ""
 }

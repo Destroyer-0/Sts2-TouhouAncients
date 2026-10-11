@@ -47,5 +47,8 @@
 
     "TOUHOUANCIENTS-ECHO.description": "打出此牌后，将一张本回合耗能增加[blue]1[/blue]的复制品加入你的[gold]手牌[/gold]。",
     "TOUHOUANCIENTS-ECHO.extraCardText": "YaHoo!!",
-    "TOUHOUANCIENTS-ECHO.title": "回响"
+    "TOUHOUANCIENTS-ECHO.title": "回响",
+
+    "TOUHOUANCIENTS-AUTOGRAPH.description": "这张卡牌从[gold]牌组[/gold]中被移除时，获得[blue]{Gold}[/blue][gold]金币[/gold]。",
+    "TOUHOUANCIENTS-AUTOGRAPH.title": "亲笔"
 }
