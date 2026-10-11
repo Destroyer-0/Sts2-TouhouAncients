@@ -28,7 +28,7 @@ public class EienteiZakushi : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar("DamagePerPotion", 8m),
-        new DynamicVar("PotionSlots", 1m),
+        new DynamicVar("PotionSlots", 2m),
     ];
 
     /// <summary>
