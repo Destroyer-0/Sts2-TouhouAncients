@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.cards;
@@ -39,7 +40,6 @@ public class SeaOpeningMiracle : TouhouAncientCards
         foreach (var enemy in enemies)
         {
             if (CombatManager.Instance.IsOverOrEnding) break;
-
             var halfHp = Math.Floor(enemy.CurrentHp / 2m);
             await CreatureCmd.Damage(choiceContext, [enemy], halfHp, ValueProp.Unpowered | ValueProp.Move, creature, this, cardPlay);
         }

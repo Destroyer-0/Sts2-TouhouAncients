@@ -26,7 +26,7 @@ public class EndlessNightmare : TouhouAncientCards
 
     public override int MaxUpgradeLevel => 0;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
 
     private int _restsRemaining = RestsToClear;
 
