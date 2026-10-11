@@ -35,7 +35,6 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     private const int SummonsPerMove = 2;
     private const int DreamBowHits = 3;
     private const int DecreeVulnerable = 2;
-    private const int WeepingBuff = 4;
     private const int WeepingStrength = 2;
 
     protected override bool HasAnimation => false;
@@ -45,6 +44,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     private int DreamBowDamage => 4;
 
     private int DecreeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
+    private int WeepingBuff => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
 
     private MoveState _fightForMe = null!;
     private MoveState _fightForMeBeforeDecree = null!;
