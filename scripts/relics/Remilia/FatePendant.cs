@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -61,9 +62,9 @@ public class FatePendant : TouhouAncientRelics
         return Task.CompletedTask;
     }
 
-    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != base.Owner) return Task.CompletedTask;
+        if (cardPlay.Card.Owner != base.Owner) return;
 
         // 「本回合首张牌」只统计玩家手动打出的牌，排除自动打出。
         // CardPlayFinished 已在 Hook.AfterCardPlayed 之前写入历史，故此处计数为 1 即表示刚打出的是首张手动牌。
@@ -72,19 +73,22 @@ public class FatePendant : TouhouAncientRelics
                             !entry.CardPlay.IsAutoPlay &&
                             entry.HappenedThisTurn(base.Owner.Creature.CombatState)) == 1;
 
-        if (!isFirstManualCardThisTurn) return Task.CompletedTask;
+        if (!isFirstManualCardThisTurn) return;
 
         // 本回合第一张手动牌打出后，无论它是不是「命运」牌，都清除所有命运标记。
         // 触发与否要在清除前判定（ClearMarks 会移除标记）。
         bool triggered = IsMarked(cardPlay.Card);
         ClearMarks();
 
-        if (!triggered) return Task.CompletedTask;
-        if (RunManager.Instance.IsGameOver) return Task.CompletedTask;
+        if (!triggered) return;
+        if (RunManager.Instance.IsGameOver) return;
 
         Flash();
-        TalkCmd.Play(RelicModel.L10NLookup(base.Id.Entry + ".approval"), base.Owner.Creature, VfxColor.Red);
-        return GainEnergy();
+        if (LocalContext.IsMe(Owner))
+        {
+            TalkCmd.Play(RelicModel.L10NLookup(base.Id.Entry + ".approval"), base.Owner.Creature, VfxColor.Red);
+        }
+        await GainEnergy();
     }
 
     /// <summary>战斗结束时清空标记（读档、异常中断等情况的安全网）。</summary>
