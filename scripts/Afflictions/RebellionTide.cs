@@ -10,6 +10,8 @@ namespace TouhouAncients.Scripts.Afflictions;
 /// </summary>
 public sealed class RebellionTide : TouhouAncientAfflictionModel
 {
+    
+    
     public override bool CanAfflict(CardModel card)
     {
         return card.Rarity == CardRarity.Basic&& (card.Tags.Contains(CardTag.Strike)||card.Tags.Contains(CardTag.Defend));

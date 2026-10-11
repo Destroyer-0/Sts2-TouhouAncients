@@ -1,50 +1,107 @@
 shader_type canvas_item;
+render_mode blend_premul_alpha;
 
-// 叛乱之潮：整张牌倒置渲染（180°）——【暂时停用，实现整段注释保留，随时可恢复】
-//
-// 恢复方法：把下面 <实现> 两段的注释去掉，并删掉文件末尾的停用 stub。
-//
-// 原理：overlay 只能画自己，要把卡面读回来，再按「绕卡面中心旋转后的局部坐标」去采样屏幕，
-// 就等于把整张牌转了个方向。屏幕纹理是预乘 alpha，采样后要除回直通 alpha 再用默认混合输出。
-// 场景里在采样点前面放了一个 BackBufferCopy（copy_mode = 2）节点：screen_texture
-// 拿的是「最近一次 backbuffer 拷贝」的快照，不强制重拷时快照可能只包含卡牌早期绘制的
-// 节点（踩过：卡牌的 CanvasGroup 立绘先触发了一次拷贝 → 只有立绘会被翻转）。
+// 叛乱之潮的卡面效果：复制自 devoured.gdshader（吞噬），保留独立副本以便单独调参。
+// 边缘暗潮向内蔓延，暗示卡牌正在被吞没。
 
-// <实现> 参数
-// uniform sampler2D screen_tex : hint_screen_texture, repeat_disable, filter_linear;
-//
-// // 倒置角度：180 = 完整倒置（默认）；0 = 不翻转，可用来做任意角度的「歪牌」
-// uniform float flip_degrees : hint_range(0.0, 360.0) = 180.0;
+uniform float edge_intensity : hint_range(0.0, 1.0) = 0.8;
+uniform float pulse_speed : hint_range(0.1, 4.0) = 0.7;
+uniform float void_width : hint_range(0.0, 0.5) = 0.175;
+uniform float noise_scale : hint_range(1.0, 20.0) = 5.0;
+uniform float void_stretch : hint_range(1.0, 6.0) = 3.0;
+uniform vec4 void_color : source_color = vec4(0.08, 0.0, 0.12, 1.0);
+uniform vec4 void_edge_color : source_color = vec4(0.25, 0.02, 0.35, 1.0);
+uniform float corner_radius : hint_range(0.0, 0.15) = 0.055;
 
-// <实现> 主逻辑
-// void fragment() {
-// 	// 局部 UV → 屏幕 UV 的线性映射（列 = dS/dUV）。用屏幕空间导数求出来，
-// 	// 就不用知道画布/相机变换，手牌旋转、缩放时同样成立。
-// 	mat2 jac_screen = mat2(dFdx(SCREEN_UV), dFdy(SCREEN_UV));
-// 	mat2 jac_local = mat2(dFdx(UV), dFdy(UV));
-//
-// 	// 卡牌尺寸为 0（入场/消失动画）时导数退化，直接不出图，避免 NaN 闪白
-// 	if (abs(determinant(jac_local)) < 1e-9) {
-// 		COLOR = vec4(0.0);
-// 	} else {
-// 		mat2 local_to_screen = jac_screen * inverse(jac_local);
-//
-// 		float angle = radians(flip_degrees);
-// 		float cs = cos(angle);
-// 		float sn = sin(angle);
-// 		vec2 centered = UV - 0.5;
-// 		vec2 target_uv = vec2(cs * centered.x - sn * centered.y, sn * centered.x + cs * centered.y) + 0.5;
-// 		vec2 src = SCREEN_UV + local_to_screen * (target_uv - UV);
-//
-// 		vec4 col = texture(screen_tex, src);
-// 		if (col.a > 0.0001) {
-// 			col.rgb /= col.a; // 预乘 → 直通
-// 		}
-// 		COLOR = col;
-// 	}
-// }
+float hash(vec2 p) {
+	vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+	p3 += dot(p3, p3.yzx + 33.33);
+	return fract((p3.x + p3.y) * p3.z);
+}
 
-// 停用中：不出图（overlay 场景照常挂载，只是画出来全透明）
+float value_noise(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+
+	float a = hash(i);
+	float b = hash(i + vec2(1.0, 0.0));
+	float c = hash(i + vec2(0.0, 1.0));
+	float d = hash(i + vec2(1.0, 1.0));
+
+	return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+float fbm(vec2 p) {
+	float value = 0.0;
+	float amplitude = 0.5;
+	for (int i = 0; i < 4; i++) {
+		value += amplitude * value_noise(p);
+		p *= 2.1;
+		amplitude *= 0.5;
+	}
+	return value;
+}
+
+float rounded_rect_sdf(vec2 p, vec2 half_size, float radius) {
+	vec2 d = abs(p) - half_size + vec2(radius);
+	return length(max(d, vec2(0.0))) + min(max(d.x, d.y), 0.0) - radius;
+}
+
 void fragment() {
-	COLOR = vec4(0.0);
+	vec2 uv = UV;
+	float t = TIME * pulse_speed;
+
+	// Card shape mask
+	vec2 centered = uv - 0.5;
+	float sdf = rounded_rect_sdf(centered, vec2(0.5), corner_radius);
+	float card_mask = 1.0 - smoothstep(-0.003, 0.0, sdf);
+	float edge_dist = max(-sdf, 0.0);
+
+	// Determine nearest-edge direction for void stretching.
+	// edge_blend: 0 = nearest edge is horizontal (top/bottom), 1 = vertical (left/right)
+	float dist_h = min(uv.y, 1.0 - uv.y);
+	float dist_v = min(uv.x, 1.0 - uv.x);
+	float edge_blend = smoothstep(0.0, 0.05, dist_h - dist_v);
+
+	// Stretch noise along the edge so round blobs become elongated fingers.
+	// Near left/right edges: compress X, stretch Y. Near top/bottom: compress Y, stretch X.
+	vec2 stretch_lr = vec2(1.0, void_stretch);
+	vec2 stretch_tb = vec2(void_stretch, 1.0);
+	vec2 stretch = mix(stretch_tb, stretch_lr, edge_blend);
+
+	// Warp noise coordinates in place using sin/cos oscillation (no scrolling)
+	vec2 noise_uv = uv * noise_scale * stretch;
+	vec2 warp = vec2(
+		sin(t * 0.7 + uv.y * 4.0) * 0.4 + cos(t * 0.5 + uv.x * 3.0) * 0.3,
+		cos(t * 0.6 + uv.x * 4.0) * 0.4 + sin(t * 0.4 + uv.y * 3.0) * 0.3
+	) * stretch;
+
+	// Two noise layers with different warp phases for organic morphing
+	float n1 = fbm(noise_uv + warp);
+	float n2 = fbm(noise_uv * 1.4 + warp * 0.7 + 5.0);
+	float combined_noise = mix(n1, n2, 0.45);
+
+	// Void reaches inward from edges, shaped by noise
+	float reach = void_width + combined_noise * 0.18;
+	float void_mask = smoothstep(reach, 0.0, edge_dist);
+
+	// Sharpen for more definition
+	void_mask = smoothstep(0.1, 0.6, void_mask);
+
+	// Breathing pulse that varies along the edge
+	float breath = 0.8 + 0.2 * sin(t * 1.3 + combined_noise * 3.0);
+	void_mask *= breath;
+
+	// Color gradient: deep void at edge, lighter at the tips
+	float edge_color_blend = smoothstep(0.08, 0.0, edge_dist);
+	vec3 effect_color = mix(void_edge_color.rgb, void_color.rgb, edge_color_blend);
+
+	// Faint flickering specks within the void
+	float speck = value_noise(noise_uv * 3.5 + warp * 2.0);
+	speck = step(0.9, speck) * void_mask * 0.35;
+	effect_color += vec3(0.3, 0.1, 0.5) * speck;
+
+	float alpha = void_mask * edge_intensity * card_mask;
+	COLOR = vec4(effect_color * alpha, alpha);
 }

@@ -2,19 +2,23 @@
 
 [ext_resource type="Shader" path="res://shaders/afflictions/rebellion_tide.gdshader" id="1_shader"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_flip"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rebellion_tide"]
 shader = ExtResource("1_shader")
-shader_parameter/flip_degrees = 180.0
+shader_parameter/edge_intensity = 0.8
+shader_parameter/pulse_speed = 0.7
+shader_parameter/void_width = 0.175
+shader_parameter/noise_scale = 5.0
+shader_parameter/void_stretch = 3.0
+shader_parameter/void_color = Color(0.08, 0.0, 0.12, 1.0)
+shader_parameter/void_edge_color = Color(0.25, 0.02, 0.35, 1.0)
+shader_parameter/corner_radius = 0.055
 
 [node name="RebellionTide" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="ForceBackbufferCopy" type="BackBufferCopy" parent="."]
-copy_mode = 2
-
-[node name="FlipOverlay" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_flip")
+[node name="VoidOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rebellion_tide")
 layout_mode = 0
 offset_left = -150.0
 offset_top = -211.0
