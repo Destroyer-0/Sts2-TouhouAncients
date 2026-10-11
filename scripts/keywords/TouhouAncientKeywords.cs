@@ -52,6 +52,10 @@ public class TouhouAncientKeywords
     [KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword TouhouAncientPuzzle;
 
+    [CustomEnum("TouhouAncientDisguise")]
+    [KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword TouhouAncientDisguise;
+
 }
 
 /*
