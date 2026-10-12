@@ -11,7 +11,7 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Autograph : TouhouAncientEnchantmentModel
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Gold", 100m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Gold", 60m)];
 
     /// <summary>BeforeCardRemoved 只在 CardPileCmd.RemoveFromDeck 里触发，正合「从牌组中被移除」。</summary>
     public override async Task BeforeCardRemoved(CardModel card)
