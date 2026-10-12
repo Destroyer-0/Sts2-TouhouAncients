@@ -840,6 +840,76 @@
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].",
   "TOUHOUANCIENTS-FANTASY_DREAM.flavor": "",
 
+  "TOUHOUANCIENTS-MIARE_BRUSH.title": "Miare Brush",
+  "TOUHOUANCIENTS-MIARE_BRUSH.description": "For the next [blue]{Combats}[/blue] combats, gain [blue]1[/blue] additional [gold]Card Reward[/gold].",
+  "TOUHOUANCIENTS-MIARE_BRUSH.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_INK.title": "Miare Ink",
+  "TOUHOUANCIENTS-MIARE_INK.description": "Upon pickup, [gold]Enchant[/gold] all [gold]Starter[/gold] cards in your [gold]Deck[/gold] other than [gold]Strike[/gold] and [gold]Defend[/gold] with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-MIARE_INK.eventDescription": "[gold]Enchant[/gold] all [gold]Starter[/gold] cards in your [gold]Deck[/gold] other than [gold]Strike[/gold] and [gold]Defend[/gold] with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-MIARE_INK.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_PAPER.title": "Miare Paper",
+  "TOUHOUANCIENTS-MIARE_PAPER.description": "Upon pickup, gain [blue]1[/blue] [green]Upgraded[/green] [gold]Card Reward[/gold].",
+  "TOUHOUANCIENTS-MIARE_PAPER.eventDescription": "Gain [blue]1[/blue] [green]Upgraded[/green] [gold]Card Reward[/gold].",
+  "TOUHOUANCIENTS-MIARE_PAPER.flavor": "",
+
+  "TOUHOUANCIENTS-MIARE_INKSTONE.title": "Miare Inkstone",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.description": "Upon pickup, choose [blue]1[/blue] of [blue]3[/blue] [gold]Power[/gold] cards to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.eventDescription": "Choose [blue]1[/blue] of [blue]3[/blue] [gold]Power[/gold] cards to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-MIARE_INKSTONE.flavor": "",
+
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.title": "Yougakudan Collection",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.description": "Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.eventDescription": "Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "",
+
+  "TOUHOUANCIENTS-READING_GLASSES.title": "Reading Glasses",
+  "TOUHOUANCIENTS-READING_GLASSES.description": "Upon pickup, add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.",
+  "TOUHOUANCIENTS-READING_GLASSES.eventDescription": "Add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.",
+  "TOUHOUANCIENTS-READING_GLASSES.flavor": "",
+
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "Yokai Bestiary",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "Whenever you encounter an enemy, record its name. Enemies you encounter again whose names are recorded have only [blue]1[/blue] HP.",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
+
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "Human-Yokai Register",
-  "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "Recorded monsters:\n{Monsters:list:{}|\n}"
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "Recorded monsters:\n{Monsters:list:{}|\n}",
+
+  "TOUHOUANCIENTS-CALMING_TEA.title": "Calming Tea",
+  "TOUHOUANCIENTS-CALMING_TEA.description": "At the end of your turn, if you are affected by a debuff, gain [blue]{Block}[/blue] [gold]Block[/gold].",
+  "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
+
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "Detective Novel Manuscript",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "At the end of your turn, if no enemy intents to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] next turn.",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "Signed Shikishi",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "A random card in each card reward is [gold]Enchanted[/gold] with [purple]{EnchantmentName}[/purple]. You may hold a [pink]Signing Session[/pink] at [gold]Rest Sites[/gold].",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "",
+
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "Camellia Hairpin",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "Whenever you rest at a [gold]Rest Site[/gold], you may [gold]Transform[/gold] a card.",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "",
+
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.title": "Hardcover Binding",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.description": "Cards you obtain in non-combat rooms are automatically [green]Upgraded[/green].",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "",
+
+  "TOUHOUANCIENTS-SAKURA_COMB.title": "Sakura Comb",
+  "TOUHOUANCIENTS-SAKURA_COMB.description": "Whenever you enter a [gold]Rest Site[/gold] or encounter an [gold]Ancient[/gold], gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold], then add a [red]Yama's Punishment[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "",
+
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.title": "Ancient Specimen",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.description": "[gold]Elite[/gold] enemies have [blue]{Percent}%[/blue] less HP.",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "",
+
+  "TOUHOUANCIENTS-BLANK_ROSTER.title": "Blank Roster",
+  "TOUHOUANCIENTS-BLANK_ROSTER.description": "Upon pickup, gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-BLANK_ROSTER.eventDescription": "Gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-BLANK_ROSTER.flavor": "",
+
+  "TOUHOUANCIENTS-BELL_BOOKMARK.title": "Bell Bookmark",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in Unknown rooms is greatly increased.",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": ""
 }

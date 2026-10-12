@@ -147,3 +147,48 @@
 - 与既有 `TOUHOUANCIENTS-UPGRADE_CARD_REWARD`（`Upgrade {cards} card(s).`）保持同一句式；`{cards}` 为小写变量名，不可改。
 - 本条与超ZUN啤酒（potions）的机制改动译文已在上一轮完成，此处仅作登记。
 
+---
+
+## 增量更新（基准提交 ec95c32 之后，2026-10-12，新卡牌与「伪装」关键词）
+
+### 迷之树叶（`MYSTERIOUS_LEAF`）
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | 迷之树叶 | `Mysterious Leaf` |
+| `.description` | `{LeafText}` | `{LeafText}` |
+| `.descriptionIdle` | 每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i] | `Whenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is this all the work of youkai too?[/i]` |
+| `.descriptionDisguised` | 打出[purple]{CardStr}。[/purple]\n每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i] | `Play [purple]{CardStr}.[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is this all the work of youkai too?[/i]` |
+| `.disguiseTitle` | 伪装 | `Disguise` |
+| `.disguiseDescription` | 此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。 | `This card's cost matches that of the card it is disguised as. Playing this card plays a copy of that card.` |
+
+### 阎罗之罪罚（`YAMA_PUNISHMENT`）
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | 阎罗之罪罚 | `Yama's Punishment` |
+| `.description` | 被[gold]消耗[/gold]时，从你的[gold]牌组[/gold]中移除。 | `When [gold]Exhausted[/gold], remove it from your [gold]Deck[/gold].` |
+
+### 积劳成疾（`OVERWORK_ILLNESS`）
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | 积劳成疾 | `Overwork` |
+| `.description` | 抽到时，给予自身[blue]1[/blue][gold]虚弱[/gold]。 | `Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.` |
+
+### 关键词「伪装」（`card_keywords.json`）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TOUHOUANCIENTS-TOUHOUANCIENTDISGUISE.title` | 伪装 | `Disguise` |
+
+### 备注
+- `[purple]伪装[/purple]` 与关键词标题 `Disguise` **逐字一致**（否则悬浮提示无法关联）。
+- `{LeafText}` / `{CardStr}` 为动态变量，原样保留；`.descriptionIdle` / `.descriptionDisguised` 句式仿既有 `SEAL_CIRCLE`（封魔阵）。
+- 「被消耗时」取既有 `OATH`（圣约）：`When this card is [gold]Exhausted[/gold], ...`。
+- 「抽到时」取原版 `VOID` / `KINGLY_KICK`：`Whenever you draw this card, ...`；「给予自身…虚弱」取原版 `NEUROSURGE`：`apply … to yourself`。
+- 卡名互引见 `relic翻译.md`（`SAKURA_COMB` / `BLANK_ROSTER`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+

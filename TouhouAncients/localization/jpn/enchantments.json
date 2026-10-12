@@ -47,5 +47,8 @@
 
     "TOUHOUANCIENTS-ECHO.description": "When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.",
     "TOUHOUANCIENTS-ECHO.extraCardText": "YaHoo!!",
-    "TOUHOUANCIENTS-ECHO.title": "Echo"
+    "TOUHOUANCIENTS-ECHO.title": "Echo",
+
+    "TOUHOUANCIENTS-AUTOGRAPH.description": "When this card is removed from your [gold]Deck[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].",
+    "TOUHOUANCIENTS-AUTOGRAPH.title": "Autograph"
 }

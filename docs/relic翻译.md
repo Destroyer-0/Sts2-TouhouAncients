@@ -3100,3 +3100,70 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - `DowsingRod`（寻龙尺）：`_storedCards.Count == 0` → 只保留原有的「寻宝」休息处提示
 
 **副作用**：`TOUHOUANCIENTS-BRAIN_IN_A_VAT.forgetNothing` 与 `TOUHOUANCIENTS-DOWSING_ROD.recordNothing` 两个键现已无代码引用（三语文件里仍保留，未删除）。
+
+---
+
+## 增量更新（基准提交 ec95c32 之后，2026-10-12，稗田阿求 16 件遗物）
+
+阿求遗物池（`HiedaNoAkyuuAncient.MainPool`）共 16 件，本轮全部补齐 eng/jpn。
+
+| 键名（去前缀 `TOUHOUANCIENTS-`） | 中文标题 | English |
+|---|---|---|
+| `MIARE_BRUSH` | 御阿礼·笔 | `Miare Brush` |
+| `MIARE_INK` | 御阿礼·墨 | `Miare Ink` |
+| `MIARE_PAPER` | 御阿礼·纸 | `Miare Paper` |
+| `MIARE_INKSTONE` | 御阿礼·砚 | `Miare Inkstone` |
+| `YOUGAKUDAN_COLLECTION` | 幺乐藏品 | `Yougakudan Collection` |
+| `READING_GLASSES` | 老花镜 | `Reading Glasses` |
+| `YOKAI_BESTIARY` | 妖魔图鉴 | `Yokai Bestiary` |
+| `CALMING_TEA` | 宁神红茶 | `Calming Tea` |
+| `DETECTIVE_MANUSCRIPT` | 侦探小说手稿 | `Detective Novel Manuscript` |
+| `SIGNED_SHIKISHI` | 签名色纸 | `Signed Shikishi` |
+| `CAMELLIA_HAIRPIN` | 山茶花发饰 | `Camellia Hairpin` |
+| `HARDCOVER_BINDING` | 精装封皮 | `Hardcover Binding` |
+| `SAKURA_COMB` | 樱色发梳 | `Sakura Comb` |
+| `ANCIENT_SPECIMEN` | 古代标本 | `Ancient Specimen` |
+| `BLANK_ROSTER` | 空白名册 | `Blank Roster` |
+| `BELL_BOOKMARK` | 铃铛书签 | `Bell Bookmark` |
+
+### 描述原文与译文
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `MIARE_BRUSH.description` | 接下来的[blue]{Combats}[/blue]场战斗额外掉落[blue]1[/blue]组[gold]卡牌奖励[/gold]。 | `For the next [blue]{Combats}[/blue] combats, gain [blue]1[/blue] additional [gold]Card Reward[/gold].` |
+| `MIARE_INK.description` | 拾起时，为你[gold]牌组[/gold]中所有除[gold]打击[/gold]与[gold]防御[/gold]以外的[gold]初始牌[/gold][gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | `Upon pickup, [gold]Enchant[/gold] all [gold]Starter[/gold] cards in your [gold]Deck[/gold] other than [gold]Strike[/gold] and [gold]Defend[/gold] with [purple]{EnchantmentName}[/purple].` |
+| `MIARE_INK.eventDescription` | 为你[gold]牌组[/gold]中所有除[gold]打击[/gold]与[gold]防御[/gold]以外的[gold]初始牌[/gold][gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | `[gold]Enchant[/gold] all [gold]Starter[/gold] cards in your [gold]Deck[/gold] other than [gold]Strike[/gold] and [gold]Defend[/gold] with [purple]{EnchantmentName}[/purple].` |
+| `MIARE_PAPER.description` | 拾起时，获得[blue]1[/blue]组[green]升级过[/green]的[gold]卡牌奖励[/gold]。 | `Upon pickup, gain [blue]1[/blue] [green]Upgraded[/green] [gold]Card Reward[/gold].` |
+| `MIARE_PAPER.eventDescription` | 获得[blue]1[/blue]组[green]升级过[/green]的[gold]卡牌奖励[/gold]。 | `Gain [blue]1[/blue] [green]Upgraded[/green] [gold]Card Reward[/gold].` |
+| `MIARE_INKSTONE.description` | 拾起时，从[blue]3[/blue]张[gold]能力牌[/gold]中选择[blue]1[/blue]张加入你的[gold]牌组[/gold]。 | `Upon pickup, choose [blue]1[/blue] of [blue]3[/blue] [gold]Power[/gold] cards to add to your [gold]Deck[/gold].` |
+| `MIARE_INKSTONE.eventDescription` | 从[blue]3[/blue]张[gold]能力牌[/gold]中选择[blue]1[/blue]张加入你的[gold]牌组[/gold]。 | `Choose [blue]1[/blue] of [blue]3[/blue] [gold]Power[/gold] cards to add to your [gold]Deck[/gold].` |
+| `YOUGAKUDAN_COLLECTION.description` | 拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。 | `Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
+| `YOUGAKUDAN_COLLECTION.eventDescription` | 将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。 | `Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
+| `READING_GLASSES.description` | 拾起时，将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。 | `Upon pickup, add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.` |
+| `READING_GLASSES.eventDescription` | 将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。 | `Add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.` |
+| `YOKAI_BESTIARY.description` | 每当你遇到敌人时，记录其名称。再次遇到的名称存在于记录中的敌人将只有[blue]1[/blue]点生命值。 | `Whenever you encounter an enemy, record its name. Enemies you encounter again whose names are recorded have only [blue]1[/blue] HP.` |
+| `CALMING_TEA.description` | 回合结束时，若你处于负面状态，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。 | `At the end of your turn, if you are affected by a debuff, gain [blue]{Block}[/blue] [gold]Block[/gold].` |
+| `DETECTIVE_MANUSCRIPT.description` | 回合结束时，若所有敌人都不处于攻击意图，则在下回合获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。 | `At the end of your turn, if no enemy intents to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] next turn.` |
+| `SIGNED_SHIKISHI.description` | 每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。 | `A random card in each card reward is [gold]Enchanted[/gold] with [purple]{EnchantmentName}[/purple]. You may hold a [pink]Signing Session[/pink] at [gold]Rest Sites[/gold].` |
+| `CAMELLIA_HAIRPIN.description` | 每当你在[gold]休息处[/gold]休息时，你可以[gold]变化[/gold]一张牌。 | `Whenever you rest at a [gold]Rest Site[/gold], you may [gold]Transform[/gold] a card.` |
+| `HARDCOVER_BINDING.description` | 你在非战斗房间中获得的卡牌将自动[green]升级[/green]。 | `Cards you obtain in non-combat rooms are automatically [green]Upgraded[/green].` |
+| `SAKURA_COMB.description` | 每当你进入[gold]休息处[/gold]或遇到[gold]先古之民[/gold]时，获得[blue]{MaxHp}[/blue]点[gold]最大生命[/gold]，然后将一张[red]阎罗之罪罚[/red]加入你的[gold]牌组[/gold]。 | `Whenever you enter a [gold]Rest Site[/gold] or encounter an [gold]Ancient[/gold], gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold], then add a [red]Yama's Punishment[/red] to your [gold]Deck[/gold].` |
+| `ANCIENT_SPECIMEN.description` | [gold]精英[/gold]敌人的生命值减少[blue]{Percent}%[/blue]。 | `[gold]Elite[/gold] enemies have [blue]{Percent}%[/blue] less HP.` |
+| `BLANK_ROSTER.description` | 拾起时，随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。 | `Upon pickup, gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].` |
+| `BLANK_ROSTER.eventDescription` | 随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。 | `Gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].` |
+| `BELL_BOOKMARK.description` | 在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。 | `In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in Unknown rooms is greatly increased.` |
+
+### 备注（原版句式来源）
+- `拾起时，…` → `Upon pickup, ...`（原版 `LEAD_PAPERWEIGHT` / `NUTRITIOUS_SOUP`）。
+- `初始牌` → `[gold]Starter[/gold]`，与既有 `REBELLION_HORN`（反叛号角）译法一致；`打击/防御` → `[gold]Strike[/gold]` / `[gold]Defend[/gold]`（原版 `GHOST_SEED` / `PAELS_CLAW`）。
+- `非初始卡牌` → `non-Basic card`，与既有 `PIONEER_DREAM`（拓荒之梦）同句完全一致（两键中文原文相同）。
+- `卡牌奖励` → `[gold]Card Reward[/gold]`（既有 `DOWSING_ROD`）；`额外掉落` → `additional`（原版 `PRAYER_WHEEL` / `WHITE_STAR`）。
+- `负面状态` → `a debuff`（原版 `UNSETTLING_LAMP` / `ARTIFACT_POWER`）；`给予自身…` → `apply … to yourself`（原版 `NEUROSURGE`）。
+- `处于攻击意图` → `intents to Attack`（既有 `DREAM_SEAL`）。
+- `？房间` → `Unknown rooms`（原版 `map.json` `LEGEND_UNKNOWN.title` = `Unknown`）。
+- `御阿礼` → `Miare`；`幺乐藏品` → `Yougakudan Collection`（用户确认）；`积劳成疾` → `Overwork`（用户确认）。
+- 卡名互引：`[gold]迷之树叶[/gold]` = `Mysterious Leaf`、`[red]阎罗之罪罚[/red]` = `Yama's Punishment`、`[red]积劳成疾[/red]` = `Overwork`，须与 `cards.json` 卡名逐字一致。
+- `稗田阿求遗物` → `[gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]`，句式仿既有 `CHAOS_DREAM`（混沌之梦）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---

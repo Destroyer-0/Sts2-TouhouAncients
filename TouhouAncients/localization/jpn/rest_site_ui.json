@@ -12,5 +12,9 @@
 
   "OPTION_TREASURE.name": "Treasure Hunt",
   "OPTION_TREASURE.description": "Spend [blue]{Gold}[/blue] [gold]Gold[/gold] to hire Nazrin for treasure hunting. Choose any number of recorded cards to add to your [gold]Deck[/gold]. There’s also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!",
-  "OPTION_TREASURE.descriptionDisabled": "You don't have enough [gold]Gold[/gold] to hire Nazrin!"
+  "OPTION_TREASURE.descriptionDisabled": "You don't have enough [gold]Gold[/gold] to hire Nazrin!",
+
+  "OPTION_SIGNED_SHIKISHI.name": "Signing Session",
+  "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "You have no [purple]Autograph[/purple] shikishi to use for a [pink]Signing Session[/pink]!",
+  "OPTION_SIGNED_SHIKISHI.description": "Remove a card with the [purple]Autograph[/purple] [gold]Enchantment[/gold] from your [gold]Deck[/gold].\nDoes not use a [gold]Rest Site[/gold] option."
 }

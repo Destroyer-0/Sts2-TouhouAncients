@@ -1334,3 +1334,53 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 > `REGENT.2-0r` 的 eng 旧句（`...Your Highness. This old one wouldn’t want to be thought of as a stingy race.`）整句弃用，改用上表自译版。
 > zhs 侧「殿下」不变；`encounters.json` 的 `beneath the majesty of ...` 为另一语境，未改动。
+
+---
+
+## 增量更新（基准提交 ec95c32 之后，2026-10-12）
+
+新增：灵梦×正邪（5 条）、稗田阿求 Ancient（10 条）、哆来咪×正邪（7 条）。
+
+### 灵梦×正邪（`HAKUREI_REIMU_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA`）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.0-0.ancient` | 天邪鬼？你来这里干什么？梦想—— | `Amanojaku? What are you doing here? Dream—` |
+| `.0-0.next` | 继续 | `Continue` |
+| `.0-1.char` | 喂喂，我可是要上去推翻建筑师的！妖怪巫女别碍着我！ | `Hey hey, I'm going up there to topple the Architect! Don't get in my way, you youkai shrine maiden!` |
+| `.0-1.next` | 继续 | `Continue` |
+| `.0-2.ancient` | ……也罢。既然你愿意接这苦差事……就破例招待你一次吧。 | `...Fine. Since you're willing to take on this thankless job... I'll make an exception and treat you this once.` |
+
+### 稗田阿求（`HIEDA_NO_AKYUU_ANCIENT`）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | 稗田 阿求 | `Hieda no Akyuu` |
+| `.epithet` | 时间线的撰写者 | `Writer of the Timelines` |
+| `.pages.INITIAL.options.MEET_NEOW.title` | 婉拒 | `Politely Decline` |
+| `.pages.INITIAL.options.MEET_NEOW.description` | 前去面见涅奥。 | `Go meet Neow.` |
+| `.talk.MEET_NEOW.ancient` | `[thinky_dots]祝您好运。[/thinky_dots]` | `[thinky_dots]Good luck to you.[/thinky_dots]` |
+| `.talk.MEET_NEOW.next` | 继续 | `Continue` |
+| `.talk.MEET_NEOW.silent` | `[thinky_dots][sine]你从茫茫的记忆海洋中醒来……[/sine][/thinky_dots]` | `[thinky_dots][sine]You awaken from the vast sea of memories...[/sine][/thinky_dots]` |
+| `.talk.firstVisitEver.0-0.ancient` / `.talk.ANY.0-0r.ancient` / `.talk.ANY.1-0r.ancient` | 这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。 | `These historical records were once compiled by a war historian named Repy... but I heard he went missing recently.` |
+
+### 哆来咪×正邪（`DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA`）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.0-0.ancient` | 啊，天邪鬼居然会出现在梦境世界里……话说回来，探女她似乎和天邪鬼也是同一种族的呢。 | `Ah, an Amanojaku showing up in the Dream World... Come to think of it, Sagume seems to be the same race as the Amanojaku.` |
+| `.0-0.next` | 继续 | `Continue` |
+| `.0-1.char` | 哈啊？我跟那种高高在上的天探女可不是一回事！ | `Huh? I'm nothing like those high-and-mighty Amanosakume!` |
+| `.0-1.next` | 继续 | `Continue` |
+| `.0-2.char` | 就算是同一种族，我也迟早有一天会把她连着整个自视甚高的月都都推翻掉的！ | `Even if we're the same race, sooner or later I'll bring her down, along with that whole stuck-up Lunar Capital!` |
+| `.0-2.next` | 继续 | `Continue` |
+| `.0-3.ancient` | 呼呼呼，我会看着的…… | `Hehehe, I'll be watching...` |
+
+### 备注
+- **付袭 → `Repy`**：原版事件 `WAR_HISTORIAN_REPY`（`War Historian, Repy`）已用此名；`战史学家` 同译 `war historian`。
+- **天探女 → `Amanosakume`（种族名，用户指定用 あまのさくめ 罗马音）；探女 → `Sagume`（角色名）**。
+- **月都 → `Lunar Capital`**，沿用辉夜条目既有译法。
+- 阿求 `[thinky_dots]` / `[sine]` 标记、`MEET_NEOW` 选项键名与哆来咪「离开梦境」共用实现（见 `HiedaNoAkyuuAncient.cs`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
