@@ -91,7 +91,7 @@ public class KillingAura : TouhouAncientCards
         }
 
         damage = Hook.ModifyDamage(base.Owner.RunState, base.Owner.Creature.CombatState, null, base.Owner.Creature,
-            damage, ValueProp.Move, card, null, ModifyDamageHookType.All, CardPreviewMode.None, out _);
+            damage, ValueProp.Move, card, ModifyDamageHookType.All, CardPreviewMode.None, out _);
         return damage;
     }
 
@@ -108,7 +108,7 @@ public class KillingAura : TouhouAncientCards
 
         // 造成累积的伤害
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, cardPlay)
+            .FromCard(this)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }

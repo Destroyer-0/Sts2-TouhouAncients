@@ -48,8 +48,8 @@
   "TOUHOUANCIENTS-DONGNICHANGSHU.flavor": "东尼意思。",
 
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "无穷无尽的愤怒",
-  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）加入你的[gold]手牌[/gold]。",
-  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的{AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]|[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）}加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]愤怒[/gold]加入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的{AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]|[gold]愤怒[/gold]}加入你的[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "不要愤怒，愤怒会降低你的智慧。",
 
   "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "近似两级的营帐",

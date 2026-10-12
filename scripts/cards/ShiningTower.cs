@@ -85,7 +85,7 @@ public class ShiningTower : TouhouAncientCards
 
         // 对所有敌人造成伤害并击晕
         AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-            .FromCard(this, cardPlay)
+            .FromCard(this)
             .TargetingAllOpponents(base.CombatState)
             .WithHitFx("vfx/vfx_starry_impact", null, "blunt_attack.mp3")
             .SpawningHitVfxOnEachCreature()

@@ -78,7 +78,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// <summary>遗物池的候选 + 额外选项 + 挑战选项，供图鉴 / 控制台 / 调试选项使用。</summary>
     private IEnumerable<EventOption> AllOptions =>
     [
-        .. TARelicOptionPools.SelectMany(group => group.Pool.Options),
+        .. TARelicOptionPools.SelectMany(group => group.Pool.Options).Select(option => option.Option),
         .. ExtraOptions,
         .. ChallengeOptions
     ];
@@ -128,7 +128,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
                 var chosen = PickWeighted(available, rng);
                 if (chosen.Relic is RelicModel picked) taken.Add(picked.Id);
                 available.Remove(chosen);
-                options.Add(chosen);
+                options.Add(chosen.Option);
             }
         }
 
@@ -347,45 +347,67 @@ public abstract class TouhouAncientBase : CustomAncientModel
 }
 
 /// <summary>
-/// 一个先古之民选项候选：就是选项本身，外加权重（默认 1，传 0 表示不出现）。
-/// 注意：红闪等标记必须在包装之后链式添加 —— <see cref="EventOption"/> 的拷贝构造函数不复制
-/// <c>WillKillPlayer</c> / <c>ShouldSaveChoiceToHistory</c>，先打标记再包装会丢失。
+/// 一个先古之民选项候选：包住原版选项，附加权重（默认 1，传 0 表示不出现）。
+/// 0.107 的 <see cref="EventOption"/> 没有拷贝构造，无法靠继承包装，故改为持有原选项。
 /// </summary>
-public sealed class TARelicOption : EventOption
+public sealed class TARelicOption
 {
-    public TARelicOption(EventOption option) : base(option)
+    public TARelicOption(EventOption option)
     {
-        // 拷贝构造不复制 Relic，这里补回来（条件过滤、去重与图鉴都依赖它）。
-        if (option.Relic is { } relic)
-        {
-            WithRelic(relic);
-        }
+        Option = option;
     }
+
+    /// <summary>被包装的原版选项，最终交给事件系统的就是它。</summary>
+    public EventOption Option { get; }
 
     /// <summary>被抽中的相对权重（默认 1；0 表示不出现）。</summary>
     public int Weight { get; init; } = 1;
 
-    // 原版这些方法不是 virtual 且返回 EventOption，这里重声明以保持链式的静态类型不退化（内部返回的就是自身）。
+    public RelicModel? Relic => Option.Relic;
+
+    // 以下转发到被包装的选项，保持链式写法（直接改的就是最终生效的那个选项）。
 
     /// <summary>玩家的当前生命不高于该值时，选项闪红。</summary>
-    public new TARelicOption ThatDoesDamage(decimal damage) => (TARelicOption)base.ThatDoesDamage(damage);
+    public TARelicOption ThatDoesDamage(decimal damage)
+    {
+        Option.ThatDoesDamage(damage);
+        return this;
+    }
 
     /// <summary>玩家的最大生命不高于该值时，选项闪红。</summary>
-    public new TARelicOption ThatDecreasesMaxHp(decimal value) => (TARelicOption)base.ThatDecreasesMaxHp(value);
+    public TARelicOption ThatDecreasesMaxHp(decimal value)
+    {
+        Option.ThatDecreasesMaxHp(value);
+        return this;
+    }
 
     /// <summary>传入的判定为 true 时，选项闪红。</summary>
-    public new TARelicOption ThatWillKillPlayerIf(Func<Player, bool> willKillPlayer) =>
-        (TARelicOption)base.ThatWillKillPlayerIf(willKillPlayer);
+    public TARelicOption ThatWillKillPlayerIf(Func<Player, bool> willKillPlayer)
+    {
+        Option.ThatWillKillPlayerIf(willKillPlayer);
+        return this;
+    }
 
     /// <summary>把标题的本地化变量写入存档。</summary>
-    public new TARelicOption ThatHasDynamicTitle() => (TARelicOption)base.ThatHasDynamicTitle();
+    public TARelicOption ThatHasDynamicTitle()
+    {
+        Option.ThatHasDynamicTitle();
+        return this;
+    }
 
     /// <summary>不把该选项记入选择历史。</summary>
-    public new TARelicOption ThatWontSaveToChoiceHistory() => (TARelicOption)base.ThatWontSaveToChoiceHistory();
+    public TARelicOption ThatWontSaveToChoiceHistory()
+    {
+        Option.ThatWontSaveToChoiceHistory();
+        return this;
+    }
 
     /// <summary>覆盖该选项在历史记录里显示的名称。</summary>
-    public new TARelicOption WithOverridenHistoryName(LocString historyName) =>
-        (TARelicOption)base.WithOverridenHistoryName(historyName);
+    public TARelicOption WithOverridenHistoryName(LocString historyName)
+    {
+        Option.WithOverridenHistoryName(historyName);
+        return this;
+    }
 
     /// <summary>
     /// 在生成选项之前对该候选的遗物做一次性准备（等价于 BaseLib 的 ModelPrep），

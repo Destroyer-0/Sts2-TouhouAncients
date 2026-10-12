@@ -126,12 +126,12 @@ public class TouhouAncientPuzzleSingleton : CustomSingletonModel
     {
     }
     
-    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources, CardLocation cardLocation)
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
         if (card.Keywords.Contains(TouhouAncientKeywords.TouhouAncientPuzzle))
         {
-            cardLocation = new(card.Owner, PileType.None, CardPilePosition.None);
+            return (PileType.None, CardPilePosition.None);
         }
-        return base.ModifyCardPlayResultLocation(card, isAutoPlay, resources, cardLocation);
+        return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
     }
 }

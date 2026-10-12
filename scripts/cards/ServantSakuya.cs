@@ -95,7 +95,7 @@ public class ServantSakuya : TouhouAncientCards
                 if (target == null || !target.IsEnemy || !target.IsAlive) continue;
                 await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
                     .WithHitCount(exhaustedCount)
-                    .FromCard(this, card)
+                    .FromCard(this)
                     .Targeting(target)
                     .Execute(choiceContext);
             }

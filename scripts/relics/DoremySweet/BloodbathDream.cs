@@ -70,7 +70,7 @@ public class BloodbathDream : TouhouAncientRelics
             (CardPlayFinishedEntry e) =>
                 e.HappenedThisTurn(base.Owner.Creature.CombatState) &&
                 e.CardPlay.Card.Type == CardType.Attack &&
-                e.CardPlay.Player == base.Owner);
+                e.CardPlay.Card.Owner == base.Owner);
 
         if (playedAttackThisTurn) return;
 

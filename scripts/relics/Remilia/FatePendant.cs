@@ -69,7 +69,7 @@ public class FatePendant : TouhouAncientRelics
         // 「本回合首张牌」只统计玩家手动打出的牌，排除自动打出。
         // CardPlayFinished 已在 Hook.AfterCardPlayed 之前写入历史，故此处计数为 1 即表示刚打出的是首张手动牌。
         bool isFirstManualCardThisTurn = CombatManager.Instance.History.CardPlaysFinished
-            .Count(entry => entry.CardPlay.Player == base.Owner &&
+            .Count(entry => entry.CardPlay.Card.Owner == base.Owner &&
                             !entry.CardPlay.IsAutoPlay &&
                             entry.HappenedThisTurn(base.Owner.Creature.CombatState)) == 1;
 

@@ -80,7 +80,7 @@ public class Dongnichangshu : TouhouAncientRelics
         _triggeredThisTurn = true;
         Flash();
 
-        await CreatureCmd.LoseBlock(new ThrowingPlayerChoiceContext(), creature, creature.Block - limit, creature);
+        await CreatureCmd.LoseBlock(creature, creature.Block - limit);
         await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
         await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), base.DynamicVars.Cards.BaseValue, base.Owner, fromHandDraw: false);
 

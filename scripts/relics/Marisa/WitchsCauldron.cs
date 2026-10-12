@@ -62,7 +62,7 @@ public class WitchsCauldron : TouhouAncientRelics
         // 获得3瓶随机药水,其中一定有一瓶稀有药水
         rewards.Add(new PotionReward(base.Owner));
         rewards.Add(new PotionReward(base.Owner));
-        var rarePotion = PotionFactory.GetPotionOptions(base.Owner).Where(p=>p.Rarity != PotionRarity.Rare).ToList();
+        var rarePotion = PotionFactory.GetPotionOptions(base.Owner, []).Where(p=>p.Rarity != PotionRarity.Rare).ToList();
         var potion = new PotionReward(Owner.PlayerRng.Rewards.NextItem(rarePotion)!.ToMutable(), base.Owner);
         rewards.Add(potion);
         // 变化至多一张牌也作为奖励，与药水同面板一起发放

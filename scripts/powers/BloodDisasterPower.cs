@@ -92,7 +92,7 @@ public class BloodDisasterPower : TouhouAncientPowerModel
         return base.AfterApplied(applier, cardSource);
     }
 
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target != Owner) return 1;
         return CurrentMultiplier;

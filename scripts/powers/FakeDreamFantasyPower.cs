@@ -22,8 +22,7 @@ public class FakeDreamFantasyPower: TouhouAncientPowerModel
         return new Data();
     }
 
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource,
-        CardPlay? cardPlay)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (target == null) return 0;
         if (!GetInternalData<Data>().CreatureHpDictionary.TryGetValue(target, out var value)) return 0;

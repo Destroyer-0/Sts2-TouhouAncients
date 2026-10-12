@@ -88,7 +88,7 @@ public class SealingNeedle : TouhouAncientRelics
     /// <summary>
     /// 对处于虚弱状态的敌人，增加等同于其虚弱层数的伤害值。
     /// </summary>
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         if (cardSource == null) return 0m;
         if (target == null || !target.IsAlive || !target.IsEnemy) return 0m;

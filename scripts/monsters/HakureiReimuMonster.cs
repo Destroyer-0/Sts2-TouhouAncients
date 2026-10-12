@@ -269,9 +269,9 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         return new MonsterMoveStateMachine(list, dreamNature);
     }
 
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
+        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource);
     }
 
 

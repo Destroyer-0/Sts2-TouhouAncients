@@ -115,7 +115,6 @@ public class FirmamentSash : TouhouAncientRelics
                 MitigationTotal,
                 ValueProp.Unpowered,
                 base.Owner.Creature,
-                null,
                 null);
             MitigationTotal = 0;
         }

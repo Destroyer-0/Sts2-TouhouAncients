@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
+using MegaCrit.Sts2.Core.Models.Enchantments.Mocks;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
@@ -95,7 +96,7 @@ public class Yumeiro : TouhouAncientEnchantmentModel
             {
                 if (e is Bloodshed) return false;
                 if (e is DeprecatedEnchantment) return false;
-                if (e.IsMock) return false;
+                if (e is MockFreeEnchantment) return false;
                 if (e is Yumeiro) return false;
                 if (e is Goopy) return false;
                 if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;

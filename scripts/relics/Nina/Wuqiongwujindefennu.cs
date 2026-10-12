@@ -13,23 +13,23 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Enchantments;
+using MegaCrit.Sts2.Core.Models.Enchantments.Mocks;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using TouhouAncients.Scripts.Enchantment;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 无穷无尽的愤怒：在你的回合开始时，将一张带有随机附魔的群情激愤（多人）/愤怒（单人）加入你的手牌。
-/// 群情激愤（Outrage）是原版多人限定牌，单人以愤怒（Anger）代替。
+/// 无穷无尽的愤怒：在你的回合开始时，将一张带有随机附魔的愤怒加入你的手牌。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class Wuqiongwujindefennu : TouhouAncientRelics
 {
-    /// <summary>事件描述里要写出的具体牌名（多人：群情激愤；单人：愤怒）。</summary>
+    /// <summary>事件描述里要写出的具体牌名。</summary>
     private const string AngryCardKey = "AngryCard";
 
     /// <summary>
-    /// 默认空串：事件选项生成阶段由 <see cref="SetupForPlayer"/> 填上当前人数对应的牌名，
+    /// 默认空串：事件选项生成阶段由 <see cref="SetupForPlayer"/> 填上牌名，
     /// 填之前（图鉴、控制台枚举选项）描述里的 <c>{AngryCard.StringValue:cond:...}</c> 走兜底分支。
     /// </summary>
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -85,7 +85,7 @@ public class Wuqiongwujindefennu : TouhouAncientRelics
             .Where(e =>
             {
                 if (e is DeprecatedEnchantment) return false;
-                if (e.IsMock) return false;
+                if (e is MockFreeEnchantment) return false;
                 if (e is Goopy) return false;
                 if (e is Bloodshed) return false;
                 if (e is Yumeiro) return false;
@@ -98,27 +98,8 @@ public class Wuqiongwujindefennu : TouhouAncientRelics
     {
         get
         {
-            // IsCanonical 不够：遗物图鉴 / 控制台 / BaseLib 枚举 AllPossibleOptions 时，选项是在事件
-            // 绑定玩家之前用 ModelDb.Relic<T>().ToMutable() 造出来的 mutable 克隆，
-            // 此时 IsCanonical == false 而 Owner == null，直接读 Owner 会 NRE。
-            // 注意 RelicModel._owner 字段其实是 Player?（字段带 NullableAttribute，属性却没标可空），
-            // 所以用可空局部变量承接：保留运行时保护，同时不会被 IDE 判成"恒为 false"。
-            // Owner 的 getter 会 AssertMutable()，必须先判 IsCanonical 再读 Owner。
-            if (!IsCanonical)
-            {
-                Player? owner = Owner;
-                if (owner != null)
-                {
-                    return owner.RunState.Players.Count > 1
-                        ? HoverTipFactory.FromCardWithCardHoverTips<Outrage>()
-                        : HoverTipFactory.FromCardWithCardHoverTips<Anger>();
-                }
-            }
-
-            // canonical / 尚未绑定玩家：显示两种可能出现的牌。
             return
             [
-                .. HoverTipFactory.FromCardWithCardHoverTips<Outrage>(),
                 .. HoverTipFactory.FromCardWithCardHoverTips<Anger>(),
             ];
         }
@@ -126,9 +107,7 @@ public class Wuqiongwujindefennu : TouhouAncientRelics
 
     public void SetupForPlayer(Player player)
     {
-        CardModel card = player.RunState.Players.Count > 1
-            ? ModelDb.Card<Outrage>()
-            : ModelDb.Card<Anger>();
+        CardModel card = ModelDb.Card<Anger>();
 
         ((StringVar)base.DynamicVars[AngryCardKey]).StringValue = card.Title;
     }
@@ -142,10 +121,8 @@ public class Wuqiongwujindefennu : TouhouAncientRelics
 
         Flash();
 
-        // 多人为群情激愤（原版多人限定牌），单人为愤怒。
-        CardModel canonical = combatState.Players.Count > 1
-            ? ModelDb.Card<Outrage>()
-            : ModelDb.Card<Anger>();
+        // 固定为愤怒。
+        CardModel canonical = ModelDb.Card<Anger>();
 
         var card = combatState.CreateCard(canonical, player);
 

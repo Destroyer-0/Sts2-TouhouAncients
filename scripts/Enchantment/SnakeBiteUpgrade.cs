@@ -68,19 +68,19 @@ public class SnakeBiteUpgrade : TouhouAncientEnchantmentModel
     }
 
     
-    public override CardLocation ModifyCardPlayResultLocation(CardModel card,
+    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card,
         bool isAutoPlay,
-        ResourceInfo resources, CardLocation cardLocation)
+        ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
         if (card != Card)
-            return base.ModifyCardPlayResultLocation(card, isAutoPlay, resources, cardLocation);
+            return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
         var randomCost = Card.Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
         Card.EnergyCost.SetThisTurn(randomCost);
-        if (cardLocation.pileType == PileType.Discard)
+        if (pileType == PileType.Discard)
         {
-            return new CardLocation(cardLocation.player, PileType.Hand, CardPilePosition.Bottom);
+            return (PileType.Hand, CardPilePosition.Bottom);
         }
-        return base.ModifyCardPlayResultLocation(card, isAutoPlay, resources, cardLocation);
+        return base.ModifyCardPlayResultPileTypeAndPosition(card, isAutoPlay, resources, pileType, position);
     }
 
     // public override async Task AfterCardPlayedLate(PlayerChoiceContext context, CardPlay cardPlay)

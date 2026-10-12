@@ -51,5 +51,6 @@ public abstract class TouhouAncientTemporaryPower : TouhouAncientPowerModel, ITe
         get => _shouldIgnoreNextInstance;
         set => _shouldIgnoreNextInstance = value;
     }
-    
+
+    public void IgnoreNextInstance() => _shouldIgnoreNextInstance = true;
 }

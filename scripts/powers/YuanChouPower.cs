@@ -44,7 +44,7 @@ public class YuanChouPower : TouhouAncientPowerModel
     /// <summary>
     /// 敌人对来源造成的伤害降低 25%
     /// </summary>
-    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
         // 只有敌人（owner）对来源（Source）造成伤害时才减伤
         if (dealer != base.Owner) return 1m;
@@ -65,7 +65,7 @@ public class YuanChouPower : TouhouAncientPowerModel
 
         // 造成等同于怨仇层数的伤害，然后层数 -1
         await DamageCmd.Attack(Amount)
-            .FromCard(cardPlay.Card, cardPlay)
+            .FromCard(cardPlay.Card)
             .Targeting(Owner)
             .Execute(choiceContext);
 

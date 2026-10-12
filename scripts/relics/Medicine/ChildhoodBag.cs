@@ -58,7 +58,7 @@ public static class ChildhoodBagPatch
             var damage = __instance.DynamicVars.Damage;
             var targets = dealer.CombatState.Creatures.Where(c => c.IsEnemy);
 
-            await CreatureCmd.Damage(choiceContext, targets, damage, dealer, null, null);
+            await CreatureCmd.Damage(choiceContext, targets, damage, dealer, null);
         }
         catch (Exception ex)
         {

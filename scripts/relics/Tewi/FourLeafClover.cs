@@ -66,8 +66,8 @@ public class FourLeafClover : TouhouAncientRelics
             }
 
             CardCreationOptions options2 =
-                new CardCreationOptions(creationOptions.CardPools, CardCreationSource.Other, creationOptions.RarityOdds)
-                    .WithFilter(x => enumerable.Contains(x))
+                new CardCreationOptions(creationOptions.CardPools, CardCreationSource.Other, creationOptions.RarityOdds,
+                        x => enumerable.Contains(x))
                     .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoRarityModification);
             CardModel cardModel = CardFactory.CreateForReward(base.Owner, 1, options2).FirstOrDefault()?.Card;
             if (TouhouAncients_RewardsSinceLastRare % 4 == 0)

@@ -144,7 +144,7 @@ public class MysteriousLeaf : TouhouAncientCards
         // 记录只是牌样：临场造一张战斗副本，再打出它的复制（照原版历史课）
         var card = CardModel.FromSerializable(record);
         combatState.AddCard(card, Owner);
-        await CardCmd.AutoPlay(choiceContext, card.CreateDupe(Owner), null);
+        await CardCmd.AutoPlay(choiceContext, card.CreateDupe(), null);
     }
 
     /// <summary>描述两态：未伪装只有通用规则；已伪装时开头多一行「打出{CardStr}。」。升级过会带 +。</summary>

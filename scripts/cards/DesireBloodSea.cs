@@ -69,7 +69,7 @@ public class DesireBloodSea : TouhouAncientCards
         
         await CreatureCmd.Damage(choiceContext, [target], base.DynamicVars["HpLoss"].BaseValue,
             ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move,
-            base.Owner.Creature, this, cardPlay);
+            base.Owner.Creature, this);
         await PowerCmd.Apply<StrengthPower>(choiceContext, target, base.DynamicVars["Strength"].BaseValue, base.Owner.Creature, this);
         
         // 通知饕餮尤魔：本回合已被欲壑血海瞄准

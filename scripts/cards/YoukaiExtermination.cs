@@ -77,7 +77,7 @@ public class YoukaiExtermination : TouhouAncientCards
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(DynamicVars.Repeat.IntValue)
-            .FromCard(this, cardPlay)
+            .FromCard(this)
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 

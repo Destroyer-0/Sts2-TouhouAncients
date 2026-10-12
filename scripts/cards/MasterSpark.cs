@@ -93,7 +93,7 @@ public class MasterSpark : TouhouAncientCards
                 // }
             }
 
-            await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this, cardPlay)
+            await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this)
                 .TargetingAllOpponents(base.CombatState)
                 .WithAttackerAnim("Cast", 0.5f)
                 .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")

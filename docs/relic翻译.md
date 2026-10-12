@@ -2853,10 +2853,11 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 **键名**: `TOUHOUANCIENTS-WUQIONGWUJINDEFENNU`
 
-#### 中文原文
+#### 中文原文（2026-10-12 修订：去掉多人/单人差分）
 ```json
 "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "无穷无尽的愤怒",
-"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]群情激愤[/gold]（多人）/[gold]愤怒[/gold]（单人）加入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的[gold]愤怒[/gold]加入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription": "在你的回合开始时，将一张带有随机[gold]附魔[/gold]的{AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]|[gold]愤怒[/gold]}加入你的[gold]手牌[/gold]。",
 "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "不要愤怒，愤怒会降低你的理智。"
 ```
 
@@ -2864,14 +2865,16 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Endless Fury` |
-| `.description` | `At the start of your turn, add a [gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer) with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].` |
+| `.description` | `At the start of your turn, add an [gold]Anger[/gold] with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].` |
 | `.flavor` | `Don't be angry. Anger dulls your reason.` |
 
 #### 说明
-- 卡名取 STS2 原版 `cards.json`：`OUTRAGE.title` = `Outrage`（多人限定牌「群情激愤」）、`ANGER.title` = `Anger`（单人替代牌「愤怒」），不另行翻译。
+- 卡名取 STS2 原版 `cards.json`：`ANGER.title` = `Anger`（「愤怒」），不另行翻译。
 - 「回合开始」沿用仓库既有写法 `At the start of your turn`；「加入手牌」沿用 `add … to your [gold]Hand[/gold]`（参考 `DUSTY_ROSE` / `THE_THIRD_EYE`）。
-- 「（多人）/（单人）」为原版没有的写法，按原版 `ftues.json` 的拼写取 `(multiplayer)` / `(singleplayer)`，保留中文的斜杠并列结构。
 - 「带有随机附魔的」译为 `with a random [gold]Enchantment[/gold]`，与仓库既有 `enchanted with [purple]{EnchantmentName}[/purple]` 系列句式一致。
+- **2026-10-12 修订**：0.107 及更早版本没有原版多人限定牌 `Outrage`（「群情激愤」），遗物效果已改为单人/多人统一加入「愤怒」。
+  因此 `.description` 去掉「（多人）/（单人）」并列结构（英文去掉 `(multiplayer)/(singleplayer)`），
+  `.eventDescription` 的兜底分支同样只保留「愤怒」/`[gold]愤怒[/gold]`。
 
 ### 2. 近似两级的营帐（JINSILIANGJIDEYINGZHANG，新增遗物）
 

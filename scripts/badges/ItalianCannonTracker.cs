@@ -13,7 +13,7 @@ public class ItalianCannonTracker : BadgeModel
     {
         if (cardPlay.Card is MasterSpark && cardPlay.Resources.EnergySpent >= ItalianCannon.MinEnergySpent)
         {
-            ItalianCannon.Unlock(cardPlay.Player);
+            ItalianCannon.Unlock(cardPlay.Card.Owner);
         }
 
         return Task.CompletedTask;

@@ -137,16 +137,16 @@ public class HinezumiNoKawagoromo : TouhouAncientRelics
     }
 
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource, CardPlay? cardPlay)
+        CardModel? cardSource)
     {
         if (target != base.Owner.Creature)
-            return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
+            return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource);
         if (cardSource is Burn)
         {
             return -10000;
         }
 
-        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay);
+        return base.ModifyDamageAdditive(target, amount, props, dealer, cardSource);
     }
 
     // public override Task BeforeDamageReceived(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)

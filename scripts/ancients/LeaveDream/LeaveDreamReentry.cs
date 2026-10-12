@@ -132,8 +132,8 @@ internal static class LeaveDreamReentry
         replaced.EnsureCleanup();
 
         // 3) 启动涅奥事件（进房回血由 LeaveDreamHealSuppressPatch 跳过）。
-        //    BeginEvent 的第二个参数是事件用的战斗同步器，直接从同步器上取，保持与原版一致。
-        await neow.BeginEvent(player, SyncAccess.GetCombatSynchronizer(sync), isPreFinished: false);
+        //    0.108 起 BeginEvent 多收一个 EventCombatSynchronizer?，0.107 没有该参数。
+        await neow.BeginEvent(player, isPreFinished: false);
 
         // 4) 单人：立刻保存一次，使读档回到"涅奥的房间"而不是哆来咪的房间。
         //    多人不写（多人读档一定会回到哆来咪的事件房，这是既有行为）。
@@ -219,13 +219,7 @@ internal static class LeaveDreamReentry
         private static readonly FieldInfo Events =
             AccessTools.Field(typeof(EventSynchronizer), "_events");
 
-        private static readonly FieldInfo CombatSynchronizer =
-            AccessTools.Field(typeof(EventSynchronizer), "_combatSynchronizer");
-
         public static List<EventModel> GetEvents(EventSynchronizer sync) =>
             (List<EventModel>)Events.GetValue(sync)!;
-
-        public static EventCombatSynchronizer? GetCombatSynchronizer(EventSynchronizer sync) =>
-            (EventCombatSynchronizer?)CombatSynchronizer.GetValue(sync);
     }
 }

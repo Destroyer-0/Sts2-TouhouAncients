@@ -67,7 +67,7 @@ public partial class HouraisanKaguyaVisuals : NCreatureVisuals
 
         if (PuzzleRoot == null)
         {
-            PuzzleRoot = Body.GetNodeOrNull<Node2D>("PuzzleRoot");
+            PuzzleRoot = GetCurrentBody().GetNodeOrNull<Node2D>("PuzzleRoot");
         }
         
         PuzzleRoot.Visible = false;

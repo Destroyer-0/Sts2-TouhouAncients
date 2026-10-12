@@ -76,7 +76,7 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
             {
                 if (enemy.HasPower<BurrowedPower>())
                 {
-                    await CreatureCmd.LoseBlock(choiceContext, enemy, enemy.Block, null);
+                    await CreatureCmd.LoseBlock(enemy, enemy.Block);
                 }
             }
             
@@ -86,7 +86,6 @@ public class KeystoneFloatingCannon : TouhouAncientRelics
                 damage,
                 ValueProp.Unpowered,
                 base.Owner.Creature,
-                null,
                 null);
             
             await PowerCmd.ModifyAmount(choiceContext, keystonePower, base.DynamicVars["ExtraDamage"].BaseValue, Owner.Creature, null);

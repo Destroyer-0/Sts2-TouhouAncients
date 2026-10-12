@@ -138,7 +138,7 @@ public class HyakkiYagyo : TouhouAncientCards
             
             var cardModel = FromSerializable(record);
             player.Creature.CombatState.AddCard(cardModel,Owner);
-            await CardCmd.AutoPlay(choiceContext, cardModel.CreateDupe(player), null);
+            await CardCmd.AutoPlay(choiceContext, cardModel.CreateDupe(), null);
         }
 
         if (CombatRecordCount <= 0)
