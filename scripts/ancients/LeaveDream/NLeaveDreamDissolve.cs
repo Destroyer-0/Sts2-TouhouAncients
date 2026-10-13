@@ -8,8 +8,9 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 namespace TouhouAncients.Scripts;
 
 /// <summary>
-/// 「离开梦境」的场景溶解演出：把哆来咪房间整棵子树搬进 <see cref="CanvasGroup"/>，
-/// 再按帧把溶解着色器的 <c>threshold</c> 从 1 推到 0，画面像一滴墨从中心洇开那样化掉，
+/// 「离开梦境」的场景淡出演出：把哆来咪房间整棵子树搬进 <see cref="CanvasGroup"/>，
+/// 再按帧把着色器的 <c>threshold</c> 从 1 推到 0，同时把 <c>blur_amount</c> /
+/// <c>haze_amount</c> 从 0 推到峰值——画面先泛雾糊掉，再像墨滴洇开那样溶解，
 /// 逐渐露出垫在下面、已经就位的涅奥房间。
 ///
 /// 用 CanvasGroup 而不是 SubViewport 离屏渲染：SubViewport 默认与主视口共享 World2D
@@ -20,6 +21,9 @@ public partial class NLeaveDreamDissolve : Control
 {
     /// <summary>溶解时长（秒）。</summary>
     private const float FadeDuration = 1.0f;
+
+    /// <summary>朦胧峰值：雾本身是亮度中性的减法（去饱和 / 压对比），可以给足一些。</summary>
+    private const float HazePeak = 0.6f;
 
     /// <summary>开演前的等待（秒）：等 CanvasGroup 完成首次合成，也等涅奥房间铺好画面。</summary>
     private const float WarmupSeconds = 0.4f;
@@ -32,6 +36,12 @@ public partial class NLeaveDreamDissolve : Control
 
     /// <summary>溶解噪声贴图。</summary>
     private static readonly StringName InkNoise = new StringName("ink_noise");
+
+    /// <summary>模糊进度：0 清晰、1 最糊。</summary>
+    private static readonly StringName BlurAmount = new StringName("blur_amount");
+
+    /// <summary>朦胧进度：0 原色、1 最朦胧。</summary>
+    private static readonly StringName HazeAmount = new StringName("haze_amount");
 
     /// <summary>
     /// 在 <paramref name="newRoom"/> 之上播放溶解演出。
@@ -126,7 +136,7 @@ public partial class NLeaveDreamDissolve : Control
     }
 
     /// <summary>
-    /// 按帧把 <c>threshold</c> 从 1 推到 0。
+    /// 按帧把 <c>threshold</c> 从 1 推到 0，同时把模糊 / 朦胧从 0 推到峰值。
     ///
     /// 不用 <c>TweenProperty</c> 补间 shader 参数：对运行时创建的 <c>ShaderMaterial</c>，
     /// 属性路径补间会瞬间跑完（threshold 直接跳到 0），看不到渐变。
@@ -147,9 +157,15 @@ public partial class NLeaveDreamDissolve : Control
             var progress = Mathf.Min(1f, elapsed / FadeDuration);
             // EaseOutSine：开头快、结尾缓，观感更接近原版的怪物风化。
             var eased = Mathf.Sin(progress * Mathf.Pi * 0.5f);
+            // 模糊 / 朦胧取开根号：先把细节糊掉，溶解再跟上，形成「先看不见、再散开」。
+            var fade = Mathf.Sqrt(eased);
+            material.SetShaderParameter(BlurAmount, fade);
+            material.SetShaderParameter(HazeAmount, fade * HazePeak);
             material.SetShaderParameter(Threshold, 1f - eased);
         }
 
+        material.SetShaderParameter(BlurAmount, 1f);
+        material.SetShaderParameter(HazeAmount, HazePeak);
         material.SetShaderParameter(Threshold, 0f);
     }
 
@@ -166,6 +182,8 @@ public partial class NLeaveDreamDissolve : Control
         var material = new ShaderMaterial { Shader = shader };
         material.SetShaderParameter(InkNoise, CreateInkNoiseTexture());
         material.SetShaderParameter(Threshold, 1.0f);
+        material.SetShaderParameter(BlurAmount, 0f);
+        material.SetShaderParameter(HazeAmount, 0f);
         return material;
     }
 
