@@ -22,8 +22,8 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
     public override Color ButtonColor => new(0.2f, 0.2f, 0.2f, 0.5f);
     public override Color DialogueColor => new(0.9f, 0.35f, 1f, 1f);
 
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/FutatsuiwaMamizou_MapNode.png";
-    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/FutatsuiwaMamizou_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/HiedaNoAkyuu_MapNode.png";
+    public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/HiedaNoAkyuu_MapNode.png";
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HiedaNoAkyuu.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HiedaNoAkyuu.png";
 
