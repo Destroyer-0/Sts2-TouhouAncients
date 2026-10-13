@@ -2,15 +2,17 @@ shader_type canvas_item;
 render_mode blend_premul_alpha;
 
 // 叛乱之潮的卡面效果：复制自 devoured.gdshader（吞噬），保留独立副本以便单独调参。
-// 边缘暗潮向内蔓延，暗示卡牌正在被吞没。
+// 边缘暗潮向内蔓延；上方流光为红，下方为灰黑，约 uv.y=0.33 处过渡。
 
 uniform float edge_intensity : hint_range(0.0, 1.0) = 0.8;
 uniform float pulse_speed : hint_range(0.1, 4.0) = 0.7;
 uniform float void_width : hint_range(0.0, 0.5) = 0.175;
 uniform float noise_scale : hint_range(1.0, 20.0) = 5.0;
 uniform float void_stretch : hint_range(1.0, 6.0) = 3.0;
-uniform vec4 void_color : source_color = vec4(0.08, 0.0, 0.12, 1.0);
-uniform vec4 void_edge_color : source_color = vec4(0.25, 0.02, 0.35, 1.0);
+uniform vec4 top_color : source_color = vec4(0.757, 0.0, 0.0, 1.0); // #C10000
+uniform vec4 bottom_color : source_color = vec4(0.102, 0.102, 0.102, 1.0);
+uniform float gradient_center : hint_range(0.0, 1.0) = 0.33; // uv.y=0 为卡面顶部
+uniform float gradient_softness : hint_range(0.01, 0.5) = 0.15;
 uniform float corner_radius : hint_range(0.0, 0.15) = 0.055;
 
 float hash(vec2 p) {
@@ -93,14 +95,14 @@ void fragment() {
 	float breath = 0.8 + 0.2 * sin(t * 1.3 + combined_noise * 3.0);
 	void_mask *= breath;
 
-	// Color gradient: deep void at edge, lighter at the tips
-	float edge_color_blend = smoothstep(0.08, 0.0, edge_dist);
-	vec3 effect_color = mix(void_edge_color.rgb, void_color.rgb, edge_color_blend);
+	// Vertical gradient: red at the top fading to gray-black at the bottom
+	float vertical = smoothstep(gradient_center - gradient_softness, gradient_center + gradient_softness, uv.y);
+	vec3 effect_color = mix(top_color.rgb, bottom_color.rgb, vertical);
 
-	// Faint flickering specks within the void
+	// Faint flickering specks within the void, brightened from the same palette
 	float speck = value_noise(noise_uv * 3.5 + warp * 2.0);
 	speck = step(0.9, speck) * void_mask * 0.35;
-	effect_color += vec3(0.3, 0.1, 0.5) * speck;
+	effect_color += effect_color * 1.2 * speck;
 
 	float alpha = void_mask * edge_intensity * card_mask;
 	COLOR = vec4(effect_color * alpha, alpha);

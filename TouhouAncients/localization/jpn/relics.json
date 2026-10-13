@@ -881,7 +881,7 @@
   "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "Detective Novel Manuscript",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "At the end of your turn, if no enemy intents to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] next turn.",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "At the end of your turn, if no enemy is intending to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] during your next turn.",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "Signed Shikishi",

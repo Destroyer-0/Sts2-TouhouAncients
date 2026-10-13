@@ -22,7 +22,7 @@ public class SakuraComb : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<YamaPunishment>();
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(5m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(4m)];
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {

@@ -881,7 +881,7 @@
   "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "侦探小说手稿",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "回合结束时，若所有敌人都不处于攻击意图，则在下回合获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "回合结束时，若所有敌人都不处于攻击意图，则在下回合中获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "签名色纸",

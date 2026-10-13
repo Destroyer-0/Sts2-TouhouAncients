@@ -763,6 +763,13 @@
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.REGENT.2-0r.ancient": "只是一点小小的敬意，殿下。老朽可不想被人说狸猫是小气的种族呐。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.0-0r.ancient": "想达成目标，可万万不能被冲昏了头脑，不能心急呐。",
   "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.NECROBINDER.1-0r.ancient": "嚯~嚯~嚯~放下点戒备和焦躁吧。老朽会帮你解决一些麻烦的。",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-0.ancient": "嚯嚯——这不是人间之里的大小姐吗？老朽可是受了你那位借书屋朋友不少的照顾呢。",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-0.next": "回答",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-1.char": "诶——那个，我似乎听小铃提起过您……",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-1.next": "继续",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-2.ancient": "那些妖魔书俺可是很喜欢的~还有阁下的大作俺也都拜读过哦。",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-2.next": "惊讶",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT.talk.AKYUUMOD-AKYUU_MOD.0-3.char": "诶诶？诶？！",
 
 
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.title": "稗田 阿求",
@@ -773,8 +780,8 @@
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.next": "继续",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.silent": "[thinky_dots][sine]你从茫茫的记忆海洋中醒来……[/sine][/thinky_dots]",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.firstVisitEver.0-0.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
-  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.0-0r.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
-  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.1-0r.ancient": "这些历史记录曾由一位名叫付袭的战史学家编纂……但我听说他最近失踪了。",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.0-0r.ancient": "这位先古之民的对话仍在编写中……",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.1-0r.ancient": "这位先古之民的对话仍在编写中……",
 
 
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "哆来咪·苏伊特",

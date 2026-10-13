@@ -1384,3 +1384,32 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
 
 ---
+
+## 增量更新（2026-10-13，猯藏 × 阿求对话）
+
+### 猯藏 `talk.AKYUUMOD-AKYUU_MOD`（7 条）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `.0-0.ancient` | 嚯嚯——这不是人间之里的大小姐吗？老朽可是受了你那位借书屋朋友不少的照顾呢。 | Ho ho—if it isn't the young mistress of the Human Village? This old one has received no small amount of care from that book-lending shop friend of yours. |
+| `.0-0.next` | 回答 | Reply |
+| `.0-1.char` | 诶——那个，我似乎听小铃提起过您…… | Uh—um, I think Kosuzu has mentioned you before... |
+| `.0-1.next` | 继续 | Continue |
+| `.0-2.ancient` | 那些妖魔书俺可是很喜欢的~还有阁下的大作俺也都拜读过哦。 | This old one is quite fond of those Demon books~ And I've even read through all your great works, you know. |
+| `.0-2.next` | 惊讶 | Startled |
+| `.0-3.char` | 诶诶？诶？！ | Ehh?! Huh?! |
+
+### 术语（沿用/新增）
+
+| 中文 | English | 备注 |
+|------|---------|------|
+| 人间之里 | Human Village | 沿用因幡帝 `AKYUUMOD-AKYUU_MOD` 既有译法 |
+| 大小姐 | young mistress | 同上 |
+| 借书屋 | book-lending shop | 新增，铃奈庵（本居小铃的书屋） |
+| 小铃 | Kosuzu | 角色名，本居小铃 |
+| 妖魔书 | Demon books | 新增，官方译法 |
+| 回答 / 惊讶 | Reply / Startled | 沿用既有姿态译法 |
+
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---

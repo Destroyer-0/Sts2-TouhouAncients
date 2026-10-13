@@ -35,6 +35,8 @@ public class MysteriousLeaf : TouhouAncientCards
 
     /// <summary>伪装牌没有升级态，本牌也不可升级。</summary>
     public override int MaxUpgradeLevel => 0;
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
 
     /// <summary>伪装记录（0 或 1 条）。只有牌组里那一张是持有者，战斗副本读牌组原件那一份。</summary>
     private List<SerializableCard> _disguise = [];

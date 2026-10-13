@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaseLib.Audio;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Audio.Debug;
+using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
@@ -56,14 +57,20 @@ public class TheMillionPoundNote : TouhouAncientCards
     {
     }
 
-    private int _currentSfxId = -1;
+    private static readonly ModSound SfxSelect = new("res://debug_audio/sfx/MillionPounds1.mp3");
+
+    private static readonly ModSound SfxConfirm = new("res://debug_audio/sfx/MillionPounds2.mp3");
+
+    /// <summary>音效1 的播放器，用于被音效2 打断时归还池。</summary>
+    private AudioStreamPlayer? _currentSfxPlayer;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // 播放音效1：打出牌时
         if (LocalContext.IsMe(Owner))
         {
-            _currentSfxId = NDebugAudioManager.Instance?.Play("MillionPounds1.mp3", 1.5f) ?? -1;
+            // 音量倍率对齐原来的线性 1.5
+            _currentSfxPlayer = SfxSelect.Play(volumeMult: 1.5f);
         }
 
         var hand = PileType.Hand.GetPile(Owner).Cards.Where(x => x != this).ToList();
@@ -82,9 +89,9 @@ public class TheMillionPoundNote : TouhouAncientCards
         // 播放音效2：选择结束后（如果音效1还在播放则立即打断）
         if (LocalContext.IsMe(Owner))
         {
-            if (_currentSfxId >= 0)
-                NDebugAudioManager.Instance?.Stop(_currentSfxId, 0f);
-            NDebugAudioManager.Instance?.Play("MillionPounds2.mp3", 1.5f);
+            StopSfx(_currentSfxPlayer);
+            _currentSfxPlayer = null;
+            SfxConfirm.Play(volumeMult: 1.5f);
         }
 
         var card = selected[0];

@@ -53,7 +53,7 @@ internal static class LeaveDreamSequence
         }
 
         await PlayDialogue(layout, ancientEntry, optionName);
-        await SwitchToNeowRoom(neow, player, oldRoom);
+        await SwitchToNeowRoom(neow, player, oldRoom, optionName);
     }
 
     /// <summary>
@@ -151,9 +151,10 @@ internal static class LeaveDreamSequence
     }
 
     /// <summary>
-    /// 建好涅奥房间并把它放到溶解覆盖层之下，等溶解结束后登记为房间容器的当前场景。
+    /// 建好涅奥房间并把它放到演出覆盖层之下，等演出结束后登记为房间容器的当前场景。
+    /// 演出按选项分流：阿求是卷轴铺屏，哆来咪是溶解。
     /// </summary>
-    private static async Task SwitchToNeowRoom(Neow neow, Player player, NEventRoom oldRoom)
+    private static async Task SwitchToNeowRoom(Neow neow, Player player, NEventRoom oldRoom, string optionName)
     {
         var container = oldRoom.GetParent();
         if (container == null)
@@ -171,14 +172,20 @@ internal static class LeaveDreamSequence
             return;
         }
 
-        // 先挂进房间容器：位于旧房间之下，溶解过程中会被覆盖层逐渐露出来。
+        // 先挂进房间容器：位于旧房间之下，演出过程中会被覆盖层逐渐露出来。
         container.AddChildSafely(newRoom);
         container.MoveChild(newRoom, 0);
 
-        // 溶解：覆盖层显示旧房间的实时画面，用原版 dissolve 着色器把 threshold 从 1 补间到 0，
-        // 逐渐溶解掉旧房间、露出下面已经就位的涅奥房间。
-        // 演出结束后覆盖层（连同被搬进它的旧房间）由 Play 自己释放，容器里就只剩涅奥房间。
-        await NLeaveDreamDissolve.Play(oldRoom, newRoom);
+        if (optionName == LeaveDreamReentry.MeetNeowOptionName)
+        {
+            await NAkyuuScrollTransition.Play(oldRoom, newRoom);
+        }
+        else
+        {
+            // 溶解：覆盖层显示旧房间的实时画面，把 threshold 从 1 推到 0，
+            // 逐渐溶解掉旧房间、露出下面已经就位的涅奥房间。
+            await NLeaveDreamDissolve.Play(oldRoom, newRoom);
+        }
 
         RegisterCurrentRoom(container, newRoom);
     }

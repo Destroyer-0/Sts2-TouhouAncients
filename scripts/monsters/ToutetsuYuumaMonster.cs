@@ -37,13 +37,13 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     // --- 数值 ---
     /// <summary>剖心撕肉：每段伤害，低阶 4 / 高阶 5，共 3 段。</summary>
     private int CutHeartDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 4, 3);
+        AscensionLevel.DeadlyEnemies, 5, 4);
 
     private const int CutHeartHits = 3;
 
     /// <summary>剔骨啖髓：基础伤害，低阶 16 / 高阶 17。</summary>
     private int DrinkBloodDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 24, 23);
+        AscensionLevel.DeadlyEnemies, 26, 24);
 
     private const int DrinkBloodVulnerable = 2;
 
