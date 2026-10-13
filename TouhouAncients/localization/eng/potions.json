@@ -4,7 +4,7 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "Super ZUN Beer",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Choose 1 of 3 Touhou Ancients cards and add it to your hand. It can be played for free this turn.\n[jitter][b]My crypto meme coin is a great investment opportunity![/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "Choose 1 of 3 [gold]Touhou Ancients[/gold] cards and add it to your hand. It can be played for free this turn.\n[jitter][b]My crypto meme coin is a great investment opportunity![/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "My crypto meme coin is a great investment opportunity!",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "WakaraNo idea",
@@ -17,6 +17,6 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you’re not satisfied, just blow it up with her![/sine]",
 
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "Wellness Soup",
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [blue]{HealPercent}%[/blue] of your [gold]Max HP[/gold]. At the end of combat, if this potion is still in your [gold]Potion Slots[/gold], heal [blue]{CombatEndHeal}[/blue] HP.",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [green]{HealPercent}%[/green] of your [gold]Max HP[/gold]. At the end of combat, if this potion is in your [gold]Potion Slots[/gold], heal [green]{CombatEndHeal}[/green] HP.",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
 }

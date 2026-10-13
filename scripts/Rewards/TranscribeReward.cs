@@ -20,8 +20,8 @@ using TouhouAncients.Scripts.relics;
 namespace TouhouAncients.Scripts.Rewards;
 
 /// <summary>
-/// 誊写奖励：查看某个角色卡牌池的卡牌奖励，选择一张加入「百鬼夜行」的誊写记录。
-/// 选中的牌只写进牌组中每张百鬼夜行的誊写记录，不会加入牌组。
+/// 收录奖励：查看某个角色卡牌池的卡牌奖励，选择一张加入「百鬼夜行」的收录记录。
+/// 选中的牌只写进牌组中每张百鬼夜行的收录记录，不会加入牌组。
 /// 牌组中没有百鬼夜行时不触发（按钮保留，可稍后再点）。
 /// </summary>
 public sealed class TranscribeReward : TouhouCustomReward
@@ -33,7 +33,7 @@ public sealed class TranscribeReward : TouhouCustomReward
     /// <summary>一次展示几张该角色的牌供选择，与普通卡牌奖励一致。</summary>
     public const int OptionCount = 3;
 
-    /// <summary>本次誊写的来源角色卡牌池：拾起时是固定五人的池，斩杀奖励是玩家已解锁的其他角色池。</summary>
+    /// <summary>本次收录的来源角色卡牌池：拾起时是固定五人的池，斩杀奖励是玩家已解锁的其他角色池。</summary>
     public CardPoolModel? Pool { get; init; }
 
     /// <summary>
@@ -79,7 +79,7 @@ public sealed class TranscribeReward : TouhouCustomReward
     /// <inheritdoc />
     public override LocString Description => LocalizedDescription(("Character", CharacterTitle));
 
-    /// <summary>奖励按钮的悬浮说明：复用遗物上的「誊写」定义。</summary>
+    /// <summary>奖励按钮的悬浮说明：复用遗物上的「收录」定义。</summary>
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get
@@ -149,11 +149,11 @@ public sealed class TranscribeReward : TouhouCustomReward
     protected override async Task<bool> OnSelect()
     {
         CardPoolModel? pool = Pool;
-        // 卡池取不到（存档里的角色已不存在）或候选牌没掷出来：不触发誊写，保留奖励按钮。
+        // 卡池取不到（存档里的角色已不存在）或候选牌没掷出来：不触发收录，保留奖励按钮。
         if (pool == null || _options.Count == 0) return false;
 
         List<HyakkiYagyo> targets = DeckHyakkiYagyo.ToList();
-        // 牌组中没有百鬼夜行：不触发誊写，保留奖励按钮。
+        // 牌组中没有百鬼夜行：不触发收录，保留奖励按钮。
         if (targets.Count == 0) return false;
 
         CardModel? picked = await CardSelectCmd.FromChooseACardScreen(
@@ -170,7 +170,7 @@ public sealed class TranscribeReward : TouhouCustomReward
         return true;
     }
 
-    /// <summary>牌组中的百鬼夜行（誊写记录的持有者）。</summary>
+    /// <summary>牌组中的百鬼夜行（收录记录的持有者）。</summary>
     private IEnumerable<HyakkiYagyo> DeckHyakkiYagyo =>
         PileType.Deck.GetPile(Player).Cards.OfType<HyakkiYagyo>();
 

@@ -4,7 +4,7 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUNビール",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "東方先古の民カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "[gold]東方エンシェント[/gold]カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "ミームコインは素晴らしい投資チャンスです！",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "しらなイチゴミルク",
@@ -17,6 +17,6 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you’re not satisfied, just blow it up with her![/sine]",
 
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "Wellness Soup",
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [blue]{HealPercent}%[/blue] of your [gold]Max HP[/gold]. At the end of combat, if this potion is still in your [gold]Potion Slots[/gold], heal [blue]{CombatEndHeal}[/blue] HP.",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [green]{HealPercent}%[/green] of your [gold]Max HP[/gold]. At the end of combat, if this potion is in your [gold]Potion Slots[/gold], heal [green]{CombatEndHeal}[/green] HP.",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
 }

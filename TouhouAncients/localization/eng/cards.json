@@ -79,7 +79,7 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random recorded cards, then remove them from the record for this combat.\nOnce all records are removed, remove this card from the game for this combat.\n[b][thinky_dots]Heh, heh, heh! Let this old one see what you're made of![/thinky_dots][/b]",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random transcribed cards, then remove them from the transcription for this combat.\nOnce the transcription is emptied, remove this card from the game for this combat.\n[b][thinky_dots]Heh, heh, heh! Let this old one see what you're made of![/thinky_dots][/b]",
 
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",

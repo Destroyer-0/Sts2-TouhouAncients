@@ -728,10 +728,10 @@
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "Upon pickup, add 1 [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold], then [aqua]Transcribe[/aqua] a card from each of The Ironclad, The Silent, The Regent, The Necrobinder, and The Defect. Whenever [gold]Fatal[/gold], combat rewards gain an additional [aqua]Transcribe[/aqua] of a random other character.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeTitle": "Transcribe",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to the record of every [gold]Hyakki Yagyo[/gold]. If a record for that character already exists, the chosen card replaces the previously recorded card.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "View [gold]Card Rewards[/gold] from the specified character; the chosen card is added to the transcription of every [gold]Hyakki Yagyo[/gold]. If a transcription for that character already exists, the chosen card replaces the previously transcribed card.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "Transcribed Cards",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|, }",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "No cards from this character have been recorded in [gold]Hyakki Yagyo[/gold] yet.",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "No cards from this character have been transcribed into [gold]Hyakki Yagyo[/gold] yet.",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "Hehe, this is a treasure this old one paid dearly to acquire.",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "Psychic Telekinesis",

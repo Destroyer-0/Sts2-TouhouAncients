@@ -4,7 +4,7 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUN啤酒",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "从三张东方先古之民卡牌中选择一张加入到手牌，这张牌在本回合免费打出。\n[jitter][b]哇，多么好的机会啊！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "从三张[gold]东方先古之民[/gold]卡牌中选择一张加入到手牌，这张牌在本回合免费打出。\n[jitter][b]哇，多么好的机会啊！[/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "哇，多么好的机会啊！",
 
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "轰炸魔废",
@@ -12,7 +12,7 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]如果你觉得不爽的话，就跟她爆了吧！[/sine]",
 
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "养生汤",
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[blue]{HealPercent}%[/blue]。战斗结束时，若此药水在你的[gold]药水栏位[/gold]中，回复[blue]{CombatEndHeal}[/blue]点生命。",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[green]{HealPercent}%[/green]。战斗结束时，若此药水在你的[gold]药水栏位[/gold]中，回复[green]{CombatEndHeal}[/green]点生命。",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "希腊奶",
