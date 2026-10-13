@@ -261,7 +261,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
     /// </summary>
     private Task StartChallenge()
     {
-        var encounter = ChallengeEncounter!;
+        var encounter = ChallengeEncounter!.ToMutable();
         var ancientEncounter = (TouhouAncientEncounter)encounter;
         ancientEncounter.IsChallenge = true; // 置位：游戏克隆战斗实例时（MemberwiseClone）会继承该标志
         try
