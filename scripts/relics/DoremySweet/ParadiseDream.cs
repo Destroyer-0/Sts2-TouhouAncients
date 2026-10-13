@@ -43,6 +43,7 @@ public class ParadiseDream : TouhouAncientRelics
     {
         if (ParadiseDream_Resolved) return false;
         if (player != Owner) return false;
+        if (room == null) return false;
         if (room.RoomType != RoomType.Boss) return false;
         if (base.Owner.RunState.CurrentActIndex != 0) return false; // 第一幕
 

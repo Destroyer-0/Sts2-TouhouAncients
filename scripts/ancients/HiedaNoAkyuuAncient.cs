@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Models.Relics;
 using TouhouAncients.Scripts.relics.Akyuu;
 
 namespace TouhouAncients.Scripts;
@@ -48,7 +49,8 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
             TARelicOption<SakuraComb>(),
             TARelicOption<AncientSpecimen>(),
             TARelicOption<BlankRoster>(),
-            TARelicOption<BellBookmark>()
+            TARelicOption<BellBookmark>(),
+            TARelicOption<MedicinalCuisine>()
             )
     ;
 

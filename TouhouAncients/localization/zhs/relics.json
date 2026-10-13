@@ -911,5 +911,9 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": ""
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]分装药膳[/gold]。",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
 }

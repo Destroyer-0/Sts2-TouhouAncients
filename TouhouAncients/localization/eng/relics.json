@@ -911,5 +911,9 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "Bell Bookmark",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in Unknown rooms is greatly increased.",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": ""
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "Medicinal Cuisine",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Portioned Medicinal Cuisine[/gold].",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
 }

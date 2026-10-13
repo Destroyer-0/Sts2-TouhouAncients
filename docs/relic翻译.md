@@ -3167,3 +3167,38 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
 
 ---
+
+## 增量更新（2026-10-13，稗田阿求新增「调理药膳」与配套药水「分装药膳」）
+
+**键名**: `TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`）、`TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]分装药膳[/gold]。",
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "分装药膳",
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[blue]{HealPercent}%[/blue]。战斗结束时，若此药水仍在你的[gold]药水栏位[/gold]中，你回复[blue]{CombatEndHeal}[/blue]点生命值。",
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `MEDICINAL_CUISINE.title` | `Medicinal Cuisine` |
+| `MEDICINAL_CUISINE.description` | `Upon pickup, gain [blue]{Potions}[/blue] [gold]Portioned Medicinal Cuisine[/gold].` |
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title` | `Portioned Medicinal Cuisine` |
+| `PORTIONED_MEDICINAL_CUISINE_POTION.description` | `Heal for [blue]{HealPercent}%[/blue] of your [gold]Max HP[/gold]. At the end of combat, if this potion is still in your [gold]Potion Slots[/gold], heal [blue]{CombatEndHeal}[/blue] HP.` |
+
+### 备注（原版句式来源）
+- 遗物 `description` 与 `eventDescription` 逐字相同 → 按规范省略 `.eventDescription`。
+- 两条 flavor 均为空（阿求池其余 16 件遗物同样为空）。
+- `拾起时，…` → `Upon pickup, ...`（原版 `LEAD_PAPERWEIGHT` / `NUTRITIOUS_SOUP`）。
+- `回复你最大生命值的X%` → `Heal for X% of your Max HP`，句式取自原版 `BLOOD_POTION`，但数值标记改用本 Mod 规范的 `[blue]`（`BLOOD_POTION` 原文用 `[green]`）。
+- 药水名引用色取 `[gold]`，与 `NIDOMITEI_SPECIAL_BLEND`（`[gold]超ZUN啤酒[/gold]`）一致；`CHILDHOOD_BAG` 的 `[purple]` 写法不采用。
+- `药水栏位` → `[gold]Potion Slots[/gold]`（术语表）；`最大生命` → `[gold]Max HP[/gold]`。
+- 药水名 `分装药膳` → `Portioned Medicinal Cuisine`（用户确认）；遗物名 `调理药膳` → `Medicinal Cuisine`（用户确认）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---

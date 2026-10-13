@@ -20,7 +20,7 @@ public class YamaPunishment : TouhouAncientCards
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public override int MaxUpgradeLevel => -1;
-    public YamaPunishment() : base(1, CardType.Skill, CardRarity.Curse, TargetType.None, true)
+    public YamaPunishment() : base(1, CardType.Curse, CardRarity.Curse, TargetType.None, true)
     {
     }
 
