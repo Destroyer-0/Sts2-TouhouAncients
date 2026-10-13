@@ -27,7 +27,8 @@ public static class ChildhoodBagPatch
 {
     [HarmonyPatch("OnUse")] 
     [HarmonyPrefix]
-    private static bool Prefix(FoulPotion __instance, PlayerChoiceContext choiceContext, Creature? target)
+    private static bool Prefix(FoulPotion __instance, PlayerChoiceContext choiceContext, Creature? target,
+        ref Task __result)
     {
         // 仅在战斗中拦截，且需要替换逻辑时返回 false
         if (!CombatManager.Instance.IsInProgress) return true;
@@ -35,12 +36,13 @@ public static class ChildhoodBagPatch
         var player = __instance.Owner;
         if (player == null) return true;
 
-        // 只有持有 ChildhoodBag 才需要替换逻辑
         if (player.GetRelic<ChildhoodBag>() != null)
         {
-            // 启动异步任务但让原方法正常执行，然后跳过原方法的逻辑
-            _ = ReplaceOnUseLogic(__instance, choiceContext, target);
-            return false; // 跳过原方法
+            // 跳过原方法必须交回真实 Task：OnUseWrapper 会把它交给
+            // BranchingPlayerChoiceContext 等待，传 null 会抛 ArgumentNullException。
+            // 也不要用 _ = 丢弃，否则结算脱离行动队列。
+            __result = ReplaceOnUseLogic(__instance, choiceContext, target);
+            return false;
         }
 
         return true; // 继续原方法
