@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.relics.Akyuu;
 [Pool(typeof(EventRelicPool))]
 public class CalmingTea : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3m, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3m, ValueProp.Unpowered)];
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
         IEnumerable<Creature> participants)
