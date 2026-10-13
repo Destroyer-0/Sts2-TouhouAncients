@@ -32,6 +32,18 @@ public abstract class TouhouAncientCards : CustomCardModel
         bool shouldShowInCardLibrary) : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
+
+    /// <summary>提前停止 ModSound 音效并归还 BaseLib 播放器池；Stop() 不触发 Finished，必须手动脱树。</summary>
+    protected void StopSfx(AudioStreamPlayer? player)
+    {
+        if (player == null || !GodotObject.IsInstanceValid(player))
+        {
+            return;
+        }
+
+        player.Stop();
+        player.GetParent()?.RemoveChild(player);
+    }
 }
 
 
