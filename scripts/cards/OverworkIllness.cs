@@ -26,6 +26,7 @@ public class OverworkIllness : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Weak", 1m)];
 
+    public override int MaxUpgradeLevel => -1;
     public OverworkIllness() : base(-1, CardType.Curse, CardRarity.Curse, TargetType.None, true)
     {
     }

@@ -24,7 +24,7 @@ public class EndlessNightmare : TouhouAncientCards
 
     public override bool UseAncientFrame => true;
 
-    public override int MaxUpgradeLevel => 0;
+    public override int MaxUpgradeLevel => -1;
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
 
