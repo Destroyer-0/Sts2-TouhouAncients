@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca1facx75df26"
-path="res://.godot/imported/HakureiGohei.png-bfa82ad7c4166e499b7096e84f64a843.ctex"
+uid="uid://bd3aajs5pakop"
+path="res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/HakureiGohei.png"
-dest_files=["res://.godot/imported/HakureiGohei.png-bfa82ad7c4166e499b7096e84f64a843.ctex"]
+source_file="res://images/icon/relics/HotokeMishiIshiNoHachi.png"
+dest_files=["res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"]
 
 [params]
 

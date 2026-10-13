@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f5l4gugm7jgp"
-path="res://.godot/imported/Dongnichangshu.png-ad415d97545f3f25bb64d441d6527e24.ctex"
+uid="uid://dmqdnrrv261i"
+path="res://.godot/imported/HakureiGohei.png-610f7ab3fd91cf61ea54c5fd610732a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/Dongnichangshu.png"
-dest_files=["res://.godot/imported/Dongnichangshu.png-ad415d97545f3f25bb64d441d6527e24.ctex"]
+source_file="res://images/icon/relics/HakureiGohei.png"
+dest_files=["res://.godot/imported/HakureiGohei.png-610f7ab3fd91cf61ea54c5fd610732a9.ctex"]
 
 [params]
 

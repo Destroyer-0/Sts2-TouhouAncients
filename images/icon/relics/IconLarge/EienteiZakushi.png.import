@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkvmrsxhneee6"
-path="res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"
+uid="uid://bpw010i4lrxgw"
+path="res://.godot/imported/EienteiZakushi.png-d3bc9169f532cd8cd1883e4b3c8bf046.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/HotokeMishiIshiNoHachi.png"
-dest_files=["res://.godot/imported/HotokeMishiIshiNoHachi.png-8129d2baf1ba60d5ed790348a5919f69.ctex"]
+source_file="res://images/icon/relics/IconLarge/EienteiZakushi.png"
+dest_files=["res://.godot/imported/EienteiZakushi.png-d3bc9169f532cd8cd1883e4b3c8bf046.ctex"]
 
 [params]
 

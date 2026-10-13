@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nlm2p5yqfnwv"
-path="res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"
+uid="uid://do6aiul7pjmmo"
+path="res://.godot/imported/EienteiZakushi.png-7ae83ce0a07dcd80985fb31f19d13c6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/MiniShrine.png"
-dest_files=["res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"]
+source_file="res://images/icon/relics/EienteiZakushi.png"
+dest_files=["res://.godot/imported/EienteiZakushi.png-7ae83ce0a07dcd80985fb31f19d13c6b.ctex"]
 
 [params]
 

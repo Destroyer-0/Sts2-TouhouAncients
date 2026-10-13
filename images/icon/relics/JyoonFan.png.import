@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cglb7ptalq3mt"
-path="res://.godot/imported/SubspaceHole.png-a880baed19a111a12c43762200e445e8.ctex"
+uid="uid://v6ekyh132q1h"
+path="res://.godot/imported/JyoonFan.png-d9cc5f85b2bf15257825c02b8ff74777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/SubspaceHole.png"
-dest_files=["res://.godot/imported/SubspaceHole.png-a880baed19a111a12c43762200e445e8.ctex"]
+source_file="res://images/icon/relics/JyoonFan.png"
+dest_files=["res://.godot/imported/JyoonFan.png-d9cc5f85b2bf15257825c02b8ff74777.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da8i6atfpgb1b"
-path="res://.godot/imported/YinYangOrb.png-c42fc6c9a1345ece4b983beb6f7f9010.ctex"
+uid="uid://b3lv26q85x3j1"
+path="res://.godot/imported/DonateMoneyBox.png-320bef9524c95a686dffab3cdd2a1f0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/YinYangOrb.png"
-dest_files=["res://.godot/imported/YinYangOrb.png-c42fc6c9a1345ece4b983beb6f7f9010.ctex"]
+source_file="res://images/icon/relics/IconLarge/DonateMoneyBox.png"
+dest_files=["res://.godot/imported/DonateMoneyBox.png-320bef9524c95a686dffab3cdd2a1f0f.ctex"]
 
 [params]
 

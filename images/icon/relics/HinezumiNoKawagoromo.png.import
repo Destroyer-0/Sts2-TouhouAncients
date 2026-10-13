@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjavyj3xoqo5q"
-path="res://.godot/imported/DonateMoneyBox.png-320bef9524c95a686dffab3cdd2a1f0f.ctex"
+uid="uid://d0u2ukuk10b2p"
+path="res://.godot/imported/HinezumiNoKawagoromo.png-3bba884d8f8c0af9c597badda1115145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/DonateMoneyBox.png"
-dest_files=["res://.godot/imported/DonateMoneyBox.png-320bef9524c95a686dffab3cdd2a1f0f.ctex"]
+source_file="res://images/icon/relics/HinezumiNoKawagoromo.png"
+dest_files=["res://.godot/imported/HinezumiNoKawagoromo.png-3bba884d8f8c0af9c597badda1115145.ctex"]
 
 [params]
 

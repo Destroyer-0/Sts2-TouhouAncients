@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5qs700jrjvdo"
-path="res://.godot/imported/EienteiZakushi.png-d3bc9169f532cd8cd1883e4b3c8bf046.ctex"
+uid="uid://br6wviiejai02"
+path="res://.godot/imported/HouraiNoTamae.png-f22fed71b108d1711e21fcaf67aedd8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/EienteiZakushi.png"
-dest_files=["res://.godot/imported/EienteiZakushi.png-d3bc9169f532cd8cd1883e4b3c8bf046.ctex"]
+source_file="res://images/icon/relics/HouraiNoTamae.png"
+dest_files=["res://.godot/imported/HouraiNoTamae.png-f22fed71b108d1711e21fcaf67aedd8d.ctex"]
 
 [params]
 

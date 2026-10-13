@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcobsvqesafiy"
-path="res://.godot/imported/Dongnichangshu.png-fb08cb00b7fe289c58d15c3050e937f6.ctex"
+uid="uid://dvo7q8u8dtwch"
+path="res://.godot/imported/KeystoneFloatingCannon.png-3371d7ce6f59b10b9abbeff516bc6c22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/Dongnichangshu.png"
-dest_files=["res://.godot/imported/Dongnichangshu.png-fb08cb00b7fe289c58d15c3050e937f6.ctex"]
+source_file="res://images/icon/relics/KeystoneFloatingCannon.png"
+dest_files=["res://.godot/imported/KeystoneFloatingCannon.png-3371d7ce6f59b10b9abbeff516bc6c22.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1mejdls7p38l"
-path="res://.godot/imported/SealingNeedle.png-7b5f0ca9104ae3be44892455d8ad6d6c.ctex"
+uid="uid://qemfhviduixm"
+path="res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/SealingNeedle.png"
-dest_files=["res://.godot/imported/SealingNeedle.png-7b5f0ca9104ae3be44892455d8ad6d6c.ctex"]
+source_file="res://images/icon/relics/MiniShrine.png"
+dest_files=["res://.godot/imported/MiniShrine.png-f519bb585913d18164be54ef8f277743.ctex"]
 
 [params]
 

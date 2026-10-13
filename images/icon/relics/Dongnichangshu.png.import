@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brxwyfcrndy66"
-path="res://.godot/imported/RyukeiNoTama.png-23bc566ccac893382bea12d779f986a9.ctex"
+uid="uid://mvg83gd55p0a"
+path="res://.godot/imported/Dongnichangshu.png-ad415d97545f3f25bb64d441d6527e24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/RyukeiNoTama.png"
-dest_files=["res://.godot/imported/RyukeiNoTama.png-23bc566ccac893382bea12d779f986a9.ctex"]
+source_file="res://images/icon/relics/Dongnichangshu.png"
+dest_files=["res://.godot/imported/Dongnichangshu.png-ad415d97545f3f25bb64d441d6527e24.ctex"]
 
 [params]
 
