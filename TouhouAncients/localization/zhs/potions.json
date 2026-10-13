@@ -11,8 +11,8 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]变化[/gold]你手中的所有牌。\n[sine]如果你觉得不爽的话，就跟她爆了吧！[/sine]",
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]如果你觉得不爽的话，就跟她爆了吧！[/sine]",
 
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "分装药膳",
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[blue]{HealPercent}%[/blue]。战斗结束时，若此药水仍在你的[gold]药水栏位[/gold]中，你回复[blue]{CombatEndHeal}[/blue]点生命值。",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "养生汤",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[blue]{HealPercent}%[/blue]。战斗结束时，若此药水在你的[gold]药水栏位[/gold]中，回复[blue]{CombatEndHeal}[/blue]点生命。",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "希腊奶",

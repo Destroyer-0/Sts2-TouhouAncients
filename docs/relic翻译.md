@@ -3202,3 +3202,20 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
 
 ---
+
+## 增量更新（2026-10-14，药水「分装药膳」改名「养生汤」）
+
+**键名**: `TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）、`TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`，仅引用名）
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title` | `Portioned Medicinal Cuisine` | `Wellness Soup` |
+| `MEDICINAL_CUISINE.description` 中的药水名引用 | `[gold]Portioned Medicinal Cuisine[/gold]` | `[gold]Wellness Soup[/gold]` |
+
+### 备注
+- zhs 侧药水名由「分装药膳」改为「养生汤」（`zhs/potions.json`、`zhs/relics.json` 描述引用同步），英文名 **`Wellness Soup`**（用户确认）。
+- 药水 `description` 正文、遗物 `title` / `flavor` 未变，未改动。
+- 参照源：原版 `NUTRITIOUS_SOUP` = `Nutritious Soup`、`NUTRITIOUS_OYSTER` = `Nutritious Oyster`；本次按用户指定改用 `Wellness Soup`。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---

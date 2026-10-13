@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using TouhouAncients.Scripts.badges;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -28,6 +29,8 @@ public class DuplexBarrier : TouhouAncientRelics
     /// 标记当前房间是否通过无视路线进入（用于战斗开始时的HP降低）。
     /// </summary>
     private bool _wasSkippedThisRoom;
+
+    private bool _triggerBySelf;
 
     public override bool IsUsedUp => TimesUsed >= _maxUses;
     public override bool ShowCounter => !IsUsedUp;
@@ -79,10 +82,14 @@ public class DuplexBarrier : TouhouAncientRelics
             if (prevPoint != null && currentPoint != null && !prevPoint.Children.Contains(currentPoint))
             {
                 _wasSkippedThisRoom = true;
+                _triggerBySelf = false;
 
                 // 如果本遗物还有剩余次数，计入消耗
                 if (!IsUsedUp)
+                {
+                    _triggerBySelf = true;
                     TimesUsed++;
+                }
             }
         }
 
@@ -105,6 +112,11 @@ public class DuplexBarrier : TouhouAncientRelics
         foreach (var enemy in enemies)
         {
             await CreatureCmd.SetCurrentHp(enemy, 1m);
+        }
+
+        if (!_triggerBySelf)
+        {
+            ShrineMaidenOvertime.Unlock(Owner);
         }
     }
 
