@@ -2914,7 +2914,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 ### 1. 百鬼夜行绘卷（HYAKKI_YAGYO_SCROLL，补充 `transcribedDescriptionEmpty`）
 
-zhs 新增 `transcribedDescriptionEmpty`（誊写记录界面在该角色尚无记录时显示的占位文本），此前 eng/jpn 直接复制了中文，本次补齐译文。
+zhs 新增 `transcribedDescriptionEmpty`（收录记录界面在该角色尚无记录时显示的占位文本），此前 eng/jpn 直接复制了中文，本次补齐译文。
 
 | 字段 | 中文原文 | English |
 |------|---------|---------|
@@ -2922,7 +2922,7 @@ zhs 新增 `transcribedDescriptionEmpty`（誊写记录界面在该角色尚无�
 
 #### 说明
 - 动词沿用同组 `transcribeDescription` 已定的 `record`（`[gold]Hyakki Yagyo[/gold]'s record`），不另造 `log` / `save` 等词。
-- 「这名角色」在英文里用 `this character` 指代当前查看记录的角色，与 `transcribeDescription` 中的 `the specified character` 区分：前者是界面当前角色，后者是誊写目标角色。
+- 「这名角色」在英文里用 `this character` 指代当前查看记录的角色，与 `transcribeDescription` 中的 `the specified character` 区分：前者是界面当前角色，后者是收录目标角色。
 - 原版无同类空状态句式，按英文空状态文案习惯用 `yet` 收尾。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
@@ -2934,7 +2934,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 键名 | 原译文 | 修正为 | 依据 |
 |------|--------|--------|------|
 | `...SCROLL.transcribeDescription` | `...the chosen card is added to [gold]Hyakki Yagyo[/gold]'s record. [gold]Hyakki Yagyo[/gold] can record only one card per character; recording a card for a character that already has a record replaces that record.` | `...the chosen card is added to the record of every [gold]Hyakki Yagyo[/gold]. If a record for that character already exists, the chosen card replaces the previously recorded card.` | zhs 是「加入**所有**百鬼夜行的记录中」，`TranscribeReward.OnSelect` 也确实对牌组里每张百鬼夜行各写一份；后半句原文把同一件事解释了两遍，按 zhs 精简 |
-| `...SCROLL.transcribedTitle` | `Transcribed` | `Transcribed Cards` | zhs 是名词「誊写记录」，该 HoverTip 列出的就是牌名列表，过去分词单独作标题读不通 |
+| `...SCROLL.transcribedTitle` | `Transcribed` | `Transcribed Cards` | zhs 是名词「收录记录」，该 HoverTip 列出的就是牌名列表，过去分词单独作标题读不通 |
 | `...SCROLL.description` | `...one set of [gold]Card Rewards[/gold] from each of ...`；`Whenever you [gold]kill[/gold] an enemy` | `...a card from each of ...`；`Whenever [gold]Fatal[/gold]` | 前半句是旧 zhs「各一组卡牌奖励」的遗留措辞；后半句按原版关键字映射——zhs`[gold]斩杀[/gold]时` ↔ eng `If [gold]Fatal[/gold],`（`FEED` / `THE_HUNT` / `HAND_OF_GREED`），eng 里 `kill` 不是关键字 |
 | `HYAKKI_YAGYO.description`（cards.json） | 比 zhs 多出第三句 `At the start of combat, if Hyakki Yagyo's record pool is empty, remove it from the game (into the None pile).` | 删去该句 | zhs 只有两句，译文不得多于原文；该机制仍由 `HyakkiYagyo.BeforeCombatStart` 实现，只是不写进卡面 |
 
@@ -3170,3 +3170,75 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
 
 ---
+
+## 增量更新（2026-10-13，稗田阿求新增「调理药膳」与配套药水「分装药膳」）
+
+**键名**: `TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`）、`TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]分装药膳[/gold]。",
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "分装药膳",
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[blue]{HealPercent}%[/blue]。战斗结束时，若此药水仍在你的[gold]药水栏位[/gold]中，你回复[blue]{CombatEndHeal}[/blue]点生命值。",
+"TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `MEDICINAL_CUISINE.title` | `Medicinal Cuisine` |
+| `MEDICINAL_CUISINE.description` | `Upon pickup, gain [blue]{Potions}[/blue] [gold]Portioned Medicinal Cuisine[/gold].` |
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title` | `Portioned Medicinal Cuisine` |
+| `PORTIONED_MEDICINAL_CUISINE_POTION.description` | `Heal for [blue]{HealPercent}%[/blue] of your [gold]Max HP[/gold]. At the end of combat, if this potion is still in your [gold]Potion Slots[/gold], heal [blue]{CombatEndHeal}[/blue] HP.` |
+
+### 备注（原版句式来源）
+- 遗物 `description` 与 `eventDescription` 逐字相同 → 按规范省略 `.eventDescription`。
+- 两条 flavor 均为空（阿求池其余 16 件遗物同样为空）。
+- `拾起时，…` → `Upon pickup, ...`（原版 `LEAD_PAPERWEIGHT` / `NUTRITIOUS_SOUP`）。
+- `回复你最大生命值的X%` → `Heal for X% of your Max HP`，句式取自原版 `BLOOD_POTION`，但数值标记改用本 Mod 规范的 `[blue]`（`BLOOD_POTION` 原文用 `[green]`）。
+- 药水名引用色取 `[gold]`，与 `NIDOMITEI_SPECIAL_BLEND`（`[gold]超ZUN啤酒[/gold]`）一致；`CHILDHOOD_BAG` 的 `[purple]` 写法不采用。
+- `药水栏位` → `[gold]Potion Slots[/gold]`（术语表）；`最大生命` → `[gold]Max HP[/gold]`。
+- 药水名 `分装药膳` → `Portioned Medicinal Cuisine`（用户确认）；遗物名 `调理药膳` → `Medicinal Cuisine`（用户确认）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-14，药水「分装药膳」改名「养生汤」）
+
+**键名**: `TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）、`TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`，仅引用名）
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title` | `Portioned Medicinal Cuisine` | `Wellness Soup` |
+| `MEDICINAL_CUISINE.description` 中的药水名引用 | `[gold]Portioned Medicinal Cuisine[/gold]` | `[gold]Wellness Soup[/gold]` |
+
+### 备注
+- zhs 侧药水名由「分装药膳」改为「养生汤」（`zhs/potions.json`、`zhs/relics.json` 描述引用同步），英文名 **`Wellness Soup`**（用户确认）。
+- 药水 `description` 正文、遗物 `title` / `flavor` 未变，未改动。
+- 参照源：原版 `NUTRITIOUS_SOUP` = `Nutritious Soup`、`NUTRITIOUS_OYSTER` = `Nutritious Oyster`；本次按用户指定改用 `Wellness Soup`。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-14，百鬼夜行机制术语统一为「收录」）
+
+zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」写法全部改掉），eng/jpn 的 `record` 系列随之对齐为 `transcribe` 系列。
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `zhs` `...SCROLL.transcribeDescription` | …所有[gold]百鬼夜行[/gold]的**记录**中，若已存在该角色的**记录**则替换原先的**记录**牌。 | …所有[gold]百鬼夜行[/gold]的**收录**中，若已存在该角色的**收录**则替换原先的**收录**牌。 |
+| `zhs` `...SCROLL.transcribedTitle` | 收录记录 | 收录 |
+| `zhs` `...SCROLL.transcribedDescriptionEmpty` | …还没有任何牌被**记录**在… | …还没有任何牌被**收录**在… |
+| `eng/jpn` `...SCROLL.transcribeDescription` | …added to the **record** of every …；If a **record** … replaces the previously **recorded** card. | …added to the **transcription** of every …；If a **transcription** … replaces the previously **transcribed** card. |
+| `eng/jpn` `...SCROLL.transcribedDescriptionEmpty` | No cards … have been **recorded** in … | No cards … have been **transcribed** into … |
+| `eng/jpn` `HYAKKI_YAGYO.description`（cards.json） | Play {Cards} random **recorded** cards, then remove them from the **record** for this combat.\nOnce all **records** are removed, … | Play {Cards} random **transcribed** cards, then remove them from the **transcription** for this combat.\nOnce the **transcription is emptied**, … |
+
+### 备注
+- 词性对应：动词 **Transcribe**、收录池名词 **transcription**、收录的牌 **transcribed**（用户选定方案 A）。
+- `transcribedTitle` 的 `Transcribed Cards` 本来就是 `transcribed`，无需改动。
+- 未改动：`...SCROLL.description`、`...SCROLL.transcribeTitle`、`...SCROLL.transcribedDescription`、`HYAKKI_YAGYO.title`、`TRANSCRIBE_REWARD`（gameplay_ui）。
+- `DOWSING_ROD.*`（纳兹琳灵摆的「记录」）是另一套机制，保留原 `record` 系列不动。
+- jpn 与 eng 一致（jpn 文件用英文填充）。

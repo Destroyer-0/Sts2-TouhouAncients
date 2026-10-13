@@ -102,7 +102,7 @@
 
 ### 备注
 - 多段伤害句式取原版 `CELESTIAL_MIGHT` / `GUNK_UP`：`Deal {Damage:diff()} damage ... times.`；本卡 `RepeatVar(2)` 不随升级变化，故按 zhs 保留 `[blue]{Repeat}[/blue]`（不加 `:diff()`）。
-- 「斩杀时」按项目已定映射译 `If [gold]Fatal[/gold],`（见 `relic翻译.md` 誊写卷轴条的复核表：对应原版 `FEED` / `THE_HUNT` / `HAND_OF_GREED`）。
+- 「斩杀时」按项目已定映射译 `If [gold]Fatal[/gold],`（见 `relic翻译.md` 收录卷轴条的复核表：对应原版 `FEED` / `THE_HUNT` / `HAND_OF_GREED`）。
 - 「永久性增加」取原版 `THE_SCYTHE` / `GENETIC_ALGORITHM`：`Permanently increase this card's damage by {Increase:diff()}.`；`{energyPrefix:energyIcons(1)}` 直接接 `gain`（同 `POSSESSED_BY_SEIGA_POWER`）。
 - 卡名须与 `relics.json` 的 `PARADISE_DREAM`（乐园之梦）描述里 `[gold]妖怪治退[/gold]` 完全一致 —— 两处均已译为 `Youkai Extermination`。
 - ⚠️ 顺带发现：`SHINING_TOWER.description`（光辉宝塔）用的是 `On [gold]Fatal[/gold],`，与项目已定映射 `If [gold]Fatal[/gold],` 不一致，待确认后统一。

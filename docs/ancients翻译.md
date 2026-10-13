@@ -1413,3 +1413,52 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
 
 ---
+
+## 增量更新（2026-10-14，阿求对话补全 21 条 + 旧键修正）
+
+### 新增（`HIEDA_NO_AKYUU_ANCIENT`）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `.talk.IRONCLAD.0-0r.ancient` | 余烬仍存…… | `The embers still remain...` |
+| `.talk.IRONCLAD.0-0r.next` | 继续 | `Continue` |
+| `.talk.IRONCLAD.0-1r.ancient` | 这一次，不妨试试以笔代剑？ | `This time, why not try trading your sword for a pen?` |
+| `.talk.SILENT.0-0r.ancient` | 言语才是最强的暗器，你不觉得吗？ | `Words are the deadliest hidden weapon, don't you think?` |
+| `.talk.SILENT.0-0r.next` | 继续 | `Continue` |
+| `.talk.SILENT.0-1r.ancient` | 当然，沉默也是…… | `And of course, silence is too...` |
+| `.talk.REGENT.0-0.ancient` | 我的记忆中并没有你的存在…… | `There's no trace of you in my memories...` |
+| `.talk.REGENT.0-0.next` | 继续 | `Continue` |
+| `.talk.REGENT.0-1.char` | 我是来自宇宙的，未来的[orange]王[/orange]！ | `I hail from the cosmos, the future [orange]King[/orange]!` |
+| `.talk.REGENT.0-1.next` | 继续 | `Continue` |
+| `.talk.REGENT.0-2.ancient` | 无论如何，这座高塔充满了危险，还请你一路小心。 | `In any case, this Spire is full of danger, so please be careful along the way.` |
+| `.talk.REGENT.1-0r.ancient` | 死掉总是一件很不舒服的事情…… | `Dying is always a rather unpleasant thing...` |
+| `.talk.REGENT.1-0r.next` | 继续 | `Continue` |
+| `.talk.REGENT.1-1r.ancient` | 援助将尽我所能，这一次请谨慎前行！ | `I'll assist you as much as I can. This time, please tread carefully!` |
+| `.talk.DEFECT.0-0r.ancient` | 拿上这些读物，在路上慢慢看吧！ | `Take these books and read them slowly along the way!` |
+| `.talk.DEFECT.0-0r.next` | 继续 | `Continue` |
+| `.talk.DEFECT.0-1r.ancient` | 我很想知道你是怎么想的！ | `I'd very much like to know what you're thinking!` |
+| `.talk.NECROBINDER.0-0.ancient` | 这本书……看起来令人不安。 | `This book... looks unsettling.` |
+| `.talk.NECROBINDER.0-0.next` | 继续 | `Continue` |
+| `.talk.NECROBINDER.0-1.char` | 魔典给予我力量，它的诅咒却把我扭曲成如此模样！ | `The grimoire grants me power, yet its curse twisted me into this form!` |
+| `.talk.NECROBINDER.0-1.next` | 继续 | `Continue` |
+| `.talk.NECROBINDER.0-1.ancient` | 知识的作用不应如此。用内心去观看这世界的多彩吧。 | `That's not what knowledge is for. See this world's many colors with your heart.` |
+| `.talk.NECROBINDER.1-0r.ancient` | 我不会劝你放下仇恨，怨灵们本就由此而生…… | `I won't tell you to set aside your hatred—vengeful spirits are born from it, after all...` |
+| `.talk.NECROBINDER.1-0r.next` | 继续 | `Continue` |
+| `.talk.NECROBINDER.1-1r.ancient` | 还请拾起被遗忘的记忆，踏上旅途吧。 | `Please pick up your forgotten memories and set out on your journey.` |
+
+### 修正（zhs 已改、原译文未跟）
+
+| 键名 | zhs 现文 | 旧 eng | 现 eng |
+|------|---------|--------|--------|
+| `.pages.INITIAL.options.MEET_NEOW.title` | 淡忘 | `Politely Decline` | `Fade Away` |
+| `.pages.INITIAL.options.MEET_NEOW.description` | 在另一个时间线中，面见涅奥。 | `Go meet Neow.` | `Meet Neow in another timeline.` |
+| `.talk.MEET_NEOW.silent` | `[thinky_dots][sine]你穿过茫茫的记忆海洋……[/sine][/thinky_dots]` | `...You awaken from the vast sea of memories...` | `...You pass through a vast sea of memories...` |
+| `.talk.ANY.0-0r.ancient` | 这位先古之民的对话仍在编写中…… | 与 `firstVisitEver` 重复的旧稿 | `This Ancient's dialogue is still being written...` |
+
+### 备注
+- `余烬` → `ember`，与附魔 `Tezcatara's Ember`（特兹卡塔拉的余烬）同一词源；`暗器` → `hidden weapon`；`魔典` → 小写 `grimoire`（原版 `FORBIDDEN_GRIMOIRE` = 禁忌魔典 / `NECROBINDER1_EPOCH` 同词）。
+- `高塔` → `Spire`、`宇宙` → `cosmos`，均沿用既有译法；`[orange]王[/orange]` → `[orange]King[/orange]`（与辉夜 / 尤魔条目一致）。
+- `MEET_NEOW` 选项标题与描述由用户拍板：`Fade Away` / `Meet Neow in another timeline.`。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---

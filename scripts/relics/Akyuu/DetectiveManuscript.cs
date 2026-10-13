@@ -20,9 +20,6 @@ namespace TouhouAncients.Scripts.relics.Akyuu;
 [Pool(typeof(EventRelicPool))]
 public class DetectiveManuscript : TouhouAncientRelics
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<DetectiveManuscriptDexterityPower>()];
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Dexterity", 2m)];
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,

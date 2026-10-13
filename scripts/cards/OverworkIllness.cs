@@ -27,6 +27,7 @@ public class OverworkIllness : TouhouAncientCards
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Weak", 1m)];
 
     public override int MaxUpgradeLevel => -1;
+
     public OverworkIllness() : base(-1, CardType.Curse, CardRarity.Curse, TargetType.None, true)
     {
     }
@@ -37,6 +38,7 @@ public class OverworkIllness : TouhouAncientCards
         if (card != this) return;
         if (Owner?.Creature?.CombatState == null) return;
 
-        await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, DynamicVars["Weak"].BaseValue, null, null);
+        var a = await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, DynamicVars["Weak"].BaseValue, null, null);
+        a.SkipNextDurationTick = false;
     }
 }

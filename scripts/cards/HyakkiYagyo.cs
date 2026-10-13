@@ -22,8 +22,8 @@ namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
 /// 百鬼夜行：2c（升级后1c）技能 保留。
-/// 打出随机{Cards}张誊写记录的牌，然后将它们在本场战斗中从誊写记录中移除。
-/// 誊写记录全部移除后，将此牌在本场战斗中移出游戏。
+/// 打出随机{Cards}张收录记录的牌，然后将它们在本场战斗中从收录记录中移除。
+/// 收录记录全部移除后，将此牌在本场战斗中移出游戏。
 /// </summary>
 [Pool(typeof(EventCardPool))]
 public class HyakkiYagyo : TouhouAncientCards
@@ -44,17 +44,17 @@ public class HyakkiYagyo : TouhouAncientCards
 
     public IReadOnlyList<SerializableCard> Records => _records;
     
-    /// <summary>本场战斗剩余的誊写记录；战斗开始时从持久记录复制，打出的牌在这里移除。</summary>
+    /// <summary>本场战斗剩余的收录记录；战斗开始时从持久记录复制，打出的牌在这里移除。</summary>
     private List<SerializableCard> _combatRecords = [];
 
     public HyakkiYagyo() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
 
-    /// <summary>每次打出时从誊写记录中打出（并消耗）的张数。</summary>
+    /// <summary>每次打出时从收录记录中打出（并消耗）的张数。</summary>
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
 
-    /// <summary>誊写记录（每种角色最多一张）。</summary>
+    /// <summary>收录记录（每种角色最多一张）。</summary>
     [SavedProperty]
     private List<SerializableCard> HyakkiYagyo_Records
     {
@@ -67,7 +67,7 @@ public class HyakkiYagyo : TouhouAncientCards
         }
     }
 
-    /// <summary>本场战斗剩余的誊写记录张数（0 表示这张牌在本场战斗中已无事可做）。</summary>
+    /// <summary>本场战斗剩余的收录记录张数（0 表示这张牌在本场战斗中已无事可做）。</summary>
     private int CombatRecordCount => _combatRecords.Count;
 
     /// <summary>自己在战斗牌堆里（牌组原件不算）。</summary>
@@ -119,7 +119,7 @@ public class HyakkiYagyo : TouhouAncientCards
     
 
     /// <summary>
-    /// 打出随机{Cards}张誊写记录的牌，然后把它们在本场战斗中从誊写记录中移除。
+    /// 打出随机{Cards}张收录记录的牌，然后把它们在本场战斗中从收录记录中移除。
     /// </summary>
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -134,7 +134,7 @@ public class HyakkiYagyo : TouhouAncientCards
             var combatState = player.Creature.CombatState;
             if (combatState == null) break;
 
-            // 誊写记录只是牌样：临场造一张战斗副本打出，打完即不属于任何牌堆。
+            // 收录记录只是牌样：临场造一张战斗副本打出，打完即不属于任何牌堆。
             
             var cardModel = FromSerializable(record);
             player.Creature.CombatState.AddCard(cardModel,Owner);
@@ -148,8 +148,8 @@ public class HyakkiYagyo : TouhouAncientCards
     }
 
     /// <summary>
-    /// 「已誊写」悬停：title 固定，description 是当前誊写记录里的卡名（升级过的带「+」，各语言自己的分隔符），
-    /// 后接每张被誊写牌的卡面。没有记录时不显示（图鉴里的 canonical 没有记录，自然也不显示）。
+    /// 「已收录」悬停：title 固定，description 是当前收录记录里的卡名（升级过的带「+」，各语言自己的分隔符），
+    /// 后接每张被收录牌的卡面。没有记录时不显示（图鉴里的 canonical 没有记录，自然也不显示）。
     /// </summary>
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
@@ -175,7 +175,7 @@ public class HyakkiYagyo : TouhouAncientCards
     }
 
     /// <summary>
-    /// 当前誊写记录对应的卡牌（读的是记录持有者那一份）；模型已缺失的条目跳过。
+    /// 当前收录记录对应的卡牌（读的是记录持有者那一份）；模型已缺失的条目跳过。
     /// 记录只存在牌组里那一张上，所以读不到持有者时就是空。
     /// </summary>
     private IEnumerable<TranscribedCard> TranscribedCards =>
@@ -191,7 +191,7 @@ public class HyakkiYagyo : TouhouAncientCards
         .OfType<TranscribedCard>();
 
 
-    /// <summary>一条誊写记录：卡面模型与是否升级过。</summary>
+    /// <summary>一条收录记录：卡面模型与是否升级过。</summary>
     private sealed record TranscribedCard(CardModel Model, bool Upgraded)
     {
         /// <summary>卡名。CardModel 的 Title 已经为升级过的牌带上「+」。</summary>
@@ -199,8 +199,8 @@ public class HyakkiYagyo : TouhouAncientCards
     }
 
     /// <summary>
-    /// 把一张牌誊写进这张牌的记录：按来源角色的卡牌池去重，同池已有记录时替换。
-    /// 战斗中誊写时同步写进本场记录池，本场已打出的该池记录因此重新可用。
+    /// 把一张牌收录进这张牌的记录：按来源角色的卡牌池去重，同池已有记录时替换。
+    /// 战斗中收录时同步写进本场记录池，本场已打出的该池记录因此重新可用。
     /// </summary>
     public void Record(CardPoolModel pool, CardModel card)
     {

@@ -29,11 +29,12 @@ public class Globe : TouhouAncientRelics
         List<CardModel> list = (await CardSelectCmd.FromDeckForTransformation(
             prefs: new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, base.DynamicVars.Cards.IntValue),
             player: base.Owner)).ToList();
+
         foreach (CardModel item in list)
         {
             var shouldUpgrade = item.IsUpgraded;
             CardModel cardModel =
-                CardFactory.CreateRandomCardForTransform(item, isInCombat: false, base.Owner.PlayerRng.Transformations);
+                CardFactory.CreateRandomCardForTransform(item, isInCombat: false, base.Owner.RunState.Rng.Niche);
             if (shouldUpgrade)
             {
                 CardCmd.Upgrade(cardModel);
