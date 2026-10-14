@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://boj5xshe4cyl0"]
+
+[ext_resource type="Texture2D" uid="uid://dl0su5budq6nh" path="res://images/sprite/tewi/tewi.png" id="1_tewi0"]
+
+[node name="InabaTewiMonster" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(5, -149.00002)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_tewi0")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -78.0
+offset_top = -307.0
+offset_right = 83.600006
+offset_bottom = 10.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3, -185)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(5, -333)
