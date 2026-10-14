@@ -61,6 +61,7 @@ public class YoukaiExtermination : TouhouAncientCards
     [
         new DamageVar(CurrentDamage, ValueProp.Move),
         new RepeatVar(2),
+        new EnergyVar(1),
         new IntVar("Increase", 1m),
     ];
 
@@ -84,7 +85,7 @@ public class YoukaiExtermination : TouhouAncientCards
         int kills = fatalStates.Count(x => x is { Value: true, Key.IsDead: true });
         if (kills <= 0) return;
 
-        await PlayerCmd.GainEnergy(DynamicVars["Increase"].IntValue, Owner);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
         int gain = DynamicVars["Increase"].IntValue;
         BuffFromPlay(gain);
         // 战斗副本与牌组原件同时成长，跨战斗持久（参照巨镰）

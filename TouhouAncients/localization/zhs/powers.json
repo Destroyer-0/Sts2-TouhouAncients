@@ -128,5 +128,13 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "这张牌因[purple]被抛弃[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。",
 
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.title": "弱者的叛旗",
-  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "这张牌因[purple]不被重视[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。"
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "这张牌因[purple]不被重视[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。",
+
+  "TOUHOUANCIENTS-TRICKSTER_POWER.title": "诈术师",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
+
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "有偿的幸运",
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]呼呼……没错，只要一点点我的能力，就能变得如此幸运呢~[/i][/pink]",
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]呼呼……没错，只要一点点我的能力，就能变得如此幸运呢~[/i][/pink]"
 }

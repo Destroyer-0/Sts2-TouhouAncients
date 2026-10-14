@@ -28,6 +28,7 @@
 
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡てゐ",
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character} stepped right into a trap long prepared by [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.bgm": "お宇佐さまの素い幡",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",

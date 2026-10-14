@@ -112,7 +112,7 @@
     "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].",
 
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {Energy:energyIcons()} and permanently increase this card's damage by {Increase:diff()}.",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Gain [aqua]{Block:diff()}[/aqua] [gold]Block[/gold].\nDeal [purple]{Damage:diff()}[/purple] damage.\nAdd [orange]{Cards:diff()}[/orange] random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
