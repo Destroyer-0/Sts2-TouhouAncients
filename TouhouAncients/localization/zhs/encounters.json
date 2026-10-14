@@ -28,6 +28,7 @@
 
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡帝",
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character}踩中了[gold]{encounter}[/gold]早有准备的陷阱。",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.bgm": "宇佐大人的白旗",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]翻转了{character}倾向胜利的天平。",

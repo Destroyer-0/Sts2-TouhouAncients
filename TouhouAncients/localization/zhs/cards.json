@@ -111,7 +111,7 @@
     "TOUHOUANCIENTS-SHINING_TOWER.description": "对所有敌人造成{Damage:diff()}点伤害并[gold]击晕[/gold]他们。\n斩杀时，获得[blue]{Gold}[/blue][gold]金币[/gold]。\n从你的[gold]牌组[/gold]中移除，并重新加入寻宝奖励中。",
 
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "妖怪治退",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "造成{Damage:diff()}点伤害[blue]{Repeat}[/blue]次。\n[gold]斩杀[/gold]时，获得{energyPrefix:energyIcons(1)}，这张牌在本局游戏中的伤害永久性增加{Increase:diff()}。",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "造成{Damage:diff()}点伤害[blue]{Repeat}[/blue]次。\n[gold]斩杀[/gold]时，获得{Energy:energyIcons()}，这张牌在本局游戏中的伤害永久性增加{Increase:diff()}。",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "幻梦无垠",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "获得[aqua]{Block:diff()}[/aqua]点[gold]格挡[/gold]。\n造成[purple]{Damage:diff()}[/purple]点伤害。\n将[orange]{Cards:diff()}[/orange]张随机牌加入你的[gold]抽牌堆[/gold]。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
@@ -130,5 +130,8 @@
     "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "被[gold]消耗[/gold]时，从你的[gold]牌组[/gold]中移除。",
 
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "积劳成疾",
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "抽到时，给予自身[blue]1[/blue]层[gold]虚弱[/gold]。"
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "抽到时，给予自身[blue]1[/blue]层[gold]虚弱[/gold]。",
+
+    "TOUHOUANCIENTS-LUCKY_TRICK.title": "“幸运”戏法",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "本回合随机化你手牌中除其他[gold]“幸运”戏法[/gold]以外卡的耗能。\n[i][red]只需……一点小小的代价。[/red][/i]"
 }
