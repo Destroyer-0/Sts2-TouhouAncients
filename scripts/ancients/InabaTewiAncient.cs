@@ -1,6 +1,7 @@
 using Godot;
 using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.relics;
 
 namespace TouhouAncients.Scripts;
@@ -10,6 +11,8 @@ public class InabaTewiAncient : TouhouAncientBase
     public override int? ShowAct => 2;
     public override Color ButtonColor => new(0.3f, 0.3f, 0.3f, 0.7f);
     public override Color DialogueColor => new(0.5f, 0.5f, 0.5f, 1f);
+
+    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<InabaTewiEncounter>();
 
     public override string? CustomMapIconPath => "res://images/icon/MapNode/InabaTewi_MapNode.png";
     public override string? CustomMapIconOutlinePath => "res://images/icon/MapNode/Outline/InabaTewi_MapNode.png";
