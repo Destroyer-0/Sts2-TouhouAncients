@@ -73,8 +73,12 @@ public class ShiningTower : TouhouAncientCards
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        // 牌不在战斗牌堆时 CardModel.CombatState 为 null，出牌仍要用玩家这场战斗
+        var combat = base.CombatState ?? base.Owner?.Creature.CombatState;
+        if (combat == null) return;
+
         // 伤害前记下斩杀判定与特效坐标：伤害后 Creature 可能已被移出场景
-        var enemies = base.CombatState.Enemies.Where(e => e.IsAlive).ToList();
+        var enemies = combat.Enemies.Where(e => e.IsAlive).ToList();
         var fatalPositions = enemies
             .Where(e => e.Powers.All(p => p.ShouldOwnerDeathTriggerFatal()))
             .ToDictionary(
@@ -83,10 +87,9 @@ public class ShiningTower : TouhouAncientCards
                     ? NCombatRoom.Instance?.GetCreatureNode(e)?.VfxSpawnPosition
                     : null);
 
-        // 对所有敌人造成伤害并击晕
         AttackCommand attackCommand = await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .TargetingAllOpponents(base.CombatState)
+            .TargetingAllOpponents(combat)
             .WithHitFx("vfx/vfx_starry_impact", null, "blunt_attack.mp3")
             .SpawningHitVfxOnEachCreature()
             .Execute(choiceContext);
@@ -108,16 +111,18 @@ public class ShiningTower : TouhouAncientCards
             await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * killCount, base.Owner);
         }
 
-        // 击晕所有存活敌人
-        foreach (var enemy in base.CombatState.Enemies.Where(e => e.IsAlive))
+        // 没有出招记录时 Stun 会取 StateLog.Last() 并抛异常，出牌动作就此中断
+        foreach (var enemy in combat.Enemies.Where(e => e.IsAlive))
         {
-            await CreatureCmd.Stun(enemy);
+            var stateLog = enemy.Monster?.MoveStateMachine?.StateLog;
+            if (stateLog == null || stateLog.Count == 0) continue;
+            await CreatureCmd.Stun(enemy, stateLog[^1].Id);
         }
-        
+
         // 回收：有寻龙尺才把它放回寻宝奖励
         base.Owner?.Relics.OfType<DowsingRod>().FirstOrDefault()?.AddTowerToStorage(this);
 
-        // 打出的是战斗克隆体，牌组原牌由 DeckVersion 指向；无条件从牌组移除
+        // 打出的是战斗克隆体，牌组原牌由 DeckVersion 指向。战斗内生成的牌没有牌组原件
         if (this.DeckVersion is { } deckCard && deckCard.Pile?.Type == PileType.Deck)
         {
             await CardPileCmd.RemoveFromDeck(deckCard, showPreview: false);
