@@ -3239,3 +3239,56 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 未改动：`...SCROLL.description`、`...SCROLL.transcribeTitle`、`...SCROLL.transcribedDescription`、`HYAKKI_YAGYO.title`、`TRANSCRIBE_REWARD`（gameplay_ui）。
 - `DOWSING_ROD.*`（纳兹琳灵摆的「记录」）是另一套机制，保留原 `record` 系列不动。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-15，回音喇叭只附魔耗能不为 X 的牌）
+
+`Echo.CanEnchant` 拒绝 `EnergyCost.CostsX`。附魔 `TOUHOUANCIENTS-ECHO` 的描述未改。遗物描述补上选牌限制。
+
+| 字段 | 翻译 |
+|------|------|
+| `.description` | `Upon pickup, choose up to [blue]{Cards}[/blue] non-X-cost cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+| `.eventDescription` | `Choose up to [blue]{Cards}[/blue] non-X-cost cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
+
+> 「不为X」沿用本项目 `PURE_GOLD_BRACELET` 已有译法 `non-X-cost`。辉星 X 不在限制内。
+> jpn 与 eng 一致。
+
+---
+
+## 增量更新（2026-10-15，药水「养生汤」改名「养生补品」）
+
+**键名**: `TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）、`TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`，引用名）、`TOUHOUANCIENTS-HEALTH_CONSCIOUS`（`badges.json`，引用名）
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title`（zhs） | 养生汤 | 养生补品 |
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title`（eng/jpn） | `Wellness Soup` | `Wellness Tonic` |
+| `MEDICINAL_CUISINE.description` 引用（zhs） | `[gold]养生汤[/gold]` | `[gold]养生补品[/gold]` |
+| `MEDICINAL_CUISINE.description` 引用（eng/jpn） | `[gold]Wellness Soup[/gold]` | `[gold]Wellness Tonic[/gold]` |
+| `HEALTH_CONSCIOUS.description` 引用（zhs） | `[gold]养生汤[/gold]` | `[gold]养生补品[/gold]` |
+
+### 备注
+- 药水名称已不再是「汤」，故英文由 `Wellness Soup` 改为 **`Wellness Tonic`**（用户确认，保留 `Wellness` 基底）；术语表「十九」节同步。
+- 药水 `description` / `flavor`、遗物 `title`（`调理药膳` / `Medicinal Cuisine`）未变，未改动。
+- `HealthConscious.cs` / `HealthConsciousTracker.cs` 的中文注释同步改名。
+- `eng/jpn` 的 `badges.json` 尚无 `HEALTH_CONSCIOUS` 条目（既有缺口，本次未补）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-15，药水「养生补品」改名「养生药汤」）
+
+**键名**: `TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION`（`potions.json`）、`TOUHOUANCIENTS-MEDICINAL_CUISINE`（`relics.json`，引用名）、`TOUHOUANCIENTS-HEALTH_CONSCIOUS`（`badges.json`，引用名）
+
+| 键名 | 改前 | 改后 |
+|------|------|------|
+| `PORTIONED_MEDICINAL_CUISINE_POTION.title`（zhs） | 养生补品 | 养生药汤 |
+| `MEDICINAL_CUISINE.description` 引用（zhs） | `[gold]养生补品[/gold]` | `[gold]养生药汤[/gold]` |
+| `HEALTH_CONSCIOUS.description` 引用（zhs） | `[gold]养生补品[/gold]` | `[gold]养生药汤[/gold]` |
+
+### 备注
+- **本次仅改 zhs**：英文名 `Wellness Tonic` 不变（`tonic` 兼指补药/汤药，用户确认），故 `eng/jpn` 的 `potions.json` / `relics.json` 无需改动。
+- 药水 `description` / `flavor`、遗物 `title`（`调理药膳` / `Medicinal Cuisine`）未变，未改动。
+- `HealthConscious.cs` / `HealthConsciousTracker.cs` 的中文注释同步改名。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
