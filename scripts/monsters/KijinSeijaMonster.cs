@@ -39,7 +39,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
 
     protected override bool HasAnimation => false;
 
-    protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 187, 178);
+    protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 210, 201);
 
     private int DreamBowDamage => 4;
 

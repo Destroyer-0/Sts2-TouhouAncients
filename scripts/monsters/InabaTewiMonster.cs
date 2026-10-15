@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
 
@@ -34,11 +35,13 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     protected override bool HasAnimation => false;
 
-    protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 235, 225);
+    protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 195, 185);
 
     private int GreatFortuneCrestDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
 
     private int IntoTheTrapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
+
+    private int ThreeBurrowsBlock => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 8);
 
     /// <summary>自身身上的诈术师，用于重置目标费用（不能走 PowerCmd.ModifyAmount，见 TricksterPower）。</summary>
     private TricksterPower? _trickster;
@@ -56,7 +59,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
         MoveState greatFortuneCrest = new MoveState("GREAT_FORTUNE_CREST", GreatFortuneCrestMove,
             new SingleAttackIntent(GreatFortuneCrestDamage));
         MoveState threeBurrows = new MoveState("THREE_BURROWS", ThreeBurrowsMove,
-            new StatusIntent(LuckyTrickCardsPerMove));
+            new StatusIntent(LuckyTrickCardsPerMove), new DefendIntent());
         MoveState intoTheTrap = new MoveState("INTO_THE_TRAP", IntoTheTrapMove,
             new SingleAttackIntent(IntoTheTrapDamage), new BuffIntent());
 
@@ -76,9 +79,11 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
             .Execute(null);
     }
 
-    /// <summary>狡兔三窟：给每位玩家塞牌并重置目标费用。</summary>
+    /// <summary>狡兔三窟：获得格挡，给每位玩家塞牌并重置目标费用。</summary>
     private async Task ThreeBurrowsMove(IReadOnlyList<Creature> targets)
     {
+        await CreatureCmd.GainBlock(base.Creature, ThreeBurrowsBlock, ValueProp.Move, null);
+
         foreach (Creature target in targets)
         {
             Player? player = target.Player;
