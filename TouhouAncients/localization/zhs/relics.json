@@ -758,8 +758,8 @@
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "哔哩哔哩~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "回音喇叭",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张耗能不为X的牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张耗能不为X的牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "回响形态了。回响形态。",
 
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光之梦",
@@ -914,6 +914,6 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生汤[/gold]。",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
 }

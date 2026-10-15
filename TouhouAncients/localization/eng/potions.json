@@ -16,7 +16,7 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]Transform[/gold] ALL cards in your hand.\n[sine]If you’re not satisfied, just blow it up with her![/sine]",
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you’re not satisfied, just blow it up with her![/sine]",
 
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "Wellness Soup",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "Wellness Tonic",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [green]{HealPercent}%[/green] of your [gold]Max HP[/gold]. At the end of combat, if this potion is in your [gold]Potion Slots[/gold], heal [green]{CombatEndHeal}[/green] HP.",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
 }

@@ -757,8 +757,8 @@
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "Bzzt bzzt~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "Echo Microphone",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "Upon pickup, choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "Choose up to [blue]{Cards}[/blue] cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "Upon pickup, choose up to [blue]{Cards}[/blue] non-X-cost cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "Choose up to [blue]{Cards}[/blue] non-X-cost cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].",
   "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "",
 
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "Iridescent Dream",
@@ -914,6 +914,6 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "Medicinal Cuisine",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Wellness Soup[/gold].",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
 }
