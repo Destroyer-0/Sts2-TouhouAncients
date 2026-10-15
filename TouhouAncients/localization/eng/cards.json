@@ -130,5 +130,8 @@
     "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "When [gold]Exhausted[/gold], remove it from your [gold]Deck[/gold].",
 
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "Overwork",
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself."
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
+
+    "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]"
 }

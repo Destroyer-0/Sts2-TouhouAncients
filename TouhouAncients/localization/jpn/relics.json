@@ -49,6 +49,7 @@
 
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.title": "Endless Fury",
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.description": "At the start of your turn, add a [gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer) with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription": "At the start of your turn, add a {AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]|[gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer)} with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "Don't be angry. Anger dulls your reason.",
 
   "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "The Nearly Two-Level Tent",
@@ -485,7 +486,7 @@
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "Robe of Fire Rat",
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.description": "At the start of combat, add [blue]{BurnCount}[/blue] [gold]Burn[/gold] into your [gold]Draw Pile[/gold]. When you take damage from [gold]Burn[/gold], negate it and gain [blue]{Block}[/blue] [gold]Block[/gold] and [blue]{Thorns}[/blue] [gold]Thorns[/gold], next turn, draw [blue]1[/blue] extra card.",
-  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "The fire salamander’s shield.",
+  "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.flavor": "The fire salamander's shield.",
 
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.title": "Swallow's Cowrie Shell",
   "TOUHOUANCIENTS-TSUBAME_NO_KOYASUGAI.description": "Upon pickup, increase your Max HP by [blue]{MaxHpGain}[/blue]. Upon entering a new room, if your HP is below [blue]40%[/blue], heal to [blue]40%[/blue].",
@@ -495,7 +496,7 @@
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.title": "Buddha's Stone Bowl",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.description": "Upon pickup, lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{Block}[/blue] [gold]Block[/gold].",
   "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.eventDescription": "Lose [blue]{MaxHpLoss}[/blue] Max HP. At the start of each combat, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] and [blue]{Block}[/blue] [gold]Block[/gold].",
-  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "The diamond of a Buddha’s body.",
+  "TOUHOUANCIENTS-HOTOKE_MISHI_ISHI_NO_HACHI.flavor": "The diamond of a Buddha's body.",
 
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.title": "Jeweled Branch of Hourai",
   "TOUHOUANCIENTS-HOURAI_NO_TAMAE.description": "At the start of each combat, [gold]enchant[/gold] [blue]{EnchantCount}[/blue] random cards in your [gold]Deck[/gold] with [purple]Dreamy[/purple].",
@@ -742,7 +743,7 @@
   "TOUHOUANCIENTS-NOH_MASK.description": "At the start of combat or whenever you shuffle your [gold]Draw Pile[/gold], randomly add [purple]Joy[/purple], [purple]Anger[/purple], [purple]Sorrow[/purple], or [purple]Pleasure[/purple] to all cards. After playing [blue]{EmotionThreshold}[/blue] of each emotion, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
   "TOUHOUANCIENTS-NOH_MASK.flavor": "",
 
-  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "Tanuki’s Smoking Pipe",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "Tanuki's Smoking Pipe",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "At the end of your turn, [gold]Transform[/gold] any number of cards in your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.selectionScreenPrompt": "Choose cards to [gold]Transform[/gold].",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": "Wine and tobacco are the treasures of this world.",

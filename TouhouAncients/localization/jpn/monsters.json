@@ -13,13 +13,13 @@
   "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.DOOM_SPREAD.title": "Doom Spread",
   "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.FEATHER_PLUCKING.title": "Feather Plucking",
   "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.ABSOLUTE_LOSER.title": "Absolute Loser",
-  "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.ABSOLUTE_LOSER.banter": "[purple]I’ll send EVERYONE here to the world of extreme misfortune!!!![/purple]",
+  "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.ABSOLUTE_LOSER.banter": "[purple]I'll send EVERYONE here to the world of extreme misfortune!!!![/purple]",
   "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.SELF_REPAIR.title": "Endless Poverty",
   "TOUHOUANCIENTS-YORIGAMI_SHION_MONSTER.moves.STUNNED.title": "Stunned",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.name": "霧雨魔理沙",
   "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.title": "Escape Velocity",
-  "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.banter": "I’ll return it!",
+  "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.ESCAPE_VELOCITY.banter": "I'll return it!",
   "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.STELLAR_FANTASY.title": "Stellar Fantasy",
   "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.BLACK_HOLE_EDGE.title": "Collapsing Bottle",
   "TOUHOUANCIENTS-KIRISAME_MARISA_MONSTER.moves.FUNGUS_EXPERT.title": "Mushroom Cultivation",
@@ -42,7 +42,7 @@
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.name": "蓬莱山輝夜",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER": "Go to hell with your requests!",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2": "For the sake of the others... I’ll spare you this once.",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2": "For the sake of the others... I'll spare you this once.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.title": "Five Impossible Requests",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter1": "今まで、何人もの人間が敗れ去っていった五つの問題。",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_MONSTER.moves.FIVE_DIFFICULT_PROBLEMS.banter2": "貴方達に幾つ解けるかしら？",
@@ -54,16 +54,18 @@
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.name": "饕餮尤魔",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.GREED.title": "Endless Greed",
-  "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.TOUTETSU_FEAST.title": "Glutton’s Feast",
+  "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.TOUTETSU_FEAST.title": "Glutton's Feast",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.CUT_HERAT.title": "Gutting Hearts, Rending Flesh",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.DRINK_BLOOD.title": "Stripping Bones, Devouring Marrow",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.moves.CHAOS_HELL.title": "Chaos Purgatory",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.name": "メディスン・メランコリー",
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.title": "The Queen’s Sweet Apple",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.title": "The Queen's Sweet Apple",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.banter": "Let me show you what poison can do!",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.NIGHTINGALE_ROSE.title": "The Nightingale and the Rose",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.GLORY_THRONY_PATH.title": "The Thorny Road of Glory",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.OH_MY_CUTE_LINGLING.title": "My Cute Lily",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.OH_MY_CUTE_LINGLING.banter": "Dying surrounded by cute Lily is a kind of happiness too!",
 
   "TOUHOUANCIENTS-LING_LING_MONSTER.name": "Lily",
   "TOUHOUANCIENTS-LING_LING_MONSTER.moves.POISON.title": "Neurotoxin",
@@ -73,7 +75,7 @@
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.PALE_WHITE_WATERFALL.title": "Butterfly Delusion",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves..title": "All-Pervading Wandering",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.FALSE_MOON.title": "Fully Ink-Dyed Cherry Blossoms",
-  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.REPAIR.title": "Saigyouji’s Nirvana Without Remainder",
+  "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.REPAIR.title": "Saigyouji's Nirvana Without Remainder",
   "TOUHOUANCIENTS-SAIGYOUJI_YUYUKO_MONSTER.moves.FINAL.title": "Soul-Returning Butterfly: Eight-Tenths Bloom",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.name": "Seija Kijin",
@@ -94,5 +96,11 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.nameStrike": "Strike (Tsukumogami)",
   "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.nameGuard": "Defend (Tsukumogami)",
   "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.moves.STRIKE.title": "Strike",
-  "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.moves.GUARD.title": "Defend"
+  "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.moves.GUARD.title": "Defend",
+
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.name": "Tewi Inaba",
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.GREAT_FORTUNE_CREST.title": "Great Fortune Crest",
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.THREE_BURROWS.title": "Three Burrows",
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.title": "\"Equivalent\" Exchange",
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.banter": "Heheh! Now it's \"recycling\" time!"
 }

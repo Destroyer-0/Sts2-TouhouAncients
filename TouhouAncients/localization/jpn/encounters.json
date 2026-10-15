@@ -1,6 +1,6 @@
 {
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "依神姉妹",
-  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}’s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}'s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "今宵は飄逸なエゴイスト　～ Egoistic Flowers.",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "霧雨魔理沙",
@@ -18,7 +18,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.bgm": "少女綺想曲　～ Capriccio",
 
   "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "レミリア・スカーレット",
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}’s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}'s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
 
   "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "古明地さとり",
   "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold] saw through every intention of {character}.",
@@ -31,15 +31,15 @@
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.bgm": "お宇佐さまの素い幡",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
-  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}'s victory.",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.bgm": "リバースイデオロギー",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "メディスン・メランコリー",
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]'s sea of lily of the valley.",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.bgm": "ポイズンボディ　～ Forsaken Doll",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "蓬莱山輝夜",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}'s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou": "Just a single grain in the endless fate of deadly duels.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.bgm": "竹取飛翔　～ Lunatic Princess",
 

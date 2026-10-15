@@ -1,6 +1,6 @@
 {
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.title": "Yorigami Sisters",
-  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}’s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.loss": "{character}'s wealth and fortune were squandered away by [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-YORIGAMI_SISTERS_ENCOUNTER.bgm": "Tonight Stars an Easygoing Egoist ~ Egoistic Flowers",
 
   "TOUHOUANCIENTS-KIRISAME_MARISA_ENCOUNTER.title": "Marisa Kirisame",
@@ -18,7 +18,7 @@
   "TOUHOUANCIENTS-HAKUREI_REIMU_ENCOUNTER.bgm": "Maiden's Capriccio",
 
   "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.title": "Remilia Scarlet",
-  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}’s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-REMILIA_SCARLET_ENCOUNTER.loss": "{character}'s fate came to an end beneath the majesty of [gold]{encounter}[/gold].",
 
   "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.title": "Satori Komeji",
   "TOUHOUANCIENTS-KOMEJI_SATORI_ENCOUNTER.loss": "[gold]{encounter}[/gold] saw through every intention of {character}.",
@@ -31,15 +31,15 @@
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.bgm": "White Flag of Usa Shrine",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "Seija Kijin",
-  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}’s victory.",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold] flipped the scales tipping toward {character}'s victory.",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.bgm": "Reverse Ideology",
 
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.title": "Medicine Melancholy",
-  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]’s sea of lily of the valley.",
+  "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.loss": "{character} fell into an eternal slumber within [gold]{encounter}[/gold]'s sea of lily of the valley.",
   "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_ENCOUNTER.bgm": "Poison Body ~ Forsaken Doll",
 
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.title": "Kaguya Houraisan",
-  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}’s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss": "{character}'s journey came to an end beneath the allure of [gold]{encounter}[/gold].",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou": "Just a single grain in the endless fate of deadly duels.",
   "TOUHOUANCIENTS-HOURAISAN_KAGUYA_ENCOUNTER.bgm": "Flight of the Bamboo Cutter ~ Lunatic Princess",
 
