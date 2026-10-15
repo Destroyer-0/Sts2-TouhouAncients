@@ -28,7 +28,7 @@ public class YoukaiExtermination : TouhouAncientCards
     private int _currentDamage = BaseDamageNormal;
     private int _increasedDamage;
 
-    public override string? Author => "时雨";
+    public override string? Author => "TOKIAME";
     public YoukaiExtermination()
         : base(1, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy, true)
     {
