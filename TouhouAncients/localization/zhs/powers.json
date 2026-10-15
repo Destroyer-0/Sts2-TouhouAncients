@@ -99,8 +99,8 @@
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月",
 
   "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "毒人偶",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "[purple]铃铃[/purple]每回合将把1张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "[purple]铃铃[/purple]每回合将{Amount}张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "[purple]铃铃[/purple]每回合将把1张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "[purple]铃铃[/purple]每回合将{Amount}张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
 
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.title": "烈毒护身",
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "本回合，[gold]梅蒂欣·梅兰可莉[/gold]将所有对[purple]铃铃[/purple]发起的攻击伤害转移至自身。",
@@ -130,7 +130,7 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.title": "弱者的叛旗",
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "这张牌因[purple]不被重视[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。",
 
-  "TOUHOUANCIENTS-TRICKSTER_POWER.title": "诈术师",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.title": "欺诈戏法",
   "TOUHOUANCIENTS-TRICKSTER_POWER.description": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
   "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
 

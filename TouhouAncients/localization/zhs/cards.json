@@ -133,5 +133,5 @@
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "抽到时，给予自身[blue]1[/blue]层[gold]虚弱[/gold]。",
 
     "TOUHOUANCIENTS-LUCKY_TRICK.title": "“幸运”戏法",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "本回合随机化你手牌中除其他[gold]“幸运”戏法[/gold]以外卡的耗能。\n[i][red]只需……一点小小的代价。[/red][/i]"
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "本回合随机化你手牌中除[gold]\"“幸运”戏法\"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i]"
 }
