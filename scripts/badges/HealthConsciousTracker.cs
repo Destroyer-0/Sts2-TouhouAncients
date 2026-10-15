@@ -6,7 +6,7 @@ using TouhouAncients.Scripts.potions;
 
 namespace TouhouAncients.Scripts.badges;
 
-/// <summary>打赢第一幕 Boss 时药水栏里仍有 2 瓶养生汤。</summary>
+/// <summary>打赢第一幕 Boss 时药水栏里仍有 2 瓶养生药汤。</summary>
 public class HealthConsciousTracker : BadgeModel
 {
     public override Task AfterCombatEnd(CombatRoom room)

@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.badges;
 
-/// <summary>带着 2 瓶养生汤通过第一幕。</summary>
+/// <summary>带着 2 瓶养生药汤通过第一幕。</summary>
 public class HealthConscious : TouhouAncientBadge
 {
     internal const string FlagId = "touhouancients-healthconscious";
