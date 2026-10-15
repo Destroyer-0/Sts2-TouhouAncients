@@ -17,7 +17,7 @@ using TouhouAncients.Scripts.Enchantment;
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 回音话筒：拾起时，选择至多 3 张牌，附魔：回响。
+/// 回音喇叭：拾起时，选择至多 3 张耗能不为 X 的牌，附魔：回响。
 /// 回响：打出此牌后，将一张本回合费用 +1 的复制品加入你的手牌。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
