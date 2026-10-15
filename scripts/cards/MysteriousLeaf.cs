@@ -18,7 +18,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 迷之树叶：消耗。费用等同于其伪装牌。打出时，打出其伪装牌的复制。
+/// 迷之树叶：消耗。费用等同于其伪装牌。打出时，打出其伪装牌的复制。升级后获得保留。
 /// 每当你将一张牌加入你的牌组时，此牌伪装为该牌。
 /// </summary>
 [Pool(typeof(EventCardPool))]
@@ -33,10 +33,13 @@ public class MysteriousLeaf : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    /// <summary>伪装牌没有升级态，本牌也不可升级。</summary>
-    public override int MaxUpgradeLevel => 0;
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;
+
+    protected override void OnUpgrade()
+    {
+        AddKeyword(CardKeyword.Retain);
+    }
 
     /// <summary>伪装记录（0 或 1 条）。只有牌组里那一张是持有者，战斗副本读牌组原件那一份。</summary>
     private List<SerializableCard> _disguise = [];
@@ -146,7 +149,23 @@ public class MysteriousLeaf : TouhouAncientCards
         // 记录只是牌样：临场造一张战斗副本，再打出它的复制（照原版历史课）
         var card = CardModel.FromSerializable(record);
         combatState.AddCard(card, Owner);
-        await CardCmd.AutoPlay(choiceContext, card.CreateDupe(Owner), null);
+
+        var dupe = card.CreateDupe(Owner);
+        // 树叶自己的 X 已经花掉了：AutoPlay 在抽干之后才捕获，只会拿到 0，得先把本次 X 传过去
+        var skipXCapture = false;
+        if (dupe.EnergyCost.CostsX && EnergyCost.CostsX)
+        {
+            dupe.EnergyCost.CapturedXValue = EnergyCost.CapturedXValue;
+            skipXCapture = true;
+        }
+
+        if (dupe.HasStarCostX)
+        {
+            dupe.LastStarsSpent = LastStarsSpent;
+            skipXCapture = true;
+        }
+
+        await CardCmd.AutoPlay(choiceContext, dupe, null, AutoPlayType.Default, skipXCapture);
     }
 
     /// <summary>描述两态：未伪装只有通用规则；已伪装时开头多一行「打出{CardStr}。」。升级过会带 +。</summary>
@@ -180,7 +199,17 @@ public class MysteriousLeaf : TouhouAncientCards
     private void ApplyDisguiseCost()
     {
         if (!IsMutable) return;
-        EnergyCost.SetCustomBaseCost(CanonicalEnergyCost);
+        if (EnergyCost.CostsX != HasEnergyCostX)
+        {
+            // CostsX 构造后不可改：对不上只能整块换掉（局部费用修正一并丢失）
+            MockSetEnergyCost(new CardEnergyCost(this, CanonicalEnergyCost, HasEnergyCostX));
+            InvokeEnergyCostChanged();
+        }
+        else
+        {
+            EnergyCost.SetCustomBaseCost(CanonicalEnergyCost);
+        }
+
         ApplyDisguiseStarCost();
     }
 
