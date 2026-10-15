@@ -192,3 +192,20 @@
 
 ---
 
+## 增量更新（2026-10-15，因幡帝状态牌「“幸运”戏法」）
+
+`LUCKY_TRICK` 是 `InabaTewiMonster` 塞进玩家手牌的 0 费状态牌（`LuckyTrick.cs`，保留 + 消耗），此前 `eng/jpn` 无对应条目，随本次补齐；区间内 zhs 描述改稿（对牌名的引用加了外层引号）。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | “幸运”戏法 | `"Lucky" Trick` |
+| `.description` | 本回合随机化你手牌中除[gold]"“幸运”戏法"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i] | `Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]"Lucky" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]` |
+
+### 备注
+- 标题的引号表示「其实不是好运」，英文按仓库既有约定用直角直引号 `"`（参考 `THE_FEAST` 的 `[gold]"Frenzied Feast"[/gold]`、`HEAVY_DICE_RECORD_POWER.title` 的 `"Cardsharp"`），**不照搬 zhs 的全角引号**；`戏法` 取 `Trick`，与附魔 `TRICK.title`（`诈术` → `Trickery`）区分。
+- 机制句沿用 `LUCKY_RABBIT.description` 既有写法 `Randomize the cost of cards in your [gold]Hand[/gold] this turn`。
+- `[i][red]` 风味行按仓库既有正文句首大写写法（参考 `BLOOD_DISASTER_POWER.description`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+

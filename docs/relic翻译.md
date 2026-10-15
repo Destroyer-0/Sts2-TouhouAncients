@@ -3292,3 +3292,21 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 药水 `description` / `flavor`、遗物 `title`（`调理药膳` / `Medicinal Cuisine`）未变，未改动。
 - `HealthConscious.cs` / `HealthConsciousTracker.cs` 的中文注释同步改名。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-15，无穷无尽的愤怒补 `eventDescription`）
+
+**键名**: `TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.eventDescription`（`relics.json`）
+
+事件描述在 `SetupForPlayer` 阶段由 `StringVar AngryCard` 填入当前人数对应的牌名（多人「群情激愤」/ 单人「愤怒」），未填值时（图鉴、控制台枚举）走 `cond:` 兜底分支。
+
+| 字段 | 翻译 |
+|------|------|
+| `.eventDescription` | `At the start of your turn, add a {AngryCard.StringValue:cond:[gold]{AngryCard}[/gold]\|[gold]Outrage[/gold] (multiplayer)/[gold]Anger[/gold] (singleplayer)} with a random [gold]Enchantment[/gold] to your [gold]Hand[/gold].` |
+
+### 说明
+- 该键为此前遗漏（`eng/jpn` 当初只补了 `.title` / `.description` / `.flavor`），本次随翻译一并补齐。
+- `{X.StringValue:cond:A|B}` 写法沿用仓库既有 `IRIDESCENT_DREAM` / `BOTTLED_GALAXY`；A 分支内嵌 `{AngryCard}` 变量。
+- 兜底分支的牌名与 `(multiplayer)` / `(singleplayer)` 沿用 `.description` 既有写法（`Outrage` / `Anger`，源自原版 `ftues.json`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。

@@ -53,3 +53,26 @@
 - **`SERVANT_FAMILY_PHOTO.title`「全家桶」**：取 `Family Bucket`（快餐全家桶）；「仆从」用 `Minion`，与三张卡名 `Time/Magic/Qi Minion` 一致。
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-15，新增徽章「注重养生」「究极幸运」「FX战士」）
+
+`zhs/badges.json` 的 `HEALTH_CONSCIOUS` / `ULTRA_LUCKY` / `SCAMING_SCAMER` 在 `eng/jpn` 完全缺失（既有缺口），随本次一并补齐。区间内 zhs 另有改动：`SCAMING_SCAMER.title` 由「反诈先锋」改为「FX战士」，`HEALTH_CONSCIOUS.description` 的药水引用由「养生汤」改为「养生药汤」。
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `HEALTH_CONSCIOUS.title` | 注重养生 | `Health Conscious` |
+| `HEALTH_CONSCIOUS.description` | 带着[blue]2[/blue]份[gold]养生药汤[/gold]通过第一幕。 | `Clear Act 1 while carrying [blue]2[/blue] [gold]Wellness Tonic[/gold].` |
+| `ULTRA_LUCKY.title` | 究极幸运 | `Ultimate Luck` |
+| `ULTRA_LUCKY.description` | 使用[gold]幸运白兔[/gold]一次性获得至少[blue]4[/blue]张耗能为0的牌。 | `Get at least [blue]4[/blue] zero-cost cards at once with [gold]Bare White Rabbit of Good Fortune[/gold].` |
+| `SCAMING_SCAMER.title` | FX战士 | `FX Warrior` |
+| `SCAMING_SCAMER.description` | 从[gold]依神姐妹[/gold]手中敲诈一笔。 | `Extort a fortune from the [gold]Yorigami Sisters[/gold].` |
+
+### 说明
+- **`SCAMING_SCAMER.title`「FX战士」**：出自漫画《FX戦士くるみちゃん》，中文标题直接沿用该作标题。英文保留 `FX` 而不展开成 `Forex`，以维持与原作标题的逐字呼应（`FX` 本身即外汇的通用缩写，不影响理解）。
+- **`HEALTH_CONSCIOUS.title`「注重养生」**：与类名 `HealthConscious` 同形，取 `Health Conscious`；「通过第一幕」取 `Clear Act 1`，`Act 1` 与原版 `LAVA_ROCK` / `UNDERDOCKS_EPOCH` 及仓库既有 `GENSOKYO_TRADITION`（`Act 2` / `Act 3`）一致。
+- **`ULTRA_LUCKY.description`「耗能为0的牌」**：取 `zero-cost cards`，与 `LUCKY_RABBIT.description` 的 `those that cost [blue]0[/blue]` 同义；「幸运白兔」按规则 6 取 `cards.json` 的卡名 `Bare White Rabbit of Good Fortune`。
+- **`SCAMING_SCAMER.description`「敲诈一笔」**：取 `Extort a fortune`；「依神姐妹」沿用 `YORIGAMI_SISTER_ANCIENT.fight.title` 的 `Yorigami Sisters`。
+- **插入位置**：三条徽章按 zhs 的相对位置**集中**放在 `THREE_SNAKE` 与 `TOO_MUCH_SATORI` 之间，`zhs` / `eng` / `jpn` 三份文件键序完全一致。曾一度按 `eng/badges.json` 原有的字母序拆到三处插入，导致同一批内容在 diff 里东一块西一块，已改回对齐 zhs。
+- jpn 与 eng 一致（jpn 文件用英文填充）。

@@ -287,7 +287,7 @@
 | 旧键名 | 新键名 | 中文 | English |
 |------|------|------|---------|
 | `FIVE_DIFFICULT_PROBLEMS.title` | `GREED.title` | 无尽贪妄 | Endless Greed |
-| `PALE_WHITE_WATERFALL.title` | `TOUTETSU_FEAST.title` | 饕餮盛宴 | Glutton’s Feast |
+| `PALE_WHITE_WATERFALL.title` | `TOUTETSU_FEAST.title` | 饕餮盛宴 | Glutton's Feast |
 | `..title` | `CUT_HERAT.title` | 剖心撕肉 | Gutting Hearts, Rending Flesh |
 | `FALSE_MOON.title` | `DRINK_BLOOD.title` | 剔骨啖髓 | Stripping Bones, Devouring Marrow |
 | `ETERNAL_NIGHT_RETURN.title` | `CHAOS_HELL.title` | 混沌炼狱 | Chaos Purgatory |
@@ -296,14 +296,14 @@
 
 | 键 | 中文 | English |
 |------|------|---------|
-| `HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2` | 看在其他人的份上……饶你一回。 | For the sake of the others... I’ll spare you this once. |
+| `HOURAISAN_KAGUYA_MONSTER.MOKOU_BANTER2` | 看在其他人的份上……饶你一回。 | For the sake of the others... I'll spare you this once. |
 
 ### 新怪物：梅蒂欣·梅兰可莉 + 铃铃（monsters.json）
 
 | 键 | 中文 | English |
 |------|------|---------|
 | `MEDICINE_MELANCHOLY_MONSTER.name` | 梅蒂欣·梅兰可莉 | Medicine Melancholy |
-| `MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.title` | 皇后的甜苹果 | The Queen’s Sweet Apple |
+| `MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.title` | 皇后的甜苹果 | The Queen's Sweet Apple |
 | `MEDICINE_MELANCHOLY_MONSTER.moves.NIGHTINGALE_ROSE.title` | 夜莺与玫瑰 | The Nightingale and the Rose |
 | `MEDICINE_MELANCHOLY_MONSTER.moves.GLORY_THRONY_PATH.title` | 光荣的荆棘路 | The Thorny Road of Glory |
 | `MEDICINE_MELANCHOLY_MONSTER.moves.OH_MY_CUTE_LINGLING.title` | 我可爱的铃铃 | My Cute Lily |
@@ -549,3 +549,47 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `SILENT_OBJECT_CARD_2_POWER.title` | 弱者的叛旗 | `Banner of the Weak` |
 
 jpn 与 eng 保持一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-15，因幡帝怪物与梅蒂欣台词）
+
+`INABA_TEWI_MONSTER`（`InabaTewiMonster.cs`）全套键与 `MEDICINE_MELANCHOLY_MONSTER` 的两条 `banter` 此前在 `eng/jpn` 完全缺失，随本次一并补齐；`INTO_THE_TRAP.banter` 为区间内新增。
+
+### 因幡帝 `INABA_TEWI_MONSTER`
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `name` | 因幡帝 | `Tewi Inaba` |
+| `moves.GREAT_FORTUNE_CREST.title` | 开运大纹 | `Great Fortune Crest` |
+| `moves.THREE_BURROWS.title` | 狡兔三窟 | `Three Burrows` |
+| `moves.INTO_THE_TRAP.title` | “等价”交换 | `"Equivalent" Exchange` |
+| `moves.INTO_THE_TRAP.banter` | 呵呵！现在就是“回收”的时刻了！ | `Heheh! Now it's "recycling" time!` |
+
+> 「开运大纹」为开运纹样，取直译 `Great Fortune Crest`；「狡兔三窟」取典故字面 `Three Burrows`。
+> 「“等价”交换」与「“回收”」的引号都是「名为等价、实为敲诈」的反语，英文一并保留引号；「呵呵」与 `INABA_TEWI_ANCIENT` 各句统一用 `Heheh`。
+
+### 梅蒂欣·梅兰可莉 `MEDICINE_MELANCHOLY_MONSTER`
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `moves.WHITE_SNOW.banter` | 让你见识见识毒的厉害！ | `Let me show you what poison can do!` |
+| `moves.OH_MY_CUTE_LINGLING.banter` | 被可爱的铃铃围绕着死去也是种幸福！ | `Dying surrounded by cute Lily is a kind of happiness too!` |
+
+> 「铃铃」沿用既有 `LING_LING_MONSTER.name`（`Lily`）与招式名 `My Cute Lily`（`我可爱的铃铃`）。
+> jpn 与 eng 一致（jpn 文件用英文填充）。
+
+### 因幡帝能力与毒素风味（powers.json）
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `TRICKSTER_POWER.title` | 欺诈戏法 | `Fraudulent Trick` |
+| `TRICKSTER_POWER.description` / `.smartDescription` | 耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink] | `Attack cards that don't cost [blue]{Amount}[/blue] deal [blue]50%[/blue] less damage to you.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]` |
+| `LUCKY_TRICK_COUNT_POWER.title` | 有偿的幸运 | `Luck for a Price` |
+| `LUCKY_TRICK_COUNT_POWER.description` / `.smartDescription` | [pink][i]呼呼……没错，只要一点点我的能力，就能变得如此幸运呢~[/i][/pink] | `[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]` |
+| `POISON_DOLL_POWER.description` / `.smartDescription` | 追加风味行「毒取少量即为药。」 | 追加 `[i][green]A little poison makes good medicine.[/green][/i]` |
+
+> 这三个键此前在 `eng/jpn` 均缺失，随本次补齐；`POISON_DOLL_POWER` 的正文未变，只追加风味行。
+> 「欺诈戏法」与卡牌 `"Lucky" Trick` 并列取 `Fraudulent Trick`（共用 `Trick` 词根），取代旧译 `TRICKSTER_POWER` 的 `Trickster`（`诈术师`）。
+> 源文机制句用第二人称「你」（不同于 `POISON_GUARDING_POWER` 的第三人称写法），英文按源文保留 `to you`，未改成怪物名。
+> 「呼呼」按因幡帝既有语气取 `Heheh`（见 `INABA_TEWI_ANCIENT` 各句）。
