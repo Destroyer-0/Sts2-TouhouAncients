@@ -8,10 +8,12 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
@@ -32,6 +34,10 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
     private const int TricksterInitialTargetCost = 1;
     private const int LuckyTrickCardsPerMove = 2;
     private const int TrapBaseStrength = 2;
+
+    // --- 本地化 ---
+    private static readonly LocString _intoTheTrapLine =
+        new LocString("monsters", "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.banter");
 
     protected override bool HasAnimation => false;
 
@@ -98,6 +104,8 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private async Task IntoTheTrapMove(IReadOnlyList<Creature> targets)
     {
+        TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.White, VfxDuration.VeryLong);
+
         await DamageCmd.Attack(IntoTheTrapDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
