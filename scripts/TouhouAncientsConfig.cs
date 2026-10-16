@@ -39,14 +39,20 @@ public enum ForcedAncientOption
 /// </summary>
 public class TouhouAncientsConfig : SimpleModConfig
 {
+    /// <summary>
+    /// 先古之民背景里的其它东方 Mod 推荐按钮总开关。
+    /// 必须留在类的最前面且不带 [ConfigSection]：BaseLib 按源码顺序排设置行，无分区头的行直接挂在最顶部。
+    /// </summary>
+    [ConfigHoverTip]
+    public static bool EnableWorkshopRecommend { get; set; } = true;
 
     /// <summary>
-    /// 强制出现的先古之民（单选，选中的一定会刷新）
+    /// 强制出现的先古之民（单选，选中的一定会刷新）。行标签仍取 TOUHOUANCIENTS-FORCED_ANCIENT_2.title。
+    /// 不加 [ConfigSection]：本 Mod 只有一个分区标题（初始先古之民配置），单独给这两下拉开分区只会多出重复标题。
     /// </summary>
-    [ConfigSection("ForcedAncient_2")]
     public static ForcedAncientOption ForcedAncient_2 { get; set; } = ForcedAncientOption.None;
 
-    [ConfigSection("ForcedAncient_3")] public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
+    public static ForcedAncientOption ForcedAncient_3 { get; set; } = ForcedAncientOption.None;
 
     /// <summary>
     /// 本次运行实际生效的强制 Ancient（局内字段，非设置项，不写入配置文件）。

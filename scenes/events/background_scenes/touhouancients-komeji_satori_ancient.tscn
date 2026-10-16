@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd6tp2qy8ruxm"]
+[gd_scene load_steps=4 format=3 uid="uid://cd6tp2qy8ruxm"]
 
-[ext_resource type="Texture2D" uid="uid://b70c2i8820djp" path="res://sprite/KomejiSatori.png" id="1_0cqh2"]
+[ext_resource type="Texture2D" uid="uid://b70c2i8820djp" path="res://images/KomejiSatori.png" id="1_0cqh2"]
+[ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="2_xpco5"]
+[ext_resource type="Texture2D" uid="uid://c75m3vlyhua73" path="res://images/workshop/古明地恋.png" id="3_1kcpi"]
 
 [node name="KomejiSatoriAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +15,25 @@ offset_top = -141.0
 offset_right = 2226.0
 offset_bottom = 1460.0
 texture = ExtResource("1_0cqh2")
+
+[node name="TextureButton" parent="." instance=ExtResource("2_xpco5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 85.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = ExtResource("3_1kcpi")
+LocKey = "TOUHOUANCIENTS-KOMEJI_KOISHI_RECOMMEND"
+WorkshopId = "3747502705"
+
+[node name="TextureRect" parent="TextureButton" index="0"]
+texture = ExtResource("3_1kcpi")
+
+[editable path="TextureButton"]

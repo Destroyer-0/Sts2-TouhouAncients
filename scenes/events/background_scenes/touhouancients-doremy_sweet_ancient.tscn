@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpocfv0i15iny"]
+[gd_scene load_steps=6 format=3 uid="uid://bpocfv0i15iny"]
 
 [ext_resource type="Texture2D" uid="uid://d073e1rtaq6tj" path="res://images/DoremySweet.png" id="1_tqx83"]
 [ext_resource type="Texture2D" uid="uid://bjtywhi78dyfj" path="res://images/DoremySweet2.png" id="2_grvo8"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_robec"]
+[ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_iplqo"]
+[ext_resource type="Texture2D" uid="uid://c3qtgstk0u8mj" path="res://images/workshop/八云红.png" id="5_2tabw"]
 
 [node name="DoremySweetAncient" type="Control"]
 layout_mode = 3
@@ -26,3 +28,25 @@ texture = ExtResource("2_grvo8")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_robec")
+
+[node name="TextureButton" parent="." instance=ExtResource("4_iplqo")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 84.0
+offset_bottom = 84.0
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = ExtResource("5_2tabw")
+LocKey = "TOUHOUANCIENTS-YAKUMO_AKAI_RECOMMEND"
+WorkshopId = "3747587351"
+
+[node name="TextureRect" parent="TextureButton" index="0"]
+texture = ExtResource("5_2tabw")
+
+[editable path="TextureButton"]
