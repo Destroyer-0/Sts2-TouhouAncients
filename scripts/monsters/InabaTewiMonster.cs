@@ -104,8 +104,6 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private async Task IntoTheTrapMove(IReadOnlyList<Creature> targets)
     {
-        TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.White, VfxDuration.VeryLong);
-
         await DamageCmd.Attack(IntoTheTrapDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
@@ -115,15 +113,10 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<StrengthPower>(
             new ThrowingPlayerChoiceContext(), base.Creature, TrapBaseStrength + AvgPlayedLuckyTrickCount,
             base.Creature, null);
-    }
-
-    /// <summary>玩家每打出一张「幸运」戏法，给该玩家叠 1 层计数（首次打出时才创建图标）。</summary>
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card is not LuckyTrick) return;
-        if (cardPlay.Card.Owner is not { } owner) return;
-
-        await PowerCmd.Apply<LuckyTrickCountPower>(choiceContext, owner.Creature, 1m, base.Creature, null);
+        if (AvgPlayedLuckyTrickCount > 0)
+        {
+            TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.White, VfxDuration.VeryLong);
+        }
     }
 
     /// <summary>全场「幸运」戏法计数总和的平均值（向上取整），多人下不会随人数线性膨胀。</summary>
@@ -144,6 +137,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
     {
         if (_trickster == null) return;
 
-        _trickster.ResetAmount((_trickster.Amount + 1 + base.Rng.NextInt(TargetCostValueCount - 1)) % TargetCostValueCount);
+        _trickster.ResetAmount((_trickster.Amount + 1 + base.Rng.NextInt(TargetCostValueCount - 1)) %
+                               TargetCostValueCount);
     }
 }
