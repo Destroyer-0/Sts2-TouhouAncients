@@ -21,7 +21,7 @@ public class StardustBroom : TouhouAncientRelics
 {
     private const int MaxCharges = 3;
     private const int InitialCharges = 2;
-    private const int RoomsPerCharge = 3;
+    private const int RoomsPerCharge = 4;
 
     [SavedProperty]
     public int TouhouAncients_Charges { get; set; } = InitialCharges;

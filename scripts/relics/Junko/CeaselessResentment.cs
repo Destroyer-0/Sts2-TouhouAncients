@@ -27,7 +27,7 @@ public class CeaselessResentment : TouhouAncientRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        HoverTipFactory.FromPowerWithPowerHoverTips<YuanChouPower>();
+        [HoverTipFactory.FromPower<YuanChouPower>()];
     /// <summary>
     /// 受到伤害后，为攻击者施加怨仇
     /// </summary>
