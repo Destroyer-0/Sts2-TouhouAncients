@@ -12,7 +12,7 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 阎罗之罪罚：消耗。虚无。被消耗时，从牌组中移除。
 /// </summary>
-[Pool(typeof(EventCardPool))]
+[Pool(typeof(CurseCardPool))]
 public class YamaPunishment : TouhouAncientCards
 {
     public override string? Author => "ジグソーパルル";

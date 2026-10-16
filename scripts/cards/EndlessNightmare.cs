@@ -15,7 +15,7 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 噩梦无终：不可打出的诅咒。抽到时失去 1 点能量；在休息处休息 3 次后从牌组移除。
 /// </summary>
-[Pool(typeof(EventCardPool))]
+[Pool(typeof(CurseCardPool))]
 public class EndlessNightmare : TouhouAncientCards
 {
     private const int RestsToClear = 2;
