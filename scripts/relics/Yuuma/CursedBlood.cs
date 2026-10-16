@@ -44,6 +44,11 @@ public class CursedBlood : TouhouAncientRelics
 
         if (selfTargetPotions.Count == 0) return;
 
+        // 炼制并喝下的药水不算该房间的奖励/使用记录，故记下历史长度以便事后剔除
+        var historyEntry = player.RunState.CurrentMapPointHistoryEntry?.GetEntry(player.NetId);
+        var potionChoices = historyEntry?.PotionChoices;
+        var potionUsed = historyEntry?.PotionUsed;
+
         int count = DynamicVars["PotionCount"].IntValue;
         for (int i = 0; i < count; i++)
         {
@@ -51,12 +56,26 @@ public class CursedBlood : TouhouAncientRelics
             selected.Owner = player;
 
             // 直接入栏并立即使用
+            int choiceCount = potionChoices?.Count ?? 0;
             var procResult = await PotionCmd.TryToProcure(selected, player);
             if (!procResult.success) continue;
 
+            // TryToProcure 会写一条 wasPicked=true 的药水历史，会让炼制的药水显示成奖励掉落
+            if (potionChoices != null && potionChoices.Count > choiceCount)
+            {
+                potionChoices.RemoveAt(potionChoices.Count - 1);
+            }
+
             Flash();
             // 使用药水（以自身为目标）
+            int usedCount = potionUsed?.Count ?? 0;
             await selected.OnUseWrapper(choiceContext, player.Creature);
+
+            // 使用记录在 OnUseWrapper 末尾才写入，末尾那条即本次喝下的药水
+            if (potionUsed != null && potionUsed.Count > usedCount)
+            {
+                potionUsed.RemoveAt(potionUsed.Count - 1);
+            }
 
             // 等待药水效果完成
             await Cmd.Wait(0.5f);
