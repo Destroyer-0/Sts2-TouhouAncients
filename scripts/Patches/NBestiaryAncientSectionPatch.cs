@@ -43,6 +43,7 @@ internal static class NBestiaryAncientSectionPatch
         (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter)),
         (typeof(ToutetsuYuumaMonster), typeof(ToutetsuYuumaEncounter)),
         (typeof(KijinSeijaMonster), typeof(KijinSeijaEncounter)),
+        (typeof(InabaTewiMonster), typeof(InabaTewiEncounter)),
     ];
 
     [HarmonyPostfix]
