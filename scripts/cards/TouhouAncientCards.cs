@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using BaseLib.Abstracts;
 using Godot;
 using HarmonyLib;
@@ -8,6 +9,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 
 namespace TouhouAncients.Scripts.cards;
+
+/// <summary>远古框卡面的两层立绘：BasePath 恒铺底，OverlayPath 叠在上面按 OverlayAlpha 淡入。</summary>
+public readonly record struct PortraitFade(string BasePath, string OverlayPath, float OverlayAlpha);
 
 public abstract class TouhouAncientCards : CustomCardModel
 {
@@ -19,6 +23,16 @@ public abstract class TouhouAncientCards : CustomCardModel
     /// 绘师（作者）名称。为 null 或空字符串时不显示绘师 HoverTip。
     /// </summary>
     public virtual string? Author => null;
+
+    /// <summary>
+    /// 只在卡节点上生效的淡入叠加层；其他视图（卡牌控制台、悬停预览等）走的仍是 <see cref="PortraitPath"/> 的换图逻辑。
+    /// </summary>
+    public virtual PortraitFade? PortraitFade => null;
+
+    /// <summary>卡节点该用的底图：有叠加层时用恒定的那张（上层由节点自己叠）。</summary>
+    internal Texture2D NodePortrait => PortraitFade is { } fade
+        ? ResourceLoader.Load<Texture2D>(fade.BasePath)
+        : Portrait;
     
     // /// <summary>
     // /// ModelDb 反射实例化所需的无参构造函数。
@@ -129,7 +143,7 @@ public static class AncientCardFramePatch
 			}
 			val2.Visible = false;
 			val5.Visible = true;
-			val5.Texture = ancientCards.Portrait;
+			val5.Texture = ancientCards.NodePortrait;
 			val2.Material = null;
 			val5.Material = null;
 			val8.Visible = true;
@@ -143,27 +157,134 @@ public static class AncientCardFramePatch
 }
 
 /// <summary>
-/// 原版 <c>UpdatePortrait</c> 只在非 Ancient 稀有度里写 <c>%Portrait</c>，而远古卡框显示的是 <c>%AncientPortrait</c>，
-/// 于是「动态立绘 + 远古框」的卡（如 LuckyTrick）在手牌刷新时不会换图。这里补上等价赋值。
-/// 另外只改贴图值不会让带遮罩材质的 <c>PortraitCanvasGroup</c> 重绘，需同帧抖一次可见性强制重建。
+/// 远古框卡的「两层立绘」：直接在 <c>%AncientPortrait</c> 下放个子 <c>TextureRect</c> 当叠加层，
+/// 它天然与父节点同矩形、同变换，画在父节点之上，并被同一个 CanvasGroup 遮罩 / 模糊。
+/// 另外远古框卡的 <c>Rarity</c> 不是 Ancient，原版 <c>UpdatePortrait</c> 不会写 <c>%AncientPortrait</c>，
+/// 所以贴图目前在 <c>Reload</c>（见 <see cref="AncientCardFramePatch"/>）里赋一次；本条 postfix 提供战斗中刷新时机。
 /// </summary>
-[HarmonyPatch(typeof(NCard), "UpdatePortrait")]
+[HarmonyPatch]
 public static class AncientCardPortraitRefreshPatch
 {
 	private static readonly FieldInfo _ancientPortrait = AccessTools.Field(typeof(NCard), "_ancientPortrait");
 
+	/// <summary>叠加层节点名，同时用于识别节点池复用后残留的层。</summary>
+	private const string FadeLayerName = "PortraitFadeLayer";
+
+	// 淡入补间时长（秒）。改成 0 即立即生效。
+	private const float FadeTweenSeconds = 0.5f;
+
+	private sealed class FadeState
+	{
+		/// <summary>当前补间的目标值；NaN = 还没给过。</summary>
+		public float Target = float.NaN;
+
+		public Tween? Tween;
+	}
+
+	/// <summary>按卡存状态：池化复用的节点不能接着上一张牌的目标值/补间。</summary>
+	private static readonly ConditionalWeakTable<NCard, FadeState> FadeStates = new();
+
+	/// <summary>换模型时清状态，让新牌直接拿终值而不是从上一张牌的透明度化过来。</summary>
+	internal static void ResetFadeState(NCard card)
+	{
+		FadeStates.Remove(card);
+	}
+
+	/// <summary>必须在 <c>Reload</c> 正文（内含 <c>UpdatePortrait</c>）之前清，否则会清掉本次刚建好的状态。</summary>
+	[HarmonyPatch(typeof(NCard), "Reload")]
+	[HarmonyPrefix]
+	private static void ReloadPrefix(NCard __instance)
+	{
+		ResetFadeState(__instance);
+	}
+
+	[HarmonyPatch(typeof(NCard), "UpdatePortrait")]
 	[HarmonyPostfix]
 	private static void Postfix(NCard __instance)
 	{
-		if (__instance.Model is not TouhouAncientCards { UseAncientFrame: true } cards) return;
 		if (_ancientPortrait.GetValue(__instance) is not TextureRect portrait) return;
 
-		// Registry 缓存：同一路径每次返回同一个实例，引用相等就说明没换图
-		Texture2D portraitTexture = cards.Portrait;
-		if (ReferenceEquals(portrait.Texture, portraitTexture)) return;
+		SyncFadeLayer(__instance, portrait, (__instance.Model as TouhouAncientCards)?.PortraitFade);
 
-		portrait.Texture = portraitTexture;
-		portrait.Visible = false;
-		portrait.Visible = true;
+		// 立绘「换图」已停用：底图恒定，改由 Reload 赋值即可。若以后有卡的 PortraitPath 要在战斗中变化，恢复下面几行：
+		// if (__instance.Model is not TouhouAncientCards { UseAncientFrame: true } cards) return;
+		// Texture2D portraitTexture = cards.NodePortrait; // Registry 缓存：同一路径每次返回同一实例，引用相等就是没换图
+		// if (ReferenceEquals(portrait.Texture, portraitTexture)) return;
+		// portrait.Texture = portraitTexture;
+		// ForceRedraw(portrait);
+	}
+
+	/// <summary>按模型的数据维护叠加层；<paramref name="fade"/> 为 null 时收起。</summary>
+	private static void SyncFadeLayer(NCard card, TextureRect portrait, PortraitFade? fade)
+	{
+		TextureRect? layer = portrait.GetNodeOrNull<TextureRect>(FadeLayerName);
+		bool hasState = FadeStates.TryGetValue(card, out FadeState? state);
+
+		if (fade is not { } value)
+		{
+			state?.Tween?.Kill();
+			FadeStates.Remove(card);
+			if (layer != null) layer.Visible = false;
+			return;
+		}
+
+		// 刚建层 / 刚从池里出来 / 换过模型：直接给终值；只有战斗中计数变化才补间
+		bool fresh = layer == null || !layer.Visible || !hasState;
+		if (!hasState)
+		{
+			state = new FadeState();
+			FadeStates.Add(card, state);
+		}
+
+		if (layer == null)
+		{
+			// 不走 SetAnchorsPreset：它按父矩形反推 offsets，节点还没进树时父矩形为空
+			layer = new TextureRect
+			{
+				Name = FadeLayerName,
+				ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+				MouseFilter = Control.MouseFilterEnum.Ignore,
+				AnchorRight = 1f,
+				AnchorBottom = 1f,
+			};
+			portrait.AddChildSafely(layer);
+		}
+
+		Texture2D overlayTexture = ResourceLoader.Load<Texture2D>(value.OverlayPath);
+		float alpha = Mathf.Clamp(value.OverlayAlpha, 0f, 1f);
+		// 材质也要比：原版会在「未见过」时给立绘挂单向模糊材质，层不跟着换会一半清一半糊
+		bool textureChanged = !ReferenceEquals(layer.Texture, overlayTexture)
+			|| !ReferenceEquals(layer.Material, portrait.Material);
+		if (textureChanged)
+		{
+			layer.Texture = overlayTexture;
+			layer.Material = portrait.Material;
+		}
+
+		// 比目标值而不是当前值：补间途中每帧都在变，比当前值会把补间反复掐断重启
+		if (!fresh && !textureChanged && Mathf.IsEqualApprox(state!.Target, alpha)) return;
+
+		layer.Visible = true;
+		state!.Target = alpha;
+		state.Tween?.Kill();
+		state.Tween = null;
+
+		if (fresh || textureChanged || FadeTweenSeconds <= 0f)
+		{
+			layer.Modulate = new Color(1f, 1f, 1f, alpha);
+			ForceRedraw(layer);
+			return;
+		}
+
+		state.Tween = layer.CreateTween();
+		state.Tween.TweenProperty(layer, "modulate:a", alpha, FadeTweenSeconds)
+			.SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+	}
+
+	/// <summary>抖一次可见性强制 <c>PortraitCanvasGroup</c> 重建：只改贴图值 / 材质参数不会重绘。</summary>
+	private static void ForceRedraw(CanvasItem item)
+	{
+		item.Visible = false;
+		item.Visible = true;
 	}
 }

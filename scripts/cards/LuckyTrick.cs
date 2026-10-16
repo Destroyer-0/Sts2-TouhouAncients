@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using TouhouAncients.Scripts.powers;
@@ -38,38 +37,40 @@ public class LuckyTrick : TouhouAncientCards
 
     public override bool UseAncientFrame => true;
 
-    /// <summary>常态立绘（绘师 すったく）。</summary>
+    /// <summary>常态立绘（绘师 すったく）：卡面恒定的底图。</summary>
     private const string DefaultPortraitPath = "res://images/cards/LuckyTrick1.png";
 
-    /// <summary>打出张数超过阈值后的立绘（绘师 ryosios）。</summary>
+    /// <summary>打出张数变多后的立绘（绘师 ryosios）：叠在底图上随计数淡入。</summary>
     private const string AltPortraitPath = "res://images/cards/LuckyTrick2.png";
 
-    /// <summary>打出张数超过该值时换成备用立绘。</summary>
-    public const int AltPortraitThreshold = 2;
+    // 过渡张数：打出 8 张时上层立绘完全盖住底图（原先是在第 3 张硬切）。
+    private const int FadeSteps = 8;
+
+    /// <summary>每打出这么多张，卡名的问号多一个。</summary>
+    private const int PlaysPerQuestionMark = 2;
+
+    /// <summary>问号上限，防止卡名越打越长。</summary>
+    private const int MaxQuestionMarks = 4;
 
     // canonical 实例（图鉴、ModelDb 预热枚举 AllPortraitPaths）读 Owner 会 AssertMutable 抛异常，必须先判 IsMutable。
     // 每次刷新都会重新读：打出计数可以中途超过阈值，不能只在某个时机算一次
-    private bool UseAltPortrait => IsMutable && Owner != null
-        && Owner.Creature.GetPowerAmount<LuckyTrickCountPower>() > AltPortraitThreshold;
+    private int PlayCount => IsMutable && Owner != null
+        ? Owner.Creature.GetPowerAmount<LuckyTrickCountPower>()
+        : 0;
+
+    /// <summary>上层立绘的不透明度：随计数线性上升，到 <see cref="FadeSteps"/> 张时完全盖住底图。</summary>
+    private float OverlayAlpha => Math.Clamp(PlayCount / (float)FadeSteps, 0f, 1f);
+
+    /// <summary>卡节点上两张立绘叠着放：luckytrick1 恒铺底，luckytrick2 按计数淡入（不再是硬换图）。</summary>
+    public override PortraitFade? PortraitFade => new(DefaultPortraitPath, AltPortraitPath, OverlayAlpha);
+
+    /// <summary>过渡过半后（含绘师）都算备用那张的地盘；图鉴走 canonical 实例，计数为 0 仍是默认立绘。</summary>
+    private bool UseAltPortrait => OverlayAlpha > 0.5f;
 
     /// <summary>BaseLib 的自定义立绘入口：走它才会被当成卡图加载（远古框会去 %AncientPortrait 那条分支）。</summary>
-    public override string? CustomPortraitPath
-    {
-        get
-        {
-            Log.Info(UseAltPortrait.ToString());
-            return UseAltPortrait ? AltPortraitPath : DefaultPortraitPath;
-        }
-    }
+    public override string? CustomPortraitPath => UseAltPortrait ? AltPortraitPath : DefaultPortraitPath;
 
-    public override string PortraitPath
-    {
-        get
-        {
-            Log.Info(UseAltPortrait.ToString());
-            return UseAltPortrait ? AltPortraitPath : DefaultPortraitPath;
-        }
-    }
+    public override string PortraitPath => UseAltPortrait ? AltPortraitPath : DefaultPortraitPath;
 
     /// <summary>两张都要列出，供 ModelDb 预热。</summary>
     public override IEnumerable<string> AllPortraitPaths => [DefaultPortraitPath, AltPortraitPath];
@@ -87,16 +88,14 @@ public class LuckyTrick : TouhouAncientCards
     public LuckyTrick() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
     }
+
+    /// <summary>每打出两张加一个问号（上限见 <see cref="MaxQuestionMarks"/>）。</summary>
     public override string Title
     {
         get
         {
-            string title = base.Title;
-            if (UseAltPortrait)
-            {
-                return $"{title}?";
-            }
-            return title;
+            int marks = Math.Min(PlayCount / PlaysPerQuestionMark, MaxQuestionMarks);
+            return marks == 0 ? base.Title : $"{base.Title}{new string('?', marks)}";
         }
     }
     // 层数变化本来就经 SetAmount → Creature.PowerIncreased → tracker.OnPowerIncreased 广播了一次
