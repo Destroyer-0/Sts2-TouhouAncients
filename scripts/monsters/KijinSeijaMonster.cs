@@ -178,7 +178,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
     private async Task DecreeMove(IReadOnlyList<Creature> targets)
     {
         var decreeLine = new LocString("monsters", "TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.DECREE_OF_DEFIANCE.banter1");
-        TalkCmd.Play(decreeLine, base.Creature, VfxColor.Red, VfxDuration.Long);
+        TalkCmd.Play(decreeLine, base.Creature, VfxColor.Red, VfxDuration.VeryLong);
 
         await DamageCmd.Attack(DecreeDamage)
             .FromMonster(this)
@@ -197,12 +197,12 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
         // 台词是对不语之物说的，场上没有衍生物时不播
         if (minions.Count > 0)
         {
-            PlayCycledBanter(ref _silentWeepingBanterIndex, 3, "SILENT_WEEPING", VfxColor.Gold, VfxDuration.Long);
+            PlayCycledBanter(ref _silentWeepingBanterIndex, 3, "SILENT_WEEPING", VfxColor.Gold, VfxDuration.VeryLong);
         }
         else
         {
             var line = new LocString("monsters", $"TOUHOUANCIENTS-KIJIN_SEIJA_MONSTER.moves.SILENT_WEEPING.banter4");
-            TalkCmd.Play(line, base.Creature, VfxColor.Gold, VfxDuration.Long);
+            TalkCmd.Play(line, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
         }
 
         foreach (Creature minion in minions)
