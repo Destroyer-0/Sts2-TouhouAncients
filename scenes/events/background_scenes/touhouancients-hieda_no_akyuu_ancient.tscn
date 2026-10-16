@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjevbempi17xr"]
+[gd_scene load_steps=6 format=3 uid="uid://cjevbempi17xr"]
 
 [ext_resource type="Texture2D" uid="uid://x2ebmqk4047p" path="res://images/HiedaNoAkyuu.png" id="1_os3ib"]
 [ext_resource type="Texture2D" uid="uid://p4gsdhaiugx5" path="res://images/HiedaNoAkyuu2.png" id="2_os3ib"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_bci8x"]
+[ext_resource type="Texture2D" uid="uid://cynq8ec3uh4ml" path="res://images/icon/Character/HiedaNoAkyuu.png" id="4_h15s3"]
+[ext_resource type="Script" uid="uid://dqu3b7gkagq0y" path="res://scripts/Ui/HoverTipTextureButton.cs" id="5_bci8x"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -26,3 +28,21 @@ texture = ExtResource("2_os3ib")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_bci8x")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1831.0
+offset_top = 838.0
+offset_right = 1919.0
+offset_bottom = 926.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(88, 88)
+texture_normal = ExtResource("4_h15s3")
+script = ExtResource("5_bci8x")
