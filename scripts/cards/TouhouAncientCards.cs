@@ -141,3 +141,29 @@ public static class AncientCardFramePatch
 		}
 	}
 }
+
+/// <summary>
+/// 原版 <c>UpdatePortrait</c> 只在非 Ancient 稀有度里写 <c>%Portrait</c>，而远古卡框显示的是 <c>%AncientPortrait</c>，
+/// 于是「动态立绘 + 远古框」的卡（如 LuckyTrick）在手牌刷新时不会换图。这里补上等价赋值。
+/// 另外只改贴图值不会让带遮罩材质的 <c>PortraitCanvasGroup</c> 重绘，需同帧抖一次可见性强制重建。
+/// </summary>
+[HarmonyPatch(typeof(NCard), "UpdatePortrait")]
+public static class AncientCardPortraitRefreshPatch
+{
+	private static readonly FieldInfo _ancientPortrait = AccessTools.Field(typeof(NCard), "_ancientPortrait");
+
+	[HarmonyPostfix]
+	private static void Postfix(NCard __instance)
+	{
+		if (__instance.Model is not TouhouAncientCards { UseAncientFrame: true } cards) return;
+		if (_ancientPortrait.GetValue(__instance) is not TextureRect portrait) return;
+
+		// Registry 缓存：同一路径每次返回同一个实例，引用相等就说明没换图
+		Texture2D portraitTexture = cards.Portrait;
+		if (ReferenceEquals(portrait.Texture, portraitTexture)) return;
+
+		portrait.Texture = portraitTexture;
+		portrait.Visible = false;
+		portrait.Visible = true;
+	}
+}
