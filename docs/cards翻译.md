@@ -209,3 +209,33 @@
 
 ---
 
+## 增量更新（2026-10-17，创意工坊推荐按钮文案）
+
+`HoverTipTextureButton`（`scripts/Ui/HoverTipTextureButton.cs`）在悬停提示里读 `gameplay_ui` 表的 `TOUHOUANCIENTS-RECOMMEND_HINT`（固定追加）与 `TOUHOUANCIENTS-<角色>_RECOMMEND.title` / `.description`（键前缀由背景场景里按钮实例的 `LocKey` 决定）。此前 `eng/jpn` 无这批条目。
+
+### `TOUHOUANCIENTS-RECOMMEND_HINT`
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `TOUHOUANCIENTS-RECOMMEND_HINT` | 点击前往Steam创意工坊页面。\n[gold]您可以在设置中关闭此推荐功能。[/gold] | `Click to open the Steam Workshop page.\n[gold]You can turn off these recommendations in Settings.[/gold]` |
+
+### 角色推荐（只译 `.title`，描述暂用中文占位）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `AKYUU_RECOMMEND.title` | 稗田阿求 | `Hieda no Akyuu` |
+| `YAKUMO_AKAI_RECOMMEND.title` | 八云红 | `Akai Yakumo` |
+| `HOUJUU_NUE_RECOMMEND.title` | 封兽鵺 | `Nue Houjuu` |
+| `KIJIN_SEIJA_RECOMMEND.title` | 鬼人正邪A | `Seija Kijin A` |
+| `KIJIN_SEIJA_RECOMMEND_2.title` | 鬼人正邪B | `Seija Kijin B` |
+| `KOMEJI_KOISHI_RECOMMEND.title` | 古明地恋 | `Koishi Komeiji` |
+
+### 备注
+- **六个 `*.description` 暂不翻译**（用户指定）：eng / jpn 里原样填 zhs 中文占位，后续批次再替换。因此这两个文件目前**含有中文与全角标点**，与「英文侧一律 ASCII 直标点」的约定冲突——属已知临时例外，别当作笔误。
+- `Hieda no Akyuu` / `Seija Kijin` 取本仓库既有译名（`settings_ui.json`、`ancients.json`）；`Nue Houjuu` 取术语表；`Koishi Komeiji` 用东方官方英译（本仓库此前无此名，用户确认）。
+- `Akai Yakumo` 由用户指定：该角色出自东方同人小说《幻想乡玩家》的可控角色 Mod，无官方英译。
+- zhs 键名由 `YAKUMA_AKI_RECOMMEND` 改为 `YAKUMO_AKAI_RECOMMEND`；eng / jpn 从未有过旧键，无需清理。
+- `[rainbow]` 标记已按用户要求从 `HOUJUU_NUE_RECOMMEND.title` 移除（zhs / eng / jpn 三边都不带）；该角色的 `.description`（中文占位）里仍有标记，后续补译时一并处理。
+- 插入位置按 `zhs` 相对位置：紧跟在 `TRANSFORM_CARD_REWARD` 之后（zhs 里这批也排在它后面）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+

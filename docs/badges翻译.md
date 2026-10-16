@@ -76,3 +76,20 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - **`SCAMING_SCAMER.description`「敲诈一笔」**：取 `Extort a fortune`；「依神姐妹」沿用 `YORIGAMI_SISTER_ANCIENT.fight.title` 的 `Yorigami Sisters`。
 - **插入位置**：三条徽章按 zhs 的相对位置**集中**放在 `THREE_SNAKE` 与 `TOO_MUCH_SATORI` 之间，`zhs` / `eng` / `jpn` 三份文件键序完全一致。曾一度按 `eng/badges.json` 原有的字母序拆到三处插入，导致同一批内容在 diff 里东一块西一块，已改回对齐 zhs。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-17，新增徽章「那个男人」）
+
+`zhs/badges.json` 的 `MR_ZUN` 在 `eng/jpn` 缺失（既有缺口），随本次一并补齐。
+
+| 键名 | 中文 | English |
+|------|------|---------|
+| `MR_ZUN.title` | 那个男人 | `Mr. Beer` |
+| `MR_ZUN.description` | 在一场游戏中喝下[blue]12[/blue]杯[gold]超ZUN啤酒[/gold]。 | `Drink [blue]12[/blue] [gold]Super ZUN Beer[/gold] in a single run.` |
+
+### 说明
+- **`MR_ZUN.title`「那个男人」**：中文里对 ZUN 的惯用代称（不点名），英文直译 `That Man` 指代不明。取 `Mr. Beer`——敬称 `Mr.` 接上他造的 `Super ZUN Beer`，既指代「那个人」又与他酿的酒呼应，形成错位玩梗。曾试 `ZUN-San`，玩梗效果不如 `Mr. Beer`。
+- **`MR_ZUN.description`「一场游戏」**：沿用 `TOO_MUCH_SATORI` 系列的 `in a single run`；「超ZUN啤酒」按术语表取 `Super ZUN Beer`，引用色 `[gold]` 与 `NIDOMITEI_SPECIAL_BLEND` 一致。
+- **插入位置**：`MR_ZUN` 在 zhs 里位于文件末（`TOO_MUCH_SATORI` 之后），eng/jpn 同样追加在末尾，三份文件键序一致。
+- jpn 与 eng 一致（jpn 文件用英文填充）。

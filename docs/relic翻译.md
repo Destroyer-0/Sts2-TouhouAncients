@@ -2723,8 +2723,8 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 ### 境界之梦 `BOUNDARY_DREAM`
 
 **zhs 原文**
-- `.description`: `拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。`
-- `.eventDescription`: `失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。`
+- `.description`: `拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。`
+- `.eventDescription`: `失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。`
 - `.flavor`: `""`（留空，用户未给）
 
 | 字段 | 翻译 |
@@ -3151,7 +3151,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `ANCIENT_SPECIMEN.description` | [gold]精英[/gold]敌人的生命值减少[blue]{Percent}%[/blue]。 | `[gold]Elite[/gold] enemies have [blue]{Percent}%[/blue] less HP.` |
 | `BLANK_ROSTER.description` | 拾起时，随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。 | `Upon pickup, gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].` |
 | `BLANK_ROSTER.eventDescription` | 随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。 | `Gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].` |
-| `BELL_BOOKMARK.description` | 在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。 | `In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in Unknown rooms is greatly increased.` |
+| `BELL_BOOKMARK.description` | 在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。 | `In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in [gold]?[/gold] rooms is greatly increased.` |
 
 ### 备注（原版句式来源）
 - `拾起时，…` → `Upon pickup, ...`（原版 `LEAD_PAPERWEIGHT` / `NUTRITIOUS_SOUP`）。
@@ -3160,7 +3160,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - `卡牌奖励` → `[gold]Card Reward[/gold]`（既有 `DOWSING_ROD`）；`额外掉落` → `additional`（原版 `PRAYER_WHEEL` / `WHITE_STAR`）。
 - `负面状态` → `a debuff`（原版 `UNSETTLING_LAMP` / `ARTIFACT_POWER`）；`给予自身…` → `apply … to yourself`（原版 `NEUROSURGE`）。
 - `处于攻击意图` → `intents to Attack`（既有 `DREAM_SEAL`）。
-- `？房间` → `Unknown rooms`（原版 `map.json` `LEGEND_UNKNOWN.title` = `Unknown`）。
+- `[gold]?[/gold]房间` → `[gold]?[/gold] rooms`（原版 `JUZU_BRACELET` 句式；半角 `?` + `[gold]` 包裹，zhs 亦统一为半角）。
 - `御阿礼` → `Miare`；`幺乐藏品` → `Yougakudan Collection`（用户确认）；`积劳成疾` → `Overwork`（用户确认）。
 - 卡名互引：`[gold]迷之树叶[/gold]` = `Mysterious Leaf`、`[red]阎罗之罪罚[/red]` = `Yama's Punishment`、`[red]积劳成疾[/red]` = `Overwork`，须与 `cards.json` 卡名逐字一致。
 - `稗田阿求遗物` → `[gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]`，句式仿既有 `CHAOS_DREAM`（混沌之梦）。
