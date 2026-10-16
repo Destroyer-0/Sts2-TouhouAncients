@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj38pdcr4gk1w"
-path="res://.godot/imported/调理药膳.png-50d8b8d14e4a2a574d61e28df127981e.ctex"
+uid="uid://clhxfhh1vcqlh"
+path="res://.godot/imported/TicketToNetherworld.png-d1836e06ff05ddadeeede66d62b3e381.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/调理药膳.png"
-dest_files=["res://.godot/imported/调理药膳.png-50d8b8d14e4a2a574d61e28df127981e.ctex"]
+source_file="res://images/icon/relics/IconLarge/TicketToNetherworld.png"
+dest_files=["res://.godot/imported/TicketToNetherworld.png-d1836e06ff05ddadeeede66d62b3e381.ctex"]
 
 [params]
 
