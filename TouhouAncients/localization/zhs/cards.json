@@ -122,7 +122,7 @@
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "迷之树叶",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "打出[purple]{CardStr}。[/purple]\n每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "打出[green]{CardStr}[/green]。\n每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。\n[i]这也全都是妖怪干的吗？[/i]",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "伪装",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。",
 

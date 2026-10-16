@@ -122,7 +122,7 @@
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "Mysterious Leaf",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "Whenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [purple]{CardStr}.[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [green]{CardStr}[/green].\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "Disguise",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "This card's cost matches that of the card it is disguised as. Playing this card plays a copy of that card.",
 
