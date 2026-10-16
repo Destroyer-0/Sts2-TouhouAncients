@@ -34,5 +34,7 @@
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.goldDescription": "Encounter [gold]Satori Komeiji[/gold] [blue]4[/blue] times in a single run.",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.goldTitle": "Sister Multiplied!",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverDescription": "Encounter [gold]Satori Komeiji[/gold] [blue]3[/blue] times in a single run.",
-  "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverTitle": "Third Eye's the Charm"
+  "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverTitle": "Third Eye's the Charm",
+  "TOUHOUANCIENTS-MR_ZUN.description": "Drink [blue]12[/blue] [gold]Super ZUN Beer[/gold] in a single run.",
+  "TOUHOUANCIENTS-MR_ZUN.title": "Mr. Beer"
 }

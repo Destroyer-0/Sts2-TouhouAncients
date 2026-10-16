@@ -804,8 +804,8 @@
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "“梦境使者，与我一战！！！——……Zzzzz”",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界之梦",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "“呵呵，梦之支配者……幻想乡和先子星的未来这一次还请拜托你的[sine]干涉[/sine]了……”",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",
@@ -910,7 +910,7 @@
   "TOUHOUANCIENTS-BLANK_ROSTER.flavor": "",
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。",
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",

@@ -1,6 +1,9 @@
 {
   "TOUHOUANCIENTS.mod_title": "Touhou Ancients",
 
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "Enable Touhou Mod Recommendations!",
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "When enabled, other Touhou mods may appear as recommendations in the bottom-right corner of Ancient backgrounds.",
+
   "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
   "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
