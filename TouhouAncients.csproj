@@ -8,7 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <!-- 改成你的杀戮尖塔2目录 -->
-    <Sts2Dir>D:\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
+    <Sts2Dir>D:\SteamLibrary\steamapps\common\Slay the Spire 2</Sts2Dir>
     <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
   </PropertyGroup>
 
@@ -16,28 +16,51 @@
     <Reference Include="sts2">
       <HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
       <Private>false</Private>
+      <!-- 写入 deps.json，编辑器才能解析继承游戏类型的脚本。Private 仍为 false，不进 mods。 -->
+      <IncludeRuntimeDependency>true</IncludeRuntimeDependency>
     </Reference>
 
     <Reference Include="0Harmony">
       <HintPath>$(Sts2DataDir)\0Harmony.dll</HintPath>
       <Private>false</Private>
+      <IncludeRuntimeDependency>true</IncludeRuntimeDependency>
     </Reference>
-    
     <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
+
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="scripts\Patches\" />
-  </ItemGroup>
 
   <!-- 自动复制dll和json -->
-    <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
-        <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
-        <MakeDir Directories="$(Sts2Dir)\mods\" />
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
-        <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
-        <Copy SourceFiles="更新内容.md" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
-        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
-        <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
-    </Target>
+  <Target Name="Copy Mod" AfterTargets="PostBuildEvent">
+    <Message Text="Copying mod to Slay the Spire 2 mods folder..." Importance="high" />
+    <MakeDir Directories="$(Sts2Dir)\mods\" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(Sts2Dir)\mods\$(MSBuildProjectName)\" />
+    <Copy SourceFiles="$(MSBuildProjectName).json"
+      DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+    <Copy SourceFiles="更新内容.md" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb"
+      DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/"
+      Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
+  </Target>
+
+  <Target Name="CopySts2ForEditor" AfterTargets="Build">
+    <ItemGroup>
+      <_Sts2EditorDll Include="$(Sts2DataDir)\sts2.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\0Harmony.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.Godot.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Steamworks.NET.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\System.IO.Hashing.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SmartFormat.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SmartFormat.ZString.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SharpGen.Runtime.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SharpGen.Runtime.COM.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.DXGI.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.DirectX.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.Mathematics.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_Sts2EditorDll)"
+          DestinationFolder="$(MSBuildProjectDirectory)\.godot\mono\temp\bin\Debug"
+          SkipUnchangedFiles="true" />
+  </Target>
 </Project>
