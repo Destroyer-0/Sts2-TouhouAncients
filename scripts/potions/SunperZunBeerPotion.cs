@@ -41,7 +41,7 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         // 不用 CardFactory.GetDistinctForCombat：其 FilterForCombat 会剔除 Ancient 稀有度卡
         var rng = base.Owner.RunState.Rng.CombatCardGeneration;
 
-        var options = ancientCards.TakeRandom(3, rng).UnstableShuffle(rng)
+        var options = ancientCards.UnstableShuffle(rng).Take(3)
             .Select(c => base.Owner.Creature.CombatState.CreateCard(c, base.Owner))
             .ToList();
 
