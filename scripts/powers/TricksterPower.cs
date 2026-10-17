@@ -20,7 +20,8 @@ public class TricksterPower : TouhouAncientPowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
-        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+        Creature? dealer,
+        CardModel? cardSource)
     {
         if (target != base.Owner) return 1m;
         if (cardSource is not { Type: CardType.Attack }) return 1m;
@@ -29,10 +30,20 @@ public class TricksterPower : TouhouAncientPowerModel
         // GetResolved 已把普通牌耗能 clamp 到 ≥0，X 费牌取打出时捕获的 X 值
         return cardSource.EnergyCost.GetResolved() == Amount ? 1m : DamageMultiplier;
     }
+    // public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
+    //     Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    // {
+    //     if (target != base.Owner) return 1m;
+    //     if (cardSource is not { Type: CardType.Attack }) return 1m;
+    //     if (!props.IsPoweredAttack()) return 1m;
+    //
+    //     // GetResolved 已把普通牌耗能 clamp 到 ≥0，X 费牌取打出时捕获的 X 值
+    //     return cardSource.EnergyCost.GetResolved() == Amount ? 1m : DamageMultiplier;
+    // }
 
     public void ResetAmount(int amount)
     {
-        SetAmount(amount,true);
+        SetAmount(amount, true);
         Flash();
     }
 }

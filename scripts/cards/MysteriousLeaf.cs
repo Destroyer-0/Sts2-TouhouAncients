@@ -150,7 +150,7 @@ public class MysteriousLeaf : TouhouAncientCards
         var card = CardModel.FromSerializable(record);
         combatState.AddCard(card, Owner);
 
-        var dupe = card.CreateDupe(Owner);
+        var dupe = card.CreateDupe();
         // 树叶自己的 X 已经花掉了：AutoPlay 在抽干之后才捕获，只会拿到 0，得先把本次 X 传过去
         var skipXCapture = false;
         if (dupe.EnergyCost.CostsX && EnergyCost.CostsX)

@@ -48,7 +48,8 @@
       <_Sts2EditorDll Include="$(Sts2DataDir)\sts2.dll" />
       <_Sts2EditorDll Include="$(Sts2DataDir)\0Harmony.dll" />
       <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.dll" />
-      <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.Godot.dll" />
+      <!-- 0.107 没有 Sentry.Godot.dll（Sentry 6.x 才拆出来的程序集），换回 0.110 再放开 -->
+      <!-- <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.Godot.dll" /> -->
       <_Sts2EditorDll Include="$(Sts2DataDir)\Steamworks.NET.dll" />
       <_Sts2EditorDll Include="$(Sts2DataDir)\System.IO.Hashing.dll" />
       <_Sts2EditorDll Include="$(Sts2DataDir)\SmartFormat.dll" />

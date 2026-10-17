@@ -157,10 +157,8 @@ public static class AncientCardFramePatch
 }
 
 /// <summary>
-/// 远古框卡的「两层立绘」：直接在 <c>%AncientPortrait</c> 下放个子 <c>TextureRect</c> 当叠加层，
-/// 它天然与父节点同矩形、同变换，画在父节点之上，并被同一个 CanvasGroup 遮罩 / 模糊。
-/// 另外远古框卡的 <c>Rarity</c> 不是 Ancient，原版 <c>UpdatePortrait</c> 不会写 <c>%AncientPortrait</c>，
-/// 所以贴图目前在 <c>Reload</c>（见 <see cref="AncientCardFramePatch"/>）里赋一次；本条 postfix 提供战斗中刷新时机。
+/// 远古框卡的「两层立绘」：<c>%AncientPortrait</c> 下挂个子 <c>TextureRect</c> 作叠加层，与父节点同矩形同变换、被同一个 CanvasGroup 遮罩。
+/// 底图在 <c>Reload</c>（见 <see cref="AncientCardFramePatch"/>）里赋一次；本条 postfix 提供刷新时机。
 /// </summary>
 [HarmonyPatch]
 public static class AncientCardPortraitRefreshPatch
@@ -190,7 +188,7 @@ public static class AncientCardPortraitRefreshPatch
 		FadeStates.Remove(card);
 	}
 
-	/// <summary>必须在 <c>Reload</c> 正文（内含 <c>UpdatePortrait</c>）之前清，否则会清掉本次刚建好的状态。</summary>
+	/// <summary>必须在 <c>Reload</c> 正文之前清：正文里的刷新会重建状态，清晚了就白清。</summary>
 	[HarmonyPatch(typeof(NCard), "Reload")]
 	[HarmonyPrefix]
 	private static void ReloadPrefix(NCard __instance)
@@ -198,7 +196,18 @@ public static class AncientCardPortraitRefreshPatch
 		ResetFadeState(__instance);
 	}
 
-	[HarmonyPatch(typeof(NCard), "UpdatePortrait")]
+	/// <summary>节点出池 / 换模型后立刻收口：状态刚被前缀清掉，所以直接拿终值，顺带清掉上一张牌残留的层。</summary>
+	[HarmonyPatch(typeof(NCard), "Reload")]
+	[HarmonyPostfix]
+	private static void ReloadPostfix(NCard __instance)
+	{
+		if (_ancientPortrait.GetValue(__instance) is not TextureRect portrait) return;
+
+		SyncFadeLayer(__instance, portrait, (__instance.Model as TouhouAncientCards)?.PortraitFade);
+	}
+
+	// 挂 UpdateVisuals 而非某个立绘方法：立绘赋值两版位置不同（0.107.1 内联在 Reload），只有它是两版共有的视觉刷新入口。
+	[HarmonyPatch(typeof(NCard), nameof(NCard.UpdateVisuals), [typeof(PileType), typeof(CardPreviewMode)])]
 	[HarmonyPostfix]
 	private static void Postfix(NCard __instance)
 	{

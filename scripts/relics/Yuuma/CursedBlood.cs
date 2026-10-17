@@ -93,14 +93,14 @@ public class CursedBlood : TouhouAncientRelics
         }
 
         choiceContext.PushModel(potion);
-        var effectId = CombatManager.Instance.BeginCardOrPotionEffect(player);
+        CombatManager.Instance.BeginCardOrPotionEffect(player);
         try
         {
             if (onUse.Invoke(potion, [choiceContext, player.Creature]) is Task task) await task;
         }
         finally
         {
-            await CombatManager.Instance.EndCardOrPotionEffect(effectId, player);
+            CombatManager.Instance.EndCardOrPotionEffect(player);
             choiceContext.PopModel(potion);
         }
 
