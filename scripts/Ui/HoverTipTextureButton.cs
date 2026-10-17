@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.Ui;
 /// 场景里只填键前缀，标题固定取 {前缀}.title、描述固定取 {前缀}.description，运行时可用 <see cref="SetLocKey"/> 替换。
 /// 描述末尾固定追加一句设置提示，见 <see cref="HintKey"/>；填了 WorkshopId 则点击跳转创意工坊。
 /// 同一个父节点下摆多个实例即为候选池：抽签只留一个，其余自删，所以在场景里加推荐只需多摆一个实例。
-/// 显隐跟随 <see cref="TouhouAncientsConfig.EnableWorkshopRecommend"/>。
+/// 显隐跟随 <see cref="TouhouAncientsConfig.EnableWorkshopRecommend"/>，右键可只在本场景内隐藏。
 /// </summary>
 [GlobalClass]
 public partial class HoverTipTextureButton : TextureButton
@@ -60,6 +60,9 @@ public partial class HoverTipTextureButton : TextureButton
 
     private Action? _onConfigReloaded;
 
+    /// <summary>本场景内被右键关掉：只挡刷新，不动总开关（重进事件仍会出现）。</summary>
+    private bool _dismissed;
+
     /// <summary>放在 _EnterTree 而非 _Ready：<see cref="Reparent"/> 会触发一次 Exit/Enter，_Ready 不会再跑第二次。</summary>
     public override void _EnterTree()
     {
@@ -77,6 +80,8 @@ public partial class HoverTipTextureButton : TextureButton
         MouseEntered += ShowTip;
         MouseExited += HideTip;
         Pressed += OnPressed;
+        // 右键不在 button_mask 里，BaseButton 不吃它，事件会照常派发到 GuiInput
+        Connect(Control.SignalName.GuiInput, Callable.From<InputEvent>(OnGuiInput));
         // 节点被隐藏时不会补发 MouseExited，不接这里 Tip 会残留在屏幕上
         Connect(CanvasItem.SignalName.VisibilityChanged, Callable.From(OnVisibilityChanged));
         WarnIfMouseBlocked();
@@ -120,15 +125,28 @@ public partial class HoverTipTextureButton : TextureButton
         _onConfigReloaded = null;
     }
 
-    /// <summary>总开关只改显隐、不释放节点：玩家在暂停菜单里改完能原地恢复。</summary>
+    /// <summary>总开关只改显隐、不释放节点：玩家在暂停菜单里改完能原地恢复；右键关掉的不会因此复现。</summary>
     private void RefreshVisibility()
     {
-        bool enabled = TouhouAncientsConfig.EnableWorkshopRecommend;
+        bool enabled = TouhouAncientsConfig.EnableWorkshopRecommend && !_dismissed;
         Visible = enabled;
         if (!enabled)
         {
             HideTip();
         }
+    }
+
+    /// <summary>右键只隐藏本次：不写配置，退出事件再进照旧；AcceptEvent 顺带挡掉穿透到对话热区。</summary>
+    private void OnGuiInput(InputEvent @event)
+    {
+        if (@event is not InputEventMouseButton { ButtonIndex: MouseButton.Right, Pressed: true })
+        {
+            return;
+        }
+
+        _dismissed = true;
+        AcceptEvent();
+        RefreshVisibility();
     }
 
     private void OnPressed()
