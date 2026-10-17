@@ -25,8 +25,13 @@ public class YoukaiExtermination : TouhouAncientCards
 {
     private const int BaseDamageNormal = 6;
 
+    /// <summary>升级给本牌的永久伤害加成；不能累加进 [SavedProperty]（见 <see cref="UpdateDamage"/>）。</summary>
+    private const int UpgradeDamageBonus = 2;
+
     private int _currentDamage = BaseDamageNormal;
     private int _increasedDamage;
+
+    private int UpgradeDamage => CurrentUpgradeLevel * UpgradeDamageBonus;
 
     public override string? Author => "TOKIAME";
     public YoukaiExtermination()
@@ -54,6 +59,7 @@ public class YoukaiExtermination : TouhouAncientCards
         {
             AssertMutable();
             _increasedDamage = value;
+            UpdateDamage();
         }
     }
 
@@ -94,13 +100,14 @@ public class YoukaiExtermination : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Increase"].UpgradeValueBy(1m);
-        BuffFromPlay(2);
+        // 只改不存档的 DynamicVars；升级加成走 UpgradeDamage 推导，累加进 [SavedProperty] 会被读档/联机重建重放一次
+        DynamicVars["Increase"].UpgradeValueBy(1m);
+        UpdateDamage();
     }
 
     protected override void AfterDowngraded()
     {
-        BuffFromPlay(-2);
+        UpdateDamage();
     }
 
     private void BuffFromPlay(int extraDamage)
@@ -111,6 +118,6 @@ public class YoukaiExtermination : TouhouAncientCards
 
     private void UpdateDamage()
     {
-        CurrentDamage = BaseDamageNormal + IncreasedDamage;
+        CurrentDamage = BaseDamageNormal + IncreasedDamage + UpgradeDamage;
     }
 }
