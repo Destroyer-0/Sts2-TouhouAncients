@@ -22,7 +22,7 @@ public abstract class TouhouAncientTemporaryPower : TouhouAncientPowerModel, ITe
     public override PowerStackType StackType => PowerStackType.Counter;
 
 
-    public PowerModel InternallyAppliedPower => (PowerModel)ModelDb.Power<StrengthPower>();
+    public abstract PowerModel InternallyAppliedPower { get; }
 
     protected virtual bool IsPositive => true;
 
