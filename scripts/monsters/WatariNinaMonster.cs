@@ -27,7 +27,11 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
 {
     protected override bool HasAnimation => false;
 
-    private const int InformationFlowDamage = 8;
+    private const int InformationFlowDamage = 6;
+
+    private const int InformationFlowHits = 2;
+
+    private const int TruthAndLieDamage = 11;
 
     private const int CosmicIndifferenceBlock = 9;
 
@@ -35,7 +39,8 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
 
     private const int ConspiracyUsesUntilPowerLost = 3;
 
-    private const int CuriosityStrengthGain = 2;
+    private int CuriosityStrengthGain =>
+        AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
 
     private const int InitialArtifact = 3;
 
@@ -67,7 +72,7 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
             var choiceContext = new ThrowingPlayerChoiceContext();
             // 「觉醒之贝?」显示/回复量按联机人数放大
             await PowerCmd.Apply<AwakenedShellPower>(
-                choiceContext, base.Creature, AwakenedShellHeal * playerCount, base.Creature, null);
+                choiceContext, base.Creature, AwakenedShellHeal, base.Creature, null);
             CuriosityPower? curiosity = await PowerCmd.Apply<CuriosityPower>(
                 choiceContext, base.Creature, CuriosityStrengthGain, base.Creature, null);
             curiosity?.Configure(playerCount);
@@ -82,10 +87,11 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
-        MoveState conspiracy = new("MIRAGE_CONSPIRACY", ConspiracyMove, new DebuffIntent());
+        MoveState conspiracy = new("MIRAGE_CONSPIRACY", ConspiracyMove, new UnknownIntent());
         MoveState informationFlow = new("FRENZIED_INFORMATION_FLOW", InformationFlowMove,
-            new SingleAttackIntent(InformationFlowDamage));
-        MoveState truthAndLie = new("TRUTH_AND_LIE", TruthAndLieMove, new StatusIntent(FictionalCityCount));
+            new MultiAttackIntent(InformationFlowDamage, InformationFlowHits));
+        MoveState truthAndLie = new("TRUTH_AND_LIE", TruthAndLieMove,
+            new SingleAttackIntent(TruthAndLieDamage), new StatusIntent(FictionalCityCount));
         MoveState cosmicIndifference = new("COSMIC_INDIFFERENCE", CosmicIndifferenceMove, new DefendIntent());
 
         ConditionalBranchState afterCosmic = new("AFTER_COSMIC_INDIFFERENCE");
@@ -175,11 +181,18 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitCount(InformationFlowHits)
             .Execute(null);
     }
 
     private async Task TruthAndLieMove(IReadOnlyList<Creature> targets)
     {
+        await DamageCmd.Attack(TruthAndLieDamage)
+            .FromMonster(this)
+            .WithAttackerFx(null, AttackSfx)
+            .WithHitFx("vfx/vfx_attack_slash")
+            .Execute(null);
+
         foreach (Creature target in targets.Where(target => !target.IsDead))
         {
             Player? player = target.Player;

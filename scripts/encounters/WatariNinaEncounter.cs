@@ -19,6 +19,7 @@ public sealed class WatariNinaEncounter : TouhouAncientEncounter
         "nina"
     ];
 
+    public override string? BgmFileName => "Nina.mp3";
     public override string? CustomScenePath => "res://scenes/encounters/watari_nina.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
