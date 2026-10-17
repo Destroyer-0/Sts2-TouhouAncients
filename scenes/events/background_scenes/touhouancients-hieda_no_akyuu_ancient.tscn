@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjevbempi17xr"]
+[gd_scene load_steps=7 format=3 uid="uid://cjevbempi17xr"]
 
 [ext_resource type="Texture2D" uid="uid://x2ebmqk4047p" path="res://images/HiedaNoAkyuu.png" id="1_os3ib"]
 [ext_resource type="Texture2D" uid="uid://p4gsdhaiugx5" path="res://images/HiedaNoAkyuu2.png" id="2_os3ib"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_bci8x"]
 [ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_h15s3"]
 [ext_resource type="Texture2D" uid="uid://c3x5aho4x870m" path="res://images/workshop/阿求.png" id="5_bci8x"]
+[ext_resource type="Texture2D" uid="uid://2bq4812qjvac" path="res://images/workshop/慧音.png" id="6_ioqye"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -56,4 +57,26 @@ WorkshopId = "3776173180"
 texture = ExtResource("5_bci8x")
 metadata/_edit_lock_ = true
 
+[node name="TextureButton2" parent="." instance=ExtResource("4_h15s3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 88.0
+offset_bottom = 88.00006
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = ExtResource("6_ioqye")
+LocKey = "TOUHOUANCIENTS-KEINE_RECOMMEND"
+WorkshopId = "3747577128"
+
+[node name="TextureRect" parent="TextureButton2" index="0"]
+texture = ExtResource("6_ioqye")
+metadata/_edit_lock_ = true
+
 [editable path="TextureButton"]
+[editable path="TextureButton2"]
