@@ -8,7 +8,7 @@
   "TOUHOUANCIENTS-BUBBLE_ILLUSION.description": "随机使造成的伤害变化[blue]-1~3[/blue]。\n随机使获得的格挡变化[blue]-1~3[/blue]。\n随机使生成的卡牌数变化[blue]-1~1[/blue]。\n变化后的最终数值不低于[blue]1[/blue]。",
   "TOUHOUANCIENTS-TRANSFORM_CARD_REWARD": "变化 {cards} 张牌。",
   
-  "TOUHOUANCIENTS-RECOMMEND_HINT": "点击前往Steam创意工坊页面。\n[gold]您可以在设置中关闭此推荐功能。[/gold]",
+  "TOUHOUANCIENTS-RECOMMEND_HINT": "点击前往Steam创意工坊页面。右键隐藏。\n[gold]您可以在设置中关闭此推荐功能。[/gold]",
   "TOUHOUANCIENTS-AKYUU_RECOMMEND.title": "稗田阿求",
   "TOUHOUANCIENTS-AKYUU_RECOMMEND.description": "来试试[pink]阿求[/pink]作为可控角色的Mod吧！",
   "TOUHOUANCIENTS-YAKUMO_AKAI_RECOMMEND.title": "八云红",
@@ -16,9 +16,15 @@
   "TOUHOUANCIENTS-HOUJUU_NUE_RECOMMEND.title": "封兽鵺",
   "TOUHOUANCIENTS-HOUJUU_NUE_RECOMMEND.description": "来试试正体不明、诡谲莫测的[rainbow]封兽鵺[/rainbow]作为可控角色的Mod吧！",
   "TOUHOUANCIENTS-KIJIN_SEIJA_RECOMMEND.title": "鬼人正邪(A)",
-  "TOUHOUANCIENTS-KIJIN_SEIJA_RECOMMEND.description": "来试试擅长以作弊般的能力修改卡牌数值的[purple]鬼人正邪[/purple]作为可控角色的Mod吧！",
+  "TOUHOUANCIENTS-KIJIN_SEIJA_RECOMMEND.description": "反抗一切的天邪鬼。来试试擅长以作弊般的能力修改卡牌数值的[purple]鬼人正邪[/purple]作为可控角色的Mod吧！",
   "TOUHOUANCIENTS-KIJIN_SEIJA_RECOMMEND_2.title": "鬼人正邪(B)",
   "TOUHOUANCIENTS-KIJIN_SEIJA_RECOMMEND_2.description": "来试试另一个以自我伤害与治疗、更强大且危险的稀有牌为核心的[purple]鬼人正邪[/purple]作为可控角色的Mod吧！",
   "TOUHOUANCIENTS-KOMEJI_KOISHI_RECOMMEND.title": "古明地恋",
-  "TOUHOUANCIENTS-KOMEJI_KOISHI_RECOMMEND.description": "想进行一场[purple]无意识[/purple]与[blue]蔷薇[/blue]的邂逅嘛？！来陪[purple]无意识[/purple]的少女[green]古明地恋[/green]一起玩吧！"
+  "TOUHOUANCIENTS-KOMEJI_KOISHI_RECOMMEND.description": "想进行一场[purple]无意识[/purple]与[blue]蔷薇[/blue]的邂逅嘛？！来陪[purple]无意识[/purple]的少女[green]古明地恋[/green]一起玩吧！",
+  "TOUHOUANCIENTS-GENSOKYO_SPIRE_RECOMMEND.title": "幻想尖塔",
+  "TOUHOUANCIENTS-GENSOKYO_SPIRE_RECOMMEND.description": "幻想尖塔是一个东方project系列为主题的内容拓展mod，包含新事件、新敌人等等内容。",
+  "TOUHOUANCIENTS-MOKOU_RECOMMEND.title": "藤原妹红",
+  "TOUHOUANCIENTS-MOKOU_RECOMMEND.description": "不老不死的人类。焚尽一切麻烦，不惧万次死亡。\n来试试[red]藤原妹红[/red]作为可控角色的Mod吧！",
+  "TOUHOUANCIENTS-KEINE_RECOMMEND.title": "上白泽慧音",
+  "TOUHOUANCIENTS-KEINE_RECOMMEND.description": "来试试能够编纂并操纵历史的[blue]上白泽慧音[/blue]作为可控角色的Mod吧！"
 }

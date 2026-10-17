@@ -18,5 +18,9 @@
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "希腊奶",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "将一张消耗堆的牌加入到手牌。\n想不出这个药水的效果了，也许只能这样了呢（笑）",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "选择一张消耗堆的牌。",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。"
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。",
+
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.title": "红魔馆模型",
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.description": "用[gold]大爆炸[/gold]和[gold]碎屑[/gold]填满你的手牌。\n今天也是和平的一天。",
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.flavor": "今天也是和平的一天。"
 }

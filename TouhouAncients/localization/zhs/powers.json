@@ -146,6 +146,10 @@
   "TOUHOUANCIENTS-CURIOSITY_POWER.description": "每当玩家打出[blue]{CardsNeeded}[/blue]张[gold]能力牌[/gold]，获得[blue]2[/blue]点[gold]力量[/gold]。",
   "TOUHOUANCIENTS-CURIOSITY_POWER.smartDescription": "每当玩家打出[blue]{CardsNeeded}[/blue]张[gold]能力牌[/gold]，获得[blue]2[/blue]点[gold]力量[/gold]。\n距离下一次触发还需[blue]{Remaining}[/blue]张。",
 
+  "TOUHOUANCIENTS-FICTIONAL_CITY_COUNT_POWER.title": "蜃楼",
+  "TOUHOUANCIENTS-FICTIONAL_CITY_COUNT_POWER.description": "你再抽到[blue]{Remaining}[/blue]张[gold]虚构都市[/gold]，失去[blue]1[/blue][gold]力量[/gold]与[blue]1[/blue][gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-FICTIONAL_CITY_COUNT_POWER.smartDescription": "你再抽到[blue]{Remaining}[/blue]张[gold]虚构都市[/gold]，失去[blue]1[/blue][gold]力量[/gold]与[blue]1[/blue][gold]敏捷[/gold]。",
+
   "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.title": "先见之明",
   "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.description": "在你的回合开始时，[gold]预见[/gold][blue]{Amount}[/blue]。",
   "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.smartDescription": "在你的回合开始时，[gold]预见[/gold][blue]{Amount}[/blue]。"

@@ -9,6 +9,7 @@
 
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "Nina Watari",
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character} lost the will to fight amid the conspiracy theories touted by [gold]{encounter}[/gold].",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.bgm": "Hallucination Atop a Bivalve",
 
   "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "Sanae Kochiya",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character} failed to bring about a miracle great enough to overcome [aqua]the living god[/aqua] [gold]{encounter}[/gold].",
