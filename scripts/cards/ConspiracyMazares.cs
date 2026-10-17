@@ -27,10 +27,6 @@ public sealed class ConspiracyMazares : TouhouAncientCards, IConspiracyChoice
 
     public override int MaxUpgradeLevel => -1;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<CreativeAiPower>()];
 
     public ConspiracyMazares() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {

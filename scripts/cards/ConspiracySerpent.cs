@@ -29,8 +29,6 @@ public sealed class ConspiracySerpent : TouhouAncientCards, IConspiracyChoice
 
     public override int MaxUpgradeLevel => -1;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromCard<Snakebite>()];
 
