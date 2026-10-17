@@ -34,6 +34,8 @@ public class LordsSunscreenCream : TouhouAncientRelics
 
     /// <summary>
     /// 使卡牌奖励中出现的卡牌全部为稀有牌。
+    /// 必须走自定义池 + Uniform：单稀有度池配 RegularEncounter 会被 CardCreationOptions 断言拦下
+    /// （原版「吃不完的糖」会拿这个池再建 options，必崩）。参照 BigGameHunter。
     /// </summary>
     public override CardCreationOptions ModifyCardRewardCreationOptionsLate(Player player, CardCreationOptions options)
     {
@@ -41,17 +43,10 @@ public class LordsSunscreenCream : TouhouAncientRelics
         if (options.Source != CardCreationSource.Encounter) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
 
-        return options.WithCardPools(options.CardPools.ToList(), x => x.Rarity == CardRarity.Rare);
-        // // 只修改战斗遭遇的卡牌奖励
-        //
-        // // 用自定义池过滤出稀有牌
-        // var rareCards = options.GetPossibleCards(player)
-        //     .Where(c => c.Rarity == CardRarity.Rare)
-        //     .ToList();
-        //
-        // if (rareCards.Count == 0) return options;
-        //
-        // return options.WithCardPools(rareCards);
+        var rareCards = options.GetPossibleCards(player).Where(c => c.Rarity == CardRarity.Rare).ToList();
+        if (rareCards.Count == 0) return options;
+
+        return options.WithCustomPool(rareCards, CardRarityOddsType.Uniform);
     }
 
 
