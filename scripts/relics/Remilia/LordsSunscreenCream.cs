@@ -25,13 +25,6 @@ public class LordsSunscreenCream : TouhouAncientRelics
 {
     private const string _takeAllKey = "TAKE_ALL";
 
-    /// <summary>【调试】拾起时自动附带吃不完的糖。</summary>
-    public override async Task AfterObtained()
-    {
-        if (base.Owner.GetRelic<LastingCandy>() != null) return;
-        await RelicCmd.Obtain<LastingCandy>(base.Owner);
-    }
-
     /// <summary>
     /// 使卡牌奖励中出现的卡牌全部为稀有牌。
     /// </summary>

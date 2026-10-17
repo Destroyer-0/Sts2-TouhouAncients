@@ -41,12 +41,7 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         // 不用 CardFactory.GetDistinctForCombat：其 FilterForCombat 会剔除 Ancient 稀有度卡
         var rng = base.Owner.RunState.Rng.CombatCardGeneration;
 
-        // 【调试】保证光辉宝塔必出：先抽 2 张（排除宝塔）再塞入宝塔，最后整体洗一次
-        var tower = ModelDb.Card<ShiningTower>();
-        var picks = ancientCards.Where(c => c.Id != tower.Id).TakeRandom(2, rng).ToList();
-        picks.Add(tower);
-
-        var options = picks.UnstableShuffle(rng)
+        var options = ancientCards.TakeRandom(3, rng).UnstableShuffle(rng)
             .Select(c => base.Owner.Creature.CombatState.CreateCard(c, base.Owner))
             .ToList();
 
