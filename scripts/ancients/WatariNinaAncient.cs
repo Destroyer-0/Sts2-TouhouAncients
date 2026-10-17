@@ -24,7 +24,7 @@ public class WatariNinaAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/WatariNina.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/WatariNina.png";
 
-    public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<WatariNinaEncounter>();
+    //public override TouhouAncientEncounter? ChallengeEncounter => ModelDb.Encounter<WatariNinaEncounter>();
 
     /// <summary>三个选项共用同一个池（池内不重复）。</summary>
     protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
