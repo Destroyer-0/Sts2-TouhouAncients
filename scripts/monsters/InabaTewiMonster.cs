@@ -45,9 +45,9 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private int GreatFortuneCrestDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
 
-    private int IntoTheTrapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 6, 5);
+    private int IntoTheTrapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
 
-    private int ThreeBurrowsBlock => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 10, 8);
+    private int ThreeBurrowsBlock => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 10);
 
     /// <summary>自身身上的诈术师，用于重置目标费用（不能走 PowerCmd.ModifyAmount，见 TricksterPower）。</summary>
     private TricksterPower? _trickster;
