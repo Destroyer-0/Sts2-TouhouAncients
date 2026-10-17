@@ -63,8 +63,8 @@
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "Grant [gold]Joon[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] each turn.\nWhen this unit dies, it revives in [blue]2[/blue] turns with [blue]{RecoverHP}[/blue] HP.\nWhen Joon is defeated, this unit becomes [gold]Stunned[/gold] and this power is removed.",
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "Debt Collector",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target’s [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "Time to pay up. The next hit removes [blue]50%[/blue] of the target's [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "Time to pay up. The next hit removes [blue]{Amount}%[/blue] of the target's [gold]Royalties[/gold], deals equal additional damage, and heals for that amount.",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "Ordinary Magician",
   "TOUHOUANCIENTS-MAGICIAN_POWER.description": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], for each mushroom on the field, Marisa heals [blue]7[/blue] HP and gains [blue]10[/blue] [gold]Vigor[/gold].\n[gold][i]The most important thing in danmaku is firepower [sine]Da☆Ze[/sine]![/i][/gold]",
@@ -75,8 +75,8 @@
   "TOUHOUANCIENTS-I_WILL_RETURN_IT_POWER.smartDescription": "When preparing to fire [gold][jitter]Master Spark[/jitter][/gold], return the stolen cards.\n[i]Heheh, just take them once I'm dead and gone.[/i]",
 
   "TOUHOUANCIENTS-FUNGAL_POWER.title": "Spore Eruption",
-  "TOUHOUANCIENTS-FUNGAL_POWER.description": "On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
-  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "On death, add {Amount} [gold]Spore Mind[/gold]s into the player’s [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-FUNGAL_POWER.description": "On death, add [blue]3[/blue] [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].",
+  "TOUHOUANCIENTS-FUNGAL_POWER.smartDescription": "On death, add {Amount} [gold]Spore Mind[/gold]s into the player's [gold]Discard Pile[/gold].",
 
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.title": "Indiscriminate Subjugation",
   "TOUHOUANCIENTS-INDISCRIMINATE_SUBJUGATION_POWER.description": "After dealing [blue]7[/blue] instances of unblocked damage with any skill other than [gold]Fantasy Nature[/gold], switch the next intent to [gold]Fantasy Nature[/gold].\n[i]Since you've made your choice, surely you're [b]prepared[/b] for what comes next.[/i]",
@@ -87,7 +87,7 @@
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "This turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] this turn.\nYou have gained [blue]{StrengthApplied}[/blue] [gold]Strength[/gold] so far.\nThe last card played was [gold]{Card}[/gold].",
   
 
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess’s Puzzle",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "Princess's Puzzle",
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]12[/blue] [gold]Block[/gold] at the start of her turn.",
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "Each unfinished puzzle grants [gold]Kaguya Houraisan[/gold] [blue]{Amount}[/blue] [gold]Block[/gold] at the start of her turn.\n[red]{PuzzleNum}[/red] puzzles remain unsolved, granting [blue]{GainBlock}[/blue] [gold]Block[/gold].\n[thinky_dots][i]There were five impossible requests that nobody could solve.\nHowever, the long passing of years and the power of phantasm were enough for these requests to be fulfilled.[/i][/thinky_dots]",
 
@@ -100,8 +100,8 @@
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "Phantom Moon",
 
   "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "Poison Doll",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
 
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.title": "Venomous Guard",
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
@@ -129,5 +129,13 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_POWER.description": "This card went berserk under the influence of magic after being [purple]abandoned[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija.",
 
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.title": "Banner of the Weak",
-  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "This card went berserk under the influence of magic for being [purple]unappreciated[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija."
+  "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "This card went berserk under the influence of magic for being [purple]unappreciated[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija.",
+
+  "TOUHOUANCIENTS-TRICKSTER_POWER.title": "Fraudulent Trick",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "Attack cards that don't cost [blue]{Amount}[/blue] deal [blue]50%[/blue] less damage to you.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "Attack cards that don't cost [blue]{Amount}[/blue] deal [blue]50%[/blue] less damage to you.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
+
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "Luck for a Price",
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]",
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]"
 }

@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.cards;
 /// <summary>
 /// 积劳成疾：固有。保留。不能被打出。抽到时，给予自身1虚弱。
 /// </summary>
-[Pool(typeof(EventCardPool))]
+[Pool(typeof(CurseCardPool))]
 public class OverworkIllness : TouhouAncientCards
 {
     public override string? Author => "orga";

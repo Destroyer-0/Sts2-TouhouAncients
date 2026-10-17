@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using TouhouAncients.Scripts.badges;
 
 namespace TouhouAncients.Scripts.cards;
 
@@ -55,11 +56,18 @@ public class LuckyRabbit : TouhouAncientCards
         }
 
         // 为本场战斗中手牌里费用为0的卡牌永久添加重放
+        int zeroCostCount = 0;
         foreach (var card in player.PlayerCombatState.Hand.Cards)
         {
             if (card.EnergyCost.Canonical < 0) continue;
             if (card.EnergyCost.GetResolved() != 0) continue;
             card.BaseReplayCount++;
+            zeroCostCount++;
+        }
+
+        if (zeroCostCount >= UltraLucky.RequiredZeroCostCards)
+        {
+            UltraLucky.Unlock(player);
         }
     }
 

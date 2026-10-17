@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://brwkafgvbvwxs"]
+
+[ext_resource type="Shader" uid="uid://k24tggus2ks5" path="res://shaders/texture_outline.gdshader" id="1_kww5w"]
+[ext_resource type="Texture2D" uid="uid://cynq8ec3uh4ml" path="res://images/icon/Character/HiedaNoAkyuu.png" id="2_xxtr1"]
+[ext_resource type="Script" uid="uid://dqu3b7gkagq0y" path="res://scripts/Ui/HoverTipTextureButton.cs" id="3_dor64"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt8bb"]
+shader = ExtResource("1_kww5w")
+shader_parameter/outline_color = Color(0, 0, 0, 0.5)
+shader_parameter/outline_width = 4.00000019
+shader_parameter/outline_softness = 0.400000019
+
+[node name="TextureButton" type="TextureButton"]
+material = SubResource("ShaderMaterial_mt8bb")
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -160.0
+offset_right = -20.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(88, 88)
+texture_normal = ExtResource("2_xxtr1")
+script = ExtResource("3_dor64")
+metadata/_custom_type_script = "uid://dqu3b7gkagq0y"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_xxtr1")

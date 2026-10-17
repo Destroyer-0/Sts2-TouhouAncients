@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace TouhouAncients.Scripts.Enchantment;
 
@@ -12,6 +13,17 @@ namespace TouhouAncients.Scripts.Enchantment;
 public class Echo : TouhouAncientEnchantmentModel
 {
     public override bool HasExtraCardText => true;
+
+    // X 费不吃本地加减费，+1 没有效果
+    public override bool CanEnchant(CardModel card)
+    {
+        if (card.EnergyCost.CostsX)
+        {
+            return false;
+        }
+
+        return base.CanEnchant(card);
+    }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -78,11 +78,13 @@ public class GhostLantern : TouhouAncientRelics
 
         if (selected.Count <= 0) return;
 
+        var results = new List<CardPileAddResult>();
         // 附魔付丧之力并加入牌组
         foreach (var card in selected)
         {
-            await CardPileCmd.Add(card, PileType.Deck);
+            results.Add(await CardPileCmd.Add(card, PileType.Deck));
         }
+        CardCmd.PreviewCardPileAdd(results);
     }
 
 

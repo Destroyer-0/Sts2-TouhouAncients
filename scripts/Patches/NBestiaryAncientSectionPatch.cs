@@ -40,9 +40,11 @@ internal static class NBestiaryAncientSectionPatch
         (typeof(YorigamiShionMonster), typeof(YorigamiSistersEncounter)),
         (typeof(MedicineMelancholyMonster), typeof(MedicineMelancholyEncounter)),
         (typeof(LingLingMonster), typeof(MedicineMelancholyEncounter)),
+        (typeof(KijinSeijaMonster), typeof(KijinSeijaEncounter)),
+        (typeof(InabaTewiMonster), typeof(InabaTewiEncounter)),
+        (typeof(WatariNinaMonster), typeof(WatariNinaEncounter)),
         (typeof(HouraisanKaguyaMonster), typeof(HouraisanKaguyaEncounter)),
         (typeof(ToutetsuYuumaMonster), typeof(ToutetsuYuumaEncounter)),
-        (typeof(KijinSeijaMonster), typeof(KijinSeijaEncounter)),
     ];
 
     [HarmonyPostfix]

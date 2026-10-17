@@ -11,12 +11,16 @@
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]变化[/gold]你手中的所有牌。\n[sine]如果你觉得不爽的话，就跟她爆了吧！[/sine]",
   "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]如果你觉得不爽的话，就跟她爆了吧！[/sine]",
 
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "养生汤",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "养生药汤",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "回复你最大生命值的[green]{HealPercent}%[/green]。战斗结束时，若此药水在你的[gold]药水栏位[/gold]中，回复[green]{CombatEndHeal}[/green]点生命。",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "希腊奶",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.description": "将一张消耗堆的牌加入到手牌。\n想不出这个药水的效果了，也许只能这样了呢（笑）",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "选择一张消耗堆的牌。",
-  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。"
+  "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "想不出这个药水的风味文本了，也许只能这样了呢（笑）。",
+
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.title": "红魔馆模型",
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.description": "用[gold]大爆炸[/gold]和[gold]碎屑[/gold]填满你的手牌。\n今天也是和平的一天。",
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.flavor": "今天也是和平的一天。"
 }

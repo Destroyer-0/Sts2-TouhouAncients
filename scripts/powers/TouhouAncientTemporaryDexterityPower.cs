@@ -11,6 +11,8 @@ namespace TouhouAncients.Scripts.powers;
 
 public abstract class TouhouAncientTemporaryDexterityPower : TouhouAncientTemporaryPower
 {
+    public override PowerModel InternallyAppliedPower => (PowerModel)ModelDb.Power<DexterityPower>();
+
     public override LocString Description
     {
         get

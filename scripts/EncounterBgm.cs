@@ -56,7 +56,7 @@ public static class EncounterBgm
 
         if (encounter.AutoStartBgm)
         {
-            Start(encounter.BgmFileName);
+            Start(encounter.BgmFileName, 2);
         }
         else
         {

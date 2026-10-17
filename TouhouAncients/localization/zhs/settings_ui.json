@@ -1,6 +1,9 @@
 {
   "TOUHOUANCIENTS.mod_title":"东方先古之民",
 
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "开启幻想乡Mod推广！",
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "开启后，先古之民背景右下角处会随机出现其他东方Mod的推荐。",
+
   "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "初始先古之民配置",
   "TOUHOUANCIENTS-BAN_NEOW.title": "禁用 涅奥",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "禁用 哆来咪·苏伊特",

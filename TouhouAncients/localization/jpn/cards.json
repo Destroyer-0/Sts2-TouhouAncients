@@ -24,7 +24,7 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:アップグレードし, |}[gold]手札[/gold]と[gold]廃棄札[/gold]のカードをすべてプレイし、[gold]廃棄[/gold]する。\n[red]空の天気も、地の安定も、人の気質も私の掌の上！[/red]",
 	
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌の魔力",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card’s cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card's cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "鈴蘭",
     "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, it will be [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
@@ -65,7 +65,7 @@
     "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
     "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards.",
 
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card’s cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card's cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂宴",
@@ -76,7 +76,7 @@
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
-    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target’s [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target's [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
 
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Unidentified Youkai",
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into {IfUpgraded:show:[gold]Upgraded[/gold] |}cards from other [gold]colors[/gold] of the same rarity.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
@@ -112,7 +112,7 @@
     "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].",
 
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {Energy:energyIcons()} and permanently increase this card's damage by {Increase:diff()}.",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Gain [aqua]{Block:diff()}[/aqua] [gold]Block[/gold].\nDeal [purple]{Damage:diff()}[/purple] damage.\nAdd [orange]{Cards:diff()}[/orange] random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
@@ -123,7 +123,7 @@
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "Mysterious Leaf",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "Whenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [purple]{CardStr}.[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [green]{CardStr}[/green].[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "Disguise",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "This card's cost matches that of the card it is disguised as. Playing this card plays a copy of that card.",
 
@@ -131,5 +131,8 @@
     "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "When [gold]Exhausted[/gold], remove it from your [gold]Deck[/gold].",
 
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "Overwork",
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself."
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
+
+    "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]"
 }

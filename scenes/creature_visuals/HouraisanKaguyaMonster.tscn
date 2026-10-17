@@ -303,8 +303,8 @@ scale = Vector2(3, 3)
 
 [node name="Puzzle0" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(210, -128)
-scale = Vector2(0.700002, 0.700002)
+position = Vector2(-209.59, -127.48132)
+scale = Vector2(0.7009454, 0.7009454)
 texture = ExtResource("18_jrgus")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle0"]
@@ -317,8 +317,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle1" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(64.9, -23.4)
-scale = Vector2(0.889998, 0.889998)
+position = Vector2(-65.71469, -232.23532)
+scale = Vector2(0.51066, 0.51066)
 texture = ExtResource("19_883hp")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle1"]
@@ -331,8 +331,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle2" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-169.9, -63.3)
-scale = Vector2(0.8175, 0.8175)
+position = Vector2(168.98663, -192.99268)
+scale = Vector2(0.5819647, 0.5819647)
 texture = ExtResource("20_ampe7")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle2"]
@@ -345,8 +345,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle3" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(-169.9, -192.7)
-scale = Vector2(0.582498, 0.582498)
+position = Vector2(170.15, -63.846016)
+scale = Vector2(0.8165066, 0.8165066)
 texture = ExtResource("21_j2ffx")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle3"]
@@ -359,8 +359,8 @@ offset_bottom = 205.0
 
 [node name="Puzzle4" type="Sprite2D" parent="Visuals/PuzzleRoot"]
 texture_filter = 1
-position = Vector2(64.9, -232.6)
-scale = Vector2(0.51, 0.51)
+position = Vector2(-63.831985, -23.444)
+scale = Vector2(0.889918, 0.889918)
 texture = ExtResource("22_4i3bg")
 
 [node name="Hitbox" type="Control" parent="Visuals/PuzzleRoot/Puzzle4"]

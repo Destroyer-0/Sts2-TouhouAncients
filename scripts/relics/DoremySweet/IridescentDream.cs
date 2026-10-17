@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -28,17 +29,13 @@ public class IridescentDream : TouhouAncientRelics
     private const string StarterCardKey = "StarterCard";
 
     /// <summary>
-    /// 「古老牙齿」所对应的初始卡牌。与原版 <see cref="ArchaicTooth"/> 的 TranscendenceUpgrades 键集合一致
-    /// （该字典是私有的，故在此显式列出，以便用同一条规则选取要移除的牌）。
+    /// 原版私有的「在牌组里找可超越的初始牌」方法。
+    /// BaseLib 改的是它读的 TranscendenceUpgrades 字典，RitsuLib 则直接 patch 它来补自己的注册表，
+    /// 所以调用它就一次覆盖「原版 + BaseLib + RitsuLib」，且不会新建任何卡。
     /// </summary>
-    private static ModelId[] StarterCardIds =>
-    [
-        ModelDb.Card<Bash>().Id,
-        ModelDb.Card<Neutralize>().Id,
-        ModelDb.Card<Unleash>().Id,
-        ModelDb.Card<FallingStar>().Id,
-        ModelDb.Card<Dualcast>().Id
-    ];
+    private static readonly MethodInfo? GetTranscendenceStarterCardMethod =
+        typeof(ArchaicTooth).GetMethod("GetTranscendenceStarterCard",
+            BindingFlags.NonPublic | BindingFlags.Instance, null, [typeof(Player)], null);
 
     private List<IHoverTip> _extraHoverTips = new();
 
@@ -102,12 +99,6 @@ public class IridescentDream : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
-    /// <summary>
-    /// 选项条件：牌组里必须有「古老牙齿」所指代的初始卡牌，且初始遗物必须有对应的先古版本。
-    /// 两者缺一，此遗物拾起后都不会产生任何效果（描述也只能显示泛化文本），
-    /// 所以直接不出现——原版 Orobas 是靠 <c>TouchOfOrobas.SetupForPlayer</c> / <c>ArchaicTooth.SetupForPlayer</c>
-    /// 的返回值决定要不要把选项放进池来达到同样效果。
-    /// </summary>
     public override bool CanAppear(Player? player)
     {
         if (player?.Creature == null) return false;
@@ -115,19 +106,21 @@ public class IridescentDream : TouhouAncientRelics
         return FindStarterCard(player) != null && HasUpgradedStarterRelic(player);
     }
 
-    /// <summary>牌组里「古老牙齿」所指代的初始卡牌；没有则返回 <c>null</c>。</summary>
-    private static CardModel? FindStarterCard(Player player)
-        => player.Deck.Cards.FirstOrDefault(c => StarterCardIds.Contains(c.Id));
+    /// <summary>牌组里「古老牙齿」所指代的初始卡牌；取不到（上游改名）或牌组里没有则返回 <c>null</c>。</summary>
+    private CardModel? FindStarterCard(Player player)
+    {
+        // 方法体不碰实例状态，用 canonical 实例即可，不需要克隆
+        return GetTranscendenceStarterCardMethod?.Invoke(ModelDb.Relic<ArchaicTooth>(), [player]) as CardModel;
+    }
 
     /// <summary>
     /// 初始遗物是否有对应的先古版本。复用原版 <see cref="TouchOfOrobas.GetUpgradedStarterRelic"/> 的对照表，
     /// 该方法查不到时返回 <see cref="Circlet"/>（无对应升级版的兜底），这里即视为「没有升级版遗物」。
     /// </summary>
-    private static bool HasUpgradedStarterRelic(Player player)
+    private bool HasUpgradedStarterRelic(Player player)
     {
         var starterRelic = player.Relics.FirstOrDefault(r => r.Rarity == RelicRarity.Starter);
         if (starterRelic == null) return false;
-
         var upgraded = ModelDb.Relic<TouchOfOrobas>().GetUpgradedStarterRelic(starterRelic);
         return upgraded.Id != ModelDb.Relic<Circlet>().Id;
     }

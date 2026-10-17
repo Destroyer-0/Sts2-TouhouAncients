@@ -25,10 +25,15 @@ public class YoukaiExtermination : TouhouAncientCards
 {
     private const int BaseDamageNormal = 6;
 
+    /// <summary>升级给本牌的永久伤害加成；不能累加进 [SavedProperty]（见 <see cref="UpdateDamage"/>）。</summary>
+    private const int UpgradeDamageBonus = 2;
+
     private int _currentDamage = BaseDamageNormal;
     private int _increasedDamage;
 
-    public override string? Author => "时雨";
+    private int UpgradeDamage => CurrentUpgradeLevel * UpgradeDamageBonus;
+
+    public override string? Author => "TOKIAME";
     public YoukaiExtermination()
         : base(1, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy, true)
     {
@@ -54,6 +59,7 @@ public class YoukaiExtermination : TouhouAncientCards
         {
             AssertMutable();
             _increasedDamage = value;
+            UpdateDamage();
         }
     }
 
@@ -61,6 +67,7 @@ public class YoukaiExtermination : TouhouAncientCards
     [
         new DamageVar(CurrentDamage, ValueProp.Move),
         new RepeatVar(2),
+        new EnergyVar(1),
         new IntVar("Increase", 1m),
     ];
 
@@ -84,7 +91,7 @@ public class YoukaiExtermination : TouhouAncientCards
         int kills = fatalStates.Count(x => x is { Value: true, Key.IsDead: true });
         if (kills <= 0) return;
 
-        await PlayerCmd.GainEnergy(DynamicVars["Increase"].IntValue, Owner);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
         int gain = DynamicVars["Increase"].IntValue;
         BuffFromPlay(gain);
         // 战斗副本与牌组原件同时成长，跨战斗持久（参照巨镰）
@@ -93,13 +100,14 @@ public class YoukaiExtermination : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Increase"].UpgradeValueBy(1m);
-        BuffFromPlay(2);
+        // 只改不存档的 DynamicVars；升级加成走 UpgradeDamage 推导，累加进 [SavedProperty] 会被读档/联机重建重放一次
+        DynamicVars["Increase"].UpgradeValueBy(1m);
+        UpdateDamage();
     }
 
     protected override void AfterDowngraded()
     {
-        BuffFromPlay(-2);
+        UpdateDamage();
     }
 
     private void BuffFromPlay(int extraDamage)
@@ -110,6 +118,6 @@ public class YoukaiExtermination : TouhouAncientCards
 
     private void UpdateDamage()
     {
-        CurrentDamage = BaseDamageNormal + IncreasedDamage;
+        CurrentDamage = BaseDamageNormal + IncreasedDamage + UpgradeDamage;
     }
 }

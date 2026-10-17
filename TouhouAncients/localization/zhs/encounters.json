@@ -9,6 +9,7 @@
 
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.title": "渡里贝子",
   "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.loss": "{character}在[gold]{encounter}[/gold]鼓吹的阴谋论中失去了战意。",
+  "TOUHOUANCIENTS-WATARI_NINA_ENCOUNTER.bgm": "双壳贝上的幻觉",
 
   "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.title": "东风谷早苗",
   "TOUHOUANCIENTS-KOTIYA_SANAE_ENCOUNTER.loss": "{character}并未引发足以战胜[aqua]现人神[/aqua][gold]{encounter}[/gold]的奇迹。",
@@ -28,6 +29,7 @@
 
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.title": "因幡帝",
   "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.loss": "{character}踩中了[gold]{encounter}[/gold]早有准备的陷阱。",
+  "TOUHOUANCIENTS-INABA_TEWI_ENCOUNTER.bgm": "宇佐大人的白旗",
 
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.title": "鬼人正邪",
   "TOUHOUANCIENTS-KIJIN_SEIJA_ENCOUNTER.loss": "[gold]{encounter}[/gold]翻转了{character}倾向胜利的天平。",

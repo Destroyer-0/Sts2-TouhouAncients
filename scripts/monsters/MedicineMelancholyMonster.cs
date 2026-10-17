@@ -6,9 +6,11 @@ using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.monsters;
@@ -42,6 +44,13 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     private const int GloryThornyThorns = 1;
 
     private const int LingLingStrength = 2;
+
+    // --- 台词 ---
+    private static readonly LocString _snowAppleLine =
+        new LocString("monsters", "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.WHITE_SNOW.banter");
+
+    private static readonly LocString _lingLingLine =
+        new LocString("monsters", "TOUHOUANCIENTS-MEDICINE_MELANCHOLY_MONSTER.moves.OH_MY_CUTE_LINGLING.banter");
 
     // --- 出生 Buff ---
     public override async Task AfterAddedToRoom()
@@ -86,6 +95,8 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task SnowAppleMove(IReadOnlyList<Creature> targets)
     {
+        TalkCmd.Play(_snowAppleLine, base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
+
         var choiceContext = new ThrowingPlayerChoiceContext();
         await PowerCmd.Apply<WeakPower>(choiceContext, targets, SnowAppleWeak, base.Creature, null);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, targets, SnowAppleVulnerable, base.Creature, null);
@@ -122,6 +133,8 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     /// </summary>
     private async Task OhMyCuteLingLingMove(IReadOnlyList<Creature> targets)
     {
+        TalkCmd.Play(_lingLingLine, base.Creature, VfxColor.Gold, VfxDuration.VeryLong);
+
         var choiceContext = new ThrowingPlayerChoiceContext();
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Creature, LingLingStrength, base.Creature, null);
         await PowerCmd.Apply<PoisonDollPower>(choiceContext, base.Creature, 1m, base.Creature, null);

@@ -111,7 +111,7 @@
     "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards.",
 
     "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {energyPrefix:energyIcons(1)} and permanently increase this card's damage by {Increase:diff()}.",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {Energy:energyIcons()} and permanently increase this card's damage by {Increase:diff()}.",
 
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
     "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Gain [aqua]{Block:diff()}[/aqua] [gold]Block[/gold].\nDeal [purple]{Damage:diff()}[/purple] damage.\nAdd [orange]{Cards:diff()}[/orange] random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
@@ -122,7 +122,7 @@
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "Mysterious Leaf",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "Whenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [purple]{CardStr}.[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [green]{CardStr}[/green].\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "Disguise",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "This card's cost matches that of the card it is disguised as. Playing this card plays a copy of that card.",
 
@@ -130,5 +130,8 @@
     "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "When [gold]Exhausted[/gold], remove it from your [gold]Deck[/gold].",
 
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "Overwork",
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself."
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
+
+    "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]"
 }

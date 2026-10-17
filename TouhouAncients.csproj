@@ -16,11 +16,14 @@
     <Reference Include="sts2">
       <HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
       <Private>false</Private>
+      <!-- 写入 deps.json，编辑器才能解析继承游戏类型的脚本。Private 仍为 false，不进 mods。 -->
+      <IncludeRuntimeDependency>true</IncludeRuntimeDependency>
     </Reference>
 
     <Reference Include="0Harmony">
       <HintPath>$(Sts2DataDir)\0Harmony.dll</HintPath>
       <Private>false</Private>
+      <IncludeRuntimeDependency>true</IncludeRuntimeDependency>
     </Reference>
     
     <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
@@ -40,4 +43,24 @@
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
         <Copy SourceFiles="$(MSBuildProjectName).json" DestinationFolder="$(Sts2Dir)/mods/$(MSBuildProjectName)/" />
     </Target>
+  <Target Name="CopySts2ForEditor" AfterTargets="Build">
+    <ItemGroup>
+      <_Sts2EditorDll Include="$(Sts2DataDir)\sts2.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\0Harmony.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Sentry.Godot.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Steamworks.NET.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\System.IO.Hashing.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SmartFormat.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SmartFormat.ZString.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SharpGen.Runtime.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\SharpGen.Runtime.COM.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.DXGI.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.DirectX.dll" />
+      <_Sts2EditorDll Include="$(Sts2DataDir)\Vortice.Mathematics.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_Sts2EditorDll)"
+          DestinationFolder="$(MSBuildProjectDirectory)\.godot\mono\temp\bin\Debug"
+          SkipUnchangedFiles="true" />
+  </Target>
 </Project>

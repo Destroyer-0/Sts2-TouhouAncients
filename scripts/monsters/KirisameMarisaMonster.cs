@@ -67,7 +67,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
     /// <summary>三层初始生命（当前数值）。</summary>
     private int InitialHpAct3 => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 286, 270);
+        AscensionLevel.ToughEnemies, 288, 274);
 
     // --- 伤害/数值 ---
     /// <summary>

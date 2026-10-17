@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_root")
 
 [node name="Visual" type="TextureRect" parent="."]
+z_index = -20
 layout_mode = 0
 offset_left = -1280.0
 offset_top = -640.0

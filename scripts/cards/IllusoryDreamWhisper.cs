@@ -30,6 +30,10 @@ public class IllusoryDreamWhisper : TouhouAncientCards
     private const int BaseBlock = 7;
     private const int BaseCards = 2;
 
+    private const int UpgradeDamage = 3;
+    private const int UpgradeBlock = 3;
+    private const int UpgradeCards = 1;
+
     public override string? Author => "半节";
 
     public override bool GainsBlock => true;
@@ -47,7 +51,7 @@ public class IllusoryDreamWhisper : TouhouAncientCards
     private int _blockBonus;
     private int _cardsBonus;
 
-    /// <summary>三围的持久增量：升级与「幻梦变化」都累加在这里，反序列化即恢复。</summary>
+    /// <summary>「幻梦变化」的持久增量，<b>不含升级</b>：升级加成由等级推导（见 <see cref="RefreshDynamicVars"/>）。</summary>
     [SavedProperty]
     public int DamageBonus
     {
@@ -56,7 +60,7 @@ public class IllusoryDreamWhisper : TouhouAncientCards
         {
             AssertMutable();
             _damageBonus = Math.Max(value, 1 - BaseDamage);
-            DynamicVars.Damage.BaseValue = BaseDamage + _damageBonus;
+            RefreshDynamicVars();
         }
     }
 
@@ -68,7 +72,7 @@ public class IllusoryDreamWhisper : TouhouAncientCards
         {
             AssertMutable();
             _blockBonus = Math.Max(value, 1 - BaseBlock);
-            DynamicVars.Block.BaseValue = BaseBlock + _blockBonus;
+            RefreshDynamicVars();
         }
     }
 
@@ -80,15 +84,27 @@ public class IllusoryDreamWhisper : TouhouAncientCards
         {
             AssertMutable();
             _cardsBonus = Math.Max(value, 1 - BaseCards);
-            DynamicVars.Cards.BaseValue = BaseCards + _cardsBonus;
+            RefreshDynamicVars();
         }
+    }
+
+    /// <summary>
+    /// 升级加成只能由 <see cref="CardModel.CurrentUpgradeLevel"/> 推导：反序列化（读档、联机进战斗时重建牌组）
+    /// 会重放 <see cref="OnUpgrade"/>，写进 [SavedProperty] 的加成会再叠一次，导致两端数值不一致（状态不同步）。
+    /// </summary>
+    private void RefreshDynamicVars()
+    {
+        var level = CurrentUpgradeLevel;
+        DynamicVars.Damage.BaseValue = BaseDamage + _damageBonus + level * UpgradeDamage;
+        DynamicVars.Block.BaseValue = BaseBlock + _blockBonus + level * UpgradeBlock;
+        DynamicVars.Cards.BaseValue = BaseCards + _cardsBonus + level * UpgradeCards;
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(BaseDamage + DamageBonus, ValueProp.Move),
-        new BlockVar(BaseBlock + BlockBonus, ValueProp.Move),
-        new CardsVar(BaseCards + CardsBonus)
+        new DamageVar(BaseDamage + DamageBonus + CurrentUpgradeLevel * UpgradeDamage, ValueProp.Move),
+        new BlockVar(BaseBlock + BlockBonus + CurrentUpgradeLevel * UpgradeBlock, ValueProp.Move),
+        new CardsVar(BaseCards + CardsBonus + CurrentUpgradeLevel * UpgradeCards)
     ];
 
     public IllusoryDreamWhisper()
@@ -98,16 +114,12 @@ public class IllusoryDreamWhisper : TouhouAncientCards
 
     protected override void OnUpgrade()
     {
-        DamageBonus += 3;
-        BlockBonus += 3;
-        CardsBonus += 1;
+        RefreshDynamicVars();
     }
 
     protected override void AfterDowngraded()
     {
-        DamageBonus -= 3;
-        BlockBonus -= 3;
-        CardsBonus -= 1;
+        RefreshDynamicVars();
     }
 
     /// <summary>「幻梦变化」：三围各加一个增量，最终值不低于 1。</summary>

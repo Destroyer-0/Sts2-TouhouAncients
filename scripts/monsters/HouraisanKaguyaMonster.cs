@@ -38,7 +38,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 265, 248);
+        AscensionLevel.ToughEnemies, 294, 282);
 
     // --- 伤害/数值 ---
     private int PaleWhiteWaterfallDamage => AscensionHelper.GetValueIfAscension(
@@ -47,7 +47,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private const int PaleWhiteWaterfallHits = 2;
 
     private int FalseMoonDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 14, 13);
+        AscensionLevel.DeadlyEnemies, 17, 15);
     
     private int PuzzleBlock => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 12, 10);

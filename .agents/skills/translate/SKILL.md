@@ -21,13 +21,15 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 0. **查阅术语表**：`docs/翻译术语表.md` — 所有已收录的术语、句式模板、专有名词英译，每次翻译前先查阅。
 1. 先读取对应的 `zhs/` 源文件获取完整上下文
-2. 参考 STS2 原版英文术语表：`d:\STS2Code\localization\eng\card_keywords.json`（关键字对照）、`d:\STS2Code\localization\eng\relics.json`（遗物描述范式）、`d:\STS2Code\localization\eng\enchantments.json`（附魔描述范式）、`d:\STS2Code\localization\eng\cards.json`（卡牌描述范式）、`d:\STS2Code\localization\eng\potions.json`（药水描述范式）、`d:\STS2Code\localization\eng\events.json`（事件描述范式）
-3. 参考 `d:\STS2Code\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
+2. 参考 STS2 原版英文术语表：`E:\Sts2New\localization\eng\card_keywords.json`（关键字对照）、`E:\Sts2New\localization\eng\relics.json`（遗物描述范式）、`E:\Sts2New\localization\eng\enchantments.json`（附魔描述范式）、`E:\Sts2New\localization\eng\cards.json`（卡牌描述范式）、`E:\Sts2New\localization\eng\potions.json`（药水描述范式）、`E:\Sts2New\localization\eng\events.json`（事件描述范式）
+3. 参考 `E:\Sts2New\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
+
+> 原版参考根目录为 `E:\Sts2New\localization\`；`E:\STS20.107\localization\` 是内容完全相同的副本（已核对 `card_keywords` / `relics` / `enchantments` / `cards` / `potions` / `events` / `powers` / `badges` 八个文件 MD5 一致），任选其一。游戏安装目录下没有明文 localization（只打包在 .pck 里）。旧文档写的 `d:\STS2Code\localization` 已不存在。
 
 ## 核心翻译规则
 
 ### 0. 黄金法则 — 始终使用 STS2 原版精确表述
-**禁止自创句式。** 任何中文描述对应的英文，必须先在 `d:\STS2Code\localization\eng\` 中找到 STS2 原版中完全相同的功能/句式，直接复制其英文文本。
+**禁止自创句式。** 任何中文描述对应的英文，必须先在 `E:\Sts2New\localization\eng\` 中找到 STS2 原版中完全相同的功能/句式，直接复制其英文文本。
 - 例如："恢复所有生命" → 查找原版事件中的 `[green]Heal to full HP.[/green]`，不可自创 `"Restore all HP."` 等变体
 - "用随机药水填满药水栏位" → 查找原版药水 `ENTROPIC_BREW`，不可自创 `"Fill your empty potion slots with random potions."`
 - "这张牌在本回合免费打出" → 查找原版药水 `ATTACK_POTION` / `LIQUID_MEMORIES` 中的 `It's free to play this turn.`，不可自创 `"This card costs 0 this turn."` 等变体
@@ -41,7 +43,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 
 ### 2. 术语对照表（以 STS2 原版英文为准）
 
-#### 2.1 卡牌 Keywords（官方 — `d:\STS2Code\localization\eng\card_keywords.json`）
+#### 2.1 卡牌 Keywords（官方 — `E:\Sts2New\localization\eng\card_keywords.json`）
 
 | 中文（zhs） | English（eng） | 说明 |
 |-------------|----------------|------|
@@ -54,7 +56,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 | 不能被打出 | **Unplayable** | `[gold]Unplayable[/gold]` |
 | 重放 | **Replay** | `[gold]Replay[/gold]` — 自定义关键字，参考 Glam/Spiral 附魔 |
 
-#### 2.2 状态效果 / Powers（官方 — `d:\STS2Code\localization\eng\powers.json` 中 `XXX_POWER.title` 字段）
+#### 2.2 状态效果 / Powers（官方 — `E:\Sts2New\localization\eng\powers.json` 中 `XXX_POWER.title` 字段）
 
 | 中文（zhs） | English（eng） |
 |-------------|----------------|
@@ -180,7 +182,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 | 消耗一层充能无视当前的路线选择下一层的房间 | You may ignore paths when choosing the next rooms to travel to, consuming [blue]1[/blue] charge per use. | STARDUST_BROOM（星尘扫帚） |
 | 当[单位]的生命值将要降低至[blue]0[/blue] | When [unit]'s HP would be reduced to [blue]0[/blue] | LIZARD_TAIL（蜥蜴尾巴） |
 
-#### 2.8 附魔专用字段格式（参考原版 `d:\STS2Code\localization\eng\enchantments.json`）
+#### 2.8 附魔专用字段格式（参考原版 `E:\Sts2New\localization\eng\enchantments.json`）
 
 | 字段 | 句式惯例 |
 |------|---------|
@@ -226,6 +228,9 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 - 键名不变，仅翻译值
 - 换行符 `\n` 保留
 - 标点：中文句号 `。` → 英文句号 `.`，中文逗号 `、` → `,`
+- **英文侧一律用 ASCII 直标点 `"` `'`，不得照搬 zhs 的全角引号 `“ ”`**（全仓库 `eng/` 实测 0 处全角引号）。唯一例外是 `ancients.json`：原版该文件用弯撇号 `’`（86 弯 / 0 直），其余文件原版一律直撇号（`powers.json` 26/0、`monsters.json` 6/0、`events.json` 140/0）
+  - 反语、引号引用、卡名引用都用 `"`（JSON 内转义为 `\"`）：参考 `THE_FEAST` 的 `[gold]"Frenzied Feast"[/gold]`、`HEAVY_DICE_RECORD_POWER.title` 的 `"Cardsharp"`
+  - 详见 `docs/翻译术语表.md`「二十二、英文标点约定」
 
 ### 5. ⚠️ 跨文件术语一致 — 以中文文本为准，键名仅作参考
 
@@ -262,6 +267,13 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 - **`docs/relic翻译.md`、`docs/ancients翻译.md` 等翻译记录文件未收录的条目，不得擅自翻译**。
 - 例如：`relic翻译.md` 中未记录的遗物条目（如渡里贝子的遗物），必须先通过 plan 模式向用户展示翻译方案，获得确认后才能实施。
 - 此规则适用于所有未出现在翻译记录文件中的条目，无论其来源如何。
+
+### 10. 📐 新增键的插入位置 — 对齐 zhs 相对位置
+- **`eng/`、`jpn/` 新增键的位置一律对齐 `zhs/` 的相对位置**（同一 key 在 zhs 中排在谁后面，就在 eng / jpn 中排在同一 key 后面），**不按英文字母序另行插入**。
+- 理由：翻译是逐批 diff `zhs` ↔ `eng` 生成的，三者键序一致时每批新增内容在三个文件里落成同一块，diff 集中、便于核对；按字母序插入会把同一批内容拆到不相邻的多处。
+- 核对方法：取新键在 zhs / eng / jpn 中的**前一条键**，三者相同即为对齐。
+- jpn 与 eng 的键名、键序、值都必须完全一致。
+- 详见 `docs/翻译术语表.md`「二十三、插入位置约定」。
 
 ## 翻译流程
 

@@ -5,6 +5,7 @@
 
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.title": "渡里 贝子",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.epithet": "沉迷尖塔的信息妖怪",
+  "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.fight.title": "挑战“全知”的信息妖怪",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.firstVisitEver.0-0.ancient": "莫非你们就是不停地向高塔顶前进的，所谓的[sine]\"爬塔者\"[/sine]？\n哦哦！果然如传闻所说……",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.0-0.ancient": "其实你们去找建筑师的整件事情，都是涅奥的……",
   "TOUHOUANCIENTS-WATARI_NINA_ANCIENT.talk.ANY.0-0.next": "疑问",
@@ -237,6 +238,7 @@
 
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.title": "因幡 帝",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.epithet": "幸运的化身",
+  "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.fight.title": "挑战幸运的白兔",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.firstVisitEver.0-0.ancient": "呵呵，到这里来的人真是络绎不绝呢。既然来了，要不要带走一点我的幸运呢~",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.ANY.0-0.ancient": "咯咯，又见面了呢。上次从我这带走的礼物如何，要不要再来试试呢？以及，你有带来什么回礼吗？",
   "TOUHOUANCIENTS-INABA_TEWI_ANCIENT.talk.ANY.1-0r.ancient": "这座塔是迷惑人的迷宫。所谓迷路，是要像活着的人才会有的行为哦。",
@@ -877,5 +879,12 @@
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-1.next": "继续",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-2.char": "就算是同一种族，我也迟早有一天会把她连着整个自视甚高的月都都推翻掉的！",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-2.next": "继续",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-3.ancient": "呼呼呼，我会看着的……"
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJIN_SEIJA_CHARACTER_KIJIN_SEIJA.0-3.ancient": "呼呼呼，我会看着的……",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-0.ancient": "啊，天邪鬼居然会出现在梦境世界里……话说回来，探女她似乎和天邪鬼也是同一种族的呢。",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-0.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-1.char": "哈啊？我跟那种高高在上的天探女可不是一回事！",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-1.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-2.char": "就算是同一种族，我也迟早有一天会把她连着整个自视甚高的月都都推翻掉的！",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-2.next": "继续",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-3.ancient": "呼呼呼，我会看着的……"
 }

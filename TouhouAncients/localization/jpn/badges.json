@@ -23,10 +23,18 @@
   "TOUHOUANCIENTS-THE_EVER_CHANGING_DUO.title": "Ever-Changing Duo",
   "TOUHOUANCIENTS-THREE_SNAKE.description": "Obtain both the real and fake [gold]Snecko Eye[/gold] and [gold]Snecko's True Gaze[/gold].",
   "TOUHOUANCIENTS-THREE_SNAKE.title": "Triple Snecko",
+  "TOUHOUANCIENTS-HEALTH_CONSCIOUS.description": "Clear Act 1 while carrying [blue]2[/blue] [gold]Wellness Tonic[/gold].",
+  "TOUHOUANCIENTS-HEALTH_CONSCIOUS.title": "Health Conscious",
+  "TOUHOUANCIENTS-ULTRA_LUCKY.description": "Get at least [blue]4[/blue] zero-cost cards at once with [gold]Bare White Rabbit of Good Fortune[/gold].",
+  "TOUHOUANCIENTS-ULTRA_LUCKY.title": "Ultimate Luck",
+  "TOUHOUANCIENTS-SCAMING_SCAMER.description": "Extort a fortune from the [gold]Yorigami Sisters[/gold].",
+  "TOUHOUANCIENTS-SCAMING_SCAMER.title": "FX Warrior",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.bronzeDescription": "Encounter [gold]Satori Komeiji[/gold] [blue]2[/blue] times in a single run.",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.bronzeTitle": "Déjà Vu",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.goldDescription": "Encounter [gold]Satori Komeiji[/gold] [blue]4[/blue] times in a single run.",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.goldTitle": "Sister Multiplied!",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverDescription": "Encounter [gold]Satori Komeiji[/gold] [blue]3[/blue] times in a single run.",
-  "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverTitle": "Third Eye's the Charm"
+  "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverTitle": "Third Eye's the Charm",
+  "TOUHOUANCIENTS-MR_ZUN.description": "Drink [blue]12[/blue] [gold]Super ZUN Beer[/gold] in a single run.",
+  "TOUHOUANCIENTS-MR_ZUN.title": "Mr. Beer"
 }

@@ -192,3 +192,97 @@
 
 ---
 
+## 增量更新（2026-10-15，因幡帝状态牌「“幸运”戏法」）
+
+`LUCKY_TRICK` 是 `InabaTewiMonster` 塞进玩家手牌的 0 费状态牌（`LuckyTrick.cs`，保留 + 消耗），此前 `eng/jpn` 无对应条目，随本次补齐；区间内 zhs 描述改稿（对牌名的引用加了外层引号）。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `.title` | “幸运”戏法 | `"Lucky" Trick` |
+| `.description` | 本回合随机化你手牌中除[gold]"“幸运”戏法"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i] | `Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]"Lucky" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]` |
+
+### 备注
+- 标题的引号表示「其实不是好运」，英文按仓库既有约定用直角直引号 `"`（参考 `THE_FEAST` 的 `[gold]"Frenzied Feast"[/gold]`、`HEAVY_DICE_RECORD_POWER.title` 的 `"Cardsharp"`），**不照搬 zhs 的全角引号**；`戏法` 取 `Trick`，与附魔 `TRICK.title`（`诈术` → `Trickery`）区分。
+- 机制句沿用 `LUCKY_RABBIT.description` 既有写法 `Randomize the cost of cards in your [gold]Hand[/gold] this turn`。
+- `[i][red]` 风味行按仓库既有正文句首大写写法（参考 `BLOOD_DISASTER_POWER.description`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-17，创意工坊推荐按钮文案）
+
+`HoverTipTextureButton`（`scripts/Ui/HoverTipTextureButton.cs`）在悬停提示里读 `gameplay_ui` 表的 `TOUHOUANCIENTS-RECOMMEND_HINT`（固定追加）与 `TOUHOUANCIENTS-<角色>_RECOMMEND.title` / `.description`（键前缀由背景场景里按钮实例的 `LocKey` 决定）。此前 `eng/jpn` 无这批条目。
+
+### `TOUHOUANCIENTS-RECOMMEND_HINT`
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `TOUHOUANCIENTS-RECOMMEND_HINT` | 点击前往Steam创意工坊页面。\n[gold]您可以在设置中关闭此推荐功能。[/gold] | `Click to open the Steam Workshop page.\n[gold]You can turn off these recommendations in Settings.[/gold]` |
+
+#### 增量（2026-10-18，右键隐藏）
+
+按钮支持右键只在本场景隐藏（不写配置），中文提示在首句末尾补「右键隐藏。」，`eng/jpn` 同步补 `Right-click to hide.`。
+
+| 字段 | 中文原文 | English |
+|------|---------|---------|
+| `TOUHOUANCIENTS-RECOMMEND_HINT` | 点击前往Steam创意工坊页面。右键隐藏。\n[gold]您可以在设置中关闭此推荐功能。[/gold] | `Click to open the Steam Workshop page. Right-click to hide.\n[gold]You can turn off these recommendations in Settings.[/gold]` |
+
+### 角色推荐（只译 `.title`，描述暂用中文占位）
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `AKYUU_RECOMMEND.title` | 稗田阿求 | `Hieda no Akyuu` |
+| `YAKUMO_AKAI_RECOMMEND.title` | 八云红 | `Akai Yakumo` |
+| `HOUJUU_NUE_RECOMMEND.title` | 封兽鵺 | `Nue Houjuu` |
+| `KIJIN_SEIJA_RECOMMEND.title` | 鬼人正邪A | `Seija Kijin A` |
+| `KIJIN_SEIJA_RECOMMEND_2.title` | 鬼人正邪B | `Seija Kijin B` |
+| `KOMEJI_KOISHI_RECOMMEND.title` | 古明地恋 | `Koishi Komeiji` |
+
+### 备注
+- **六个 `*.description` 暂不翻译**（用户指定）：eng / jpn 里原样填 zhs 中文占位，后续批次再替换。因此这两个文件目前**含有中文与全角标点**，与「英文侧一律 ASCII 直标点」的约定冲突——属已知临时例外，别当作笔误。
+- `Hieda no Akyuu` / `Seija Kijin` 取本仓库既有译名（`settings_ui.json`、`ancients.json`）；`Nue Houjuu` 取术语表；`Koishi Komeiji` 用东方官方英译（本仓库此前无此名，用户确认）。
+- `Akai Yakumo` 由用户指定：该角色出自东方同人小说《幻想乡玩家》的可控角色 Mod，无官方英译。
+- zhs 键名由 `YAKUMA_AKI_RECOMMEND` 改为 `YAKUMO_AKAI_RECOMMEND`；eng / jpn 从未有过旧键，无需清理。
+- `[rainbow]` 标记已按用户要求从 `HOUJUU_NUE_RECOMMEND.title` 移除（zhs / eng / jpn 三边都不带）；该角色的 `.description`（中文占位）里仍有标记，后续补译时一并处理。
+- 插入位置按 `zhs` 相对位置：紧跟在 `TRANSFORM_CARD_REWARD` 之后（zhs 里这批也排在它后面）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-18，推荐按钮描述补译）
+
+上一批次留作中文占位的 6 条 `*.description` 全部补译，并补齐 zhs 新增的幻想尖塔 / 藤原妹红 / 上白泽慧音共 6 条键（键位与 zhs 顺序对齐：`GENSOKYO_SPIRE` → `MOKOU` → `KEINE`，均在 `KOMEJI_KOISHI` 之后）。
+
+### 统一句式
+
+所有推荐描述统一为 `Try out ... mod as a playable character`：
+
+- 无附加设定时用 `Try out the mod that makes XXX a playable character!`（封兽鵺）。
+- 带设定说明时用 `..., <分句>!`（八云红 / 两个正邪 / 慧音）。
+- 恋的原文是设问句，保留反问语气 `Ready for ...?!`，句末落到 `Come play with ...!`。
+
+### 本批译名
+
+| 键名 | 中文原文 | English |
+|------|---------|---------|
+| `AKYUU_RECOMMEND.description` | 来试试[pink]阿求[/pink]作为可控角色的Mod吧！ | `Try out the [pink]Akyuu[/pink] mod as a playable character!` |
+| `YAKUMO_AKAI_RECOMMEND.description` | 来试试来自东方同人小说《幻想乡玩家》的[gold]八云红[/gold]作为可控角色的Mod吧！ | `Try out the [gold]Akai Yakumo[/gold] mod as a playable character, from the Touhou fan fiction novel "Gensokyo Player"!` |
+| `HOUJUU_NUE_RECOMMEND.description` | 来试试正体不明、诡谲莫测的[rainbow]封兽鵺[/rainbow]作为可控角色的Mod吧！ | `Try out the mod that makes the mysterious, uncanny [rainbow]Nue Houjuu[/rainbow] a playable character!` |
+| `KIJIN_SEIJA_RECOMMEND.description` | 来试试擅长以作弊般的能力修改卡牌数值的[purple]鬼人正邪[/purple]作为可控角色的Mod吧！ | `Try out the [purple]Seija Kijin[/purple] mod as a playable character, featuring cheat-like abilities that modify card values!` |
+| `KIJIN_SEIJA_RECOMMEND_2.description` | 来试试另一个以自我伤害与治疗、更强大且危险的稀有牌为核心的[purple]鬼人正邪[/purple]作为可控角色的Mod吧！ | `Try out another [purple]Seija Kijin[/purple] mod as a playable character, built around self-damage, healing, and even stronger and more dangerous Rare cards!` |
+| `KOMEJI_KOISHI_RECOMMEND.description` | 想进行一场[purple]无意识[/purple]与[blue]蔷薇[/blue]的邂逅嘛？！来陪[purple]无意识[/purple]的少女[green]古明地恋[/green]一起玩吧！ | `Ready for an encounter between the [purple]Unconscious[/purple] and the [blue]Rose[/blue]?! Come play with the [purple]Unconscious[/purple] girl, [green]Koishi Komeiji[/green]!` |
+| `GENSOKYO_SPIRE_RECOMMEND.title` | 幻想尖塔 | `Gensokyo Spire` |
+| `GENSOKYO_SPIRE_RECOMMEND.description` | 幻想尖塔是一个东方project系列为主题的内容拓展mod，包含新事件、新敌人等等内容。 | `Gensokyo Spire is a Touhou Project-themed content expansion mod featuring new events, new enemies, and more.` |
+| `MOKOU_RECOMMEND.title` | 藤原妹红 | `Fujiwara no Mokou` |
+| `MOKOU_RECOMMEND.description` | 不老不死的人类。焚尽一切麻烦，不惧万次死亡。\n来试试[red]藤原妹红[/red]作为可控角色的Mod吧！ | `An immortal human. She burns away every trouble, unafraid of dying ten thousand times.\nTry out the [red]Fujiwara no Mokou[/red] mod as a playable character!` |
+| `KEINE_RECOMMEND.title` | 上白泽慧音 | `Keine Kamishirasawa` |
+| `KEINE_RECOMMEND.description` | 来试试能够编纂并操纵历史的[blue]上白泽慧音[/blue]作为可控角色的Mod吧！ | `Try out the [blue]Keine Kamishirasawa[/blue] mod as a playable character, able to compile and manipulate history!` |
+
+### 备注
+
+- `Gensokyo Spire`（幻想尖塔）与 `Gensokyo Player`（《幻想乡玩家》）均为用户认可的意译；两者都是 mod / 同人作品名，非东方官方作品。
+- `Keine Kamishirasawa` 沿用 `docs/翻译术语表.md` 既有写法（`ancients.json` 的慧音联动）；`Fujiwara no Mokou` 同术语表。
+- 上一批次的「六个 `.description` 暂用中文占位」属临时例外，本批已全部消除，eng / jpn 不再含中文（本文件的 `UPGRADE_CARD_REWARD` 日文行除外，那是 jpn 侧历史遗留）。
+- 更早的 `KIJIN_SEIJA_RECOMMEND.description`（「颠覆卡牌数值、反抗一切」）与 `KOMEJI_KOISHI_RECOMMEND.description`（「无意识的地底蔷薇，世界第一可爱」）两条占位文本已随 zhs 改稿而过时，本批一并替换为新原文的译文。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+

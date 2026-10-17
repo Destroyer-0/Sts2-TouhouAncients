@@ -758,8 +758,8 @@
   "TOUHOUANCIENTS-GHOST_THUNDER_CLOUD.flavor": "哔哩哔哩~",
 
   "TOUHOUANCIENTS-ECHO_MICROPHONE.title": "回音喇叭",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
-  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.description": "拾起时，选择至多[blue]{Cards}[/blue]张耗能不为X的牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
+  "TOUHOUANCIENTS-ECHO_MICROPHONE.eventDescription": "选择至多[blue]{Cards}[/blue]张耗能不为X的牌，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。",
   "TOUHOUANCIENTS-ECHO_MICROPHONE.flavor": "回响形态了。回响形态。",
 
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光之梦",
@@ -804,13 +804,13 @@
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "“梦境使者，与我一战！！！——……Zzzzz”",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界之梦",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]？[/gold]房间或[gold]商店[/gold]房间。",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "拾起时，失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "失去[blue]{HpLoss}[/blue]点生命。你可以无视当前的路线选择下一层的[gold]?[/gold]房间或[gold]商店[/gold]房间。",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "“呵呵，梦之支配者……幻想乡和先子星的未来这一次还请拜托你的[sine]干涉[/sine]了……”",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高之梦",
-  "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]幕[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]组卡牌奖励。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
-  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "每当你进入新的[gold]幕[/gold]时：获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。获得[blue]{Gold}[/blue][gold]金币[/gold]。将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。获得[blue]{Cards}[/blue]组卡牌奖励。随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.description": "每当你进入新的[gold]阶段[/gold]时：\n获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。\n获得[blue]{Gold}[/blue][gold]金币[/gold]。\n将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。\n获得[blue]{Cards}[/blue]组卡牌奖励。\n随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
+  "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "每当你进入新的[gold]阶段[/gold]时：获得[blue]{Potions}[/blue]瓶[gold]药水[/gold]。获得[blue]{Gold}[/blue][gold]金币[/gold]。将你的[gold]最大生命[/gold]提升[blue]{MaxHpGain}[/blue]。获得[blue]{Cards}[/blue]组卡牌奖励。随机[green]升级[/green][blue]{Upgrades}[/blue]张牌。",
   "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "[red]“……离·开·我·的·领·域。”[/red]",
 
   "TOUHOUANCIENTS-REVIVAL_DREAM.title": "复甦之梦",
@@ -833,8 +833,8 @@
   "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "“先子星上一切生物的原始脑都已在被创造时就进化完毕——因此你的、我的、它们的大脑在梦境中并没有本质的不同。”",
 
   "TOUHOUANCIENTS-CHAOS_DREAM.title": "混沌之梦",
-  "TOUHOUANCIENTS-CHAOS_DREAM.description": "拾起时，获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[gold]噩梦无终[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-CHAOS_DREAM.description": "拾起时，获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
@@ -910,10 +910,10 @@
   "TOUHOUANCIENTS-BLANK_ROSTER.flavor": "",
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且？房间出现怪物的概率大幅提升。",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。",
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生汤[/gold]。",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
 }

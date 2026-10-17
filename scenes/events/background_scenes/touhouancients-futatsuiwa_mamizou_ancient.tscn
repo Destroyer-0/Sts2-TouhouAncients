@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://iytnkehoxs1m"]
+[gd_scene load_steps=6 format=3 uid="uid://iytnkehoxs1m"]
 
 [ext_resource type="Texture2D" uid="uid://duwjrtbq0mitl" path="res://images/FutatsuiwaMamizou.png" id="1_to032"]
 [ext_resource type="Texture2D" uid="uid://cle35b3x0pra3" path="res://images/FutatsuiwaMamizou2.png" id="2_b4w3x"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_41d2p"]
+[ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_41d2p"]
+[ext_resource type="Texture2D" uid="uid://bqralfxe8poyv" path="res://images/workshop/封兽鵺.png" id="5_0xs5t"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -26,3 +28,19 @@ texture = ExtResource("2_b4w3x")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_41d2p")
+
+[node name="TextureButton" parent="." instance=ExtResource("4_41d2p")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("5_0xs5t")
+LocKey = "TOUHOUANCIENTS-HOUJUU_NUE_RECOMMEND"
+WorkshopId = "3747503434"
+
+[node name="TextureRect" parent="TextureButton" index="0"]
+texture = ExtResource("5_0xs5t")
+
+[editable path="TextureButton"]

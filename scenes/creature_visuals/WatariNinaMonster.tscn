@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjvfayns052fa"]
+
+[ext_resource type="Texture2D" uid="uid://2x0jflpmswwh" path="res://images/sprite/nina/渡里ニナ_ジト目.png" id="1_8tyjo"]
+
+[node name="WatariNinaMonster" type="Node2D"]
+
+[node name="Visuals" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3.9999995, -165)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_8tyjo")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -180.0
+offset_top = -331.0
+offset_right = 165.0
+offset_bottom = 10.0
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, -228)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-15, -348)
