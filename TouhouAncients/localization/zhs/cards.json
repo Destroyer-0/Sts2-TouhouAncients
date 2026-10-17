@@ -133,5 +133,17 @@
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "抽到时，给予自身[blue]1[/blue]层[gold]虚弱[/gold]。",
 
     "TOUHOUANCIENTS-LUCKY_TRICK.title": "“幸运”戏法",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "本回合随机化你手牌中除[gold]\"“幸运”戏法\"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i]"
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "本回合随机化你手牌中除[gold]\"“幸运”戏法\"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i]",
+
+    "TOUHOUANCIENTS-FICTIONAL_CITY.title": "虚构都市",
+    "TOUHOUANCIENTS-FICTIONAL_CITY.description": "每当你抽到这张牌时，在这个回合失去[blue]1[/blue]点[gold]力量[/gold]与[blue]1[/blue]点[gold]敏捷[/gold]。",
+
+    "TOUHOUANCIENTS-CONSPIRACY_MAZARES.title": "真相「蜕变仪式」",
+    "TOUHOUANCIENTS-CONSPIRACY_MAZARES.description": "在你的回合开始时，将一张随机[gold]能力牌[/gold]加入你的[gold]手牌[/gold]。",
+
+    "TOUHOUANCIENTS-CONSPIRACY_SERPENT.title": "真相「异蛇崇拜」",
+    "TOUHOUANCIENTS-CONSPIRACY_SERPENT.description": "将[blue]5[/blue]张[gold]蛇咬[/gold]加入你的[gold]手牌[/gold]。",
+
+    "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE.title": "真相「观测者」",
+    "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE.description": "在你的回合开始时，[gold]预见[/gold][blue]3[/blue]。"
 }
