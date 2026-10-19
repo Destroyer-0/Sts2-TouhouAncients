@@ -10,6 +10,8 @@
 - **不准擅自改动游戏文案**：本地化文本（标题、描述、flavor、提示等）的**文字增删改**必须先问我并获同意才能动手；只有富文本标记（`[gold]`、`[blue]`、`[red]` 等）可以直接补。
 - **严禁操作 Git**：绝对禁止在未经明确允许的情况下执行任何 git 操作，包括但不限于 `git reset`、`git checkout`、`git stash`、`git add`、`git commit`、`git push`、`git merge`、`git rebase`。不可操作暂存区或任何涉及 git 历史、索引的行为。
 - **部分暂存的文件禁止整文件连带提交**：`git status` 显示 `MM` 时，严·厉·禁·止执行 `git commit -- <路径>` / `git commit <路径>` / `git commit -a` —— 它们记录的是**工作区内容**，会把未暂存改动一起写进历史；只能 `git add <路径>` 补成完整后再提交，且**必须提前告知**用户「该文件还有未暂存改动，会被一并提交」。用户刻意留在本地的改动（本机路径、个人 IDE 配置等）一律保持在工作区 modified 状态：不得提交、不得覆写或"还原"掉。
+- **提交信息禁止 AI 署名尾注**：任何提交都**不得**添加 `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`（以及任何其它 AI / Copilot 署名行）。提交只署用户自己的 `user.name` / `user.email`，不要加 trailer。
+
 
 ## 第三方 Mod 解包约束
 - 只在排查**第三方 mod** 兼容性/实现时解包，命令照抄 `.agents/skills/decompile-mod/SKILL.md`，不得自己找解包方法

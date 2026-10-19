@@ -58,6 +58,15 @@ a { color: var(--gold); }
   padding: 7px 14px; font-size: 13px; font-family: inherit; outline: none;
 }
 .filter:focus { border-color: var(--gold); }
+.actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.share {
+  background: var(--panel); color: var(--gold); font-family: inherit; font-size: 12px;
+  border: 1px solid rgba(239, 200, 81, .45); border-radius: 999px; padding: 6px 14px;
+  letter-spacing: 1px; cursor: pointer; white-space: nowrap;
+  transition: background .14s ease, border-color .14s ease;
+}
+.share:hover { background: rgba(239, 200, 81, .18); border-color: var(--gold); }
+.share.copied { color: var(--green); border-color: rgba(127, 255, 0, .55); }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 80px; }
 

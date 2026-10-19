@@ -29,6 +29,15 @@
     return i;
   }
 
+  // 先古头像很小（每张约 13 KB），首屏前统一预取，切页/筛选时不会闪白
+  function preloadAvatars() {
+    DATA.ancients.forEach(function (a) {
+      if (!a.avatar) return;
+      var p = new Image();
+      p.src = a.avatar;
+    });
+  }
+
   function totalRelics(a) {
     return a.pools.reduce(function (n, p) { return n + p.relics.length; }, 0);
   }
@@ -244,8 +253,59 @@
     if (!hits) app.appendChild(el('div', 'empty', '没有匹配的先古之民或遗物。'));
   });
 
+  // ---------- 分享网页 ----------
+  var shareBtn = document.getElementById('share');
+
+  function shareFeedback(text, ok) {
+    shareBtn.textContent = text;
+    shareBtn.classList.toggle('copied', !!ok);
+    clearTimeout(shareFeedback.timer);
+    shareFeedback.timer = setTimeout(function () {
+      shareBtn.textContent = '分享网页';
+      shareBtn.classList.remove('copied');
+    }, 1800);
+  }
+
+  // 复制失败时的兜底：file:// 下 clipboard API 常被禁用，用隐藏 textarea + execCommand
+  function legacyCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function sharePage() {
+    var url = location.href;
+    // 优先系统分享面板（移动端 / 支持的桌面浏览器）
+    if (navigator.share) {
+      navigator.share({ title: document.title, url: url }).then(function () {
+        shareFeedback('已分享', true);
+      }).catch(function () { /* 用户取消，不提示 */ });
+      return;
+    }
+    var done = function () { shareFeedback('已复制链接', true); };
+    var fail = function () { shareFeedback('复制失败，请手动复制', false); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(done, function () {
+        legacyCopy(url) ? done() : fail();
+      });
+    } else {
+      legacyCopy(url) ? done() : fail();
+    }
+  }
+
+  shareBtn.addEventListener('click', sharePage);
+
   document.getElementById('foot').innerHTML =
     '原作：杀戮尖塔2 / 东方project<br>模组作者：阿迪　画师：河城绿茶';
+  preloadAvatars();
   window.addEventListener('hashchange', route);
   route();
 })();
