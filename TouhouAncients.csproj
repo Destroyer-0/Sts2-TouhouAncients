@@ -29,8 +29,9 @@
     <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" />
   </ItemGroup>
 
+  <!-- Tools/ 下是本地 wiki 工具（含 WinForms 源码），不能被 Godot 的默认 **/*.cs 通配进来 -->
   <ItemGroup>
-    <Folder Include="scripts\Patches\" />
+    <Compile Remove="Tools/**" />
   </ItemGroup>
 
   <!-- 自动复制dll和json -->
