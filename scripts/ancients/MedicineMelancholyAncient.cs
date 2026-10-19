@@ -28,18 +28,18 @@ public class MedicineMelancholyAncient : TouhouAncientBase
         CreateTARelicOptionPool(
             TARelicOption<ChildhoodBag>(),
             TARelicOption<RoseCrown>(),
-            TARelicOption<LilyBellDiary>(),
-            TARelicOption<SilenceDoll>()
+            TARelicOption<SilenceDoll>(),
+            TARelicOption<LilyBellDiary>()
             ),
         CreateTARelicOptionPool(
+            TARelicOption<MedicinePoisonBox>(),
             TARelicOption<PlagueBlend>(),
-            TARelicOption<MaliciousFairyTale>(),
-            TARelicOption<MedicinePoisonBox>()
+            TARelicOption<MaliciousFairyTale>()
             ),
         CreateTARelicOptionPool(
-            TARelicOption<HappinessElixir>(),
+            TARelicOption<StageDevice>(),
             TARelicOption<RibbonBow>(),
-            TARelicOption<StageDevice>()
+            TARelicOption<HappinessElixir>()
             )
     ];
 }
