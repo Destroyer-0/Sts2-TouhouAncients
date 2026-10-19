@@ -7,6 +7,10 @@ bin/
 obj/
 .tmp-build-sts2/
 
+# Python 字节码缓存（跑 Tools/build_wiki.py 时会生成）
+__pycache__/
+*.pyc
+
 # IDE / local user files
 .idea/
 *.user
@@ -15,3 +19,7 @@ obj/
 
 # Machine-local config (absolute paths differ per machine)
 .agents/local.md
+
+# 本地 wiki 工具产物（Tools/wiki/dist 与其中的 zip 都是导出可分享版时才生成）
+Tools/wiki/dist/
+Tools/wiki/dist.zip

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>东方先古之民 · 遗物图鉴</title>
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#12141a">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-row">
+        <h1 id="title">东方先古之民 · 遗物图鉴</h1>
+        <p class="sub" id="subtitle">Sts2-TouhouAncients</p>
+      </div>
+      <a class="workshop" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3747673580"
+         target="_blank" rel="noopener">前往创意工坊 ↗</a>
+    </div>
+    <input id="filter" class="filter" type="search" placeholder="筛选先古之民 / 遗物…" autocomplete="off">
+  </div>
+</header>
+
+<main id="app" class="wrap"></main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-panel" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close aria-label="关闭">×</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<footer class="foot" id="foot"></footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
