@@ -34,17 +34,13 @@ public class LordsSunscreenCream : TouhouAncientRelics
         if (options.Source != CardCreationSource.Encounter) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
 
-        return options.WithFilter(x => x.Rarity == CardRarity.Rare);
-        // // 只修改战斗遭遇的卡牌奖励
-        //
-        // // 用自定义池过滤出稀有牌
-        // var rareCards = options.GetPossibleCards(player)
-        //     .Where(c => c.Rarity == CardRarity.Rare)
-        //     .ToList();
-        //
-        // if (rareCards.Count == 0) return options;
-        //
-        // return options.WithCardPools(rareCards);
+        // 缸中之脑优先：稀有牌全被屏蔽时别加稀有过滤，两者叠加会让奖励池为空、抽牌抛异常
+        if (!options.GetPossibleCards(player).Any(c => c.Rarity == CardRarity.Rare && !IsBlockedByVat(player, c)))
+        {
+            return options;
+        }
+
+        return AndFilter(options, x => x.Rarity == CardRarity.Rare);
     }
 
 

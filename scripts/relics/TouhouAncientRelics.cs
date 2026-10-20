@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 using TouhouAncients.Scripts;
+using TouhouAncients.Scripts.relics;
 
 //namespace TouhouAncients.Scripts.relics;
 
@@ -32,6 +37,22 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     {
         if (alternatives.Count > 1) alternatives.RemoveAt(alternatives.Count - 1);
         alternatives.Add(alternative);
+    }
+
+    /// <summary>
+    /// 叠加卡池过滤器。WithFilter 是覆盖式就地赋值，直接调会顶掉别的遗物（缸中之脑/防晒霜/大猎物猎人）已设的过滤。
+    /// </summary>
+    protected CardCreationOptions AndFilter(CardCreationOptions options, Func<CardModel, bool> filter)
+    {
+        // prev 必须在 WithFilter 之前取，它是就地改
+        var prev = options.CardPoolFilter;
+        return prev == null ? options.WithFilter(filter) : options.WithFilter(c => prev(c) && filter(c));
+    }
+
+    /// <summary>该牌是否被玩家的缸中之脑屏蔽。防晒霜要让路给它，避免两者叠加后奖励池为空。</summary>
+    protected bool IsBlockedByVat(Player player, CardModel card)
+    {
+        return player.Relics.OfType<BrainInAVat>().Any(r => r.IsBlocked(card.Id.Entry));
     }
 
     // 小图标（原版85x85）
