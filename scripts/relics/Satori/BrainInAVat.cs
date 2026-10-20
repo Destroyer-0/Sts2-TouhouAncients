@@ -75,6 +75,9 @@ public class BrainInAVat : TouhouAncientRelics
 
     private bool HasBlockedCard => BlockedCardIds.Count > 0;
 
+    /// <summary>该牌是否在本遗物的屏蔽列表内。供防晒霜判断要不要让路。</summary>
+    public bool IsBlocked(string cardId) => BlockedCardIds.Contains(cardId);
+
     public override async Task AfterObtained()
     {
         var player = base.Owner;
@@ -108,10 +111,10 @@ public class BrainInAVat : TouhouAncientRelics
 
     /// <summary>
     /// 在卡牌奖励生成前，排除被屏蔽的牌。
-    /// 兼容 CardPools 和 CustomCardPool 两种模式。
+    /// 走 Late 通道并叠加过滤：Early 阶段还有大猎物猎人等会设过滤器，WithFilter 覆盖会互相顶掉。
     /// 安全处理：如果过滤后可选池为空，降级为不过滤，避免崩溃。
     /// </summary>
-    public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
+    public override CardCreationOptions ModifyCardRewardCreationOptionsLate(Player player, CardCreationOptions options)
     {
         if (player != base.Owner) return options;
         if (!HasBlockedCard) return options;
@@ -120,27 +123,23 @@ public class BrainInAVat : TouhouAncientRelics
         // GetPossibleCards 兼容 CardPools 和 CustomCardPool 两种模式
         var blockedSet = new HashSet<string>(BlockedCardIds);
         var possibleCards = options.GetPossibleCards(player).ToList();
-
         var nonBlocked = possibleCards.Where(c => !blockedSet.Contains(c.Id.Entry)).ToList();
 
-        // 如果非屏蔽卡足够，则直接返回非屏蔽池
+        // 未屏蔽的牌够 3 张就只加屏蔽过滤，不碰别的遗物已设的条件
         if (nonBlocked.Count >= 3)
         {
-            return options.WithFilter(c => !blockedSet.Contains(c.Id.Entry));
-        }
-        
-        // 否则，补回一些被屏蔽卡来凑够 3 张（按原 possibleCards 的顺序或随机）
-        var result = new List<CardModel>(nonBlocked);
-        foreach (var c in possibleCards.StableShuffle(player.PlayerRng.Rewards))
-        {
-            if (result.Count >= 3) break;
-            if (!result.Contains(c))
-            {
-                result.Add(c); // 这里包含被屏蔽的卡以补足数量
-            }
+            return AndFilter(options, c => !blockedSet.Contains(c.Id.Entry));
         }
 
-        return options.WithFilter(c => result.Select(x => x.Id.Entry).Contains(c.Id.Entry));
+        // 不够 3 张时补回被屏蔽的牌兜底：本体按稀有度抽牌，空集合会直接抛异常
+        var allowedIds = new HashSet<string>(nonBlocked.Select(c => c.Id.Entry));
+        foreach (var c in possibleCards.StableShuffle(player.PlayerRng.Rewards))
+        {
+            if (allowedIds.Count >= 3) break;
+            allowedIds.Add(c.Id.Entry);
+        }
+
+        return AndFilter(options, c => allowedIds.Contains(c.Id.Entry));
     }
 
     public override IEnumerable<CardModel> ModifyMerchantCardPool(Player player, IEnumerable<CardModel> options)
