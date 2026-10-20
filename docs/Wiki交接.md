@@ -189,11 +189,11 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --list
 14. **仓库是 PUBLIC**：根目录发布后 `scripts/`、`localization/` 也会被 Pages 公开（本来就是公开仓库；将来若转私有，此发布路线失效）。
 15. **不做**：不改任何游戏文案（`localization/**` 只读）、不复制素材进仓库、不建 Actions 工作流；git 操作由用户自己执行。
 16. **英文文案的已知上游问题**（在 `localization/eng` 里，不归 wiki 管）：`FUTATSUIWA_MAMIZOU_ANCIENT.epithet` 值多了 `TOUHOUANCIENTS-` 前缀；`DISILLUSION_TRIDENT.flavor` 是双重编码的乱码。修好 localization 后重跑即自动生效。
+17. **访问量统计用 GoatCounter**（站点代码 `sts2-tha-wiki`，看板 `https://sts2-tha-wiki.goatcounter.com`，仅所有者登录可见）。`index.html` 里的内联脚本会跳过 `file:` / `localhost` / `127.*`，所以本地双击与本地预览**不计数**；`http://<内网IP>` 会计数。GitHub 的 Insights → Traffic 只统计**仓库页面**，不含 Pages 站点，别拿它当网站访问量。导出可分享版的 `dist/` 会带着这段脚本。
 
 ---
 
 ## 8. 验收清单
-
 - [x] `python Tools/build_wiki.py` 输出「18 位先古之民 / 192 件遗物 / 120 条衍生说明」。
 - [x] 双击 `Tools/wiki/index.html`：首页 18 张先古卡，头像不破图，层数标签与排序正确（1 层 2 位 / 2 层 7 位 / 3 层 6 位 / 2·3 层 3 位）。
 - [x] 点开任一先古：节点图 + 名称后头像 + 遗物按行分组，图标正常；下方随机一条通用对话（女苑/紫苑带差分头像）。
@@ -204,6 +204,7 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --list
 - [x] 筛选框输入「极限火花」只剩魔理沙；输入「雾雨魔理沙」（无空格）也能命中。
 - [x] exe：取消勾选某遗物 → 更新Wiki → 页面中该遗物消失；「导出可分享版」产出的 dist 页面图片正常。
 - [x] 中英双语：顶栏按钮切换，`?lang=` / localStorage / 浏览器语言优先级正确；标题、占位符、按钮、页脚、行标签、费用标签都跟着换。
+- [x] 访问统计：`https://destroyer-0.github.io/...` 会加载 GoatCounter；`file://`、`localhost`、`127.*` 不加载（6 个用例已验证）。
 - [x] `git status` 里没有 `Tools/WikiTool/bin`、`obj`、`wiki/dist`、`__pycache__`。
 
 ---
