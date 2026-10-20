@@ -34,7 +34,8 @@ public class MiniHakkero : TouhouAncientRelics
         var hand = PileType.Hand.GetPile(base.Owner);
         if (hand.Cards.Count == 0) return;
 
-        var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1, 3);
+        // 关掉手动确认，手牌仅 1 张时原版会直接返回该牌、不弹选择界面
+        var prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1, 3) { RequireManualConfirmation = false };
         var selected = (await CardSelectCmd.FromHand(choiceContext, base.Owner, prefs, null, this)).ToList();
 
         if (selected.Count == 0) return;
