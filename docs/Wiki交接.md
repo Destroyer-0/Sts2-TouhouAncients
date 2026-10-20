@@ -27,9 +27,9 @@
 |---|---|
 | `.agents/skills/ancient-relic-list/scripts/relic_list.py` | 共享解析：先古池、遗物/卡牌/附魔/能力/药水/苦痛/关键词/原版卡牌与附魔、先古对话。 |
 | `.agents/skills/ancient-relic-list/SKILL.md` | skill 说明：命令、推导来源、覆盖表用法。 |
-| `Tools/build_wiki.py` | 生成 `Tools/wiki/data.js`；`--list` 给 exe 用，`--select` 按勾选生成。 |
+| `Tools/build_wiki.py` | 生成 `Tools/wiki/data.js`（中文）与 `data.en.js`（英文）；`--list` 给 exe 用，`--select` 按勾选生成，`--lang` 只生成一种语言。 |
 | `Tools/wiki/{index.html,style.css,app.js}` | 页面外壳 / 深色主题 / 渲染逻辑（hash 路由、筛选、弹层、升级开关）。 |
-| `Tools/wiki/data.js` | **生成物**：18 位 / 192 件 / 120 条衍生。 |
+| `Tools/wiki/data.js` / `data.en.js` | **生成物**：中文 18 位 / 192 件 / 120 条衍生；英文 18 位 / 192 件 / 120 条。 |
 | `Tools/WikiTool/` | WinForms exe 源码；已编译并通过 UI 自动化实测「勾选 → 更新Wiki → 打开预览 → 导出可分享版」。 |
 | `.nojekyll`（仓库根） | 让 Pages 跳过 Jekyll。 |
 | `TouhouAncients.csproj` | 已加 `<Compile Remove="Tools/**" />`，mod 编译不受 WinForms 源码干扰（实测 451 个 Compile 项里 0 个来自 Tools）。 |
@@ -58,8 +58,9 @@ Tools/
   wiki/
     index.html                    页面外壳（提交）
     style.css                     样式（提交）
-    app.js                        渲染逻辑（提交）
-    data.js                       生成物（提交，勿手改）
+    app.js                        渲染逻辑 + 语言切换（提交）
+    data.js                       中文生成物（提交，勿手改）
+    data.en.js                    英文生成物（提交，勿手改）
     dist/                         导出可分享版时才生成（已 gitignore）
 .agents/skills/ancient-relic-list/
   SKILL.md                        用法与规则
@@ -100,6 +101,7 @@ sts2-src（.agents/local.md）──┘  （原版关键词/苦痛/卡牌/附魔
 | 升级差异用开关而不是括号 | 每张卡各自的 `htmlUp` / `metaUp` / `keywordsUp`；升级减费用 `<span style="color:#7fff00">` 标绿；消耗/虚无/保留 不单独列说明。 |
 | 通用对话「每次打开随机」 | 用户选择；构建是确定性的（两次生成字节一致，仅 `generatedAt` 不同），随机发生在浏览器。 |
 | 构建确定性 | 纯正则 + JSON 解析，无 AI、无联网、无随机；改输入才会改结果。 |
+| 双语 | 一次生成两份数据（`data.js` / `data.en.js`）；前端按「`?lang=` → `localStorage` → 浏览器语言」选语言，点顶栏按钮切换并记住。文案源是 `localization/zhs` 与 `localization/eng`，英文缺失/拼串的少量条目在手写覆盖表里按语言各写一份（**不改 localization**）。 |
 
 ---
 
@@ -146,10 +148,11 @@ sts2-src（.agents/local.md）──┘  （原版关键词/苦痛/卡牌/附魔
 ## 6. 命令速查
 
 ```powershell
-# wiki 数据（全部 / 列表 JSON / 按勾选）
+# wiki 数据（全部 / 列表 JSON / 按勾选 / 只出英文）
 python "Tools/build_wiki.py"
 python "Tools/build_wiki.py" --list
 python "Tools/build_wiki.py" --select select.json
+python "Tools/build_wiki.py" --lang eng
 
 # 本地预览：直接双击 Tools/wiki/index.html
 
@@ -185,6 +188,7 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --list
 13. **缺图遗物**（纯狐那批 + `KonshiiNoKusuri` 等）前端已 `onerror` 回落到 `icon/relics/default.png`。
 14. **仓库是 PUBLIC**：根目录发布后 `scripts/`、`localization/` 也会被 Pages 公开（本来就是公开仓库；将来若转私有，此发布路线失效）。
 15. **不做**：不改任何游戏文案（`localization/**` 只读）、不复制素材进仓库、不建 Actions 工作流；git 操作由用户自己执行。
+16. **英文文案的已知上游问题**（在 `localization/eng` 里，不归 wiki 管）：`FUTATSUIWA_MAMIZOU_ANCIENT.epithet` 值多了 `TOUHOUANCIENTS-` 前缀；`DISILLUSION_TRIDENT.flavor` 是双重编码的乱码。修好 localization 后重跑即自动生效。
 
 ---
 
@@ -199,6 +203,7 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --list
 - [x] 原版卡牌/附魔条目无图但含类型费用与关键词（灼伤、蛇咬、虚空、小刀、晕眩、贪婪、华彩、稳定、本能）。
 - [x] 筛选框输入「极限火花」只剩魔理沙；输入「雾雨魔理沙」（无空格）也能命中。
 - [x] exe：取消勾选某遗物 → 更新Wiki → 页面中该遗物消失；「导出可分享版」产出的 dist 页面图片正常。
+- [x] 中英双语：顶栏按钮切换，`?lang=` / localStorage / 浏览器语言优先级正确；标题、占位符、按钮、页脚、行标签、费用标签都跟着换。
 - [x] `git status` 里没有 `Tools/WikiTool/bin`、`obj`、`wiki/dist`、`__pycache__`。
 
 ---

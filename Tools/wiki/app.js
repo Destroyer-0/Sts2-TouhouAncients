@@ -1,13 +1,19 @@
-// 东方先古之民 · 遗物图鉴：数据全来自 data.js（由 Tools/build_wiki.py 生成），此处只做渲染。
+// 东方先古之民 · 遗物图鉴：数据全来自 data.js / data.en.js（由 Tools/build_wiki.py 生成），此处只做渲染。
 (function () {
   'use strict';
 
-  var DATA = window.THA_DATA || { ancients: [] };
+  var DATA = { ancients: [], labels: {} };
   var app = document.getElementById('app');
   var modal = document.getElementById('modal');
   var modalBody = document.getElementById('modal-body');
   var filterBox = document.getElementById('filter');
-  var FALLBACK_ICON = (DATA.assetPrefix || '') + 'icon/relics/default.png';
+  var FALLBACK_ICON = 'icon/relics/default.png';
+  var LANG_KEY = 'tha-lang';
+  var LANG = 'zhs';
+
+  function L(key) {
+    return (DATA.labels && DATA.labels[key]) || '';
+  }
 
   function el(tag, cls, text) {
     var n = document.createElement(tag);
@@ -38,6 +44,64 @@
     });
   }
 
+  // ---------- 语言 ----------
+  function detectLang() {
+    var m = /[?&]lang=(zhs|eng)\b/.exec(location.search);
+    if (m) return m[1];
+    try {
+      var saved = localStorage.getItem(LANG_KEY);
+      if (saved === 'zhs' || saved === 'eng') return saved;
+    } catch (e) { /* 隐私模式读不到，忽略 */ }
+    return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zhs' : 'eng';
+  }
+
+  var loadToken = 0;
+
+  function loadData(lang, done) {
+    var token = ++loadToken;
+    var primary = lang === 'eng' ? 'data.en.js' : 'data.js';
+    var other = lang === 'eng' ? 'data.js' : 'data.en.js';
+
+    function loadScript(src, onOk, onFail) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onload = function () { if (token === loadToken) onOk(); };
+      s.onerror = function () { if (token === loadToken) onFail(); };
+      document.head.appendChild(s);
+    }
+
+    // 主语言文件缺失（比如只提交了中文数据）时退回另一种，别留白页
+    loadScript(primary, function () {
+      if (window.THA_DATA && window.THA_DATA.lang === lang) { done(window.THA_DATA); return; }
+      loadScript(other, function () {
+        done(window.THA_DATA || { ancients: [], labels: {} });
+      }, function () {
+        window.THA_DATA = { ancients: [], labels: {} };
+        done(window.THA_DATA);
+      });
+    }, function () {
+      loadScript(other, function () {
+        done(window.THA_DATA || { ancients: [], labels: {} });
+      }, function () {
+        window.THA_DATA = { ancients: [], labels: {} };
+        done(window.THA_DATA);
+      });
+    });
+  }
+
+  function applyChrome() {
+    var labels = DATA.labels || {};
+    document.title = labels.docTitle || document.title;
+    var h1 = document.getElementById('title');
+    if (h1 && labels.docTitle) h1.textContent = labels.docTitle;
+    document.documentElement.lang = DATA.htmlLang || 'zh-CN';
+    filterBox.placeholder = labels.searchPlaceholder || filterBox.placeholder;
+    document.getElementById('foot').innerHTML = labels.footer || '';
+    var ws = document.querySelector('.workshop');
+    if (ws && labels.workshop) ws.textContent = labels.workshop;
+    document.getElementById('lang').textContent = labels.langButton || 'EN';
+  }
+
   function totalRelics(a) {
     return a.pools.reduce(function (n, p) { return n + p.relics.length; }, 0);
   }
@@ -46,13 +110,17 @@
   function squash(s) { return (s || '').replace(/\s+/g, '').toLowerCase(); }
 
   var SEARCH = {};
-  DATA.ancients.forEach(function (a) {
-    var parts = [a.name, a.epithet, a.showActLabel];
-    a.pools.forEach(function (p) {
-      p.relics.forEach(function (r) { parts.push(r.name, r.plain); });
+
+  function buildSearch() {
+    SEARCH = {};
+    DATA.ancients.forEach(function (a) {
+      var parts = [a.name, a.epithet, a.showActLabel];
+      a.pools.forEach(function (p) {
+        p.relics.forEach(function (r) { parts.push(r.name, r.plain); });
+      });
+      SEARCH[a.id] = squash(parts.join(' '));
     });
-    SEARCH[a.id] = squash(parts.join(' '));
-  });
+  }
 
   // 首页与筛选结果共用同一张卡
   function ancientCard(a) {
@@ -61,7 +129,7 @@
     card.appendChild(el('div', 'name', a.name));
     card.appendChild(el('div', 'epithet', a.epithet || ''));
     if (a.showActLabel) card.appendChild(el('div', 'tier', a.showActLabel));
-    card.appendChild(el('div', 'count', totalRelics(a) + ' 件遗物'));
+    card.appendChild(el('div', 'count', totalRelics(a) + ' ' + L('relicCount')));
     card.addEventListener('click', function () { openAncient(a.id); });
     return card;
   }
@@ -72,7 +140,7 @@
     var grid = el('div', 'grid');
     DATA.ancients.forEach(function (a) { grid.appendChild(ancientCard(a)); });
     app.appendChild(grid);
-    if (!DATA.ancients.length) app.appendChild(el('div', 'empty', '没有数据，请先运行 Tools/build_wiki.py。'));
+    if (!DATA.ancients.length) app.appendChild(el('div', 'empty', L('noData')));
   }
 
   // ---------- 先古详情 ----------
@@ -81,19 +149,19 @@
     if (!a) return renderHome();
     app.innerHTML = '';
 
-    var back = el('button', 'back', '← 返回全部先古之民');
+    var back = el('button', 'back', L('back'));
     back.addEventListener('click', function () { location.hash = ''; renderHome(); });
     app.appendChild(back);
 
     var head = el('div', 'ancient-head');
-    head.appendChild(img(a.mapNode, 'node', a.name + ' 节点图'));
+    head.appendChild(img(a.mapNode, 'node', a.name + ' ' + L('mapNodeAlt')));
     var info = el('div');
     var nameRow = el('div', 'name-row');
     nameRow.appendChild(el('h2', null, a.name));
     nameRow.appendChild(img(a.avatar, 'avatar', a.name));
     info.appendChild(nameRow);
     info.appendChild(el('div', 'epithet', a.epithet || ''));
-    info.appendChild(el('div', 'meta', [a.showActLabel, totalRelics(a) + ' 件遗物']
+    info.appendChild(el('div', 'meta', [a.showActLabel, totalRelics(a) + ' ' + L('relicCount')]
       .filter(Boolean).join(' · ')));
     var dialog = pickDialogue(a.dialogues);
     if (dialog) {
@@ -120,7 +188,7 @@
         var body = el('div', 'body');
         var title = el('div', 'title');
         title.appendChild(el('span', null, r.name));
-        if (r.derived.length) title.appendChild(el('span', 'badge', '衍生 ' + r.derived.length));
+        if (r.derived.length) title.appendChild(el('span', 'badge', L('derivedBadge') + ' ' + r.derived.length));
         body.appendChild(title);
         var text = el('div', 'text');
         text.innerHTML = r.html;
@@ -133,7 +201,7 @@
         row.appendChild(body);
         if (r.derived.length) {
           row.addEventListener('click', function () { openRelic(a, r); });
-          row.title = '点击查看衍生内容';
+          row.title = L('derivedHint');
         }
         list.appendChild(row);
       });
@@ -166,7 +234,7 @@
         fillDerived(list, r);
       });
       label.appendChild(cb);
-      label.appendChild(document.createTextNode('显示升级后'));
+      label.appendChild(document.createTextNode(L('upgradeToggle')));
       head.appendChild(label);
     }
     info.appendChild(head);
@@ -250,10 +318,9 @@
       grid.appendChild(ancientCard(a));
     });
     app.appendChild(grid);
-    if (!hits) app.appendChild(el('div', 'empty', '没有匹配的先古之民或遗物。'));
+    if (!hits) app.appendChild(el('div', 'empty', L('empty')));
   });
 
-  // ---------- 分享网页 ----------
   var shareBtn = document.getElementById('share');
 
   function shareFeedback(text, ok) {
@@ -261,10 +328,12 @@
     shareBtn.classList.toggle('copied', !!ok);
     clearTimeout(shareFeedback.timer);
     shareFeedback.timer = setTimeout(function () {
-      shareBtn.textContent = '分享网页';
+      shareBtn.textContent = L('share');
       shareBtn.classList.remove('copied');
     }, 1800);
   }
+  var SHARE_INIT = shareBtn.textContent;
+  void SHARE_INIT;
 
   // 复制失败时的兜底：file:// 下 clipboard API 常被禁用，用隐藏 textarea + execCommand
   function legacyCopy(text) {
@@ -286,12 +355,12 @@
     // 优先系统分享面板（移动端 / 支持的桌面浏览器）
     if (navigator.share) {
       navigator.share({ title: document.title, url: url }).then(function () {
-        shareFeedback('已分享', true);
+        shareFeedback(L('shared'), true);
       }).catch(function () { /* 用户取消，不提示 */ });
       return;
     }
-    var done = function () { shareFeedback('已复制链接', true); };
-    var fail = function () { shareFeedback('复制失败，请手动复制', false); };
+    var done = function () { shareFeedback(L('copied'), true); };
+    var fail = function () { shareFeedback(L('copyFail'), false); };
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(url).then(done, function () {
         legacyCopy(url) ? done() : fail();
@@ -301,11 +370,38 @@
     }
   }
 
-  shareBtn.addEventListener('click', sharePage);
+  var shareBtn = document.getElementById('share');
 
-  document.getElementById('foot').innerHTML =
-    '原作：杀戮尖塔2 / 东方project<br>模组作者：阿迪　画师：河城绿茶';
-  preloadAvatars();
+  function bindShare() {
+    shareBtn.textContent = L('share');
+    shareBtn.addEventListener('click', sharePage);
+  }
+  function start(data) {
+    DATA = data || { ancients: [], labels: {} };
+    if (DATA.lang) LANG = DATA.lang;      // 回退到另一种语言时，切换按钮要跟着对
+    FALLBACK_ICON = (DATA.assetPrefix || '') + 'icon/relics/default.png';
+    buildSearch();
+    applyChrome();
+    shareBtn.textContent = L('share');
+    preloadAvatars();
+    route();
+  }
+
+  function switchLang() {
+    var next = LANG === 'eng' ? 'zhs' : 'eng';
+    try { localStorage.setItem(LANG_KEY, next); } catch (e) { /* 忽略 */ }
+    LANG = next;
+    loadData(next, function (data) {
+      closeModal();
+      filterBox.value = '';
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      start(data);
+    });
+  }
+
+  LANG = detectLang();
+  document.getElementById('lang').addEventListener('click', switchLang);
+  bindShare();
   window.addEventListener('hashchange', route);
-  route();
+  loadData(LANG, start);
 })();

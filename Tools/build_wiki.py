@@ -83,6 +83,66 @@ CARD_TYPE_CN = {"Attack": "攻击", "Skill": "技能", "Power": "能力", "Curse
 SHOW_ACT_ORDER = {1: 0, 2: 1, 3: 2, None: 3}
 SHOW_ACT_LABEL = {1: "1层先古之民", 2: "2层先古之民", 3: "3层先古之民", None: "2/3层先古之民"}
 
+LANG_META = {
+    "zhs": {
+        "file": "data.js",
+        "htmlLang": "zh-CN",
+        "labels": {
+            "docTitle": "东方先古之民 · 遗物图鉴",
+            "energy": "耗能",
+            "relicCount": "件遗物",
+            "derivedBadge": "衍生",
+            "upgradeToggle": "显示升级后",
+            "rowPrefix": "",
+            "share": "分享网页",
+            "shared": "已分享",
+            "copied": "已复制链接",
+            "copyFail": "复制失败，请手动复制",
+            "back": "← 返回全部先古之民",
+            "empty": "没有匹配的先古之民或遗物。",
+            "noData": "没有数据，请先运行 Tools/build_wiki.py。",
+            "workshop": "前往创意工坊 ↗",
+            "searchPlaceholder": "筛选先古之民 / 遗物…",
+            "mapNodeAlt": "节点图",
+            "derivedHint": "点击查看衍生内容",
+            "footer": "原作：杀戮尖塔2 / 东方project<br>模组作者：阿迪　画师：河城绿茶",
+            "langButton": "EN",
+        },
+        "showActLabel": {1: "1层先古之民", 2: "2层先古之民", 3: "3层先古之民", None: "2/3层先古之民"},
+        "cardType": {"Attack": "攻击", "Skill": "技能", "Power": "能力", "Curse": "诅咒",
+                     "Status": "状态", "Quest": "任务"},
+    },
+    "eng": {
+        "file": "data.en.js",
+        "htmlLang": "en",
+        "labels": {
+            "docTitle": "Touhou Ancients · Relic Codex",
+            "energy": "Cost",
+            "relicCount": "relics",
+            "derivedBadge": "Derived",
+            "upgradeToggle": "Show upgraded",
+            "rowPrefix": "",
+            "share": "Share",
+            "shared": "Shared",
+            "copied": "Link copied",
+            "copyFail": "Copy failed — please copy manually",
+            "back": "← Back to all Ancients",
+            "empty": "No matching Ancients or relics.",
+            "noData": "No data. Run Tools/build_wiki.py first.",
+            "workshop": "Steam Workshop ↗",
+            "searchPlaceholder": "Filter Ancients / relics…",
+            "mapNodeAlt": "map node",
+            "derivedHint": "Click to view derived content",
+            "footer": "Original: Slay the Spire 2 / Touhou Project<br>Mod authors: Adi · Artist: Kawashiro Ryokucha",
+            "langButton": "中文",
+        },
+        "showActLabel": {1: "Act 1 Ancient", 2: "Act 2 Ancient", 3: "Act 3 Ancient",
+                         None: "Act 2 & 3 Ancient"},
+        "cardType": {"Attack": "Attack", "Skill": "Skill", "Power": "Power", "Curse": "Curse",
+                     "Status": "Status", "Quest": "Quest"},
+    },
+}
+
 
 def card_keywords(cls):
     """(升级前关键词, 升级后关键词)：升级中的 Add/RemoveKeyword 决定差异。"""
@@ -96,12 +156,27 @@ def card_keywords(cls):
 
 COST_UP_COLOR = "#7fff00"        # 升级减费时费用按游戏惯例显示为绿色
 
+CURRENT = "zhs"                  # 当前生成语言，由 main() 逐个切换
+
+
+def label(key):
+    return LANG_META[CURRENT]["labels"][key]
+
+
+def card_type_label(t):
+    return LANG_META[CURRENT]["cardType"].get(t, t or "")
+
+
+def act_label(v):
+    return LANG_META[CURRENT]["showActLabel"][v]
+
 
 def cost_meta(meta, upgraded=False):
     """(类型 · 费用) 文本；升级后费用带绿色 span（升级减费才变色）。"""
+    sep = "" if CURRENT == "zhs" else " "
     cost = meta["cost"]
     if cost == "X":
-        cost_txt = "耗能X"
+        cost_txt = rl.COST_WORD.get(CURRENT, "耗能") + sep + "X"
     elif cost is None or cost == -1:
         cost_txt = ""
     else:
@@ -109,8 +184,8 @@ def cost_meta(meta, upgraded=False):
         shown = str(value)
         if upgraded and (meta.get("cost_delta") or 0) < 0:
             shown = '<span style="color:%s">%s</span>' % (COST_UP_COLOR, value)
-        cost_txt = "耗能" + shown
-    parts = [CARD_TYPE_CN.get(meta["type"], meta["type"] or "")]
+        cost_txt = rl.COST_WORD.get(CURRENT, "耗能") + sep + shown
+    parts = [card_type_label(meta["type"])]
     if cost_txt:
         parts.append(cost_txt)
     return " · ".join(p for p in parts if p)
@@ -219,8 +294,10 @@ def derived_for(cls, src, raw, v, desc_plain):
     for kind, t in refs:
         out.extend(entries_for(kind, t, v, src))
     # 休息处选项
+    low = desc_plain.lower()
+    rest_word = rl.REST_SITE_WORD.get(rl.LANG, "休息处").lower()
     for opt_key, opt_name in rl.REST_OPTIONS.items():
-        if opt_name in desc_plain and "休息处" in desc_plain:
+        if opt_name.lower() in low and rest_word in low:
             body = rl.render(rl.rest_loc[opt_key + ".description"], v).replace("\n", "")
             if "{" in body:
                 body = rl.REST_OVERRIDE.get(opt_key, body)
@@ -330,7 +407,7 @@ def build(ancients_sel=None, relics_sel=None):
             "name": a["title"],
             "epithet": a["epithet"],
             "showAct": a["showAct"],
-            "showActLabel": SHOW_ACT_LABEL[a["showAct"]],
+            "showActLabel": act_label(a["showAct"]),
             "avatar": img("icon/Character/%s.png" % short),
             "avatarOutline": img("icon/Character/Outline/%s.png" % short),
             "mapNode": img("icon/MapNode/%s_MapNode.png" % short),
@@ -338,7 +415,10 @@ def build(ancients_sel=None, relics_sel=None):
             "dialogues": dialogues_for(a),
             "pools": pools,
         })
-    return {"generatedAt": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
+    return {"lang": CURRENT,
+            "htmlLang": LANG_META[CURRENT]["htmlLang"],
+            "labels": LANG_META[CURRENT]["labels"],
+            "generatedAt": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
             "assetPrefix": ASSET_PREFIX, "ancients": out}
 
 
@@ -352,7 +432,7 @@ def listing():
                 key = "TOUHOUANCIENTS-" + rl.snake(c)
                 relics.append({"id": c, "name": rl.relics_loc.get(key + ".title", c)})
         rows.append({"id": a["file"], "name": a["title"], "epithet": a["epithet"],
-                     "showAct": a["showAct"], "showActLabel": SHOW_ACT_LABEL[a["showAct"]],
+                     "showAct": a["showAct"], "showActLabel": act_label(a["showAct"]),
                      "relics": relics})
     return rows
 
@@ -366,13 +446,15 @@ def write_data(data, path):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="生成 Tools/wiki/data.js 与 data.json")
+    ap = argparse.ArgumentParser(description="生成 Tools/wiki/data.js（中文）与 data.en.js（英文）")
     ap.add_argument("--select", help="勾选结果 JSON：{ancients:[类名], relics:[类名]}；缺省=全部")
-    ap.add_argument("--out", default=os.path.join(WIKI, "data.js"), help="输出路径")
-    ap.add_argument("--list", action="store_true", help="输出勾选清单 JSON 到 stdout")
+    ap.add_argument("--out", help="单语言输出路径（配合 --lang）；缺省写 wiki/data.js 或 data.en.js")
+    ap.add_argument("--lang", choices=list(rl.LANGUAGES), help="只生成某一种语言；缺省=中英各一份")
+    ap.add_argument("--list", action="store_true", help="输出勾选清单 JSON 到 stdout（中文）")
     args = ap.parse_args()
 
     if args.list:
+        rl.set_language("zhs")
         json.dump(listing(), sys.stdout, ensure_ascii=False)
         return 0
 
@@ -382,12 +464,19 @@ def main():
         a_sel = set(sel.get("ancients") or [])
         r_sel = set(sel.get("relics") or [])
 
-    data = build(a_sel, r_sel)
-    write_data(data, args.out)
-    relic_count = sum(len(p["relics"]) for a in data["ancients"] for p in a["pools"])
-    derived_count = sum(len(r["derived"]) for a in data["ancients"] for p in a["pools"] for r in p["relics"])
-    print("已生成 %s：%d 位先古之民 / %d 件遗物 / %d 条衍生说明" %
-          (args.out, len(data["ancients"]), relic_count, derived_count))
+    global CURRENT
+    langs = [args.lang] if args.lang else list(rl.LANGUAGES)
+    for lang in langs:
+        rl.set_language(lang)
+        CURRENT = lang
+        data = build(a_sel, r_sel)
+        out = args.out or os.path.join(WIKI, LANG_META[lang]["file"])
+        write_data(data, out)
+        relic_count = sum(len(p["relics"]) for a in data["ancients"] for p in a["pools"])
+        derived_count = sum(len(r["derived"]) for a in data["ancients"]
+                           for p in a["pools"] for r in p["relics"])
+        print("[%s] %s：%d 位先古之民 / %d 件遗物 / %d 条衍生说明" %
+              (lang, out, len(data["ancients"]), relic_count, derived_count))
     return 0
 
 

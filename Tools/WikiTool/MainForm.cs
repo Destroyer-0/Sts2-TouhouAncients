@@ -383,7 +383,10 @@ public sealed class MainForm : Form
             }
 
             // data.js 里的图片是 ../../images/，导出后要落到 dist/images/ 并改写 assetPrefix
-            var data = File.ReadAllText(DataJs, Encoding.UTF8);
+            var dataFiles = new[] { "data.js", "data.en.js" }
+                .Where(n => File.Exists(Path.Combine(WikiDir, n)))
+                .ToList();
+            var data = string.Join("\n", dataFiles.Select(n => File.ReadAllText(Path.Combine(WikiDir, n), Encoding.UTF8)));
             var assets = Regex.Matches(data, "\\.\\./\\.\\./images/[^\"]+")
                               .Select(m => m.Value)
                               .Distinct()
@@ -402,9 +405,13 @@ public sealed class MainForm : Form
                 Directory.CreateDirectory(Path.GetDirectoryName(target)!);
                 File.Copy(source, target, overwrite: true);
             }
-            // data.js 里 assetPrefix 与每条记录都内嵌了 ../../images/，导出后统一改成 dist 内的 images/
-            var exported = data.Replace("../../images/", "images/");
-            File.WriteAllText(Path.Combine(dist, "data.js"), exported, new UTF8Encoding(false));
+            // 每个语言的 data 都要把内嵌的 ../../images/ 改成 dist 内的 images/
+            foreach (var name in dataFiles)
+            {
+                var exported = File.ReadAllText(Path.Combine(WikiDir, name), Encoding.UTF8)
+                                   .Replace("../../images/", "images/");
+                File.WriteAllText(Path.Combine(dist, name), exported, new UTF8Encoding(false));
+            }
 
             if (File.Exists(zip))
             {

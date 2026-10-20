@@ -22,11 +22,13 @@ def find_root(start):
 
 
 ROOT = find_root(SKILL_DIR)
-LOC = os.path.join(ROOT, "TouhouAncients", "localization", "zhs")
+LANGUAGES = ("zhs", "eng")
+LANG = "zhs"
+LOC = os.path.join(ROOT, "TouhouAncients", "localization", LANG)
 
 
 def sts2_src():
-    """从 .agents/local.md 读本机的本体反编译源码路径（拿原版关键词中文名用）。"""
+    """从 .agents/local.md 读本机的本体反编译源码路径（拿原版关键词/卡牌名用）。"""
     path = os.path.join(ROOT, ".agents", "local.md")
     text = open(path, encoding="utf-8-sig", errors="ignore").read()
     m = re.search(r'`sts2-src`\s*:\s*`([^`]+)`', text)
@@ -34,7 +36,7 @@ def sts2_src():
 
 
 STS2_SRC = sts2_src()
-BASE_LOC = os.path.join(STS2_SRC, "localization", "zhs") if STS2_SRC else None
+BASE_LOC = os.path.join(STS2_SRC, "localization", LANG) if STS2_SRC else None
 
 
 def load(name, base=False):
@@ -47,22 +49,12 @@ def load(name, base=False):
     return json.load(open(path, encoding="utf-8-sig"))
 
 
-relics_loc = load("relics.json")
-cards_loc = load("cards.json")
-ench_loc = load("enchantments.json")
-pow_loc = load("powers.json")
-pot_loc = load("potions.json")
-mod_kw_loc = load("card_keywords.json")
-rest_loc = load("rest_site_ui.json")
-ancients_loc = load("ancients.json")
-base_kw = load("card_keywords.json", True)
-base_ench_loc = load("enchantments.json", True)
-base_pow_loc = load("powers.json", True)
-base_cards_loc = load("cards.json", True)
-chars_loc = load("characters.json", True)
-
-if not BASE_LOC:
-    print("警告：.agents/local.md 里没有 sts2-src，原版关键词/附魔名会退化成英文原名。", file=sys.stderr)
+# 各语言的本地化表，由 set_language() 装载（模块底部默认装载中文）
+relics_loc, cards_loc, ench_loc, pow_loc, pot_loc = {}, {}, {}, {}, {}
+mod_kw_loc, rest_loc, ancients_loc = {}, {}, {}
+base_kw, base_ench_loc, base_pow_loc, base_cards_loc, chars_loc = {}, {}, {}, {}, {}
+mod_aff_loc, base_aff_loc = {}, {}
+REST_OPTIONS = {}
 
 
 def snake(s):
@@ -308,6 +300,8 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
     upgrade：None = 打成 `基础（升级）`（markdown 用）；False/True = 只取升级前/后的数值（网页的升级开关用）。
     """
     t = DYN_BLOCK.sub('', text)
+    energy_word = ENERGY_WORD.get(LANG, "能量")
+    energy_join = " " if LANG == "eng" else ""
 
     def ifup(m):
         up, base = m.group(1), m.group(2)
@@ -325,7 +319,7 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
         name = head.split('.')[0]
         suffix = body[len(head):]
         if head == 'energyPrefix':
-            return "能量"
+            return energy_word
         v = vars_.get(name)
         if not v:
             return '' if suffix else m.group(0)
@@ -335,6 +329,9 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
         if kind == 'unresolved' or val is None:
             return m.group(0)
         s = fmt_num(val)
+        if suffix.startswith(':plural:'):          # {Cards:plural:card|cards}
+            forms = suffix[len(':plural:'):].split('|')
+            return forms[0] if abs(val) <= 1 else (forms[1] if len(forms) > 1 else forms[0])
         d = (deltas or {}).get(name)
         if d:
             if upgrade is True:
@@ -344,7 +341,7 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
             else:
                 s = "%s（%s）" % (s, fmt_num(val + d))
         if suffix.startswith(':energyIcons'):
-            return s + "能量"
+            return s + energy_join + energy_word
         return s
 
     t = re.sub(r'\{([^{}]*)\}', rep, t)
@@ -353,50 +350,105 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
 
 # ---------------- 覆盖表 ----------------
 # 值依赖运行时状态、静态解析不出来时，在这里手写整行；None 表示不要这一条。
-RELIC_OVERRIDE = {
-    "IridescentDream": "拾起时，将你的初始遗物替换为先古版本，将一张初始卡牌从你的牌组中移除。",
-    "BottledGalaxy": "拾起时，从你的牌组中选择3张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张放入手牌。",
-}
-CARD_OVERRIDE = {
-    # 卡面是运行时拼串、静态解析不出数值时手写正文（类型/费用仍从源码读，正文本体按升级前后各写一份）
-    "IllusoryDreamWhisper": {
-        "title": "幻梦无垠",
-        "body": "获得7点格挡。\n造成7点伤害。\n将2张随机牌加入你的抽牌堆。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
-        "bodyUp": "获得10点格挡。\n造成10点伤害。\n将3张随机牌加入你的抽牌堆。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
+# 每种语言一份：中文照原文，英文按游戏英文文案口径写（只影响网页，不改 localization）。
+_RELIC_OVERRIDE = {
+    "zhs": {
+        "IridescentDream": "拾起时，将你的初始遗物替换为先古版本，将一张初始卡牌从你的牌组中移除。",
+        "BottledGalaxy": "拾起时，从你的牌组中选择3张牌移除。在每场战斗的前三回合，每回合开始时选择其中一张放入手牌。",
     },
-    "YoukaiExtermination": {
-        "title": "妖怪治退",
-        "body": "造成6点伤害2次。\n斩杀时，获得1能量，这张牌在本局游戏中的伤害永久性增加1。",
-        "bodyUp": "造成8点伤害2次。\n斩杀时，获得1能量，这张牌在本局游戏中的伤害永久性增加2。",
-    },
-    # {LeafText} 是运行时拼串，静态渲染会得到 None，只能手写正文
-    "MysteriousLeaf": {
-        "title": "迷之树叶",
-        "body": "每当你将一张牌加入你的牌组时，此牌将伪装为那张牌。\n这也全都是妖怪干的吗？",
+    "eng": {
+        "IridescentDream": "Upon pickup, replace your Starter Relic with its Ancient version and remove a Starter card from your Deck.",
+        "BottledGalaxy": "Upon pickup, remove 3 cards from your Deck. For the first 3 turns of each combat, at the start of your turn, choose one to add to your hand.",
     },
 }
-DERIVED_OVERRIDE = {
-    "HeavyDiceRecordPower": "“老千”：已记录被你记录的牌。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有消耗、虚无。",
-    "GlowingBambooPower": "竹林秘宝：被记录的牌将在战斗结束后升级。",
-    "YuanChouPower": "怨仇：造成的伤害降低25%。玩家打出攻击牌时，受到等同于层数的伤害并使层数减少1。",
-    "KeystonePower": "要石：打出技能牌时插下，打出攻击牌时拔出，对所有敌人造成等同于层数的伤害。",
-    "PossessedBySeigaPower": "走火入魔：回合开始时，霍青娥接管你的回合：立即失去5点生命并获得1能量，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
-    "DetectiveManuscriptDexterityPower": None,
-    "Tsukumogami": "付丧之力：获得虚无。当前计数X。计数首次降至0时，无论何处，将这张牌打出。在你的回合结束时，如果这张牌在本回合没有被打出，计数减少1。",
-    "MedicinePoison": "蛊毒：获得永恒。额外给予X层中毒。回合结束时，如果这张牌在手中，本场战斗额外给予X层中毒。",
+_CARD_OVERRIDE = {
+    "zhs": {
+        # 卡面是运行时拼串、静态解析不出数值时手写正文（类型/费用仍从源码读，正文本体按升级前后各写一份）
+        "IllusoryDreamWhisper": {
+            "title": "幻梦无垠",
+            "body": "获得7点格挡。\n造成7点伤害。\n将2张随机牌加入你的抽牌堆。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
+            "bodyUp": "获得10点格挡。\n造成10点伤害。\n将3张随机牌加入你的抽牌堆。\n每当你在休息处休息时，你可以随机变化这张牌上的数值。",
+        },
+        "YoukaiExtermination": {
+            "title": "妖怪治退",
+            "body": "造成6点伤害2次。\n斩杀时，获得1能量，这张牌在本局游戏中的伤害永久性增加1。",
+            "bodyUp": "造成8点伤害2次。\n斩杀时，获得1能量，这张牌在本局游戏中的伤害永久性增加2。",
+        },
+        # {LeafText} 是运行时拼串，静态渲染会得到 None，只能手写正文
+        "MysteriousLeaf": {
+            "title": "迷之树叶",
+            "body": "每当你将一张牌加入你的牌组时，此牌将伪装为那张牌。\n这也全都是妖怪干的吗？",
+        },
+    },
+    "eng": {
+        "IllusoryDreamWhisper": {
+            "title": "Illusory Dream Boundless",
+            "body": "Gain 7 Block.\nDeal 7 damage.\nAdd 2 random cards to your draw pile.\nWhenever you rest at a Rest Site, you may randomly change the values on this card.",
+            "bodyUp": "Gain 10 Block.\nDeal 10 damage.\nAdd 3 random cards to your draw pile.\nWhenever you rest at a Rest Site, you may randomly change the values on this card.",
+        },
+        "YoukaiExtermination": {
+            "title": "Youkai Extermination",
+            "body": "Deal 6 damage 2 times.\nIf Fatal, gain 1 Energy and permanently increase this card's damage by 1.",
+            "bodyUp": "Deal 8 damage 2 times.\nIf Fatal, gain 1 Energy and permanently increase this card's damage by 2.",
+        },
+        "MysteriousLeaf": {
+            "title": "Mysterious Leaf",
+            "body": "Whenever you add a card to your Deck, this card becomes a Disguise of that card.\nIs This All the Work of Youkai Too?",
+        },
+    },
 }
-REST_OVERRIDE = {
-    "OPTION_INK_DYED_CHERRY_BLOSSOMS": "恢复因墨染的樱花而失去的最大生命。",
+_DERIVED_OVERRIDE = {
+    "zhs": {
+        "HeavyDiceRecordPower": "“老千”：已记录被你记录的牌。你的抽牌阶段结束后，你可以弃置一张手牌，将记录卡牌的复制品加入手牌，其拥有消耗、虚无。",
+        "GlowingBambooPower": "竹林秘宝：被记录的牌将在战斗结束后升级。",
+        "YuanChouPower": "怨仇：造成的伤害降低25%。玩家打出攻击牌时，受到等同于层数的伤害并使层数减少1。",
+        "KeystonePower": "要石：打出技能牌时插下，打出攻击牌时拔出，对所有敌人造成等同于层数的伤害。",
+        "PossessedBySeigaPower": "走火入魔：回合开始时，霍青娥接管你的回合：立即失去5点生命并获得1能量，随后按照费用从高到低、从左到右的顺序依次打出可打出的手牌。",
+        "DetectiveManuscriptDexterityPower": None,
+        "Tsukumogami": "付丧之力：获得虚无。当前计数X。计数首次降至0时，无论何处，将这张牌打出。在你的回合结束时，如果这张牌在本回合没有被打出，计数减少1。",
+        "MedicinePoison": "蛊毒：获得永恒。额外给予X层中毒。回合结束时，如果这张牌在手中，本场战斗额外给予X层中毒。",
+    },
+    "eng": {
+        "HeavyDiceRecordPower": '"Cardsharp": You have recorded cards. After your draw phase ends, you may discard a card from your hand to add a copy of the recorded card to your hand, with Exhaust and Ethereal.',
+        "GlowingBambooPower": "Bamboo Forest Treasure: The recorded card will be Upgraded after combat ends.",
+        "YuanChouPower": "Grudge: Deals 25% less damage to the source of this effect. Whenever the source plays an Attack, they take damage equal to this effect's amount and Grudge is reduced by 1.",
+        "KeystonePower": "Keystone: Whenever you play a Skill, plant the Keystone. Whenever you play an Attack, pull it out and deal damage equal to this effect's amount to ALL enemies.",
+        "PossessedBySeigaPower": "Demonic Possession: At the start of your turn, Seiga Kaku takes over your turn: lose 5 HP and gain 1 Energy, then play all playable cards in your hand from highest to lowest cost, left to right.",
+        "DetectiveManuscriptDexterityPower": None,
+        "Tsukumogami": "Tsukumogami: Gains Ethereal. Current count X. When the count first reaches 0, play this card wherever it is. At the end of your turn, if this card was not played this turn, reduce the count by 1.",
+        "MedicinePoison": "Medicine Poison: Gains Eternal. Additionally applies X Poison. At the end of your turn, if this card is in your hand, additionally apply X Poison this combat.",
+    },
 }
-EXTRA_LINES = {
-    "MysteriousLeaf": ["伪装：此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。"],
+_REST_OVERRIDE = {
+    "zhs": {"OPTION_INK_DYED_CHERRY_BLOSSOMS": "恢复因墨染的樱花而失去的最大生命。"},
+    "eng": {"OPTION_INK_DYED_CHERRY_BLOSSOMS": "Restore the Max HP you lost due to Ink-Dyed Cherry Blossoms."},
 }
-KEYWORD_LINES = {
-    "HyakkiYagyoScroll": ["收录：查看来自指定角色的卡牌奖励，选择的卡牌将被加入所有百鬼夜行的收录中，若已存在该角色的收录则替换原先的收录牌。"],
+_EXTRA_LINES = {
+    "zhs": {"MysteriousLeaf": ["伪装：此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。"]},
+    "eng": {"MysteriousLeaf": ["Disguise: This card's cost matches the disguised card's cost. Playing it plays a copy of the disguised card."]},
+}
+_KEYWORD_LINES = {
+    "zhs": {"HyakkiYagyoScroll": ["收录：查看来自指定角色的卡牌奖励，选择的卡牌将被加入所有百鬼夜行的收录中，若已存在该角色的收录则替换原先的收录牌。"]},
+    "eng": {"HyakkiYagyoScroll": ["Collection: View card rewards from a chosen character. The selected card is added to every Hyakki Yagyo's Collection; if that character already has one, it is replaced."]},
 }
 
-CARD_TYPE_CN = {"Attack": "攻击", "Skill": "技能", "Power": "能力", "Curse": "诅咒", "Status": "状态", "Quest": "任务"}
-ROW_CN = ["第一行", "第二行", "第三行", "第四行", "第五行", "第六行"]
+# 当前语言生效的覆盖表（由 set_language 填充）
+RELIC_OVERRIDE, CARD_OVERRIDE, DERIVED_OVERRIDE = {}, {}, {}
+REST_OVERRIDE, EXTRA_LINES, KEYWORD_LINES = {}, {}, {}
+
+CARD_TYPE_LABEL = {
+    "zhs": {"Attack": "攻击", "Skill": "技能", "Power": "能力", "Curse": "诅咒", "Status": "状态", "Quest": "任务"},
+    "eng": {"Attack": "Attack", "Skill": "Skill", "Power": "Power", "Curse": "Curse", "Status": "Status", "Quest": "Quest"},
+}
+ROW_LABEL = {
+    "zhs": ["第一行", "第二行", "第三行", "第四行", "第五行", "第六行"],
+    "eng": ["Row 1", "Row 2", "Row 3", "Row 4", "Row 5", "Row 6"],
+}
+CARD_TYPE_CN = dict(CARD_TYPE_LABEL["zhs"])
+ROW_CN = list(ROW_LABEL["zhs"])
+ENERGY_WORD = {"zhs": "能量", "eng": "Energy"}
+COST_WORD = {"zhs": "耗能", "eng": "Cost"}
+REST_SITE_WORD = {"zhs": "休息处", "eng": "Rest Site"}
 
 # ---------------- 资源索引 ----------------
 mod_card_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(ROOT, "scripts", "cards", "**", "*.cs"), recursive=True)}
@@ -404,35 +456,22 @@ mod_ench_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(RO
 mod_pow_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(ROOT, "scripts", "powers", "*.cs"))}
 mod_pot_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(ROOT, "scripts", "potions", "**", "*.cs"), recursive=True)}
 relic_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(ROOT, "scripts", "relics", "**", "*.cs"), recursive=True)}
+mod_aff_files = {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(ROOT, "scripts", "Afflictions", "*.cs"))}
 # 原版卡牌源码：悬停提示里出现的原版牌（灼伤 / 蛇咬 / 贪婪…）要能列出类型费用与正文
 BASE_CARD_DIR = os.path.join(STS2_SRC, "src", "Core", "Models", "Cards") if STS2_SRC else ""
 base_card_files = {os.path.basename(p)[:-3]: p
                    for p in glob.glob(os.path.join(BASE_CARD_DIR, "**", "*.cs"), recursive=True)
                    if "Mocks" not in p} if BASE_CARD_DIR else {}
 
-KW_CN = {}
-for k, v in base_kw.items():
-    if k.endswith(".title"):
-        KW_CN[snake(k[:-6])] = v
-for m in re.finditer(r'public\s+static\s+CardKeyword\s+(\w+)\s*;',
-                     read(os.path.join(ROOT, "scripts", "keywords", "TouhouAncientKeywords.cs"))):
-    KW_CN[snake(m.group(1))] = mod_kw_loc.get("TOUHOUANCIENTS-" + m.group(1).upper() + ".title", m.group(1))
+KW_CN, KW_DESC, BASE_KW_NAMES = {}, {}, set()
+KW_DERIVED_SKIP = {"EXHAUST", "ETHEREAL", "RETAIN"}
+BASE_AFF_TABLE, MOD_AFF_TABLE = {}, {}
+AFFLICTION_BY_CLASS, MOD_AFFLICTION_CLASSES, BASE_AFFLICTION_CLASSES = {}, set(), set()
+BASE_ENCH_NAMES = set()
 
 
 def kw_cn(name):
     return KW_CN.get(snake(name), name)
-
-
-# 关键词说明（wiki 的衍生条目用）；消耗/虚无/保留 太常见，不单独列
-KW_DESC = {}
-for k, v in base_kw.items():
-    if k.endswith(".description"):
-        KW_DESC[snake(k[:-len(".description")])] = v
-for m in re.finditer(r'public\s+static\s+CardKeyword\s+(\w+)\s*;',
-                     read(os.path.join(ROOT, "scripts", "keywords", "TouhouAncientKeywords.cs"))):
-    KW_DESC[snake(m.group(1))] = mod_kw_loc.get("TOUHOUANCIENTS-" + m.group(1).upper() + ".description", "")
-KW_DERIVED_SKIP = {"EXHAUST", "ETHEREAL", "RETAIN"}
-BASE_KW_NAMES = {snake(k[:-6]) for k in base_kw if k.endswith(".title")}
 
 
 def kw_desc(name):
@@ -441,12 +480,6 @@ def kw_desc(name):
 
 def kw_is_mod(name):
     return snake(name) not in BASE_KW_NAMES
-
-
-# ---------------- 侵蚀（苦痛 / affliction）与本体模型 ----------------
-mod_aff_loc = load("afflictions.json")
-base_aff_loc = load("afflictions.json", True)
-mod_aff_files = {os.path.basename(p)[:-3] for p in glob.glob(os.path.join(ROOT, "scripts", "Afflictions", "*.cs"))}
 
 
 def _affliction_table(table, prefix):
@@ -459,14 +492,90 @@ def _affliction_table(table, prefix):
     return out
 
 
-# 代码里的 FromAffliction<T> 用类名（Galvanized / Collateral…）引用苦痛，按 snake(类名) 解析
-BASE_AFF_TABLE = _affliction_table(base_aff_loc, "")
-MOD_AFF_TABLE = _affliction_table(mod_aff_loc, "TOUHOUANCIENTS-")
-AFFLICTION_BY_CLASS = {**BASE_AFF_TABLE, **MOD_AFF_TABLE}
-MOD_AFFLICTION_CLASSES = set(MOD_AFF_TABLE) | {snake(c) for c in mod_aff_files}
-BASE_AFFLICTION_CLASSES = set(BASE_AFF_TABLE)
+def _fix_slash(path):
+    """JSON 里的路径有时用 /，Windows 上也能读，无需处理；这里只用于说明。"""
+    return path
 
-# 原版卡牌：本体 localization 里只有名字/部分正文，正文缺失的交给本体源码与本地化
+
+def _rebuild_indices():
+    """切语言后重建所有「本地化派生」的索引。"""
+    global KW_CN, KW_DESC, BASE_KW_NAMES, BASE_ENCH_NAMES
+    global BASE_AFF_TABLE, MOD_AFF_TABLE, AFFLICTION_BY_CLASS
+    global MOD_AFFLICTION_CLASSES, BASE_AFFLICTION_CLASSES
+    global _TITLE_INDEX, REST_OPTIONS
+
+    KW_CN = {}
+    for k, v in base_kw.items():
+        if k.endswith(".title"):
+            KW_CN[snake(k[:-6])] = v
+    KW_DESC = {}
+    for k, v in base_kw.items():
+        if k.endswith(".description"):
+            KW_DESC[snake(k[:-len(".description")])] = v
+    for m in re.finditer(r'public\s+static\s+CardKeyword\s+(\w+)\s*;',
+                         read(os.path.join(ROOT, "scripts", "keywords", "TouhouAncientKeywords.cs"))):
+        key = "TOUHOUANCIENTS-" + m.group(1).upper()
+        KW_CN[snake(m.group(1))] = mod_kw_loc.get(key + ".title", m.group(1))
+        KW_DESC[snake(m.group(1))] = mod_kw_loc.get(key + ".description", "")
+    BASE_KW_NAMES = {snake(k[:-6]) for k in base_kw if k.endswith(".title")}
+    BASE_ENCH_NAMES = {snake(k[:-len(".title")]) for k in base_ench_loc if k.endswith(".title")}
+
+    BASE_AFF_TABLE = _affliction_table(base_aff_loc, "")
+    MOD_AFF_TABLE = _affliction_table(mod_aff_loc, "TOUHOUANCIENTS-")
+    AFFLICTION_BY_CLASS = {**BASE_AFF_TABLE, **MOD_AFF_TABLE}
+    MOD_AFFLICTION_CLASSES = set(MOD_AFF_TABLE) | {snake(c) for c in mod_aff_files}
+    BASE_AFFLICTION_CLASSES = set(BASE_AFF_TABLE)
+
+    _TITLE_INDEX = None
+    _card_meta_cache.clear()
+    REST_OPTIONS = {k[:-5]: v for k, v in rest_loc.items() if k.endswith(".name")}
+
+
+def set_language(lang):
+    """切换 mod + 本体本地化语言，并重建派生索引。lang ∈ {"zhs", "eng"}。"""
+    if lang not in LANGUAGES:
+        raise SystemExit("不支持的语言：%s（可选：%s）" % (lang, ", ".join(LANGUAGES)))
+    global LANG, LOC, BASE_LOC
+    global relics_loc, cards_loc, ench_loc, pow_loc, pot_loc
+    global mod_kw_loc, rest_loc, ancients_loc
+    global base_kw, base_ench_loc, base_pow_loc, base_cards_loc, chars_loc
+    global mod_aff_loc, base_aff_loc
+    global RELIC_OVERRIDE, CARD_OVERRIDE, DERIVED_OVERRIDE
+    global REST_OVERRIDE, EXTRA_LINES, KEYWORD_LINES
+    global CARD_TYPE_CN, ROW_CN
+
+    LANG = lang
+    LOC = os.path.join(ROOT, "TouhouAncients", "localization", lang)
+    BASE_LOC = os.path.join(STS2_SRC, "localization", lang) if STS2_SRC else None
+
+    relics_loc = load("relics.json")
+    cards_loc = load("cards.json")
+    ench_loc = load("enchantments.json")
+    pow_loc = load("powers.json")
+    pot_loc = load("potions.json")
+    mod_kw_loc = load("card_keywords.json")
+    rest_loc = load("rest_site_ui.json")
+    ancients_loc = load("ancients.json")
+    mod_aff_loc = load("afflictions.json")
+    base_kw = load("card_keywords.json", True)
+    base_ench_loc = load("enchantments.json", True)
+    base_pow_loc = load("powers.json", True)
+    base_cards_loc = load("cards.json", True)
+    base_aff_loc = load("afflictions.json", True)
+    chars_loc = load("characters.json", True)
+
+    RELIC_OVERRIDE = dict(_RELIC_OVERRIDE[lang])
+    CARD_OVERRIDE = {k: dict(v) for k, v in _CARD_OVERRIDE[lang].items()}
+    DERIVED_OVERRIDE = dict(_DERIVED_OVERRIDE[lang])
+    REST_OVERRIDE = dict(_REST_OVERRIDE[lang])
+    EXTRA_LINES = dict(_EXTRA_LINES[lang])
+    KEYWORD_LINES = dict(_KEYWORD_LINES[lang])
+    CARD_TYPE_CN = dict(CARD_TYPE_LABEL[lang])
+    ROW_CN = list(ROW_LABEL[lang])
+
+    if not BASE_LOC:
+        print("警告：.agents/local.md 里没有 sts2-src，原版关键词/卡牌名会退化成英文原名。", file=sys.stderr)
+    _rebuild_indices()
 
 
 # ---------------- 各模型 → 一行衍生说明 ----------------
@@ -673,7 +782,6 @@ HOVER_KIND = {
     "Power": "power", "PowerWithPowerHoverTips": "power",
     "Potion": "potion",
 }
-BASE_ENCH_NAMES = {snake(k[:-len(".title")]) for k in base_ench_loc if k.endswith(".title")}
 HOVER_TABLES = {"power": mod_pow_files, "potion": mod_pot_files}
 
 
@@ -771,6 +879,22 @@ def base_enchant_entry(cls):
     return title, strip_unresolved(render(desc, {}, upgrade=False))
 
 
+def meta_line(meta):
+    """类型 · 费用（按当前语言）。原版卡牌与 mod 卡牌共用。"""
+    sep = "" if LANG == "zhs" else " "
+    word = COST_WORD.get(LANG, "耗能")
+    if meta["cost"] == "X":
+        cost = word + sep + "X"
+    elif meta["cost"] is None or meta["cost"] == -1:
+        cost = ""
+    else:
+        cost = word + sep + str(meta["cost"])
+    parts = [CARD_TYPE_CN.get(meta["type"], meta["type"] or "")]
+    if cost:
+        parts.append(cost)
+    return " · ".join(p for p in parts if p)
+
+
 def base_card_detail(cls):
     """原版卡牌的 wiki 条目：类型/费用/关键词从本体源码读，正文取本体 localization（可能为空）。"""
     hit = base_card_entry(cls)
@@ -778,16 +902,7 @@ def base_card_detail(cls):
         return None
     title, text = hit
     meta = card_meta(cls, base_card_files[cls])
-    if meta["cost"] == "X":
-        cost = "耗能X"
-    elif meta["cost"] is None or meta["cost"] == -1:
-        cost = ""
-    else:
-        cost = "耗能%d" % meta["cost"]
-    parts = [CARD_TYPE_CN.get(meta["type"], meta["type"] or "")]
-    if cost:
-        parts.append(cost)
-    return {"name": title, "html": text, "meta": " · ".join(p for p in parts if p),
+    return {"name": title, "html": text, "meta": meta_line(meta),
             "keywords": [kw_cn(k) for k in meta["keywords"]]}
 
 
@@ -866,9 +981,6 @@ def derived_entries(src, raw, vars_, owner=None):
     return out
 
 
-REST_OPTIONS = {k[:-5]: v for k, v in rest_loc.items() if k.endswith(".name")}
-
-
 def build_ancient(a):
     pools, idx = [], 0
     for pool_info in a["pools"]:
@@ -928,7 +1040,10 @@ def main():
     ap.add_argument("ancient", nargs="?", help="先古之民：中文名片段 / 类名 / 文件名；留空=全部")
     ap.add_argument("--out", help="写到文件；缺省打印到 stdout")
     ap.add_argument("--list", action="store_true", help="只列出所有先古之民")
+    ap.add_argument("--lang", default="zhs", choices=list(LANGUAGES), help="本地化语言（默认 zhs）")
     args = ap.parse_args()
+
+    set_language(args.lang)
 
     all_ancients = parse_ancients()
     if args.list:

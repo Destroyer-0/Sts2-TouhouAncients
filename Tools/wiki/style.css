@@ -67,6 +67,8 @@ a { color: var(--gold); }
 }
 .share:hover { background: rgba(239, 200, 81, .18); border-color: var(--gold); }
 .share.copied { color: var(--green); border-color: rgba(127, 255, 0, .55); }
+.share.lang { min-width: 46px; color: var(--text-2); border-color: var(--line); }
+.share.lang:hover { color: var(--gold); }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 80px; }
 
