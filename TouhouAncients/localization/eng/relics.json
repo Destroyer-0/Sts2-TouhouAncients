@@ -360,7 +360,7 @@
   "TOUHOUANCIENTS-GHOST_LANTERN.description": "Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].",
   "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].",
   "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "Choose up to [blue]{SelectNum}[/blue] cards to add to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "The souls dwelling within [jitter]stir[/jitter]. In every way, a ghost surpasses the physical body... no, I'm not referring to anyone in particular.",
+  "TOUHOUANCIENTS-GHOST_LANTERN.flavor": "Sound a requiem for the traitors!",
 
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "Magic Mallet",
   "TOUHOUANCIENTS-MAGIC_MALLET.description": "Upon pickup, add [blue]1[/blue] [gold]Mallet's Magic[/gold] to your [gold]Deck[/gold].",

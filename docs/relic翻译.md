@@ -2311,7 +2311,7 @@
 "TOUHOUANCIENTS-GHOST_LANTERN.description": "拾起时，从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
 "TOUHOUANCIENTS-GHOST_LANTERN.eventDescription": "从[blue]{Amount}[/blue]张[gold]无色牌[/gold]中选择至多[blue]{SelectNum}[/blue]张加入牌组，为这些牌[gold]附魔[/gold]：[purple]{EnchantmentName}{EnchantAmount}[/purple]。",
 "TOUHOUANCIENTS-GHOST_LANTERN.selectionScreenPrompt": "选择至多[blue]{SelectNum}[/blue]张加入牌组",
-"TOUHOUANCIENTS-GHOST_LANTERN.flavor": "寄宿其中的灵魂在[jitter]躁动[/jitter]，幽灵在各个方面都能胜过肉体，啊，我不是说某个角色。"
+"TOUHOUANCIENTS-GHOST_LANTERN.flavor": "为背叛者们奏响镇魂曲吧！"
 ```
 
 ### 英文翻译
@@ -2321,7 +2321,7 @@
 | `.description` | `Upon pickup, choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].` |
 | `.eventDescription` | `Choose up to [blue]{SelectNum}[/blue] of [blue]{Amount}[/blue] [gold]Colorless[/gold] cards to add to your [gold]Deck[/gold], [gold]enchanted[/gold] with [purple]{EnchantmentName} {EnchantAmount}[/purple].` |
 | `.selectionScreenPrompt` | `Choose up to [blue]{SelectNum}[/blue] cards to add to your [gold]Deck[/gold].` |
-| `.flavor` | `The souls dwelling within [jitter]stir[/jitter]. In every way, a ghost surpasses the physical body... no, I'm not referring to anyone in particular.` |
+| `.flavor` | `Sound a requiem for the traitors!` |
 
 ### 关联附魔（重做）
 **键名**: `TOUHOUANCIENTS-TSUKUMOGAMI`（付丧之力X）

@@ -32,6 +32,13 @@ Ooh! Just as the rumors said... |
 | `talk.REGENT.0-0r.ancient` | 我进塔！！！ | I enter!!! |
 | `talk.REGENT.0-0r.next` | 沉思 | Pondering |
 | `talk.REGENT.0-1r.char` | 我进塔！！！ | I enter!!! |
+| `talk.REGENT.1-0r.ancient` | 我听说你的[orange][b]君王之剑[/b][/orange]是宇宙最强的武器！ | I heard your [orange][b]Sovereign Blade[/b][/orange] is the strongest weapon in the universe! |
+| `talk.REGENT.1-0r.next` | 骄傲 | Proud |
+| `talk.REGENT.1-1r.char` | 没错！整个宇宙没有任何东西能挡住我的[orange][b]君王之剑[/b][/orange]！ | That’s right! Nothing in the entire universe can stop my [orange][b]Sovereign Blade[/b][/orange]! |
+| `talk.REGENT.1-1r.next` | 继续 | Continue |
+| `talk.REGENT.1-2r.ancient` | 哦哦！那如果用你的[orange][b]君王之剑[/b][/orange]去砍外骨骼虫会发生什么呢！ | Ooh! Then what would happen if you used your [orange][b]Sovereign Blade[/b][/orange] to chop up an Exoskeleton?! |
+| `talk.REGENT.1-2r.next` | 继续 | Continue |
+| `talk.REGENT.1-3r.char` | …… | ... |
 | `talk.DEFECT.0-0r.ancient` | 哦哦！是传说中的尖塔第四强角色！ | Ooh! The legendary fourth-strongest character of the Sts! |
 | `talk.DEFECT.0-0r.next` | 继续 | Continue |
 | `talk.DEFECT.0-1r.char` | [i][font_size=22]<生气的嘀嘀声>[/font_size][/i] | [i][font_size=22]<Angry beep>[/font_size][/i] |
