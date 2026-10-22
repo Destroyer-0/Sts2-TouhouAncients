@@ -15,6 +15,7 @@ using TouhouAncients.Scripts.Enchantment;
 using TouhouAncients.Scripts.encounters;
 using TouhouAncients.Scripts.Patches;
 using TouhouAncients.Scripts.relics;
+using TouhouAncients.Scripts.Timeline;
 
 namespace TouhouAncients.Scripts;
 
@@ -48,6 +49,12 @@ public class Entry
         // SavedPropertiesTypeCache.InjectTypeIntoCache(typeof(DowsingRod));
         
         
+        // 时间线节点必须在模型/存档初始化前注册
+        TouhouAncientTimelineRegistry.AddRule<TouhouSanaeEpoch>(
+            TouhouTimelineUnlockRule.AfterEncounterAncient<KotiyaSanaeAncient>());
+        TouhouAncientTimelineRegistry.AddRule<TouhouMamizouEpoch>(
+            TouhouTimelineUnlockRule.AfterEncounterAncient<FutatsuiwaMamizouAncient>());
+        TouhouAncientTimelineRegistry.Initialize();
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可
         var harmony = new Harmony("sts2.reme.TouhouAncients");
