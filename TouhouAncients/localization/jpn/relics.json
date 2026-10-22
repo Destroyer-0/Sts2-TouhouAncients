@@ -723,7 +723,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°nueå…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ'ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "One-Eyed Karakasa",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "Whenever you kill a non-Minion enemy, gain [blue]{Charges}[/blue] charges ([blue]{FirstTurnCharges}[/blue] if it is the first turn of combat). At [gold]Rest Sites[/gold], you may spend [blue]{UpgradeCost}[/blue] charges to [green]Upgrade[/green] [blue]{UpgradeCount}[/blue] additional cards.",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "When the total damage you deal this turn to an enemy whose intent is [gold]Attack[/gold] exceeds its total intent damage, it loses [blue]{StrengthDown}[/blue] [gold]Strength[/gold] this turn. Whenever you [gold]Fatal[/gold] an enemy with negative [gold]Strength[/gold], combat rewards gain a reward to [green]Upgrade[/green] one card.",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "Careful not to scare that poorly cute child.",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",

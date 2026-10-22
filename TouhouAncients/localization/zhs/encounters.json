@@ -55,6 +55,12 @@
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "{character}作为有机物的一份子融入了石油之海。",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.bgm": "贪欲之兽的记忆",
 
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "二岩猯藏（测试）",
-  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "{character}被[gold]{encounter}[/gold]与她的手下的花招耍得晕头转向。"
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.title": "二岩猯藏",
+  "TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ENCOUNTER.loss": "[gold]{encounter}[/gold]与她的手下把{character}耍得晕头转向。",
+
+  "TOUHOUANCIENTS-IDOL_KOMEJI_KOISHI_ENCOUNTER.title": "偶像古明地恋",
+  "TOUHOUANCIENTS-IDOL_KOMEJI_KOISHI_ENCOUNTER.loss": "{character}被驱逐出了[green]地底蔷薇[/green]的演唱会现场。",
+
+  "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ENCOUNTER.title": "射命丸文",
+  "TOUHOUANCIENTS-SHAMYOUMARU_AYA_ENCOUNTER.loss": "{character}落败的照片将成为[gold]《文文。新闻》[/gold]明天的头版。"
 }

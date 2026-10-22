@@ -129,16 +129,16 @@
 | KOTIYA_SANAE_ENCOUNTER | Sanae Kochiya | {character} failed to bring about a miracle great enough to overcome [aqua]the living god[/aqua] [gold]{encounter}[/gold]. |
 | REMILIA_SCARLET_ENCOUNTER | Remilia Scarlet | {character}'s fate came to an end beneath the majesty of [gold]{encounter}[/gold]. |
 | KOMEJI_SATORI_ENCOUNTER | Satori Komeji | [gold]{encounter}[/gold] saw through every intention of {character}. |
-| HINANAWI_TENSHI_ENCOUNTER | Tenshi Hinanawi | {character} became yet another defeated rival of [gold]{encounter}[/gold]. |
+| HINANAWI_TENSHI_ENCOUNTER | Tenshi Hinanawi | {character} lowered their proud head before [gold]{encounter}[/gold]. |
 | INABA_TEWI_ENCOUNTER | Tewi Inaba | {character} stepped right into a trap long prepared by [gold]{encounter}[/gold]. |
 | KIJIN_SEIJA_ENCOUNTER | Seija Kijin | [gold]{encounter}[/gold] flipped the scales tipping toward {character}'s victory. |
-| MEDICINE_MELANCHOLY_ENCOUNTER | Medicine Melancholy | {character} fell into an eternal slumber within [gold]{encounter}[/gold]'s sea of lily of the valley. |
+| MEDICINE_MELANCHOLY_ENCOUNTER | Medicine Melancholy | {character} slumbers in [gold]{encounter}[/gold]'s sea of lily of the valley. |
 | HOURAISAN_KAGUYA_ENCOUNTER | Kaguya Houraisan | {character}'s journey came to an end beneath the allure of [gold]{encounter}[/gold]. |
-| HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou | （妹红彩蛋） | Just a single grain in the endless fate of deadly duels. |
+| HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou | （妹红彩蛋） | Just a single grain in the [gold]endless fate of deadly duels[/gold]. |
 | SAIGYOUJI_YUYUKO_ENCOUNTER | Yuyuko Saigyouji | [gold]{encounter}[/gold] brought [purple]death[/purple] itself to {character}. |
 | JUNKO_ENCOUNTER | Junko | {character} submitted to the absolute power of [gold]{encounter}[/gold]. |
 | TOUTETSU_YUUMA_ENCOUNTER | Yuuma Toutetsu | [gold]{encounter}[/gold] melted {character} into the sea of oil as just another piece of organic matter. |
-| FUTATSUIWA_MAMIZOU_ENCOUNTER | Mamizou Futatsuiwa (Test) | {character} was spun dizzy by the tricks of [gold]{encounter}[/gold] and her underlings. |
+| FUTATSUIWA_MAMIZOU_ENCOUNTER | Mamizou Futatsuiwa | {character} was spun dizzy by the tricks of [gold]{encounter}[/gold] and her underlings. |
 
 ### 能力更新（powers.json）
 
@@ -254,7 +254,7 @@
 
 | 键 | 中文 | English |
 |------|------|---------|
-| `HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou` | 只是那[gold]永无尽头的死斗宿命[/gold]中的一粟而已。 | Just a single grain in the endless fate of deadly duels. |
+| `HOURAISAN_KAGUYA_ENCOUNTER.loss.mokou` | 只是那[gold]永无尽头的死斗宿命[/gold]中的一粟而已。 | Just a single grain in the [gold]endless fate of deadly duels[/gold]. |
 | `HOURAISAN_KAGUYA_ENCOUNTER.bgm` | 竹取飞翔　～ Lunatic Princess | Flight of the Bamboo Cutter ~ Lunatic Princess |
 | `SAIGYOUJI_YUYUKO_ENCOUNTER.youmu` | [gold]{encounter}[/gold]面对{character}并没有放水。 | [gold]{encounter}[/gold] did not go easy on {character}. |
 
