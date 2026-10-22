@@ -24,4 +24,7 @@ public sealed class TouhouTimelineEpochAttribute(int eraValue) : Attribute
     public string? StoryKey { get; init; }
 
     public int ChapterOrder { get; init; }
+
+    /// <summary>true = 并列起点：不与上一章连成展开链，自己开根槽位。</summary>
+    public bool Root { get; init; }
 }

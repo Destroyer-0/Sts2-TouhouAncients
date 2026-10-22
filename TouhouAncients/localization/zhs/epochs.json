@@ -1,11 +1,11 @@
 {
+  "STORY_TOUHOU_ANCIENTS_STORY": "幻想乡",
   "TOUHOUANCIENTS_SANAE.title": "信仰是为了何人？",
-  "TOUHOUANCIENTS_SANAE.description": "「\n荒疫，另一个世界传出不详的警报。\n少女怀揣着神明的希冀，迈向远方。\n那高耸的尖塔不曾入眠，\n光明与黑暗的边界早已被混淆。\n她为肮脏的巢穴带来净化的希望，\n她在伪善的荣耀引发奇迹的曙光。\n纵使星辰被暗港之水锈蚀，\n即便果实被密林之土埋葬，\n思乡的泪水已噙满少女的眼眶，\n不屈的信仰却未曾被撼动分毫。\n」\n早苗绘声绘色地向到来者讲述着故事。\n“所以，关注守矢神社谢谢呐！”",
+  "TOUHOUANCIENTS_SANAE.description": "「荒疫，另一个世界传出不详的警报。少女怀揣着神明的寄托，迈向远方。\n那高耸的尖塔不曾入眠，光明与黑暗的边界早已混淆。\n她为肮脏的巢穴带来净化的希望，她在伪善的荣耀引发奇迹的曙光。\n即便星辰被暗港之水锈蚀，纵使幼芽被密林之土埋葬。\n思乡的泪水已噙满少女的眼眶，不屈的信仰却未曾被撼动分毫。」\n\n早苗[sine]绘声绘色[/sine]地向到来者讲述着故事。\n\n“所以，关注[aqua]守矢神社[/aqua]谢谢呐！！”",
   "TOUHOUANCIENTS_SANAE.unlockInfo": "遭遇先古之民：[green]东风谷早苗[/green]{IsRevealed:|来揭示这个历史节点}。",
   "TOUHOUANCIENTS_SANAE.unlockText": "你可以在第二幕或第三幕遇到这位风祝小姐。",
-  "STORY_TOUHOU_ANCIENTS_SANAE_STORY": "幻想乡",
-  "TOUHOUANCIENTS_MAMIZOU.title": "来自佐渡的信仰代表",
-  "TOUHOUANCIENTS_MAMIZOU.description": "听到贤者发布的消息，命莲寺和神灵庙的两位领导人正摩拳擦掌。\n这难道不是一个推广信仰的大好机会吗？\n但是派谁去高塔，才能挣得最大的利益呢？佛教与道教在此事上两不相让。\n\n“呵呵，那就让作为中立的老朽作为两方共同的代表去推广吧。”\n猯藏敏锐地嗅到了这一机会。这位狸猫的老大总是不介意为她的部下谋求点利益。当然，还有那位臭味相投的老朋友。\n\n“现在，就让俺们大闹一场吧！”",
+  "TOUHOUANCIENTS_MAMIZOU.title": "先子星的二岩",
+  "TOUHOUANCIENTS_MAMIZOU.description": "听到贤者发布的消息，命莲寺和神灵庙的两位领导人正摩拳擦掌。\n这难道不是一个推广信仰的大好机会吗？\n但是派谁去高塔，才能挣得最大的利益呢？佛教与道教在此事上两不相让。\n\n“呵呵，那就让中立的老朽作为两方共同的代表去推广吧。”\n猯藏敏锐地嗅到了这一机会。这位狸猫老大总是不介意为她的部下谋求点利益。当然，还有那位臭味相投的老朋友。\n\n“现在，就让俺们大闹一场吧！”",
   "TOUHOUANCIENTS_MAMIZOU.unlockInfo": "遭遇先古之民：[gold]二岩猯藏[/gold]{IsRevealed:|来揭示这个历史节点}。",
   "TOUHOUANCIENTS_MAMIZOU.unlockText": "你可以在第二幕或第三幕遇到这位变化莫测的妖怪狸首领。"
 }

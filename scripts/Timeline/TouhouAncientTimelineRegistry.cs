@@ -29,6 +29,9 @@ public static partial class TouhouAncientTimelineRegistry
 
     public static bool IsInitialized => _initialized;
 
+    /// <summary>本 Mod 已注册的全部时间线节点 Id。</summary>
+    public static IReadOnlySet<string> RegisteredEpochIds => RegisteredIds;
+
     /// <summary>解析特性并写入游戏字典；重复调用无副作用。</summary>
     public static void Initialize()
     {
@@ -60,11 +63,11 @@ public static partial class TouhouAncientTimelineRegistry
         AddStory(typeof(TStory), storyKey);
     }
 
-    public static void RegisterEpoch<TEpoch>(TouhouAncientTimelineEra era, int? position = null)
+    public static void RegisterEpoch<TEpoch>(TouhouAncientTimelineEra era, int? position = null, bool isRoot = false)
         where TEpoch : TouhouAncientTimeline, new()
     {
         EnsureMutable();
-        AddEpoch(typeof(TEpoch), era, position);
+        AddEpoch(typeof(TEpoch), era, position, isRoot: isRoot);
     }
 
     /// <summary>把已注册节点按顺序绑定到故事；须先注册节点。</summary>
@@ -176,6 +179,36 @@ public static partial class TouhouAncientTimelineRegistry
         }
     }
 
+    /// <summary>清空本 Mod 全部节点进度并恢复成首次安装的根槽位；返回清掉的条目数。</summary>
+    public static int ClearAllProgress(ProgressState? progress = null)
+    {
+        progress ??= SaveManager.Instance.Progress;
+        if (!_initialized || progress == null)
+        {
+            return 0;
+        }
+
+        int removed;
+        if (progress.Epochs is List<SerializableEpoch> epochs)
+        {
+            // 直接删条目 = 首次安装状态；留着条目而是 NotObtained 会让章节节点提前出现
+            removed = epochs.RemoveAll(entry => RegisteredIds.Contains(entry.Id));
+        }
+        else
+        {
+            removed = 0;
+            foreach (string id in RegisteredIds)
+            {
+                progress.ObtainEpochOverride(id, EpochState.NotObtained);
+            }
+
+            Log.Warn("[TouhouAncients] ProgressState.Epochs 不是 List，改用状态回退清除。");
+        }
+
+        EnsureRootSlots(progress);
+        return removed;
+    }
+
     private static void RunStaticConstructors()
     {
         // 先让原版静态构造把字典填满，再追加 Mod 节点。
@@ -227,7 +260,13 @@ public static partial class TouhouAncientTimelineRegistry
                 Log.Warn($"[TouhouAncients] 节点 {type.Name} 的 StoryKey={attribute.StoryKey} 未注册，将按独立节点处理。");
             }
 
-            AddEpoch(type, era, attribute.Position >= 0 ? attribute.Position : null, story?.StoryType, attribute.ChapterOrder);
+            AddEpoch(
+                type,
+                era,
+                attribute.Position >= 0 ? attribute.Position : null,
+                story?.StoryType,
+                attribute.ChapterOrder,
+                attribute.Root);
         }
     }
 
@@ -236,6 +275,7 @@ public static partial class TouhouAncientTimelineRegistry
         SeedVanillaOccupancy();
         RegisterStoriesInGame();
         RegisterEpochsInGame();
+        RegisterEpochsInAllEpochs();
         AssignLayout();
         BuildStoryData();
         RefreshAllEpochIds();
@@ -310,6 +350,26 @@ public static partial class TouhouAncientTimelineRegistry
         }
     }
 
+    // 0.11x 的 ModelIdSerializationCache 用 AllEpochs（编译期固定的本体类型表）建 net id，
+    // 只改 _allEpochIds 不进表 → 写 replay / 联机包时 GetNetIdForEpochId 抛异常。
+    private static void RegisterEpochsInAllEpochs()
+    {
+        FieldInfo? field = typeof(EpochModel).GetField("_allEpochs", BindingFlags.Static | BindingFlags.NonPublic);
+        if (field?.GetValue(null) is not List<Type> allEpochs)
+        {
+            Log.Warn("[TouhouAncients] EpochModel._allEpochs 不可用，节点无法进入联网 id 表。");
+            return;
+        }
+
+        foreach (EpochRegistration registration in Epochs)
+        {
+            if (!allEpochs.Contains(registration.EpochType))
+            {
+                allEpochs.Add(registration.EpochType);
+            }
+        }
+    }
+
     private static void AssignLayout()
     {
         foreach (EpochRegistration registration in Epochs)
@@ -374,9 +434,15 @@ public static partial class TouhouAncientTimelineRegistry
                 StoryIdByEpoch[registration.EpochType] = storyId;
             }
 
-            for (int i = 0; i < ordered.Count - 1; i++)
+            // Root 节点是并列起点，不与上一章连边；展开链只在段内连
+            for (int i = 1; i < ordered.Count; i++)
             {
-                AddExpansion(ordered[i].EpochType, ordered[i + 1].EpochType);
+                if (ordered[i].IsRoot)
+                {
+                    continue;
+                }
+
+                AddExpansion(ordered[i - 1].EpochType, ordered[i].EpochType);
             }
         }
 
@@ -424,17 +490,16 @@ public static partial class TouhouAncientTimelineRegistry
     private static IEnumerable<Type> GetRootEpochTypes()
     {
         HashSet<Type> roots = [];
-        foreach (List<Type> chapters in StoryChapters.Values)
-        {
-            if (chapters.Count > 0)
-            {
-                roots.Add(chapters[0]);
-            }
-        }
-
         foreach (EpochRegistration registration in Epochs)
         {
-            if (registration.StoryType == null)
+            // 故事首章、Root 并列节点、无故事节点都要开槽
+            bool isRoot = registration.StoryType == null
+                          || registration.IsRoot
+                          || (StoryChapters.TryGetValue(registration.StoryType, out List<Type>? chapters)
+                              && chapters.Count > 0
+                              && chapters[0] == registration.EpochType);
+
+            if (isRoot)
             {
                 roots.Add(registration.EpochType);
             }
@@ -472,7 +537,13 @@ public static partial class TouhouAncientTimelineRegistry
         Stories.Add(new StoryRegistration(storyType, storyKey.Trim(), StringHelper.Slugify(storyKey)));
     }
 
-    private static void AddEpoch(Type epochType, TouhouAncientTimelineEra era, int? position, Type? storyType = null, int chapterOrder = 0)
+    private static void AddEpoch(
+        Type epochType,
+        TouhouAncientTimelineEra era,
+        int? position,
+        Type? storyType = null,
+        int chapterOrder = 0,
+        bool isRoot = false)
     {
         if (epochType.IsAbstract || epochType.GetConstructor(Type.EmptyTypes) == null)
         {
@@ -485,7 +556,7 @@ public static partial class TouhouAncientTimelineRegistry
             return;
         }
 
-        Epochs.Add(new EpochRegistration(epochType, era, position, storyType, chapterOrder));
+        Epochs.Add(new EpochRegistration(epochType, era, position, storyType, chapterOrder, isRoot));
     }
 
     private static void AddExpansion(Type from, Type to)
@@ -551,5 +622,6 @@ public static partial class TouhouAncientTimelineRegistry
         TouhouAncientTimelineEra Era,
         int? Position,
         Type? StoryType = null,
-        int ChapterOrder = 0);
+        int ChapterOrder = 0,
+        bool IsRoot = false);
 }

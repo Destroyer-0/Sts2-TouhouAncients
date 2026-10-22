@@ -4,6 +4,21 @@ using MegaCrit.Sts2.Core.Timeline;
 
 namespace TouhouAncients.Scripts.Timeline;
 
+
+internal static class TouhouTimelineColumns
+{
+    // Invitation7(2739) 之后的两列；均复用门扉的名称与年份
+    public const int Invitation8 = 2740;
+    public const int Invitation9 = 2741;
+    public const string Invitation8NameKey = "INVITATION0";
+    public const string Invitation9NameKey = "INVITATION0";
+}
+
+[TouhouTimelineStory("touhou_ancients_story")]
+public sealed class TouhouAncientStory : TouhouAncientTimelineStory
+{
+    protected override string StoryKey => "touhou_ancients_story";
+}
 /// <summary>Mod 历史节点基类；布局、注册、故事归属由注册表统一处理。</summary>
 public abstract class TouhouAncientTimeline : EpochModel
 {
