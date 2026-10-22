@@ -32,7 +32,7 @@ public class OneEyedKarakasa : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("StrengthDown", 3m),
+        new DynamicVar("StrengthDown", 4m),
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
