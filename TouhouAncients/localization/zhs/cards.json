@@ -15,7 +15,7 @@
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "将{Cards:diff()}张[gold]小刀[/gold]添加到你的[gold]手牌[/gold]。\n回合结束时，本回合每[gold]消耗[/gold]过一张牌，对目标造成{Damage:diff()}点伤害。",
 
     "TOUHOUANCIENTS-SERVANT_PATCHOULI.title": "魔法仆从",
-    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "为你的所有非仆从手牌添加[gold]虚无[/gold]。\n获得{Energy:energyIcons()}。\n将{Cards}张[gold]眩晕[/gold]添加到你的[gold]手牌[/gold]。",
+    "TOUHOUANCIENTS-SERVANT_PATCHOULI.description": "为你的所有非仆从手牌添加[gold]虚无[/gold]。\n获得{Energy:energyIcons()}。\n将{Cards}张[gold]晕眩[/gold]添加到你的[gold]手牌[/gold]。",
 
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.title": "罡气仆从",
     "TOUHOUANCIENTS-SERVANT_HONGMEILING.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n在本回合将你格挡掉的攻击伤害的一半转化为[gold]活力[/gold]。",
