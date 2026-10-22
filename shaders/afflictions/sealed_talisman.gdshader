@@ -38,6 +38,24 @@ uniform vec4 paper_color : source_color = vec4(0.992, 0.965, 0.906, 1.0);
 // 卡面圆角半径（以卡高为单位）。
 uniform float card_corner_radius : hint_range(0.0, 0.15) = 0.055;
 
+// 整卡红光（参照原版 BOUND 侵蚀的 card_glow 层）：strength 总亮度，
+// flat 为整卡均匀泛红的占比（0 = 只有边缘发光），radius 为边缘加强的向内衰减长度。
+uniform float card_glow_strength : hint_range(0.0, 3.0) = 0.25;
+uniform float card_glow_flat : hint_range(0.0, 1.0) = 0.4;
+uniform float card_glow_radius : hint_range(0.01, 0.5) = 0.12;
+
+// 卡面描边染色（同 BOUND 的 border 层）：沿卡面轮廓铺一条纯色带，取代原卡框颜色。
+// width 为向内的带宽，outset 为向外的带宽（以卡高为单位），两者共同决定描边粗细。
+uniform float border_width : hint_range(0.0, 0.1) = 0.022;
+uniform float border_outset : hint_range(0.0, 0.05) = 0.008;
+uniform float border_alpha : hint_range(0.0, 1.0) = 0.95;
+// 噪声腐蚀量：0 = 实心色块，越大越破碎；噪声沿轮廓缓动。
+uniform float border_erosion : hint_range(0.0, 1.0) = 0.35;
+uniform vec4 border_color : source_color = vec4(0.90, 0.06, 0.06, 1.0);
+// 符札溢出卡面轮廓的像素数。0 = 严格裁在卡边；正数用 vertex 把 quad 撑大，
+// 符纸带就能跑到卡框描边以外（参考 BOUND 用负 offset 把内容撑出卡矩形的做法）。
+uniform float overflow_px : hint_range(0.0, 40.0) = 16.0;
+
 // 贴图 82x191，四边各有 2px 透明边；平铺前必须裁掉，否则每张符之间会露一条纸色缝。
 const vec2 TEX_TRIM = vec2(2.0 / 82.0, 2.0 / 191.0);
 const vec2 TEX_INNER = vec2(1.0 - 2.0 * TEX_TRIM.x, 1.0 - 2.0 * TEX_TRIM.y);
@@ -55,8 +73,32 @@ float ink_of(vec2 tuv) {
 	return smoothstep(0.22, 0.55, 1.0 - s.g);
 }
 
+float hash21(vec2 p) {
+	p = fract(p * vec2(123.34, 456.21));
+	p += dot(p, p + 45.32);
+	return fract(p.x * p.y);
+}
+
+float noise2(vec2 p) {
+	vec2 i = floor(p);
+	vec2 f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	return mix(
+		mix(hash21(i), hash21(i + vec2(1.0, 0.0)), f.x),
+		mix(hash21(i + vec2(0.0, 1.0)), hash21(i + vec2(1.0, 1.0)), f.x),
+		f.y);
+}
+
+// 把 quad 向外撑大：不撑就没有溢出区域的像素，后面的负 offset 式绘制也无处落笔。
+void vertex() {
+	if (overflow_px > 0.0) {
+		VERTEX += (UV * 2.0 - 1.0) * overflow_px;
+	}
+}
+
 void fragment() {
-	vec2 uv = UV;
+	// 撑大后 UV 覆盖的是外括矩形，先映射回卡面坐标（0..1 = 卡面，超出即溢出区）。
+	vec2 uv = (UV * (card_px + vec2(overflow_px * 2.0)) - vec2(overflow_px)) / card_px;
 	float t = TIME * flow_speed;
 
 	// 全部几何都在「像素空间」量：x/y 同单位，符札才是正长方形，不会被卡宽高比剪切。
@@ -105,19 +147,50 @@ void fragment() {
 	float breathe = 0.85 + 0.15 * sin(t * 1.7 + phase);
 	float ink_amount = ink * ink_opacity * breathe;
 
-	// 红光从带子边缘向内/外对称衰减并沿带子连续；乘任何随周期变化的量都会在接缝处画一道。
-	// glow_color 的 alpha 也参与调制，可当第二档亮度旋钮。
-	float glow = exp(-abs(band_sdf) / max(glow_radius * card_px.y, 1e-3));
+	// 红光只向带子外侧溢出：若带内也叠加加法光，米色纸会被冲成白色、红字更会被冲白。
+	// 乘任何随周期变化的量都会在接缝处画一道，所以只用 band_sdf。
+	float glow = exp(-max(band_sdf, 0.0) / max(glow_radius * card_px.y, 1e-3)) * (1.0 - inside);
 	glow *= glow_strength * breathe * glow_color.a;
 
 	// 符纸底色铺满整条带子（含符间间隔），所以间隔看上去和符纸同色。
 	float paper = paper_opacity * inside;
 
-	// 纸在下、字在上（若改成相加，红字会被纸色冲成白粉色）；红光最后叠加。
-	float base_a = max(paper, ink_amount);
+	// 纸在下、字在上（若改成相加，红字会被纸色冲成白粉色）。
+	// 符札不跟卡面圆角裁：让它一直铺到 quad 边界，就是「越出描边」的观感。
 	vec3 rgb = paper_color.rgb * paper * (1.0 - ink_amount) + ink_color.rgb * ink_amount;
-	rgb += glow_color.rgb * glow;
-	float alpha = clamp(base_a + glow, 0.0, 1.0);
+	float alpha = max(paper, ink_amount);
+	float band_glow = glow;
 
-	COLOR = vec4(rgb * card_mask, alpha * card_mask);
+	// 整卡红光：轮廓内均匀泛红 + 边缘加强（等价于 BOUND 的那层 card_glow，但跟着卡面圆角走）。
+	// 让开符纸带：否则纸面和红字又被加法光泛白。
+	float inner = max(-card_sdf, 0.0);
+	float rim = exp(-inner / max(card_glow_radius * card_px.y, 1e-3));
+	float card_glow = card_glow_strength * (card_glow_flat + (1.0 - card_glow_flat) * rim)
+		* card_mask * (1.0 - inside) * glow_color.a;
+
+	// 卡面描边染色：sd 在 [-inw, outw] 内的像素直接盖成纯色（BOUND 的 border 层做法）。
+	// 噪声腐蚀让它像被符呪侵蚀，而不是一圈死板的描边。
+	float sd = card_sdf;
+	float baa = max(fwidth(sd), 1e-4);
+	float inw = border_width * card_px.y;
+	float outw = border_outset * card_px.y;
+	float border_mask = smoothstep(-inw - baa, -inw + baa, sd)
+		* (1.0 - smoothstep(outw - baa, outw + baa, sd));
+	float bn = noise2(p / 9.0 + vec2(0.0, -t * 5.0));
+	border_mask *= mix(1.0 - border_erosion, 1.0, smoothstep(0.18, 0.72, bn));
+	float border_a = border_mask * border_alpha * border_color.a;
+
+	// 叠层顺序：描边在下、符札盖在上面，最后才加红光。
+	// 用带子的覆盖度 inside（而不是纸的 alpha）去挡描边：paper_opacity < 1 时
+	// 若按 alpha 挡，描边会从半透明的符纸里透出来。
+	vec3 col = rgb + border_color.rgb * border_a * (1.0 - inside);
+	float cov = alpha + border_a * (1.0 - inside);
+
+	// 红光不许越过卡面轮廓（只允许到描边外沿）：否则圆角外侧那块空隙会凭空泛红。
+	float glow_area = 1.0 - smoothstep(outw - 1.0, outw + 1.0, sd);
+	float glow_total = (band_glow + card_glow) * glow_area;
+	col += glow_color.rgb * glow_total;
+	cov = clamp(cov + glow_total, 0.0, 1.0);
+
+	COLOR = vec4(col, cov);
 }
