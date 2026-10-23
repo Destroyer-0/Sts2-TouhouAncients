@@ -50,10 +50,7 @@ public class Entry
         
         
         // 时间线节点必须在模型/存档初始化前注册
-        TouhouAncientTimelineRegistry.AddRule<TouhouSanaeEpoch>(
-            TouhouTimelineUnlockRule.AfterEncounterAncient<KotiyaSanaeAncient>());
-        TouhouAncientTimelineRegistry.AddRule<TouhouMamizouEpoch>(
-            TouhouTimelineUnlockRule.AfterEncounterAncient<FutatsuiwaMamizouAncient>());
+        TouhouAncientTimelineContent.Register();
         TouhouAncientTimelineRegistry.Initialize();
         // 打patch（即修改游戏代码的功能）用
         // 传入参数随意，只要不和其他人撞车即可

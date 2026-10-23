@@ -6,8 +6,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
-using MegaCrit.Sts2.Core.Rooms;
-using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Saves.Managers;
 using MegaCrit.Sts2.Core.Timeline;
 using TouhouAncients.Scripts.Timeline;
@@ -56,6 +54,7 @@ internal static class EpochResolvedPortraitPathPatch
     }
 }
 
+// 自建列不在 eras 表里，Year 直接读会抛 LocException，改成复用门扉年份。
 [HarmonyPatch(typeof(EpochModel), "get_Year")]
 internal static class EpochYearPatch
 {
@@ -69,13 +68,15 @@ internal static class EpochYearPatch
             return;
         }
 
-        if (TouhouAncientTimelineRegistry.TryGetEra(__instance.Era, out TouhouAncientTimelineEra? era) && era != null)
+        if (!TouhouAncientTimelineRegistry.TryGetColumnNameKey(__instance.Era, out string? nameKey) || nameKey == null)
         {
-            LocString loc = new("eras", era.Slug + ".year");
-            if (loc.Exists())
-            {
-                __result = loc.GetFormattedText();
-            }
+            return;
+        }
+
+        LocString loc = new("eras", nameKey + ".year");
+        if (loc.Exists())
+        {
+            __result = loc.GetFormattedText();
         }
     }
 }
@@ -88,47 +89,17 @@ internal static class TimelineEraIconPatch
     [HarmonyPrefix]
     private static bool Prefix(EpochEra era, ref (Texture2D Texture, string Name) __result)
     {
-        if (!TouhouAncientTimelineRegistry.TryGetEra(era, out TouhouAncientTimelineEra? descriptor) ||
-            descriptor == null ||
-            !descriptor.IsCustom)
+        if (!TouhouAncientTimelineRegistry.TryGetColumnNameKey(era, out string? nameKey) || nameKey == null)
         {
             return true;
         }
 
-        Texture2D? texture = null;
-        string iconPath = TouhouAncientTimeline.NormalizePath(descriptor.IconPath);
-        if (iconPath.Length > 0 && ResourceLoader.Exists(iconPath))
-        {
-            texture = PreloadManager.Cache.GetTexture2D(iconPath);
-        }
-
-        texture ??= GetFallbackTexture(era);
-        __result = (texture!, descriptor.Slug);
+        // 自建列没有自己的图标资源，直接复用门扉图标与名称
+        int doorEra = (int)EpochEra.Invitation0;
+        string path = ImageHelper.GetImagePath($"atlases/era_atlas.sprites/era_{doorEra}.tres");
+        Texture2D texture = PreloadManager.Cache.GetTexture2D(path);
+        __result = (texture, nameKey);
         return false;
-    }
-
-    private static Texture2D? GetFallbackTexture(EpochEra era)
-    {
-        EpochEra? fallback = null;
-        foreach (EpochEra candidate in Enum.GetValues<EpochEra>())
-        {
-            if ((int)candidate <= (int)era && (fallback == null || (int)candidate > (int)fallback.Value))
-            {
-                fallback = candidate;
-            }
-        }
-
-        if (!fallback.HasValue)
-        {
-            return null;
-        }
-
-        int value = (int)fallback.Value;
-        string path = value >= 0
-            ? ImageHelper.GetImagePath($"atlases/era_atlas.sprites/era_{value}.tres")
-            : ImageHelper.GetImagePath($"atlases/era_atlas.sprites/era_minus_{Math.Abs(value)}.tres");
-
-        return ResourceLoader.Exists(path) ? PreloadManager.Cache.GetTexture2D(path) : null;
     }
 }
 
@@ -139,7 +110,7 @@ internal static class ProgressLoadEnsureSlotsPatch
 
     [HarmonyPostfix]
     private static void Postfix(ProgressSaveManager __instance)
-        => TouhouAncientTimelineRegistry.EnsureRootSlots(__instance.Progress);
+        => TouhouAncientTimelineRegistry.EnsureSlots(__instance.Progress);
 }
 
 [HarmonyPatch(typeof(NTimelineScreen), nameof(NTimelineScreen.OnSubmenuOpened))]
@@ -148,27 +119,7 @@ internal static class TimelineScreenEnsureSlotsPatch
     public static bool Prepare() => AccessTools.Method(typeof(NTimelineScreen), nameof(NTimelineScreen.OnSubmenuOpened)) != null;
 
     [HarmonyPostfix]
-    private static void Postfix() => TouhouAncientTimelineRegistry.EnsureRootSlots();
-}
-
-[HarmonyPatch(typeof(SaveManager), nameof(SaveManager.UpdateProgressWithRunData))]
-internal static class SaveManagerRunEndUnlockPatch
-{
-    public static bool Prepare() => AccessTools.Method(typeof(SaveManager), nameof(SaveManager.UpdateProgressWithRunData)) != null;
-
-    [HarmonyPostfix]
-    private static void Postfix(SerializableRun serializableRun, bool victory)
-        => TouhouAncientTimelineRegistry.EvaluateRunEnd(serializableRun, victory);
-}
-
-[HarmonyPatch(typeof(SaveManager), nameof(SaveManager.UpdateProgressAfterCombatWon))]
-internal static class SaveManagerCombatEndUnlockPatch
-{
-    public static bool Prepare() => AccessTools.Method(typeof(SaveManager), nameof(SaveManager.UpdateProgressAfterCombatWon)) != null;
-
-    [HarmonyPostfix]
-    private static void Postfix(Player localPlayer, CombatRoom combatRoom)
-        => TouhouAncientTimelineRegistry.EvaluateCombatEnd(localPlayer, combatRoom);
+    private static void Postfix() => TouhouAncientTimelineRegistry.EnsureSlots();
 }
 
 [HarmonyPatch(typeof(EventModel), nameof(EventModel.BeginEvent))]
