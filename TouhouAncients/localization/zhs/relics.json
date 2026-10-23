@@ -723,7 +723,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°鵺å…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ‘ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "独眼唐伞",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "每当你斩杀一名敌人时，获得[blue]{Charges}[/blue]计数，如果此时为战斗的第一回合则改为[blue]{FirstTurnCharges}[/blue]。你可以在休息处花费[blue]{UpgradeCost}[/blue]计数额外[green]升级[/green][blue]{UpgradeCount}[/blue]张牌。",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "当你本回合对意图为[gold]攻击[/gold]的敌人造成的伤害总和高于其意图伤害总和时，令其在本回合失去[blue]{StrengthDown}[/blue]点[gold]力量[/gold]。当你[gold]斩杀[/gold][gold]力量[/gold]为负的敌人时，战斗奖励增加[green]升级[/green]一张牌的奖励。",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "可得小心别把那孩子吓到了。",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行绘卷",
