@@ -21,7 +21,16 @@ shader_parameter/glow_radius = 0.08000000345074
 shader_parameter/glow_color = Color(1, 0.16078432, 0.16078432, 1)
 shader_parameter/paper_opacity = 0.800000038
 shader_parameter/paper_color = Color(0.99, 0.965, 0.906, 1)
-shader_parameter/card_corner_radius = 0.0
+shader_parameter/card_corner_radius = 0.055
+shader_parameter/card_glow_strength = 0.2000000095
+shader_parameter/card_glow_flat = 0.4
+shader_parameter/card_glow_radius = 0.12
+shader_parameter/border_width = 0.022
+shader_parameter/border_outset = 0.008
+shader_parameter/border_alpha = 0.95
+shader_parameter/border_erosion = 0.35
+shader_parameter/border_color = Color(0.9, 0.06, 0.06, 1)
+shader_parameter/overflow_px = 0.0
 
 [node name="Sealed" type="Control"]
 layout_mode = 3

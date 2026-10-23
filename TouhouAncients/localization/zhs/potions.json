@@ -22,5 +22,9 @@
 
   "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.title": "红魔馆模型",
   "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.description": "用[gold]大爆炸[/gold]和[gold]碎屑[/gold]填满你的手牌。\n今天也是和平的一天。",
-  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.flavor": "今天也是和平的一天。"
+  "TOUHOUANCIENTS-SCARLET_DEVIL_MANSION_MODEL_POTION.flavor": "今天也是和平的一天。",
+
+  "TOUHOUANCIENTS-DEMONS_GRIN_POTION.title": "恶魔之狞笑",
+  "TOUHOUANCIENTS-DEMONS_GRIN_POTION.description": "失去[blue]6[/blue]点[gold]最大生命[/gold]，对一名敌人造成[blue]66[/blue]点伤害。\n[gold]斩杀[/gold]时，战斗奖励额外增加一瓶[jitter][red]“恶魔之狞笑”[/red][/jitter]，且其在本局游戏中造成的伤害永久性增加[blue]20[/blue]。",
+  "TOUHOUANCIENTS-DEMONS_GRIN_POTION.flavor": ""
 }

@@ -90,21 +90,22 @@ public class DraculaLegacy : TouhouAncientRelics
     {
         Flash();
 
-        var damage = base.DynamicVars.Damage;
+        var damage = base.DynamicVars.Damage.IntValue;
 
         // 非战斗状态：至少保留 1 点生命
-        if (Owner.Creature.CombatState == null && damage.IntValue >= Owner.Creature.CurrentHp)
+        if (damage >= Owner.Creature.CurrentHp)
         {
-            damage.BaseValue = Math.Min(damage.IntValue, Owner.Creature.CurrentHp - 1);
+            damage = Math.Min(damage, Owner.Creature.CurrentHp - 1);
         }
 
-        if (damage.IntValue > 0)
+        if (damage > 0)
         {
             //await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Damage, null, null);
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 Owner.Creature,
-                damage,
+                damage, 
+                ValueProp.Unblockable| ValueProp.Unpowered,
                 null,
                 null);
         }
