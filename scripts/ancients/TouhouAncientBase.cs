@@ -41,6 +41,12 @@ public abstract class TouhouAncientBase : CustomAncientModel
     private IReadOnlyList<EventOption>? _generatedRelicOptions;
 
     /// <summary>
+    /// 控制台调试用：指定遗物必须出现在第一个合法位置（池里有就优先抽它，池里没有就顶替第一个位置）。
+    /// 只在 mutable 实例上由 <c>thaancient</c> 设置，canonical 永远为 null。
+    /// </summary>
+    public ModelId? ForcedRelicId { get; set; }
+
+    /// <summary>
     /// 是否处于"按玩家分别结算"阶段（由 AncientMultiplayerVotePatch 置位）：此时没有随机抽取，
     /// 每个玩家拿到自己投的遗物，UI 据此跳过"随机选择"的投票动画与音效。
     /// </summary>
@@ -114,6 +120,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
         var options = new List<EventOption>();
         var taken = new HashSet<ModelId>();
+        var forced = ForcedRelicId;
         foreach (var (pool, count) in TARelicOptionPools)
         {
             // 过滤放在抽取之前：条件不满足、权重为 0 或已经给过的遗物不会占掉一个选项。
@@ -125,7 +132,10 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
             for (var i = 0; i < count && available.Count > 0; i++)
             {
-                var chosen = PickWeighted(available, rng);
+                // 强制遗物优先占第一个位置；池里没有时用池内候选顶替（选项本身仍按原逻辑发奖）。
+                var chosen = forced != null
+                    ? available.FirstOrDefault(candidate => candidate.Relic?.Id == forced) ?? available[0]
+                    : PickWeighted(available, rng);
                 if (chosen.Relic is RelicModel picked) taken.Add(picked.Id);
                 available.Remove(chosen);
                 options.Add(chosen);
