@@ -351,22 +351,16 @@
   }
 
   function sharePage() {
-    var url = location.href;
-    // 优先系统分享面板（移动端 / 支持的桌面浏览器）
-    if (navigator.share) {
-      navigator.share({ title: document.title, url: url }).then(function () {
-        shareFeedback(L('shared'), true);
-      }).catch(function () { /* 用户取消，不提示 */ });
-      return;
-    }
+    // 直接复制「标题 + 网址」两行文本，不弹系统分享面板
+    var text = document.title + '\n' + location.href;
     var done = function () { shareFeedback(L('copied'), true); };
     var fail = function () { shareFeedback(L('copyFail'), false); };
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(url).then(done, function () {
-        legacyCopy(url) ? done() : fail();
+      navigator.clipboard.writeText(text).then(done, function () {
+        legacyCopy(text) ? done() : fail();
       });
     } else {
-      legacyCopy(url) ? done() : fail();
+      legacyCopy(text) ? done() : fail();
     }
   }
 
