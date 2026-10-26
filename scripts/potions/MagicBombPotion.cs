@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
@@ -7,12 +8,14 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.PotionPools;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace TouhouAncients.Scripts.potions;
 
 /// <summary>
-/// 轰炸魔废：变化你手中的所有牌。
+/// 轰炸魔废：变化并升级你手中的所有牌。
 /// </summary>
 [Pool(typeof(SharedPotionPool))]
 public sealed class MagicBombPotion : CustomPotionModel
@@ -30,9 +33,17 @@ public sealed class MagicBombPotion : CustomPotionModel
         var cards = PileType.Hand.GetPile(base.Owner).Cards.ToList();
         var rng = base.Owner.RunState.Rng.CombatCardGeneration;
 
+        // 变化得到的新牌是未升级的，升级必须排在变化之后
+        List<CardModel> transformed = new();
         foreach (var card in cards)
         {
-            await CardCmd.TransformToRandom(card, rng);
+            var result = await CardCmd.TransformToRandom(card, rng);
+            if (result.success)
+            {
+                transformed.Add(result.cardAdded);
+            }
         }
+
+        CardCmd.Upgrade(transformed, CardPreviewStyle.HorizontalLayout);
     }
 }
