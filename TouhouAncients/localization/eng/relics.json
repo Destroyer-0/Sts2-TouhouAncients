@@ -246,7 +246,7 @@
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "Heavenly Sash",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "Whenever you take unblocked damage not caused by yourself, reduce it by up to [blue]{Mitigation}[/blue] and record the amount reduced. At the end of your turn, deal damage equal to the recorded amount to yourself and reset it.",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "It's said to reflect different weather depending on her mood.",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "It's said to reflect different weather depending on her [rainbow]mood[/rainbow].",
   
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "Supreme Golden Circlet",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "Upon pickup, choose an [green]Upgraded[/green] Ancient card and add it to your [gold]Deck[/gold]. [gold]Card Rewards[/gold] no longer drop.",
@@ -531,7 +531,7 @@
   "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "Eat too much and watch out for cavities!",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "Stardust Broom",
-  "TOUHOUANCIENTS-STARDUST_BROOM.description": "Start with [blue]2[/blue] charges, max [blue]3[/blue] charges. You may ignore paths when choosing the next rooms to travel to, consuming [blue]1[/blue] charge per use. Gain [blue]1[/blue] charge every [blue]3[/blue] rooms.",
+  "TOUHOUANCIENTS-STARDUST_BROOM.description": "Start with [blue]2[/blue] charges, max [blue]3[/blue] charges. You may ignore paths when choosing the next rooms to travel to, consuming [blue]1[/blue] charge per use. Gain [blue]1[/blue] charge every [blue]4[/blue] rooms.",
   "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "There was never a magic broom in this world, but when enough people ride it, it becomes one.",
 
   "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "Witch's Cauldron",

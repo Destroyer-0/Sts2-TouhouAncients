@@ -89,6 +89,10 @@
   "TOUHOUANCIENTS-MIRACLE_NOBLE.eventDescription": "将[blue]1[/blue]张[gold]开海的奇迹[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "想要知道海的另一边是什么？走过去看看就知道了。",
 
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.title": "神秘果",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.description": "在每场战斗开始时，获得{Energy:energyIcons()}，随机将每种类型的牌各一张从你的[gold]抽牌堆[/gold]放入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.flavor": "",
+
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.title": "风祝酒",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.description": "你每获得[blue]{Energy}[/blue]点{energyPrefix:energyIcons(1)}，抽[blue]{Cards}[/blue]张牌。",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.flavor": "轻松愉快的餐后酒。薄荷和奶油为主的口感，比起酒精饮料更像甜品。",
@@ -206,6 +210,10 @@
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "当你进入[gold]休息处[/gold]时，获得[blue]{CardRewards}[/blue]组[gold]卡牌奖励[/gold]与{Gold}~{GoldMax}[gold]金币[/gold]。",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "摇晃的时候听不到声音。",
 
+  "TOUHOUANCIENTS-GYOKURO_TEA.title": "玉露茶",
+  "TOUHOUANCIENTS-GYOKURO_TEA.description": "你每抽[blue]{Cards}[/blue]张牌，获得{Energy:energyIcons()}。",
+  "TOUHOUANCIENTS-GYOKURO_TEA.flavor": "",
+
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
   "TOUHOUANCIENTS-HAKUREI_CHARM.description": "战斗开始时，选择一个选项进行[gold]祈愿[/gold]。",
   "TOUHOUANCIENTS-HAKUREI_CHARM.flavor": "",
@@ -225,6 +233,10 @@
   "TOUHOUANCIENTS-DUPLEX_BARRIER.title": "二重结界",
   "TOUHOUANCIENTS-DUPLEX_BARRIER.description": "你有[blue]{Rooms}[/blue]次机会无视路线选择下一层的房间。当你通过无视路线的方式进入战斗时，敌人将只有[blue]1[/blue]点生命。",
   "TOUHOUANCIENTS-DUPLEX_BARRIER.flavor": "不可思议的力量，连空间也能翻转。",
+
+  "TOUHOUANCIENTS-MIKO_RIBBON.title": "巫女蝴蝶结",
+  "TOUHOUANCIENTS-MIKO_RIBBON.description": "你受到来自敌人攻击的伤害减少[blue]{Reduction}[/blue]。每场战斗中，阻止每个敌人第一次尝试获得的[gold]力量[/gold]。",
+  "TOUHOUANCIENTS-MIKO_RIBBON.flavor": "",
 
   "TOUHOUANCIENTS-HAKUREI_AMULET.title": "博丽灵札",
   "TOUHOUANCIENTS-HAKUREI_AMULET.description": "受到不高于[blue]{Threshold}[/blue]的未被格挡伤害时，将伤害降低至[blue]1[/blue]点，并在本场战斗中减少[blue]1[/blue]触发阈值，最低降低至[blue]{MinThreshold}[/blue]。",
@@ -246,7 +258,7 @@
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身造成的未被格挡伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。回合结束时，对自身造成等同于计数的伤害并清空计数。",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "据说会根据她的心情反映出不同的天气。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "据说会根据她的[rainbow]心情[/rainbow]反映出不同的天气。",
 
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.description": "拾起时，选择一张升级后的[gold]先古之民卡牌[/gold]加入牌组。不再掉落[gold]卡牌奖励[/gold]。",
@@ -445,7 +457,7 @@
   "TOUHOUANCIENTS-SOUL_BUTTERFLY.flavor": "",
 
   "TOUHOUANCIENTS-DANMUKU_GHOST.title": "弹幕的亡灵",
-  "TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其造成过未被格挡的伤害，使其获得[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
+  "TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其进行过攻击但未造成伤害，给予其[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
   "TOUHOUANCIENTS-DANMUKU_GHOST.flavor": "",
 
   "TOUHOUANCIENTS-GHOST_FAN.title": "幽灵折扇",
@@ -531,7 +543,7 @@
   "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "吃多了要小心蛀牙！",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "星尘扫帚",
-  "TOUHOUANCIENTS-STARDUST_BROOM.description": "初始充能[blue]2[/blue]，最大充能[blue]3[/blue]。你可以消耗一层充能无视当前的路线选择下一层的房间。每经过[blue]3[/blue]个房间获得[blue]1[/blue]充能。",
+  "TOUHOUANCIENTS-STARDUST_BROOM.description": "初始充能[blue]2[/blue]，最大充能[blue]3[/blue]。你可以消耗一层充能无视当前的路线选择下一层的房间。每经过[blue]4[/blue]个房间获得[blue]1[/blue]充能。",
   "TOUHOUANCIENTS-STARDUST_BROOM.flavor": "世上本没有魔法扫帚，坐的人多了，也便有了。",
 
   "TOUHOUANCIENTS-WITCHS_CAULDRON.title": "魔女的炼药锅",

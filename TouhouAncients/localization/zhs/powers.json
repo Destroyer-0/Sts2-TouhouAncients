@@ -99,8 +99,8 @@
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "幻月",
 
   "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "毒人偶",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "[purple]铃铃[/purple]每回合将把1张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "[purple]铃铃[/purple]每回合将{Amount}张[gold]毒素[/gold]加入你的[gold]弃牌堆[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "[purple]铃铃[/purple]每回合将把1张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "[purple]铃铃[/purple]每回合将{Amount}张[gold]毒素[/gold]加入你的[gold]手牌[/gold]。[purple]铃铃[/purple]倒下时减少[blue]1[/blue]层，最多减少至[blue]1[/blue]。\n[i][green]毒取少量即为药。[/green][/i]",
 
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.title": "烈毒护身",
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "本回合，[gold]梅蒂欣·梅兰可莉[/gold]将所有对[purple]铃铃[/purple]发起的攻击伤害转移至自身。",

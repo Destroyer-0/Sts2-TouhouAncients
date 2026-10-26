@@ -100,8 +100,8 @@
   "TOUHOUANCIENTS-DECREASE_DRAW_CARDS_NEXT_TURN_POWER.title": "Phantom Moon",
 
   "TOUHOUANCIENTS-POISON_DOLL_POWER.title": "Poison Doll",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
-  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Discard Pile[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.description": "Each turn, Lily adds a [gold]Toxic[/gold] to your [gold]Hand[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
+  "TOUHOUANCIENTS-POISON_DOLL_POWER.smartDescription": "Each turn, Lily adds {Amount} [gold]Toxic[/gold] to your [gold]Hand[/gold]. When Lily falls, reduce the stack by [blue]1[/blue], to a minimum of [blue]1[/blue].\n[i][green]A little poison makes good medicine.[/green][/i]",
 
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.title": "Venomous Guard",
   "TOUHOUANCIENTS-POISON_GUARDING_POWER.description": "This turn, all attack damage directed at Lily is transferred to Medicine Melancholy.",
