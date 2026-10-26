@@ -1,84 +1,87 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
-using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
-/// 巫女蝴蝶结：受到来自敌人的伤害减少 2。
-/// 每场战斗中，阻止每个敌人第一次尝试获得的永久/临时力量。
+/// 巫女蝴蝶结：受到不高于 8 的未被格挡伤害时，将伤害降低至 1，
+/// 并在本场战斗中减少 1 触发阈值，最低降低至 5。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class MikoRibbon : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DynamicVar("Reduction", 2m)
-    ];
+    private const int _initialThreshold = 8;
+    private const int _minThreshold = 5;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPower<StrengthPower>()];
+    public override bool ShowCounter => DisplayAmount > -1;
 
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource, CardPlay? cardPlay)
+    public override int DisplayAmount
     {
-        if (base.Owner?.Creature == null) return 0m;
-        if (target != base.Owner.Creature) return 0m;
-        if (dealer == null || !dealer.IsEnemy) return 0m;
+        get
+        {
+            if (!CombatManager.Instance.IsInProgress)
+            {
+                return -1;
+            }
 
-        return -base.DynamicVars["Reduction"].BaseValue;
+            if (base.IsCanonical)
+            {
+                return -1;
+            }
+            return _currentThreshold;
+        }
     }
 
     /// <summary>
-    /// 第一次力量尝试前挂上标记 Power；之后由 TryModifyPowerAmountReceived 消耗它完成阻止。
+    /// 当前触发阈值，每触发一次减少 1，最低降至 5。战斗开始与结束时重置。
     /// </summary>
-    public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target,
-        Creature? applier, CardModel? cardSource)
-    {
-        if (amount <= 0m) return;
-        if (!IsStrengthGain(power)) return;
-        if (!target.IsEnemy || !target.IsAlive) return;
-        if (base.Owner?.Creature == null) return;
-        if (target.GetPower<MikoRibbonMarkPower>() != null) return;
+    private int _currentThreshold = _initialThreshold;
 
-        await PowerCmd.Apply<MikoRibbonMarkPower>(
-            new ThrowingPlayerChoiceContext(), target, 1m, base.Owner.Creature, null, silent: true);
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DynamicVar("Threshold", _initialThreshold),
+        new DynamicVar("MinThreshold", _minThreshold)
+    ];
+
+    public override Task BeforeCombatStart()
+    {
+        _currentThreshold = _initialThreshold;
+        InvokeDisplayAmountChanged();
+        return base.BeforeCombatStart();
     }
 
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
-        Creature? applier, out decimal modifiedAmount)
+    /// <summary>
+    /// 受到的 HP 损失不高于当前阈值时，将伤害降低至 1，并减少 1 点触发阈值（最低 5）。
+    /// </summary>
+    public override decimal ModifyHpLostBeforeOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        modifiedAmount = amount;
-        if (amount <= 0m) return false;
-        if (!IsStrengthGain(canonicalPower)) return false;
-        if (!target.IsEnemy) return false;
+        if (target != base.Owner?.Creature) return amount;
+        if (!CombatManager.Instance.IsInProgress) return amount;
+        if (amount < 1) return amount;
+        if (props.HasFlag(ValueProp.Unblockable)) return amount;
+        if (amount > _currentThreshold) return amount;
 
-        MikoRibbonMarkPower? mark = target.GetPower<MikoRibbonMarkPower>();
-        if (mark == null || mark.Consumed) return false;
-
-        // 只消耗一次：多个持有者的后续 listener 看到 Consumed 后放行
-        mark.Consume();
         Flash();
-        modifiedAmount = 0m;
-        return true;
+        if (_currentThreshold > _minThreshold)
+        {
+            _currentThreshold--;
+            InvokeDisplayAmountChanged();
+        }
+        return 1m;
     }
 
-    // 临时力量整条阻止（含回合结束的扣除），所以连临时力量 Power 一起拦；
-    // mod 的临时力量继承 ITemporaryPower，不一定是原版 TemporaryStrengthPower
-    private static bool IsStrengthGain(PowerModel power) =>
-        power is StrengthPower ||
-        (power is ITemporaryPower temporary && power.Type == PowerType.Buff &&
-         temporary.InternallyAppliedPower is StrengthPower);
+    public override Task AfterCombatEnd(CombatRoom _)
+    {
+        _currentThreshold = _initialThreshold;
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
+    }
 }

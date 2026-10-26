@@ -226,8 +226,12 @@
   "TOUHOUANCIENTS-DUPLEX_BARRIER.description": "You may ignore paths when choosing the next rooms to travel to [blue]{Rooms}[/blue] times. When you enter a combat by ignoring the path, enemies will have only [blue]1[/blue] HP.",
   "TOUHOUANCIENTS-DUPLEX_BARRIER.flavor": "A mysterious power that can even flip space itself.",
 
+  "TOUHOUANCIENTS-MIKO_RIBBON.title": "Miko's Ribbon",
+  "TOUHOUANCIENTS-MIKO_RIBBON.description": "When you take unblocked damage no higher than [blue]{Threshold}[/blue], reduce it to [blue]1[/blue] and decrease the threshold by [blue]1[/blue] for this combat, to a minimum of [blue]{MinThreshold}[/blue].",
+  "TOUHOUANCIENTS-MIKO_RIBBON.flavor": "A (gigantic) ribbon passed down through generations of shrine maidens of Hakurei.",
+
   "TOUHOUANCIENTS-HAKUREI_AMULET.title": "Hakurei Talisman",
-  "TOUHOUANCIENTS-HAKUREI_AMULET.description": "When you take unblocked damage no higher than [blue]{Threshold}[/blue], reduce it to [blue]1[/blue] and decrease the threshold by [blue]1[/blue] for this combat, to a minimum of [blue]{MinThreshold}[/blue].",
+  "TOUHOUANCIENTS-HAKUREI_AMULET.description": "At the start of each combat, ALL enemies lose [blue]{StrengthLoss}[/blue] [gold]Strength[/gold]. Each combat, prevent the first [gold]Strength[/gold] each enemy tries to gain.",
   "TOUHOUANCIENTS-HAKUREI_AMULET.flavor": "A large batch of talismans hand-drawn by Reimu, but completely unsold due to a lack of worshippers.",
 
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "Hakurei Gohei",

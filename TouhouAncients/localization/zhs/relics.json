@@ -212,7 +212,7 @@
 
   "TOUHOUANCIENTS-GYOKURO_TEA.title": "玉露茶",
   "TOUHOUANCIENTS-GYOKURO_TEA.description": "你每抽[blue]{Cards}[/blue]张牌，获得{Energy:energyIcons()}。",
-  "TOUHOUANCIENTS-GYOKURO_TEA.flavor": "",
+  "TOUHOUANCIENTS-GYOKURO_TEA.flavor": "几乎是日本茶中最高级的茶叶，需要用较低的水温来冲泡，甘醇飘香，口感独特。",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博丽御札",
   "TOUHOUANCIENTS-HAKUREI_CHARM.description": "战斗开始时，选择一个选项进行[gold]祈愿[/gold]。",
@@ -235,11 +235,11 @@
   "TOUHOUANCIENTS-DUPLEX_BARRIER.flavor": "不可思议的力量，连空间也能翻转。",
 
   "TOUHOUANCIENTS-MIKO_RIBBON.title": "巫女蝴蝶结",
-  "TOUHOUANCIENTS-MIKO_RIBBON.description": "你受到来自敌人攻击的伤害减少[blue]{Reduction}[/blue]。每场战斗中，阻止每个敌人第一次尝试获得的[gold]力量[/gold]。",
-  "TOUHOUANCIENTS-MIKO_RIBBON.flavor": "",
+  "TOUHOUANCIENTS-MIKO_RIBBON.description": "受到不高于[blue]{Threshold}[/blue]的未被格挡伤害时，将伤害降低至[blue]1[/blue]点，并在本场战斗中减少[blue]1[/blue]触发阈值，最低降低至[blue]{MinThreshold}[/blue]。",
+  "TOUHOUANCIENTS-MIKO_RIBBON.flavor": "博丽巫女世世代代传承的（超巨大）蝴蝶结。",
 
   "TOUHOUANCIENTS-HAKUREI_AMULET.title": "博丽灵札",
-  "TOUHOUANCIENTS-HAKUREI_AMULET.description": "受到不高于[blue]{Threshold}[/blue]的未被格挡伤害时，将伤害降低至[blue]1[/blue]点，并在本场战斗中减少[blue]1[/blue]触发阈值，最低降低至[blue]{MinThreshold}[/blue]。",
+  "TOUHOUANCIENTS-HAKUREI_AMULET.description": "每场战斗开始时，所有敌人失去[blue]{StrengthLoss}[/blue]点[gold]力量[/gold]。每场战斗中，阻止每个敌人第一次尝试获得的[gold]力量[/gold]。",
   "TOUHOUANCIENTS-HAKUREI_AMULET.flavor": "灵梦亲手绘制的一大批护身灵札，但是因为没有参拜客来导致完全积压了。",
 
   "TOUHOUANCIENTS-HAKUREI_GOHEI.title": "博丽御币",

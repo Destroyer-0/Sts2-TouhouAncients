@@ -3376,3 +3376,32 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 仅第二句改写：`战斗奖励增加升级一张牌的奖励` → `随机升级一张牌`，译文 `combat rewards gain a reward to Upgrade one card` → `randomly Upgrade one card`。
 - 随机源用 `RunState.Rng.CombatCardGeneration`，与 `MagicBombPotion` 一致，多人各端同选牌；牌组无牌可升时不给奖励。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 效果互换（2026-10-27，博丽灵札 ↔ 巫女蝴蝶结）
+
+两件遗物的效果互换：博丽灵札改为「开场削力 + 阻止敌方首次获得力量」，巫女蝴蝶结改为原本属于灵札的阈值减伤。
+
+**键名**: `TOUHOUANCIENTS-HAKUREI_AMULET` / `TOUHOUANCIENTS-MIKO_RIBBON`
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-MIKO_RIBBON.title": "巫女蝴蝶结",
+"TOUHOUANCIENTS-MIKO_RIBBON.description": "受到不高于[blue]{Threshold}[/blue]的未被格挡伤害时，将伤害降低至[blue]1[/blue]点，并在本场战斗中减少[blue]1[/blue]触发阈值，最低降低至[blue]{MinThreshold}[/blue]。",
+"TOUHOUANCIENTS-MIKO_RIBBON.flavor": "博丽巫女世世代代传承的（超巨大）蝴蝶结。",
+"TOUHOUANCIENTS-HAKUREI_AMULET.description": "每场战斗开始时，所有敌人失去[blue]{StrengthLoss}[/blue]点[gold]力量[/gold]。每场战斗中，阻止每个敌人第一次尝试获得的[gold]力量[/gold]。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `MIKO_RIBBON.title` | `Miko's Ribbon` |
+| `MIKO_RIBBON.description` | `When you take unblocked damage no higher than [blue]{Threshold}[/blue], reduce it to [blue]1[/blue] and decrease the threshold by [blue]1[/blue] for this combat, to a minimum of [blue]{MinThreshold}[/blue].` |
+| `MIKO_RIBBON.flavor` | `A (gigantic) ribbon passed down through generations of shrine maidens of Hakurei.` |
+| `HAKUREI_AMULET.description` | `At the start of each combat, ALL enemies lose [blue]{StrengthLoss}[/blue] [gold]Strength[/gold]. Each combat, prevent the first [gold]Strength[/gold] each enemy tries to gain.` |
+
+### 说明
+- 阈值减伤文本从灵札原样搬到蝴蝶结；灵札改写的英文沿用 `Strength` 术语。
+- `.title` / `.flavor` 随遗物名保留，不参与互换。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
