@@ -28,31 +28,29 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
     public override string? CustomRunHistoryIconPath => "res://images/icon/Character/HiedaNoAkyuu.png";
     public override string? CustomRunHistoryIconOutlinePath => "res://images/icon/Character/Outline/HiedaNoAkyuu.png";
 
-    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
-    [
-        (MainPool, 3)
-    ];
-
-    private TARelicOptionPool MainPool => CreateTARelicOptionPool(
+    protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>[
+        (CreateTARelicOptionPool(
             TARelicOption<MiareBrush>(),
             TARelicOption<MiareInk>(),
             TARelicOption<MiarePaper>(),
             TARelicOption<MiareInkstone>(),
-            TARelicOption<YougakudanCollection>(),
-            TARelicOption<ReadingGlasses>(),
             TARelicOption<YokaiBestiary>(),
             TARelicOption<CalmingTea>(),
             TARelicOption<DetectiveManuscript>(),
             TARelicOption<SignedShikishi>(),
             TARelicOption<CamelliaHairpin>(),
             TARelicOption<HardcoverBinding>(),
-            TARelicOption<SakuraComb>(),
             TARelicOption<AncientSpecimen>(),
-            TARelicOption<BlankRoster>(),
-            TARelicOption<BellBookmark>(),
             TARelicOption<MedicinalCuisine>()
+        ), 2),
+        CreateTARelicOptionPool(
+            TARelicOption<YougakudanCollection>(),
+            TARelicOption<ReadingGlasses>(),
+            TARelicOption<SakuraComb>(),
+            TARelicOption<BlankRoster>(),
+            TARelicOption<BellBookmark>()
             )
-    ;
+    ];
 
     /// <summary>
     /// 追加在三个遗物选项之后的第 4 个选项「前去面见涅奥」：放弃阿求的遗物，改为进入涅奥的房间。
