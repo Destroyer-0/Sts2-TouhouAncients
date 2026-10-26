@@ -319,7 +319,7 @@
 | `BLOOD_DISASTER_POWER` | 贪婪祸劫 | Avaricious Calamity |
 | `HUNGRY_INSTINCT_POWER` | 饥渴摄食 | Ravenous Feeding |
 
-> **术语说明**：`POISON_DOLL_POWER` 描述中"将[gold]毒素[/gold]加入弃牌堆"的"毒素"指 STS2 状态牌 **Toxic**（参照 `YUAN_HEN` 卡牌 eng `add a [gold]Toxic[/gold]`），而非"中毒 Poison"层数。
+> **术语说明**：`POISON_DOLL_POWER` 描述中"将[gold]毒素[/gold]加入手牌"的"毒素"指 STS2 状态牌 **Toxic**（参照 `YUAN_HEN` 卡牌 eng `add a [gold]Toxic[/gold]`），而非"中毒 Poison"层数。
 
 ### 能力描述更新（powers.json）
 

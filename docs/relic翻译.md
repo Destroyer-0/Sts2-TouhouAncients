@@ -547,7 +547,7 @@
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-DANMUKU_GHOST.title": "弹幕的亡灵",
-"TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其进行过攻击但未造成伤害，使其获得[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
+"TOUHOUANCIENTS-DANMUKU_GHOST.description": "敌人的回合结束时，若其进行过攻击但未造成伤害，给予其[blue]{ShrinkAmount}[/blue]回合[gold]缩小[/gold]。",
 "TOUHOUANCIENTS-DANMUKU_GHOST.flavor": ""
 ```
 
