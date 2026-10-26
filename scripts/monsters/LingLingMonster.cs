@@ -19,7 +19,7 @@ namespace TouhouAncients.Scripts.monsters;
 /// <summary>
 /// 铃铃：梅蒂欣·梅兰可莉的随从（位于左侧）。
 /// 天生带有幻象（自动附带爪牙）。只使用神经毒素循环：
-/// 若梅蒂欣没有毒人偶则补 1 层，然后按毒人偶层数向玩家弃牌堆加入毒素。
+/// 若梅蒂欣没有毒人偶则补 1 层，然后按毒人偶层数向玩家手牌加入毒素。
 /// 铃铃倒下时，梅蒂欣的毒人偶层数减少 1（不会少于 1）。
 /// </summary>
 public sealed class LingLingMonster : TouhouAncientMonsterBase
@@ -56,7 +56,7 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
     // --- 技能方法 ---
 
     /// <summary>
-    /// 神经毒素：若梅蒂欣没有毒人偶则补 1 层，再按毒人偶层数向每个玩家的弃牌堆加入毒素。
+    /// 神经毒素：若梅蒂欣没有毒人偶则补 1 层，再按毒人偶层数向每个玩家的手牌加入毒素。
     /// </summary>
     private async Task PoisonMove(IReadOnlyList<Creature> targets)
     {
@@ -71,7 +71,7 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
         }
 
         int dollCount = medicine?.GetPower<PoisonDollPower>()?.Amount ?? 1;
-        await CardPileCmd.AddToCombatAndPreview<Toxic>(targets, PileType.Discard, dollCount, null, CardPilePosition.Random);
+        await CardPileCmd.AddToCombatAndPreview<Toxic>(targets, PileType.Hand, dollCount, null);
     }
 
     // --- 死亡处理 ---

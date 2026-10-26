@@ -8,7 +8,7 @@ using TouhouAncients.Scripts.powers;
 namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
-/// 铃铃神经毒素的意图：向玩家弃牌堆加入毒素的数量等于梅蒂欣当前的毒人偶层数。
+/// 铃铃神经毒素的意图：向玩家手牌加入毒素的数量等于梅蒂欣当前的毒人偶层数。
 /// 因毒人偶层数会变化（初始 1，"我可爱的铃铃" +1，铃铃倒下 -1），
 /// 在显示意图时动态读取层数，保证头顶数字与实际加入数量一致。
 /// 实际加牌逻辑在 <see cref="LingLingMonster.PoisonMove"/> 中实现。
