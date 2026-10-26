@@ -16,13 +16,12 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.powers;
-using TouhouAncients.Scripts.Rewards;
 
 namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 独眼唐伞：本回合对意图攻击的敌人累计造成的攻击伤害超过其意图伤害时，令其本回合失去{StrengthDown}力量。
-/// 斩杀负力量的敌人时，战斗奖励额外增加一次升级牌奖励。
+/// 斩杀负力量的敌人时，随机升级牌组中的一张牌。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class OneEyedKarakasa : TouhouAncientRelics
@@ -36,6 +35,11 @@ public class OneEyedKarakasa : TouhouAncientRelics
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+
+    /// <summary>选项条件：猯藏出现层数小于 3 才出现（第三幕不再给）。</summary>
+    public override bool CanAppear(Player? player)
+        // CurrentActIndex 0 基，<2 即第一、二幕
+        => player == null || player.RunState.CurrentActIndex < 2;
 
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer,
         DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
@@ -64,8 +68,11 @@ public class OneEyedKarakasa : TouhouAncientRelics
         if (!creature.Powers.All(power => power.ShouldOwnerDeathTriggerFatal())) return Task.CompletedTask;
         if (creature.GetPowerAmount<StrengthPower>() >= 0) return Task.CompletedTask;
 
+        var upgradable = base.Owner.Deck.Cards.Where(c => c.IsUpgradable && !c.IsUpgraded).ToList();
+        if (upgradable.Count == 0) return Task.CompletedTask;
+
         Flash();
-        UpgradeCardReward.AddAsExtraReward(base.Owner);
+        CardCmd.Upgrade(upgradable[base.Owner.RunState.Rng.CombatCardGeneration.NextInt(upgradable.Count)]);
         return Task.CompletedTask;
     }
 
