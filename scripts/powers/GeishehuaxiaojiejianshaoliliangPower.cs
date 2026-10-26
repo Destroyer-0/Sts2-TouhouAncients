@@ -43,4 +43,18 @@ public class GeishehuaxiaojiejianshaoliliangPower : TouhouAncientPowerModel
 
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, -amount, null, null);
     }
+
+    /// <summary>
+    /// 施加者出牌时自身 -1 层并给持有者 +1 力量。
+    /// 逻辑放在 Power 内，死亡清除后复活的敌人不再被结算。
+    /// </summary>
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (base.Amount <= 0 || base.Owner == null || !base.Owner.IsAlive) return;
+        // per-applier 实例，只结算施加者本人的出牌
+        if (base.Applier != null && cardPlay.Card.Owner.Creature != base.Applier) return;
+
+        await PowerCmd.ModifyAmount(choiceContext, this, -1m, null, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner, 1m, null, null);
+    }
 }

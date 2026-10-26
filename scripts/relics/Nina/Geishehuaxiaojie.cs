@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -23,37 +22,12 @@ public class Geishehuaxiaojie : TouhouAncientRelics
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<StrengthPower>()];
 
-    private List<GeishehuaxiaojiejianshaoliliangPower> _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
-
-    protected override void AfterCloned()
-    {
-        base.AfterCloned();
-        _powers = new List<GeishehuaxiaojiejianshaoliliangPower>();
-    }
-
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (side == base.Owner.Creature.Side && Owner.PlayerCombatState.TurnNumber  <= 1 && participants.Contains(Owner.Creature))
         {
-            _powers.Clear();
             Flash();
-            _powers.AddRange(await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(choiceContext, combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, Owner.Creature, null));
-        }
-    }
-
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner != base.Owner) return;
-        if (cardPlay.Card.CombatState == null) return;
-        if (_powers.Count == 0) return;
-        foreach (var power in _powers)
-        {
-            if (power.Owner == null) continue;
-            if (!power.Owner.IsAlive) continue;
-            if (power.Amount <= 0) continue;
-
-            await PowerCmd.ModifyAmount(context, power, -1, null, null);
-            await PowerCmd.Apply<StrengthPower>(context, power.Owner, 1, null, null);
+            await PowerCmd.Apply<GeishehuaxiaojiejianshaoliliangPower>(choiceContext, combatState.HittableEnemies, base.DynamicVars["StrengthLose"].BaseValue, Owner.Creature, null);
         }
     }
 }
