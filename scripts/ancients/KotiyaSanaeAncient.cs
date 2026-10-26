@@ -34,7 +34,8 @@ public class KotiyaSanaeAncient : TouhouAncientBase
         CreateTARelicOptionPool(
             TARelicOption<SailorSuit>(),
             TARelicOption<GiftFromMountain>(),
-            TARelicOption<MiracleNoble>()
+            TARelicOption<MiracleNoble>(),
+            TARelicOption<MysteryFruit>()
             )
     ];
 }

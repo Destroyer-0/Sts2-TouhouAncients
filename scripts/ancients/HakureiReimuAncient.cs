@@ -32,12 +32,14 @@ public class HakureiReimuAncient : TouhouAncientBase
             ),
         CreateTARelicOptionPool(
             TARelicOption<MiniShrine>(),
-            TARelicOption<DonateMoneyBox>()
+            TARelicOption<DonateMoneyBox>(),
+            TARelicOption<GyokuroTea>()
             ),
         CreateTARelicOptionPool(
             TARelicOption<YinYangOrb>(),
             TARelicOption<SealingNeedle>(),
-            TARelicOption<DuplexBarrier>()
+            TARelicOption<DuplexBarrier>(),
+            TARelicOption<MikoRibbon>()
             )
     ];
 }
