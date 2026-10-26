@@ -48,11 +48,17 @@ public class EchoMicrophone : TouhouAncientRelics
         var enchantment = ModelDb.Enchantment<Echo>();
         var maxCards = DynamicVars["Cards"].IntValue;
 
+        // min 0 才是「至多」，单参构造器会把 min 设成 max 强制选满
+        var prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, maxCards)
+        {
+            Cancelable = false
+        };
+
         var selected = (await CardSelectCmd.FromDeckForEnchantment(
             player,
             enchantment,
             maxCards,
-            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, maxCards)
+            prefs
         )).ToList();
 
         foreach (var card in selected)

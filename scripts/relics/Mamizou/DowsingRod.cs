@@ -77,6 +77,11 @@ public class DowsingRod : TouhouAncientRelics
         TreasureHuntCount = 0;
     }
 
+    /// <summary>选项条件：猯藏出现层数小于 3 才出现（第三幕不再给）。</summary>
+    public override bool CanAppear(Player? player)
+        // CurrentActIndex 0 基，<2 即第一、二幕
+        => player == null || player.RunState.CurrentActIndex < 2;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get

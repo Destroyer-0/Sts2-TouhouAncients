@@ -48,11 +48,17 @@ public class GhostFan : TouhouAncientRelics
         var player = base.Owner;
         var enchantment = ModelDb.Enchantment<Wandering>();
 
+        // min 0 才是「至多」，单参构造器会把 min 设成 max 强制选满
+        var prefs = new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 0, 3)
+        {
+            Cancelable = false
+        };
+
         var selected = (await CardSelectCmd.FromDeckForEnchantment(
             player,
             enchantment,
             3,
-            new CardSelectorPrefs(CardSelectorPrefs.EnchantSelectionPrompt, 3)
+            prefs
         )).ToList();
 
         foreach (var card in selected)

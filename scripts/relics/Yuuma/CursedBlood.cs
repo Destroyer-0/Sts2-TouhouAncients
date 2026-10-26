@@ -17,6 +17,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.TestSupport;
+using TouhouAncients.Scripts.potions;
 
 namespace TouhouAncients.Scripts.relics;
 
@@ -45,9 +46,10 @@ public class CursedBlood : TouhouAncientRelics
         if (player != base.Owner) return;
         var rng = player.RunState.Rng.CombatPotionGeneration;
 
-        // 获取所有可解锁的自指向药水
+        // 轰炸魔废会变掉整手牌，自动喝掉会毁玩家手牌，故排除
         var selfTargetPotions = PotionFactory.GetPotionOptions(player)
             .Where(p => p is { CanBeGeneratedInCombat: true, TargetType: TargetType.Self or TargetType.AnyPlayer })
+            .Where(p => p is not MagicBombPotion)
             .ToList();
 
         if (selfTargetPotions.Count == 0) return;
