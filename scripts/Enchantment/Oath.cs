@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Enchantments;
@@ -107,15 +108,21 @@ public class Oath : TouhouAncientEnchantmentModel
         //protectedCards.Clear();
     }
 
-    public override Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        foreach (var card in shouldExhaustedCards)
-        {
-            if (card.Pile is { Type: PileType.Exhaust }) continue;
-            CardCmd.Exhaust(choiceContext, card);
-        }
+        if (CombatManager.Instance.IsOverOrEnding) return;
+        if (shouldExhaustedCards.Count == 0) return;
 
-        return Task.CompletedTask;
+        // 先快照再清空：此 Hook 每次出牌都会触发，残留项会在以后的出牌里被重复消耗
+        var pending = shouldExhaustedCards.ToList();
+        shouldExhaustedCards.Clear();
+
+        foreach (var card in pending)
+        {
+            if (card.Pile is null or { Type: PileType.Exhaust }) continue;
+            // 必须 await：不 await 会和出牌收尾抢同一张牌的去向，各端耗时不同 → 联机不同步
+            await CardCmd.Exhaust(choiceContext, card);
+        }
     }
 
 
