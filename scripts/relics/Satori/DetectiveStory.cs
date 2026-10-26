@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.relics;
@@ -28,6 +29,18 @@ public class DetectiveStory : TouhouAncientRelics
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain)];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 3m), new DynamicVar("RetainCard", 1m)];
+
+    public override async Task AfterObtained()
+    {
+        // 手稿先到手时，此处完成合体
+        await MergeDetectiveCollection();
+    }
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        // 兜底：读旧档或绕过 RelicCmd 直接塞遗物时补一次合体
+        await MergeDetectiveCollection();
+    }
 
     public override async Task BeforeFlushLate(PlayerChoiceContext choiceContext, Player player)
     {

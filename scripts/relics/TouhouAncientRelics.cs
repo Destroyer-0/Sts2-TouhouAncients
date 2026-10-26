@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -9,6 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using TouhouAncients.Scripts;
 using TouhouAncients.Scripts.relics;
+using TouhouAncients.Scripts.relics.Akyuu;
 
 //namespace TouhouAncients.Scripts.relics;
 
@@ -53,6 +56,25 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     protected bool IsBlockedByVat(Player player, CardModel card)
     {
         return player.Relics.OfType<BrainInAVat>().Any(r => r.IsBlocked(card.Id.Entry));
+    }
+
+    /// <summary>拾起手稿或小说集时，若另一件已在手，吞掉对方并把自身换成阿加莎·克里斯Q侦探集。</summary>
+    protected async Task MergeDetectiveCollection()
+    {
+        Player? player = base.Owner;
+        if (player == null) return;
+
+        // 两件互斥：自身是手稿就找小说集，反之亦然
+        RelicModel? other = this is DetectiveManuscript
+            ? player.GetRelic<DetectiveStory>()
+            : this is DetectiveStory
+                ? player.GetRelic<DetectiveManuscript>()
+                : null;
+        if (other == null) return;
+
+        // 先移除对方再替换自身，顺序反了会短暂留下两件合体遗物
+        await RelicCmd.Remove(other);
+        await RelicCmd.Replace(this, ModelDb.Relic<AgathaChrisQCollection>().ToMutable());
     }
 
     // 小图标（原版85x85）
