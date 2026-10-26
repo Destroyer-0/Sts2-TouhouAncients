@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -303,11 +302,10 @@ public sealed class SilentObjectMonster : TouhouAncientMonsterBase
         }
     }
 
-    /// <summary>把被代表的牌挂到场景的 %StolenCardPos 上（仅本机显示）。</summary>
+    /// <summary>把被代表的牌挂到场景的 %StolenCardPos 上；各端本地各建一份，不能按 IsMine 过滤。</summary>
     private void ShowEmbodiedCard()
     {
         if (_embodiedCard == null) return;
-        if (!LocalContext.IsMine(_embodiedCard)) return;
 
         NCreature? creatureNode = base.Creature.GetCreatureNode();
         Marker2D? cardPos = creatureNode?.GetSpecialNode<Marker2D>("%StolenCardPos");
