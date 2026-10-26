@@ -723,7 +723,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°nueå…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ'ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "One-Eyed Karakasa",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "When the total damage you deal this turn to an enemy whose intent is [gold]Attack[/gold] exceeds its total intent damage, it loses [blue]{StrengthDown}[/blue] [gold]Strength[/gold] this turn. Whenever you [gold]Fatal[/gold] an enemy with negative [gold]Strength[/gold], combat rewards gain a reward to [green]Upgrade[/green] one card.",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "When the total damage you deal this turn to an enemy whose intent is [gold]Attack[/gold] first exceeds its total intent damage, it loses [blue]{StrengthDown}[/blue] [gold]Strength[/gold] this turn. Whenever you [gold]Fatal[/gold] an enemy with negative [gold]Strength[/gold], randomly [green]Upgrade[/green] one card.",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "Careful not to scare that poorly cute child.",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "Hyakki Yagyo Scroll",
@@ -882,8 +882,13 @@
   "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "Detective Novel Manuscript",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "At the end of your turn, if no enemy is intending to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] during your next turn.",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "In [gold]?[/gold] rooms, prevent the first time you would lose HP.",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.title": "Agatha Chris Q's Detective Collection",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.description": "In [gold]?[/gold] rooms, prevent the first time you would lose HP. Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, [gold]Retain[/gold] [blue]{RetainCard}[/blue] additional card for each enemy.",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "Signed Shikishi",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "A random card in each card reward is [gold]Enchanted[/gold] with [purple]{EnchantmentName}[/purple]. You may hold a [pink]Signing Session[/pink] at [gold]Rest Sites[/gold].",

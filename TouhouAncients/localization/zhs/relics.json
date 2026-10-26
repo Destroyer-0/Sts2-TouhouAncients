@@ -723,7 +723,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°鵺å…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ‘ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "独眼唐伞",
-  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "当你本回合对意图为[gold]攻击[/gold]的敌人造成的伤害总和高于其意图伤害总和时，令其在本回合失去[blue]{StrengthDown}[/blue]点[gold]力量[/gold]。当你[gold]斩杀[/gold][gold]力量[/gold]为负的敌人时，战斗奖励增加[green]升级[/green]一张牌的奖励。",
+  "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "当你本回合对意图为[gold]攻击[/gold]的敌人造成的伤害总和首次高于其意图伤害总和时，令其在本回合失去[blue]{StrengthDown}[/blue]点[gold]力量[/gold]。当你[gold]斩杀[/gold][gold]力量[/gold]为负的敌人时，随机[green]升级[/green]一张牌。",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "可得小心别把那孩子吓到了。",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行绘卷",
@@ -881,8 +881,13 @@
   "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "侦探小说手稿",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "回合结束时，若所有敌人都不处于攻击意图，则在下回合中获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.title": "阿加莎·克里斯Q侦探集",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.description": "在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。\n攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个敌人，额外最多[gold]保留[/gold][blue]{RetainCard}[/blue]张手牌。",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "签名色纸",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。",
