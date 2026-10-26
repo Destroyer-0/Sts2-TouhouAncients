@@ -71,6 +71,24 @@ public class KillingAura : TouhouAncientCards
     }
 
     /// <summary>
+    /// 提取一张牌的格挡值。君王之剑这类牌只有 CalculatedBlock，直取 Block 会抛 KeyNotFound 中断整个吞噬流程。
+    /// </summary>
+    private decimal GetCardBlock(CardModel card)
+    {
+        if (card.DynamicVars.ContainsKey("Block"))
+        {
+            return card.DynamicVars.Block.BaseValue;
+        }
+
+        if (card.DynamicVars.ContainsKey("CalculatedBlock"))
+        {
+            return card.DynamicVars.CalculatedBlock.Calculate(null);
+        }
+
+        return 0m;
+    }
+
+    /// <summary>
     /// 提取一张牌造成的伤害数值（仿照原版「痛殴」(Thrash) 的提取逻辑）。
     /// 优先级：CalculatedDamage > Damage > OstyDamage，之后统一跑一次 ModifyDamage Hook。
     /// </summary>
@@ -124,38 +142,24 @@ public class KillingAura : TouhouAncientCards
             return;
         }
 
-        if (cardPlay.Card.GainsBlock)
-        {
-            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
-                VfxColor.Purple));
-            await CardCmd.Exhaust(
-                choiceContext,
-                cardPlay.Card,
-                skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
-            );
-            AddBlock(cardPlay.Card.DynamicVars.Block.IntValue);
-            if (cardPlay.Card.DynamicVars.ContainsKey("Damage")
-                || cardPlay.Card.DynamicVars.ContainsKey("CalculatedDamage")
-                || cardPlay.Card.DynamicVars.ContainsKey("OstyDamage"))
-            {
-                AddDamage((int)GetCardDamage(cardPlay.Card));
-            }
+        var played = cardPlay.Card;
+        bool hasDamage = played.DynamicVars.ContainsKey("Damage")
+            || played.DynamicVars.ContainsKey("CalculatedDamage")
+            || played.DynamicVars.ContainsKey("OstyDamage");
+        if (!played.GainsBlock && !hasDamage) return;
 
-            return;
-        }
+        // 先取值再消耗，顺序与原版痛殴一致
+        int block = played.GainsBlock ? (int)GetCardBlock(played) : 0;
+        int damage = hasDamage ? (int)GetCardDamage(played) : 0;
 
-        if (cardPlay.Card.DynamicVars.ContainsKey("Damage")
-            || cardPlay.Card.DynamicVars.ContainsKey("CalculatedDamage")
-            || cardPlay.Card.DynamicVars.ContainsKey("OstyDamage"))
-        {
-            NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
-                VfxColor.Purple));
-            await CardCmd.Exhaust(
-                choiceContext,
-                cardPlay.Card,
-                skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(cardPlay.Card)
-            );
-            AddDamage((int)GetCardDamage(cardPlay.Card));
-        }
+        NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(base.Owner.Creature,
+            VfxColor.Purple));
+        await CardCmd.Exhaust(
+            choiceContext,
+            played,
+            skipVisuals: PileType.Exhaust.GetPile(Owner).Cards.Contains(played)
+        );
+        AddBlock(block);
+        AddDamage(damage);
     }
 }
