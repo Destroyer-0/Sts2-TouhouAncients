@@ -25,6 +25,7 @@ Ooh! Just as the rumors said... |
 | `talk.ANY.0-1.ancient` | 哦？！你确定要听吗？这隐匿的[sine]世界的真相[/sine]？天机不可泄露…… | Oh?! Are you sure you want to hear it? This hidden [sine]truth of the world[/sine]? The secrets of heaven must not be revealed... |
 | `talk.ANY.1-0r.ancient` | 哼哼，我乃全知之人，整座尖塔没有我，渡里贝子不知道的事情！ | Heheh, I am the omniscient one. There’s nothing in this entire Spire that I, Nina Watari, don’t know! |
 | `talk.ANY.2-0r.ancient` | 我们所在的世界的未来，都是在暗地里被一小部分人决定的。这可是绝对的真实！ | The future of the world we live in is decided in the shadows by a small handful of people. This is the absolute truth! |
+| `talk.ANY.3-0r.ancient` | 咳咳，那句话怎么说的来着？——再玩小卡组找人弄你！ | Ahem, how did that saying go again? — Play a small deck again and I'll have someone come deal with you! |
 | `talk.IRONCLAD.0-0r.ancient` | 那个你能表演一下那个吗对就是那个“黑拥重振放干血条重放恶魔之火最后牌烧完了我打什么？”！ | Hey, can you do that thing, yeah that thing—"Dark Embrace + Corruption + Dropkick + Replay Demon Form, and then all my cards are exhausted, what do I play?!" |
 | `talk.SILENT.0-0r.ancient` | 听说你特别会转来转去，是不是真的啊？ | I heard you’re really good at shuffling. Is that true? |
 | `talk.SILENT.0-0r.next` | 什么也不说 | Respond |

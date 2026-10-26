@@ -3143,7 +3143,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `READING_GLASSES.eventDescription` | 将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。 | `Add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.` |
 | `YOKAI_BESTIARY.description` | 每当你遇到敌人时，记录其名称。再次遇到的名称存在于记录中的敌人将只有[blue]1[/blue]点生命值。 | `Whenever you encounter an enemy, record its name. Enemies you encounter again whose names are recorded have only [blue]1[/blue] HP.` |
 | `CALMING_TEA.description` | 回合结束时，若你处于负面状态，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。 | `At the end of your turn, if you are affected by a debuff, gain [blue]{Block}[/blue] [gold]Block[/gold].` |
-| `DETECTIVE_MANUSCRIPT.description` | 回合结束时，若所有敌人都不处于攻击意图，则在下回合中获得[blue]{Dexterity}[/blue]点[gold]敏捷[/gold]。 | `At the end of your turn, if no enemy is intending to Attack, gain [blue]{Dexterity}[/blue] [gold]Dexterity[/gold] during your next turn.` |
+| `DETECTIVE_MANUSCRIPT.description` | 在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。 | `In [gold]?[/gold] rooms, prevent the first time you would lose HP.` |
 | `SIGNED_SHIKISHI.description` | 每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。 | `A random card in each card reward is [gold]Enchanted[/gold] with [purple]{EnchantmentName}[/purple]. You may hold a [pink]Signing Session[/pink] at [gold]Rest Sites[/gold].` |
 | `CAMELLIA_HAIRPIN.description` | 每当你在[gold]休息处[/gold]休息时，你可以[gold]变化[/gold]一张牌。 | `Whenever you rest at a [gold]Rest Site[/gold], you may [gold]Transform[/gold] a card.` |
 | `HARDCOVER_BINDING.description` | 你在非战斗房间中获得的卡牌将自动[green]升级[/green]。 | `Cards you obtain in non-combat rooms are automatically [green]Upgraded[/green].` |
@@ -3309,4 +3309,70 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 该键为此前遗漏（`eng/jpn` 当初只补了 `.title` / `.description` / `.flavor`），本次随翻译一并补齐。
 - `{X.StringValue:cond:A|B}` 写法沿用仓库既有 `IRIDESCENT_DREAM` / `BOTTLED_GALAXY`；A 分支内嵌 `{AngryCard}` 变量。
 - 兜底分支的牌名与 `(multiplayer)` / `(singleplayer)` 沿用 `.description` 既有写法（`Outrage` / `Anger`，源自原版 `ftues.json`）。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 增量更新（2026-10-26，阿加莎·克里斯Q侦探集）
+
+手稿 + 小说集拾起时合体（移除对方、把自身替换为本遗物）而来的彩蛋遗物，只进 `EventRelicPool`，不出现在任何先古之民的选项列表。
+
+**键名**: `TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION`
+
+**zhs 原文**
+- `.title`: `阿加莎·克里斯Q侦探集`
+- `.description`: `在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个敌人，额外最多[gold]保留[/gold][blue]{RetainCard}[/blue]张手牌。`
+- `.flavor`: `""`（留空）
+- `.selectionScreenPrompt`: `选择{Amount}张牌保留。`
+
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Agatha Chris Q's Detective Collection` |
+| `.description` | `In [gold]?[/gold] rooms, prevent the first time you would lose HP. Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, [gold]Retain[/gold] [blue]{RetainCard}[/blue] additional card for each enemy.` |
+| `.flavor` | `""`（留空） |
+| `.selectionScreenPrompt` | `Choose {Amount:plural:a card|{} cards} to Retain.` |
+
+### 说明
+- 三句分别沿用 `DETECTIVE_MANUSCRIPT` / `DETECTIVE_STORY` 的既有句式；`.selectionScreenPrompt` 与 `DETECTIVE_STORY` 完全一致。
+- `{Damage}` = 6、`{RetainCard}` = 1，均由 `CanonicalVars` 提供。
+- 无「拾起时」句，按项目规则省略 `.eventDescription`。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 文案修订（2026-10-26，独眼唐伞）
+
+仅改描述措辞、不动效果，zhs 补上「首次」，与代码「同一敌人在本回合只结算一次」对齐。
+
+**键名**: `TOUHOUANCIENTS-ONE_EYED_KARAKASA.description`
+
+**zhs 原文（现行）**
+- `.description`: `当你本回合对意图为[gold]攻击[/gold]的敌人造成的伤害总和首次高于其意图伤害总和时，令其在本回合失去[blue]{StrengthDown}[/blue]点[gold]力量[/gold]。当你[gold]斩杀[/gold][gold]力量[/gold]为负的敌人时，战斗奖励增加[green]升级[/green]一张牌的奖励。`
+
+| 字段 | 翻译 |
+|------|------|
+| `.description` | `When the total damage you deal this turn to an enemy whose intent is [gold]Attack[/gold] first exceeds its total intent damage, it loses [blue]{StrengthDown}[/blue] [gold]Strength[/gold] this turn. Whenever you [gold]Fatal[/gold] an enemy with negative [gold]Strength[/gold], combat rewards gain a reward to [green]Upgrade[/green] one card.` |
+
+### 说明
+- 只插入 `first`，其余句式与 2026-07-21 版一致；`.title` / `.flavor` 未变。
+- jpn 与 eng 一致（jpn 文件用英文填充）。
+
+---
+
+## 效果与文案修订（2026-10-26，独眼唐伞·斩杀奖励）
+
+斩杀负力量敌人的奖励由「战斗奖励中额外多一次自选升级」改为「随机升级牌组中一张牌」，文案随之改写。
+
+**键名**: `TOUHOUANCIENTS-ONE_EYED_KARAKASA.description`
+
+**zhs 原文（现行）**
+- `.description`: `当你本回合对意图为[gold]攻击[/gold]的敌人造成的伤害总和首次高于其意图伤害总和时，令其在本回合失去[blue]{StrengthDown}[/blue]点[gold]力量[/gold]。当你[gold]斩杀[/gold][gold]力量[/gold]为负的敌人时，随机[green]升级[/green]一张牌。`
+
+| 字段 | 翻译 |
+|------|------|
+| `.description` | `When the total damage you deal this turn to an enemy whose intent is [gold]Attack[/gold] first exceeds its total intent damage, it loses [blue]{StrengthDown}[/blue] [gold]Strength[/gold] this turn. Whenever you [gold]Fatal[/gold] an enemy with negative [gold]Strength[/gold], randomly [green]Upgrade[/green] one card.` |
+
+### 说明
+- 仅第二句改写：`战斗奖励增加升级一张牌的奖励` → `随机升级一张牌`，译文 `combat rewards gain a reward to Upgrade one card` → `randomly Upgrade one card`。
+- 随机源用 `RunState.Rng.CombatCardGeneration`，与 `MagicBombPotion` 一致，多人各端同选牌；牌组无牌可升时不给奖励。
 - jpn 与 eng 一致（jpn 文件用英文填充）。
