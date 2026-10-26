@@ -26,10 +26,10 @@ shader_parameter/card_glow_strength = 0.2000000095
 shader_parameter/card_glow_flat = 0.4
 shader_parameter/card_glow_radius = 0.12
 shader_parameter/border_width = 0.022
-shader_parameter/border_outset = 0.008
+shader_parameter/border_outset = 0.0
 shader_parameter/border_alpha = 0.95
-shader_parameter/border_erosion = 0.35
-shader_parameter/border_color = Color(0.9, 0.06, 0.06, 1)
+shader_parameter/border_erosion = 0.10000000475
+shader_parameter/border_color = Color(0.99130076, 0.17648312, 0.14093706, 1)
 shader_parameter/overflow_px = 0.0
 
 [node name="Sealed" type="Control"]

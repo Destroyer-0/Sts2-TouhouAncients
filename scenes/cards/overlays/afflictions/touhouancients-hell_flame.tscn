@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://blb5npq6balj2"]
+
+[ext_resource type="Shader" uid="uid://baox33a5j84r" path="res://shaders/afflictions/hell_flame.gdshader" id="1_m4feb"]
+[ext_resource type="Texture2D" uid="uid://dr8uy6lva3b4i" path="res://shaders/stage05a.png" id="2_vytfy"]
+[ext_resource type="Texture2D" uid="uid://d13j0ctdeafov" path="res://shaders/stage05b.png" id="3_ls4mh"]
+[ext_resource type="Texture2D" uid="uid://bhradtpgban1g" path="res://shaders/orin.png" id="4_53fss"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hell_flame"]
+shader = ExtResource("1_m4feb")
+shader_parameter/fire_texture = ExtResource("2_vytfy")
+shader_parameter/noise_texture = ExtResource("3_ls4mh")
+shader_parameter/orin_texture = ExtResource("4_53fss")
+shader_parameter/card_px = Vector2(300, 422)
+shader_parameter/corner_ratio = 0.055
+shader_parameter/tint_color = Color(0.55, 0.16, 0.05, 1)
+shader_parameter/tint_strength = 0.30000001425
+shader_parameter/edge_px = 60.0
+shader_parameter/edge_power = 1.6
+shader_parameter/ragged = 0.6
+shader_parameter/fire_tint = Color(1, 1, 1, 1)
+shader_parameter/fire_scale = Vector2(1.4, 1.6)
+shader_parameter/flow_speed = 0.35
+shader_parameter/layer2_mix = 0.45
+shader_parameter/brightness = 1.0
+shader_parameter/opacity = 1.0
+shader_parameter/noise_scale = Vector2(1.6, 1.1)
+shader_parameter/noise_speed = 0.12
+shader_parameter/warp = 0.1
+shader_parameter/orin_tint = Color(1, 1, 1, 1)
+shader_parameter/orin_opacity = 0.10000000475
+shader_parameter/orin_center = Vector2(0.5, 0.8)
+shader_parameter/orin_scale = 0.30000001262006
+shader_parameter/shimmer = 0.06000000285
+shader_parameter/shimmer_speed = 2.0
+
+[node name="HellFlame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="FlameOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hell_flame")
+layout_mode = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+mouse_filter = 2
