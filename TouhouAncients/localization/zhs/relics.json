@@ -363,8 +363,8 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪曾经想拉拢马萨雷斯的信徒加入自己的起义军，但是因为号角发不出“咔咔”声而被拒绝了。",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "哔哩电池",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple][blue]{Damage}[/blue]。",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "每场战斗的第一回合开始时，从[gold]抽牌堆[/gold]中选择[blue]{Amount}[/blue]张[gold]能力牌[/gold]放入[gold]手牌[/gold]，这些牌本回合可以免费打出，并被侵蚀为[purple]流电[/purple][blue]{Damage}[/blue]。",
   "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "选择[blue]{Amount}[/blue]张能力牌放入[gold]手牌[/gold]，使其本回合可以免费打出，并被侵蚀为[purple]流电[/purple]",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "坏消息，电池漏电；好消息，起码电池不会电流相生。",
 
@@ -932,5 +932,50 @@
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+
+  "TOUHOUANCIENTS-SUPPORT_BATON.title": "应援棒",
+  "TOUHOUANCIENTS-SUPPORT_BATON.description": "在每场战斗开始时，选择一种[purple]演奏[/purple]方式。",
+
+  "TOUHOUANCIENTS-BACKSTAGE_MAKEUP.title": "台前妆后",
+  "TOUHOUANCIENTS-BACKSTAGE_MAKEUP.description": "拾起时与每次在[gold]休息处[/gold]休息时，获得[blue]1[/blue]计数。每累计获得[blue]{AtmosphereThreshold}[/blue][gold]气氛[/gold]随机获得[blue]{StatAmount}[/blue][gold]力量[/gold]或[blue]{StatAmount}[/blue][gold]敏捷[/gold]，进入[green][jitter]嗨到爆[/jitter][/green]状态时触发[blue]{HypedTriggers}[/blue]次。[gold]力量[/gold]与[gold]敏捷[/gold]均最多获得[blue]{Counts}[/blue]次。",
+  "TOUHOUANCIENTS-BACKSTAGE_MAKEUP.flavor": "偶像登台前的准备事宜，饮下提神的冰饮与汽水薄荷糖，保证自己上台能够向大家展现最佳状态。",
+
+  "TOUHOUANCIENTS-ROSE_CAGE.title": "蔷薇之笼",
+  "TOUHOUANCIENTS-ROSE_CAGE.description": "回合结束时，获得等同于[gold]气氛[/gold]值一半的[gold]格挡[/gold]，最多[blue]{MaxBlock}[/blue]。在[green][jitter]嗨到爆[/jitter][/green]状态下结束回合，[gold]格挡[/gold]能保留至下一回合。",
+  "TOUHOUANCIENTS-ROSE_CAGE.flavor": "地底蔷薇演出场地背后的巨大鸟笼陈列，是舞台的装饰物之一。",
+
+  "TOUHOUANCIENTS-SPECIAL_TICKET.title": "特别门票",
+  "TOUHOUANCIENTS-SPECIAL_TICKET.description": "当你在[green][jitter]嗨到爆[/jitter][/green]状态下结束回合时，开始一个新的回合，额外回合不会进入[green][jitter]嗨到爆[/jitter][/green]状态，且之后进入[green][jitter]嗨到爆[/jitter][/green]所需的[gold]气氛[/gold]值+[blue]{ThresholdIncrease}[/blue]。",
+  "TOUHOUANCIENTS-SPECIAL_TICKET.flavor": "一张精美的门票，上面印着地底蔷薇的相关元素。光是看着就让人感到激动。",
+
+  "TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE.title": "无意识麦克风",
+  "TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE.description": "你进入[green][jitter]嗨到爆[/jitter][/green]状态时，使所有敌人失去[blue]{StrengthLoss}[/blue][gold]力量[/gold]，且在本回合额外失去[blue]{ExtraStrengthLoss}[/blue][gold]力量[/gold]，如果是本场战斗首次进入则获得[blue]{Intangible}[/blue][gold]无实体[/gold]。",
+  "TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE.flavor": "地底蔷薇演出时用的特制麦克风，经过地灵集团的改造拥有着将歌声渗入人心的功能。",
+
+  "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.title": "演出用帽子先生",
+  "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.description": "你每获得[blue]{AtmospherePerVigor}[/blue][gold]气氛[/gold]，就获得[blue]{StatAmount}[/blue][gold]活力[/gold]；在[green][jitter]嗨到爆[/jitter][/green]状态下，额外将一张带有[gold]虚无[/gold]的随机牌加入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.flavor": "为了演出使用专门设计的帽子先生，经过特殊处理的材质甚至能够直接充当舞台道具使用。",
+
+  "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.title": "地灵打歌服",
+  "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.description": "[green][jitter]嗨到爆[/jitter][/green]状态下的第[blue]{BasePlays}[/blue]张[gold]攻击牌[/gold]或[gold]技能牌[/gold]额外打出[blue]{ExtraPlays}[/blue]次。你在本场战斗中每进入过一次[green][jitter]嗨到爆[/jitter][/green]状态，就额外有[blue]{ExtraPlays}[/blue]张牌能触发一次。",
+  "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.flavor": "由恋恋的姐姐亲自设计的漂亮的打歌服，能够衬托出地底蔷薇独特的魅力。",
+
+  "TOUHOUANCIENTS-KOI_HEADSET.title": "恋语耳麦",
+  "TOUHOUANCIENTS-KOI_HEADSET.description": "进入[green][jitter]嗨到爆[/jitter][/green]状态后，抽[blue]{Cards}[/blue]张牌并使随机[blue]{FreeCards}[/blue]张牌的耗能变为[blue]0[/blue]。",
+  "TOUHOUANCIENTS-KOI_HEADSET.flavor": "演出时使用的耳麦，清晰的收音效果可以将地底蔷薇的美妙歌声传到会场的每个角落。",
+
+  "TOUHOUANCIENTS-KOI_EYE_SATCHEL.title": "恋之瞳挎包",
+  "TOUHOUANCIENTS-KOI_EYE_SATCHEL.description": "获得[blue]{PotionSlots}[/blue]个[gold]药水栏位[/gold]与[blue]{Chocolates}[/blue]份[gold]特制造型巧克力[/gold]。你每获得[blue]{AtmospherePerChocolate}[/blue][gold]气氛[/gold]就获得[blue]{StatAmount}[/blue]份[gold]特制造型巧克力[/gold]。",
+  "TOUHOUANCIENTS-KOI_EYE_SATCHEL.flavor": "地灵集团设计的周边售卖物，据说已经被抢到断供了。",
+
+  "TOUHOUANCIENTS-IDOL_ALBUM.title": "偶像专辑",
+  "TOUHOUANCIENTS-IDOL_ALBUM.description": "拾起时，为至多[blue]{EnchantCount}[/blue]张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。在[gold]休息处[/gold]，你可以重新播放专辑以为一张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将随机一张带有[purple]{EnchantmentName}[/purple][gold]附魔[/gold]的牌移动至[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-IDOL_ALBUM.eventDescription": "为至多[blue]{EnchantCount}[/blue]张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。在[gold]休息处[/gold]，你可以重新播放专辑以为一张牌[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将随机一张带有[purple]{EnchantmentName}[/purple][gold]附魔[/gold]的牌移动至[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-IDOL_ALBUM.flavor": "地灵集团制作的地底蔷薇专辑合集光碟，购买时会附赠地底蔷薇的精心亲笔签名。",
+
+  "TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE.title": "某人的画像",
+  "TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE.description": "拾起时，将一张[gold]献给你的荆棘之歌[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE.eventDescription": "将一张[gold]献给你的荆棘之歌[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE.flavor": "画像中的人物侧身向外，仿佛真的在看着观众一般向外探望。"
 }

@@ -31,7 +31,8 @@ public enum ForcedAncientOption
     Yuuma饕餮,
     Junko纯狐,
     Yorigami依神姐妹,
-    Mamizou猯藏
+    Mamizou猯藏,
+    Koishi蔷薇偶像
 }
 
 /// <summary>
@@ -110,6 +111,7 @@ public class TouhouAncientsConfig : SimpleModConfig
         if (BanDoremySweet) mask |= 1UL << 24;
         // 阿求属测试内容：未开启即视为禁用。写进掩码是为了随联机包尾同步，各端候选池才一致。
         if (BanHiedaNoAkyuu || !EnableHiedaNoAkyuuTest) mask |= 1UL << 25;
+        if (BanIdleKoishi) mask |= 1UL << 26;
         return mask;
     }
 
@@ -147,6 +149,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(Neow) => 23, // 原版涅奥，仅第一幕出现，禁用判定见 IsBaseGameAncientBanned 与 Act1AncientPoolPatch
             nameof(DoremySweetAncient) => 24, // 哆来咪·苏伊特，仅第一幕出现，与涅奥同池抽取
             nameof(HiedaNoAkyuuAncient) => 25, // 稗田阿求，仅第一幕出现，与涅奥、哆来咪同池抽取
+            nameof(IdleKoishiAncient) => 26, // 蔷薇偶像，仅第二幕出现
             _ => -1
         };
     }
@@ -190,6 +193,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(FutatsuiwaMamizouAncient) => BanMamizou,
             nameof(DoremySweetAncient) => BanDoremySweet,
             nameof(HiedaNoAkyuuAncient) => BanHiedaNoAkyuu || !EnableHiedaNoAkyuuTest,
+            nameof(IdleKoishiAncient) => BanIdleKoishi,
             _ => false
         };
     }
@@ -257,6 +261,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
             ForcedAncientOption.Yorigami依神姐妹 when type is YorigamiSisterAncient => true,
             ForcedAncientOption.Mamizou猯藏 when type is FutatsuiwaMamizouAncient => true,
+            ForcedAncientOption.Koishi蔷薇偶像 when type is IdleKoishiAncient => true,
             _ => false
         };
     }
@@ -335,6 +340,9 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanYuuma { get; set; } = false;
     public static bool BanYorigami { get; set; } = false;
     public static bool BanMamizou { get; set; } = false;
+
+    /// <summary>禁用蔷薇偶像（仅第二幕出现）</summary>
+    public static bool BanIdleKoishi { get; set; } = false;
 
     // ───────────────────────── 设置界面：第一幕先古之民全禁用提示 ─────────────────────────
 

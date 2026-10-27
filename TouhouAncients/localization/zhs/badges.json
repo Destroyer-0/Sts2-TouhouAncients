@@ -35,6 +35,8 @@
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.goldTitle": "姐姐增殖了！",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverDescription": "在一局游戏中遇到[blue]3[/blue]次[gold]古明地觉[/gold]。",
   "TOUHOUANCIENTS-TOO_MUCH_SATORI.silverTitle": "三五成群",
+  "TOUHOUANCIENTS-SATORI_KOISHI.goldDescription": "在一局游戏中遇到[blue]4[/blue]次[gold]古明地觉[/gold]与[blue]2[/blue]次[gold]古明地恋[/gold]。",
+  "TOUHOUANCIENTS-SATORI_KOISHI.goldTitle": "四五二石",
   "TOUHOUANCIENTS-MR_ZUN.description": "在一场游戏中喝下[blue]12[/blue]杯[gold]超ZUN啤酒[/gold]。",
   "TOUHOUANCIENTS-MR_ZUN.title": "那个男人"
 }

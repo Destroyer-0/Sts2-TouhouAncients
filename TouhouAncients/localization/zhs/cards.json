@@ -145,5 +145,17 @@
     "TOUHOUANCIENTS-CONSPIRACY_SERPENT.description": "将[blue]5[/blue]张[gold]蛇咬[/gold]加入你的[gold]手牌[/gold]。",
 
     "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE.title": "真相「高维观测」",
-    "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE.description": "在你的回合开始时，[gold]预见[/gold][blue]3[/blue]。"
+    "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE.description": "在你的回合开始时，[gold]预见[/gold][blue]3[/blue]。",
+
+    "TOUHOUANCIENTS-STACCATO_CHOICE.title": "断奏",
+    "TOUHOUANCIENTS-STACCATO_CHOICE.description": "你每造成[blue]{DamagePerAtmosphere}[/blue]点伤害就获得[blue]{AtmosphereGain}[/blue][gold]气氛[/gold]。\n有敌人死亡时，获得[blue]{DeathAtmosphere}[/blue][gold]气氛[/gold]。",
+
+    "TOUHOUANCIENTS-CRESCENDO_CHOICE.title": "渐强",
+    "TOUHOUANCIENTS-CRESCENDO_CHOICE.description": "你打出牌时获得等同于耗能点[gold]气氛[/gold]，至少为[blue]{MinAtmosphere}[/blue]，若耗能高于上一张牌则额外获得[blue]{BonusAtmosphere}[/blue]。",
+
+    "TOUHOUANCIENTS-HARMONY_CHOICE.title": "协和",
+    "TOUHOUANCIENTS-HARMONY_CHOICE.description": "每回合开始时，获得[blue]{TurnAtmosphere}[/blue][gold]气氛[/gold]，若上回合完全[gold]格挡[/gold]了敌人的攻击则额外获得[blue]{FullBlockAtmosphere}[/blue]。",
+
+    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.title": "献给你的荆棘之歌",
+    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}。"
 }

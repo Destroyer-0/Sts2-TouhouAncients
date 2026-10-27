@@ -41,7 +41,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
 
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 210, 201);
 
-    private int DreamBowDamage => 4;
+    private int DreamBowDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
 
     private int DecreeDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
     private int WeepingBuff => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 5, 4);
@@ -388,7 +388,7 @@ public sealed class KijinSeijaMonster : TouhouAncientMonsterBase
 
         public string SortKey => Card != null
             ? $"{Owner.NetId}|C|{Card.Id}|{Card.CurrentUpgradeLevel}"
-            : $"{Owner.NetId}|H|{Serialized!.Id}";
+            : $"{Owner.NetId}|H|{Serialized}";
 
         /// <summary>候选项身份：用于「已消耗」记录（战斗牌按实例、历史牌按条目，同名两张互不影响）。</summary>
         public object Identity => Card ?? (object)Serialized!;
