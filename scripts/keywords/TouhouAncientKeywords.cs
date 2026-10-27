@@ -56,6 +56,16 @@ public class TouhouAncientKeywords
     [KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword TouhouAncientDisguise;
 
+    /// <summary>蔷薇偶像的气氛：仅作悬停说明，数值由 <c>AtmospherePower</c> 承载。</summary>
+    [CustomEnum("TouhouAncientAtmosphere")]
+    [KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword TouhouAncientAtmosphere;
+
+    /// <summary>蔷薇偶像的嗨到爆状态：仅作悬停说明，状态由 <c>HypedPower</c> 承载。</summary>
+    [CustomEnum("TouhouAncientHyped")]
+    [KeywordProperties(AutoKeywordPosition.After)]
+    public static CardKeyword TouhouAncientHyped;
+
 }
 
 /*
