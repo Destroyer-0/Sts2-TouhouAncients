@@ -1,7 +1,6 @@
 ---
 description: "Translate newly added TouhouAncients relic entries from zhs/relics.json to English and write them into eng/relics.json. Finds entries in zhs that are missing from eng, translates following existing translation style and the glossary, and asks for user confirmation before writing."
 tools: [read, edit, search]
-model: DeepSeek V4 flash (思考) (oaicopilot)
 user-invocable: false
 ---
 
