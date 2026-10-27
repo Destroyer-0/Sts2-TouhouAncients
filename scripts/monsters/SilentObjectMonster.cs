@@ -77,8 +77,8 @@ public sealed class SilentObjectMonster : TouhouAncientMonsterBase
         : "TOUHOUANCIENTS-SILENT_OBJECT_MONSTER.name");
 
     protected override int InitialHp => _isAttack
-        ? AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 30, 29)
-        : AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 35, 34);
+        ? AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 34, 32)
+        : AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 39, 37);
 
     /// <summary>
     /// 在 <see cref="CreatureCmd.Add"/> 之前写入被代表的牌与面板值——
