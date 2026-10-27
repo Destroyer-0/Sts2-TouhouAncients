@@ -355,8 +355,8 @@
   "TOUHOUANCIENTS-REBELLION_HORN.flavor": "Seija once tried to recruit Mazaleth's followers to join her rebel army, but was rejected because the horn couldn't make a 'Caaaaw' sound.",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "Zap Battery",
-  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
-  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple].",
+  "TOUHOUANCIENTS-BATTERY_BILI.description": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple][blue]{Damage}[/blue].",
+  "TOUHOUANCIENTS-BATTERY_BILI.eventDescription": "At the start of the first turn of each combat, choose [blue]{Amount}[/blue] [gold]Power[/gold] cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. They are free to play this turn and gain [purple]Galvanized[/purple][blue]{Damage}[/blue].",
   "TOUHOUANCIENTS-BATTERY_BILI.selectionScreenPrompt": "Choose [blue]{Amount}[/blue] Power cards to put into your Hand, making them free to play this turn and gain [purple]Galvanized[/purple].",
   "TOUHOUANCIENTS-BATTERY_BILI.flavor": "Bad news, the battery is leaking. Good news, at least batteries can't cast [gold]Voltaic[/gold].",
 
