@@ -26,5 +26,9 @@
 
   "TOUHOUANCIENTS-DEMONS_GRIN_POTION.title": "恶魔之狞笑",
   "TOUHOUANCIENTS-DEMONS_GRIN_POTION.description": "失去[blue]6[/blue]点[gold]最大生命[/gold]，对一名敌人造成[blue]66[/blue]点伤害。\n[gold]斩杀[/gold]时，战斗奖励额外增加一瓶[jitter][red]“恶魔之狞笑”[/red][/jitter]，且其在本局游戏中造成的伤害永久性增加[blue]20[/blue]。",
-  "TOUHOUANCIENTS-DEMONS_GRIN_POTION.flavor": ""
+  "TOUHOUANCIENTS-DEMONS_GRIN_POTION.flavor": "",
+
+  "TOUHOUANCIENTS-IDOL_CHOCOLATE_POTION.title": "特制造型巧克力",
+  "TOUHOUANCIENTS-IDOL_CHOCOLATE_POTION.description": "在非[green][jitter]嗨到爆[/jitter][/green]状态下，进入[green][jitter]嗨到爆[/jitter][/green]状态。\n在[green][jitter]嗨到爆[/jitter][/green]状态下，随机打出[gold]抽牌堆[/gold]、[gold]弃牌堆[/gold]里的[blue]{AutoPlayCards}[/blue]张牌。",
+  "TOUHOUANCIENTS-IDOL_CHOCOLATE_POTION.flavor": "精心设计的创意主题料理，吃下后据说能够梦到自己也成为偶像的体验。"
 }

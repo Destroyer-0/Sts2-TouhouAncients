@@ -16,5 +16,8 @@
 
   "OPTION_SIGNED_SHIKISHI.name": "签售",
   "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "你没有可用于[pink]签售[/pink]的[purple]亲笔[/purple]色纸！",
-  "OPTION_SIGNED_SHIKISHI.description": "从你的[gold]牌组[/gold]中移除一张带有[purple]亲笔[/purple][gold]附魔[/gold]的牌。\n不占用休息处选项。"
+  "OPTION_SIGNED_SHIKISHI.description": "从你的[gold]牌组[/gold]中移除一张带有[purple]亲笔[/purple][gold]附魔[/gold]的牌。\n不占用休息处选项。",
+
+  "OPTION_IDOL_ALBUM.name": "重播",
+  "OPTION_IDOL_ALBUM.description": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]蔷薇[/purple]。"
 }

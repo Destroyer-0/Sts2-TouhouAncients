@@ -894,5 +894,15 @@
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-1.next": "继续",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-2.char": "就算是同一种族，我也迟早有一天会把她连着整个自视甚高的月都都推翻掉的！",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-2.next": "继续",
-  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-3.ancient": "呼呼呼，我会看着的……"
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.KIJINSEIJ-KIJIN_SEIJ.0-3.ancient": "呼呼呼，我会看着的……",
+
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.title": "蔷薇偶像",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.epithet": "超人气地底蔷薇",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.talk.firstVisitEver.0-0.ancient": "这个角色还在制作中！",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.talk.ANY.0-0r.ancient": "这个角色还在制作中！",
+
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.pages.INITIAL.description": "这个角色还在制作中！",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.pages.INITIAL.options.SUPPORT.title": "为蔷薇偶像应援！",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.pages.INITIAL.options.SUPPORT.description": "拾起[gold]应援棒[/gold]，在每一场战斗中为[green]地底蔷薇[/green]的演出应援。",
+  "TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT.pages.IDOL_CHOICE.description": ""
 }

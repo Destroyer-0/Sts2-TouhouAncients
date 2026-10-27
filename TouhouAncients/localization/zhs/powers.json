@@ -152,5 +152,25 @@
 
   "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.title": "先见之明",
   "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.description": "在你的回合开始时，[gold]预见[/gold][blue]{Amount}[/blue]。",
-  "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.smartDescription": "在你的回合开始时，[gold]预见[/gold][blue]{Amount}[/blue]。"
+  "TOUHOUANCIENTS-CONSPIRACY_HEAVENLY_EYE_POWER.smartDescription": "在你的回合开始时，[gold]预见[/gold][blue]{Amount}[/blue]。",
+
+  "TOUHOUANCIENTS-ATMOSPHERE_POWER.title": "气氛",
+  "TOUHOUANCIENTS-ATMOSPHERE_POWER.description": "以特定方式演奏可获得[gold]气氛[/gold]。当你的[gold]气氛[/gold]达到[blue]{Threshold}[/blue]时，在当回合进入[green][jitter]嗨到爆[/jitter][/green]状态。",
+  "TOUHOUANCIENTS-ATMOSPHERE_POWER.smartDescription": "以特定方式演奏可获得[gold]气氛[/gold]。当你的[gold]气氛[/gold]达到[blue]{Threshold}[/blue]时，在当回合进入[green][jitter]嗨到爆[/jitter][/green]状态。",
+
+  "TOUHOUANCIENTS-HYPED_POWER.title": "嗨到爆",
+  "TOUHOUANCIENTS-HYPED_POWER.description": "[green]❤史上最华丽的演出现在就要开始了~~~❤[/green]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。",
+  "TOUHOUANCIENTS-HYPED_POWER.smartDescription": "[green]❤史上最华丽的演出现在就要开始了~~~❤[/green]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。",
+
+  "TOUHOUANCIENTS-STACCATO_POWER.title": "断奏",
+  "TOUHOUANCIENTS-STACCATO_POWER.description": "你每造成[blue]{DamagePerAtmosphere}[/blue]点伤害就获得[blue]{AtmosphereGain}[/blue][gold]气氛[/gold]，有敌人死亡时，获得[blue]{DeathAtmosphere}[/blue][gold]气氛[/gold]。",
+  "TOUHOUANCIENTS-STACCATO_POWER.smartDescription": "你每造成[blue]{DamagePerAtmosphere}[/blue]点伤害就获得[blue]{AtmosphereGain}[/blue][gold]气氛[/gold]，有敌人死亡时，获得[blue]{DeathAtmosphere}[/blue][gold]气氛[/gold]。",
+
+  "TOUHOUANCIENTS-CRESCENDO_POWER.title": "渐强",
+  "TOUHOUANCIENTS-CRESCENDO_POWER.description": "你打出牌时累计耗能点[gold]气氛[/gold]，至少为[blue]{MinAtmosphere}[/blue]，若耗能高于上一张牌则额外+[blue]{BonusAtmosphere}[/blue]。",
+  "TOUHOUANCIENTS-CRESCENDO_POWER.smartDescription": "你打出牌时累计耗能点[gold]气氛[/gold]，至少为[blue]{MinAtmosphere}[/blue]，若耗能高于上一张牌则额外+[blue]{BonusAtmosphere}[/blue]。",
+
+  "TOUHOUANCIENTS-HARMONY_POWER.title": "协和",
+  "TOUHOUANCIENTS-HARMONY_POWER.description": "每回合开始时，获得[blue]{TurnAtmosphere}[/blue][gold]气氛[/gold]，若上回合完全[gold]格挡[/gold]了敌人的攻击则额外获得[blue]{FullBlockAtmosphere}[/blue]。",
+  "TOUHOUANCIENTS-HARMONY_POWER.smartDescription": "每回合开始时，获得[blue]{TurnAtmosphere}[/blue][gold]气氛[/gold]，若上回合完全[gold]格挡[/gold]了敌人的攻击则额外获得[blue]{FullBlockAtmosphere}[/blue]。"
 }
