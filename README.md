@@ -20,6 +20,7 @@
 | 东风谷早苗（二层/三层） | `TOUHOUANCIENTS-KOTIYA_SANAE_ANCIENT` |
 | 博丽灵梦（二层） | `TOUHOUANCIENTS-HAKUREI_REIMU_ANCIENT` |
 | 古明地觉（二层） | `TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT` |
+| 蔷薇偶像（二层） | `TOUHOUANCIENTS-IDLE_KOISHI_ANCIENT` |
 | 渡里贝子（二层） | `TOUHOUANCIENTS-WATARI_NINA_ANCIENT` |
 | 因幡帝（二层） | `TOUHOUANCIENTS-INABA_TEWI_ANCIENT` |
 | 蕾米莉亚·斯卡雷特（三层） | `TOUHOUANCIENTS-REMILIA_SCARLET_ANCIENT` |
@@ -74,6 +75,21 @@
 | 缸中之脑 | `TOUHOUANCIENTS-BRAIN_IN_A_VAT` | 拾起时，从25张当前角色牌中指定任意张，使其不出现在后续卡牌奖励与商店中。 | — |
 | 遗忘残片 | `TOUHOUANCIENTS-OBLIVION_FRAGMENT` | 拾起时，获得随机3个涅奥的初始遗物。 | — |
 | 尘封蔷薇 | `TOUHOUANCIENTS-DUSTY_ROSE` | 在你的回合开始时，将1张禁闭之眼放入你的手牌。 | — |
+
+#### 蔷薇偶像（二层）
+| 遗物 | 代号 | 效果 | 衍生 |
+|:----|:----|:----|:----|
+| 应援棒 | `TOUHOUANCIENTS-SUPPORT_BATON` | 在每场战斗开始时，选择一种演奏方式（断奏 / 渐强 / 协和）。 | 断奏：每造成2点伤害获得1气氛，有敌人死亡时获得14气氛。渐强：打出牌时按耗能获得气氛（至少1），耗能高于上一张牌时额外+1。协和：每回合开始获得5气氛，上回合完全格挡敌人攻击则额外获得9。 |
+| 台前妆后 | `TOUHOUANCIENTS-BACKSTAGE_MAKEUP` | 拾起时与每次在休息处休息时，获得1计数。每累计获得5气氛随机获得1力量或1敏捷，进入嗨到爆时触发4次。力量与敏捷均最多获得计数次。 | — |
+| 蔷薇之笼 | `TOUHOUANCIENTS-ROSE_CAGE` | 回合结束时，获得等同于气氛值一半的格挡，最多14。在嗨到爆状态下结束回合，格挡能保留至下一回合。 | — |
+| 特别门票 | `TOUHOUANCIENTS-SPECIAL_TICKET` | 当你在嗨到爆状态下结束回合时，开始一个新的回合，额外回合不会进入嗨到爆，且之后进入嗨到爆所需的气氛值+5。 | — |
+| 无意识麦克风 | `TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE` | 你进入嗨到爆时，使所有敌人失去1力量，且在本回合额外失去2力量，如果是本场战斗首次进入则获得1无实体。 | — |
+| 演出用帽子先生 | `TOUHOUANCIENTS-SHOWMAN_HAT_MAN` | 你每获得4气氛，就获得1活力；在嗨到爆状态下，额外将一张带有虚无的随机牌加入手牌。 | — |
+| 地灵打歌服 | `TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME` | 嗨到爆状态下的第1张攻击牌或技能牌额外打出一次。你在本场战斗中每进入过一次嗨到爆，就额外有1张牌能触发一次。 | — |
+| 恋语耳麦 | `TOUHOUANCIENTS-KOI_HEADSET` | 进入嗨到爆后，抽2张牌并使随机2张牌的耗能变为0。 | — |
+| 恋之瞳挎包 | `TOUHOUANCIENTS-KOI_EYE_SATCHEL` | 获得1个药水栏位与2份特制造型巧克力。你每获得14气氛就获得1份特制造型巧克力。 | 特制造型巧克力（药水，仅战斗中使用）：非嗨到爆时进入嗨到爆；已在嗨到爆则随机打出抽牌堆、弃牌堆里的3张牌。 |
+| 偶像专辑 | `TOUHOUANCIENTS-IDOL_ALBUM` | 拾起时，为至多3张牌附魔：**蔷薇**。在休息处，你可以重新播放专辑以为一张牌附魔蔷薇。进入嗨到爆时，将随机一张带有蔷薇附魔的牌移动至手牌。 | 蔷薇：嗨到爆状态下耗能-1并获得保留。打出后对所有敌人造成5点伤害，并使蔷薇附魔的伤害效果在本回合增加5。 |
+| 某人的画像 | `TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE` | 将一张献给你的荆棘之歌加入你的牌组。 | 献给你的荆棘之歌：2费攻击。造成14+当前气氛点伤害。获得2荆棘。嗨到爆状态下改为对全体敌人造成伤害。升级后：进入嗨到爆时，将此牌返回你的手牌。 |
 
 #### 渡里贝子（二层）
 | 遗物 | 代号 | 效果 | 衍生 |
