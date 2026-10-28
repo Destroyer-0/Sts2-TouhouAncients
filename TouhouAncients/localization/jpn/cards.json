@@ -6,10 +6,10 @@
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]占術[/gold][blue]{SatoriScry}[/blue]。\nこれを[gold]手札[/gold]に戻す。このターン、このカードのコストが{Energy:energyIcons()}増加する。\n[purple][jitter]さあ、これからが本番よ！[/jitter][/purple]",
 
     "TOUHOUANCIENTS-TRIBUTE.title": "奉納",
-    "TOUHOUANCIENTS-TRIBUTE.description": "[blue]{Remaining}[/blue]ゴールドを奉納した後、[gold]デッキ[/gold]から削除される。 [fade_in]かわいいから、お賽銭頂戴！[/fade_in]",
+    "TOUHOUANCIENTS-TRIBUTE.description": "[blue]{Remaining}[/blue]ゴールドを奉納した後、[gold]デッキ[/gold]から削除される。\n[fade_in]かわいいから、お賽銭頂戴！[/fade_in]",
 
     "TOUHOUANCIENTS-DREAM_SEAL.title": "夢想封印",
-    "TOUHOUANCIENTS-DREAM_SEAL.description": "すべての敵に{Damage:diff()}ダメージを[blue]6[/blue]回与える。 敵が攻撃を予定している場合、[gold]弱体[/gold][blue]1[/blue]を与え、ターン終了時までその敵は[gold]筋力[/gold]{StrengthLoss:diff()}を失う。 [b]退治ね。[/b]",
+    "TOUHOUANCIENTS-DREAM_SEAL.description": "すべての敵に{Damage:diff()}ダメージを[blue]6[/blue]回与える。\n敵が攻撃を予定している場合、[gold]弱体[/gold][blue]1[/blue]を付与し、ターン終了時までその敵は[gold]筋力[/gold]{StrengthLoss:diff()}を失う。\n[b]退治ね。[/b]",
 
     "TOUHOUANCIENTS-SERVANT_SAKUYA.title": "時の従者",
     "TOUHOUANCIENTS-SERVANT_SAKUYA.description": "[gold]ナイフ[/gold]を{Cards:diff()}枚[gold]手札[/gold]に加える。\nこのターン終了時、このターンに[gold]廃棄[/gold]されたカード1枚につき、対象に{Damage:diff()}ダメージを与える。",
@@ -24,10 +24,10 @@
     "TOUHOUANCIENTS-ALL_CREATION_HISOU.description": "{IfUpgraded:show:アップグレードし, |}[gold]手札[/gold]と[gold]廃棄札[/gold]のカードをすべてプレイし、[gold]廃棄[/gold]する。\n[red]空の天気も、地の安定も、人の気質も私の掌の上！[/red]",
 	
     "TOUHOUANCIENTS-MAGIC_WALLET.title": "小槌の魔力",
-    "TOUHOUANCIENTS-MAGIC_WALLET.description": "Add [blue]{Cards}[/blue] random [gold]Colorless[/gold] cards to your [gold]Hand[/gold]. They are free to play this turn.\nIncrease this card's cost by [blue]1[/blue]. The number of Colorless cards generated increases by [blue]1[/blue].",
+    "TOUHOUANCIENTS-MAGIC_WALLET.description": "ランダムな[gold]無色[/gold]カードを[blue]{Cards}[/blue]枚[gold]手札[/gold]に加える。このターン、それらはコストを支払わずにプレイできる。\nこのカードのコストが[blue]1[/blue]増加する。生成される無色カードの枚数が[blue]1[/blue]増加する。",
 
     "TOUHOUANCIENTS-LILY_BELL.title": "鈴蘭",
-    "TOUHOUANCIENTS-LILY_BELL.description": "Gain {Energy:energyIcons()}, draw [blue]{Cards}[/blue] cards. Apply [gold]Poison[/gold] to ALL enemies equal to {Multiplier:diff()}x your [purple]Tainted[/purple] count{InCombat: ([green]{CalculatePoison}[/green])|}.\nEach time this card is drawn or played, it will be [gold]Afflicted with[/gold] [purple]Tainted[/purple] [blue]{ExtraAmount}[/blue].",
+    "TOUHOUANCIENTS-LILY_BELL.description": "{Energy:energyIcons()}を得て、カードを[blue]{Cards}[/blue]枚引く。すべての敵に、自身の[purple]汚染[/purple]の数{Multiplier:diff()}倍に等しい[gold]毒[/gold]を付与する{InCombat:（[green]{CalculatePoison}[/green]）|}。\nこのカードを引くかプレイするたび、このカードに[purple]汚染[/purple][blue]{ExtraAmount}[/blue]を[gold]災禍[/gold]として付与する。",
 
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.title": "生者必滅の理",
     "TOUHOUANCIENTS-LIFE_MUST_PERISH.description": "{Countdown:inverseDiff()}ターン後、敵全体の[gold]アーティファクト[/gold]を取り除き、[gold]破滅[/gold][blue]9999[/blue]を付与する。\n敵から攻撃ダメージを受けるたび、カウントダウンを[blue]1[/blue]ターン延長し、自身に[gold]破滅[/gold][blue]{SelfDoom}[/blue]を付与する。",
@@ -42,97 +42,97 @@
     "TOUHOUANCIENTS-SEA_OPENING_MIRACLE.description": "敵全体に、各敵の現在HPの半分に等しいダメージを与える。",
 
     "TOUHOUANCIENTS-THE_KOISHI_EYE.title": "閉じた瞳",
-    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "[gold]山札[/gold]、[gold]手札[/gold]、[gold]捨て札[/gold]からランダムなカードを{Cards:diff()}枚プレイする。\nその中のランダムなアタック1枚が[purple]本能[/purple]を得る。\nその中のランダムなカード1枚が[red]無意識[/red]を得る。",
+    "TOUHOUANCIENTS-THE_KOISHI_EYE.description": "[gold]山札[/gold]、[gold]手札[/gold]、[gold]捨て札[/gold]からランダムなカードを{Cards:diff()}枚プレイする。\nその中のランダムなアタック1枚に[purple]本能[/purple]を[gold]エンチャント[/gold]し、ランダムなカード1枚に[red]無意識[/red]を付与する。",
 
     "TOUHOUANCIENTS-KILLING_AURA.title": "殺気",
     "TOUHOUANCIENTS-KILLING_AURA.description": "{Damage:diff()}ダメージを与える。\n{Block:diff()}[gold]ブロック[/gold]を得る。\nダメージまたはブロックを持つカードをプレイする時、このカードが[gold]手札[/gold]にあるなら、そのカードを[gold]廃棄[/gold]し、そのカードのダメージとブロックの数値{IfUpgraded:show:に1を加えた値|}をこのカードに加える。",
 
     "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.title": "純粋な弾幕地獄",
-    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "[gold]手札[/gold]からカードを任意の枚数選び、[gold]名もなき弾幕[/gold]に[gold]変化[/gold]させる。\nこのターン、アタックのコストを0{Energy:energyIcons()}にする。アタックをプレイするたびカードを1枚引く。[gold]手札[/gold]にアタックがなくなった時、ターンを終了する。",
-    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.selectionScreenPrompt": "Choose cards to [gold]Transform[/gold].",
+    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.description": "[gold]手札[/gold]からカードを任意の枚数選び、[gold]名もなき弾幕[/gold]に[gold]変化[/gold]させる。\nこのターン、アタックはコストを支払わずにプレイでき、プレイするたびカードを1枚引く。[gold]手札[/gold]にアタックがなくなった時、ターンを終了する。",
+    "TOUHOUANCIENTS-PURE_HELL_OF_BULLETS.selectionScreenPrompt": "[gold]変化[/gold]させるカードを選択する。",
 
     "TOUHOUANCIENTS-NAMELESS_BULLETS.title": "名もなき弾幕",
     "TOUHOUANCIENTS-NAMELESS_BULLETS.description": "{Damage:diff()}ダメージを与える。",
 
     "TOUHOUANCIENTS-RICHEST_FORM.title": "豪奢化",
-    "TOUHOUANCIENTS-RICHEST_FORM.description": "Gain {Energy2:energyIcons()}.\nAt the start of your turn, gain {Energy3:energyIcons()}.\nWhenever you play a card, cards of the same type cost {Energy:energyIcons()} more this turn.",
+    "TOUHOUANCIENTS-RICHEST_FORM.description": "{Energy2:energyIcons()}を得る。\n自分のターン開始時、{Energy3:energyIcons()}を得る。\nカードをプレイするたび、同じタイプのカードのコストがこのターン{Energy:energyIcons()}増加する。",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "極貧化",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply {Amount} [gold]Doom[/gold] to a random enemy.",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "自分のターン終了時、[gold]手札[/gold]の合計コストが残り[gold]エナジー[/gold]を上回る1ポイントにつき、ランダムな敵1体に[gold]破滅[/gold]{Amount:diff()}を付与する。",
 
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
 
-    "TOUHOUANCIENTS-SHINING_TOWER.title": "Shining Tower",
-    "TOUHOUANCIENTS-SHINING_TOWER.description": "Deal {Damage:diff()} damage to ALL enemies and [gold]Stun[/gold] them.\nOn [gold]Fatal[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].\nRemove from your [gold]Deck[/gold] and re-add to the [gold]Treasure Hunt[/gold] rewards.",
+    "TOUHOUANCIENTS-SHINING_TOWER.title": "輝光の宝塔",
+    "TOUHOUANCIENTS-SHINING_TOWER.description": "すべての敵に{Damage:diff()}ダメージを与え、[gold]スタン[/gold]させる。\n[gold]とどめを刺した[/gold]時、[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。\n[gold]デッキ[/gold]から削除され、宝探しの報酬に再び加わる。",
 
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card's cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",
-    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "Choose a card to add [gold]Replay[/gold] to.",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病手形",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "[gold]手札[/gold]のカード1枚に[gold]リプレイ[/gold]を付与する。\nそのカードのコストが[blue]1[/blue]減少する。このカードのコストが[blue]1[/blue]増加する。\n次の自分のターン開始時、このカードを[gold]手札[/gold]に戻す。\nこのカードが[gold]手札[/gold]にある場合、このカードよりコストの低いカードはプレイできない。",
+    "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.selectionScreenPrompt": "[gold]リプレイ[/gold]を付与するカードを選択する。",
 
     "TOUHOUANCIENTS-THE_FEAST.title": "狂宴",
-    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]Exhaust[/gold] {MinExhaust}~{MaxExhaust} cards that aren't [gold]\"Frenzied Feast\"[/gold] from your [gold]Draw Pile[/gold]. For each, gain {Strength:diff()} [gold]Strength[/gold] and {Energy:energyIcons()}.\nAt end of turn, if this card is in your [gold]Hand[/gold], add {Copies} {Copies:plural:copy|copies} of this card to your [gold]Discard Pile[/gold].\n[jitter][i]All shall become my food!![/i][/jitter]",
-    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to [gold]Exhaust[/gold].",
+    "TOUHOUANCIENTS-THE_FEAST.description": "[gold]山札[/gold]から[gold]“狂宴”[/gold]以外のカードを{MinExhaust}~{MaxExhaust}枚[gold]廃棄[/gold]する。1枚につき{Strength:diff()}[gold]筋力[/gold]と{Energy:energyIcons()}を得る。\nターン終了時、このカードが[gold]手札[/gold]にあるなら、このカードのコピーを{Copies}枚[gold]捨て札[/gold]に加える。\n[jitter][i]すべて我が糧となれ！！[/i][/jitter]",
+    "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "[gold]廃棄[/gold]するカードを1~3枚選択する。",
 
-    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "Heaven Sage",
-    "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
+    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "天上の賢者",
+    "TOUHOUANCIENTS-HEAVEN_SAGE.description": "名前に「防御」を含むカードを引くたび、このカードをプレイする。\nᗜᴗᗜ",
 
-    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
-    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target's [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "神槍「グングニル」",
+    "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "対象の[gold]ブロック[/gold]の{ExtraDamage:diff()}倍に等しいダメージを与える。\nどこにあっても、このカードを[gold]手札[/gold]に戻す。{InCombat:\n（{CalculatedDamage:diff()}ダメージを与える）|}",
 
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "Unidentified Youkai",
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "Transform any number of cards from your [gold]Hand[/gold] into {IfUpgraded:show:[gold]Upgraded[/gold] |}cards from other [gold]colors[/gold] of the same rarity.\nThis turn, whenever you play a card of a different [gold]color[/gold] than the last card you played, gain {Energy:energyIcons()} and gain {Power:diff()} [gold]Strength[/gold] this turn.",
-    "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "Choose any number of cards to [gold]Transform[/gold].",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.title": "名もなき妖魔",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.description": "[gold]手札[/gold]から任意の枚数のカードを、同じレアリティの{IfUpgraded:show:[gold]アップグレード済み[/gold]の|}[gold]他の色[/gold]のカードに[gold]変化[/gold]させる。\nこのターン、直前にプレイしたカードと[gold]色[/gold]が異なるカードをプレイするたび、{Energy:energyIcons()}を得て、このターン{Power:diff()}[gold]筋力[/gold]を得る。",
+    "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "[gold]変化[/gold]させるカードを任意の枚数選択する。",
 
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "Hyakki Yagyo",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "Play {Cards} random transcribed cards, then remove them from the transcription for this combat.\nOnce the transcription is emptied, remove this card from the game for this combat.\n[b][thinky_dots]Heh, heh, heh! Let this old one see what you're made of![/thinky_dots][/b]",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "百鬼夜行",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "収録されたカードをランダムに{Cards}枚プレイし、この戦闘中それらを収録から取り除く。\n収録が空になった時、このカードをこの戦闘中ゲームから取り除く。\n[b][thinky_dots]ふふふ！この老いぼれにどれほどの腕か見せてみよ！[/thinky_dots][/b]",
 
-    "TOUHOUANCIENTS-SEAL_CIRCLE.title": "Sealing Circle",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.title": "封魔陣",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
-    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from the corresponding card.",
-    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "When [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove the [red]Sealed[/red] status from [gold]{Card}[/gold].",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionIdle": "[gold]廃棄[/gold]または[gold]変化[/gold]された時、対応するカードの[red]封印[/red]状態を解除する。",
+    "TOUHOUANCIENTS-SEAL_CIRCLE.descriptionSealed": "[gold]廃棄[/gold]または[gold]変化[/gold]された時、[gold]{Card}[/gold]の[red]封印[/red]状態を解除する。",
 
-    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "Jewel from the Dragon's Neck",
-    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "Whenever you play a card, this card's cost is reduced by [blue]{CostReduce}[/blue] this turn.",
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.title": "龍頸の玉",
+    "TOUHOUANCIENTS-DRAGON_NECK_JEWEL_CARD.description": "カードをプレイするたび、このターンこのカードのコストが[blue]{CostReduce}[/blue]減少する。",
 
-    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.title": "Robe of Fire Rat",
-    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.description": "At the start of your turn, add [blue]{Cards}[/blue] [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
+    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.title": "火鼠の皮衣",
+    "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO_CARD.description": "自分のターン開始時、[gold]火傷[/gold]を[blue]{Cards}[/blue]枚[gold]捨て札[/gold]に加える。",
 
-    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.title": "Swallow's Cowrie Shell",
-    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.description": "Can only be played if your [gold]Draw Pile[/gold] has no more than [blue]{DrawPileLimit}[/blue] cards.",
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.title": "燕の子安貝",
+    "TOUHOUANCIENTS-SWALLOW_COWRIE_SHELL_CARD.description": "[gold]山札[/gold]の枚数が[blue]{DrawPileLimit}[/blue]以下の時のみプレイできる。",
 
-    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.title": "Buddha's Stone Bowl",
-    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.description": "Can only be played if your [gold]Block[/gold] is at least [blue]{RequiredBlock}[/blue].",
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.title": "仏御石の鉢",
+    "TOUHOUANCIENTS-BUDDHA_STONE_BOWL_CARD.description": "[gold]ブロック[/gold]が[blue]{RequiredBlock}[/blue]以上の時のみプレイできる。",
 
-    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.title": "Jeweled Branch of Hourai",
+    "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.title": "蓬莱の玉の枝",
     "TOUHOUANCIENTS-HOURAI_NO_TAMAE_CARD.description": "",
 
-    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "Sea of Desire and Blood",
-    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "The target loses [blue]{HpLoss}[/blue] HP and gains [blue]{Strength}[/blue] [gold]Strength[/gold].\nEach time this card is played this combat, the target loses an additional [blue]{ExtraHpLoss}[/blue] HP and gains an additional [blue]{ExtraStrength}[/blue] [gold]Strength[/gold].",
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.title": "欲と血の海",
+    "TOUHOUANCIENTS-DESIRE_BLOOD_SEA.description": "対象は[blue]{HpLoss}[/blue]HPを失い、[blue]{Strength}[/blue][gold]筋力[/gold]を得る。\nこの戦闘中このカードをプレイするたび、対象はさらに[blue]{ExtraHpLoss}[/blue]HPを失い、さらに[blue]{ExtraStrength}[/blue][gold]筋力[/gold]を得る。",
 
-    "TOUHOUANCIENTS-YUAN_HEN.title": "Grudge",
-    "TOUHOUANCIENTS-YUAN_HEN.description": "While this card is in your [gold]Hand[/gold], whenever you play a card from a pile other than your [gold]Hand[/gold], add a [gold]Toxic[/gold] to your [gold]Hand[/gold].",
+    "TOUHOUANCIENTS-YUAN_HEN.title": "遺恨",
+    "TOUHOUANCIENTS-YUAN_HEN.description": "このカードが[gold]手札[/gold]にある間、[gold]手札[/gold]以外からカードをプレイするたび、[gold]毒素[/gold]を1枚[gold]手札[/gold]に加える。",
 
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "Youkai Extermination",
-    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "Deal {Damage:diff()} damage [blue]{Repeat}[/blue] times.\nIf [gold]Fatal[/gold], gain {Energy:energyIcons()} and permanently increase this card's damage by {Increase:diff()}.",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.title": "妖怪退治",
+    "TOUHOUANCIENTS-YOUKAI_EXTERMINATION.description": "{Damage:diff()}ダメージを[blue]{Repeat}[/blue]回与える。\n[gold]とどめを刺した[/gold]時、{Energy:energyIcons()}を得て、このカードのダメージがこのラン中永続的に{Increase:diff()}増加する。",
 
-    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "Illusory Dream Boundless",
-    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "Gain [aqua]{Block:diff()}[/aqua] [gold]Block[/gold].\nDeal [purple]{Damage:diff()}[/purple] damage.\nAdd [orange]{Cards:diff()}[/orange] random cards to your [gold]Draw Pile[/gold].\nWhenever you rest at a [gold]Rest Site[/gold], you may randomly change the values on this card.",
+    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.title": "幻夢無辺",
+    "TOUHOUANCIENTS-ILLUSORY_DREAM_WHISPER.description": "[aqua]{Block:diff()}[/aqua][gold]ブロック[/gold]を得る。\n[purple]{Damage:diff()}[/purple]ダメージを与える。\nランダムなカードを[orange]{Cards:diff()}[/orange]枚[gold]山札[/gold]に加える。\n[gold]休憩所[/gold]で休憩するたび、このカードの数値をランダムに変化させることができる。",
 
-    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "Ominous Dream Eternal",
-    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "Whenever you draw this card, lose {Energy:energyIcons()}.\nAfter you rest [blue]{Rests}[/blue] times at a [gold]Rest Site[/gold], remove this card from your [gold]Deck[/gold].",
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.title": "悪夢無終",
+    "TOUHOUANCIENTS-ENDLESS_NIGHTMARE.description": "このカードを引くたび、{Energy:energyIcons()}を失う。\n[gold]休憩所[/gold]で[blue]{Rests}[/blue]回休憩した後、このカードを[gold]デッキ[/gold]から削除する。",
 
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "Mysterious Leaf",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.title": "謎の木の葉",
     "TOUHOUANCIENTS-MYSTERIOUS_LEAF.description": "{LeafText}",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "Whenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "Play [green]{CardStr}[/green].[/purple]\nWhenever you add a card to your [gold]Deck[/gold], this card becomes a [purple]Disguise[/purple] of that card.\n[i]Is This All the Work of Youkai Too?[/i]",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "Disguise",
-    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "This card's cost matches that of the card it is disguised as. Playing this card plays a copy of that card.",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionIdle": "[gold]デッキ[/gold]にカードを加えるたび、このカードはそのカードの[purple]偽装[/purple]になる。\n[i]これも全て妖怪の仕業なのか[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.descriptionDisguised": "[green]{CardStr}[/green]をプレイする。\n[gold]デッキ[/gold]にカードを加えるたび、このカードはそのカードの[purple]偽装[/purple]になる。\n[i]これも全て妖怪の仕業なのか[/i]",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseTitle": "偽装",
+    "TOUHOUANCIENTS-MYSTERIOUS_LEAF.disguiseDescription": "このカードのコストは偽装したカードと同じになる。このカードをプレイすると、偽装したカードのコピーをプレイする。",
 
-    "TOUHOUANCIENTS-YAMA_PUNISHMENT.title": "Yama's Punishment",
-    "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "When [gold]Exhausted[/gold], remove it from your [gold]Deck[/gold].",
+    "TOUHOUANCIENTS-YAMA_PUNISHMENT.title": "閻魔の罪罰",
+    "TOUHOUANCIENTS-YAMA_PUNISHMENT.description": "[gold]廃棄[/gold]された時、[gold]デッキ[/gold]から削除される。",
 
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "Overwork",
-    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.title": "過労",
+    "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "このカードを引いた時、自身に[blue]1[/blue][gold]脱力[/gold]を付与する。",
 
-    "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]"
+    "TOUHOUANCIENTS-LUCKY_TRICK.title": "“幸運”の手品",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "このターン、[gold]手札[/gold]にある[gold]“幸運”の手品[/gold]以外のカードのコストをランダム化する。\n[i][red]必要なのは……ほんの少しの代償だけ。[/red][/i]"
 }

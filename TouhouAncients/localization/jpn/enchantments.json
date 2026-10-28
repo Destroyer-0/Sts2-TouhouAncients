@@ -22,7 +22,7 @@
     "TOUHOUANCIENTS-EXORCISM.description": "プレイ後、[gold]夢想封印[/gold]を1枚[gold]手札[/gold]に加える。",
     "TOUHOUANCIENTS-EXORCISM.title": "調伏",
 
-"TOUHOUANCIENTS-TSUKUMOGAMI.description": "Gains [gold]Ethereal[/gold].\nCurrent count: [blue]{Amount}[/blue].\nThe first time the count reaches [blue]0[/blue], play this card from anywhere.\nAt the end of your turn, if this card was not played this turn, reduce the count by [blue]1[/blue].",
+"TOUHOUANCIENTS-TSUKUMOGAMI.description": "[gold]エセリアル[/gold]を得る。\n現在のカウント：[blue]{Amount}[/blue]。\nカウントが初めて[blue]0[/blue]になった時、どこにあってもこのカードをプレイする。\nターン終了時、このカードがこのターンにプレイされていなければ、カウントを[blue]1[/blue]減らす。",
     "TOUHOUANCIENTS-TSUKUMOGAMI.title": "付喪神",
 
     "TOUHOUANCIENTS-MEDICINE_POISON.description": "[gold]エターナル[/gold]を得る。このカードが付与する[gold]毒[/gold]を[blue]{Amount}[/blue]増やす。\nターン終了時、[gold]手札[/gold]にあるなら、この戦闘、このカードが付与する[gold]毒[/gold]をさらに[blue]{Amount}[/blue]増やす。",
@@ -38,17 +38,17 @@
     "TOUHOUANCIENTS-YUMEIRO.description": "コストを[blue]1[/blue]下げる。プレイ後、カードを1枚引く。[purple]夢色[/purple]を別のエンチャントに変化させる。",
     "TOUHOUANCIENTS-YUMEIRO.title": "夢色",
 
-    "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. If a card with this enchantment is in your [gold]Hand[/gold], you must play cards with this enchantment first.",
-    "TOUHOUANCIENTS-GREED.title": "貪欲",
+    "TOUHOUANCIENTS-GREED.description": "[gold]永劫[/gold]と[gold]リプレイ[/gold][blue]{Times}[/blue]を得る。このエンチャントを持つカードが[gold]手札[/gold]にある場合、このエンチャントを持つカードからプレイしなければならない。",
+    "TOUHOUANCIENTS-GREED.title": "欲張り",
 
 	"TOUHOUANCIENTS-BLOOD_POND.description": "エナジーと[gold]スター[/gold]のコストが[blue]0[/blue]になる。[gold]リプレイ[/gold][blue]{Times}[/blue]を得る。\n[red]戦闘終了時、このカードは饕餮尤魔に呑み込まれる。[/red]",
     "TOUHOUANCIENTS-BLOOD_POND.title": "黒い水",
-    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎悪にまみれた有機物が全て燃料になるんだ。",
+    "TOUHOUANCIENTS-BLOOD_POND.extraCardText": "憎悪にまみれた有機物",
 
-    "TOUHOUANCIENTS-ECHO.description": "When played, add a copy of this card to your [gold]Hand[/gold]. It costs [blue]1[/blue] more this turn.",
-    "TOUHOUANCIENTS-ECHO.extraCardText": "YaHoo!!",
-    "TOUHOUANCIENTS-ECHO.title": "Echo",
+    "TOUHOUANCIENTS-ECHO.description": "このカードをプレイした後、このカードのコピー1枚を[gold]手札[/gold]に加える。このターン、そのコストは[blue]1[/blue]増加する。",
+    "TOUHOUANCIENTS-ECHO.extraCardText": "YeHaa!!",
+    "TOUHOUANCIENTS-ECHO.title": "エコー",
 
-    "TOUHOUANCIENTS-AUTOGRAPH.description": "When this card is removed from your [gold]Deck[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].",
-    "TOUHOUANCIENTS-AUTOGRAPH.title": "Autograph"
+    "TOUHOUANCIENTS-AUTOGRAPH.description": "このカードが[gold]デッキ[/gold]から削除された時、[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
+    "TOUHOUANCIENTS-AUTOGRAPH.title": "直筆"
 }
