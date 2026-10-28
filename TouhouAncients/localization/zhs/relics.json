@@ -777,7 +777,7 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光之梦",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "拾起时，将{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]|你的初始[gold]遗物[/gold]替换为[gold]先古[/gold]版本}，将{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|一张初始卡牌}从你的[gold]牌组[/gold]中移除。",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "将{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]|你的初始[gold]遗物[/gold]替换为[gold]先古[/gold]版本}，将{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|一张初始卡牌}从你的[gold]牌组[/gold]中移除。",
-  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "“梦的使者？收集梦魂？像泡泡！有意思！把我的梦装起来！”",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "“梦的使者？收集梦魂？像泡泡！真有意思！把我的梦装起来！”",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "熔蜡之梦",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "回合开始时，若你的生命值低于[blue]{HpThreshold}%[/blue]则获得[blue]{RegenGain}[/blue]层[gold]再生[/gold]，如果你在一场战斗中通过此方式获得[blue]{RegenLimit}[/blue]点[gold]再生[/gold]，则此遗物永久失效。",
@@ -848,10 +848,6 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.description": "拾起时，获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。",
-
-  "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想之梦",
-  "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]商人[/gold]现在会出售[gold]先古之民遗物[/gold]。",
-  "TOUHOUANCIENTS-FANTASY_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-MIARE_BRUSH.title": "御阿礼·笔",
   "TOUHOUANCIENTS-MIARE_BRUSH.description": "接下来的[blue]{Combats}[/blue]场战斗额外掉落[blue]1[/blue]组[gold]卡牌奖励[/gold]。",

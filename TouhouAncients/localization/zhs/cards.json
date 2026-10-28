@@ -58,7 +58,7 @@
     "TOUHOUANCIENTS-RICHEST_FORM.description": "获得{Energy2:energyIcons()}。\n在你的回合开始时，获得{Energy3:energyIcons()}。\n你每打出一张牌，同类型牌在本回合耗能增加{Energy:energyIcons()}。",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "至贫形态",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "在你的回合结束时，手牌总耗能每比剩余能量多一，就给予随机一名敌人{Amount}层[gold]灾厄[/gold]1次。",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "在你的回合结束时，手牌总耗能每比剩余能量多一，就给予随机一名敌人{Amount:diff()}层[gold]灾厄[/gold]1次。",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "疫病支票",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "给一张[gold]手牌[/gold]添加[gold]重放[/gold]。\n其耗能减少[blue]1[/blue]。这张牌的耗能增加[blue]1[/blue]。\n在你的下个回合开始时，将此卡返回你的[gold]手牌[/gold]。\n如果这张牌在你的手中，你不能打出耗能低于这张牌的卡牌。",
@@ -157,5 +157,5 @@
     "TOUHOUANCIENTS-HARMONY_CHOICE.description": "每回合开始时，获得[blue]{TurnAtmosphere}[/blue][gold]气氛[/gold]，若上回合完全[gold]格挡[/gold]了敌人的攻击则额外获得[blue]{FullBlockAtmosphere}[/blue]。",
 
     "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.title": "献给你的荆棘之歌",
-    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}。"
+    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}。"
 }

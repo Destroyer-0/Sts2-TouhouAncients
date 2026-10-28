@@ -58,7 +58,7 @@
     "TOUHOUANCIENTS-RICHEST_FORM.description": "Gain {Energy2:energyIcons()}.\nAt the start of your turn, gain {Energy3:energyIcons()}.\nWhenever you play a card, cards of the same type cost {Energy:energyIcons()} more this turn.",
 
     "TOUHOUANCIENTS-POOREST_FORM.title": "Destitution Form",
-    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply {Amount} [gold]Doom[/gold] to a random enemy.",
+    "TOUHOUANCIENTS-POOREST_FORM.description": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply {Amount:diff()} [gold]Doom[/gold] to a random enemy.",
 
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.title": "Plague Check",
     "TOUHOUANCIENTS-THE_MILLION_POUND_NOTE.description": "Add [gold]Replay[/gold] to a card in your [gold]Hand[/gold].\nIts cost is reduced by [blue]1[/blue]. Increase this card's cost by [blue]1[/blue].\nAt the start of your next turn, return this to your [gold]Hand[/gold].\nIf this card is in your [gold]Hand[/gold], you cannot play cards that costs lower than this card.",

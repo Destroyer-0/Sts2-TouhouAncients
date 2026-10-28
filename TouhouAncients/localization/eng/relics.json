@@ -701,7 +701,7 @@
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal to [blue]{Percent}%[/blue] of your Max HP. [aqua]Starting next turn, Seiga Kaku takes over your turn.[/aqua]",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "[aqua]Seiga Kaku[/aqua]",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After [aqua]Seiga Kaku[/aqua] takes over, at the start of your turn lose [blue]5[/blue] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After [aqua]Seiga Kaku[/aqua] takes over, at the start of your turn lose [red]5[/red] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "People fear her name as a wicked hermit, yet they all yearn for that forbidden power.",
 
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "Nidomitei's Special Blend",
