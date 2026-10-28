@@ -14,7 +14,7 @@ namespace TouhouAncients.Scripts.Patches;
 public static class AncientNameBannerOutlinePatch
 {
     // outline_size 沿用场景的 12，只换颜色
-    private static readonly Color OutlineColor = new("#5A5A5A");
+    private static readonly Color OutlineColor = new("#1A1A1A");
 
     private static void Postfix(NAncientNameBanner __instance)
     {
@@ -25,7 +25,7 @@ public static class AncientNameBannerOutlinePatch
 
         Label? epithet = __instance.GetNodeOrNull<Label>("%Epithet");
         // 置透明发生在 await 动画结束后，没有信号可挂，用低频 Timer 等那一刻
-        var timer = new Godot.Timer { WaitTime = 0.25, OneShot = false };
+        var timer = new Godot.Timer { WaitTime = 0.15, OneShot = false };
         timer.Timeout += () =>
         {
             if (title.GetThemeColor(ThemeConstants.RichTextLabel.FontOutlineColor).A > 0.01f)
