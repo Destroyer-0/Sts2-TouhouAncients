@@ -6,15 +6,15 @@
   "OPTION_WITCHS_CAULDRON.name": "調合",
   "OPTION_WITCHS_CAULDRON.description": "ランダムなポーションを[blue]3[/blue]個得る。カードを最大[blue]1[/blue]枚[gold]変化[/gold]させる。",
 
-  "OPTION_HELL_ORIN.name": "Reignite",
-  "OPTION_HELL_ORIN.description": "Consume all [gold]Corpse[/gold]. Restore [blue]{HealPerCount}[/blue] HP per Corpse consumed. \nIf you consume at least [blue]{EnchantThreshold}[/blue] Corpse, choose a card and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple].",
-  "OPTION_HELL_ORIN.descriptionDisabled": "Orin's Cat Cart Delivery has no fresh corpses yet!",
+  "OPTION_HELL_ORIN.name": "再燃",
+  "OPTION_HELL_ORIN.description": "すべての[gold]死体[/gold]を消費し、1つにつき[blue]{HealPerCount}[/blue]HPを回復する。\n消費した[gold]死体[/gold]が[blue]{EnchantThreshold}[/blue]個以上なら、カードを1枚選び、[purple]{EnchantmentName}[/purple]で[gold]エンチャント[/gold]する。",
+  "OPTION_HELL_ORIN.descriptionDisabled": "お燐の猫車便にはまだ新鮮な死体が届いていない！",
 
-  "OPTION_TREASURE.name": "Treasure Hunt",
-  "OPTION_TREASURE.description": "Spend [blue]{Gold}[/blue] [gold]Gold[/gold] to hire Nazrin for treasure hunting. Choose any number of recorded cards to add to your [gold]Deck[/gold]. There's also a chance to dig up some [jitter][gold]treasures[/gold][/jitter]!",
-  "OPTION_TREASURE.descriptionDisabled": "You don't have enough [gold]Gold[/gold] to hire Nazrin!",
+  "OPTION_TREASURE.name": "宝探し",
+  "OPTION_TREASURE.description": "[blue]{Gold}[/blue][gold]ゴールド[/gold]を払ってナズーリンに宝探しを依頼する。記録されたカードから好きなだけ選んで[gold]デッキ[/gold]に加える。さらに[jitter][gold]秘宝[/gold][/jitter]を掘り当てることもある！",
+  "OPTION_TREASURE.descriptionDisabled": "[gold]ゴールド[/gold]が足りず、ナズーリンに依頼できない！",
 
-  "OPTION_SIGNED_SHIKISHI.name": "Signing Session",
-  "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "You have no [purple]Autograph[/purple] shikishi to use for a [pink]Signing Session[/pink]!",
-  "OPTION_SIGNED_SHIKISHI.description": "Remove a card with the [purple]Autograph[/purple] [gold]Enchantment[/gold] from your [gold]Deck[/gold].\nDoes not use a [gold]Rest Site[/gold] option."
+  "OPTION_SIGNED_SHIKISHI.name": "サイン会",
+  "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "[pink]サイン会[/pink]に使える[purple]直筆[/purple]の色紙がない！",
+  "OPTION_SIGNED_SHIKISHI.description": "[purple]直筆[/purple]の[gold]エンチャント[/gold]を持つカードを[gold]デッキ[/gold]から削除する。\n[gold]休憩所[/gold]の選択肢を消費しない。"
 }

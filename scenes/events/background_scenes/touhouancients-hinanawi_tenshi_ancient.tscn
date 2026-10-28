@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://3hgwrawtbbn8"]
+[gd_scene load_steps=4 format=3 uid="uid://3hgwrawtbbn8"]
 
-[ext_resource type="Texture2D" uid="uid://rgl8hvf8o4yy" path="res://sprite/HinanawiTenshi.png" id="1_8i1iy"]
+[ext_resource type="Texture2D" uid="uid://rgl8hvf8o4yy" path="res://images/HinanawiTenshi.png" id="1_8i1iy"]
+[ext_resource type="Texture2D" uid="uid://ccbd7ogib3wjm" path="res://images/tenshi2.jpg" id="2_nkais"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_ojesp"]
 
 [node name="HinanawiTenshiAncient" type="Control"]
 layout_mode = 3
@@ -13,3 +15,15 @@ offset_top = -267.0
 offset_right = 2298.0
 offset_bottom = 1542.0
 texture = ExtResource("1_8i1iy")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -202.0
+offset_top = -103.0
+offset_right = 1155.0
+offset_bottom = 660.0
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("2_nkais")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_ojesp")

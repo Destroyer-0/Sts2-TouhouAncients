@@ -4,7 +4,7 @@
   "TOUHOUANCIENTS-CAMELLIA_POTION.flavor": "",
 
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.title": "超ZUNビール",
-  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "[gold]東方エンシェント[/gold]カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードは無料でプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
+  "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.description": "[gold]東方エンシェント[/gold]カード3枚から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードはコストを支払わずにプレイできる。\n[jitter][b]ミームコインは素晴らしい投資チャンスです！[/b][/jitter]",
   "TOUHOUANCIENTS-SUPER_ZUN_BEER_POTION.flavor": "ミームコインは素晴らしい投資チャンスです！",
 
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.title": "しらなイチゴミルク",
@@ -12,11 +12,11 @@
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.selectionScreenPrompt": "カードを1枚選択する",
   "TOUHOUANCIENTS-SHI_RA_NAI_POTION.flavor": "いちごミルク味らしい。しらないけど。",
 
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "Meteoric Debris",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]Transform[/gold] and [gold]Upgrade[/gold] ALL cards in your hand.\n[sine]If you're not satisfied, just blow it up with her![/sine]",
-  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]If you're not satisfied, just blow it up with her![/sine]",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.title": "魔廃爆弾",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.description": "[gold]手札[/gold]のカードをすべて[gold]変化[/gold]させ、[green]アップグレード[/green]する。\n[sine]気に入らないなら、まとめて爆発させてしまえばいい！[/sine]",
+  "TOUHOUANCIENTS-MAGIC_BOMB_POTION.flavor": "[sine]気に入らないなら、まとめて爆発させてしまえばいい！[/sine]",
 
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "Wellness Tonic",
-  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "Heal for [green]{HealPercent}%[/green] of your [gold]Max HP[/gold]. At the end of combat, if this potion is in your [gold]Potion Slots[/gold], heal [green]{CombatEndHeal}[/green] HP.",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.title": "養生薬湯",
+  "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.description": "最大HPの[green]{HealPercent}%[/green]を回復する。戦闘終了時、このポーションが[gold]ポーションスロット[/gold]にあるなら、HPを[green]{CombatEndHeal}[/green]回復する。",
   "TOUHOUANCIENTS-PORTIONED_MEDICINAL_CUISINE_POTION.flavor": ""
 }

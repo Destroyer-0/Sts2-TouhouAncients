@@ -1,22 +1,22 @@
 {
-  "TOUHOUANCIENTS-DEVOURED.description": "Add [gold]Exhaust[/gold] to this card.",
-  "TOUHOUANCIENTS-DEVOURED.title": "Devoured",
-  "TOUHOUANCIENTS-WEIGHTED.description": "Lose {Amount:energyIcons()} when this card is played.",
-  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "Lose {Amount:energyIcons()}.",
-  "TOUHOUANCIENTS-WEIGHTED.title": "Weighted",
+  "TOUHOUANCIENTS-DEVOURED.description": "このカードに[gold]廃棄[/gold]を付与する。",
+  "TOUHOUANCIENTS-DEVOURED.title": "貪食",
+  "TOUHOUANCIENTS-WEIGHTED.description": "このカードをプレイした時、{Amount:energyIcons()}を失う。",
+  "TOUHOUANCIENTS-WEIGHTED.extraCardText": "{Amount:energyIcons()}を失う。",
+  "TOUHOUANCIENTS-WEIGHTED.title": "重荷",
 
-  "TOUHOUANCIENTS-COLLATERAL.description": "This card gains [gold]Retain[/gold] and [red]Unplayable[/red]. Removed after [blue]{Amount}[/blue] turns.",
-  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "Collateral removed after {Amount} turns.",
-  "TOUHOUANCIENTS-COLLATERAL.title": "Collateral",
+  "TOUHOUANCIENTS-COLLATERAL.description": "このカードは[gold]保留[/gold]と[red]プレイ不可[/red]を得る。[blue]{Amount}[/blue]ターン後にこの効果は解除される。",
+  "TOUHOUANCIENTS-COLLATERAL.extraCardText": "あと{Amount}ターンで担保が解除される。",
+  "TOUHOUANCIENTS-COLLATERAL.title": "担保",
 
-  "TOUHOUANCIENTS-SEALED.description": "Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove [red]Sealed[/red].",
-  "TOUHOUANCIENTS-SEALED.title": "Sealed",
+  "TOUHOUANCIENTS-SEALED.description": "このカードは[red]プレイ不可[/red]を得る。対応する[gold]封魔陣[/gold]が[gold]廃棄[/gold]または[gold]変化[/gold]された時、[red]封印[/red]が解除される。",
+  "TOUHOUANCIENTS-SEALED.title": "封印",
 
-  "TOUHOUANCIENTS-MANA_RESTLESSNESS.title": "Mana Restlessness",
-  "TOUHOUANCIENTS-MANA_RESTLESSNESS.description": "When this card enters your [gold]Discard Pile[/gold] or [gold]Exhaust Pile[/gold] for any reason other than being [gold]played[/gold], it turns into [purple]Rebellion Tide[/purple].",
-  "TOUHOUANCIENTS-MANA_RESTLESSNESS.extraCardText": "[jitter]Restless[/jitter]",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.title": "魔力の躁動",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.description": "このカードが[gold]プレイ[/gold]以外の理由で[gold]捨て札[/gold]か[gold]廃棄札[/gold]に入った時、[purple]反乱の潮[/purple]に変化する。",
+  "TOUHOUANCIENTS-MANA_RESTLESSNESS.extraCardText": "[jitter]躁動[/jitter]",
 
-  "TOUHOUANCIENTS-REBELLION_TIDE.title": "Rebellion Tide",
-  "TOUHOUANCIENTS-REBELLION_TIDE.description": "Becomes a recruitment target for Seija Kijin; after being played, resets to [purple]Mana Restlessness[/purple].",
-  "TOUHOUANCIENTS-REBELLION_TIDE.extraCardText": "Rebel Fanatic"
+  "TOUHOUANCIENTS-REBELLION_TIDE.title": "反乱の潮",
+  "TOUHOUANCIENTS-REBELLION_TIDE.description": "鬼人正邪の徴発対象になる。プレイ後、[purple]魔力の躁動[/purple]に戻る。",
+  "TOUHOUANCIENTS-REBELLION_TIDE.extraCardText": "反乱の狂徒"
 }

@@ -55,16 +55,16 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "破财消灾",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]。\n造成伤害时，使对方失去5层[gold]王国资产[/gold]。",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "受到攻击牌攻击时，攻击来源失去5层[gold]王国资产[/gold]。\n造成伤害时，使对方失去5层[gold]王国资产[/gold]。\n[i][purple]万恶贫为首。[/purple][/i]",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "受到攻击牌攻击时，攻击来源失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n造成伤害时，使对方失去[blue]{Amount}[/blue]层[gold]王国资产[/gold]。\n[i][purple]万恶贫为首。[/purple][/i]",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "每回合为女苑提供[blue]8[/blue]点[gold]格挡[/gold]。\n死亡时，在[blue]2[/blue]回合后以[blue]50[/blue]点生命复活。\n女苑被击倒时，被击晕并移除此能力。",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "每回合为女苑提供[blue]{Amount}[/blue]点[gold]格挡[/gold]。\n死亡时，在[blue]2[/blue]回合后以[blue]{RecoverHP}[/blue]点生命复活。\n女苑被击倒时，被击晕并移除此能力。",
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "讨债人",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "该到还钱的时候喽。下一击将清除目标50%的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "该到还钱的时候喽。下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "下一击将清除目标50%的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。\n[gold][i]该到还钱的时候喽。[/i][/gold]",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "下一击将清除目标[blue]{Amount}%[/blue]的[gold]王国资产[/gold]，附加等量伤害并恢复等量生命。\n[gold][i]该到还钱的时候喽。[/i][/gold]",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "普通的魔法使",
   "TOUHOUANCIENTS-MAGICIAN_POWER.description": "准备发射[gold][jitter]极限火花[/jitter][/gold]时，场上每存在一个蘑菇，魔理沙恢复[blue]7[/blue]点生命并获得[blue]10[/blue]点[gold]活力[/gold]。\n[gold][i]弹幕最重要的就是火力[sine]Da☆Ze[/sine]！[/i][/gold]",

@@ -1,15 +1,15 @@
 {
   "TOUHOUANCIENTS.mod_title": "東方エンシェント",
 
-  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "Enable Touhou Mod Recommendations!",
-  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "When enabled, other Touhou mods may appear as recommendations in the bottom-right corner of Ancient backgrounds.",
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "幻想郷Modの宣伝を有効にする！",
+  "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "有効にすると、エンシェントの背景右下に他の東方Modのおすすめがランダムで表示される。",
 
-  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
-  "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
-  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",
-  "TOUHOUANCIENTS-BAN_HIEDA_NO_AKYUU.title": "Disable Hieda no Akyuu",
-  "TOUHOUANCIENTS-ENABLE_HIEDA_NO_AKYUU_TEST.title": "Enable test content: Hieda no Akyuu",
-  "TOUHOUANCIENTS-ACT1_ANCIENT_BAN_WARNING.body": "If you have no other Act 1 Ancient available, this may cause the game to hang.",
+  "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "初期エンシェント設定",
+  "TOUHOUANCIENTS-BAN_NEOW.title": "ネオーを無効化",
+  "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "ドレミー・スイートを無効化",
+  "TOUHOUANCIENTS-BAN_HIEDA_NO_AKYUU.title": "稗田阿求を無効化",
+  "TOUHOUANCIENTS-ENABLE_HIEDA_NO_AKYUU_TEST.title": "テストコンテンツを有効化：稗田阿求",
+  "TOUHOUANCIENTS-ACT1_ANCIENT_BAN_WARNING.body": "他に選べる第1幕のエンシェントがない場合、ゲームが停止する可能性がある。",
 
   "TOUHOUANCIENTS-BANNED_ANCIENTS.title": "エンシェントを無効化",
 
