@@ -20,11 +20,11 @@ texture = ExtResource("1_h0oxu")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -641.0
-offset_top = -320.0
-offset_right = 3359.0
-offset_bottom = 1932.0
-scale = Vector2(0.8, 0.8)
+offset_left = -482.0
+offset_top = -200.0
+offset_right = 3518.0
+offset_bottom = 2052.0
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_w7cti")
 
 [node name="TextureButton" parent="." instance=ExtResource("2_xsjkq")]

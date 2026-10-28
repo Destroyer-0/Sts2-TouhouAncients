@@ -18,11 +18,11 @@ texture = ExtResource("1_8i1iy")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -320.0
-offset_top = -175.0
-offset_right = 1037.0
-offset_bottom = 588.0
-scale = Vector2(2, 2)
+offset_left = -202.0
+offset_top = -103.0
+offset_right = 1155.0
+offset_bottom = 660.0
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("2_nkais")
 
 [node name="Node" type="Node" parent="."]
