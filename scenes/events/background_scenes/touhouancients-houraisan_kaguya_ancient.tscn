@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b64fh7b0btuo0"]
+[gd_scene load_steps=6 format=3 uid="uid://b64fh7b0btuo0"]
 
 [ext_resource type="Texture2D" uid="uid://bmimu1jb8onrg" path="res://images/HouraisanKaguya.png" id="1_h0oxu"]
+[ext_resource type="Texture2D" uid="uid://btub7yepqli25" path="res://images/Kaguya4.png" id="2_w7cti"]
 [ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="2_xsjkq"]
 [ext_resource type="Texture2D" uid="uid://dql3b7qvdhtpu" path="res://images/workshop/妹红.png" id="3_3dlsf"]
+[ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="5_c3tux"]
 
 [node name="WatariNinaAncient" type="Control"]
 layout_mode = 3
@@ -16,18 +18,38 @@ offset_right = 2148.0
 offset_bottom = 1404.0
 texture = ExtResource("1_h0oxu")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -641.0
+offset_top = -320.0
+offset_right = 3359.0
+offset_bottom = 1932.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_w7cti")
+
 [node name="TextureButton" parent="." instance=ExtResource("2_xsjkq")]
 layout_mode = 0
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 128.0
 offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("3_3dlsf")
 LocKey = "TOUHOUANCIENTS-MOKOU_RECOMMEND"
 WorkshopId = "3747567528"
+MarginRight = null
+MarginBottom = null
 
 [node name="TextureRect" parent="TextureButton" index="0"]
 texture = ExtResource("3_3dlsf")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("5_c3tux")
 
 [editable path="TextureButton"]
