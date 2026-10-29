@@ -10,13 +10,13 @@ description: 把先古之民的遗物导出成 docs/THA-Relic.md 那种 markdown
 ## 唯一命令
 
 ```powershell
-python ".agents/skills/ancient-relic-list/scripts/relic_list.py" [先古之民] [--out 路径] [--list] [--lang zhs|eng]
+python ".agents/skills/ancient-relic-list/scripts/relic_list.py" [先古之民] [--out 路径] [--list] [--lang zhs|eng|jpn]
 ```
 
 - `先古之民`：中文名片段（`魔理沙`）、类名（`KirisameMarisa`）、文件名（`KirisameMarisaAncient`）都行；**留空 = 全部**。
 - `--out 路径`：写文件（相对路径按仓库根解析）；缺省打印到 stdout。
 - `--list`：列出所有先古之民（文件名 + 中文名 + 称号）。
-- `--lang`：本地化语言，默认 `zhs`；`eng` 用 `TouhouAncients/localization/eng` + 本体 `localization/eng`。
+- `--lang`：本地化语言，默认 `zhs`；`eng` / `jpn` 分别读 `TouhouAncients/localization/{eng,jpn}` + 本体同名目录。**目标语言缺键时自动回退中文**（避免露出类名）。
 - 输出中文靠 stdout，终端显示成乱码是控制台编码问题，写文件不受影响。
 
 常见用法：
@@ -64,13 +64,14 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --out "docs/THA
 | 卡牌自身 hover | 衍生卡自己的 hover 提示也算（例：仆从牌 → 原版「小刀」「晕眩」，心之瞳 → 原版附魔「本能」） |
 | 关键词说明 | 上面那张关键词表（`CanonicalKeywords` + 运行时 `AddKeyword` 全文扫描）+ 代码 `FromKeyword(...)` 悬停提示，除 消耗/虚无/保留 外都会进网页衍生条目 |
 | 升级差异 | `OnUpgrade` 的 `UpgradeValueBy` / `Add|RemoveKeyword` / `EnergyCost.UpgradeBy`；网页给每个卡牌条目输出 `htmlUp` / `metaUp`（升级减费时费用标绿）/ `keywordsUp`，前端每张牌各自的「显示升级后」开关切换 |
-| 语言 | `set_language("zhs"|"eng")` 切换 mod 与本体本地化，并重建关键词/苦痛/标题索引、覆盖表、类型名与行标签；`ENERGY_WORD` / `COST_WORD` / `REST_SITE_WORD` 控制文案里的中英措辞 |
+| 语言 | `set_language("zhs"|"eng"|"jpn")` 切换 mod 与本体本地化，并重建关键词/苦痛/标题索引、覆盖表、类型名与行标签；`ENERGY_WORD` / `COST_WORD` / `REST_SITE_WORD` 控制文案里的对应语言措辞 |
 
 - **原版卡牌 / 关键词不做衍生条目**（晕眩、孢子心灵、华彩之类直接跳过），只有本 mod 的牌、附魔、能力、药水才列。
   例外：文案里明确提到的**原版诅咒/卡牌**（如「贪婪」，本体只有标题无正文，正文写在 `BASE_CARD_LINES`）要列出来。
 - `relic_refs(src, raw, owner)`：代码泛型名有歧义时（例：mod 附魔 `Greed` vs 原版诅咒牌 `Greed`）用 `REF_OVERRIDE[(遗物类名, 泛型名)]` 显式指定，不要靠猜。
 - 通用对话：`ancients.json` 的 `talk.ANY.N-M.ancient`（按 N 分段、段内按 M 排序，`.speaker` 决定差分头像）只在网页端用，markdown 不输出。
-- 多语言：`set_language()` 重载两套本地化；网页由前端按「`?lang=` → `localStorage` → 浏览器语言」决定加载 `data.js` 还是 `data.en.js`。
+- 多语言：`set_language()` 重载三套本地化；网页由前端按「`?lang=` → `localStorage` → 浏览器语言」决定加载 `data.js` / `data.en.js` / `data.jpn.js`。
+- 目标语言缺键时回退中文（例：尚未翻译的新先古）；回退只影响显示，不改 `localization/**`。
 - 衍生牌格式：`名称：类型。耗能N。关键词。效果`，效果里的升级差异写在 `（XX）` 里。
 - 附魔 / 能力 / 药水 / 关键词 / 休息处选项格式：`名称：效果`。
 - 仅用于 UI 提示的动态块（`{InCombat:…}`）会删掉；附魔层数这类运行时数值写作 `X`。

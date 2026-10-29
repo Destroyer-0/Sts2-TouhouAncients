@@ -22,7 +22,7 @@ def find_root(start):
 
 
 ROOT = find_root(SKILL_DIR)
-LANGUAGES = ("zhs", "eng")
+LANGUAGES = ("zhs", "eng", "jpn")
 LANG = "zhs"
 LOC = os.path.join(ROOT, "TouhouAncients", "localization", LANG)
 
@@ -40,7 +40,20 @@ BASE_LOC = os.path.join(STS2_SRC, "localization", LANG) if STS2_SRC else None
 
 
 def load(name, base=False):
-    folder = BASE_LOC if base else LOC
+    """读当前语言；缺键回退中文（避免英文/日文里露出类名或空白）。"""
+    zhs = _load_for("zhs", name, base)
+    if LANG == "zhs":
+        return zhs
+    for k, v in _load_for(LANG, name, base).items():
+        if v is None or (isinstance(v, str) and not v.strip()):
+            continue
+        zhs[k] = v
+    return zhs
+
+
+def _load_for(lang, name, base=False):
+    folder = (os.path.join(STS2_SRC, "localization", lang) if STS2_SRC else None) if base \
+        else os.path.join(ROOT, "TouhouAncients", "localization", lang)
     if not folder:
         return {}
     path = os.path.join(folder, name)
@@ -360,6 +373,10 @@ _RELIC_OVERRIDE = {
         "IridescentDream": "Upon pickup, replace your Starter Relic with its Ancient version and remove a Starter card from your Deck.",
         "BottledGalaxy": "Upon pickup, remove 3 cards from your Deck. For the first 3 turns of each combat, at the start of your turn, choose one to add to your hand.",
     },
+    "jpn": {
+        "IridescentDream": "入手時、初期遺物をそのエンシェント版に置き換え、初期カード1枚をデッキから取り除く。",
+        "BottledGalaxy": "入手時、デッキから3枚のカードを取り除く。各戦闘の最初の3ターン、ターン開始時にその中から1枚選んで手札に加える。",
+    },
 }
 _CARD_OVERRIDE = {
     "zhs": {
@@ -396,6 +413,22 @@ _CARD_OVERRIDE = {
             "body": "Whenever you add a card to your Deck, this card becomes a Disguise of that card.\nIs This All the Work of Youkai Too?",
         },
     },
+    "jpn": {
+        "IllusoryDreamWhisper": {
+            "title": "幻夢無辺",
+            "body": "7ブロックを得る。\n7ダメージを与える。\nランダムなカードを2枚山札に加える。\n休憩所で休憩するたび、このカードの数値をランダムに変化させることができる。",
+            "bodyUp": "10ブロックを得る。\n10ダメージを与える。\nランダムなカードを3枚山札に加える。\n休憩所で休憩するたび、このカードの数値をランダムに変化させることができる。",
+        },
+        "YoukaiExtermination": {
+            "title": "妖怪退治",
+            "body": "6ダメージを2回与える。\nとどめを刺した時、1エネルギーを得て、このカードのダメージがこのラン中永続的に1増加する。",
+            "bodyUp": "8ダメージを2回与える。\nとどめを刺した時、1エネルギーを得て、このカードのダメージがこのラン中永続的に2増加する。",
+        },
+        "MysteriousLeaf": {
+            "title": "謎の木の葉",
+            "body": "デッキにカードを加えるたび、このカードはそのカードの偽装になる。\nこれも全て妖怪の仕業なのか",
+        },
+    },
 }
 _DERIVED_OVERRIDE = {
     "zhs": {
@@ -418,18 +451,31 @@ _DERIVED_OVERRIDE = {
         "Tsukumogami": "Tsukumogami: Gains Ethereal. Current count X. When the count first reaches 0, play this card wherever it is. At the end of your turn, if this card was not played this turn, reduce the count by 1.",
         "MedicinePoison": "Medicine Poison: Gains Eternal. Additionally applies X Poison. At the end of your turn, if this card is in your hand, additionally apply X Poison this combat.",
     },
+    "jpn": {
+        "HeavyDiceRecordPower": "“イカサマ”：記録したカードがある。ドローフェイズ終了後、手札を1枚捨てることで、記録したカードのコピーを手札に加えられる。そのコピーは廃棄とエセリアルを持つ。",
+        "GlowingBambooPower": "竹林の秘宝：記録したカードは戦闘終了後にアップグレードされる。",
+        "YuanChouPower": "怨念：この効果の付与者に与えるダメージが25%減少する。付与者がアタックをプレイするたび、層数分のダメージを受け、怨念が1減少する。",
+        "KeystonePower": "要石：スキルを使用するたび要石を突き立てる。アタックを使用するたび要石を引き抜き、敵全体に層数分のダメージを与える。",
+        "PossessedBySeigaPower": "走火入魔：ターン開始時、霍青娥がターンを乗っ取る：5HPを失い1エネルギーを得た後、コストの高い順、左から右へ、手札のプレイ可能なカードを順にプレイする。",
+        "DetectiveManuscriptDexterityPower": None,
+        "Tsukumogami": "付喪神：エセリアルを得る。現在のカウントはX。カウントが初めて0になった時、どこにあってもこのカードをプレイする。ターン終了時、このターンにプレイされていなければカウントを1減らす。",
+        "MedicinePoison": "メディスン：エターナルを得る。付与する毒をX増やす。ターン終了時、手札にあるなら、この戦闘で付与する毒をさらにX増やす。",
+    },
 }
 _REST_OVERRIDE = {
     "zhs": {"OPTION_INK_DYED_CHERRY_BLOSSOMS": "恢复因墨染的樱花而失去的最大生命。"},
     "eng": {"OPTION_INK_DYED_CHERRY_BLOSSOMS": "Restore the Max HP you lost due to Ink-Dyed Cherry Blossoms."},
+    "jpn": {"OPTION_INK_DYED_CHERRY_BLOSSOMS": "墨染の桜によって失った最大HPを回復する。"},
 }
 _EXTRA_LINES = {
     "zhs": {"MysteriousLeaf": ["伪装：此牌的耗能与伪装目标牌一致，打出此牌时打出伪装目标牌的复制。"]},
     "eng": {"MysteriousLeaf": ["Disguise: This card's cost matches the disguised card's cost. Playing it plays a copy of the disguised card."]},
+    "jpn": {"MysteriousLeaf": ["偽装：このカードのコストは偽装したカードと同じになる。このカードをプレイすると、偽装したカードのコピーをプレイする。"]},
 }
 _KEYWORD_LINES = {
     "zhs": {"HyakkiYagyoScroll": ["收录：查看来自指定角色的卡牌奖励，选择的卡牌将被加入所有百鬼夜行的收录中，若已存在该角色的收录则替换原先的收录牌。"]},
     "eng": {"HyakkiYagyoScroll": ["Collection: View card rewards from a chosen character. The selected card is added to every Hyakki Yagyo's Collection; if that character already has one, it is replaced."]},
+    "jpn": {"HyakkiYagyoScroll": ["収録：指定したキャラクターのカード報酬を表示し、選んだカードはすべての百鬼夜行の収録に加えられる。そのキャラクターの収録が既にある場合、選んだカードが以前の収録カードと置き換わる。"]},
 }
 
 # 当前语言生效的覆盖表（由 set_language 填充）
@@ -439,16 +485,19 @@ REST_OVERRIDE, EXTRA_LINES, KEYWORD_LINES = {}, {}, {}
 CARD_TYPE_LABEL = {
     "zhs": {"Attack": "攻击", "Skill": "技能", "Power": "能力", "Curse": "诅咒", "Status": "状态", "Quest": "任务"},
     "eng": {"Attack": "Attack", "Skill": "Skill", "Power": "Power", "Curse": "Curse", "Status": "Status", "Quest": "Quest"},
+    "jpn": {"Attack": "アタック", "Skill": "スキル", "Power": "パワー", "Curse": "呪い",
+            "Status": "状態異常", "Quest": "クエスト"},
 }
 ROW_LABEL = {
     "zhs": ["第一行", "第二行", "第三行", "第四行", "第五行", "第六行"],
     "eng": ["Row 1", "Row 2", "Row 3", "Row 4", "Row 5", "Row 6"],
+    "jpn": ["1行目", "2行目", "3行目", "4行目", "5行目", "6行目"],
 }
 CARD_TYPE_CN = dict(CARD_TYPE_LABEL["zhs"])
 ROW_CN = list(ROW_LABEL["zhs"])
-ENERGY_WORD = {"zhs": "能量", "eng": "Energy"}
-COST_WORD = {"zhs": "耗能", "eng": "Cost"}
-REST_SITE_WORD = {"zhs": "休息处", "eng": "Rest Site"}
+ENERGY_WORD = {"zhs": "能量", "eng": "Energy", "jpn": "エネルギー"}
+COST_WORD = {"zhs": "耗能", "eng": "Cost", "jpn": "コスト"}
+REST_SITE_WORD = {"zhs": "休息处", "eng": "Rest Site", "jpn": "休憩所"}
 
 # ---------------- 资源索引 ----------------
 mod_card_files = {os.path.basename(p)[:-3]: p for p in glob.glob(os.path.join(ROOT, "scripts", "cards", "**", "*.cs"), recursive=True)}
@@ -920,9 +969,13 @@ def hover_arg(src, cls):
 
 
 def resolve_amount(expr, vars_):
-    """把 GalvanizedDamage / base.DynamicVars["X"].IntValue / base.DynamicVars.Energy.IntValue / 1m 解成数字。"""
+    """把 GalvanizedDamage / base.DynamicVars["X"].IntValue / 1m 解成数字。
+
+    变量名可能与悬停参数不同（例：`new DynamicVar("Damage", GalvanizedDamage)`），
+    所以除了按名字查，再按「初值表达式」反查一次。
+    """
     if not expr:
-        return None
+        return
     expr = expr.strip()
     m = re.fullmatch(r'base\.DynamicVars(?:\["(\w+)"\]|\.(\w+))\.(?:IntValue|BaseValue)', expr)
     if m:
@@ -932,6 +985,9 @@ def resolve_amount(expr, vars_):
     v = (vars_ or {}).get(expr)
     if v and v[0] == 'num':
         return v[1]
+    for cand in (vars_ or {}).values():
+        if cand[0] == 'num' and str(cand[2]).strip() == expr:
+            return cand[1]
     try:
         return float(expr.rstrip('m'))
     except ValueError:
