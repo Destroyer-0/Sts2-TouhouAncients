@@ -33,13 +33,8 @@ public sealed class IdolChocolatePotion : CustomPotionModel
 
     public override TargetType TargetType => TargetType.Self;
 
-    // 暂无专属立绘时借用同为先古食物的药水贴图
-    public override string? CustomPackedImagePath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/potion/{GetType().Name}.png", "res://images/potion/PortionedMedicinalCuisinePotion.png");
-
-    public override string? CustomPackedOutlinePath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/potion/{GetType().Name}_outline.png",
-        "res://images/potion/PortionedMedicinalCuisinePotion_outline.png");
+    public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
+    public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {

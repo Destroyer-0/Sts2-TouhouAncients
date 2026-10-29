@@ -1,6 +1,6 @@
 # ancients.json 翻译记录
 
-> 翻译依据：`zhs/ancients.json` → `eng/ancients.json`
+> 翻译依据：`zhs/ancients.json` → `eng/ancients.json`（英文）与 `jpn/ancients.json`（日语，以 zhs 为源独立翻译）
 
 ---
 
@@ -1278,7 +1278,7 @@ You remind me of someone annoying. |
 - **冷之高原** — 克苏鲁体系的 `Plateau of Leng`（用户确认用官方名）。
 - **修普诺斯 / 缇扬奇 / 米勒星·埃德蒙斯星·曼恩星 / 卡纳维纳尔角 / 刻耳柏洛斯 / 赫拉克勒斯 / 十二人众 / 坠落神庭** — 均经用户逐条确认，写法见 `docs/翻译术语表.md`。
 
-> **jpn 处理**：哆来咪整段在 `jpn/` 中此前即为英文（仅「离开梦境」5 条为英文），故本次新增内容同样以英文填充；辉夜、文、幽幽子、狸猫等段落按现有日文风格继续用日文。
+> **jpn 处理**：哆来咪整段在 `jpn/` 中此前即为英文（仅「离开梦境」5 条为英文），故本次新增内容同样以英文填充；辉夜、文、幽幽子、狸猫等段落按现有日文风格继续用日文。（旧工作流，现改为独立日语翻译）
 
 ### 5. 独立复核后的修正
 
@@ -1320,7 +1320,7 @@ You remind me of someone annoying. |
 |------|------|---------|
 | `talk.ANY.6-0r.ancient` | 你是佛教派的还是道教派的？呵呵，别在意，老朽是两面派。 | `Are you on the Buddhist side or the Taoist side? Heheh, don’t mind it—this old one plays both sides.` |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -1390,7 +1390,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - **天探女 → `Amanosakume`（种族名，用户指定用 あまのさくめ 罗马音）；探女 → `Sagume`（角色名）**。
 - **月都 → `Lunar Capital`**，沿用辉夜条目既有译法。
 - 阿求 `[thinky_dots]` / `[sine]` 标记、`MEET_NEOW` 选项键名与哆来咪「离开梦境」共用实现（见 `HiedaNoAkyuuAncient.cs`）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -1419,7 +1419,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | 妖魔书 | Demon books | 新增，官方译法 |
 | 回答 / 惊讶 | Reply / Startled | 沿用既有姿态译法 |
 
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -1468,6 +1468,6 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - `余烬` → `ember`，与附魔 `Tezcatara's Ember`（特兹卡塔拉的余烬）同一词源；`暗器` → `hidden weapon`；`魔典` → 小写 `grimoire`（原版 `FORBIDDEN_GRIMOIRE` = 禁忌魔典 / `NECROBINDER1_EPOCH` 同词）。
 - `高塔` → `Spire`、`宇宙` → `cosmos`，均沿用既有译法；`[orange]王[/orange]` → `[orange]King[/orange]`（与辉夜 / 尤魔条目一致）。
 - `MEET_NEOW` 选项标题与描述由用户拍板：`Fade Away` / `Meet Neow in another timeline.`。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---

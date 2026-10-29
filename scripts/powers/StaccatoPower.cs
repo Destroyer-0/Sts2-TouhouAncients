@@ -18,7 +18,7 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public sealed class StaccatoPower : TouhouAncientPowerModel
 {
-    private const int DamagePerAtmosphere = 2;
+    private const int DamagePerAtmosphere = 3;
     private const int AtmosphereGain = 1;
     private const int DeathAtmosphere = 14;
 

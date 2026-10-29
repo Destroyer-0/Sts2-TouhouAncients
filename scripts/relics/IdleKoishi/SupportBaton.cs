@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using TouhouAncients.Scripts.cards;
@@ -19,6 +20,8 @@ public class SupportBaton : TouhouAncientRelics
 {
     /// <summary>本场战斗是否已选过演奏方式。</summary>
     private bool _chosenThisCombat;
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => KoishiPerformanceHoverTips;
 
     public override Task BeforeCombatStart()
     {

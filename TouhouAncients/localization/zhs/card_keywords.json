@@ -24,8 +24,8 @@
   "TOUHOUANCIENTS-TOUHOUANCIENTAUTHOR.title": "绘师",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTATMOSPHERE.title": "气氛",
-  "TOUHOUANCIENTS-TOUHOUANCIENTATMOSPHERE.description": "以特定方式演奏可获得[gold]气氛[/gold]。当你的[gold]气氛[/gold]达到[blue]14[/blue]时，在当回合进入[green][jitter]嗨到爆[/jitter][/green]状态。",
+  "TOUHOUANCIENTS-TOUHOUANCIENTATMOSPHERE.description": "以特定方式演奏可获得[gold]气氛[/gold]。当你的[gold]气氛[/gold]达到[blue]14[/blue]时，进入[green][jitter]嗨到爆[/jitter][/green]状态。",
 
   "TOUHOUANCIENTS-TOUHOUANCIENTHYPED.title": "嗨到爆",
-  "TOUHOUANCIENTS-TOUHOUANCIENTHYPED.description": "[green]❤史上最华丽的演出~~~现在就要开始了！！！❤[/green]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。"
+  "TOUHOUANCIENTS-TOUHOUANCIENTHYPED.description": "[jitter][green]❤史上最华丽的演出~~~❤\n❤现在就要开始了！！！❤[/green][/jitter]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。"
 }

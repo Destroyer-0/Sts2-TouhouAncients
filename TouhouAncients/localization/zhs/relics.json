@@ -377,7 +377,7 @@
   "TOUHOUANCIENTS-MAGIC_MALLET.title": "万宝槌",
   "TOUHOUANCIENTS-MAGIC_MALLET.description": "拾起时，将[blue]1[/blue]张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-MAGIC_MALLET.eventDescription": "将[blue]1[/blue]张[gold]小槌的魔力[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "小人城主持有的，属于鬼的秘宝。",
+  "TOUHOUANCIENTS-MAGIC_MALLET.flavor": "遥遥梦间国 乾坤倾覆 万宝锤落 铿锵涌星火",
 
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.title": "折叠伞",
   "TOUHOUANCIENTS-FOLDING_UMBRELLA.description": "在每场战斗开始时，获得[blue]5[/blue]层[gold]倒映[/gold]。",
@@ -942,7 +942,7 @@
   "TOUHOUANCIENTS-ROSE_CAGE.flavor": "地底蔷薇演出场地背后的巨大鸟笼陈列，是舞台的装饰物之一。",
 
   "TOUHOUANCIENTS-SPECIAL_TICKET.title": "特别门票",
-  "TOUHOUANCIENTS-SPECIAL_TICKET.description": "当你在[green][jitter]嗨到爆[/jitter][/green]状态下结束回合时，开始一个新的回合，额外回合不会进入[green][jitter]嗨到爆[/jitter][/green]状态，且之后进入[green][jitter]嗨到爆[/jitter][/green]所需的[gold]气氛[/gold]值+[blue]{ThresholdIncrease}[/blue]。",
+  "TOUHOUANCIENTS-SPECIAL_TICKET.description": "当你在[green][jitter]嗨到爆[/jitter][/green]状态下结束回合时，开始一个新的回合，额外回合不会进入[green][jitter]嗨到爆[/jitter][/green]状态，且之后进入[green][jitter]嗨到爆[/jitter][/green]所需的[gold]气氛[/gold]值增加[blue]{ThresholdIncrease}[/blue]。",
   "TOUHOUANCIENTS-SPECIAL_TICKET.flavor": "一张精美的门票，上面印着地底蔷薇的相关元素。光是看着就让人感到激动。",
 
   "TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE.title": "无意识麦克风",
@@ -950,11 +950,11 @@
   "TOUHOUANCIENTS-UNCONSCIOUS_MICROPHONE.flavor": "地底蔷薇演出时用的特制麦克风，经过地灵集团的改造拥有着将歌声渗入人心的功能。",
 
   "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.title": "演出用帽子先生",
-  "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.description": "你每获得[blue]{AtmospherePerVigor}[/blue][gold]气氛[/gold]，就获得[blue]{StatAmount}[/blue][gold]活力[/gold]；在[green][jitter]嗨到爆[/jitter][/green]状态下，额外将一张带有[gold]虚无[/gold]的随机牌加入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.description": "你每获得[blue]{AtmospherePerVigor}[/blue][gold]气氛[/gold]，就获得[blue]{StatAmount}[/blue][gold]活力[/gold]。在[green][jitter]嗨到爆[/jitter][/green]状态下，额外将一张带有[gold]虚无[/gold]的随机牌加入[gold]手牌[/gold]。",
   "TOUHOUANCIENTS-SHOWMAN_HAT_MAN.flavor": "为了演出使用专门设计的帽子先生，经过特殊处理的材质甚至能够直接充当舞台道具使用。",
 
   "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.title": "地灵打歌服",
-  "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.description": "[green][jitter]嗨到爆[/jitter][/green]状态下的第[blue]{BasePlays}[/blue]张[gold]攻击牌[/gold]或[gold]技能牌[/gold]额外打出[blue]{ExtraPlays}[/blue]次。你在本场战斗中每进入过一次[green][jitter]嗨到爆[/jitter][/green]状态，就额外有[blue]{ExtraPlays}[/blue]张牌能触发一次。",
+  "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.description": "[green][jitter]嗨到爆[/jitter][/green]状态下的前[blue]{BasePlays}[/blue]张[gold]攻击牌[/gold]或[gold]技能牌[/gold]额外打出[blue]{ExtraPlays}[/blue]次。你在本场战斗中每进入过一次[green][jitter]嗨到爆[/jitter][/green]状态，就额外有[blue]{ExtraPlays}[/blue]张牌能触发一次。",
   "TOUHOUANCIENTS-CHIREIDEN_STAGE_COSTUME.flavor": "由恋恋的姐姐亲自设计的漂亮的打歌服，能够衬托出地底蔷薇独特的魅力。",
 
   "TOUHOUANCIENTS-KOI_HEADSET.title": "恋语耳麦",

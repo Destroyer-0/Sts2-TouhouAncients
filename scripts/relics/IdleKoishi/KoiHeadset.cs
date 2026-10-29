@@ -28,7 +28,7 @@ public class KoiHeadset : TouhouAncientRelics, IHypedEnteredListener
         new DynamicVar("FreeCards", FreeCards),
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => KoishiPerformanceHoverTips;
 
     public async Task AfterHypedEntered(PlayerChoiceContext choiceContext)
     {

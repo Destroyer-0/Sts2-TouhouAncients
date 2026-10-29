@@ -36,6 +36,7 @@ public class ShowmanHatMan : TouhouAncientRelics, IAtmosphereGainedListener
     [
         HoverTipFactory.FromPower<VigorPower>(),
         HoverTipFactory.FromKeyword(CardKeyword.Ethereal),
+        .. KoishiPerformanceHoverTips,
     ];
 
     public override Task BeforeCombatStart()

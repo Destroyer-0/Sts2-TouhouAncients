@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -25,6 +26,8 @@ public class RoseCage : TouhouAncientRelics
     private bool _retainBlock;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("MaxBlock", MaxBlock)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => KoishiPerformanceHoverTips;
 
     public override Task BeforeCombatStart()
     {

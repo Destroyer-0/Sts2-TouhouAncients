@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.relics.IdleKoishi;
 
 namespace TouhouAncients.Scripts;
@@ -29,12 +30,12 @@ public class IdleKoishiAncient : TouhouAncientBase
     public override Color DialogueColor => new(0.95f, 0.6f, 0.7f, 1f);
 
     // 暂无专属立绘，暂用地底蔷薇的主唱古明地觉素材占位
-    public override string? CustomMapIconPath => "res://images/icon/MapNode/KomejiSatori_MapNode.png";
+    public override string? CustomMapIconPath => "res://images/icon/MapNode/IdleKoishi_MapNode.png";
     public override string? CustomMapIconOutlinePath =>
-        "res://images/icon/MapNode/Outline/KomejiSatori_MapNode.png";
-    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/KomejiSatori.png";
+        "res://images/icon/MapNode/Outline/IdleKoishi_MapNode.png";
+    public override string? CustomRunHistoryIconPath => "res://images/icon/Character/IdleKoishi.png";
     public override string? CustomRunHistoryIconOutlinePath =>
-        "res://images/icon/Character/Outline/KomejiSatori.png";
+        "res://images/icon/Character/Outline/IdleKoishi.png";
 
     /// <summary>十选三：10 件遗物同池抽 3 个选项。</summary>
     protected override IReadOnlyList<TARelicOptionGroup> TARelicOptionPools =>
@@ -62,13 +63,19 @@ public class IdleKoishiAncient : TouhouAncientBase
     /// <summary>「为蔷薇偶像应援！」：拾起应援棒后翻到遗物选择页。</summary>
     private EventOption CreateSupportOption()
     {
+        // WithRelic 仅用于按钮图标；本选项不在 AllPossibleOptions 里，图鉴不会收录应援棒
         return new EventOption(
             this,
             Support,
             new LocString("ancients", SupportOptionKey + ".title"),
             new LocString("ancients", SupportOptionKey + ".description"),
             SupportOptionKey,
-            HoverTipFactory.FromRelic<SupportBaton>());
+            [
+                .. HoverTipFactory.FromRelic<SupportBaton>(),
+                HoverTipFactory.FromCard<StaccatoChoice>(),
+                HoverTipFactory.FromCard<CrescendoChoice>(),
+                HoverTipFactory.FromCard<HarmonyChoice>(),
+            ]).WithRelic(ModelDb.Relic<SupportBaton>().ToMutable());
     }
 
     private async Task Support()

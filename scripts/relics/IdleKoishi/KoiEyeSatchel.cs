@@ -36,7 +36,7 @@ public class KoiEyeSatchel : TouhouAncientRelics, IAtmosphereGainedListener
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromPotion<IdolChocolatePotion>()];
+        [HoverTipFactory.FromPotion<IdolChocolatePotion>(), .. KoishiPerformanceHoverTips];
 
     public override Task BeforeCombatStart()
     {

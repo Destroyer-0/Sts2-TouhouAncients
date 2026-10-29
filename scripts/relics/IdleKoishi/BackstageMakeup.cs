@@ -55,6 +55,7 @@ public class BackstageMakeup : TouhouAncientRelics, IAtmosphereGainedListener, I
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<DexterityPower>(),
+        .. KoishiPerformanceHoverTips,
     ];
 
     public override Task AfterObtained()

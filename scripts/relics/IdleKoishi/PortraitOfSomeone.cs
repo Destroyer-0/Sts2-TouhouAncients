@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using TouhouAncients.Scripts.cards;
@@ -14,6 +15,12 @@ namespace TouhouAncients.Scripts.relics.IdleKoishi;
 public class PortraitOfSomeone : TouhouAncientRelics
 {
     public override bool HasUponPickupEffect => true;
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        .. HoverTipFactory.FromCardWithCardHoverTips<ThornSongForYou>(),
+        .. KoishiPerformanceHoverTips,
+    ];
 
     public override async Task AfterObtained()
     {
