@@ -27,9 +27,9 @@
 |---|---|
 | `.agents/skills/ancient-relic-list/scripts/relic_list.py` | 共享解析：先古池、遗物/卡牌/附魔/能力/药水/苦痛/关键词/原版卡牌与附魔、先古对话。 |
 | `.agents/skills/ancient-relic-list/SKILL.md` | skill 说明：命令、推导来源、覆盖表用法。 |
-| `Tools/build_wiki.py` | 生成 `Tools/wiki/data.js`（中文）与 `data.en.js`（英文）；`--list` 给 exe 用，`--select` 按勾选生成，`--lang` 只生成一种语言。 |
+| `Tools/build_wiki.py` | 生成 `Tools/wiki/data.js`（中）/ `data.en.js`（英）/ `data.jpn.js`（日）；`--list` 给 exe 用，`--select` 按勾选生成，`--lang` 只生成一种语言。 |
 | `Tools/wiki/{index.html,style.css,app.js}` | 页面外壳 / 深色主题 / 渲染逻辑（hash 路由、筛选、弹层、升级开关）。 |
-| `Tools/wiki/data.js` / `data.en.js` | **生成物**：中文 18 位 / 192 件 / 120 条衍生；英文 18 位 / 192 件 / 120 条。 |
+| `Tools/wiki/data.js` / `data.en.js` / `data.jpn.js` | **生成物**：19 位先古 / 206 件遗物 / 123 条衍生（三种语言一致）。 |
 | `Tools/WikiTool/` | WinForms exe 源码；已编译并通过 UI 自动化实测「勾选 → 更新Wiki → 打开预览 → 导出可分享版」。 |
 | `.nojekyll`（仓库根） | 让 Pages 跳过 Jekyll。 |
 | `TouhouAncients.csproj` | 已加 `<Compile Remove="Tools/**" />`，mod 编译不受 WinForms 源码干扰（实测 451 个 Compile 项里 0 个来自 Tools）。 |
@@ -61,6 +61,7 @@ Tools/
     app.js                        渲染逻辑 + 语言切换（提交）
     data.js                       中文生成物（提交，勿手改）
     data.en.js                    英文生成物（提交，勿手改）
+    data.jpn.js                   日文生成物（提交，勿手改）
     dist/                         导出可分享版时才生成（已 gitignore）
 .agents/skills/ancient-relic-list/
   SKILL.md                        用法与规则
@@ -101,7 +102,7 @@ sts2-src（.agents/local.md）──┘  （原版关键词/苦痛/卡牌/附魔
 | 升级差异用开关而不是括号 | 每张卡各自的 `htmlUp` / `metaUp` / `keywordsUp`；升级减费用 `<span style="color:#7fff00">` 标绿；消耗/虚无/保留 不单独列说明。 |
 | 通用对话「每次打开随机」 | 用户选择；构建是确定性的（两次生成字节一致，仅 `generatedAt` 不同），随机发生在浏览器。 |
 | 构建确定性 | 纯正则 + JSON 解析，无 AI、无联网、无随机；改输入才会改结果。 |
-| 双语 | 一次生成两份数据（`data.js` / `data.en.js`）；前端按「`?lang=` → `localStorage` → 浏览器语言」选语言，点顶栏按钮切换并记住。文案源是 `localization/zhs` 与 `localization/eng`，英文缺失/拼串的少量条目在手写覆盖表里按语言各写一份（**不改 localization**）。 |
+| 双语 | 一次生成三份数据（`data.js` / `data.en.js` / `data.jpn.js`）；前端按「`?lang=` → `localStorage` → 浏览器语言」选语言，点顶栏按钮循环切换（中 → 英 → 日）并记住。文案源是 `localization/{zhs,eng,jpn}`，英文/日文缺失或拼串的少量条目在手写覆盖表里按语言各写一份（**不改 localization**）；目标语言整个缺键时回退中文。 |
 
 ---
 
@@ -203,7 +204,7 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --list
 - [x] 原版卡牌/附魔条目无图但含类型费用与关键词（灼伤、蛇咬、虚空、小刀、晕眩、贪婪、华彩、稳定、本能）。
 - [x] 筛选框输入「极限火花」只剩魔理沙；输入「雾雨魔理沙」（无空格）也能命中。
 - [x] exe：取消勾选某遗物 → 更新Wiki → 页面中该遗物消失；「导出可分享版」产出的 dist 页面图片正常。
-- [x] 中英双语：顶栏按钮切换，`?lang=` / localStorage / 浏览器语言优先级正确；标题、占位符、按钮、页脚、行标签、费用标签都跟着换。
+- [x] 三语切换：中 → 英 → 日循环；`?lang=zhs|eng|jpn` / localStorage / 浏览器语言优先级正确；标题、占位符、按钮、页脚、行标签、类型与费用标签都跟着换。
 - [x] 访问统计：`https://destroyer-0.github.io/...` 会加载 GoatCounter；`file://`、`localhost`、`127.*` 不加载（6 个用例已验证）。
 - [x] `git status` 里没有 `Tools/WikiTool/bin`、`obj`、`wiki/dist`、`__pycache__`。
 
