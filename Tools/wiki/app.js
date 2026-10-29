@@ -9,6 +9,8 @@
   var filterBox = document.getElementById('filter');
   var FALLBACK_ICON = 'icon/relics/default.png';
   var LANG_KEY = 'tha-lang';
+  var LANGS = ['zhs', 'eng', 'jpn'];
+  var DATA_FILES = { zhs: 'data.js', eng: 'data.en.js', jpn: 'data.jpn.js' };
   var LANG = 'zhs';
 
   function L(key) {
@@ -46,21 +48,23 @@
 
   // ---------- 语言 ----------
   function detectLang() {
-    var m = /[?&]lang=(zhs|eng)\b/.exec(location.search);
+    var m = /[?&]lang=(zhs|eng|jpn)\b/.exec(location.search);
     if (m) return m[1];
     try {
       var saved = localStorage.getItem(LANG_KEY);
-      if (saved === 'zhs' || saved === 'eng') return saved;
+      if (LANGS.indexOf(saved) !== -1) return saved;
     } catch (e) { /* 隐私模式读不到，忽略 */ }
-    return (navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zhs' : 'eng';
+    var nav = (navigator.language || '').toLowerCase();
+    if (nav.indexOf('zh') === 0) return 'zhs';
+    if (nav.indexOf('ja') === 0) return 'jpn';
+    return 'eng';
   }
 
   var loadToken = 0;
 
   function loadData(lang, done) {
     var token = ++loadToken;
-    var primary = lang === 'eng' ? 'data.en.js' : 'data.js';
-    var other = lang === 'eng' ? 'data.js' : 'data.en.js';
+    var primary = DATA_FILES[lang] || 'data.js';
 
     function loadScript(src, onOk, onFail) {
       var s = document.createElement('script');
@@ -70,23 +74,24 @@
       document.head.appendChild(s);
     }
 
-    // 主语言文件缺失（比如只提交了中文数据）时退回另一种，别留白页
-    loadScript(primary, function () {
-      if (window.THA_DATA && window.THA_DATA.lang === lang) { done(window.THA_DATA); return; }
-      loadScript(other, function () {
-        done(window.THA_DATA || { ancients: [], labels: {} });
-      }, function () {
+    // 语言文件缺失时依次尝试其它语言，别留白页
+    function tryList(list, i) {
+      if (i >= list.length) {
         window.THA_DATA = { ancients: [], labels: {} };
         done(window.THA_DATA);
-      });
-    }, function () {
-      loadScript(other, function () {
-        done(window.THA_DATA || { ancients: [], labels: {} });
-      }, function () {
-        window.THA_DATA = { ancients: [], labels: {} };
-        done(window.THA_DATA);
-      });
-    });
+        return;
+      }
+      loadScript(list[i], function () {
+        if (window.THA_DATA && (!window.THA_DATA.lang || window.THA_DATA.lang === lang || i > 0)) {
+          done(window.THA_DATA);
+          return;
+        }
+        tryList(list, i + 1);
+      }, function () { tryList(list, i + 1); });
+    }
+
+    tryList([primary].concat(LANGS.filter(function (l) { return l !== lang; })
+                                   .map(function (l) { return DATA_FILES[l]; })), 0);
   }
 
   function applyChrome() {
@@ -99,7 +104,15 @@
     document.getElementById('foot').innerHTML = labels.footer || '';
     var ws = document.querySelector('.workshop');
     if (ws && labels.workshop) ws.textContent = labels.workshop;
-    document.getElementById('lang').textContent = labels.langButton || 'EN';
+    markActiveLang();
+  }
+
+  // 当前语言高亮：三个独立按钮，直接点切换到对应语言
+  function markActiveLang() {
+    var buttons = document.querySelectorAll('.langs .lang');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.toggle('active', buttons[i].getAttribute('data-lang') === (DATA.lang || LANG));
+    }
   }
 
   function totalRelics(a) {
@@ -381,8 +394,8 @@
     route();
   }
 
-  function switchLang() {
-    var next = LANG === 'eng' ? 'zhs' : 'eng';
+  function switchLang(next) {
+    if (!next || next === LANG) return;
     try { localStorage.setItem(LANG_KEY, next); } catch (e) { /* 忽略 */ }
     LANG = next;
     loadData(next, function (data) {
@@ -393,8 +406,17 @@
     });
   }
 
+  function bindLangs() {
+    var buttons = document.querySelectorAll('.langs .lang');
+    for (var i = 0; i < buttons.length; i++) {
+      (function (btn) {
+        btn.addEventListener('click', function () { switchLang(btn.getAttribute('data-lang')); });
+      })(buttons[i]);
+    }
+  }
+
   LANG = detectLang();
-  document.getElementById('lang').addEventListener('click', switchLang);
+  bindLangs();
   bindShare();
   window.addEventListener('hashchange', route);
   loadData(LANG, start);

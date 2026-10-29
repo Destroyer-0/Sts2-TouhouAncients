@@ -383,7 +383,7 @@ public sealed class MainForm : Form
             }
 
             // data.js 里的图片是 ../../images/，导出后要落到 dist/images/ 并改写 assetPrefix
-            var dataFiles = new[] { "data.js", "data.en.js" }
+            var dataFiles = new[] { "data.js", "data.en.js", "data.jpn.js" }
                 .Where(n => File.Exists(Path.Combine(WikiDir, n)))
                 .ToList();
             var data = string.Join("\n", dataFiles.Select(n => File.ReadAllText(Path.Combine(WikiDir, n), Encoding.UTF8)));
