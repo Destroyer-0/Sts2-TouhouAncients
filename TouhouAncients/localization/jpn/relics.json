@@ -53,10 +53,10 @@
   "TOUHOUANCIENTS-WUQIONGWUJINDEFENNU.flavor": "怒るな。怒りは知恵を曇らせる。",
 
   "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.title": "ほぼ2段階のテント",
-  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.description": "入手時、カードを1枚[red]ダウングレード[/red]し、その後ランダムなカードを1枚[red]ダウングレード[/red]する。[gold]ミニチュアテント[/gold]と、先古以外の[gold]休憩所[/gold]遺物[blue]{Relics}[/blue]個をランダムに得る。",
-  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.eventDescription": "カードを1枚[red]ダウングレード[/red]し、その後ランダムなカードを1枚[red]ダウングレード[/red]する。[gold]ミニチュアテント[/gold]と、先古以外の[gold]休憩所[/gold]遺物[blue]{Relics}[/blue]個をランダムに得る。",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.description": "入手時、カードを1枚[red]ダウングレード[/red]し、その後ランダムなカードを1枚[red]ダウングレード[/red]する。[gold]ミニテント[/gold]と、先古以外の[gold]休憩所[/gold]遺物[blue]{Relics}[/blue]個をランダムに得る。",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.eventDescription": "カードを1枚[red]ダウングレード[/red]し、その後ランダムなカードを1枚[red]ダウングレード[/red]する。[gold]ミニテント[/gold]と、先古以外の[gold]休憩所[/gold]遺物[blue]{Relics}[/blue]個をランダムに得る。",
   "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.selectionScreenPrompt": "[red]ダウングレード[/red]するカードを選択する",
-  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.flavor": "ミニチュアテントが最強！",
+  "TOUHOUANCIENTS-JINSILIANGJIDEYINGZHANG.flavor": "ミニテントが最強！",
 
   "TOUHOUANCIENTS-MORIYA_GOHEI.title": "守矢の御幣",
   "TOUHOUANCIENTS-MORIYA_GOHEI.description": "入手時、[gold]デッキ[/gold]からカードを1枚選び、[purple]{EnchantmentName}[/purple]で[gold]エンチャント[/gold]する。",
@@ -126,14 +126,14 @@
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.eventDescription": "[gold]神槍「グングニル」[/gold]を1枚[gold]デッキ[/gold]に加える。[gold]神槍「グングニル」[/gold]以外のカードでダメージを与えるか[gold]ブロック[/gold]を得るたび、対象／敵全体に同じ値の[gold]ブロック[/gold]を与える。",
   "TOUHOUANCIENTS-SPEAR_GUNGNIR.flavor": "霊気を槍状に束ねて投げつける。貫通力は非常に高く、弾幕の大半を遮ることなく敵本体ごと貫く。",
   
-  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "領主の日焼け止め",
+  "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.title": "王の日焼け止め",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.description": "戦闘報酬のカードがすべて[gold]レア[/gold]カードに置き換わる。カード報酬では[gold]すべて獲得[/gold]を選べる。",
   "TOUHOUANCIENTS-LORDS_SUNSCREEN_CREAM.flavor": "未熟な吸血鬼は日傘を差す。成熟した吸血鬼はメイドに日焼け止めを塗らせるものだ。",
   
-  "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "紅霧の漬物",
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.title": "瓶詰めの紅霧",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.description": "入手時、[gold]デッキ[/gold]から[blue]{Cards}[/blue]枚のカードを複製する。[red]愚行[/red]を1枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.eventDescription": "[gold]デッキ[/gold]から[blue]{Cards}[/blue]枚のカードを複製する。[red]愚行[/red]を1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-PRESERVED_RED_FOG.flavor": "いわゆる「最初の悪魔」の傑作「漬け生霧」に勝つため、レミィが一晩で私に作らせたのよ。——パチュリー・ノーレッジ",  
+  "TOUHOUANCIENTS-PRESERVED_RED_FOG.flavor": "いわゆる「最初の悪魔」の傑作「瓶詰めの霧」に勝つため、レミィが一晩で私に作らせたのよ。——パチュリー・ノーレッジ",  
   "TOUHOUANCIENTS-PRESERVED_RED_FOG.selectionScreenPrompt": "[gold]複製[/gold]するカードを[blue]{Amount}[/blue]枚選ぶ。[red]愚行[/red]を1枚[gold]デッキ[/gold]に加える。",
 
   "TOUHOUANCIENTS-NOBLE_BROOCH.title": "悪魔のブローチ",
@@ -147,7 +147,7 @@
   "TOUHOUANCIENTS-FATE_PENDANT.fateTitle": "運命",
   "TOUHOUANCIENTS-FATE_PENDANT.fateDescription": "このターン最初にプレイしたカードがこれなら、{Energy:energyIcons()}を得る。",
   "TOUHOUANCIENTS-FATE_PENDANT.fateExtraText": "運命の導き",
-  "TOUHOUANCIENTS-FATE_PENDANT.approval": "[red][shake]ふふ、それでいいのよ〜[/shake][/red]",
+  "TOUHOUANCIENTS-FATE_PENDANT.approval": "[red][shake]ふふ、なかなか上手いものでしょう？[/shake][/red]",
 
   "TOUHOUANCIENTS-THE_THIRD_EYE.title": "第三の眼",
   "TOUHOUANCIENTS-THE_THIRD_EYE.description": "各戦闘開始時、自身に[blue]2[/blue][gold]脱力[/gold]を付与し、[gold]占術[/gold][blue]5[/blue]を行い、[gold]覚りの瞳[/gold]を[blue]1[/blue]枚[gold]手札[/gold]に加える。",
@@ -352,7 +352,7 @@
   "TOUHOUANCIENTS-REBELLION_HORN.title": "反叛の角笛",
   "TOUHOUANCIENTS-REBELLION_HORN.description": "入手時、[gold]デッキ[/gold]内のすべての[gold]初期[/gold]カードと[gold]コモン[/gold]カードを[green]アップグレード[/green]する。",
   "TOUHOUANCIENTS-REBELLION_HORN.eventDescription": "[gold]デッキ[/gold]内のすべての[gold]初期[/gold]カードと[gold]コモン[/gold]カードを[green]アップグレード[/green]する。",
-  "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪はかつてマザレスの信徒を反乱軍に勧誘しようとしたが、角笛が「カー」と鳴らないという理由で断られた。",
+  "TOUHOUANCIENTS-REBELLION_HORN.flavor": "正邪はかつてマザレスの信徒を反乱軍に勧誘しようとしたが、角笛が「クァーーーッ！」と鳴らないという理由で断られた。",
 
   "TOUHOUANCIENTS-BATTERY_BILI.title": "ビリビリ電池",
   "TOUHOUANCIENTS-BATTERY_BILI.description": "各戦闘の1ターン目開始時、[gold]山札[/gold]から[gold]パワー[/gold]カードを[blue]{Amount}[/blue]枚選んで[gold]手札[/gold]に加える。それらはこのターン、コストを支払わずにプレイでき、[purple]帯電[/purple][blue]{Damage}[/blue]を付与される。",
@@ -441,7 +441,7 @@
   "TOUHOUANCIENTS-REPOSITORY_OF_HIROKAWA.flavor": "",
 
   "TOUHOUANCIENTS-SKY_HAT.title": "天冠",
-  "TOUHOUANCIENTS-SKY_HAT.description": "[blue]{BlockPerIntangible}[/blue][gold]ブロック[/gold]を得るたび、[gold]魂+[/gold]を[blue]{Cards}[/blue]枚[gold]山札[/gold]に加える。",
+  "TOUHOUANCIENTS-SKY_HAT.description": "[blue]{BlockPerIntangible}[/blue][gold]ブロック[/gold]を得るたび、[gold]ソウル+[/gold]を[blue]{Cards}[/blue]枚[gold]山札[/gold]に加える。",
   "TOUHOUANCIENTS-SKY_HAT.flavor": "",
 
   "TOUHOUANCIENTS-SOUL_BUTTERFLY.title": "反魂蝶",
@@ -485,7 +485,7 @@
   "TOUHOUANCIENTS-KONSHII_NO_KUSURI.flavor": "汚れた過去を浄化せよ。",
 
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.title": "龍頸の玉",
-  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "各戦闘開始時、[gold]七星+[/gold]を1枚[gold]手札[/gold]に加える。それは[gold]保留[/gold]を持つ。自分のターン終了時、または[blue]{Card}[/blue]枚のカードをプレイするたび、この戦闘中その[gold]スター[/gold]コストが[blue]1[/blue]減少する。",
+  "TOUHOUANCIENTS-RYUKEI_NO_TAMA.description": "各戦闘開始時、[gold]セブンスターズ+[/gold]を1枚[gold]手札[/gold]に加える。それは[gold]保留[/gold]を持つ。自分のターン終了時、または[blue]{Card}[/blue]枚のカードをプレイするたび、この戦闘中その[gold]スター[/gold]コストが[blue]1[/blue]減少する。",
   "TOUHOUANCIENTS-RYUKEI_NO_TAMA.flavor": "ブリリアントドラゴンバレッタ。",
 
   "TOUHOUANCIENTS-HINEZUMI_NO_KAWAGOROMO.title": "火鼠の皮衣",
@@ -592,7 +592,7 @@
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢れ出す穢れ",
-  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "毎ターン開始時、{Energy:energyIcons()}を得て追加でカードを[blue]{Cards}[/blue]枚引く。自分のターン終了時、[gold]手札[/gold]の状態異常でないカード1枚につき[gold]瓦礫[/gold]を1枚[gold]山札[/gold]に加え、エナジー1につき[gold]虚無[/gold]を1枚[gold]山札[/gold]に加える。",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "毎ターン開始時、{Energy:energyIcons()}を得て追加でカードを[blue]{Cards}[/blue]枚引く。自分のターン終了時、[gold]手札[/gold]の状態異常でないカード1枚につき[gold]デブリ[/gold]を1枚[gold]山札[/gold]に加え、エナジー1につき[gold]虚無[/gold]を1枚[gold]山札[/gold]に加える。",
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初の神霊",
@@ -688,7 +688,7 @@
 
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.title": "頼れる弟子狸",
   "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.description": "毎ターン開始時、[gold]ミニオン・ダイブ[/gold]、[gold]ミニオン・ストライク[/gold]、[gold]ミニオン・サクリファイス[/gold]のいずれかをランダムに[blue]{Cards}[/blue]枚[gold]手札[/gold]に加える。",
-  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "あら、あの宇宙から来た方の手下もなかなか見目がよろしいのね。",
+  "TOUHOUANCIENTS-RELIABLE_TANUKI_DISCIPLE.flavor": "おや、あの宇宙から来た方の手下も、なかなか見目がよいのう。",
 
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.title": "赤雲のナックル",
   "TOUHOUANCIENTS-CRIMSON_CLOUD_KNUCKLES.description": "[gold]アタック[/gold]カードを（自動プレイ以外で）プレイした時、[gold]手札[/gold]から別の[gold]アタック[/gold]カードをランダムに1枚プレイする。",
@@ -707,7 +707,7 @@
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.title": "鯢呑亭の特調",
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.description": "入手時、[gold]ポーションスロット[/gold]を[blue]{PotionSlots}[/blue]個得る。以降に得る[gold]ポーション[/gold]はすべて[gold]超ZUNビール[/gold]になる。",
   "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.eventDescription": "[gold]ポーションスロット[/gold]を[blue]{PotionSlots}[/blue]個得る。以降に得る[gold]ポーション[/gold]はすべて[gold]超ZUNビール[/gold]になる。",
-  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "天狗、人間、鬼――この老いぼれは酒友の身分など気にせんよ。",
+  "TOUHOUANCIENTS-NIDOMITEI_SPECIAL_BLEND.flavor": "天狗、人間、鬼――儂は酒友の身分など気にせんぞ。",
 
   "TOUHOUANCIENTS-DOWSING_ROD.title": "ナズーリンの振り子",
   "TOUHOUANCIENTS-DOWSING_ROD.description": "選ばなかった[gold]カード報酬[/gold]が記録される。[gold]休憩所[/gold]でナズーリンを雇って[gold]宝探し[/gold]ができる。",
@@ -737,7 +737,7 @@
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "収録",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescription": "{Cards:list:{}|, }",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedDescriptionEmpty": "このキャラクターのカードはまだ[gold]百鬼夜行[/gold]に収録されていない。",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "ふふ、これは儂がかなりの犠牲を払って手に入れた宝物なのだよ。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.flavor": "ほっほ、これは儂がずいぶん骨を折って手に入れた宝物じゃ。",
 
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.title": "超能念力",
   "TOUHOUANCIENTS-PSYCHIC_TELEKINESIS.description": "[gold]パワー[/gold]カードを引くたび、追加でカードを[blue]{Cards}[/blue]枚引く。毎ターン初めて[gold]パワー[/gold]をプレイした時、そのコピーを[blue]{Copies}[/blue]枚[gold]捨て札[/gold]に加える。",
@@ -750,7 +750,7 @@
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.title": "狸の煙管",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.description": "自分のターン終了時、[gold]手札[/gold]から任意の枚数のカードを[gold]変化[/gold]させる。",
   "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.selectionScreenPrompt": "[gold]変化[/gold]させるカードを選ぶ。",
-  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": "酒と煙草こそ世の宝。",
+  "TOUHOUANCIENTS-TUNAKI_SMOKING_PIPE.flavor": "酒と煙草こそ、この世の宝じゃ。",
 
   "TOUHOUANCIENTS-HEAVY_DICE.title": "イカサマ賽子",
   "TOUHOUANCIENTS-HEAVY_DICE.description": "自分のターン終了時、[gold]手札[/gold]のカードを1枚選んで記録できる。ドローフェイズ終了後、記録したカードがあるなら、カードを1枚捨てることで記録したカードのコピーを[gold]手札[/gold]に加えられる。そのコピーは[gold]廃棄[/gold]と[gold]エセリアル[/gold]を持つ。",
@@ -877,7 +877,6 @@
   "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "妖魔図鑑",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "敵に遭遇するたび、その名前を記録する。記録済みの名前の敵に再び遭遇した時、その敵のHPは[blue]1[/blue]になる。",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
-
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "過目不忘",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "記録したモンスター：\n{Monsters:list:{}|\n}",
 

@@ -83,7 +83,7 @@
     "TOUHOUANCIENTS-NAMELESS_YOUKAI.selectionScreenPrompt": "[gold]変化[/gold]させるカードを任意の枚数選択する。",
 
     "TOUHOUANCIENTS-HYAKKI_YAGYO.title": "百鬼夜行",
-    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "収録されたカードをランダムに{Cards}枚プレイし、この戦闘中それらを収録から取り除く。\n収録が空になった時、このカードをこの戦闘中ゲームから取り除く。\n[b][thinky_dots]ふふふ！この老いぼれにどれほどの腕か見せてみよ！[/thinky_dots][/b]",
+    "TOUHOUANCIENTS-HYAKKI_YAGYO.description": "収録されたカードをランダムに{Cards}枚プレイし、この戦闘中それらを収録から取り除く。\n収録が空になった時、このカードをこの戦闘中ゲームから取り除く。\n[b][thinky_dots]ほっほっほ！ 儂にどれほどの腕前か、見せてみるがよい！[/thinky_dots][/b]",
 
     "TOUHOUANCIENTS-SEAL_CIRCLE.title": "封魔陣",
     "TOUHOUANCIENTS-SEAL_CIRCLE.description": "{SealedText}",
