@@ -45,7 +45,7 @@ public class IdolAlbum : TouhouAncientRelics, IHypedEnteredListener
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [.. HoverTipFactory.FromEnchantment<Rose>()];
+        [.. HoverTipFactory.FromEnchantment<Rose>(), .. KoishiPerformanceHoverTips];
 
     public void AddRoseBonus(int amount) => _roseBonus += amount;
 

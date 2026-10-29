@@ -1,6 +1,6 @@
 ---
 name: relic-pipeline
-description: "Full relic localization pipeline: plain Chinese relic specs → formatted zhs JSON → eng translation → jpn copy. Orchestrates format-relic-text, write-relic-loc, and translate-relic-loc agents in serial, pausing for user confirmation between each stage. Use when: user provides raw Chinese relic designs and wants them fully integrated into all three localization files."
+description: "Full relic localization pipeline: plain Chinese relic specs → formatted zhs JSON → eng translation → jpn translation. Orchestrates format-relic-text, write-relic-loc, and translate-relic-loc agents in serial, pausing for user confirmation between each stage. Use when: user provides raw Chinese relic designs and wants them fully integrated into all three localization files."
 argument-hint: "Paste raw Chinese relic specs (Name\tDescription per line)"
 user-invocable: true
 disable-model-invocation: false
@@ -50,11 +50,11 @@ User input (plain text)
     │ User confirms → written to eng
     ▼
 ┌──────────────────────────────────────────────────────┐
-│ Stage 4: Copy eng → jpn                               │
-│ Copy new entries from eng/relics.json to jpn/relics.json│
-├──────────────────────────────────────────────────────┤
-│ No translation needed — content is identical to eng   │
-│ Action: Run PowerShell copy, then validate            │
+│ Stage 4: Translate → jpn                               │
+│ Translate the same zhs entries into Japanese          │
+├───────────────────────────────────────────────────────┤
+│ jpn must be real Japanese, NOT a copy of eng          │
+│ Action: write jpn/relics.json, then validate          │
 └──────────────────────────────────────────────────────┘
     │
     ▼
@@ -118,23 +118,18 @@ runSubagent(
 2. The agent will present translations and ask for confirmation.
 3. After the agent writes and validates, proceed to Stage 4.
 
-## Stage 4: Copy eng → jpn
+## Stage 4: Translate → jpn
 
-After eng/relics.json is updated, copy the newly added entries to `TouhouAncients/localization/jpn/relics.json`.
+After eng/relics.json is updated, translate the **same** newly added entries into Japanese and write them to `TouhouAncients/localization/jpn/relics.json`.
 
-**This is a content copy, NOT a translation.** The jpn file uses English text (same as eng).
+**This IS a translation, not a copy.** The jpn file must contain real Japanese; never paste eng text into it.
 
 Procedure:
-1. Find the lines that were added to eng/relics.json (the new entries from Stage 3).
-2. Use PowerShell to append them to jpn/relics.json at the corresponding position:
-
-```powershell
-# Find the insertion point in jpn/relics.json (mirror eng structure)
-# Use the same replace_string_in_file approach as write-relic-loc did for eng
-```
-
-3. Ensure proper JSON formatting — the jpn file must remain valid JSON with no duplicate keys.
-4. After writing, run validation:
+1. Take the new entries (same keys as Stage 3) and translate them from the zhs text.
+2. Terms must follow STS2 official Japanese (`E:\Sts2New\localization\jpn\`); if absent there, follow existing `jpn/` wording in this repo (`エンシェント`, `取得時`, `[gold]廃棄[/gold]` …).
+3. Insert at the same relative position as in zhs/eng.
+4. Ensure proper JSON formatting — the jpn file must remain valid JSON with no duplicate keys.
+5. After writing, run validation:
 
 ```powershell
 . ".agents\skills\touhou-ancients-mod\scripts\validate-relic-loc.ps1"
@@ -168,12 +163,12 @@ Also check jpn:
 | 1 | `format-relic-text` | (output only, not written) | Yes |
 | 2 | `write-relic-loc` | `zhs/relics.json` | Yes |
 | 3 | `translate-relic-loc` | `eng/relics.json` | Yes |
-| 4 | (manual copy) | `jpn/relics.json` | Auto |
+| 4 | `translate-relic-loc`（日译） | `jpn/relics.json` | Yes |
 | 5 | (validation script) | (checks all 3 files) | Auto |
 
 ## Constraints
 
 - DO NOT skip any user confirmation stage
-- DO NOT copy eng→jpn until eng is fully written and confirmed
+- DO NOT copy eng→jpn — jpn is an independent Japanese translation of the zhs text
 - DO NOT proceed if validation fails — fix issues first
 - If any stage fails, stop and report the error before continuing

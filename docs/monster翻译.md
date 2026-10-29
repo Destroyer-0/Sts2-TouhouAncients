@@ -1,6 +1,6 @@
 # monsters.json / encounters.json / cards.json / powers.json 翻译记录（怪物相关）
 
-> 翻译依据：`zhs/*.json` → `eng/*.json`（jpn 用英语填充，与 eng 一致）
+> 翻译依据：`zhs/*.json` → `eng/*.json`（英文）与 `jpn/*.json`（日语，以 zhs 为源独立翻译）
 > 规则参考：`.agents/skills/translate/SKILL.md`、`docs/翻译术语表.md`
 
 ---
@@ -435,7 +435,7 @@
 - 所有播报统一走私有方法 `PlayBanter(LocString line)`，跳过逻辑只在这一处，三条台词的调用点无需各自判断。
 - 妹红的彩蛋台词（`MOKOU_BANTER` / `MOKOU_BANTER2`）由 `HouraiPuzzleCard` 单独播放，此处跳过可避免两套台词混播；多人模式下即使队伍里有妹红，辉夜台词仍正常播放。
 
-> jpn 与 eng 内容一致（jpn 用英语填充）。
+> jpn 与 eng 内容一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ## 增量更新（2026-09-26）：灵梦梦想天生台词
 
@@ -445,7 +445,7 @@
 |------|------|---------|
 | `HAKUREI_REIMU_MONSTER.moves.FANTASY_NATURE.banter` | 做好被退治的觉悟吧！ | Prepare yourself to be exterminated! |
 
-该条 zhs 早已存在（本次之前 eng/jpn 缺失），本次补齐 eng/jpn；jpn 与 eng 内容一致（jpn 用英语填充）。
+该条 zhs 早已存在（本次之前 eng/jpn 缺失），本次补齐 eng/jpn；jpn 与 eng 内容一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 播放时机（HakureiReimuMonster.cs）
 
@@ -471,7 +471,7 @@
 #### 说明
 - 「变化」沿用仓库既有的 `Transform` 关键字写法，被动语态取 `Transformed`，与同句的 `Exhausted` 平行（原版 `2025_03_13` 补丁说明也有 `when the card is Exhausted or Transformed` 的写法）。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 封印侵蚀（SEALED，描述同步加入「变化」）
 
@@ -481,7 +481,7 @@ zhs 的 `SEALED.description` 同步改为「被消耗**或变化**后」，eng/j
 |------|------|---------|
 | `TOUHOUANCIENTS-SEALED.description` | 获得[red]不能被打出[/red]。其对应的[gold]封魔阵[/gold]被消耗或变化后，解除[red]封印[/red]。 | Gain [red]Unplayable[/red]. When its corresponding [gold]Sealing Circle[/gold] is [gold]Exhausted[/gold] or [gold]Transformed[/gold], remove [red]Sealed[/red]. |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 
 
@@ -510,7 +510,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 > 「付丧神化」沿用项目既有 `Tsukumogami`（`TSUKUMOGAMI` 附魔、`FIGHT_FOR_ME.title` = `Reforged Tsukumogami`）；「打击/防御」取原版基础牌名 `Strike` / `Defend`。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 
 ---
@@ -548,7 +548,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `SILENT_OBJECT_CARD_POWER.title` | 弃子的复仇 | `Revenge of the Forsaken` |
 | `SILENT_OBJECT_CARD_2_POWER.title` | 弱者的叛旗 | `Banner of the Weak` |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -577,7 +577,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `moves.OH_MY_CUTE_LINGLING.banter` | 被可爱的铃铃围绕着死去也是种幸福！ | `Dying surrounded by cute Lily is a kind of happiness too!` |
 
 > 「铃铃」沿用既有 `LING_LING_MONSTER.name`（`Lily`）与招式名 `My Cute Lily`（`我可爱的铃铃`）。
-> jpn 与 eng 一致（jpn 文件用英文填充）。
+> jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 因幡帝能力与毒素风味（powers.json）
 

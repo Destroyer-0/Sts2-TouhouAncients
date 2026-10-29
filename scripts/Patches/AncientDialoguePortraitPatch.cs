@@ -216,6 +216,22 @@ public static class AncientDialoguePortraitPatch
         textureRect.CustomMinimumSize = new Vector2(w, h);
     }
 
+    // --- NAncientEventLayout.ClearDialogue Prefix: keep dialogue on page change ---
+
+    /// <summary>
+    /// Prefix: 地底蔷薇的「应援 → 十选三」是同一事件内的翻页，原版每次 SetEventState 都会
+    /// ClearDialogue()，把玩家刚读的台词抹掉。只对这个事件保留台词。
+    /// </summary>
+    [HarmonyPatch(typeof(NAncientEventLayout), nameof(NAncientEventLayout.ClearDialogue))]
+    public static class NAncientEventLayout_ClearDialogue_Patch
+    {
+        static bool Prefix(NAncientEventLayout __instance)
+        {
+            var ancient = Traverse.Create(__instance).Field("_ancientEvent").GetValue<AncientEventModel>();
+            return ancient is not IdleKoishiAncient;
+        }
+    }
+
     // --- NRelicCollectionCategory.LoadRelics Postfix: resize merged Ancient icons ---
     // Patches LoadRelics instead of LoadIcon to avoid timing issues:
     // by the time LoadRelics finishes, all subcategories have been added to the tree,

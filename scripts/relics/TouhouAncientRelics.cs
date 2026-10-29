@@ -7,9 +7,11 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using TouhouAncients.Scripts;
+using TouhouAncients.Scripts.cardTags;
 using TouhouAncients.Scripts.relics;
 using TouhouAncients.Scripts.relics.Akyuu;
 
@@ -23,6 +25,13 @@ public abstract class TouhouAncientRelics : CustomRelicModel
 
     /// <summary>先古之民选项条件：返回 false 时本遗物不会被抽为选项。由 TouhouAncientBase 在抽取前统一判定。</summary>
     public virtual bool CanAppear(Player? player) => true;
+
+    /// <summary>蔷薇偶像遗物的通用悬停：气氛的说明挂在「嗨到爆」词条里，两个要给在一起。</summary>
+    protected IEnumerable<IHoverTip> KoishiPerformanceHoverTips =>
+    [
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientAtmosphere),
+        HoverTipFactory.FromKeyword(TouhouAncientKeywords.TouhouAncientHyped),
+    ];
 
     /// <summary>玩家在当前地图点最后选的休息处选项 ID，没选过则为 null。
     /// 供「选完某项不消耗其余选项」判定：RestSiteSynchronizer 在调 ShouldDisableRemainingRestSiteOptions 前刚写入该记录。</summary>

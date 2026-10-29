@@ -1,6 +1,6 @@
 # cards.json 翻译记录
 
-> 翻译依据：`zhs/cards.json` → `eng/cards.json`（`jpn/cards.json` 用英语填充，与 eng 一致）
+> 翻译依据：`zhs/cards.json` → `eng/cards.json`（英文）与 `jpn/cards.json`（日语，以 zhs 为源独立翻译）
 > 规则参考：`.agents/skills/translate/SKILL.md`、`docs/翻译术语表.md`
 > 怪物相关卡牌（状态牌 / 招式牌）的记录见 `docs/monster翻译.md`
 
@@ -79,7 +79,7 @@
 
 ### 备注
 - 用 C# 构造 HoverTip（`new LocString("gameplay_ui", ...)`），同一套文案同时挂在**幻梦无垠卡面**（`IllusoryDreamWhisper.BubbleIllusionTip`）和**三个梦奖励**上；奖励的 tip 顺序是「幻梦无垠卡面 → 泡影说明」，**没有源牌时也保留泡影说明**。
-- 术语原名「幻梦」，改用「泡影」后英文暂定 `Bubble Illusion`（同 `docs/翻译术语表.md` 第七节，尚未最终确认）；jpn 与 eng 一致。
+- 术语原名「幻梦」，改用「泡影」后英文暂定 `Bubble Illusion`（同 `docs/翻译术语表.md` 第七节，尚未最终确认）；旧工作流下 jpn 与 eng 一致（现改为独立日语翻译）。
 - 数字按用户要求加 `[blue]` 标记。
 
 ---
@@ -188,7 +188,7 @@
 - 「被消耗时」取既有 `OATH`（圣约）：`When this card is [gold]Exhausted[/gold], ...`。
 - 「抽到时」取原版 `VOID` / `KINGLY_KICK`：`Whenever you draw this card, ...`；「给予自身…虚弱」取原版 `NEUROSURGE`：`apply … to yourself`。
 - 卡名互引见 `relic翻译.md`（`SAKURA_COMB` / `BLANK_ROSTER`）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -205,7 +205,7 @@
 - 标题的引号表示「其实不是好运」，英文按仓库既有约定用直角直引号 `"`（参考 `THE_FEAST` 的 `[gold]"Frenzied Feast"[/gold]`、`HEAVY_DICE_RECORD_POWER.title` 的 `"Cardsharp"`），**不照搬 zhs 的全角引号**；`戏法` 取 `Trick`，与附魔 `TRICK.title`（`诈术` → `Trickery`）区分。
 - 机制句沿用 `LUCKY_RABBIT.description` 既有写法 `Randomize the cost of cards in your [gold]Hand[/gold] this turn`。
 - `[i][red]` 风味行按仓库既有正文句首大写写法（参考 `BLOOD_DISASTER_POWER.description`）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -245,7 +245,7 @@
 - zhs 键名由 `YAKUMA_AKI_RECOMMEND` 改为 `YAKUMO_AKAI_RECOMMEND`；eng / jpn 从未有过旧键，无需清理。
 - `[rainbow]` 标记已按用户要求从 `HOUJUU_NUE_RECOMMEND.title` 移除（zhs / eng / jpn 三边都不带）；该角色的 `.description`（中文占位）里仍有标记，后续补译时一并处理。
 - 插入位置按 `zhs` 相对位置：紧跟在 `TRANSFORM_CARD_REWARD` 之后（zhs 里这批也排在它后面）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -284,5 +284,5 @@
 - `Keine Kamishirasawa` 沿用 `docs/翻译术语表.md` 既有写法（`ancients.json` 的慧音联动）；`Fujiwara no Mokou` 同术语表。
 - 上一批次的「六个 `.description` 暂用中文占位」属临时例外，本批已全部消除，eng / jpn 不再含中文（本文件的 `UPGRADE_CARD_REWARD` 日文行除外，那是 jpn 侧历史遗留）。
 - 更早的 `KIJIN_SEIJA_RECOMMEND.description`（「颠覆卡牌数值、反抗一切」）与 `KOMEJI_KOISHI_RECOMMEND.description`（「无意识的地底蔷薇，世界第一可爱」）两条占位文本已随 zhs 改稿而过时，本批一并替换为新原文的译文。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 

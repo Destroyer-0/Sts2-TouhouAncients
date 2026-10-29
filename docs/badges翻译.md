@@ -1,6 +1,6 @@
 # badges.json 翻译记录
 
-> 翻译依据：`zhs/badges.json` → `eng/badges.json`
+> 翻译依据：`zhs/badges.json` → `eng/badges.json`（英文）与 `jpn/badges.json`（日语，以 zhs 为源独立翻译）
 > 规则参考：`.agents/skills/translate/SKILL.md`、`docs/翻译术语表.md`
 > 徽章键格式：单档用 `.title` / `.description`，铜银金分档用 `.bronzeTitle` / `.bronzeDescription` / `.silver...` / `.gold...`
 
@@ -52,7 +52,7 @@
 - **`REVENGE_FIRE_IRONCLAD.title`「代餐」**：中文网络语，指「得不到更好的 A，只能用稍差的 B 代替」（即备胎）。此处具体指妹红与铁甲战士都是**用火的战士**，对辉夜而言铁甲战士是妹红的「替身」。改译 `The Understudy`（戏剧术语：替角/替补演员），精确对应「顶替主角上场的替身」。
 - **`SERVANT_FAMILY_PHOTO.title`「全家桶」**：取 `Family Bucket`（快餐全家桶）；「仆从」用 `Minion`，与三张卡名 `Time/Magic/Qi Minion` 一致。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -75,7 +75,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - **`ULTRA_LUCKY.description`「耗能为0的牌」**：取 `zero-cost cards`，与 `LUCKY_RABBIT.description` 的 `those that cost [blue]0[/blue]` 同义；「幸运白兔」按规则 6 取 `cards.json` 的卡名 `Bare White Rabbit of Good Fortune`。
 - **`SCAMING_SCAMER.description`「敲诈一笔」**：取 `Extort a fortune`；「依神姐妹」沿用 `YORIGAMI_SISTER_ANCIENT.fight.title` 的 `Yorigami Sisters`。
 - **插入位置**：三条徽章按 zhs 的相对位置**集中**放在 `THREE_SNAKE` 与 `TOO_MUCH_SATORI` 之间，`zhs` / `eng` / `jpn` 三份文件键序完全一致。曾一度按 `eng/badges.json` 原有的字母序拆到三处插入，导致同一批内容在 diff 里东一块西一块，已改回对齐 zhs。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -92,4 +92,4 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - **`MR_ZUN.title`「那个男人」**：中文里对 ZUN 的惯用代称（不点名），英文直译 `That Man` 指代不明。取 `Mr. Beer`——敬称 `Mr.` 接上他造的 `Super ZUN Beer`，既指代「那个人」又与他酿的酒呼应，形成错位玩梗。曾试 `ZUN-San`，玩梗效果不如 `Mr. Beer`。
 - **`MR_ZUN.description`「一场游戏」**：沿用 `TOO_MUCH_SATORI` 系列的 `in a single run`；「超ZUN啤酒」按术语表取 `Super ZUN Beer`，引用色 `[gold]` 与 `NIDOMITEI_SPECIAL_BLEND` 一致。
 - **插入位置**：`MR_ZUN` 在 zhs 里位于文件末（`TOO_MUCH_SATORI` 之后），eng/jpn 同样追加在末尾，三份文件键序一致。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。

@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -30,6 +31,8 @@ public class ChireidenStageCostume : TouhouAncientRelics, IHypedEnteredListener
         new DynamicVar("BasePlays", BasePlays),
         new DynamicVar("ExtraPlays", ExtraPlays),
     ];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => KoishiPerformanceHoverTips;
 
     public override Task BeforeCombatStart()
     {

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://io0pu60pjqup"
-path="res://.godot/imported/猯藏2.jpg-91139c58a9aec1ca98c4cc089ae02ac8.ctex"
+uid="uid://cuf3qcvlwh8ib"
+path="res://.godot/imported/IdolChocolatePotion_outline.png-912c8eacf9494b0ba67b41ffe9d490c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/猯藏2.jpg"
-dest_files=["res://.godot/imported/猯藏2.jpg-91139c58a9aec1ca98c4cc089ae02ac8.ctex"]
+source_file="res://images/potion/IdolChocolatePotion_outline.png"
+dest_files=["res://.godot/imported/IdolChocolatePotion_outline.png-912c8eacf9494b0ba67b41ffe9d490c6.ctex"]
 
 [params]
 

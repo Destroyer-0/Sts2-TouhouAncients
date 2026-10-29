@@ -157,5 +157,5 @@
     "TOUHOUANCIENTS-HARMONY_CHOICE.description": "每回合开始时，获得[blue]{TurnAtmosphere}[/blue][gold]气氛[/gold]，若上回合完全[gold]格挡[/gold]了敌人的攻击则额外获得[blue]{FullBlockAtmosphere}[/blue]。",
 
     "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.title": "献给你的荆棘之歌",
-    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}。"
+    "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。\n获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}。"
 }

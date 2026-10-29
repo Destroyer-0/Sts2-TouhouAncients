@@ -1,6 +1,6 @@
 # relics.json 翻译记录
 
-> 翻译依据：`zhs/relics.json` → `eng/relics.json`
+> 翻译依据：`zhs/relics.json` → `eng/relics.json`（英文）与 `jpn/relics.json`（日语，以 zhs 为源独立翻译）
 > 规则参考：`.agents/skills/translate/SKILL.md`、`docs/翻译术语表.md`
 
 ---
@@ -2473,7 +2473,7 @@ zhs 新增 `selectionScreenPrompt`「选择要[gold]变化[/gold]的牌。」，
 | `.description` | 拾起时，失去最大生命值的[blue]33%[/blue]，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | Upon pickup, lose [blue]33%[/blue] of your Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple]. |
 | `.eventDescription` | 失去[blue]{LoseHp}[/blue]点最大生命，从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。 | Lose [blue]{LoseHp}[/blue] Max HP. Choose a card from your [gold]Deck[/gold] and [gold]Enchant[/gold] it with [purple]{EnchantmentName}[/purple]. |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 命运吊坠（FATE_PENDANT，新增遗物）
 
@@ -2506,7 +2506,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - `.fateTitle` / `.fateDescription` 用于标记牌的 HoverTip；`.fateExtraText` 是卡面上追加的紫色额外文本；`.approval` 是打出首张命运牌触发效果时播放的气泡台词。
 - `{Energy:energyIcons()}` 统一用能量图标渲染，因此 `.fateDescription` 与 `.approval` 中涉及能量的部分也走同一写法，便于日后统一调整数值。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2612,7 +2612,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 |------|---------|---------|
 | `.flavor` | “在梦境之中，有什么是做不到的呢——呵呵哈哈！” | `"In the world of dreams, is there anything that can't be done—hehehaha!"` |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 #### 幻想之梦 `FANTASY_DREAM`（条目已存在，对应类暂未实现）
 
@@ -2788,13 +2788,13 @@ zhs：`当你遇见第[blue]{ShopIndex}[/blue]个[gold]商人[/gold]时，立刻
 >
 > 说话者已确认：Orobas / Pael / Tezcatara / Vakuu / Nonupeipe / Tanx / The Architect / Neow / Darv，`PIONEER_DREAM` 为哆来咪本尊。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 4. 关于 `GREED.description` 的 `{Times}`（已按源码改回变量）
 
 zhs 写的是 `[gold]重放[/gold][blue]{Times}[/blue]`，复核确认 `scripts/Enchantment/Greed.cs` 确实定义了 `new DynamicVar("Times", 1m)` 并交给 `StaticHoverTip.ReplayDynamic` 使用，因此**不能**硬编码成 `1`。英日均已改回 `{Times}`。此条已从 `docs/翻译待沟通.md` 的待确认清单中移除。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充；梦境遗物标题按现有日文风格译为「XXの夢」）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译；梦境遗物标题按现有日文风格译为「XXの夢」）。
 
 ---
 
@@ -2811,7 +2811,7 @@ zhs flavor 改为「见证永恒与无限的未来。」，与绀珠之药「净
 - 绀珠之药：`Purify away the defiled past.`
 - 辉夜姬秘宝：`Witness the eternal and infinite future.`
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2826,7 +2826,7 @@ zhs 尾段台词改为「就让老朽看看你有几分能耐！」，eng/jpn �
 - 前两句（`Play {Cards} random recorded cards…` / `Once all records are removed…`）未改动。
 - 自称沿用猯藏既有译法 `this old one`（见 `ancients翻译.md`）。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2841,7 +2841,7 @@ zhs flavor 改为一段口语台词（说话者自称拥有「超能力」、目
 - 「先子星」沿用既有译名 `Preon`。
 - 破折号「——」用 `—`；「呼哈哈」拟声译为 `Fwahaha`（得意、自信的笑声，配合句末 `!!`）。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2903,7 +2903,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - **flavor 为用户指定的中英不一致**：zhs 保持「游戏领域大神！」，eng/jpn 写 `Miniature Tent is the best!`（用户明确指定，不做字面对应）。
 - 用户改稿删去了此前的「从牌组中选择一张已升级的牌」「以奖励列表的方式」「不会出现你已经拥有的」等措辞，译文随之删去，未做补充说明。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2922,7 +2922,7 @@ zhs 新增 `transcribedDescriptionEmpty`（收录记录界面在该角色尚无�
 - 「这名角色」在英文里用 `this character` 指代当前查看记录的角色，与 `transcribeDescription` 中的 `the specified character` 区分：前者是界面当前角色，后者是收录目标角色。
 - 原版无同类空状态句式，按英文空状态文案习惯用 `yet` 收尾。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ### 2. 校对：百鬼夜行系列（HYAKKI_YAGYO_SCROLL / HYAKKI_YAGYO）
 
@@ -2937,7 +2937,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 > 未改动项：`title`、`flavor`、`transcribedDescription` 的分隔符（`，` ↔ `, `）、`transcribedDescriptionEmpty`、五个角色名（The Ironclad / The Silent / The Regent / The Necrobinder / The Defect，与 `characters.json` 一致）、关联键 `TOUHOUANCIENTS-TRANSCRIBE_REWARD`（gameplay_ui）中英一致。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -2952,7 +2952,7 @@ zhs flavor 改为 `[red]“……离·开·我·的·领·域。”[/red]`（说
 - 中文用「·」逐字分隔表示强调；英文按用户要求**用大写表示强调**，并用句号切分单词以还原一字一顿的威压感。
 - 保留 `[red]` 包裹、引号（`“ ”` → 转义直引号 `\"`）与开头的省略号。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3038,7 +3038,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 
 > 两条 zhs 原为空串（上一轮增量记为「用户未给」），本次补齐。「梦之支配者」沿用既有称呼 `Dream Manager`；`[sine]` 标记与引号（`“ ”` → 转义直引号）原样保留。
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 
 
@@ -3072,13 +3072,35 @@ zhs 追加「未被格挡的」，eng/jpn 跟进。
 
 `DowsingRod.ExtraHoverTips` 新增一条记录列表提示（写法沿用 `BRAIN_IN_A_VAT` 的 `.forgetTitle` / `.forgetNothing` / `.forget` 三键结构），原有的「寻宝」休息处提示保留在其前。
 
+---
+
+## 万宝槌 `MAGIC_MALLET`（flavor 重译，2026-10-29）
+
+zhs flavor 已改为短句诗体，eng / jpn 按新原文重译并要求对仗；旧的描述性 flavor（`A treasure of the Oni, held by the ruler of Shining Needle Castle.` / `小人城主が持つ、鬼の秘宝。`）作废。
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-MAGIC_MALLET.flavor": "遥遥梦间国 乾坤倾覆 万宝锤落 铿锵涌星火"
+```
+
+### 翻译
+| 语言 | 字段 | 翻译 |
+|------|------|------|
+| eng | `.flavor` | `Far-off dreamland, heaven and earth overturned. Treasure mallet falls, sparks of starlight gush forth.` |
+| jpn | `.flavor` | `遥けき夢の国に天地は覆り、落つる万宝槌に星火は湧く。` |
+
+### 说明
+- 原文为 5/4/4/5 的短句诗体，译文按两组对句处理：eng 的 `Far-off dreamland` / `Treasure mallet`、`heaven and earth` / `sparks of starlight`、`overturned` / `gush forth`；jpn 的「～に～は…」句式（`遥けき夢の国に` / `落つる万宝槌に`、`天地は覆り` / `星火は湧く`）。
+- 万宝槌沿用原版日文写法 `万宝槌`（即「打ち出の小槌」的汉名）；英文 `Treasure mallet` 与遗物 `.title` 的 `Magic Mallet` 呼应。
+- 译文均为单行，未使用 `\n` 换行。
+
 | 键名 | 中文原文 | English |
 |------|---------|---------|
 | `.recordTitle` | 失物招领 | `Lost and Found` |
 | `.recordNothing` | 你还没有记录任何卡牌。 | `You haven't recorded any cards yet.` |
 | `.record` | 已记录的卡牌：\n{Cards:list:{}`\|`\n} | `Recorded cards:\n{Cards:list:{}`\|`\n}` |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3091,7 +3113,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 | `.recordTitle` | 人妖名鉴 | `Human-Yokai Register` |
 | `.record` | 已记录的怪物：\n{Monsters:list:{}`\|`\n} | `Recorded monsters:\n{Monsters:list:{}`\|`\n}` |
 
-jpn 与 eng 保持一致（jpn 文件用英文填充）。
+jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 **行为变更（同批）**：三个遗物的空态 hover tip 全部取消 —— 没有记录时整条提示不出现。
 
@@ -3164,7 +3186,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - `御阿礼` → `Miare`；`幺乐藏品` → `Yougakudan Collection`（用户确认）；`积劳成疾` → `Overwork`（用户确认）。
 - 卡名互引：`[gold]迷之树叶[/gold]` = `Mysterious Leaf`、`[red]阎罗之罪罚[/red]` = `Yama's Punishment`、`[red]积劳成疾[/red]` = `Overwork`，须与 `cards.json` 卡名逐字一致。
 - `稗田阿求遗物` → `[gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]`，句式仿既有 `CHAOS_DREAM`（混沌之梦）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3199,7 +3221,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - 药水名引用色取 `[gold]`，与 `NIDOMITEI_SPECIAL_BLEND`（`[gold]超ZUN啤酒[/gold]`）一致；`CHILDHOOD_BAG` 的 `[purple]` 写法不采用。
 - `药水栏位` → `[gold]Potion Slots[/gold]`（术语表）；`最大生命` → `[gold]Max HP[/gold]`。
 - 药水名 `分装药膳` → `Portioned Medicinal Cuisine`（用户确认）；遗物名 `调理药膳` → `Medicinal Cuisine`（用户确认）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3216,7 +3238,7 @@ jpn 与 eng 保持一致（jpn 文件用英文填充）。
 - zhs 侧药水名由「分装药膳」改为「养生汤」（`zhs/potions.json`、`zhs/relics.json` 描述引用同步），英文名 **`Wellness Soup`**（用户确认）。
 - 药水 `description` 正文、遗物 `title` / `flavor` 未变，未改动。
 - 参照源：原版 `NUTRITIOUS_SOUP` = `Nutritious Soup`、`NUTRITIOUS_OYSTER` = `Nutritious Oyster`；本次按用户指定改用 `Wellness Soup`。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3238,7 +3260,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - `transcribedTitle` 的 `Transcribed Cards` 本来就是 `transcribed`，无需改动。
 - 未改动：`...SCROLL.description`、`...SCROLL.transcribeTitle`、`...SCROLL.transcribedDescription`、`HYAKKI_YAGYO.title`、`TRANSCRIBE_REWARD`（gameplay_ui）。
 - `DOWSING_ROD.*`（纳兹琳灵摆的「记录」）是另一套机制，保留原 `record` 系列不动。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3252,7 +3274,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 | `.eventDescription` | `Choose up to [blue]{Cards}[/blue] non-X-cost cards and [gold]enchant[/gold] them with [purple]{EnchantmentName}[/purple].` |
 
 > 「不为X」沿用本项目 `PURE_GOLD_BRACELET` 已有译法 `non-X-cost`。辉星 X 不在限制内。
-> jpn 与 eng 一致。
+> 旧工作流下 jpn 与 eng 一致（现改为独立日语翻译）。
 
 ---
 
@@ -3273,7 +3295,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 药水 `description` / `flavor`、遗物 `title`（`调理药膳` / `Medicinal Cuisine`）未变，未改动。
 - `HealthConscious.cs` / `HealthConsciousTracker.cs` 的中文注释同步改名。
 - `eng/jpn` 的 `badges.json` 尚无 `HEALTH_CONSCIOUS` 条目（既有缺口，本次未补）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3291,7 +3313,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - **本次仅改 zhs**：英文名 `Wellness Tonic` 不变（`tonic` 兼指补药/汤药，用户确认），故 `eng/jpn` 的 `potions.json` / `relics.json` 无需改动。
 - 药水 `description` / `flavor`、遗物 `title`（`调理药膳` / `Medicinal Cuisine`）未变，未改动。
 - `HealthConscious.cs` / `HealthConsciousTracker.cs` 的中文注释同步改名。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3309,7 +3331,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 该键为此前遗漏（`eng/jpn` 当初只补了 `.title` / `.description` / `.flavor`），本次随翻译一并补齐。
 - `{X.StringValue:cond:A|B}` 写法沿用仓库既有 `IRIDESCENT_DREAM` / `BOTTLED_GALAXY`；A 分支内嵌 `{AngryCard}` 变量。
 - 兜底分支的牌名与 `(multiplayer)` / `(singleplayer)` 沿用 `.description` 既有写法（`Outrage` / `Anger`，源自原版 `ftues.json`）。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3336,7 +3358,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 三句分别沿用 `DETECTIVE_MANUSCRIPT` / `DETECTIVE_STORY` 的既有句式；`.selectionScreenPrompt` 与 `DETECTIVE_STORY` 完全一致。
 - `{Damage}` = 6、`{RetainCard}` = 1，均由 `CanonicalVars` 提供。
 - 无「拾起时」句，按项目规则省略 `.eventDescription`。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3355,7 +3377,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 
 ### 说明
 - 只插入 `first`，其余句式与 2026-07-21 版一致；`.title` / `.flavor` 未变。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3375,7 +3397,7 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 ### 说明
 - 仅第二句改写：`战斗奖励增加升级一张牌的奖励` → `随机升级一张牌`，译文 `combat rewards gain a reward to Upgrade one card` → `randomly Upgrade one card`。
 - 随机源用 `RunState.Rng.CombatCardGeneration`，与 `MagicBombPotion` 一致，多人各端同选牌；牌组无牌可升时不给奖励。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
 ---
 
@@ -3404,4 +3426,4 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 ### 说明
 - 阈值减伤文本从灵札原样搬到蝴蝶结；灵札改写的英文沿用 `Strength` 术语。
 - `.title` / `.flavor` 随遗物名保留，不参与互换。
-- jpn 与 eng 一致（jpn 文件用英文填充）。
+- jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。

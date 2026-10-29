@@ -1,11 +1,11 @@
 ---
 name: translate
-description: Translate TouhouAncients mod localization files from Chinese (zhs/) to English (eng/). Use when the user wants to translate enchantments, cards, relics, powers, potions, ancients, or other localization text.
+description: Translate TouhouAncients mod localization files from Chinese (zhs/) to English (eng/) and Japanese (jpn/). Use when the user wants to translate enchantments, cards, relics, powers, potions, ancients, or other localization text.
 ---
 
-# Translate — TouhouAncients 本地化英译
+# Translate — TouhouAncients 本地化英译 / 日译
 
-将 `TouhouAncients/localization/zhs/` 中的中文文本翻译为英文，输出到 `TouhouAncients/localization/eng/` 和 `TouhouAncients/localization/jpn/`（jpn 用英语填充）。
+将 `TouhouAncients/localization/zhs/` 中的中文文本**分别**翻译为英文（`eng/`）与日语（`jpn/`）。两侧都以 zhs 为源独立翻译，`jpn` 不再复用英文内容。
 
 ## 增量翻译规则
 
@@ -23,6 +23,7 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 1. 先读取对应的 `zhs/` 源文件获取完整上下文
 2. 参考 STS2 原版英文术语表：`E:\Sts2New\localization\eng\card_keywords.json`（关键字对照）、`E:\Sts2New\localization\eng\relics.json`（遗物描述范式）、`E:\Sts2New\localization\eng\enchantments.json`（附魔描述范式）、`E:\Sts2New\localization\eng\cards.json`（卡牌描述范式）、`E:\Sts2New\localization\eng\potions.json`（药水描述范式）、`E:\Sts2New\localization\eng\events.json`（事件描述范式）
 3. 参考 `E:\Sts2New\localization\zhs\card_keywords.json` 与 `eng/` 对照确认术语映射
+4. **日译参考 STS2 原版日文**：同名文件在 `E:\Sts2New\localization\jpn\`（`card_keywords.json` 关键字、`relics.json` 遗物、`enchantments.json` 附魔、`cards.json` 卡牌、`powers.json` 状态、`potions.json` 药水、`events.json` 事件）。原版有的功能/句式一律照抄其日文表述
 
 > 原版参考根目录为 `E:\Sts2New\localization\`；`E:\STS20.107\localization\` 是内容完全相同的副本（已核对 `card_keywords` / `relics` / `enchantments` / `cards` / `potions` / `events` / `powers` / `badges` 八个文件 MD5 一致），任选其一。游戏安装目录下没有明文 localization（只打包在 .pck 里）。旧文档写的 `d:\STS2Code\localization` 已不存在。
 
@@ -272,8 +273,15 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 - **`eng/`、`jpn/` 新增键的位置一律对齐 `zhs/` 的相对位置**（同一 key 在 zhs 中排在谁后面，就在 eng / jpn 中排在同一 key 后面），**不按英文字母序另行插入**。
 - 理由：翻译是逐批 diff `zhs` ↔ `eng` 生成的，三者键序一致时每批新增内容在三个文件里落成同一块，diff 集中、便于核对；按字母序插入会把同一批内容拆到不相邻的多处。
 - 核对方法：取新键在 zhs / eng / jpn 中的**前一条键**，三者相同即为对齐。
-- jpn 与 eng 的键名、键序、值都必须完全一致。
+- jpn 与 eng 的**键名、键序**必须完全一致，**值各自用本国语言**（eng 英文 / jpn 日语），不再要求值相同。
 - 详见 `docs/翻译术语表.md`「二十三、插入位置约定」。
+
+### 11. 🇯🇵 日语翻译规则
+- **以 zhs 为源独立翻译**，禁止把 eng 内容直接复制进 `jpn/`。
+- **术语照抄原版日文**：先查 `E:\Sts2New\localization\jpn\` 有无同一功能/关键字（如 消耗→廃棄、保留→保留、虚无→エーテル、易伤→弱体、力量→筋力、敏捷→敏捷、格挡→ブロック、附魔→エンチャント）；本模组 `jpn/` 已有译法优先，避免同词两译。
+- **专有名词沿用既有的本模组日译**（角色名、先古名、卡名，见 `jpn/ancients.json` / `jpn/cards.json`）；「先古之民」用 `エンシェント`、「拾起时」用 `取得時`。
+- **文体**：卡牌/遗物描述用「〜する」体（原版遗物描述同款），对话用角色口吻；`[gold]` 等富文本标记、`{变量}`、`\n` 全部原样保留。
+- **标点**：句末用「。」，逗号用「、」；引号用「」，英文引号不得出现。
 
 ## 翻译流程
 
@@ -295,8 +303,8 @@ description: Translate TouhouAncients mod localization files from Chinese (zhs/)
 2. 读取 `eng/{filename}` 查看当前已翻译状态
 3. 针对每个未翻译的条目（值仍为中文的），逐条生成英文翻译
 4. 使用 `replace_string_in_file` 或 `multi_replace_string_in_file` 替换为英文值
-5. **同步到 jpn**：将 eng 中的相同内容同步写入 `jpn/{filename}`（jpn 使用英语，与 eng 完全一致）
-6. **更新翻译记录**：在对应的翻译记录文档（如 `docs/relic翻译.md`、`docs/ancients翻译.md`）中记录翻译结果
+5. **独立翻译到 jpn**：以同一批 zhs 条目为源，按「日语翻译规则」译为日语后写入 `jpn/{filename}`（**不得复制 eng 内容**；键位对齐同一条 zhs 键）
+6. **更新翻译记录**：在对应的翻译记录文档（如 `docs/relic翻译.md`、`docs/ancients翻译.md`）中记录翻译结果，eng 与 jpn 分别记录
 7. 翻译完成后告知用户翻译了哪些条目
 
 ### 术语一致性检查

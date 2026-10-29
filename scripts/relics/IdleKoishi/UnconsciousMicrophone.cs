@@ -38,6 +38,7 @@ public class UnconsciousMicrophone : TouhouAncientRelics, IHypedEnteredListener
     [
         HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<IntangiblePower>(),
+        .. KoishiPerformanceHoverTips,
     ];
 
     public override Task BeforeCombatStart()
