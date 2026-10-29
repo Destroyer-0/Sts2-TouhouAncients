@@ -15,7 +15,7 @@ public sealed class StaccatoChoice : PerformanceChoiceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("DamagePerAtmosphere", 2m),
+        new DynamicVar("DamagePerAtmosphere", 3m),
         new DynamicVar("AtmosphereGain", 1m),
         new DynamicVar("DeathAtmosphere", 14m),
     ];
