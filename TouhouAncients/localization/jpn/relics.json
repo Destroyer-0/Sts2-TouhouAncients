@@ -724,7 +724,7 @@
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.title": "幻滅の三叉槍",
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.description": "入手時、[gold]名もなき妖魔[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-DISILLUSION_TRIDENT.eventDescription": "[gold]名もなき妖魔[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "封獣ぬえとは誰か？ お前か？ それとも私か？",
+  "TOUHOUANCIENTS-DISILLUSION_TRIDENT.flavor": "è°�æ˜¯å°鵺å…½éµºï¼Ÿæ˜¯ä½ ï¼Ÿè¿˜æ˜¯æˆ‘ï¼Ÿ",
 
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.title": "一つ目唐傘",
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.description": "このターン、[gold]攻撃[/gold]の意図を持つ敵に与えたダメージの合計が初めてその意図ダメージの合計を上回った時、その敵はこのターン[blue]{StrengthDown}[/blue][gold]筋力[/gold]を失う。[gold]筋力[/gold]が負の敵に[gold]とどめを刺した[/gold]時、ランダムなカード1枚を[green]アップグレード[/green]する。",
@@ -769,62 +769,62 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.title": "虹光の夢",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.description": "入手時、{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]を[gold]{UpgradedRelic}[/gold]に置き換え|初期[gold]遺物[/gold]をその[gold]エンシェント[/gold]版に置き換え}、{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|初期カード1枚}を[gold]デッキ[/gold]から取り除く。",
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.eventDescription": "{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]を[gold]{UpgradedRelic}[/gold]に置き換え|初期[gold]遺物[/gold]をその[gold]エンシェント[/gold]版に置き換え}、{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]|初期カード1枚}を[gold]デッキ[/gold]から取り除く。",
-  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "「夢の使者？ 夢魂を集める？ シャボン玉みたい！ 面白い！ 私の夢も瓶に詰めて！」",
+  "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "「ユメノツカイ？ ユメダマ、アツメル？ シャボンダマミタイ！ オモシロイ！ ボクノユメモ、ビンニツメテ！」",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "溶蝋の夢",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "自分のターン開始時、HPが[blue]{HpThreshold}%[/blue]未満なら[blue]{RegenGain}[/blue][gold]再生[/gold]を得る。1回の戦闘でこの方法により[blue]{RegenLimit}[/blue][gold]再生[/gold]を得ると、この遺物は永久に失効する。",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]「夢の使者？ あなたはきっと私の夢をたくさん見てきたのでしょう……受け取ったら、もう少しだけ眠らせてちょうだい……」[/thinky_dots]",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]「夢の使者よ……君はきっと、私の夢をたくさん見てきたのだろう……それを持っていったら……もう少しだけ、眠らせてくれ……」[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "燎燭の夢",
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.description": "各戦闘開始時、[gold]至光の焔[/gold]を[blue]{Cards}[/blue]枚[gold]手札[/gold]に加える。それらは[gold]廃棄[/gold]を持つ。",
-  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "「まあ！ テスカタラの夢が欲しいの？ なんて可愛らしい子かしら」",
+  "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.flavor": "「あらら！ テスカタラの夢が欲しいの？ なんて可愛らしい子かしらねえ」",
 
   "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.title": "風祝の夢",
   "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.description": "最初に出会う[blue]{Cards}[/blue]回のカード報酬にランダムな[gold]エンチャント[/gold]が付く：[purple]鋭利[/purple][blue]2[/blue]／[purple]身軽[/purple][blue]2[/blue]／[purple]迅速[/purple][blue]1[/blue]。",
-  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.flavor": "「わっ！ なんだよ！ 夢の中で売り込みなんてずるいぞ！ 私も混ぜてくれ！」",
+  "TOUHOUANCIENTS-WIND_PRIESTESS_DREAM.flavor": "「わっ！ なんなんですか、もう！ 夢の中で売り込みなんてずるいですよ！ 私も混ぜてくださいよ！」",
 
   "TOUHOUANCIENTS-METEOR_DREAM.title": "流星の夢",
   "TOUHOUANCIENTS-METEOR_DREAM.description": "入手時、ランダムな戦闘[blue]{Combats}[/blue]か所を標す。その戦闘は追加でランダムな[gold]遺物[/gold]報酬をドロップする。",
   "TOUHOUANCIENTS-METEOR_DREAM.eventDescription": "ランダムな戦闘[blue]{Combats}[/blue]か所を標す。その戦闘は追加でランダムな[gold]遺物[/gold]報酬をドロップする。",
-  "TOUHOUANCIENTS-METEOR_DREAM.flavor": "「へへ、明晰夢が見られるっていうあのアイマスクは本物か？ 本当なら、帰ったら俺の分も用意してくれよなDa☆Ze！」",
+  "TOUHOUANCIENTS-METEOR_DREAM.flavor": "「へへ、明晰夢が見られるっていうあのアイマスクは本物か？ 本当なら、帰ったら私の分も用意してくれよなDa☆Ze！」",
 
   "TOUHOUANCIENTS-PARADISE_DREAM.title": "楽園の夢",
   "TOUHOUANCIENTS-PARADISE_DREAM.description": "入手時、[gold]妖怪退治[/gold]を1枚[gold]デッキ[/gold]に加える。第1層の[gold]ボス[/gold]を撃破した後、そのカードを[gold]デッキ[/gold]から取り除き、そのカードのダメージ[blue]1[/blue]につき[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
   "TOUHOUANCIENTS-PARADISE_DREAM.eventDescription": "[gold]妖怪退治[/gold]を1枚[gold]デッキ[/gold]に加える。第1層の[gold]ボス[/gold]を撃破した後、そのカードを[gold]デッキ[/gold]から取り除き、そのカードのダメージ[blue]1[/blue]につき[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
-  "TOUHOUANCIENTS-PARADISE_DREAM.flavor": "「ねえねえ、言ってるでしょ、夢の中でもいいから一度くらい私の[gold]賽銭箱[/gold]を金でいっぱいにしてくれない？ お願い！」",
+  "TOUHOUANCIENTS-PARADISE_DREAM.flavor": "「ねえねえ、夢の中でもいいからさ、一回だけ私の[gold]賽銭箱[/gold]を金でいっぱいにしてくれない？ お願い！」",
 
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "邪契の夢",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "第[blue]{ShopIndex}[/blue]番目の[gold]商人[/gold]に会った時、彼の商品を[red]すべて[/red]即座に獲得し、[red]強欲[/red]を1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "「ふふ、悪魔の夢は並のものではない。契約の小さな代価くらい、お前も知っているはずだ……」",
+  "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "「ふふ、悪魔の夢は並のものではございません。契約の小さな代価くらい、あなたもご存じでしょう……」",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "瑰琦の夢",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "入手時、[gold]デッキ[/gold]内の[gold]ストライク[/gold]と[gold]防御[/gold]の一組を[purple]魅惑[/purple]で[gold]エンチャント[/gold]する。",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.eventDescription": "[gold]デッキ[/gold]内の[gold]ストライク[/gold]と[gold]防御[/gold]の一組を[purple]魅惑[/purple]で[gold]エンチャント[/gold]する。",
-  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "「夢の使者よ、私の夢を見せてあげましょう。それはもちろん、最も上等で華美なものよ」",
+  "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "「夢の使者、あたしの夢を見せてあげるわ。もちろん、一番上等で華美なやつよ」",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血の夢",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "入手時、[gold]噛みつき[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。\nこのターンにアタックをプレイしていないなら、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "[gold]噛みつき[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。このターンにアタックをプレイしていないなら、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "「夢の使者、私と戦え！！！――……Zzzzz」",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "「夢の使者、オレと戦え！！！――……Zzzzz」",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界の夢",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.description": "入手時、[blue]{HpLoss}[/blue][red]HP[/red]を失う。経路を無視して、次の階の[gold]?[/gold]の部屋か[gold]商店[/gold]の部屋を選べる。",
   "TOUHOUANCIENTS-BOUNDARY_DREAM.eventDescription": "[blue]{HpLoss}[/blue][red]HP[/red]を失う。経路を無視して、次の階の[gold]?[/gold]の部屋か[gold]商店[/gold]の部屋を選べる。",
-  "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "「ふふ、夢の支配者……幻想郷とプレオンの未来は今回はあなたの[sine]干渉[/sine]に任せたわ……」",
+  "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "「ふふ、夢の支配者……幻想郷とプレオンの未来は、今回だけはあなたの[sine]干渉[/sine]に任せるわ……」",
 
   "TOUHOUANCIENTS-SUPREME_DREAM.title": "至高の夢",
   "TOUHOUANCIENTS-SUPREME_DREAM.description": "新しい[gold]アクト[/gold]に入るたび：\n[gold]ポーション[/gold]を[blue]{Potions}[/blue]本得る。\n[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。\n[gold]最大HP[/gold]が[blue]{MaxHpGain}[/blue]増加する。\nカード報酬を[blue]{Cards}[/blue]回得る。\nランダムなカード[blue]{Upgrades}[/blue]枚を[green]アップグレード[/green]する。",
   "TOUHOUANCIENTS-SUPREME_DREAM.eventDescription": "新しい[gold]アクト[/gold]に入るたび：[gold]ポーション[/gold]を[blue]{Potions}[/blue]本得る。[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。[gold]最大HP[/gold]が[blue]{MaxHpGain}[/blue]増加する。カード報酬を[blue]{Cards}[/blue]回得る。ランダムなカード[blue]{Upgrades}[/blue]枚を[green]アップグレード[/green]する。",
-  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "[red]「……私の領域から、出ていけ」[/red]",
+  "TOUHOUANCIENTS-SUPREME_DREAM.flavor": "[red]「……我が領域から、出ていけ」[/red]",
 
   "TOUHOUANCIENTS-REVIVAL_DREAM.title": "復甦の夢",
   "TOUHOUANCIENTS-REVIVAL_DREAM.description": "次の[blue]{Combats}[/blue]回の戦闘で、敵のHPは[blue]{Hp}[/blue]になる。",
-  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "[sine]「……私の……傀儡を……宥めて……当然……お前は……受け取る……」[/sine]",
+  "TOUHOUANCIENTS-REVIVAL_DREAM.flavor": "[sine]「……我が……傀儡を……宥めよ…… 当然…… お前は……報いを……受け取る……」[/sine]",
 
   "TOUHOUANCIENTS-BYGONE_DREAM.title": "往昔の夢",
   "TOUHOUANCIENTS-BYGONE_DREAM.description": "入手時、忘れ去られた過去の[gold]遺物[/gold]を1つ、忘れ去られた過去のカードを1枚得る。",
   "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "忘れ去られた過去の[gold]遺物[/gold]を1つ、忘れ去られた過去のカードを1枚得る。",
-  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "「ああ、お前の可愛い女の子の仲間たちをまだ覚えているぞ！ なかなか変わった連中だったな？」",
+  "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "「ああ、お前さんの可愛い女の子の連れなら、まだ覚えてるぜ！ なかなか変わった連中だったろ？」",
 
   "TOUHOUANCIENTS-PIONEER_DREAM.title": "先駆の夢",
   "TOUHOUANCIENTS-PIONEER_DREAM.description": "入手時、[purple]前回のラン[/purple]で使った初期カード以外のカードをランダムに1枚[gold]デッキ[/gold]に加える。",
@@ -834,7 +834,7 @@
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "啓示の夢",
   "TOUHOUANCIENTS-REVELATION_DREAM.description": "入手時、[gold]幻夢無辺[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]休憩所[/gold]で休憩するたび、このカードの数値をランダムに変化させることができる。",
   "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "[gold]幻夢無辺[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]休憩所[/gold]で休憩するたび、このカードの数値をランダムに変化させることができる。",
-  "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "「プレオンでは、あらゆる生物の原始脳は創造された瞬間に進化を終えている――だから夢の中では、あなたの脳も私の脳も彼らの脳も、本質的に違いはないの」",
+  "TOUHOUANCIENTS-REVELATION_DREAM.flavor": "「プレオンでは、あらゆる生物の原始脳は創造された瞬間に進化を終えています――ですから夢の中では、あなたの脳も私の脳も彼らの脳も、本質的に違いはないのですよ」",
 
   "TOUHOUANCIENTS-CHAOS_DREAM.title": "混沌の夢",
   "TOUHOUANCIENTS-CHAOS_DREAM.description": "入手時、ランダムな[gold]ドレミー・スイートの遺物[/gold]を[blue]{Relics}[/blue]個得る。[red]悪夢無終[/red]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",

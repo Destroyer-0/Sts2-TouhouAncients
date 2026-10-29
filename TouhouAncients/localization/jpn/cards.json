@@ -72,7 +72,7 @@
     "TOUHOUANCIENTS-THE_FEAST.description": "[gold]山札[/gold]から[gold]“狂宴”[/gold]以外のカードを{MinExhaust}~{MaxExhaust}枚[gold]廃棄[/gold]する。1枚につき{Strength:diff()}[gold]筋力[/gold]と{Energy:energyIcons()}を得る。\nターン終了時、このカードが[gold]手札[/gold]にあるなら、このカードのコピーを{Copies}枚[gold]捨て札[/gold]に加える。\n[jitter][i]すべて我が糧となれ！！[/i][/jitter]",
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "[gold]廃棄[/gold]するカードを1~3枚選択する。",
 
-    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "天上の賢者",
+    "TOUHOUANCIENTS-HEAVEN_SAGE.title": "ヘヴン・セイジ",
     "TOUHOUANCIENTS-HEAVEN_SAGE.description": "名前に「防御」を含むカードを引くたび、このカードをプレイする。\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "神槍「グングニル」",

@@ -49,7 +49,7 @@
   "TOUHOUANCIENTS-POOREST_FORM_POWER.description": "自分のターン終了時、[gold]手札[/gold]の合計コストが残り[gold]エナジー[/gold]を上回る1ポイントにつき、ランダムな敵1体に[gold]破滅[/gold][blue]7[/blue]を付与する。",
   "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "自分のターン終了時、[gold]手札[/gold]の合計コストが残り[gold]エナジー[/gold]を上回る1ポイントにつき、ランダムな敵1体に[gold]破滅[/gold][blue]{Amount}[/blue]を付与する。",
 
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "天上の賢者",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "ヘヴン・セイジ",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "名前に「防御」を含むカードを引くたび、このカードをプレイする。\nᗜᴗᗜ",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "名前に「防御」を含むカードを引くたび、このカードをプレイする。\nᗜᴗᗜ",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
