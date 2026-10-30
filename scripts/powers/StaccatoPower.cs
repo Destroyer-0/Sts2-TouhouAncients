@@ -47,11 +47,12 @@ public sealed class StaccatoPower : TouhouAncientPowerModel
         if (!TouhouAncientCmd.IsPlayerDamageIncludePet(player, dealer)) return;
 
         _damageProgress += result.UnblockedDamage;
-        while (_damageProgress >= DamagePerAtmosphere)
-        {
-            _damageProgress -= DamagePerAtmosphere;
-            await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, AtmosphereGain);
-        }
+        var gained = _damageProgress / DamagePerAtmosphere * AtmosphereGain;
+        if (gained <= 0) return;
+
+        // 一次性结算，避免逐点加气氛时一顿一顿地飘数字
+        _damageProgress %= DamagePerAtmosphere;
+        await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, gained);
     }
 
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,

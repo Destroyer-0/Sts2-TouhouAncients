@@ -22,6 +22,7 @@ public sealed class HarmonyPower : TouhouAncientPowerModel
     private const int TurnAtmosphere = 5;
     private const int FullBlockAtmosphere = 9;
 
+    private bool _wasAttacked;
     private bool _tookUnblockedAttack;
 
     public override PowerType Type => PowerType.Buff;
@@ -44,6 +45,7 @@ public sealed class HarmonyPower : TouhouAncientPowerModel
         if (dealer == null || dealer.Side != CombatSide.Enemy) return Task.CompletedTask;
         if (!props.HasFlag(ValueProp.Move)) return Task.CompletedTask;
 
+        _wasAttacked = true;
         if (result.UnblockedDamage > 0) _tookUnblockedAttack = true;
         return Task.CompletedTask;
     }
@@ -54,11 +56,14 @@ public sealed class HarmonyPower : TouhouAncientPowerModel
         if (player != base.Owner.Player) return;
 
         await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, TurnAtmosphere);
-        if (!_tookUnblockedAttack)
+
+        // 没被攻击（含第 1 回合）不算「完全挡下」
+        if (_wasAttacked && !_tookUnblockedAttack)
         {
             await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, FullBlockAtmosphere);
         }
 
+        _wasAttacked = false;
         _tookUnblockedAttack = false;
     }
 }
