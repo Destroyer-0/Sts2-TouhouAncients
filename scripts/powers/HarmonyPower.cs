@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -47,17 +48,15 @@ public sealed class HarmonyPower : TouhouAncientPowerModel
         return Task.CompletedTask;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+    // 必须用 AfterPlayerTurnStart：应援棒在 BeforeHandDraw 里选卡，而 AfterSideTurnStart 早于抽牌 → 第 1 回合会拿不到气氛
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (base.Owner.Player is not { } player) return;
-        if (side != CombatSide.Player || !participants.Contains(base.Owner)) return;
+        if (player != base.Owner.Player) return;
 
-        await KoishiPerformanceCmd.GainAtmosphere(new ThrowingPlayerChoiceContext(), player, TurnAtmosphere);
+        await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, TurnAtmosphere);
         if (!_tookUnblockedAttack)
         {
-            await KoishiPerformanceCmd.GainAtmosphere(new ThrowingPlayerChoiceContext(), player,
-                FullBlockAtmosphere);
+            await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, FullBlockAtmosphere);
         }
 
         _tookUnblockedAttack = false;

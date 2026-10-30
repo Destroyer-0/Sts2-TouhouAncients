@@ -20,7 +20,7 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class ThornSongForYou : TouhouAncientCards, IHypedEnteredListener
 {
-    private const int energyCost = 2;
+    private const int energyCost = 1;
     private const CardType type = CardType.Attack;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.AnyEnemy;

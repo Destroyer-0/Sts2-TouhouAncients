@@ -26,8 +26,8 @@ public class IdleKoishiAncient : TouhouAncientBase
 
     public override int? ShowAct => 2;
 
-    public override Color ButtonColor => new(0.85f, 0.45f, 0.55f, 0.7f);
-    public override Color DialogueColor => new(0.95f, 0.6f, 0.7f, 1f);
+    public override Color ButtonColor => new Color(0.4863f, 0.8f, 0.8784f, 0.7f);
+    public override Color DialogueColor => new Color(0.4863f, 0.5608f, 0.8784f);
 
     // 暂无专属立绘，暂用地底蔷薇的主唱古明地觉素材占位
     public override string? CustomMapIconPath => "res://images/icon/MapNode/IdleKoishi_MapNode.png";

@@ -567,38 +567,41 @@
 
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.title": "止まぬ恚恨",
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.description": "敵からダメージを受けた時、失ったHPに等しい、自分を発生源とする[gold]怨仇[/gold]をその敵に付与する。",
-  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.flavor": "",
+  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.flavor": "旧怨いまだ雪げず、この恨み同じ天を戴かず。",
 
   "TOUHOUANCIENTS-MURDEROUS_LILY.title": "殺意の百合",
   "TOUHOUANCIENTS-MURDEROUS_LILY.description": "入手時、[gold]殺気[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。戦闘終了時、[gold]殺気[/gold]で死亡したユニットが1体もいなければ、[gold]殺気[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-MURDEROUS_LILY.eventDescription": "[gold]殺気[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。戦闘終了時、[gold]殺気[/gold]で死亡したユニットが1体もいなければ、[gold]殺気[/gold]を{Cards}枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "彼岸花咲けど、花と葉は互いに見えず。",
 
   "TOUHOUANCIENTS-DEATH_BLACK_CROWN.title": "死黒の冠",
   "TOUHOUANCIENTS-DEATH_BLACK_CROWN.description": "毎ターン、最初にプレイした[blue]{CardThreshold}[/blue]枚のカードが与えるダメージが2倍になる。",
-  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.flavor": "",
+  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.flavor": "汝に昏黒の死を授けん。",
 
   "TOUHOUANCIENTS-HELL_OF_BULLETS.title": "弾幕の地獄",
   "TOUHOUANCIENTS-HELL_OF_BULLETS.description": "入手時、[gold]純粋な弾幕地獄[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-HELL_OF_BULLETS.eventDescription": "[gold]純粋な弾幕地獄[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "生きているのなら、神様だって殺してみせる。",
 
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "戦慄の凍星",
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "[blue]{AttackThreshold}[/blue]枚のアタックをプレイするたび、[gold]フロスト[/gold]オーブを1つ[gold]生成[/gold]し、[gold]エセリアル[/gold]を持つ[gold]戦慄[/gold]／[gold]主宰[/gold]を交互に[gold]手札[/gold]に加える。",
-  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "「ティーシポネー」「アレークトー」「メガイラ」。",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "幻惑の投影",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "各戦闘開始時、[red]混乱[/red]する。コスト[blue]{CostThreshold}[/blue]以上のカードは[blue]2[/blue]回プレイされる。",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "足掻け、終わりのない恐怖の中で終末を待つのだ。",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "溢れ出す穢れ",
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "毎ターン開始時、{Energy:energyIcons()}を得て追加でカードを[blue]{Cards}[/blue]枚引く。自分のターン終了時、[gold]手札[/gold]の状態異常でないカード1枚につき[gold]デブリ[/gold]を1枚[gold]山札[/gold]に加え、エナジー1につき[gold]虚無[/gold]を1枚[gold]山札[/gold]に加える。",
-  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "燃え上がれ、この静海を穢れた命の地獄と楽園にせよ。",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初の神霊",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "毎ターン開始時、現在のターン数に等しい{energyPrefix:energyIcons(1)}を得る。\n[red][blue]{TriggerTurn}[/blue]ターン目開始時、孤注一擲を得る。[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "毎ターン開始時、現在のターン数に等しい{energyPrefix:energyIcons(1)}を得る。[red][blue]{TriggerTurn}[/blue]ターン目開始時、孤注一擲を得る。[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "万物が名を持つより前に在った、純粋なる力。",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "掌上の純光",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.flavor": "神は言われた。「光あれ。」",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "底なしの胃袋",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "入手時、初期遺物とエンシェント遺物以外のすべての遺物を[red]捕食[/red]する。1個につき[blue]{MaxHp}[/blue][gold]最大HP[/gold]、[blue]{StrengthTrigger}[/blue]個ごとに[blue]{Strength}[/blue][gold]筋力[/gold]・[blue]{Dexterity}[/blue][gold]敏捷[/gold]・[blue]{Focus}[/blue][gold]集中力[/gold]、[blue]{EnergyTrigger}[/blue]個ごとに毎ターン{Energy:energyIcons()}、[blue]{DrawTrigger}[/blue]個ごとに毎ターン追加でカードを1枚引く効果を得る。",

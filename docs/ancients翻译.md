@@ -711,56 +711,61 @@ Ooh! Just as the rumors said... |
 **键名**: `TOUHOUANCIENTS-TOUTETSU_YUUMA_ANCIENT`
 
 ### 字段翻译
-| 字段 | 中文 | English |
-|------|------|---------|
-| `.title` | 饕餮 尤魔 | Yuuma Toutetsu |
-| `.epithet` | 以荒疫为食的灾兽 | Blight-Devouring Calamity Beast |
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.title` | 饕餮 尤魔 | Yuuma Toutetsu | 饕餮 尤魔 |
+| `.epithet` | 以荒疫为食的灾兽 | Blight-Devouring Calamity Beast | 荒疫を糧とする災獣 |
+| `.fight.title` | 挑战刚欲同盟盟主 | Challenge the Gouyoku Alliance Leader | 剛欲同盟の盟主に挑戦する |
 
 ### 对话翻译
-| 对话键 | 中文 | English |
-|--------|------|---------|
-| `talk.firstVisitEver.0-0.ancient` | [jitter]桀桀……[/jitter]居然会有人来呢，你也是来享用这里的恐惧、悲喜、憎恶和怨叹的吗？ | [jitter]Heh heh...[/jitter] So someone actually comes. Are you here to feast on the fear, pleasure, grief, loathing, and resentment as well? |
-| `talk.ANY.1-0.ancient` | 挖一桶是为了钱财—— | Dig one bucket for riches— |
-| `talk.ANY.2-0.ancient` | 挖二桶是为了国家—— | Dig two buckets for the nation— |
-| `talk.ANY.3-0.ancient` | 挖三桶是为了憎恨…… | Dig three buckets for hatred... |
-| `talk.ANY.4-0r.ancient` | 作为[jitter]未来的畜生界之王[/jitter]，让你安全通过这里并得到刚欲同盟的支援，可是你莫大的荣幸哦？呵呵呵。 | As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and Gouyoku Alliance’s support is your great honor, ya know? Heheheh. |
-| `talk.ANY.0-0r.ancient` | 这座塔的荒疫就如同石油一般美味呢，真是绝品。 | The blight in this tower is as delicious as oil. Truly a delicacy. |
-| `talk.ANY.5-0r.ancient` | 纠缠在这里的喜悦、便利、诅咒、憎恶和欲望，一瓢一滴全都是我的……呵呵呵。 | The joy, convenience, curses, hatred, and desire tangled up in here—every drop and scoop is all mine... Heheheh. |
-| `talk.IRONCLAD.0-0.ancient` | 啊——我闻到了被诅咒的血液的味道，让我怀念起石油的香气了，真是充满了不甘与憎恨呢……呵呵呵。 | Ah—I smell the scent of cursed blood. It reminds me of the aroma of oil, so full of resentment and hatred... Heheheh. |
-| `talk.IRONCLAD.1-0r.ancient` | [jitter]桀桀[/jitter]，像你这种头脑简单的蛮力角色……骊驹那家伙说不定会很喜欢……呵呵呵。 | [jitter]Heh heh[/jitter], a simple-minded brute like you...Kurokoma might just like you... Heheheh. |
-| `talk.IRONCLAD.2-0r.ancient` | 你那燃烧着的被恶魔诅咒的血液，真是有点让我欲罢不能……呵呵呵。没法在这里品尝真是一大遗憾。 | That burning, demon-cursed blood of yours... I just can’t get enough of it... Heheheh. What a shame I can’t taste it here. |
-| `talk.SILENT.0-0.ancient` | 你的血里有荒疫的香味。 | Your blood has the scent of blight. |
-| `talk.SILENT.0-0.next` | 微微一惊 | Slightly startled |
-| `talk.SILENT.0-1.char` | ……！ | ...! |
-| `talk.SILENT.0-1.next` | 继续 | Continue |
-| `talk.SILENT.0-2.ancient` | 如果你死在半路，那就是暴殄天物了，所以你的任务可是要好好活着，等待我来亲自享用哦……呵呵呵。 | If you die halfway, that would be a waste of a rare delicacy. So your mission is to stay alive well, and wait for me to savor you myself... Heheheh. |
-| `talk.SILENT.1-0r.ancient` | [jitter]桀桀……[/jitter]下毒和刺杀这种阴暗招式……倒是和吉吊那家伙绝配……呵呵呵。 | [jitter]Heh heh...[/jitter] Sneaky tricks like poisoning and assassination... they’re a perfect match for Kicchou... Heheheh. |
-| `talk.REGENT.0-0.char` | 好难闻的气味！难道这里就是那所谓荒疫的根源？ | What a foul smell! Could this be the source of the so-called blight? |
-| `talk.REGENT.0-0.next` | 继续 | Continue |
-| `talk.REGENT.0-1.ancient` | 又来一个偷油贼？ | Another oil thief, is it? |
-| `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | [jitter]桀桀……[/jitter]我可不认为除了塔顶的那家伙和我以外，会有人喜欢这荒疫石油一般的味道…… | [jitter]Heh heh...[/jitter] I don’t think anyone besides the one at the top of the tower and myself would enjoy this blight-oil-like scent... |
-| `talk.REGENT.0-2.next` | 提问 | Question |
-| `talk.REGENT.0-3.char` | 我对你说的什么油不感兴趣！我也不是什么贼！我是储君，未来的群星之[orange]王[/orange]！阁下的名字是？ | I have no interest in your so-called oil! Nor am I some thief! I, Regent, future [orange]King[/orange] of the Stars! What is your name, Miss? |
-| `talk.REGENT.0-3.next` | 继续 | Continue |
-| `talk.REGENT.0-4.ancient` | 我是饕餮尤魔，刚欲同盟之长，[jitter]未来的畜生界之王[/jitter]。呵呵呵……我不讨厌懂礼数的家伙。 | I am Yuuma Toutetsu, leader of the Gouyoku Alliance, [jitter]future King of the Beast Realm[/jitter]. Heheheh... I don’t dislike those who know their manners. |
-| `talk.REGENT.1-0.ancient` | [jitter]桀桀……[/jitter]我很中意你，要不要和我们刚欲同盟[red]结盟[/red]呢？我们一定能支配这座塔……之后再去支配畜生界、幻想乡…… | [jitter]Heh heh...[/jitter] I’ve taken a liking to you. How about [red]allying[/red] with our Gouyoku Alliance? We can dominate this tower... then the Beast Realm, then Gensokyo... |
-| `talk.REGENT.1-0.next` | 严肃拒绝 | Sternly refuse |
-| `talk.REGENT.1-1.char` | 喂！小羊！我可是未来的[orange]群星之王[/orange]！绝不会屈居人下！ | Hey there, Miss… lamb! I’m the future [orange]King of the Stars[/orange]! I’ll never play second fiddle to anyone! |
-| `talk.REGENT.1-1.next` | 继续 | Continue |
-| `talk.REGENT.1-2.ancient` | [jitter]桀桀……[/jitter]多么血气方刚的欲望，我就是中意你这一点…… | [jitter]Heh heh...[/jitter] Such spirited, fiery desire. That’s exactly what I like about you... |
-| `talk.REGENT.2-0.ancient` | [jitter]桀桀……[/jitter]关于之前一起称霸天下的提议，阁下有没有改变想法呢？ | [jitter]Heh heh...[/jitter] About my earlier proposal to conquer the world together—have you changed your mind, sir? |
-| `talk.REGENT.3-0r.ancient` | [jitter]桀桀……[/jitter]你的星球上的人都是无欲无求的存在吗？听上去实在没劲。不如来试试我欲望的力量，如何…… | [jitter]Heh heh...[/jitter] Are all the people on your planet desireless beings? Sounds dreadfully boring. How about you try the power of my desires... |
-| `talk.DEFECT.0-0.ancient` | 建筑师的构装体？呵呵……虽然早有耳闻，不过看到类似的存在，还是让我想起那家伙的埴轮兵……有点恶心呢。 | The Architect’s construct? Heheh... I’ve heard about them, but seeing a similar existence still reminds me of that guy’s haniwa soldiers... rather nauseating. |
-| `talk.DEFECT.1-0r.ancient` | 不要发出那种戒备的嘀嘀声嘛……我在这里享用荒疫，既满足了我的胃口，又避免了荒疫泄露，不是一举两得的事情吗？这可是孤高而凄惨的行为哦？ | Don’t make those wary beep sounds... I feast on the blight here, satisfying my appetite while preventing it from leaking out. Two birds with one stone, isn’t it? A lonely and tragic endeavor, ya know? |
-| `talk.DEFECT.2-0r.ancient` | [jitter]桀桀……[/jitter]真亏你不是外界那种用石油驱动的家伙，不然我就不能让你离开了。 | [jitter]Heh heh...[/jitter] Good thing you’re not one of those oil-powered units from the outside world, or I wouldn’t be able to let you leave. |
-| `talk.NECROBINDER.0-0.ancient` | 你身上满是单纯的复仇味道。虽然美味，但实在不够塞我的牙缝。 | You’re drenched in the pure scent of revenge. Delicious as it is, it’s barely enough to stick between my teeth. |
-| `talk.NECROBINDER.0-0.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-1.char` | ……你在这满是荒疫和油的破地方做什么？就算失去了嗅觉，这里的味道也和那个[jitter]东西[/jitter]一样令我作呕。 | ...What are you doing in this wretched place full of blight and oil? Even without a sense of smell, the stench here is as nauseating as that [jitter]thing[/jitter]. |
-| `talk.NECROBINDER.0-1.next` | 继续 | Continue |
-| `talk.NECROBINDER.0-2.ancient` | 宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？ | A treasure trove lies before you, yet you’re blind to it, heheheh... How about experiencing the power of desire here yourself? |
-| `talk.NECROBINDER.1-0r.ancient` | 带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵…… | Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh... |
-| `talk.NECROBINDER.2-0r.ancient` | 虽然召唤东西作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter] | While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter] |
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.firstVisitEver.0-0.ancient` | [jitter]桀桀……[/jitter]居然会有人来呢，你也是来享用这里的恐惧、悲喜、憎恶和怨叹的吗？ | [jitter]Heh heh...[/jitter] So someone actually comes. Are you here to feast on the fear, pleasure, grief, loathing, and resentment as well? | [jitter]クックック……[/jitter]来る者がいるとはね。お前もここの恐怖、悲喜、憎悪、怨嗟を味わいに来たのか？ |
+| `talk.ANY.0-0r.ancient` | 这座塔的荒疫就如同石油一般美味呢，真是绝品。 | The blight in this tower is as delicious as oil. Truly a delicacy. | この塔の荒疫は石油のように美味い。まさに絶品だね。 |
+| `talk.ANY.1-0.ancient` | 挖一桶是为了钱财—— | Dig one bucket for riches— | 一桶掘るのは金のため―― |
+| `talk.ANY.2-0.ancient` | 挖二桶是为了国家—— | Dig two buckets for the nation— | 二桶掘るのは国のため―― |
+| `talk.ANY.3-0.ancient` | 挖三桶是为了憎恨…… | Dig three buckets for hatred... | 三桶掘るのは憎悪のため…… |
+| `talk.ANY.4-0r.ancient` | 作为[jitter]未来的畜生界之王[/jitter]，让你安全通过这里并得到刚欲同盟的支援，可是你莫大的荣幸哦？呵呵呵。 | As the [jitter]future King of the Beast Realm[/jitter], allowing you safe passage and Gouyoku Alliance’s support is your great honor, ya know? Heheheh. | [jitter]未来の畜生界の王[/jitter]として、ここを無事に通し、剛欲同盟の支援を与えるなど、お前にとってこの上ない栄誉だぞ？ ふふふ。 |
+| `talk.ANY.5-0r.ancient` | 纠缠在这里的喜悦、便利、诅咒、憎恶和欲望，一瓢一滴全都是我的……呵呵呵。 | The joy, convenience, curses, hatred, and desire tangled up in here—every drop and scoop is all mine... Heheheh. | ここに絡み合う喜悦、便利、呪詛、憎悪、欲望、その一滴一杓すべてが私のもの……ふふふ。 |
+| `talk.IRONCLAD.0-0.ancient` | 啊——我闻到了被诅咒的血液的味道，让我怀念起石油的香气了，真是充满了不甘与憎恨呢……呵呵呵。 | Ah—I smell the scent of cursed blood. It reminds me of the aroma of oil, so full of resentment and hatred... Heheheh. | ああ――呪われた血の匂いがする。石油の香ばしさを思い出すな、実に不甘と憎悪に満ちている……ふふふ。 |
+| `talk.IRONCLAD.1-0r.ancient` | [jitter]桀桀[/jitter]，像你这种头脑简单的蛮力角色……骊驹那家伙说不定会很喜欢……呵呵呵。 | [jitter]Heh heh[/jitter], a simple-minded brute like you...Kurokoma might just like you... Heheheh. | [jitter]クックック[/jitter]、お前のような頭の単純な力任せの役どころは……驪駒のやつが気に入るかもしれんぞ……ふふふ。 |
+| `talk.IRONCLAD.2-0r.ancient` | 你那燃烧着的被恶魔诅咒的血液，真是有点让我欲罢不能……呵呵呵。没法在这里品尝真是一大遗憾。 | That burning, demon-cursed blood of yours... I just can’t get enough of it... Heheheh. What a shame I can’t taste it here. | その燃え盛る悪魔に呪われた血、どうにも癖になりそうだ……ふふふ。ここで味わえないのが実に残念だ。 |
+| `talk.SILENT.0-0.ancient` | 你的血里有荒疫的香味。 | Your blood has the scent of blight. | お前の血には荒疫の香りがする。 |
+| `talk.SILENT.0-0.next` | 微微一惊 | Slightly startled | 少し驚く |
+| `talk.SILENT.0-1.char` | ……！ | ...! | ……！ |
+| `talk.SILENT.0-1.next` | 继续 | Continue | 続ける |
+| `talk.SILENT.0-2.ancient` | 如果你死在半路，那就是暴殄天物了，所以你的任务可是要好好活着，等待我来亲自享用哦……呵呵呵。 | If you die halfway, that would be a waste of a rare delicacy. So your mission is to stay alive well, and wait for me to savor you myself... Heheheh. | 途中で死なれたら、貴重な食材の無駄遣いだ。だからお前の務めはしっかり生き延びて、私が自ら味わうのを待つことだ……ふふふ。 |
+| `talk.SILENT.1-0r.ancient` | [jitter]桀桀……[/jitter]下毒和刺杀这种阴暗招式……倒是和吉吊那家伙绝配……呵呵呵。 | [jitter]Heh heh...[/jitter] Sneaky tricks like poisoning and assassination... they’re a perfect match for Kicchou... Heheheh. | [jitter]クックック……[/jitter]毒や暗殺のような陰湿な手口……吉弔のやつにこそお似合いだ……ふふふ。 |
+| `talk.SILENT.2-0r.ancient` | 小看世间的险恶，可是会吃苦头的哦？ | Underestimating the world’s wickedness will cost you, ya know? | 世の険しさを侮ると、痛い目を見るぞ？ |
+| `talk.REGENT.0-0.char` | 好难闻的气味！难道这里就是那所谓荒疫的根源？ | What a foul smell! Could this be the source of the so-called blight? | なんて酷い匂いだ！ ここがまさにかの荒疫の根源なのか？ |
+| `talk.REGENT.0-0.next` | 继续 | Continue | 続ける |
+| `talk.REGENT.0-1.ancient` | 又来一个偷油贼？ | Another oil thief, is it? | また油泥棒か？ |
+| `talk.REGENT.0-1.next` | 继续 | Continue | 続ける |
+| `talk.REGENT.0-2.ancient` | [jitter]桀桀……[/jitter]我可不认为除了塔顶的那家伙和我以外，会有人喜欢这荒疫石油一般的味道…… | [jitter]Heh heh...[/jitter] I don’t think anyone besides the one at the top of the tower and myself would enjoy this blight-oil-like scent... | [jitter]クックック……[/jitter]塔の頂のあの者と私以外に、この荒疫石油のような匂いを好む者がいるとは思えんがな…… |
+| `talk.REGENT.0-2.next` | 提问 | Question | 問いかける |
+| `talk.REGENT.0-3.char` | 我对你说的什么油不感兴趣！我也不是什么贼！我是储君，未来的群星之[orange]王[/orange]！阁下的名字是？ | I have no interest in your so-called oil! Nor am I some thief! I, Regent, future [orange]King[/orange] of the Stars! What is your name, Miss? | 君の言う油には興味はない！ 僕は泥棒でもない！ このリージェント、未来の群星の[orange]王[/orange]だ！ お嬢さんの名前は？ |
+| `talk.REGENT.0-3.next` | 继续 | Continue | 続ける |
+| `talk.REGENT.0-4.ancient` | 我是饕餮尤魔，刚欲同盟之长，[jitter]未来的畜生界之王[/jitter]。呵呵呵……我不讨厌懂礼数的家伙。 | I am Yuuma Toutetsu, leader of the Gouyoku Alliance, [jitter]future King of the Beast Realm[/jitter]. Heheheh... I don’t dislike those who know their manners. | 私は饕餮尤魔。剛欲同盟の長、[jitter]未来の畜生界の王[/jitter]だ。ふふふ……礼儀を知る者は嫌いではない。 |
+| `talk.REGENT.1-0.ancient` | [jitter]桀桀……[/jitter]我很中意你，要不要和我们刚欲同盟[red]结盟[/red]呢？我们一定能支配这座塔……之后再去支配畜生界、幻想乡…… | [jitter]Heh heh...[/jitter] I’ve taken a liking to you. How about [red]allying[/red] with our Gouyoku Alliance? We can dominate this tower... then the Beast Realm, then Gensokyo... | [jitter]クックック……[/jitter]お前を気に入った。我が剛欲同盟と[red]結盟[/red]してみないか？ 我らならこの塔を……いや畜生界を、幻想郷を支配できる…… |
+| `talk.REGENT.1-0.next` | 严肃拒绝 | Sternly refuse | きっぱりと断る |
+| `talk.REGENT.1-1.char` | 喂！小羊！我可是未来的[orange]群星之王[/orange]！绝不会屈居人下！ | Hey there, Miss… lamb! I’m the future [orange]King of the Stars[/orange]! I’ll never play second fiddle to anyone! | おい！ 子羊！ 僕は未来の[orange]群星の王[/orange]だ！ 誰かの下につくことなど絶対にない！ |
+| `talk.REGENT.1-1.next` | 继续 | Continue | 続ける |
+| `talk.REGENT.1-2.ancient` | [jitter]桀桀……[/jitter]多么血气方刚的欲望，我就是中意你这一点…… | [jitter]Heh heh...[/jitter] Such spirited, fiery desire. That’s exactly what I like about you... | [jitter]クックック……[/jitter]なんと血気盛んな欲望だ。そこが気に入ったのだ…… |
+| `talk.REGENT.2-0.ancient` | [jitter]桀桀……[/jitter]关于之前一起称霸天下的提议，阁下有没有改变想法呢？ | [jitter]Heh heh...[/jitter] About my earlier proposal to conquer the world together—have you changed your mind, sir? | [jitter]クックック……[/jitter]先ほどの天下を共に支配しようという提案、お考えは変わりましたかな？ |
+| `talk.REGENT.3-0r.ancient` | [jitter]桀桀……[/jitter]你的星球上的人都是无欲无求的存在吗？听上去实在没劲。不如来试试我欲望的力量，如何…… | [jitter]Heh heh...[/jitter] Are all the people on your planet desireless beings? Sounds dreadfully boring. How about you try the power of my desires... | [jitter]クックック……[/jitter]お前の星の者は皆、無欲無求の存在なのか？ 実につまらんな。私の欲望の力、試してみてはどうだ…… |
+| `talk.DEFECT.0-0.ancient` | 建筑师的构装体？呵呵……虽然早有耳闻，不过看到类似的存在，还是让我想起那家伙的埴轮兵……有点恶心呢。 | The Architect’s construct? Heheh... I’ve heard about them, but seeing a similar existence still reminds me of that guy’s haniwa soldiers... rather nauseating. | アーキテクトの構築体？ ふふ……話には聞いていたが、似たような存在を見るとあいつの埴輪兵を思い出す……少し気持ち悪いな。 |
+| `talk.DEFECT.1-0r.ancient` | 不要发出那种戒备的嘀嘀声嘛……我在这里享用荒疫，既满足了我的胃口，又避免了荒疫泄露，不是一举两得的事情吗？这可是孤高而凄惨的行为哦？ | Don’t make those wary beep sounds... I feast on the blight here, satisfying my appetite while preventing it from leaking out. Two birds with one stone, isn’t it? A lonely and tragic endeavor, ya know? | そんな警戒したビープ音を出すなよ……私はここで荒疫を味わい、食欲を満たしつつ、荒疫の漏出も防いでいる。一石二鳥ではないか？ 実に孤高で惨めな行いだぞ？ |
+| `talk.DEFECT.2-0r.ancient` | [jitter]桀桀……[/jitter]真亏你不是外界那种用石油驱动的家伙，不然我就不能让你离开了。 | [jitter]Heh heh...[/jitter] Good thing you’re not one of those oil-powered units from the outside world, or I wouldn’t be able to let you leave. | [jitter]クックック……[/jitter]お前が外界の石油で動く奴じゃなくてよかった。そうでなければ帰してやれんところだった。 |
+| `talk.NECROBINDER.0-0.ancient` | 你身上满是单纯的复仇味道。虽然美味，但实在不够塞我的牙缝。 | You’re drenched in the pure scent of revenge. Delicious as it is, it’s barely enough to stick between my teeth. | お前は実に単純な復讐の味にまみれている。美味いには美味いが、私の歯の隙間を埋めるにも足りん。 |
+| `talk.NECROBINDER.0-0.next` | 继续 | Continue | 続ける |
+| `talk.NECROBINDER.0-1.char` | ……你在这满是荒疫和油的破地方做什么？就算失去了嗅觉，这里的味道也和那个[jitter]东西[/jitter]一样令我作呕。 | ...What are you doing in this wretched place full of blight and oil? Even without a sense of smell, the stench here is as nauseating as that [jitter]thing[/jitter]. | ……荒疫と油まみれのこんな場所で何をしている？ 嗅覚を失っていても、ここの匂いはあの[jitter]もの[/jitter]と同じくらい吐き気がする。 |
+| `talk.NECROBINDER.0-1.next` | 继续 | Continue | 続ける |
+| `talk.NECROBINDER.0-2.ancient` | 宝地摆在面前，你却有眼无珠，呵呵呵……要不要也体验一下这里的欲望之力呢？ | A treasure trove lies before you, yet you’re blind to it, heheheh... How about experiencing the power of desire here yourself? | 宝の山が目の前にあるのに、お前はそれを見る目がないとはな、ふふふ……ここで欲望の力、味わってみるか？ |
+| `talk.NECROBINDER.1-0r.ancient` | 带着我的支援去杀死想杀的人吧，让你的憎恨融入高塔，让你的怒火蔓延世间。我会很享受这燃料的，呵呵呵…… | Take my support and go kill whom you wish. Let your hatred seep into the tower, let your wrath spread across the world. I will thoroughly enjoy this fuel, heheheh... | 我が支援を携えて、殺したい者を殺してこい。お前の憎悪を高塔に溶かし、怒りを世に広めよ。私はその燃料を存分に味わってやろう、ふふふ…… |
+| `talk.NECROBINDER.2-0r.ancient` | 虽然驱使造物作战是灵长园那边的风格，不过你的性格与执念倒是很适合在畜生界割据一方呢，[jitter]桀桀……[/jitter] | While summoning things to fight is more the style of the Primate Spirit Garden, your personality and obsession would make you quite suited to carving out your own domain in the Beast Realm, [jitter]heh heh...[/jitter] | 造物を駆使して戦うのは霊長園の流儀だが、お前の性格と執念は畜生界で一方的に割拠するのに向いておるな、[jitter]クックック……[/jitter] |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.ancient` | 浓郁的书香味。啧啧，原来是个连我的牙缝都填不满的人类。 | A rich scent of books. Tsk tsk, so you’re a human not even worth filling the gaps between my teeth. | 濃厚な本の香り。ふむふむ、私の歯の隙間も埋まらぬ人間か。 |
+| `talk.AKYUUMOD-AKYUU_MOD.0-0r.next` | 记录 | Record | 記録する |
+| `talk.AKYUUMOD-AKYUU_MOD.0-1r.char` | （在纸上记录）唔，饕餮尤魔……畜生界的三大首脑之一……盘踞在高塔…… | (Writing on paper) Hmm, Yuuma Toutetsu... one of the Three Heads of the Beast Realm... holed up in the Spire... | （紙に書き込む）うむ、饕餮尤魔……畜生界の三大首脳の一角……高塔に居座る…… |
 
 ---
 
@@ -821,6 +826,23 @@ You remind me of someone annoying. |
 | `talk.SILENT.0-0.ancient` | 我看到了你眼里的杀意，就让她更纯粹一点吧。 | I see the killing intent in your eyes. Let it become even purer. |
 | `talk.DEFECT.0-0.ancient` | 畏惧死亡，惜视生命。哪怕是构装体也不应例外。如果你意识到你的生命之重，就接受我最纯粹的祝福。 | Fear death, cherish life. Even a construct should be no exception. If you recognize the weight of your existence, accept my purest blessing. |
 | `talk.REGENT.0-0.ancient` | （端详）不管你来自哪个星球，只要不是月球就行。 | (Examining) No matter which planet you’re from, as long as it’s not the moon. |
+
+## [纯狐]（2026-10-30 新增对话）
+
+**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.ANY.4-0r.ancient` | ……没什么大不了的。我早就“习惯了”苦痛。 | ...It’s nothing much. I’ve long since ‘grown accustomed’ to the pain. | ……大したことではない。私はとうに苦痛に「慣れて」いる。 |
+| `talk.IRONCLAD.1-0r.ancient` | 你感受不到伤口的疼痛吗？还是说，你早已和我一样麻木？ | Do you not feel the pain of your wounds? Or have you long since grown as numb as I have? | 傷の痛みを感じぬのか？それとも、お前もとうに私と同じように麻痺してしまったのか？ |
+| `talk.SILENT.1-0r.ancient` | 若你想拥有弑杀神明的能力，我将会赋予你此等权能。 | If you wish for the power to slay gods, I shall grant you that authority. | 神を弑する力を望むのなら、その権能をお前に与えよう。 |
+| `talk.REGENT.1-0r.ancient` | ……你的星球没有仇恨、杀戮与死亡吗？呵呵，真是美好。 | ...Does your planet know no hatred, no slaughter, no death? Heheh, how wonderful. | ……お前の星には憎しみも殺戮も死もないのか？ふふ、実に美しい。 |
+| `talk.DEFECT.1-0r.ancient` | 我的怨嗟与苦痛……并非能以程式衡量。 | My bitterness and suffering... cannot be measured by any program. | 私の怨嗟と苦痛は……プログラムで測れるものではない。 |
+| `talk.DEFECT.2-0r.ancient` | 呵呵……这些球，倒是让我想起那位友人。 | Heheh... These orbs remind me of that friend of mine. | ふっ……そのオーブを見ると、あの友人のことを思い出すな。 |
+
+- 日语译法依据：`お前`/`私` 沿用纯狐已有台词的代名词习惯（见同角色其它键）；`殺戮`/`憎しみ` 取自 STS2 原版日文常用译法。
+- `talk.DEFECT.2-0r.ancient`：「那位友人」指东方原作的**赫卡提亚·拉碧斯拉祖利**（ヘカーティア・ラピスラズリ），游戏内不明写人名；「这些球」= 故障机器人的充能球，日语用原版术语 `オーブ`（见 `powers.json` 的 `ORB_GENERATOR`）。
 
 
 

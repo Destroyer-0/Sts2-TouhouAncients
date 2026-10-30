@@ -13,7 +13,7 @@ using TouhouAncients.Scripts.Hooks;
 namespace TouhouAncients.Scripts.relics.IdleKoishi;
 
 /// <summary>
-/// 特别门票：在嗨到爆下结束回合时多打一个额外回合；额外回合不进入嗨到爆，
+/// 特别门票：在嗨到爆下结束回合时多打一个额外回合；额外回合无法获得气氛，
 /// 且之后每次额外回合都会把进入嗨到爆所需气氛推高 5（本场战斗内累积）。
 /// </summary>
 [Pool(typeof(SharedRelicPool))]
@@ -28,8 +28,8 @@ public class SpecialTicket : TouhouAncientRelics
     /// <summary>本场战斗累积的进入阈值加成（<see cref="KoishiPerformanceCmd"/> 读取）。</summary>
     public int ThresholdBonus => _thresholdBonus;
 
-    /// <summary>当前是否处于因额外回合而被禁止进入嗨到爆的回合。</summary>
-    public bool IsHypedSuppressedThisTurn =>
+    /// <summary>当前是否处于无法获得气氛的额外回合。</summary>
+    public bool IsAtmosphereSuppressedThisTurn =>
         base.Owner?.PlayerCombatState != null && base.Owner.PlayerCombatState.TurnNumber == _suppressedTurnNumber;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

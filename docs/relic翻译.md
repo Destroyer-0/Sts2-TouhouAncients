@@ -3427,3 +3427,45 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 阈值减伤文本从灵札原样搬到蝴蝶结；灵札改写的英文沿用 `Strength` 术语。
 - `.title` / `.flavor` 随遗物名保留，不参与互换。
 - jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
+
+---
+
+## flavor 补译（2026-10-30，纯狐遗物 9 条）
+
+纯狐 8 件遗物的 `.flavor` 在 eng/jpn 中原本是空字符串占位，本次补全；另新增 `PARE_LIGHT_OF_THE_PALM.flavor`（eng/jpn 原本整条键缺失）。
+
+| 键 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `CEASELESS_RESENTMENT.flavor` | 旧仇未雪，此恨不共天。 | An old grudge unavenged—a hatred that cannot share the same sky. | 旧怨いまだ雪げず、この恨み同じ天を戴かず。 |
+| `DEATH_BLACK_CROWN.flavor` | 予以汝昏黑之死亡。 | I grant thee a death of utter black. | 汝に昏黒の死を授けん。 |
+| `HELL_OF_BULLETS.flavor` | 只要是活着的东西，就算是神也杀给你看。 | If it's alive, I can kill it—even a god. | 生きているのなら、神様だって殺してみせる。 |
+| `ILLUSORY_PROJECTION.flavor` | 挣扎吧，在无尽的恐惧中等待末日的降临。 | Struggle on, and await the end in endless dread. | 足掻け、終わりのない恐怖の中で終末を待つのだ。 |
+| `MURDEROUS_LILY.flavor` | 彼岸花开，花叶两不见。 | The spider lily blooms, yet flower and leaf never meet. | 彼岸花咲けど、花と葉は互いに見えず。 |
+| `OVERFLOWING_DEFILEMENT.flavor` | 燃烧吧，让这静海成为污秽生命的地狱与乐园。 | Burn—let this silent sea become the hell and paradise of defiled life. | 燃え上がれ、この静海を穢れた命の地獄と楽園にせよ。 |
+| `PRIMAL_SPIRIT.flavor` | 在万物具有名字之前就存在的纯粹之力。 | A pure power that existed before all things had names. | 万物が名を持つより前に在った、純粋なる力。 |
+| `TREMBLING_FROZEN_STAR.flavor` | 「提西福涅」、「阿莱克托」、「墨盖拉」。 | "Tisiphone," "Alecto," "Megaera." | 「ティーシポネー」「アレークトー」「メガイラ」。 |
+| `PARE_LIGHT_OF_THE_PALM.flavor` | 神说：“要有光。” | And God said, "Let there be light." | 神は言われた。「光あれ。」 |
+
+### 说明
+- `HELL_OF_BULLETS` 引用自《空之境界》**两仪式**的名台词「生きているのなら、神様だって殺してみせる」；英文取流传最广的 `I can kill it` 形态（保留日文 `〜てみせる` 的能力+决心双重语感）。
+- `TREMBLING_FROZEN_STAR`：希腊复仇三女神，日文用通行片假名（ティーシポネー / アレークトー / メガイラ）。
+- `MURDEROUS_LILY`：「彼岸花」用东方英文圈通行译法 `spider lily`，`flower and leaf never meet` 保留「花叶不相见」典故。
+- `DEATH_BLACK_CROWN` / `CEASELESS_RESENTMENT`：中文带文言色彩，英文用 `thee` + 短句、日文用「汝」「〜ん」「〜ず」对应古意。
+- `PARE_LIGHT_OF_THE_PALM`：日文采用日本圣经协会通行译法「神は言われた。「光あれ。」」。
+- **注意**：`PARE_LIGHT_OF_THE_PALM` 在 eng/jpn 目前**只有 `.flavor`**，`.title` / `.description` 仍缺（zhs 的 `.description` 本身就是空串），且 `scripts/relics/Junko/` 下暂无对应 C# 类。后续启用该遗物前需补齐 title/description 三语。
+
+---
+
+## 标题补译（2026-10-30，掌上的纯光）
+
+`PARE_LIGHT_OF_THE_PALM` 是纯狐批次的 **未完成遗物**：`scripts/relics/Junko/` 下没有对应 C# 类，zhs 的 `.description` 是空串。本次只补 `.title`，`.description` 三语均留空串。
+
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.title` | 掌上的纯光 | Pure Light Upon the Palm | 掌上の純光 |
+| `.description` | （空，待设计） | （空） | （空） |
+
+### 说明
+- **flavor 出典**：《圣经·创世记》1:3「神说，要有光，就有了光」。中文是和合本的简写；English 用 KJV 通引形式 `And God said, "Let there be light."`；日本語用新共同訳「神は言われた。「光あれ。」」（「あれ」为命令形，对应创世语感）。
+- `.title` 日语「掌上の純光」贴符卡式命名；英文 `Upon the Palm` 保留中文「掌上」的空间感。
+- 待办：拿到玩法设计后再补三语 `.description`，并新建 C# 类（`[Pool(typeof(SharedRelicPool))]`，见 `.agents` 遗物开发规则）。

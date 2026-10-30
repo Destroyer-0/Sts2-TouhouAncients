@@ -52,6 +52,7 @@
     "TOUHOUANCIENTS-AUTOGRAPH.description": "这张卡牌从[gold]牌组[/gold]中被移除时，获得[blue]{Gold}[/blue][gold]金币[/gold]。",
     "TOUHOUANCIENTS-AUTOGRAPH.title": "亲笔",
 
-    "TOUHOUANCIENTS-ROSE.description": "在[green][jitter]嗨到爆[/jitter][/green]状态下，耗能减少{EnergyReduction:energyIcons()}并获得[gold]保留[/gold]。\n打出后对所有敌人造成[blue]{Damage}[/blue]点伤害，并使[purple]蔷薇[/purple][gold]附魔[/gold]的伤害效果在本回合增加[blue]{DamageIncrease}[/blue]。",
+    "TOUHOUANCIENTS-ROSE.description": "在[green][jitter]嗨到爆[/jitter][/green]状态下，耗能减少{EnergyReduction:energyIcons()}并获得[gold]保留[/gold]。\n打出后对所有敌人造成[blue]{Damage}[/blue]点伤害，并使[purple]蔷薇[/purple][gold]附魔[/gold]的伤害效果在本场战斗增加[blue]{DamageIncrease}[/blue]。",
+    "TOUHOUANCIENTS-ROSE.extraCardText": "绽放造成{Damage}点伤害。",
     "TOUHOUANCIENTS-ROSE.title": "蔷薇"
 }

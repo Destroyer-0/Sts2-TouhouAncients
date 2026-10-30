@@ -54,6 +54,9 @@ public static class KoishiPerformanceCmd
         // 没有应援棒就不存在气氛（也避免控制台/其它途径拿到气氛来源后凭空计数）
         if (creature.GetPower<AtmospherePower>() == null && player.GetRelic<SupportBaton>() == null) return;
 
+        // 特别门票的额外回合完全无法获得气氛
+        if (player.GetRelic<SpecialTicket>()?.IsAtmosphereSuppressedThisTurn == true) return;
+
         await PowerCmd.Apply<AtmospherePower>(choiceContext, creature, amount, creature, null);
 
         await Dispatch(player, model => model is IAtmosphereGainedListener listener
@@ -67,8 +70,6 @@ public static class KoishiPerformanceCmd
     {
         if (IsHyped(player)) return;
         if (GetAtmosphere(player) < GetThreshold(player)) return;
-        // 特别门票的额外回合禁止进入嗨到爆
-        if (player.GetRelic<SpecialTicket>()?.IsHypedSuppressedThisTurn == true) return;
 
         await EnterHyped(choiceContext, player);
     }

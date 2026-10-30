@@ -29,12 +29,6 @@ namespace TouhouAncients.Scripts.relics.IdleKoishi;
 public class IdolAlbum : TouhouAncientRelics, IHypedEnteredListener
 {
     private const int EnchantCount = 3;
-    private const int RoseBonusPerPlay = 5;
-
-    private int _roseBonus;
-
-    /// <summary>本回合蔷薇伤害加成（由 <see cref="Rose"/> 累加，回合末清零）。</summary>
-    public int RoseBonusThisTurn => _roseBonus;
 
     public override bool HasUponPickupEffect => true;
 
@@ -46,8 +40,6 @@ public class IdolAlbum : TouhouAncientRelics, IHypedEnteredListener
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [.. HoverTipFactory.FromEnchantment<Rose>(), .. KoishiPerformanceHoverTips];
-
-    public void AddRoseBonus(int amount) => _roseBonus += amount;
 
     public override async Task AfterObtained()
     {
@@ -75,17 +67,6 @@ public class IdolAlbum : TouhouAncientRelics, IHypedEnteredListener
 
         options.Add(new IdolAlbumRestSiteOption(player, this));
         return true;
-    }
-
-    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, MegaCrit.Sts2.Core.Combat.CombatSide side,
-        IEnumerable<MegaCrit.Sts2.Core.Entities.Creatures.Creature> participants)
-    {
-        var player = base.Owner;
-        if (player?.Creature == null) return Task.CompletedTask;
-        if (side != player.Creature.Side || !participants.Contains(player.Creature)) return Task.CompletedTask;
-
-        _roseBonus = 0;
-        return Task.CompletedTask;
     }
 
     public async Task AfterHypedEntered(PlayerChoiceContext choiceContext)

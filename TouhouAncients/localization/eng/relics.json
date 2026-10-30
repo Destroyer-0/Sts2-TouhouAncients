@@ -567,38 +567,41 @@
 
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.title": "Ceaseless Resentment",
   "TOUHOUANCIENTS-CEASELESS_RESENTMENT.description": "When you take damage from an enemy, apply [gold]Resentment[/gold] to that enemy equal to the HP lost, sourced from you.",
-  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.flavor": "",
+  "TOUHOUANCIENTS-CEASELESS_RESENTMENT.flavor": "An old grudge unavenged—a hatred that cannot share the same sky.",
 
   "TOUHOUANCIENTS-MURDEROUS_LILY.title": "Murderous Lily",
   "TOUHOUANCIENTS-MURDEROUS_LILY.description": "Upon pickup, add [blue]1[/blue] [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold]. At the end of combat, if no unit died from [gold]Killing Lunacy[/gold], add [blue]{Cards}[/blue] [gold]Killing Aura[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-MURDEROUS_LILY.eventDescription": "Add [blue]1[/blue] [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold]. At the end of combat, if no unit died from [gold]Killing Lunacy[/gold], add {Cards} [gold]Killing Lunacy[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "",
+  "TOUHOUANCIENTS-MURDEROUS_LILY.flavor": "The spider lily blooms, yet flower and leaf never meet.",
 
   "TOUHOUANCIENTS-DEATH_BLACK_CROWN.title": "Death Black Crown",
   "TOUHOUANCIENTS-DEATH_BLACK_CROWN.description": "The first [blue]{CardThreshold}[/blue] cards you play each turn deal double damage.",
-  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.flavor": "",
+  "TOUHOUANCIENTS-DEATH_BLACK_CROWN.flavor": "I grant thee a death of utter black.",
 
   "TOUHOUANCIENTS-HELL_OF_BULLETS.title": "Hell of Bullets",
   "TOUHOUANCIENTS-HELL_OF_BULLETS.description": "Upon pickup, add [blue]1[/blue] [gold]A Pristine Danmaku Hells[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-HELL_OF_BULLETS.eventDescription": "Add [blue]1[/blue] [gold]A Pristine Danmaku Hell[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS.flavor": "If it's alive, I can kill it—even a god.",
 
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.title": "Trembling Frozen Star",
   "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.description": "Every [blue]{AttackThreshold}[/blue] Attacks played, [gold]Channel[/gold] a [gold]Frost[/gold] Orb, and alternately add a [gold]Tremble[/gold] / [gold]Dominate[/gold] with [gold]Ethereal[/gold] to your [gold]Hand[/gold].",
-  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "",
+  "TOUHOUANCIENTS-TREMBLING_FROZEN_STAR.flavor": "\"Tisiphone,\" \"Alecto,\" \"Megaera.\"",
 
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.title": "Illusory Projection",
   "TOUHOUANCIENTS-ILLUSORY_PROJECTION.description": "Start each combat [red]Confused[/red]. Cards costing [blue]{CostThreshold}[/blue] or more are played [blue]2[/blue] times.",
-  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "",
+  "TOUHOUANCIENTS-ILLUSORY_PROJECTION.flavor": "Struggle on, and await the end in endless dread.",
 
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.title": "Overflowing Defilement",
   "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.description": "At the start of each turn, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] additional cards. At the end of your turn, for each non-Status card in your [gold]Hand[/gold], add a [gold]Debris[/gold] to your [gold]Draw Pile[/gold]; for each Energy, add a [gold]Void[/gold] to your [gold]Draw Pile[/gold].",
-  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "",
+  "TOUHOUANCIENTS-OVERFLOWING_DEFILEMENT.flavor": "Burn—let this silent sea become the hell and paradise of defiled life.",
 
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "Primal Spirit",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.\n[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "A pure power that existed before all things had names.",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "Pure Light Upon the Palm",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.flavor": "And God said, \"Let there be light.\"",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.description": "Upon pickup, [red]Devour[/red] ALL relics other than your Starter Relic and Ancient Relics. Each grants [blue]{MaxHp}[/blue] [gold]Max HP[/gold]. Every [blue]{StrengthTrigger}[/blue] relics grant [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. Every [blue]{EnergyTrigger}[/blue] relics grant {Energy:energyIcons()} each turn. Every [blue]{DrawTrigger}[/blue] relics grant [blue]{CardsPerTurn}[/blue] additional draw each turn.",
