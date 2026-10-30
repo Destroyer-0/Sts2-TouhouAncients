@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Events;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
-using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.relics.IdleKoishi;
 
 namespace TouhouAncients.Scripts;
@@ -72,9 +71,6 @@ public class IdleKoishiAncient : TouhouAncientBase
             SupportOptionKey,
             [
                 .. HoverTipFactory.FromRelic<SupportBaton>(),
-                HoverTipFactory.FromCard<StaccatoChoice>(),
-                HoverTipFactory.FromCard<CrescendoChoice>(),
-                HoverTipFactory.FromCard<HarmonyChoice>(),
             ]).WithRelic(ModelDb.Relic<SupportBaton>().ToMutable());
     }
 

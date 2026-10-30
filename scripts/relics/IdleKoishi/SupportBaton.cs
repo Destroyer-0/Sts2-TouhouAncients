@@ -23,7 +23,14 @@ public class SupportBaton : TouhouAncientRelics
     /// <summary>本场战斗是否已选过演奏方式。</summary>
     private bool _chosenThisCombat;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => KoishiPerformanceHoverTips;
+    // 三种演奏方式的说明跟着遗物走，战斗中也能查到
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        .. KoishiPerformanceHoverTips,
+        HoverTipFactory.FromCard<StaccatoChoice>(),
+        HoverTipFactory.FromCard<CrescendoChoice>(),
+        HoverTipFactory.FromCard<HarmonyChoice>(),
+    ];
 
     public override Task BeforeCombatStart()
     {
