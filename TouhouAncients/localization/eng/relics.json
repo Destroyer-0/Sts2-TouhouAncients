@@ -883,6 +883,7 @@
 
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "Human-Yokai Register",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "Recorded monsters:\n{Monsters:list:{}|\n}",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.inspirationTitle": "Inspiration Source",
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "Calming Tea",
   "TOUHOUANCIENTS-CALMING_TEA.description": "At the end of your turn, if you are affected by a debuff, gain [blue]{Block}[/blue] [gold]Block[/gold].",

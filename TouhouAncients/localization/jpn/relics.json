@@ -882,6 +882,7 @@
   "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "過目不忘",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "記録したモンスター：\n{Monsters:list:{}|\n}",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.inspirationTitle": "着想元",
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "寧神の紅茶",
   "TOUHOUANCIENTS-CALMING_TEA.description": "自分のターン終了時、デバフを受けているなら[blue]{Block}[/blue][gold]ブロック[/gold]を得る。",

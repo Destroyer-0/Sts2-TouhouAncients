@@ -3469,3 +3469,17 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - **flavor 出典**：《圣经·创世记》1:3「神说，要有光，就有了光」。中文是和合本的简写；English 用 KJV 通引形式 `And God said, "Let there be light."`；日本語用新共同訳「神は言われた。「光あれ。」」（「あれ」为命令形，对应创世语感）。
 - `.title` 日语「掌上の純光」贴符卡式命名；英文 `Upon the Palm` 保留中文「掌上」的空间感。
 - 待办：拿到玩法设计后再补三语 `.description`，并新建 C# 类（`[Pool(typeof(SharedRelicPool))]`，见 `.agents` 遗物开发规则）。
+---
+
+## 增量更新（2026-10-30，妖魔图鉴新增「灵感来源」hover tip）
+
+`YokaiBestiary.ExtraHoverTips` 现在固定追加一条彩蛋提示：标题走本地化键，描述为固定英文 `Fumo the Spire`（三语一致，不入本地化表）。
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `YOKAI_BESTIARY.inspirationTitle` | 灵感来源 | `Inspiration Source` | 「着想元」 |
+| `.description`（字面量） | `Fumo the Spire` | `Fumo the Spire` | `Fumo the Spire` |
+
+### 说明
+- 日语「着想元」沿用原版常用表达的「着想」+「元」，指灵感出处。
+- **行为变更（同批）**：`YokaiBestiary` 不再在无记录时返回空列表 —— 无记录时仍显示「灵感来源」这一条。

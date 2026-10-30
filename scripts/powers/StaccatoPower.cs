@@ -43,6 +43,7 @@ public sealed class StaccatoPower : TouhouAncientPowerModel
     {
         if (base.Owner.Player is not { } player) return;
         if (target.Side != CombatSide.Enemy) return;
+        if (!props.IsPoweredAttack()) return;
         if (!TouhouAncientCmd.IsPlayerDamageIncludePet(player, dealer)) return;
 
         _damageProgress += result.UnblockedDamage;

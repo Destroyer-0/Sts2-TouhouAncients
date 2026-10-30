@@ -47,20 +47,26 @@ public class YokaiBestiary : TouhouAncientRelics
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
-    /// <summary>悬停显示已入册的怪物名（名称键 = <c>{Id.Entry}.name</c>，同 <c>MonsterModel.Title</c>）。</summary>
+    /// <summary>悬停显示已入册的怪物名（名称键 = <c>{Id.Entry}.name</c>，同 <c>MonsterModel.Title</c>），外加灵感来源。</summary>
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get
         {
+            var tips = new List<IHoverTip>
+            {
+                new HoverTip(new LocString("relics", Id.Entry + ".inspirationTitle"), "Fumo the Spire")
+            };
+
             var recorded = Recorded;
-            if (recorded.Count == 0) return [];
+            if (recorded.Count == 0) return tips;
 
             var title = new LocString("relics", Id.Entry + ".recordTitle");
             var desc = new LocString("relics", Id.Entry + ".record");
             desc.Add("Monsters", recorded
                 .Select(e => MonsterModel.L10NMonsterLookup(e + ".name").GetFormattedText())
                 .ToList());
-            return [new HoverTip(title, desc)];
+            tips.Add(new HoverTip(title, desc));
+            return tips;
         }
     }
 

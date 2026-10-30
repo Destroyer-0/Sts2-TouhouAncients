@@ -606,7 +606,7 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.title": "原初的神灵",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.description": "在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。\n[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "在每回合开始时，获得等同于当前回合数的{energyPrefix:energyIcons(1)}。[red]第[blue]{TriggerTurn}[/blue]回合开始时，获得孤注一掷。[/red]",
-  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "在万物具有名字之前就存在的纯粹之力。",
+  "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "在万物具有名字之前，纯粹就已显现。",
 
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "掌上的纯光",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "",
@@ -887,6 +887,7 @@
   "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "过目不忘",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "已记录的怪物：\n{Monsters:list:{}|\n}",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.inspirationTitle": "灵感来源",
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "宁神红茶",
   "TOUHOUANCIENTS-CALMING_TEA.description": "回合结束时，若你处于负面状态，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。",
@@ -934,8 +935,9 @@
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
 
-  "TOUHOUANCIENTS-SUPPORT_BATON.title": "应援棒",
+  "TOUHOUANCIENTS-SUPPORT_BATON.title": "偶像应援棒",
   "TOUHOUANCIENTS-SUPPORT_BATON.description": "在每场战斗开始时，选择一种[purple]演奏[/purple]方式。",
+  "TOUHOUANCIENTS-SUPPORT_BATON.flavor": "为地底蔷薇特意设计的应援棒，会自动感应场地内的气氛进行灯光明度的调整。",
 
   "TOUHOUANCIENTS-BACKSTAGE_MAKEUP.title": "台前妆后",
   "TOUHOUANCIENTS-BACKSTAGE_MAKEUP.description": "拾起时与每次在[gold]休息处[/gold]休息时，获得[blue]1[/blue]计数。每累计获得[blue]{AtmosphereThreshold}[/blue][gold]气氛[/gold]随机获得[blue]{StatAmount}[/blue][gold]力量[/gold]或[blue]{StatAmount}[/blue][gold]敏捷[/gold]，进入[green][jitter]嗨到爆[/jitter][/green]状态时触发[blue]{HypedTriggers}[/blue]次。[gold]力量[/gold]与[gold]敏捷[/gold]均最多获得[blue]{Counts}[/blue]次。",
