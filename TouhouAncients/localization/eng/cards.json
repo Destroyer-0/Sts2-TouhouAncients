@@ -133,5 +133,15 @@
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
 
     "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]"
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]",
+
+    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "Fantasy Chronicle",
+    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "After you enter the next act, you may [gold]Transform[/gold] this card into one of the following: {CardList:list:{}|, }.",
+    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.selectionScreenPrompt": "Choose a card to [gold]Transform[/gold] this card into.",
+
+    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.title": "Gensokyo Chronicles",
+    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "Choose 1 of [blue]{Cards}[/blue] {IfUpgraded:show:[green]Upgraded[/green] }[gold]Touhou Ancients[/gold] cards and add it to your [gold]Hand[/gold]. It can be played for free this turn.",
+
+    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.title": "Legend of the Spire Heroes",
+    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "Choose 1 of [blue]{Cards}[/blue] {IfUpgraded:show:[green]Upgraded[/green] }[gold]Ancient[/gold] cards from the [gold]Ancient Tree[/gold] and add it to your [gold]Hand[/gold]. It can be played for free this turn."
 }

@@ -90,7 +90,7 @@
   "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "想要知道海的另一边是什么？走过去看看就知道了。",
 
   "TOUHOUANCIENTS-MYSTERY_FRUIT.title": "神秘果",
-  "TOUHOUANCIENTS-MYSTERY_FRUIT.description": "在每场战斗开始时，获得{Energy:energyIcons()}，随机将每种类型的牌各一张从你的[gold]抽牌堆[/gold]放入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.description": "在每场战斗的前[blue]{Turns}[/blue]回合开始时，额外获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。",
   "TOUHOUANCIENTS-MYSTERY_FRUIT.flavor": "",
 
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.title": "风祝酒",
@@ -930,6 +930,11 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。",
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象录",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
