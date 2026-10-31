@@ -3483,3 +3483,63 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 ### 说明
 - 日语「着想元」沿用原版常用表达的「着想」+「元」，指灵感出处。
 - **行为变更（同批）**：`YokaiBestiary` 不再在无记录时返回空列表 —— 无记录时仍显示「灵感来源」这一条。
+
+---
+
+## 新增翻译（2026-10-31，玉露茶 / 神秘果）
+
+`GYOKURO_TEA`、`MYSTERY_FRUIT` 在 eng/jpn 中原本整条缺失，本次补齐。巫女蝴蝶结、博丽灵札在 2026-10-27 效果互换批次已译好，中文未变，不重复处理。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-GYOKURO_TEA.title": "玉露茶",
+"TOUHOUANCIENTS-GYOKURO_TEA.description": "你每抽[blue]{Cards}[/blue]张牌，获得{Energy:energyIcons()}。",
+"TOUHOUANCIENTS-GYOKURO_TEA.flavor": "几乎是日本茶中最高级的茶叶，需要用较低的水温来冲泡，甘醇飘香，口感独特。",
+"TOUHOUANCIENTS-MYSTERY_FRUIT.title": "神秘果",
+"TOUHOUANCIENTS-MYSTERY_FRUIT.description": "在每场战斗的前[blue]{Turns}[/blue]回合开始时，额外获得{Energy:energyIcons()}，额外抽[blue]{Cards}[/blue]张牌。",
+"TOUHOUANCIENTS-MYSTERY_FRUIT.flavor": ""
+```
+
+### 翻译
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `GYOKURO_TEA.title` | 玉露茶 | Jade Dew Tea | 玉露 |
+| `GYOKURO_TEA.description` | 你每抽 N 张牌，获得 1 能量。 | Every time you draw [blue]{Cards}[/blue] {Cards:plural:card\|cards}, gain {Energy:energyIcons()}. | カードを[blue]{Cards}[/blue]枚引くたび、{Energy:energyIcons()}を得る。 |
+| `GYOKURO_TEA.flavor` | （见上） | High-quality Japanese tea. It needs to be brewed at a lower water temperature, and offers a sweet and fragrant flavor with a distinct taste. | 日本中で最高級と言われる茶葉。ちょっと低めの温度で時間をかけて淹れることがうま味を引き出すコツ。独特な味わいで、ほんのりとした甘みを感じさせる。 |
+| `MYSTERY_FRUIT.title` | 神秘果 | Mysterious Fruit | 神秘の果実 |
+| `MYSTERY_FRUIT.description` | 见上 | At the start of your first [blue]{Turns}[/blue] turns each combat, gain an additional {Energy:energyIcons()} and draw [blue]{Cards}[/blue] additional {Cards:plural:card\|cards}. | 各戦闘の最初の[blue]{Turns}[/blue]ターン開始時、追加で{Energy:energyIcons()}を得て、追加でカードを[blue]{Cards}[/blue]枚引く。 |
+| `MYSTERY_FRUIT.flavor` | （空） | （空） | （空） |
+
+### 说明
+- 标题与 flavor 按用户指定：玉露茶 = `Jade Dew Tea` / 「玉露」，flavor 由用户提供。
+- 「每抽 N 张牌」句式照原版 `INK_BOTTLE`（`Every time you play ... cards, draw ...`）改写；日语无原版「枚引くたび」范例，按 `〜するたび、` 通用句式处理。
+- 神秘果「前 N 回合」句式对照原版 `RING_OF_THE_DRAKE`（`At the start of your first {Turns} turns ...`、`最初の{Turns}ターンの開始時`）。
+- 神秘果日语标题取「神秘の果実」，与「玉露」同属意译而非逐字照搬。
+- **代码同步**：`MysteryFruit` 由「战斗开始按类型抓牌」改为 `ModifyHandDraw`（额外抽牌，数值取自 `CardsVar`）+ `BeforeHandDraw` 给能量（`EnergyVar`），回合上限走 `DynamicVar("Turns", 3)`；zhs 描述的 3 / 1 同步改为 `{Turns}` / `{Cards}`。
+
+---
+
+## 新增翻译（2026-10-31，阿求遗物「幻想万象录」）
+
+阿求第三行遗物 `FANTASY_CHRONICLE`。三语键位都插在 `BELL_BOOKMARK` 之后（对齐 zhs 相对位置）。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象录",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": ""
+```
+
+### 翻译
+| 字段 | English | 日本語 |
+|------|---------|--------|
+| `.title` | Fantasy Chronicle | 幻想万象録 |
+| `.description` | Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. | 入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。 |
+| `.eventDescription` | Add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. | [gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。 |
+| `.flavor` | （空） | （空） |
+
+### 说明
+- 与遗物同名的任务牌 `FANTASY_CHRONICLE_CARD` 的译名保持完全一致（同名不同表，键不冲突）。
+- 「拾起时」照本 mod 惯例作 `Upon pickup` / 「入手時」；`.eventDescription` 因描述含「拾起时，」前缀而与 `.description` 不同，故保留。
+- 配套卡牌「幻想乡缘起」「高塔英雄传」的译法见 `docs/cards翻译.md`。
