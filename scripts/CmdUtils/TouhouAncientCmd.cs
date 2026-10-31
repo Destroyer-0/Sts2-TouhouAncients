@@ -54,10 +54,14 @@ public static class TouhouAncientCmd
     }
 
     /// <summary>让玩家从候选里选若干张加入指定战斗牌堆，按需设为免费。</summary>
-    /// <remarks>候选 ≤3 且只选 1 张时走原版单卡界面（无标题），其余走网格，此时 prompt 必填。</remarks>
+    /// <remarks>
+    /// 候选 ≤3 且只选 1 张时走原版单卡界面（无标题），其余走网格。
+    /// prompt 用委托惰性取：<c>CardModel.SelectionScreenPrompt</c> 缺本地化键会直接抛异常，
+    /// 走单卡界面时不该碰它。
+    /// </remarks>
     public static async Task<List<CardModel>> ChooseCardsToPile(
         PlayerChoiceContext choiceContext, Player player, IReadOnlyList<CardModel> options,
-        int selectCount, LocString? prompt, PileType pileType,
+        int selectCount, Func<LocString>? prompt, PileType pileType,
         bool freeThisTurn = false, bool freeThisCombat = false, bool preview = false,
         CardPilePosition position = CardPilePosition.Bottom, bool canSkip = true)
     {
@@ -74,7 +78,7 @@ public static class TouhouAncientCmd
         {
             if (prompt == null) return [];
 
-            CardSelectorPrefs prefs = new(prompt, take) { Cancelable = canSkip };
+            CardSelectorPrefs prefs = new(prompt(), take) { Cancelable = canSkip };
             picked = (await CardSelectCmd.FromSimpleGrid(choiceContext, options, player, prefs)).ToList();
         }
 

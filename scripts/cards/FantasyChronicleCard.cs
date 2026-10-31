@@ -11,7 +11,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -26,11 +25,11 @@ namespace TouhouAncients.Scripts.cards;
 [Pool(typeof(EventCardPool))]
 public class FantasyChronicleCard : TouhouAncientCards
 {
-    private const string AkyuuModId = "AKYUUMOD";
     private const string CardListKey = "CardList";
 
-    private static readonly ModelId AkyuuChronicleId = new(AkyuuModId, "GENSOKYO_CHRONICLE");
-    private static readonly ModelId AkyuuMissionId = new(AkyuuModId, "MISSION");
+    // ModelId 的 Category 是 "CARD"/"RELIC"，Entry 才是带 mod 前缀的完整串
+    private const string AkyuuCardEntry = "AKYUUMOD-GENSOKYO_CHRONICLE";
+    private const string AkyuuMissionEntry = "AKYUUMOD-MISSION";
 
     private ModelId? _dustyTomeCard;
     private SerializableCard? _toothCard;
@@ -111,7 +110,8 @@ public class FantasyChronicleCard : TouhouAncientCards
         if (player?.Creature == null) return;
         if (!PileType.Deck.GetPile(player).Cards.Contains(this)) return;
 
-        List<CardModel> candidates = BuildCandidates(player);
+        CardModel? akyuuCard = FindAkyuuCard();
+        List<CardModel> candidates = BuildCandidates(player, akyuuCard);
         if (candidates.Count == 0) return;
 
         // 同一次进幕可能有多个面板（多张本牌、或别的遗物），交给闸门排队
@@ -123,11 +123,11 @@ public class FantasyChronicleCard : TouhouAncientCards
             CardModel? picked = (await CardSelectCmd.FromSimpleGrid(
                 new BlockingPlayerChoiceContext(), candidates, player, prefs)).FirstOrDefault();
             await CardCmd.Transform(this, picked);
-            if (picked.Id == AkyuuChronicleId) await GrantAkyuuMission(player);
+            if (akyuuCard != null && picked.Id == akyuuCard.Id) await GrantAkyuuMission(player);
         });
     }
 
-    private List<CardModel> BuildCandidates(Player player)
+    private List<CardModel> BuildCandidates(Player player, CardModel? akyuuCard)
     {
         List<CardModel> list = [];
 
@@ -143,7 +143,7 @@ public class FantasyChronicleCard : TouhouAncientCards
         list.Add(player.RunState.CreateCard<GensokyoChronicle>(player));
         list.Add(player.RunState.CreateCard<SpireHeroesLegend>(player));
 
-        if (FindAkyuuCard() is { } modCard) list.Add(player.RunState.CreateCard(modCard, player));
+        if (akyuuCard != null) list.Add(player.RunState.CreateCard(akyuuCard, player));
 
         return list;
     }
@@ -157,17 +157,33 @@ public class FantasyChronicleCard : TouhouAncientCards
         return card;
     }
 
-    /// <summary>AKYUUMOD 在场时才取它的卡；每次判定都重查 mod 列表，读档换 mod 也能跟上。</summary>
-    internal static CardModel? FindAkyuuCard() =>
-        IsAkyuuModLoaded() ? ModelDb.GetByIdOrNull<CardModel>(AkyuuChronicleId) : null;
+    /// <summary>AKYUUMOD 的卡在不在 == 该 mod 有没有加载。</summary>
+    internal static CardModel? FindAkyuuCard() => FindModel<CardModel>("CARD", AkyuuCardEntry);
 
-    private static bool IsAkyuuModLoaded() =>
-        ModManager.Mods.Any(mod => string.Equals(mod.manifest?.id, AkyuuModId) && mod.state == ModLoadState.Loaded);
+    /// <summary>按 Entry 找模型；ID 字典区分大小写，直查落空再扫一遍类型兜底。</summary>
+    private static T? FindModel<T>(string category, string entry) where T : AbstractModel
+    {
+        T? direct = ModelDb.GetByIdOrNull<T>(new ModelId(category, entry));
+        if (direct != null) return direct;
+
+        foreach (Type type in ModelDb.AllAbstractModelSubtypes)
+        {
+            if (!type.IsSubclassOf(typeof(T))) continue;
+
+            ModelId id = ModelDb.GetId(type);
+            if (!string.Equals(id.Entry, entry, StringComparison.OrdinalIgnoreCase)) continue;
+
+            if (ModelDb.GetByIdOrNull<T>(id) is { } found) return found;
+        }
+
+        return null;
+    }
 
     private static async Task GrantAkyuuMission(Player player)
     {
-        if (ModelDb.GetByIdOrNull<RelicModel>(AkyuuMissionId) is not { } relic) return;
-        if (player.Relics.Any(owned => owned.Id == AkyuuMissionId)) return;
+        RelicModel? relic = FindModel<RelicModel>("RELIC", AkyuuMissionEntry);
+        if (relic == null) return;
+        if (player.Relics.Any(owned => owned.Id == relic.Id)) return;
 
         await RelicCmd.Obtain(relic.ToMutable(), player);
     }

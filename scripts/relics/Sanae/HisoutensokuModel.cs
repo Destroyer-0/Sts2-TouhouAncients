@@ -55,7 +55,7 @@ public class HisoutensokuModel : TouhouAncientRelics
         if (offered.Count == 0) return;
 
         await TouhouAncientCmd.ChooseCardsToPile(
-            choiceContext, player, offered, SelectCount, base.SelectionScreenPrompt, PileType.Draw,
+            choiceContext, player, offered, SelectCount, () => base.SelectionScreenPrompt, PileType.Draw,
             freeThisCombat: true, preview: true, position: CardPilePosition.Random);
     }
 }

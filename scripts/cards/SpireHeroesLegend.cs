@@ -56,6 +56,6 @@ public class SpireHeroesLegend : TouhouAncientCards
             base.Owner, TreeCards, base.DynamicVars.Cards.IntValue, IsUpgraded);
 
         await TouhouAncientCmd.ChooseCardsToPile(
-            choiceContext, base.Owner, options, 1, base.SelectionScreenPrompt, PileType.Hand, freeThisTurn: true);
+            choiceContext, base.Owner, options, 1, () => base.SelectionScreenPrompt, PileType.Hand, freeThisTurn: true);
     }
 }

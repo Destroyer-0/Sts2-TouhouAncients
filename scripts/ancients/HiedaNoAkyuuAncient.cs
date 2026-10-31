@@ -48,9 +48,7 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
             TARelicOption<ReadingGlasses>(),
             TARelicOption<SakuraComb>(),
             TARelicOption<BlankRoster>(),
-            TARelicOption<BellBookmark>()
-            ),
-        CreateTARelicOptionPool(
+            TARelicOption<BellBookmark>(),
             // 选项阶段遗物还没有 Owner，先按事件主人把两张候选牌掷定，预览才有内容
             TARelicOption<FantasyChronicle>().Prep((FantasyChronicle relic) =>
             {

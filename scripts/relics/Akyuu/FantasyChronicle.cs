@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using TouhouAncients.Scripts.cards;
 
@@ -31,6 +32,7 @@ public class FantasyChronicle : TouhouAncientRelics
     private List<IHoverTip> _extraHoverTips = [];
     private ModelId? _dustyTomeCard;
     private SerializableCard? _toothCard;
+    private bool _prepared;
 
     /// <summary>「尘封魔典」对应的先古牌；<see cref="SavedProperty"/> 让读档时 setter 重跑、重建提示。</summary>
     [SavedProperty]
@@ -60,12 +62,24 @@ public class FantasyChronicle : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
-    /// <summary>任务牌卡面 + 全部候选牌；选项阶段由 <see cref="SetupForPlayer"/> 备好，读档后缺数据时惰性重建。</summary>
+    /// <summary>
+    /// 选项过滤阶段一定会带着事件主人调到这里，比 <c>Prep</c> 更可靠地拿到玩家来掷定候选牌。
+    /// </summary>
+    public override bool CanAppear(Player? player)
+    {
+        if (!_prepared && IsMutable && player != null) SetupForPlayer(player);
+        return true;
+    }
+
+    /// <summary>任务牌卡面 + 全部候选牌；选项阶段由 <see cref="SetupForPlayer"/> 备好，缺失时借 Owner 补算。</summary>
     protected override IEnumerable<IHoverTip> ExtraHoverTips
     {
         get
         {
+            // 选项阶段没备上（或读档后字段为空）时，持有者已知就现算一次
+            if (!_prepared && IsMutable && base.Owner is { } owner) SetupForPlayer(owner);
             if (_extraHoverTips.Count == 0) UpdateHoverTips();
+
             return _extraHoverTips;
         }
     }
@@ -83,6 +97,7 @@ public class FantasyChronicle : TouhouAncientRelics
     public void SetupForPlayer(Player player)
     {
         AssertMutable();
+        _prepared = true;
         DustyTomeCard = PickDustyTomeCard(player);
         ToothCard = ResolveToothCard(player);
     }
@@ -102,12 +117,17 @@ public class FantasyChronicle : TouhouAncientRelics
 
     private void UpdateHoverTips()
     {
-        _extraHoverTips =
-        [
-            BuildQuestCardTip(),
-            .. HoverTipFactory.FromCardWithCardHoverTips<GensokyoChronicle>(),
-            .. HoverTipFactory.FromCardWithCardHoverTips<SpireHeroesLegend>()
-        ];
+        _extraHoverTips = [BuildQuestCardTip()];
+
+        if (_dustyTomeCard != null)
+            _extraHoverTips.Add(HoverTipFactory.FromCard(SaveUtil.CardOrDeprecated(_dustyTomeCard), upgrade: true));
+
+        if (_toothCard?.Id != null)
+            _extraHoverTips.Add(HoverTipFactory.FromCard(
+                SaveUtil.CardOrDeprecated(_toothCard.Id), _toothCard.CurrentUpgradeLevel > 0));
+
+        _extraHoverTips.AddRange(HoverTipFactory.FromCardWithCardHoverTips<GensokyoChronicle>());
+        _extraHoverTips.AddRange(HoverTipFactory.FromCardWithCardHoverTips<SpireHeroesLegend>());
 
         if (FantasyChronicleCard.FindAkyuuCard() is { } modCard) _extraHoverTips.Add(HoverTipFactory.FromCard(modCard));
     }
