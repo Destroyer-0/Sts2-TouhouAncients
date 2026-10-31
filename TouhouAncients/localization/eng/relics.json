@@ -89,6 +89,10 @@
   "TOUHOUANCIENTS-MIRACLE_NOBLE.eventDescription": "Add [blue]1[/blue] [gold]Miracle of the Sea Opening[/gold] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "Want to know what's on the other side of the sea? Just go take a look.",
 
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.title": "Mysterious Fruit",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.description": "At the start of your first [blue]{Turns}[/blue] turns each combat, gain an additional {Energy:energyIcons()} and draw [blue]{Cards}[/blue] additional {Cards:plural:card|cards}.",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.flavor": "",
+
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.title": "Wind Priestess Wine",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.description": "Whenever you gain [blue]{Energy}[/blue] {energyPrefix:energyIcons(1)}, draw [blue]{Cards}[/blue] {Cards:plural:card|cards}.",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.flavor": "Minty and creamy. More like a dessert than a drink.",
@@ -205,6 +209,10 @@
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "Offerings Box",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "When you enter a [gold]Rest Site[/gold], gain [blue]{CardRewards}[/blue] [gold]Card Rewards[/gold] and {Gold}~{GoldMax} [gold]Gold[/gold].",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "You can't hear any sound when you shake it.",
+
+  "TOUHOUANCIENTS-GYOKURO_TEA.title": "Jade Dew Tea",
+  "TOUHOUANCIENTS-GYOKURO_TEA.description": "Every time you draw [blue]{Cards}[/blue] {Cards:plural:card|cards}, gain {Energy:energyIcons()}.",
+  "TOUHOUANCIENTS-GYOKURO_TEA.flavor": "High-quality Japanese tea. It needs to be brewed at a lower water temperature, and offers a sweet and fragrant flavor with a distinct taste.",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "Hakurei Charm",
   "TOUHOUANCIENTS-HAKUREI_CHARM.description": "At the start of combat, choose an option and make a [gold]Wish[/gold].",
@@ -926,6 +934,11 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "Bell Bookmark",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in [gold]?[/gold] rooms is greatly increased.",
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "Fantasy Chronicle",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "Add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "Medicinal Cuisine",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",

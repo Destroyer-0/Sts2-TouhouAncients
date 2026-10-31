@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Godot;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.DevConsole;
 using MegaCrit.Sts2.Core.DevConsole.ConsoleCommands;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,10 +11,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using TouhouAncients.Scripts.cardTags;
@@ -28,6 +32,69 @@ public static class TouhouAncientCmd
         ResourceLoader.Exists(path) ? path : alternative;
     public static string? CheckPathExistsWithFallback2(string path, string? alternative) =>
         ResourceLoader.Exists(path) ? path : alternative;
+
+    /// <summary>从池里随机抽 count 张生成战斗实例，按需静默升级。</summary>
+    public static List<CardModel> CreateCombatOptions(Player player, IReadOnlyList<CardModel> pool, int count, bool upgrade)
+    {
+        if (player.Creature?.CombatState is not { } combatState || pool.Count == 0) return [];
+
+        List<CardModel> options = pool.ToList()
+            .UnstableShuffle(player.RunState.Rng.CombatCardGeneration)
+            .Take(count)
+            .Select(canonical => combatState.CreateCard(canonical, player))
+            .ToList();
+
+        if (upgrade)
+        {
+            // 升级带预览会连弹对话框，这里静默
+            foreach (CardModel option in options) CardCmd.Upgrade(option, CardPreviewStyle.None);
+        }
+
+        return options;
+    }
+
+    /// <summary>让玩家从候选里选若干张加入指定战斗牌堆，按需设为免费。</summary>
+    /// <remarks>
+    /// 候选 ≤3 且只选 1 张时走原版单卡界面（无标题），其余走网格。
+    /// prompt 用委托惰性取：<c>CardModel.SelectionScreenPrompt</c> 缺本地化键会直接抛异常，
+    /// 走单卡界面时不该碰它。
+    /// </remarks>
+    public static async Task<List<CardModel>> ChooseCardsToPile(
+        PlayerChoiceContext choiceContext, Player player, IReadOnlyList<CardModel> options,
+        int selectCount, Func<LocString>? prompt, PileType pileType,
+        bool freeThisTurn = false, bool freeThisCombat = false, bool preview = false,
+        CardPilePosition position = CardPilePosition.Bottom, bool canSkip = true)
+    {
+        if (options.Count == 0) return [];
+        int take = Math.Min(selectCount, options.Count);
+
+        List<CardModel> picked;
+        if (take == 1 && options.Count <= 3)
+        {
+            CardModel? single = await CardSelectCmd.FromChooseACardScreen(choiceContext, options, player, canSkip);
+            picked = single == null ? [] : [single];
+        }
+        else
+        {
+            if (prompt == null) return [];
+
+            CardSelectorPrefs prefs = new(prompt(), take) { Cancelable = canSkip };
+            picked = (await CardSelectCmd.FromSimpleGrid(choiceContext, options, player, prefs)).ToList();
+        }
+
+        if (picked.Count == 0) return picked;
+
+        foreach (CardModel card in picked)
+        {
+            if (freeThisCombat) card.SetToFreeThisCombat();
+            else if (freeThisTurn) card.SetToFreeThisTurn();
+        }
+
+        var results = await CardPileCmd.AddGeneratedCardsToCombat(picked, pileType, creator: player, position);
+        if (preview) CardCmd.PreviewCardPileAdd(results.ToList());
+
+        return picked;
+    }
     
     public static bool IsScry(CardModel card)
     {

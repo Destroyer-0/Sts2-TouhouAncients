@@ -2,11 +2,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.PotionPools;
@@ -39,16 +37,9 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         if (ancientCards.Count == 0) return;
 
         // 不用 CardFactory.GetDistinctForCombat：其 FilterForCombat 会剔除 Ancient 稀有度卡
-        var rng = base.Owner.RunState.Rng.CombatCardGeneration;
+        var options = TouhouAncientCmd.CreateCombatOptions(base.Owner, ancientCards, 3, upgrade: false);
 
-        var options = ancientCards.UnstableShuffle(rng).Take(3)
-            .Select(c => base.Owner.Creature.CombatState.CreateCard(c, base.Owner))
-            .ToList();
-
-        var card = await CardSelectCmd.FromChooseACardScreen(choiceContext, options, base.Owner, canSkip: true);
-        if (card == null) return;
-
-        card.SetToFreeThisTurn();
-        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, creator: base.Owner);
+        await TouhouAncientCmd.ChooseCardsToPile(
+            choiceContext, base.Owner, options, 1, null, PileType.Hand, freeThisTurn: true);
     }
 }

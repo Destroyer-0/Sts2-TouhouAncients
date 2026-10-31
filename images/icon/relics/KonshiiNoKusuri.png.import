@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drx0ca5ii27s3"
-path="res://.godot/imported/幻想乡缘起.png-4fa7b0513ffa14f8cf0d5704697a3a89.ctex"
+uid="uid://b1k31ifaryjnj"
+path="res://.godot/imported/KonshiiNoKusuri.png-de888c92c3189f87c4dc4b08df1b5acf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/icon/relics/IconLarge/幻想乡缘起.png"
-dest_files=["res://.godot/imported/幻想乡缘起.png-4fa7b0513ffa14f8cf0d5704697a3a89.ctex"]
+source_file="res://images/icon/relics/KonshiiNoKusuri.png"
+dest_files=["res://.godot/imported/KonshiiNoKusuri.png-de888c92c3189f87c4dc4b08df1b5acf.ctex"]
 
 [params]
 

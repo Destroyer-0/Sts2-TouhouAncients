@@ -286,3 +286,38 @@
 - 更早的 `KIJIN_SEIJA_RECOMMEND.description`（「颠覆卡牌数值、反抗一切」）与 `KOMEJI_KOISHI_RECOMMEND.description`（「无意识的地底蔷薇，世界第一可爱」）两条占位文本已随 zhs 改稿而过时，本批一并替换为新原文的译文。
 - jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
 
+
+---
+
+## 新增翻译（2026-10-31，幻想万象录系列 3 张任务/先古牌）
+
+阿求新遗物「幻想万象录」配套的三张卡：任务牌 `FANTASY_CHRONICLE_CARD`、变形目标 `GENSOKYO_CHRONICLE` / `SPIRE_HEROES_LEGEND`。三语键位都追加在 `LUCKY_TRICK` 之后。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "幻想万象录",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "进入下一阶段后，你可以选择将此牌[gold]变化[/gold]为{CardList:list:{}|、}中的一张。",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.selectionScreenPrompt": "选择要[gold]变化[/gold]成的牌。",
+"TOUHOUANCIENTS-GENSOKYO_CHRONICLE.title": "幻想乡缘起",
+"TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}[gold]东方先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。",
+"TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.title": "高塔英雄传",
+"TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}源自[gold]先古之树[/gold]的[gold]先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。"
+```
+
+### 翻译
+| 字段 | English | 日本語 |
+|------|---------|--------|
+| `FANTASY_CHRONICLE_CARD.title` | Fantasy Chronicle | 幻想万象録 |
+| `FANTASY_CHRONICLE_CARD.description` | After you enter the next act, you may [gold]Transform[/gold] this card into one of the following: {CardList:list:{}&#124;, }. | [gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}&#124;、}のいずれかに[gold]変化[/gold]させることができる。 |
+| `FANTASY_CHRONICLE_CARD.selectionScreenPrompt` | Choose a card to [gold]Transform[/gold] this card into. | [gold]変化[/gold]させるカードを選ぶ。 |
+| `GENSOKYO_CHRONICLE.title` | Gensokyo Chronicles | 幻想郷縁起 |
+| `GENSOKYO_CHRONICLE.description` | Choose 1 of [blue]{Cards}[/blue] {IfUpgraded:show:[green]Upgraded[/green] }[gold]Touhou Ancients[/gold] cards and add it to your [gold]Hand[/gold]. It can be played for free this turn. | [gold]東方エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:（[green]アップグレード済み[/green]）}から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードはコストを支払わずにプレイできる。 |
+| `SPIRE_HEROES_LEGEND.title` | Legend of the Spire Heroes | 高塔英雄伝 |
+| `SPIRE_HEROES_LEGEND.description` | Choose 1 of [blue]{Cards}[/blue] {IfUpgraded:show:[green]Upgraded[/green] }[gold]Ancient[/gold] cards from the [gold]Ancient Tree[/gold] and add it to your [gold]Hand[/gold]. It can be played for free this turn. | [gold]古の樹木[/gold]に由来する[gold]エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:（[green]アップグレード済み[/green]）}から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードはコストを支払わずにプレイできる。 |
+
+### 说明
+- 「东方先古之民」沿用 `SUPER_ZUN_BEER_POTION` 既有译法：eng `Touhou Ancients`、jpn「東方エンシェント」。
+- 「先古之树」取原版 `RELIC2_EPOCH` 的官方译名：eng `Ancient Tree`、jpn「古の樹木」；「先古之民」单独出现时用 vanilla 的 `Ancient` / 「エンシェント」。
+- 「幻想乡缘起」英文沿用 `ancients.json` 的 `Gensokyo Chronicles`、日文沿用官方「幻想郷縁起」。
+- `{IfUpgraded:show:…|}` 句式照原版 `ARMAMENTS` / `NAMELESS_YOUKAI`：未升级时整段不显示；英文在标签后补一个空格，日文用全角括号包裹。
+- 「变化」用原版 `Transform` / 日文「変化」，与 `NAMELESS_YOUKAI`、`PURE_HELL_OF_BULLETS` 的既有译法一致。

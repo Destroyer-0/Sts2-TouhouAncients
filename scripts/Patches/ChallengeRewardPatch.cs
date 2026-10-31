@@ -1,6 +1,5 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Rooms;
 using TouhouAncients.Scripts.encounters;
@@ -34,9 +33,10 @@ public static class ChallengeRewardPatch
             {
                 return; // 非挑战战斗
             }
+            // 每个端都对全部玩家结算：只有主机会写存档，若按 LocalContext.IsMe 只治本地玩家，
+            // 主机存档里其他玩家的回血会丢失（读档后掉回未回血）。
             foreach (var player in room.CombatState.Players)
             {
-                if (!LocalContext.IsMe(player)) continue; // 各端只给本地玩家治疗，避免多人重复治疗
                 var lostHp = player.Creature.MaxHp - player.Creature.CurrentHp;
                 _ = CreatureCmd.Heal(player.Creature, lostHp * ChallengeHealRatio);
             }

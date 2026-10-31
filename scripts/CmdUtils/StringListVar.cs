@@ -10,21 +10,24 @@ namespace TouhouAncients.Scripts;
 /// </summary>
 public sealed class StringListVar : DynamicVar, IEnumerable<string>
 {
-    private readonly List<string> _values = [];
+    // DynamicVar.Clone 是 MemberwiseClone，字段不能放可变集合，否则同类型的多个实例会共用一份列表
+    private const char Separator = '\u001f';
+
+    private string _joined = "";
 
     public StringListVar(string name) : base(name, 0m)
     {
     }
 
-    public void Set(IEnumerable<string> values)
+    public void Set(IEnumerable<string> values) => _joined = string.Join(Separator, values);
+
+    public IEnumerator<string> GetEnumerator()
     {
-        _values.Clear();
-        _values.AddRange(values);
+        string[] parts = _joined.Length == 0 ? [] : _joined.Split(Separator);
+        return ((IEnumerable<string>)parts).GetEnumerator();
     }
 
-    public IEnumerator<string> GetEnumerator() => _values.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-    IEnumerator IEnumerable.GetEnumerator() => _values.GetEnumerator();
-
-    public override string ToString() => string.Join("、", _values);
+    public override string ToString() => _joined.Replace(Separator, '、');
 }

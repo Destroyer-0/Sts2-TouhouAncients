@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -55,28 +54,8 @@ public class HisoutensokuModel : TouhouAncientRelics
 
         if (offered.Count == 0) return;
 
-        // 实际可选数量不能超过 OfferCount
-        var actualSelectCount = SelectCount > offered.Count ? offered.Count : SelectCount;
-
-        // 网格选择
-        var selected = (await CardSelectCmd.FromSimpleGrid(
-            context: choiceContext,
-            cardsIn: offered,
-            player: player,
-            prefs: new CardSelectorPrefs(
-                base.SelectionScreenPrompt,
-                actualSelectCount,
-                actualSelectCount)
-        )).ToList();
-
-        if (selected.Count == 0) return;
-
-        // 加入抽牌堆并设为本场战斗免费
-        foreach (var card in selected)
-        {
-            card.SetToFreeThisCombat();
-        }
-        
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat(selected, PileType.Draw, creator: base.Owner, CardPilePosition.Random));
+        await TouhouAncientCmd.ChooseCardsToPile(
+            choiceContext, player, offered, SelectCount, () => base.SelectionScreenPrompt, PileType.Draw,
+            freeThisCombat: true, preview: true, position: CardPilePosition.Random);
     }
 }

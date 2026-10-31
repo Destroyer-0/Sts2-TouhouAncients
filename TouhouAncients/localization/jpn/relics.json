@@ -89,6 +89,10 @@
   "TOUHOUANCIENTS-MIRACLE_NOBLE.eventDescription": "[gold]開海の奇跡[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-MIRACLE_NOBLE.flavor": "海の向こうに何があるか知りたい？ 行って見ればわかるさ。",
 
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.title": "神秘の果実",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.description": "各戦闘の最初の[blue]{Turns}[/blue]ターン開始時、追加で{Energy:energyIcons()}を得て、追加でカードを[blue]{Cards}[/blue]枚引く。",
+  "TOUHOUANCIENTS-MYSTERY_FRUIT.flavor": "",
+
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.title": "風祝の酒",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.description": "{energyPrefix:energyIcons(1)}を[blue]{Energy}[/blue]得るたび、カードを[blue]{Cards}[/blue]枚引く。",
   "TOUHOUANCIENTS-WIND_PRIESTESS_WINE.flavor": "ミントとクリームの味。酒というよりデザート。",
@@ -205,6 +209,10 @@
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.title": "賽銭箱",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.description": "[gold]休憩所[/gold]に入った時、[gold]カード報酬[/gold]を[blue]{CardRewards}[/blue]回と{Gold}~{GoldMax}[gold]ゴールド[/gold]を得る。",
   "TOUHOUANCIENTS-DONATE_MONEY_BOX.flavor": "振っても音は聞こえない。",
+
+  "TOUHOUANCIENTS-GYOKURO_TEA.title": "玉露",
+  "TOUHOUANCIENTS-GYOKURO_TEA.description": "カードを[blue]{Cards}[/blue]枚引くたび、{Energy:energyIcons()}を得る。",
+  "TOUHOUANCIENTS-GYOKURO_TEA.flavor": "日本中で最高級と言われる茶葉。ちょっと低めの温度で時間をかけて淹れることがうま味を引き出すコツ。独特な味わいで、ほんのりとした甘みを感じさせる。",
 
   "TOUHOUANCIENTS-HAKUREI_CHARM.title": "博麗の御札",
   "TOUHOUANCIENTS-HAKUREI_CHARM.description": "戦闘開始時、選択肢を1つ選んで[gold]祈願[/gold]する。",
@@ -925,6 +933,11 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "鈴のしおり",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "第1層では、[gold]カード報酬[/gold]に[gold]無色[/gold]カードが追加で1枚含まれ、[gold]?[/gold]の部屋でモンスターに遭遇する確率が大幅に上がる。",
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象録",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "薬膳調理",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "入手時、[gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。",
