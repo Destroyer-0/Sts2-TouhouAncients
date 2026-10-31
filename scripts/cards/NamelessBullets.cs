@@ -25,6 +25,9 @@ public class NamelessBullets : TouhouAncientCards
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
+    public override bool CanBeGeneratedByModifiers => false; 
+    public override bool CanBeGeneratedInCombat => false;
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
