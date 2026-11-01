@@ -1,0 +1,6 @@
+Moon texture: Solar System Scope, https://www.solarsystemscope.com/textures/ , CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ . Original texture retained; rendered with tint and sphere projection.
+Particle textures: Kenney, https://kenney.nl/assets/particle-pack , CC0 1.0.
+Butterfly with Detailed Wings: SVG Repo, https://www.svgrepo.com/svg/84688/butterfly-with-detailed-wings , CC0. Used as a tinted luminous wing pattern. Additional flame/smoke textures: Kenney Particle Pack, CC0.
+Maple Leaf Texture Isolated: Circe Denyer / PublicDomainPictures.net, https://www.publicdomainpictures.net/en/view-image.php?image=543753&picture=maple-leaf-texture-isolated , CC0. Used unchanged as a drifting leaf texture.
+
+Blue rose: Circe Denyer, CC0, https://www.publicdomainpictures.net/en/view-image.php?image=288092&picture=isolated-rose-in-blue
