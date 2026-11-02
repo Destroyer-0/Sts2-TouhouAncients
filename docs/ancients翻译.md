@@ -455,7 +455,7 @@ Ooh! Just as the rumors said... |
 | `talk.ANY.11-0r.ancient` | 嘿嘿，那位叫欧洛巴斯的伙计的亮晶晶小玩意可不少，大丰收大丰收~ | Heheh, that Orobas fella’s got plenty of shiny trinkets—what a haul! |
 | `talk.ANY.12-0r.ancient` | 达弗那家伙的收藏品居然比我还多！可恶输了一手啊！ | That Darv guy’s collection is even bigger than mine! Darn, I lost this round! |
 | `talk.ANY.13-0r.ancient` | 嘿，你有见过诺奴佩普吗？虽然她的赠礼确实很不错啦……但是我还是觉得不太自在。 | Hey, have you met Nonupeipe? Her gifts are pretty nice and all... but I still feel a bit uneasy. |
-| `talk.ANY.14-0r.ancient` | [sine]秘神[/sine]的邀请我都没答应~谁会和那个看着就没安好心的大恶魔签契约啊？ | I didn’t even accept the [sine]The Secret God[/sine]’s invitation~ Who’d sign a contract with that evil-looking demon? |
+| `talk.ANY.14-0r.ancient` | [sine]秘神[/sine]的邀请我都没答应~谁会和那个看着就没安好心的大恶魔签契约啊？ | I didn’t even accept the [sine]The Secret God[/sine]’s invitation~ Who’d sign a contract with that evil-looking arch demon? |
 | `talk.IRONCLAD.0-0.ancient` | 哦——好优秀的铠甲，勇士！不知道你对魔法有没有兴趣！ | Oh—what fine armor, warrior! I wonder if you have any interest in magic! |
 | `talk.SILENT.0-0.ancient` | 嘿！我看到你了！要什么就直接跟我说，不要偷偷摸摸的嘛！我去红魔馆的时候从来都是光明正大的走大门Da☆Ze！ | Hey! I see you! If you want something, just tell me directly. No need to sneak around! When I go to the Scarlet Devil Mansion, I always walk right through the front door Da☆Ze! |
 | `talk.DEFECT.0-0.ancient` | 一个机器人？想要修好你的朋友？恩……我有个认识的家伙就是个[aqua]机械工程师[/aqua]，说不定能帮上忙Da☆Ze！ | A robot? Want to fix your friend? Hmm... I know someone who’s an [aqua]mechanical engineer[/aqua]. Maybe she can help Da☆Ze! |
@@ -592,7 +592,7 @@ Ooh! Just as the rumors said... |
 | `talk.IRONCLAD.0-1.char` | 建筑师……杀戮…… | Architect... slaughter... |
 | `talk.IRONCLAD.0-1.next` | 继续 | Continue |
 | `talk.IRONCLAD.0-2.ancient` | 很好，我们这些人被欺压的痛苦与耻辱，就由你十倍奉还给建筑师吧！ | Good. Let you repay the Architect tenfold for the pain and humiliation we have suffered! |
-| `talk.IRONCLAD.1-0.ancient` | 我已经知道大恶魔的事情了，哼，我最讨厌这种高高在上的支配者。等你向那位大恶魔掀起叛旗，我和我的起义军会第一时间来支持你的！ | I already know about the Great Demon. Hmph, I despise high-and-mighty rulers like that. When you raise the banner of rebellion against that Great Demon, my rebel army and I will stand by you from the very start! |
+| `talk.IRONCLAD.1-0.ancient` | 我已经知道大恶魔的事情了，哼，我最讨厌这种高高在上的支配者。等你向那位大恶魔掀起叛旗，我和我的起义军会第一时间来支持你的！ | I already know about the arch demon. Hmph, I despise high-and-mighty rulers like that. When you raise the banner of rebellion against that arch demon, my rebel army and I will stand by you from the very start! |
 | `talk.REGENT.0-0.ancient` | 你这残忍的暴君！看看你对座椅下的小人做了什么？ | You cruel tyrant! Look at what you’ve done to the little people beneath your throne! |
 | `talk.REGENT.0-0.next` | 疑惑 | Confused |
 | `talk.REGENT.0-1.char` | 你说我的仆从？他们对此没有意见。而且，他们是我创造的，我对此享有一切解释权。 | You mean my minions? They have no complaints. Besides, I created them—I have the final say in everything. |
@@ -844,6 +844,37 @@ You remind me of someone annoying. |
 - 日语译法依据：`お前`/`私` 沿用纯狐已有台词的代名词习惯（见同角色其它键）；`殺戮`/`憎しみ` 取自 STS2 原版日文常用译法。
 - `talk.DEFECT.2-0r.ancient`：「那位友人」指东方原作的**赫卡提亚·拉碧斯拉祖利**（ヘカーティア・ラピスラズリ），游戏内不明写人名；「这些球」= 故障机器人的充能球，日语用原版术语 `オーブ`（见 `powers.json` 的 `ORB_GENERATOR`）。
 
+---
+
+## 纯狐（2026-11-02 新增对话）
+
+**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.ANY.5-0r.ancient` | 建筑师……我对他没有仇恨。但我会理解你们对他的。 | The Architect... I bear him no hatred. But I will understand yours toward him. | アーキテクト……私はあの男に憎しみなど抱いていない。だが、お前たちがあの男に向ける憎しみは、私にも理解できる。 |
+
+- 中文原句结尾「但我会理解你们对他的。」省略了宾语，按「你们对他的仇恨」理解补全；若原意不同需回改。
+- 日语译法依据：`アーキテクト` 沿用本文件其它角色对建筑师的日文译法；人称沿用纯狐的 `私`／`お前`。
+
+---
+
+## 二岩猯藏（2026-11-02 新增对话）
+
+**键名**: `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT`
+
+### 对话翻译（新增）
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.IRONCLAD.1-0.ancient` | 老朽倒是好奇当初你和大恶魔签下契约的过程。 | This old one is rather curious about how you came to sign that contract with the arch demon back then. | 儂はな、お前があの時大悪魔と契約を交わした経緯が気になっておるのじゃ。 |
+| `talk.IRONCLAD.1-0.next` | 继续 | Continue | 続ける |
+| `talk.IRONCLAD.1-1.char` | …… | ...... | …… |
+| `talk.IRONCLAD.1-1.next` | 继续 | Continue | 続ける |
+| `talk.IRONCLAD.1-2.ancient` | [i][font_size=22]猯藏吐了口烟。[/font_size][/i] | [i][font_size=22]Mamizou blew out a puff of pipe smoke.[/font_size][/i] | [i][font_size=22]マミゾウは煙草の煙を吐き出した。[/font_size][/i] |
+
+- 日语译法依据：`大悪魔` 沿用本文件其它角色（鬼人正邪、雾雨魔理沙、依神姐妹）的既有译法；`儂`（自称）取自猯藏已有台词；旁白人名用标题里的 `マミゾウ`，格式沿用既有旁白 `[i][font_size=22]…[/font_size][/i]`。
+
 
 
 ## 射命丸文（2026-07-19 epithet 更新）
@@ -926,7 +957,7 @@ You remind me of someone annoying. |
 | `talk.IRONCLAD.1-0.ancient` | 姐姐，你说恶魔契约的本质是不是也是一种凭依呢？ | Hey sis, don’t you think the essence of a demon contract is also a form of possession? |
 | `talk.IRONCLAD.1-0.speaker` | jyoon | jyoon |
 | `talk.IRONCLAD.1-0.next` | 继续 | Continue |
-| `talk.IRONCLAD.1-1.ancient` | 这么看的话……和大恶魔对比一下，我俩也没有坏到哪里去嘛…… | Looking at it that way... compared to the Great Demon, we’re not so bad after all... |
+| `talk.IRONCLAD.1-1.ancient` | 可恶，这么看的话……最凶最恶的名号岂不是要被大恶魔夺走了吗…… | Dammit, at this rate... won’t the title of the most wicked and evil be stolen by the arch demon... |
 | `talk.IRONCLAD.1-1.speaker` | shion | shion |
 | `talk.REGENT.0-0.ancient` | 欢迎欢迎~您看上去真是位有品味的先生呢！您也是要去塔顶讨伐建筑师的吗？ | Welcome, welcome~ You seem like a gentleman of distinguished taste! Are you heading to the top to take down the Architect too? |
 | `talk.REGENT.0-0.speaker` | jyoon | jyoon |
@@ -934,10 +965,10 @@ You remind me of someone annoying. |
 | `talk.REGENT.0-1.ancient` | 这个给你！你可要好好加油，争取把建筑师干掉！ | Here, take this! You’d better do your best and take out the Architect! |
 | `talk.REGENT.0-1.speaker` | shion | shion |
 | `talk.REGENT.0-1.next` | 继续 | Continue |
-| `talk.REGENT.0-2.ancient` | （小声）建筑师一死，这里财宝到时候找起来就方便多了！ | (whispering) Once the Architect’s dead, the treasures here will be much easier to find! |
+| `talk.REGENT.0-2.ancient` | （小声）建筑师一死，这里的财宝到时候找起来就方便多了！ | (whispering) Once the Architect’s dead, the treasures here will be much easier to find! |
 | `talk.REGENT.0-2.speaker` | shion | shion |
 | `talk.REGENT.0-2.next` | 继续 | Continue |
-| `talk.REGENT.0-3.ancient` | 嘘——姐姐你小点声！啊对了，出发前要把你的钱保管在我这吗？我的提供的利息可不少~ | Shh——keep your voice down! Oh right, want me to hold onto your money before you set out? The interest rates I offer are pretty good~ |
+| `talk.REGENT.0-3.ancient` | 嘘——姐姐你小点声！啊对了，出发前要把你的钱保管在我这吗？我提供的利息可不少~ | Shh——keep your voice down! Oh right, want me to hold onto your money before you set out? The interest rates I offer are pretty good~ |
 | `talk.REGENT.0-3.speaker` | jyoon | jyoon |
 | `talk.REGENT.1-0.char` | 我听说靠近紫苑小姐的人都会变的不幸。我觉得这不符合科学规律。 | I’ve heard that people near Miss Shion all become unlucky. I don’t think that’s scientifically sound. |
 | `talk.REGENT.1-0.next` | 继续 | Continue |
@@ -1491,5 +1522,18 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 - `高塔` → `Spire`、`宇宙` → `cosmos`，均沿用既有译法；`[orange]王[/orange]` → `[orange]King[/orange]`（与辉夜 / 尤魔条目一致）。
 - `MEET_NEOW` 选项标题与描述由用户拍板：`Fade Away` / `Meet Neow in another timeline.`。
 - jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
+
+---
+
+## 增量更新（2026-11-02，魔理沙 × 静默猎手 新增对话）
+
+**键名**: `TOUHOUANCIENTS-KIRISAME_MARISA_ANCIENT`
+
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.SILENT.1-0r.ancient` | 你这神出鬼没的样子，倒是像那位地灵殿的小姐哦。 | Man, the way you pop in and out of thin air—you kinda remind me of that lady from the Palace of the Earth Spirits. | その神出鬼没っぷり、地霊殿のお嬢さんみたいだな。 |
+
+- 「地灵殿」沿用 `DUSTY_ROSE.flavor` 既有译法 `Palace of the Earth Spirits` / `地霊殿`；「那位小姐」指古明地觉。
+- 日语自称 `私`、句尾 `だな` 与魔理沙已有台词语气一致。
 
 ---

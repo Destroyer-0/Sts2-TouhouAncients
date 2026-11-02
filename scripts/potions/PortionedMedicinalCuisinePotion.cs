@@ -23,7 +23,8 @@ public sealed class PortionedMedicinalCuisinePotion : CustomPotionModel
 
     public override PotionUsage Usage => PotionUsage.AnyTime;
 
-    public override TargetType TargetType => TargetType.Self;
+    // AnyPlayer 才会在多人战斗里允许投给队友，单人时 target 仍兜底为自己
+    public override TargetType TargetType => TargetType.AnyPlayer;
 
     /// <summary>回复类药水不进战斗内随机生成，同原版果汁/再生药水。</summary>
     public override bool CanBeGeneratedInCombat => false;

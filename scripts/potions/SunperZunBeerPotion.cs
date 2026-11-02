@@ -22,12 +22,14 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
 
     public override PotionUsage Usage => PotionUsage.CombatOnly;
 
-    public override TargetType TargetType => TargetType.Self;
+    public override TargetType TargetType => TargetType.AnyPlayer;
     public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
     public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
+        var player = target?.Player ?? base.Owner;
+
         // 获取所有继承 TouhouAncientCards 的卡牌，筛选可战斗生成的
         var ancientCards = ModelDb.AllCards
             .Where(c => c is TouhouAncientCards && c.CanBeGeneratedInCombat)
@@ -37,9 +39,9 @@ public sealed class SuperZunBeerPotion : CustomPotionModel
         if (ancientCards.Count == 0) return;
 
         // 不用 CardFactory.GetDistinctForCombat：其 FilterForCombat 会剔除 Ancient 稀有度卡
-        var options = TouhouAncientCmd.CreateCombatOptions(base.Owner, ancientCards, 3, upgrade: false);
+        var options = TouhouAncientCmd.CreateCombatOptions(player, ancientCards, 3, upgrade: false);
 
         await TouhouAncientCmd.ChooseCardsToPile(
-            choiceContext, base.Owner, options, 1, null, PileType.Hand, freeThisTurn: true);
+            choiceContext, player, options, 1, null, PileType.Hand, freeThisTurn: true);
     }
 }

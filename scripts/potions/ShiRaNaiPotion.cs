@@ -23,14 +23,15 @@ public sealed class ShiRaNaiPotion : CustomPotionModel
 
     public override PotionUsage Usage => PotionUsage.CombatOnly;
 
-    public override TargetType TargetType => TargetType.Self;
+    public override TargetType TargetType => TargetType.AnyPlayer;
     public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
     public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        CardModel cardModel = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Exhaust.GetPile(base.Owner),
-            base.Owner, new CardSelectorPrefs(base.SelectionScreenPrompt, 1))).FirstOrDefault();
+        var player = target?.Player ?? base.Owner;
+        CardModel cardModel = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Exhaust.GetPile(player),
+            player, new CardSelectorPrefs(base.SelectionScreenPrompt, 1))).FirstOrDefault();
         if (cardModel != null)
         {
             await CardPileCmd.Add(cardModel, PileType.Hand);

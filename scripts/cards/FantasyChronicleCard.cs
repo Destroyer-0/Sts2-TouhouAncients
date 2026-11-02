@@ -192,11 +192,12 @@ public class FantasyChronicleCard : TouhouAncientCards
     {
         List<string> names = [];
 
-        if (_dustyTomeCard != null) names.Add(SaveUtil.CardOrDeprecated(_dustyTomeCard).Title);
-        if (_toothCard?.Id != null) names.Add(SaveUtil.CardOrDeprecated(_toothCard.Id).Title);
-        names.Add(ModelDb.Card<GensokyoChronicle>().Title);
-        names.Add(ModelDb.Card<SpireHeroesLegend>().Title);
-        if (FindAkyuuCard() is { } modCard) names.Add(modCard.Title);
+        if (_dustyTomeCard != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(_dustyTomeCard).Title}[/gold]");
+        if (_toothCard?.Id != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(_toothCard.Id).Title}[/gold]");
+        names.Add($"[gold]{ModelDb.Card<GensokyoChronicle>().Title}[/gold]");
+        names.Add($"[gold]{ModelDb.Card<SpireHeroesLegend>().Title}[/gold]");
+        // 金色会盖掉内层颜色，阿求 mod 的卡只能整项换粉色
+        if (FindAkyuuCard() is { } modCard) names.Add($"[pink]{modCard.Title}[/pink]");
 
         ((StringListVar)base.DynamicVars[CardListKey]).Set(names);
     }

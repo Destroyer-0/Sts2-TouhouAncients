@@ -24,13 +24,14 @@ public sealed class MagicBombPotion : CustomPotionModel
 
     public override PotionUsage Usage => PotionUsage.CombatOnly;
 
-    public override TargetType TargetType => TargetType.Self;
+    public override TargetType TargetType => TargetType.AnyPlayer;
     public override string? CustomPackedImagePath => $"res://images/potion/{GetType().Name}.png";
     public override string? CustomPackedOutlinePath => $"res://images/potion/{GetType().Name}_outline.png";
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        var cards = PileType.Hand.GetPile(base.Owner).Cards.ToList();
+        var player = target?.Player ?? base.Owner;
+        var cards = PileType.Hand.GetPile(player).Cards.ToList();
         var rng = base.Owner.RunState.Rng.CombatCardGeneration;
 
         // 变化得到的新牌是未升级的，升级必须排在变化之后
