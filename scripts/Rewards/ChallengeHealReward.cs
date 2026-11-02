@@ -11,16 +11,13 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace TouhouAncients.Scripts.Rewards;
 
 /// <summary>
-/// 挑战胜利奖励：恢复已损失生命值的 35%。固定出现（满血时为 0），可跳过。
+/// 挑战胜利奖励：恢复已损失生命值的指定比例（设置项 ChallengeHealPercent，本局值以房主为准）。
 /// </summary>
 public sealed class ChallengeHealReward : TouhouCustomReward
 {
     /// <summary>本奖励专属 RewardType，值由 BaseLib 的 [CustomEnum] 机制自动生成并注册读档工厂。</summary>
     [CustomEnum(null)]
     public static RewardType ChallengeHeal;
-
-    /// <summary>回血比例。本地化文本把 35% 写死，改这里要同步改三语 json。</summary>
-    public const decimal HealRatio = 0.35m;
 
     /// <summary>-1 = 尚未 Populate。显示与实治共用这份，避免二次计算偏差。</summary>
     public int HealAmount { get; private set; } = -1;
@@ -30,13 +27,17 @@ public sealed class ChallengeHealReward : TouhouCustomReward
     {
     }
 
+    /// <summary>本局生效的回血比例（%），读 _Run 字段而不是本地设置，避免各端算出不同 HP。</summary>
+    private static int HealPercent => TouhouAncientsConfig.ChallengeHealPercent_Run;
+
     protected override RewardType RewardType => ChallengeHeal;
 
     /// <summary>本体资源：res://images/ui/reward/reward_heal.png。</summary>
     protected override string? RewardIconPath => ImageHelper.GetImagePath("ui/reward/reward_heal.png");
 
     /// <inheritdoc />
-    public override LocString Description => LocalizedDescription(("heal", HealAmount));
+    public override LocString Description =>
+        LocalizedDescription(("percent", HealPercent), ("heal", HealAmount));
 
     /// <summary>本奖励由 TryModifyRewards 追加，晚于 Regular 的 Populate，故须自己声明未填充。</summary>
     public override bool IsPopulated => HealAmount >= 0;
@@ -55,7 +56,7 @@ public sealed class ChallengeHealReward : TouhouCustomReward
     {
         var creature = Player.Creature;
         // 与 Creature.SetCurrentHpInternal 一致用截断取整，显示值 == 实际治疗量。
-        HealAmount = (int)((creature.MaxHp - creature.CurrentHp) * HealRatio);
+        HealAmount = (int)((creature.MaxHp - creature.CurrentHp) * HealPercent / 100m);
     }
 
     /// <inheritdoc />

@@ -20,6 +20,9 @@
 
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "二层强制出现先古之民（单选）",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "三层强制出现先古之民（单选）",
+
+  "TOUHOUANCIENTS-CHALLENGE_CONFIG.title": "挑战战斗",
+  "TOUHOUANCIENTS-CHALLENGE_HEAL_PERCENT.title": "击败先古之民后恢复已损失生命值比例",
   
   "TOUHOUANCIENTS-BAN_NONUPEIPE.title": "禁用 诺奴佩普（原版）",
   "TOUHOUANCIENTS-BAN_VAKUU.title": "禁用 瓦库（原版）",

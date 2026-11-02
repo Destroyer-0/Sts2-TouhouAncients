@@ -21,6 +21,9 @@
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "第2層で強制出現させるエンシェント",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "第3層で強制出現させるエンシェント",
 
+  "TOUHOUANCIENTS-CHALLENGE_CONFIG.title": "チャレンジ戦闘",
+  "TOUHOUANCIENTS-CHALLENGE_HEAL_PERCENT.title": "エンシェント撃破後に失ったHPを回復する割合",
+
   "TOUHOUANCIENTS-BAN_NONUPEIPE.title": "ノヌペイペを無効化（ベースゲーム）",
   "TOUHOUANCIENTS-BAN_VAKUU.title": "ヴァクーを無効化（ベースゲーム）",
   "TOUHOUANCIENTS-BAN_TANX.title": "タンクスを無効化（ベースゲーム）",

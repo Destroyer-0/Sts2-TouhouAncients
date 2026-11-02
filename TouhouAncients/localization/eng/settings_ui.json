@@ -21,6 +21,9 @@
   "TOUHOUANCIENTS-FORCED_ANCIENT_2.title": "Ancient forced to appear in Act 2",
   "TOUHOUANCIENTS-FORCED_ANCIENT_3.title": "Ancient forced to appear in Act 3",
 
+  "TOUHOUANCIENTS-CHALLENGE_CONFIG.title": "Challenge Combat",
+  "TOUHOUANCIENTS-CHALLENGE_HEAL_PERCENT.title": "HP recovered after defeating an Ancient",
+
   "TOUHOUANCIENTS-BAN_NONUPEIPE.title": "Disable Nonupeipe (Base Game)",
   "TOUHOUANCIENTS-BAN_VAKUU.title": "Disable Vakuu (Base Game)",
   "TOUHOUANCIENTS-BAN_TANX.title": "Disable Tanx (Base Game)",

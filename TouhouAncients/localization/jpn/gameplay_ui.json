@@ -7,7 +7,7 @@
   "TOUHOUANCIENTS-BUBBLE_ILLUSION.title": "泡影",
   "TOUHOUANCIENTS-BUBBLE_ILLUSION.description": "与えるダメージをランダムに[blue]-1~3[/blue]変化させる。\n得るブロックをランダムに[blue]-1~3[/blue]変化させる。\n生成するカード枚数をランダムに[blue]-1~1[/blue]変化させる。\n変化後の最終値は[blue]1[/blue]を下回らない。",
   "TOUHOUANCIENTS-TRANSFORM_CARD_REWARD": "カードを{cards}枚[gold]変化[/gold]させる。",
-  "TOUHOUANCIENTS-CHALLENGE_HEAL_REWARD": "失ったHPの35%（{heal}）を回復する（35%に下方修正）",
+  "TOUHOUANCIENTS-CHALLENGE_HEAL_REWARD": "失ったHPの{percent}%（{heal}）を回復する",
 
   "TOUHOUANCIENTS-RECOMMEND_HINT": "クリックでSteamワークショップのページを開く。右クリックで非表示。\n[gold]設定からこのおすすめ機能をオフにできます。[/gold]",
   "TOUHOUANCIENTS-AKYUU_RECOMMEND.title": "稗田阿求",

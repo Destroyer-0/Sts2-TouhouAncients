@@ -344,6 +344,21 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>禁用蔷薇偶像（仅第二幕出现）</summary>
     public static bool BanIdleKoishi { get; set; } = false;
 
+    [ConfigSection("ChallengeConfig")]
+
+    /// <summary>
+    /// 击败先古之民（挑战战斗胜利）后恢复已损失生命值的比例（%）。0 表示不给回血奖励。
+    /// </summary>
+    [ConfigSlider(0, 100, 1, Format = "{0}%")]
+    public static int ChallengeHealPercent { get; set; } = 35;
+
+    /// <summary>
+    /// 本局实际生效的回血比例：房主提交、客户端从开局包尾覆盖（同 ForcedAncient_*_Run）。
+    /// 奖励只读这个字段，否则各端配置不同会让同一奖励算出不同 HP。
+    /// </summary>
+    [ConfigIgnore]
+    public static int ChallengeHealPercent_Run { get; set; } = 35;
+
     // ───────────────────────── 设置界面：第一幕先古之民全禁用提示 ─────────────────────────
 
     /// <summary>警告行所在的分区名，与 [ConfigSection] 的字符串一致。</summary>
