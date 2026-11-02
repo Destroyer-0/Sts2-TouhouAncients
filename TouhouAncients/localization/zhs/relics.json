@@ -257,7 +257,7 @@
   "TOUHOUANCIENTS-CURSE_BREAKER_QI.flavor": "天人的强运就连最凶恶的厄神的厄运都能镇压。",
 
   "TOUHOUANCIENTS-FIRMAMENT_SASH.title": "天穹裙带",
-  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身造成的未被格挡伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。回合结束时，对自身造成等同于计数的伤害并清空计数。",
+  "TOUHOUANCIENTS-FIRMAMENT_SASH.description": "当你受到非自身造成的未被格挡伤害时，减少至多[blue]{Mitigation}[/blue]点并记录减少量。在你的回合结束时，对自身造成等同于计数的伤害并清空计数。",
   "TOUHOUANCIENTS-FIRMAMENT_SASH.flavor": "据说会根据她的[rainbow]心情[/rainbow]反映出不同的天气。",
 
   "TOUHOUANCIENTS-SUPREME_HEAVEN_SEAL.title": "至尊金箍",
