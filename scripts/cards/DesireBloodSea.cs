@@ -59,11 +59,18 @@ public class DesireBloodSea : TouhouAncientCards
     /// 打出：目标失去（4 + 本牌累计额外失去）点生命，并获得（1 + 本牌累计额外力量）点力量。
     /// 每张牌实例各自累计（DynamicVar 随实例克隆/序列化保留）。
     /// 若目标是饕餮尤魔，通知尤魔本回合已被"欲壑血海"瞄准（重置连续未喂牌计数）。
+    /// 自动打出时若场上有尤魔，则改为以尤魔为目标。
     /// </summary>
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         Creature target = cardPlay.Target!;
-        
+
+        // 自动打出时 BaseLib 会在全体生物里随机选目标，这里固定回尤魔
+        if (cardPlay.IsAutoPlay && base.CombatState?.Enemies.FirstOrDefault(c => c is { Monster: ToutetsuYuumaMonster, IsDead: false }) is { } yuumaTarget)
+        {
+            target = yuumaTarget;
+        }
+
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
         VfxCmd.PlayOnCreatureCenter(target, "vfx/vfx_bloody_impact");
         
