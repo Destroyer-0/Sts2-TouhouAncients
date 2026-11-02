@@ -25,7 +25,7 @@ public class EchoMicrophone : TouhouAncientRelics
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3),
+        new CardsVar(2),
         new StringVar("EnchantmentName", ModelDb.Enchantment<Echo>().Title.GetFormattedText())
     ];
 
