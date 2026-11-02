@@ -17,6 +17,7 @@ using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
+using TouhouAncients.Scripts.Rewards;
 
 namespace TouhouAncients.Scripts.encounters;
 
@@ -79,17 +80,18 @@ public abstract class TouhouAncientEncounter : CustomEncounterModel
     /// 挑战战斗不生成默认战斗奖励（金币/卡牌/药水）：通过游戏原生 ModifyRewards 钩子
     /// （在 <see cref="Entry.Init"/> 用 ModHelper.SubscribeForRunStateHooks 把当前挑战
     /// Encounter 注册进 RunState Hook 监听者）在奖励生成时只保留 StartChallenge 传入
-    /// CombatRoom.ExtraRewards 的挑战遗物。按类型判断（本基类只用于挑战战斗），读档重建后
-    /// 依然生效，无需持久化 IsChallenge。正常/读档奖励流程（OfferRoomEndRewards →
-    /// RewardsSet.GenerateWithoutOffering → Hook.ModifyRewards）都会调用。
+    /// CombatRoom.ExtraRewards 的挑战遗物，并追加一条固定的回血奖励。按类型判断（本基类只用于
+    /// 挑战战斗），读档重建后依然生效，无需持久化 IsChallenge。正常/读档奖励流程
+    /// （OfferRoomEndRewards → RewardsSet.GenerateWithoutOffering → Hook.ModifyRewards）都会调用。
     /// </summary>
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (room is not CombatRoom combatRoom) return false;
         if (!combatRoom.ExtraRewards.TryGetValue(player, out var challengeRewards)) return false;
-        int before = rewards.Count;
         rewards.RemoveAll(r => !challengeRewards.Contains(r));
-        return rewards.Count != before;
+        // 回血做成奖励而非补丁：同步走原版 RewardSelectedMessage，且满血时也能固定显示。
+        rewards.Add(new ChallengeHealReward(player));
+        return true;
     }
 }
 
