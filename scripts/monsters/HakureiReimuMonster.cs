@@ -38,7 +38,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 186, 176);
+        AscensionLevel.ToughEnemies, 206, 196);
 
     // --- 伤害/数值 ---
     private int DreamSealDamage => AscensionHelper.GetValueIfAscension(
@@ -48,7 +48,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         AscensionLevel.DeadlyEnemies, 32, 27);
 
     private int SealingNeedleDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 5, 4);
+        AscensionLevel.DeadlyEnemies, 6, 5);
 
     private const int DreamSealMoveCardNum = 3;
     private const int SealingNeedleHits = 3;
