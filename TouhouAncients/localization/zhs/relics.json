@@ -811,7 +811,7 @@
 
   "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.title": "富贾之梦",
   "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.description": "你前[blue]{Shops}[/blue]次遇到[gold]商人[/gold]时，若你的[gold]金币[/gold]少于[blue]{Threshold}[/blue]，则获得[blue]{Gold}[/blue][gold]金币[/gold]。",
-  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.flavor": "“在梦中也请支持自己附近的小店！这是最新推出的低保服务哦！”",
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.flavor": "“在梦中也请支持自己附近的小店！这是最新推出的低保服务哦！”（声明：这个梦魂由商人出资提供）",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "瑰琦之梦",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "拾起时，为[gold]牌组[/gold]中的一对[gold]打击[/gold]和[gold]防御[/gold]附魔：[purple]华彩[/purple]。",

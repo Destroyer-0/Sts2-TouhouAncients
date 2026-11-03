@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!-- MewUI 0.22.1 的 fluent markup 扩展只随 net10.0 资产发布 -->
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>12.0</LangVersion>
+    <AssemblyName>WikiVoiceTool</AssemblyName>
+    <RootNamespace>WikiVoiceTool</RootNamespace>
+    <!-- 源码含中文，固定按 UTF-8 解析，避免无 BOM 时按本地代码页读成乱码 -->
+    <CodePage>65001</CodePage>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <!-- 让 MewUI 的源生成器为本项目产出 fluent 扩展方法 -->
+    <MewUIGenerateFluentExtensions>true</MewUIGenerateFluentExtensions>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aprillz.MewUI.Windows" Version="0.22.1" />
+    <!-- 站点音频是 Ogg Opus，本机没有系统解码器，用纯 C# 解码 -->
+    <PackageReference Include="Concentus" Version="2.2.2" />
+  </ItemGroup>
+
+</Project>
