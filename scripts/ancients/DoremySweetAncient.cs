@@ -50,6 +50,7 @@ public class DoremySweetAncient : TouhouAncientBase
             ),
         CreateTARelicOptionPool(
             TARelicOption<SinisterPactDream>(),
+            TARelicOption<RichMerchantDream>(),
             TARelicOption<FlowingSplendorDream>(),
             TARelicOption<BloodbathDream>(),
             TARelicOption<BoundaryDream>(),
