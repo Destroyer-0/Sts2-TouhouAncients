@@ -54,5 +54,8 @@
 
     "TOUHOUANCIENTS-ROSE.description": "在[green][jitter]嗨到爆[/jitter][/green]状态下，耗能减少{EnergyReduction:energyIcons()}并获得[gold]保留[/gold]。\n打出后对所有敌人造成[blue]{Damage}[/blue]点伤害，并使[purple]蔷薇[/purple][gold]附魔[/gold]的伤害效果在本场战斗增加[blue]{DamageIncrease}[/blue]。",
     "TOUHOUANCIENTS-ROSE.extraCardText": "绽放造成{Damage}点伤害。",
-    "TOUHOUANCIENTS-ROSE.title": "蔷薇"
+    "TOUHOUANCIENTS-ROSE.title": "蔷薇",
+
+    "TOUHOUANCIENTS-PURE_LIGHT.description": "当你打出这张牌时，清除你所有[gold]手牌[/gold]的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "纯粹"
 }

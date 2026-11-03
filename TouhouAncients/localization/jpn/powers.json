@@ -87,8 +87,8 @@
   "TOUHOUANCIENTS-NAMELESS_YOUKAI_POWER.smartDescription": "このターン、直前にプレイしたカードと[gold]色[/gold]が異なるカードをプレイするたび、{Energy:energyIcons()}を得て、このターン[blue]{StrengthPower}[/blue][gold]筋力[/gold]を得る。\nこれまでに[blue]{StrengthApplied}[/blue][gold]筋力[/gold]を得ている。\n直前にプレイしたカード：[gold]{Card}[/gold]",
 
   "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.title": "輝夜姫の謎題",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "未解決の[purple]謎題[/purple]1つにつき、[gold]蓬莱山輝夜[/gold]は自分のターン開始時に[blue]12[/blue][gold]ブロック[/gold]を得る。",
-  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "未解決の[purple]謎題[/purple]1つにつき、[gold]蓬莱山輝夜[/gold]は自分のターン開始時に[blue]{Amount}[/blue][gold]ブロック[/gold]を得る。\n未解決の[purple]謎題[/purple]はあと[red]{PuzzleNum}[/red]つ、[blue]{GainBlock}[/blue][gold]ブロック[/gold]を得る。\n[thinky_dots][i]解決不能な五つの難題。\nしかし、長い年月と幻想の力は、それらの問題を解くのに十分だった。[/i][/thinky_dots]",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.description": "未解決の[purple]謎題[/purple]1つにつき、[gold]蓬莱山輝夜[/gold]がHPを失う時、その失う量が[blue]6[/blue]減少する。",
+  "TOUHOUANCIENTS-PRINCESS_PUZZLE_POWER.smartDescription": "未解決の[purple]謎題[/purple]1つにつき、[gold]蓬莱山輝夜[/gold]がHPを失う時、その失う量が[blue]{Amount}[/blue]減少する。\n未解決の[purple]謎題[/purple]はあと[red]{PuzzleNum}[/red]つ、HPを失う時、その失う量が[blue]{HpLossReduction}[/blue]減少する。\n[thinky_dots][i]解決不能な五つの難題。\nしかし、長い年月と幻想の力は、それらの問題を解くのに十分だった。[/i][/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.title": "灼熱の身",
   "TOUHOUANCIENTS-BLAZING_BODY_POWER.description": "自分のターン開始時、[gold]捨て札[/gold]に[gold]火傷[/gold]を[blue]1[/blue]枚加える。",
