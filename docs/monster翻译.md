@@ -325,7 +325,7 @@
 
 | 键 | 变更 |
 |------|------|
-| `PRINCESS_PUZZLE_POWER` | description 中 `{Amount}` → `[blue]12[/blue]`（zhs 已硬编码）；smartDescription 第二行为 `{PuzzleNum}`/`{GainBlock}` 加 `[red]`/`[blue]` 标记，eng/jpn 同步 |
+| `PRINCESS_PUZZLE_POWER` | 能力改为「每道未解谜题减免辉夜失去的生命值」：description 硬编码 `[blue]6[/blue]`；smartDescription 用 `{Amount}`（每道减伤）与 `{HpLossReduction}`（总减伤，键名同原版 `TUNGSTEN_ROD`），eng/jpn 同步 |
 | `YUAN_CHOU_POWER` | description/smartDescription 中"来源"→`[gold]{Applier}[/gold]`，eng/jpn 已同步 |
 
 ---
