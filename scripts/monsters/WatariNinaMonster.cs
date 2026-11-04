@@ -9,12 +9,14 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
+using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
 
 namespace TouhouAncients.Scripts.monsters;
 
@@ -27,9 +29,7 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
 {
     protected override bool HasAnimation => false;
 
-    private const int InformationFlowDamage = 6;
-
-    private const int InformationFlowHits = 2;
+    private const int InformationFlowDamage = 4;
 
     private const int TruthAndLieDamage = 11;
 
@@ -39,6 +39,7 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
 
     private const int ConspiracyUsesUntilPowerLost = 3;
 
+    private  int InformationFlowHits => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 2);
     private int CuriosityStrengthGain =>
         AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 2, 1);
 
@@ -50,7 +51,7 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
     private readonly Dictionary<ulong, HashSet<ModelId>> _chosenConspiracies = new();
 
     protected override int InitialHp =>
-        AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 288, 270);
+        AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 332, 320);
 
     private int StartingHp =>
         AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 233, 220);
@@ -92,7 +93,8 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
             new MultiAttackIntent(InformationFlowDamage, InformationFlowHits));
         MoveState truthAndLie = new("TRUTH_AND_LIE", TruthAndLieMove,
             new SingleAttackIntent(TruthAndLieDamage), new StatusIntent(FictionalCityCount));
-        MoveState cosmicIndifference = new("COSMIC_INDIFFERENCE", CosmicIndifferenceMove, new DefendIntent());
+        MoveState cosmicIndifference = new("COSMIC_INDIFFERENCE", CosmicIndifferenceMove, new DefendIntent(),
+            new StatusIntent(1));
 
         ConditionalBranchState afterCosmic = new("AFTER_COSMIC_INDIFFERENCE");
         afterCosmic.AddState(conspiracy, HasRemainingConspiracy);
@@ -206,5 +208,14 @@ public sealed class WatariNinaMonster : TouhouAncientMonsterBase
     private async Task CosmicIndifferenceMove(IReadOnlyList<Creature> targets)
     {
         await CreatureCmd.GainBlock(base.Creature, CosmicIndifferenceBlock, ValueProp.Move, null);
+
+        foreach (Creature target in targets.Where(target => !target.IsDead))
+        {
+            Player? player = target.Player;
+            if (player == null) continue;
+
+            await CardPileCmd.AddToCombatAndPreview<Void>(
+                player.Creature, PileType.Draw, 1, null, CardPilePosition.Random);
+        }
     }
 }
