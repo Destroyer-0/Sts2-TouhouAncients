@@ -10,7 +10,7 @@ using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
-/// <summary>虚构都市：贝子塞入抽牌堆的状态牌，抽到时叠一层计数，满 6 层失去力量与敏捷。</summary>
+/// <summary>虚构都市：贝子塞入抽牌堆的状态牌，抽到时叠一层计数，满 5 层失去力量与敏捷并结束回合。</summary>
 [Pool(typeof(StatusCardPool))]
 public sealed class FictionalCity : TouhouAncientCards
 {
