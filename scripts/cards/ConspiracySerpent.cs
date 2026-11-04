@@ -8,10 +8,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.cards;
 
-/// <summary>阴谋论·异蛇：选中后给玩家 5 张蛇咬。</summary>
+/// <summary>阴谋论·异蛇：选中后给予玩家「异蛇崇拜」（每回合开始加入一张带消耗的蛇咬）。</summary>
 [Pool(typeof(StatusCardPool))]
 public sealed class ConspiracySerpent : TouhouAncientCards, IConspiracyChoice
 {
@@ -21,8 +22,6 @@ public sealed class ConspiracySerpent : TouhouAncientCards, IConspiracyChoice
     private const TargetType targetType = TargetType.None;
     private const bool shouldShowInCardLibrary = true;
 
-    private const int SnakebiteCount = 5;
-
     public override bool CanBeGeneratedInCombat => false;
 
     public override bool CanBeGeneratedByModifiers => false;
@@ -30,7 +29,7 @@ public sealed class ConspiracySerpent : TouhouAncientCards, IConspiracyChoice
     public override int MaxUpgradeLevel => -1;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.FromCard<Snakebite>()];
+        [HoverTipFactory.FromCard<Snakebite>(), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
     public ConspiracySerpent() : base(energyCost, type, rarity, targetType, shouldShowInCardLibrary)
     {
@@ -38,7 +37,7 @@ public sealed class ConspiracySerpent : TouhouAncientCards, IConspiracyChoice
 
     public async Task OnChosen(PlayerChoiceContext choiceContext, Creature beiko)
     {
-        await CardPileCmd.AddToCombatAndPreview<Snakebite>(
-            base.Owner.Creature, PileType.Hand, SnakebiteCount, base.Owner, CardPilePosition.Top);
+        await PowerCmd.Apply<ConspiracySerpentPower>(
+            choiceContext, base.Owner.Creature, 1m, base.Owner.Creature, this);
     }
 }
