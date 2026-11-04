@@ -35,6 +35,7 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<RevivalDream>(),
             TARelicOption<BygoneDream>(),
             TARelicOption<PioneerDream>(),
+            TARelicOption<RichMerchantDream>(),
             TARelicOption<RevelationDream>()
             ),
         CreateTARelicOptionPool(
@@ -50,7 +51,6 @@ public class DoremySweetAncient : TouhouAncientBase
             ),
         CreateTARelicOptionPool(
             TARelicOption<SinisterPactDream>(),
-            TARelicOption<RichMerchantDream>(),
             TARelicOption<FlowingSplendorDream>(),
             TARelicOption<BloodbathDream>(),
             TARelicOption<BoundaryDream>(),
