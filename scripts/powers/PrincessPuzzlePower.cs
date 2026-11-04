@@ -16,10 +16,9 @@ namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
 /// 公主的谜题：辉夜的五道难题。
-/// 每道未完成的谜题在辉夜回合开始时为她提供 12 点格挡。
-/// 图标层数显示未解开的谜题数量（PuzzleNum）；某道谜题需要所有玩家都完成才算解开，
-/// 解开后 PuzzleNum 减少并刷新格挡总量（GainBlock）。
-/// 多人模式：施加时层数（Amount）自动乘玩家数，格挡总量按缩放后的 Amount 计算。
+/// 每道未完成的谜题让辉夜失去生命时减少 Amount 点生命损失。
+/// 图标层数显示当前总减伤值（HpLossReduction = 未解谜题数 × Amount）；某道谜题需要所有玩家都完成才算解开，
+/// 解开后 PuzzleNum 减少并刷新总减伤值。
 /// </summary>
 public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
 {
@@ -33,7 +32,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
 
     private const string PuzzleNumKey = "PuzzleNum";
 
-    private const string GainBlockKey = "GainBlock";
+    private const string HpLossReductionKey = "HpLossReduction";
 
     /// <summary>
     /// 每种谜题类型（0-4）各玩家完成状态。
@@ -46,31 +45,18 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     public override PowerStackType StackType => PowerStackType.Counter;
 
     /// <summary>
-    /// 图标显示未解开的谜题数量。
+    /// 图标显示当前总减伤值。
     /// </summary>
-    public override int DisplayAmount => base.DynamicVars[GainBlockKey].IntValue;
-
-    /// <summary>
-    /// 多人模式：施加时层数自动乘玩家数。
-    /// </summary>
-    public override bool ShouldScaleInMultiplayer => true;
-    
-    //
-    // public override decimal GetScaledAmountForMultiplayer(ICombatState combatState, Creature? applier, decimal amount,
-    //     Creature target, CardModel? cardSource)
-    // {
-    //     return amount * (decimal)combatState.Players.Count;
-    // }
+    public override int DisplayAmount => base.DynamicVars[HpLossReductionKey].IntValue;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar(PuzzleNumKey, BasePuzzleNum),
-        new DynamicVar(GainBlockKey, Amount * BasePuzzleNum)
+        new DynamicVar(HpLossReductionKey, Amount * BasePuzzleNum)
     ];
 
     /// <summary>
-    /// 首次施加时重置完成追踪并刷新格挡总量
-    /// （此时层数 Amount 已应用多人缩放，格挡总量按缩放后的 Amount 计算）。
+    /// 首次施加时重置完成追踪并刷新总减伤值（此时 Amount 为每道谜题的减伤量）。
     /// </summary>
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
@@ -79,36 +65,27 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
             completed.Clear();
         }
 
-        RefreshGainBlock();
+        RefreshHpLossReduction();
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// 辉夜回合开始时，为辉夜提供当前格挡总量（未解开谜题数 × 每道谜题格挡量 × 玩家数）。
+    /// 辉夜失去生命时按未解谜题数减免（与钨合金棍同一节点）。
     /// </summary>
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+    public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props,
+        Creature? dealer, CardModel? cardSource)
     {
-        if (Owner.IsDead)
+        if (target != base.Owner)
         {
-            return;
+            return amount;
         }
 
-        if (side != CombatSide.Player || CombatManager.Instance.PlayersTakingExtraTurn.Count > 0)
-        {
-            return;
-        }
-
-        await CreatureCmd.GainBlock(base.Owner, base.DynamicVars[GainBlockKey].IntValue, ValueProp.Unpowered, null);
-    }
-
-    private async Task GainBlockOnTurnStart()
-    {
+        return Math.Max(0m, amount - base.DynamicVars[HpLossReductionKey].BaseValue);
     }
 
     /// <summary>
     /// 标记指定玩家完成指定类型的谜题。
-    /// 当该类型的谜题首次达成"所有玩家都完成"时，未解开谜题数减一并刷新格挡总量。
+    /// 当该类型的谜题首次达成"所有玩家都完成"时，未解开谜题数减一并刷新总减伤值。
     /// 每次有新玩家完成时，通知辉夜怪物同步谜题图标的漂浮演出透明度。
     /// </summary>
     public void CompletePuzzle(int puzzleType, Player player)
@@ -125,7 +102,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
         if (_completedPlayers[puzzleType].Count >= playerCount)
         {
             base.DynamicVars[PuzzleNumKey].BaseValue = Math.Max(0, base.DynamicVars[PuzzleNumKey].IntValue - 1);
-            RefreshGainBlock();
+            RefreshHpLossReduction();
         }
     }
 
@@ -160,12 +137,12 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     }
 
     /// <summary>
-    /// 刷新格挡总量：未解开谜题数 × 每道谜题格挡量 × 玩家数（缩放后的层数）。
+    /// 刷新总减伤值：未解开谜题数 × 每道谜题的减伤量（Amount）。
     /// </summary>
-    private void RefreshGainBlock()
+    private void RefreshHpLossReduction()
     {
         int puzzleNum = base.DynamicVars[PuzzleNumKey].IntValue;
-        base.DynamicVars[GainBlockKey].BaseValue = puzzleNum * Amount;
+        base.DynamicVars[HpLossReductionKey].BaseValue = puzzleNum * Amount;
         InvokeDisplayAmountChanged();
     }
 
