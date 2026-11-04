@@ -98,6 +98,7 @@ public class Yumeiro : TouhouAncientEnchantmentModel
                 if (e.IsMock) return false;
                 if (e is Yumeiro) return false;
                 if (e is Goopy) return false;
+                if (e is PureLight) return false;
                 if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;
                 if (e is Inky)
                 {

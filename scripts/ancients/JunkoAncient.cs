@@ -32,7 +32,8 @@ public class JunkoAncient : TouhouAncientBase
         CreateTARelicOptionPool(
             TARelicOption<IllusoryProjection>(),
             TARelicOption<PrimalSpirit>(),
-            TARelicOption<OverflowingDefilement>()
+            TARelicOption<OverflowingDefilement>(),
+            TARelicOption<PareLightOfThePalm>()
             )
     ];
 }

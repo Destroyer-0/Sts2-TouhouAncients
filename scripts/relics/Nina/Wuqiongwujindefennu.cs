@@ -89,6 +89,7 @@ public class Wuqiongwujindefennu : TouhouAncientRelics
                 if (e is Goopy) return false;
                 if (e is Bloodshed) return false;
                 if (e is Yumeiro) return false;
+                if (e is PureLight) return false;
                 if (e is TouhouAncientEnchantmentModel { CanBeRandomSelected: false }) return false;
                 return e.CanEnchant(card);
             });
