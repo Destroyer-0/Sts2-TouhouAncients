@@ -48,6 +48,21 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool EnableWorkshopRecommend { get; set; } = true;
 
     /// <summary>
+    /// 先古之民入场动画总开关。关闭后进入先古之民房间不再播放 shader 演出。
+    /// </summary>
+    [ConfigHoverTip]
+    public static bool EnableEntranceAnimation { get; set; } = true;
+
+    /// <summary>
+    /// 入场动画播放速度倍率。演出全由单个 progress 驱动，等比加速不会出现特效失步。
+    /// 动画关闭时本行隐藏。
+    /// </summary>
+    [ConfigHoverTip]
+    [ConfigVisibleIf(nameof(EnableEntranceAnimation))]
+    [ConfigSlider(1, 2, 0.1, Format = "×{0:0.0}")]
+    public static float EntranceAnimationSpeed { get; set; } = 1f;
+
+    /// <summary>
     /// 强制出现的先古之民（单选，选中的一定会刷新）。行标签仍取 TOUHOUANCIENTS-FORCED_ANCIENT_2.title。
     /// 不加 [ConfigSection]：本 Mod 只有一个分区标题（初始先古之民配置），单独给这两下拉开分区只会多出重复标题。
     /// </summary>

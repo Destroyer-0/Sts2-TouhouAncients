@@ -56,7 +56,6 @@
     "TOUHOUANCIENTS-ROSE.extraCardText": "绽放造成{Damage}点伤害。",
     "TOUHOUANCIENTS-ROSE.title": "蔷薇",
 
-    "TOUHOUANCIENTS-PURE_LIGHT.description": "这张牌造成的伤害或获得的格挡增加等同于[gold]手牌[/gold]中带有[purple]纯粹[/purple][gold]附魔[/gold]的牌的数量点。\n当你打出这张牌时，清除你所有[gold]手牌[/gold]的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
-    "TOUHOUANCIENTS-PURE_LIGHT.extraCardText": "初气永存，至纯不杂。{Count}",
+    "TOUHOUANCIENTS-PURE_LIGHT.description": "这张牌造成的伤害与获得的格挡增加等同于[gold]手牌[/gold]中带有[purple]纯粹[/purple][gold]附魔[/gold]的牌的数量点。\n当你打出这张牌时，清除你所有[gold]手牌[/gold]的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
     "TOUHOUANCIENTS-PURE_LIGHT.title": "纯粹"
 }

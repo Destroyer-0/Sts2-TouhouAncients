@@ -15,8 +15,6 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class PureLight : TouhouAncientEnchantmentModel
 {
-    public override bool HasExtraCardText => true;
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Count", 0)];
 
     // 手牌变动时原版会遍历所有牌回调这里，卡面「至纯N」靠它刷新
