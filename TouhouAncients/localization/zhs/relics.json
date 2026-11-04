@@ -609,8 +609,8 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "在万物具有名字之前，纯粹就已显现。",
 
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "掌上的纯光",
-  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "拾起时，清除你所有初始[gold]打击[/gold]与[gold]防御[/gold]牌的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。在每回合开始时，对所有敌人造成等同于你带有[purple]纯粹[/purple][gold]附魔[/gold]牌数的伤害。",
-  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.eventDescription": "清除你所有初始[gold]打击[/gold]与[gold]防御[/gold]牌的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。在每回合开始时，对所有敌人造成等同于你带有[purple]纯粹[/purple][gold]附魔[/gold]牌数的伤害。",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "拾起时，清除你所有初始[gold]打击[/gold]与[gold]防御[/gold]牌的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.eventDescription": "清除你所有初始[gold]打击[/gold]与[gold]防御[/gold]牌的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.flavor": "神说：“要有光。”",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "无底之胃",

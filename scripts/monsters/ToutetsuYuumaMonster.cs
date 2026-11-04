@@ -10,10 +10,12 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
 
@@ -214,5 +216,8 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     public void NotifyTargetedByDesireBloodSea()
     {
         _targetedThisTurn = true;
+
+        LocString line = new LocString("monsters", $"TOUHOUANCIENTS-TOUTETSU_YUUMA_MONSTER.feed.banter{base.Rng.NextInt(3) + 1}");
+        TalkCmd.Play(line, base.Creature, VfxColor.Red, VfxDuration.Standard);
     }
 }
