@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Context;
@@ -15,7 +16,11 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Nodes.Vfx.Utilities;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.powers;
 
@@ -73,7 +78,34 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
 
     /// <summary>本回合是否已被"欲壑血海"瞄准过（回合结算后清零）。</summary>
     private bool _targetedThisTurn;
-    
+
+    /// <summary>剔骨啖髓：冲刺落点越过目标玩家后再往左多走的距离。</summary>
+    private const float DashBehindDistance = 200f;
+
+    /// <summary>混沌炼狱：跃起高度。</summary>
+    private const float ChaosHellJumpHeight = 160f;
+
+    // --- 帧动画状态表 ---
+    protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
+    {
+        animationMachine.RegisterLoop("idle");
+        animationMachine.RegisterLoop("spell");
+        animationMachine.RegisterLoop("attack_1a");
+        animationMachine.RegisterLoop("attack_2c");
+        animationMachine.RegisterLoop("attack_air1a");
+        animationMachine.RegisterLoop("roll");
+        animationMachine.RegisterLoop("jump_rise");
+        animationMachine.RegisterLoop("sit");
+        animationMachine.RegisterLoop("fall");
+        animationMachine.RegisterLoop("suction");
+        animationMachine.RegisterOneShot("damage");
+        animationMachine.RegisterOneShot("dead");
+        animationMachine.RegisterOneShot("attack_2a");
+        animationMachine.RegisterOneShot("attack_2b");
+        animationMachine.RegisterOneShot("jump_pre");
+        animationMachine.RegisterOneShot("landing");
+    }
+
     // --- 状态机 ---
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
@@ -120,6 +152,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     {
         var choiceContext = new ThrowingPlayerChoiceContext();
 
+        Anim.Trigger("spell");
         SfxCmd.Play("event:/sfx/enemy/enemy_attacks/the_insatiable/the_insatiable_liquify_ground");
         VfxCmd.PlayOnCreatureCenter(base.Creature, "vfx/vfx_scream");
         await Cmd.Wait(0.75f);
@@ -144,52 +177,149 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         await Cmd.Wait(0.5f);
         // 自身 1 层血煞祸劫（Single 类型：已有则不再叠加）
         await PowerCmd.Apply<BloodDisasterPower>(choiceContext, base.Creature, 1m, base.Creature, null);
+        await Cmd.Wait(1f);
+        Anim.TriggerLoop();
     }
 
     /// <summary>
-    /// 剖心撕肉：3 段攻击。
+    /// 剖心撕肉：attack_1a 循环两遍后 attack_2b 打 3 段。
     /// </summary>
     private async Task CutHeartMove(IReadOnlyList<Creature> targets)
     {
+        Anim.Trigger("attack_1a");
+        await Cmd.Wait(0.4f); // 2 帧 @10fps × 2 循环
+
+        Anim.Trigger("attack_2b");
+        await Cmd.Wait(0.2f);
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         await DamageCmd.Attack(CutHeartDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .WithHitCount(CutHeartHits)
             .Execute(null);
+
+        await Cmd.Wait(0.3f);
+        Anim.TriggerLoop();
     }
 
     /// <summary>
-    /// 剔骨啖髓：造成伤害并给予 2 易伤。
+    /// 剔骨啖髓：起手 attack_2a，冲刺到目标身后（attack_2c 循环）造成伤害，再原路返回转身。
     /// </summary>
     private async Task DrinkBloodMove(IReadOnlyList<Creature> targets)
     {
+        Node2D? body = CurrentBody;
+        AnimatedSprite2D? sprite = Sprite;
+        Vector2 bodyOrigin = body?.Position ?? Vector2.Zero;
+        bool originalFlip = sprite?.FlipH ?? true;
+
+        Anim.Trigger("attack_2a");
+        await Cmd.Wait(0.2f);
+
+        // 冲过最左侧玩家，再往左多走一段
+        Vector2? playerPos = null;
+        foreach (Creature target in targets)
+        {
+            NCreature? targetNode = target.GetCreatureNode();
+            if (targetNode != null && (!playerPos.HasValue || playerPos.Value.X > targetNode.GlobalPosition.X))
+                playerPos = targetNode.GlobalPosition;
+        }
+
+        Anim.Trigger("attack_2c");
+        Vector2 dashOffset = bodyOrigin;
+        if (body != null)
+        {
+            // body.Position 在父节点坐标系，只有父节点缩放才影响世界位移（body 自身 scale 不影响）
+            float parentScaleX = body.GetParent() is Node2D parent && !Mathf.IsZeroApprox(parent.GlobalScale.X)
+                ? parent.GlobalScale.X
+                : 1f;
+            float targetWorldX = playerPos.HasValue
+                ? playerPos.Value.X - DashBehindDistance
+                : body.GlobalPosition.X - 1800f;
+            dashOffset = bodyOrigin + Vector2.Right * ((targetWorldX - body.GlobalPosition.X) / parentScaleX);
+        }
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", dashOffset, 0.2f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.25f);
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
+
         await DamageCmd.Attack(DrinkBloodDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        // 停到玩家左侧：坐下 → 停顿 → 转身 → 停顿
+        Anim.Trigger("sit");
+        await Cmd.Wait(0.25f);
+        if (sprite != null)
+            sprite.FlipH = false;
+        await Cmd.Wait(0.25f);
+        // 冲刺返回并转回原朝向
+        Anim.Trigger("attack_2c");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
+        if (sprite != null)
+            sprite.FlipH = originalFlip;
+
+        Anim.TriggerLoop();
     }
 
     /// <summary>
-    /// 饕餮盛宴：给予所有玩家 2 层饥渴本能。
+    /// 饕餮盛宴：suction 循环 2 秒后给予所有玩家 2 层饥渴本能。
     /// </summary>
     private async Task FeastMove(IReadOnlyList<Creature> targets)
     {
+        Anim.Trigger("suction");
+        await Cmd.Wait(2f);
         await PowerCmd.Apply<HungryInstinctPower>(new ThrowingPlayerChoiceContext(), targets, FeastHungryInstinct, base.Creature, null);
+        Anim.TriggerLoop();
     }
 
     /// <summary>
-    /// 混沌炼狱：造成（基础 × 连击次数）伤害，连击次数 +1，获得 2 力量。
+    /// 混沌炼狱：跃起 → 空中 attack_air1a → 原地砸下造成（基础 × 连击次数）伤害、震屏、获得 2 力量
+    /// → 轻微跃起落地 → 连击次数 +1。
     /// </summary>
     private async Task ChaosHellMove(IReadOnlyList<Creature> targets)
     {
+        Vector2 bodyOrigin = CurrentBody?.Position ?? Vector2.Zero;
+
+        Anim.Trigger("jump_pre");
+        await Cmd.Wait(0.2f);
+
+        Anim.Trigger("jump_rise");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin + Vector2.Up * ChaosHellJumpHeight, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
+
+        Anim.Trigger("attack_air1a");
+        await Cmd.Wait(1f);
+
+        // 原地砸下（x 不变）：下落过程循环 fall，触地切 landing
+        Anim.Trigger("fall");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.12f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.15f);
+        Anim.Trigger("landing");
+        NGame.Instance?.ScreenShake(ShakeStrength.Strong, ShakeDuration.Short);
+
+        Anim.Trigger("attack_2b");
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         await DamageCmd.Attack(ChaosHellBaseDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitCount(_chaosHellCombo)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        await Cmd.Wait(0.75f);
+
+        // 落地缓冲：轻微跃起后回到常态
+        Anim.Trigger("roll");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin + Vector2.Up * 100f, 0.12f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.15f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.12f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.15f);
+        Anim.Trigger("landing");
+        await Cmd.Wait(0.2f);
+        Anim.TriggerLoop();
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, ChaosHellStrength, base.Creature, null);
 
         // 连击次数 +1

@@ -27,7 +27,7 @@ namespace TouhouAncients.Scripts.relics.Akyuu;
 public class BellBookmark : TouhouAncientRelics
 {
     /// <summary>? 房间出怪的目标权重：宝箱 2% + 商店 3% 共占 5%，故与事件各占 47.5%。</summary>
-    private const float MonsterOddsTarget = 0.475f;
+    private const float MonsterOddsTarget = 0.3f;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 

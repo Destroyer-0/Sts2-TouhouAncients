@@ -80,7 +80,9 @@ public class GungnirSpearCard : TouhouAncientCards
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (!CombatManager.Instance.IsInProgress || card != this || card.HasBeenRemovedFromState) return;
-        if (card.Pile != null && card.Pile.Type != PileType.Hand && PileType.Hand.GetPile(Owner).Cards.Count < CardPile.MaxCardsInHand)
+        // 出牌中（Play 堆）不能拉回，否则依赖"牌在出牌堆"的判定（如致死性）会失效
+        if (card.Pile != null && card.Pile.Type != PileType.Hand && card.Pile.Type != PileType.Play
+            && PileType.Hand.GetPile(Owner).Cards.Count < CardPile.MaxCardsInHand)
         {
             await CardPileCmd.Add(card, PileType.Hand, CardPilePosition.Top, clonedBy: this);
         }

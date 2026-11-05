@@ -1,6 +1,65 @@
-[gd_scene load_steps=11 format=3 uid="uid://pnnte8vdhq5l"]
+[gd_scene load_steps=51 format=3 uid="uid://pnnte8vdhq5l"]
 
 [ext_resource type="Texture2D" uid="uid://cwgec3q7hdy6x" path="res://images/sprite/yuuma/stand.png" id="1_n1nuw"]
+[ext_resource type="Texture2D" uid="uid://ygfscmtr0185" path="res://images/sprite/yuuma/damage-strip.png" id="2_damage"]
+[ext_resource type="Texture2D" uid="uid://c1nnx1memmstw" path="res://images/sprite/yuuma/dead-strip.png" id="3_dead"]
+[ext_resource type="Texture2D" uid="uid://2tgwl5blhhxa" path="res://images/sprite/yuuma/spell-strip.png" id="4_spell"]
+[ext_resource type="Texture2D" uid="uid://dabrjordcktwl" path="res://images/sprite/yuuma/attack_1a-strip.png" id="5_atk1a"]
+[ext_resource type="Texture2D" uid="uid://bdvqgmelny483" path="res://images/sprite/yuuma/attack_2a-strip.png" id="6_atk2a"]
+[ext_resource type="Texture2D" uid="uid://c36hwvaq8a6b5" path="res://images/sprite/yuuma/attack_2b-strip.png" id="7_atk2b"]
+[ext_resource type="Texture2D" uid="uid://bs3jnmp6blswo" path="res://images/sprite/yuuma/attack_2c-strip.png" id="8_atk2c"]
+[ext_resource type="Texture2D" uid="uid://b8xr8s2meebah" path="res://images/sprite/yuuma/attack_air1a-strip.png" id="9_air1a"]
+[ext_resource type="Texture2D" uid="uid://dtolhwrofth85" path="res://images/sprite/yuuma/jump_pre-strip.png" id="10_jpre"]
+[ext_resource type="Texture2D" uid="uid://ch3afs03dot0h" path="res://images/sprite/yuuma/jump_rise-strip.png" id="11_jrise"]
+[ext_resource type="Texture2D" uid="uid://cbhbjeqmk36gf" path="res://images/sprite/yuuma/roll-strip.png" id="12_roll"]
+[ext_resource type="Texture2D" uid="uid://ba1g1v0wfx652" path="res://images/sprite/yuuma/landing-strip.png" id="13_landing"]
+[ext_resource type="Texture2D" uid="uid://mel04uuky583" path="res://images/sprite/yuuma/sit-strip.png" id="14_sit"]
+[ext_resource type="Texture2D" uid="uid://bge2tqdjph32n" path="res://images/sprite/yuuma/jump_fall-strip.png" id="15_fall"]
+[ext_resource type="Texture2D" uid="uid://dvx3uxrd3gr3u" path="res://images/sprite/yuuma/suction-strip.png" id="16_suction"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk1a0"]
+atlas = ExtResource("5_atk1a")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk1a1"]
+atlas = ExtResource("5_atk1a")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2a0"]
+atlas = ExtResource("6_atk2a")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2b0"]
+atlas = ExtResource("7_atk2b")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2b1"]
+atlas = ExtResource("7_atk2b")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2c0"]
+atlas = ExtResource("8_atk2c")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atk2c1"]
+atlas = ExtResource("8_atk2c")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_air1a0"]
+atlas = ExtResource("9_air1a")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_air1a1"]
+atlas = ExtResource("9_air1a")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmg0"]
+atlas = ExtResource("2_damage")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dead0"]
+atlas = ExtResource("3_dead")
+region = Rect2(0, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6xgr"]
 atlas = ExtResource("1_n1nuw")
@@ -34,8 +93,151 @@ region = Rect2(960, 0, 160, 160)
 atlas = ExtResource("1_n1nuw")
 region = Rect2(1120, 0, 160, 160)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpre0"]
+atlas = ExtResource("10_jpre")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrise0"]
+atlas = ExtResource("11_jrise")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrise1"]
+atlas = ExtResource("11_jrise")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_land0"]
+atlas = ExtResource("13_landing")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_land1"]
+atlas = ExtResource("13_landing")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roll0"]
+atlas = ExtResource("12_roll")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roll1"]
+atlas = ExtResource("12_roll")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spell0"]
+atlas = ExtResource("4_spell")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spell1"]
+atlas = ExtResource("4_spell")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sit0"]
+atlas = ExtResource("14_sit")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fall0"]
+atlas = ExtResource("15_fall")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fall1"]
+atlas = ExtResource("15_fall")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suction0"]
+atlas = ExtResource("16_suction")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suction1"]
+atlas = ExtResource("16_suction")
+region = Rect2(160, 0, 160, 160)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8lgl8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk1a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk1a1")
+}],
+"loop": true,
+"name": &"attack_1a",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2a0")
+}],
+"loop": false,
+"name": &"attack_2a",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2b1")
+}],
+"loop": false,
+"name": &"attack_2b",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atk2c1")
+}],
+"loop": true,
+"name": &"attack_2c",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_air1a0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_air1a1")
+}],
+"loop": true,
+"name": &"attack_air1a",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmg0")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dead0")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dead0")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmg0")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l6xgr")
@@ -64,6 +266,88 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpre0")
+}],
+"loop": false,
+"name": &"jump_pre",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrise0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrise1")
+}],
+"loop": true,
+"name": &"jump_rise",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_land0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_land1")
+}],
+"loop": false,
+"name": &"landing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roll0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roll1")
+}],
+"loop": true,
+"name": &"roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spell0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spell1")
+}],
+"loop": true,
+"name": &"spell",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sit0")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fall0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fall1")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suction0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suction1")
+}],
+"loop": true,
+"name": &"suction",
+"speed": 10.0
 }]
 
 [node name="ToutetsuYuuma" type="Node2D"]
@@ -91,6 +375,10 @@ offset_right = 229.0
 [node name="CenterPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-1, -81)
+
+[node name="TalkPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-120, -166)
 
 [node name="IntentPos" type="Marker2D" parent="."]
 unique_name_in_owner = true
