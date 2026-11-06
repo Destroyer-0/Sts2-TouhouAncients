@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -35,10 +36,17 @@ public class MysteryFruit : TouhouAncientRelics
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (player != base.Owner) return;
-        if (!IsWithinFirstTurns(player)) return;
         if (combatState != player.Creature.CombatState) return;
+        if (!IsWithinFirstTurns(player))
+        {
+            Status = RelicStatus.Normal;
+            InvokeDisplayAmountChanged();
+            return;
+        }
 
         Flash();
+        Status = RelicStatus.Active;
+        InvokeDisplayAmountChanged();
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, player);
     }
 

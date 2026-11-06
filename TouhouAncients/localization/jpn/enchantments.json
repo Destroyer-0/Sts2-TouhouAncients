@@ -50,5 +50,8 @@
     "TOUHOUANCIENTS-ECHO.title": "エコー",
 
     "TOUHOUANCIENTS-AUTOGRAPH.description": "このカードが[gold]デッキ[/gold]から削除された時、[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
-    "TOUHOUANCIENTS-AUTOGRAPH.title": "直筆"
+    "TOUHOUANCIENTS-AUTOGRAPH.title": "直筆",
+
+    "TOUHOUANCIENTS-PURE_LIGHT.description": "[gold]手札[/gold]にある[purple]純粋[/purple][gold]エンチャント[/gold]を持つカード1枚につき、このカードが与えるダメージと得るブロックが[blue]1[/blue]増加する。\nこのカードをプレイした時、[gold]手札[/gold]のすべてのカードのエンチャントを解除し、[purple]純粋[/purple]で[gold]エンチャント[/gold]する。",
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "純粋"
 }

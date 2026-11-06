@@ -50,5 +50,8 @@
     "TOUHOUANCIENTS-ECHO.title": "Echo",
 
     "TOUHOUANCIENTS-AUTOGRAPH.description": "When this card is removed from your [gold]Deck[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].",
-    "TOUHOUANCIENTS-AUTOGRAPH.title": "Autograph"
+    "TOUHOUANCIENTS-AUTOGRAPH.title": "Autograph",
+
+    "TOUHOUANCIENTS-PURE_LIGHT.description": "For each card in your [gold]Hand[/gold] with the [purple]Purity[/purple] [gold]Enchantment[/gold], this card deals [blue]1[/blue] more damage and gains [blue]1[/blue] more [gold]Block[/gold].\nWhen you play this card, remove the Enchantments from all cards in your [gold]Hand[/gold], then [gold]Enchant[/gold] them with [purple]Purity[/purple].",
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "Purity"
 }

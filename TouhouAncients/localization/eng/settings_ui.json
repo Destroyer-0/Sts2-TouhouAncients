@@ -4,6 +4,14 @@
   "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "Enable Touhou Mod Recommendations!",
   "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "When enabled, other Touhou mods may appear as recommendations in the bottom-right corner of Ancient backgrounds.",
 
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.title": "Enable Entrance Animation",
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.title": "Entrance Animation",
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.desc": "Adds opening entrance effects to the Touhou Ancients.\nAuthor: leddele",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.title": "Entrance Animation Speed",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.title": "Entrance Animation Speed",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.desc": "Adjusts the playback speed of entrance animations. Higher values play faster. Only takes effect when entrance animations are enabled.",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.sliderFormat": "×{0:0.0}",
+
   "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "Initial Ancient Configuration",
   "TOUHOUANCIENTS-BAN_NEOW.title": "Disable Neow",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "Disable Doremy Sweet",

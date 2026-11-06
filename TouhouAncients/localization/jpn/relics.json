@@ -30,7 +30,7 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "蛇",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "絶対真実のスネッコの眼",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "各戦闘開始時、[red]混乱[/red]する。毎ターン開始時、[gold]手札[/gold]のカードを1枚選ぶ。そのカードはこのターン、コストを支払わずにプレイできる。",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "各戦闘開始時、[red]混乱[/red]する。毎ターン開始時、[gold]手札[/gold]のカードを1枚選ぶ。このターン、それはコストを支払わずにプレイできる。",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "絶対真実のスネッコの眼、鑑定の結果は超高コスト。",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "このターン、コストを支払わずにプレイできる[gold]手札[/gold]を1枚選ぶ。",
 
@@ -608,7 +608,8 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "毎ターン開始時、現在のターン数に等しい{energyPrefix:energyIcons(1)}を得る。[red][blue]{TriggerTurn}[/blue]ターン目開始時、孤注一擲を得る。[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "万物が名を持つより前に在った、純粋なる力。",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "掌上の純光",
-  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "入手時、初期の[gold]ストライク[/gold]と[gold]防御[/gold]カードすべてのエンチャントを解除し、[purple]純粋[/purple]で[gold]エンチャント[/gold]する。",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.eventDescription": "初期の[gold]ストライク[/gold]と[gold]防御[/gold]カードすべてのエンチャントを解除し、[purple]純粋[/purple]で[gold]エンチャント[/gold]する。",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.flavor": "神は言われた。「光あれ。」",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "底なしの胃袋",
@@ -783,7 +784,7 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "「ユメノツカイ？ ユメダマ、アツメル？ シャボンダマミタイ！ オモシロイ！ ボクノユメモ、ビンニツメテ！」",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "溶蝋の夢",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "自分のターン開始時、HPが[blue]{HpThreshold}%[/blue]未満なら[blue]{RegenGain}[/blue][gold]再生[/gold]を得る。1回の戦闘でこの方法により[blue]{RegenLimit}[/blue][gold]再生[/gold]を得ると、この遺物は永久に失効する。",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "自分のターン中に初めてHPを失った時、HPが[blue]{HpThreshold}%[/blue]未満なら[blue]{RegenGain}[/blue][gold]再生[/gold]を得る。1回の戦闘でこの方法により[blue]{RegenLimit}[/blue][gold]再生[/gold]を得ると、この遺物は永久に失効する。",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]「夢の使者よ……君はきっと、私の夢をたくさん見てきたのだろう……それを持っていったら……もう少しだけ、眠らせてくれ……」[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "燎燭の夢",
@@ -807,6 +808,10 @@
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "邪契の夢",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "第[blue]{ShopIndex}[/blue]番目の[gold]商人[/gold]に会った時、彼の商品を[red]すべて[/red]即座に獲得し、[red]強欲[/red]を1枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "「ふふ、悪魔の夢は並のものではございません。契約の小さな代価くらい、あなたもご存じでしょう……」",
+
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.title": "富商の夢",
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.description": "[gold]商人[/gold]に最初の[blue]{Shops}[/blue]回出会う時、所持[gold]ゴールド[/gold]が[blue]{Threshold}[/blue]未満なら、[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.flavor": "「夢の中でも近所の小店を応援してくださいね！これが最新の生活保護サービスですよ！」（免責事項：この夢魂は商人の提供でお送りしています）",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "瑰琦の夢",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "入手時、[gold]デッキ[/gold]内の[gold]ストライク[/gold]と[gold]防御[/gold]の一組を[purple]魅惑[/purple]で[gold]エンチャント[/gold]する。",

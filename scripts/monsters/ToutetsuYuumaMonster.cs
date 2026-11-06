@@ -50,7 +50,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
 
     /// <summary>剔骨啖髓：基础伤害，低阶 16 / 高阶 17。</summary>
     private int DrinkBloodDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 26, 24);
+        AscensionLevel.DeadlyEnemies, 25, 23);
 
     private const int DrinkBloodVulnerable = 2;
 
@@ -59,7 +59,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
 
     /// <summary>混沌炼狱：基础伤害（× 连击次数），低阶 20 / 高阶 22。</summary>
     private int ChaosHellBaseDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 12, 11);
+        AscensionLevel.DeadlyEnemies, 9, 8);
 
     /// <summary>混沌炼狱：每次使用的力量。</summary>
     private const int ChaosHellStrength = 2;
@@ -152,6 +152,16 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     {
         var choiceContext = new ThrowingPlayerChoiceContext();
 
+        Vector2 bodyOrigin = CurrentBody?.Position ?? Vector2.Zero;
+        
+        Anim.Trigger("roll");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin + Vector2.Up * 200f, 0.2f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.25f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.2f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.25f);
+        Anim.Trigger("landing");
+        
+        
         Anim.Trigger("spell");
         SfxCmd.Play("event:/sfx/enemy/enemy_attacks/the_insatiable/the_insatiable_liquify_ground");
         VfxCmd.PlayOnCreatureCenter(base.Creature, "vfx/vfx_scream");
@@ -187,7 +197,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     private async Task CutHeartMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("attack_1a");
-        await Cmd.Wait(0.4f); // 2 帧 @10fps × 2 循环
+        await Cmd.Wait(0.75f); // 2 帧 @10fps × 2 循环
 
         Anim.Trigger("attack_2b");
         await Cmd.Wait(0.2f);
@@ -199,8 +209,8 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_attack_slash")
             .WithHitCount(CutHeartHits)
             .Execute(null);
-
-        await Cmd.Wait(0.3f);
+        
+        await Cmd.Wait(0.55f);
         Anim.TriggerLoop();
     }
 
@@ -259,8 +269,18 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         Anim.Trigger("attack_2c");
         await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.25f)
             .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
+        
+        
+        Anim.Trigger("roll");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin + Vector2.Up * 100f, 0.16f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.2f);
         if (sprite != null)
             sprite.FlipH = originalFlip;
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.16f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.2f);
+        Anim.Trigger("landing");
+        
+        await Cmd.Wait(0.2f);
 
         Anim.TriggerLoop();
     }
@@ -271,7 +291,8 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     private async Task FeastMove(IReadOnlyList<Creature> targets)
     {
         Anim.Trigger("suction");
-        await Cmd.Wait(2f);
+        VfxCmd.PlayOnCreatureCenter(base.Creature, "vfx/vfx_scream");
+        await Cmd.Wait(1.5f);
         await PowerCmd.Apply<HungryInstinctPower>(new ThrowingPlayerChoiceContext(), targets, FeastHungryInstinct, base.Creature, null);
         Anim.TriggerLoop();
     }

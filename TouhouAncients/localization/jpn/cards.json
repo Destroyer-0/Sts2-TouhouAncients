@@ -137,12 +137,12 @@
     "TOUHOUANCIENTS-LUCKY_TRICK.description": "このターン、[gold]手札[/gold]にある[gold]“幸運”の手品[/gold]以外のカードのコストをランダム化する。\n[i][red]必要なのは……ほんの少しの代償だけ。[/red][/i]",
 
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "幻想万象録",
-    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。",
+    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。\n[pink]私が転生の準備を始めるまで編纂され続けるだろう。[/pink]",
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.selectionScreenPrompt": "[gold]変化[/gold]させるカードを選ぶ。",
 
     "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.title": "幻想郷縁起",
-    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "[gold]東方エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:（[green]アップグレード済み[/green]）}から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードはコストを支払わずにプレイできる。",
+    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "[gold]東方エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:[green]アップグレード済み[/green]}から1枚を選び、[gold]手札[/gold]に加える。このターン、それはコストを支払わずにプレイできる。\n[purple]素敵な貴方に安全な幻想郷ライフを。[/purple]",
 
     "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.title": "高塔英雄伝",
-    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "[gold]古の樹木[/gold]に由来する[gold]エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:（[green]アップグレード済み[/green]）}から1枚を選び、[gold]手札[/gold]に加える。このターン中、そのカードはコストを支払わずにプレイできる。"
+    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "[gold]古の樹木[/gold]に由来する[gold]エンシェント[/gold]カード[blue]{Cards}[/blue]枚{IfUpgraded:show:[green]アップグレード済み[/green]}から1枚を選び、[gold]手札[/gold]に加える。このターン、それはコストを支払わずにプレイできる。\n[orange]謎が多いエンシェントが多いが、その謎についてもいくつか触れてみた。[/orange]"
 }

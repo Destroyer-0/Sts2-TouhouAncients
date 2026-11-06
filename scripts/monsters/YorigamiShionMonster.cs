@@ -65,6 +65,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
 
     private int AbsoluteLoserDoom => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 18, 16);
+    private int TwinBlock => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 9, 8);
 
     private int TwinSoulRecoverHP => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 70, 66);
@@ -96,7 +97,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await base.AfterAddedToRoom();
         await PowerCmd.Apply<UnfortunatePower>(new ThrowingPlayerChoiceContext(), base.Creature, 5m, base.Creature,
             null);
-        var twinSoulPower = await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, 8m, base.Creature, null);
+        var twinSoulPower = await PowerCmd.Apply<TwinSoulPower>(new ThrowingPlayerChoiceContext(), base.Creature, TwinBlock, base.Creature, null);
         if (twinSoulPower == null) return;
         var amount = CombatState.Players.Count == 1 ? TwinSoulRecoverHP : twinSoulPower.GetScaledAmountForMultiplayer(CombatState, Creature, TwinSoulRecoverHP, Creature, null);
         twinSoulPower.SetRecoverHp(amount);
@@ -248,8 +249,8 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
             var rushTarget = targetPos.HasValue
                 ? Vector2.Right * (targetPos.Value.X - myNode.GlobalPosition.X - 600f)
                 : Vector2.Left * 1800;
-            await MoveBody((b, tween) => tween.TweenProperty(b, "position", rushTarget, 0.3f)
-                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.4f);
+            await MoveBody((b, tween) => tween.TweenProperty(b, "position", rushTarget, 0.2f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.25f);
         }
 
         NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);

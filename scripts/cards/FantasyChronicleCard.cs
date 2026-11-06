@@ -92,7 +92,7 @@ public class FantasyChronicleCard : TouhouAncientCards
         }
     }
 
-    public FantasyChronicleCard() : base(-1, CardType.Quest, CardRarity.Quest, TargetType.None, shouldShowInCardLibrary: false)
+    public FantasyChronicleCard() : base(-1, CardType.Quest, CardRarity.Quest, TargetType.None, shouldShowInCardLibrary: true)
     {
     }
 

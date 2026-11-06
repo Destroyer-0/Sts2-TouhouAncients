@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Nodes;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.Enchantment;
@@ -45,6 +50,7 @@ public class PureLight : TouhouAncientEnchantmentModel
         var hand = base.Card.Owner.PlayerCombatState?.Hand;
         if (hand == null) return;
 
+        
         // 复制一份，避免附魔过程中改动集合
         foreach (var card in hand.Cards.ToList())
         {

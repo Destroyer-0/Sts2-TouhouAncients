@@ -130,14 +130,15 @@ public class BloodDisasterPower : TouhouAncientPowerModel
         base.DynamicVars[_multiplierKey].BaseValue = CurrentMultiplier;
         NCreature? node = NCombatRoom.Instance?.GetCreatureNode(base.Owner);
         float scale = Math.Max(1, 1f + CurrentStrength * 0.1f);
-        node?.ScaleTo(scale, 0f);
+        // 用 SetScaleAndHue 而非 ScaleTo：前者会触发 UpdateBounds，判定框/血条/意图框才跟着放大
+        node?.SetScaleAndHue(scale, 0f);
         InvokeDisplayAmountChanged();
         if (node == null || Owner.Monster is not ToutetsuYuumaMonster)
         {
             return;
         }
 
-        float visualScale = scale * node.Visuals.DefaultScale;
-        node.IntentContainer.Position = node.Body.Position * visualScale + new Vector2(0f, -270f - CurrentStrength * 15f) - node.IntentContainer.Size / 2f;
+        // 体型越大越要抬高意图图标，避免压到头
+        node.IntentContainer.Position += Vector2.Up * (CurrentStrength * 15f);
     }
 }

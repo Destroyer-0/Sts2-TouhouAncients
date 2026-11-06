@@ -1,0 +1,11 @@
+{
+  "STORY_TOUHOU_ANCIENTS_STORY": "幻想郷",
+  "TOUHOUANCIENTS_SANAE.title": "信仰は誰がために？",
+  "TOUHOUANCIENTS_SANAE.description": "「荒疫――異界より不吉な報せが響く。少女は神の託宣を胸に、遠き地へと旅立つ。\nそびえ立つ尖塔は眠ることを知らず、光と闇の境はとうに霞んでいた。\n彼女は穢れた巣窟に浄化の希望を運び、偽りの栄光に奇跡の曙光を灯す。\nたとえ星辰が暗港の水に錆びようとも、若芽が密林の土に埋もれようとも。\n郷愁の涙は少女の瞳を満たし、されど不屈の信仰は寸毫も揺るがない。」\n\n早苗は[sine]生き生きと[/sine]訪れた者に物語を語る。\n\n「というわけで、[aqua]守矢神社[/aqua]への信仰、よろしくお願いします！！」",
+  "TOUHOUANCIENTS_SANAE.unlockInfo": "エンシェント「[green]東風谷早苗[/green]」と{IsRevealed:遭遇した|遭遇する}{IsRevealed:|と、この断章が明らかになる}。",
+  "TOUHOUANCIENTS_SANAE.unlockText": "この風祝のお嬢さんには、第2層または第3層で出会える。",
+  "TOUHOUANCIENTS_MAMIZOU.title": "プレオンの二岩",
+  "TOUHOUANCIENTS_MAMIZOU.description": "賢者の知らせを聞き、命蓮寺と神霊廟の二人の長は腕を鳴らしていた。\nこれは信仰を広める絶好の機会ではないか？\nしかし、塔へ誰を遣れば最も大きな利益を得られるのか。仏教と道教はこれで一歩も譲らなかった。\n\n「ふふ、ならば中立的な儂が両者の代表として広めてやろう。」\nマミゾウはすばやくその好機を嗅ぎつけた。この狸の親分は、部下のためにちょっとした利益を狙うことをいとわない。もちろん、あの意気投合した旧友のためにも。\n\n「さあ、でっかく暴れようじゃないか！」",
+  "TOUHOUANCIENTS_MAMIZOU.unlockInfo": "エンシェント「[gold]二ッ岩マミゾウ[/gold]」と{IsRevealed:遭遇した|遭遇する}{IsRevealed:|と、この断章が明らかになる}。",
+  "TOUHOUANCIENTS_MAMIZOU.unlockText": "変化自在な妖怪狸の親分には、第2層または第3層で出会える。"
+}

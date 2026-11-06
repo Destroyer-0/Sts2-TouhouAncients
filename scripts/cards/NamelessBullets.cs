@@ -16,18 +16,19 @@ namespace TouhouAncients.Scripts.cards;
 /// 无名的弹幕 (Nameless Bullets)
 /// 0c，消耗，造成 10/15 伤害。
 /// </summary>
-[Pool(typeof(EventCardPool))]
+[Pool(typeof(TokenCardPool))]
 public class NamelessBullets : TouhouAncientCards
 {
     private const int energyCost = 0;
     private const CardType type = CardType.Attack;
-    private const CardRarity rarity = CardRarity.Ancient;
+    private const CardRarity rarity = CardRarity.Token;
     private const TargetType targetType = TargetType.AnyEnemy;
     private const bool shouldShowInCardLibrary = true;
 
     public override bool CanBeGeneratedByModifiers => false; 
     public override bool CanBeGeneratedInCombat => false;
 
+    public override bool UseAncientFrame => true;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

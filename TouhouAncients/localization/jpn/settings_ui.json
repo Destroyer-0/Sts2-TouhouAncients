@@ -4,6 +4,14 @@
   "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.title": "幻想郷Modの宣伝を有効にする！",
   "TOUHOUANCIENTS-ENABLE_WORKSHOP_RECOMMEND.hover.desc": "有効にすると、エンシェントの背景右下に他の東方Modのおすすめがランダムで表示される。",
 
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.title": "入場演出を有効化",
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.title": "入場演出",
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.desc": "東方エンシェントに開始時の入場演出を追加する。\n作者：leddele",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.title": "入場演出の速度",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.title": "入場演出の速度",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.desc": "入場演出の再生速度を調整する。値が大きいほど速く再生される。入場演出を有効にしている場合のみ適用される。",
+  "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.sliderFormat": "×{0:0.0}",
+
   "TOUHOUANCIENTS-INITIAL_ANCIENT_CONFIG.title": "初期エンシェント設定",
   "TOUHOUANCIENTS-BAN_NEOW.title": "ネオーを無効化",
   "TOUHOUANCIENTS-BAN_DOREMY_SWEET.title": "ドレミー・スイートを無効化",

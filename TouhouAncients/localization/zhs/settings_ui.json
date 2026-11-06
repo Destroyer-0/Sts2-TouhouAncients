@@ -6,7 +6,7 @@
 
   "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.title": "开启入场动画",
   "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.title": "入场动画",
-  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.desc": "作者：",
+  "TOUHOUANCIENTS-ENABLE_ENTRANCE_ANIMATION.hover.desc": "为东方先古之民增添开幕入场效果。\n作者：leddele",
   "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.title": "入场动画加速",
   "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.title": "入场动画加速",
   "TOUHOUANCIENTS-ENTRANCE_ANIMATION_SPEED.hover.desc": "调节入场动画的播放速度，数值越大播放越快。仅在开启入场动画时生效。",

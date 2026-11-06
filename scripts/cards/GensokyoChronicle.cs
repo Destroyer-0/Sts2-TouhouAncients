@@ -34,6 +34,8 @@ public class GensokyoChronicle : TouhouAncientCards
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
 
+    public override string? Author => "カズ";
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // 与超ZUN啤酒同池：TouhouAncientCards 里可战斗生成的攻/技/能力牌

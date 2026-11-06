@@ -160,12 +160,12 @@
     "TOUHOUANCIENTS-THORN_SONG_FOR_YOU.description": "造成[blue]{Damage}[/blue]点伤害。额外造成等同于你当前[gold]气氛[/gold]值的伤害。\n获得[blue]{Thorns}[/blue][gold]荆棘[/gold]。\n[green][jitter]嗨到爆[/jitter][/green]状态下，改为对全体敌人造成伤害。{IfUpgraded:show:\n进入[green][jitter]嗨到爆[/jitter][/green]状态时，将此牌从牌堆返回你的[gold]手牌[/gold]|}",
 
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "幻想万象录",
-    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "进入下一阶段后，你可以选择将此牌[gold]变化[/gold]为{CardList:list:{}|、}中的一张。",
+    "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "进入下一阶段后，你可以选择将此牌[gold]变化[/gold]为{CardList:list:{}|、}中的一张。\n[pink]我会在转生准备开始前，继续编集本书。[/pink]",
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.selectionScreenPrompt": "选择要[gold]变化[/gold]成的牌。",
 
     "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.title": "幻想乡缘起",
-    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}[gold]东方先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。",
+    "TOUHOUANCIENTS-GENSOKYO_CHRONICLE.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}[gold]东方先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。\n[purple]愿您有一个安全美好的幻想乡生活。[/purple]",
 
     "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.title": "高塔英雄传",
-    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}源自[gold]先古之树[/gold]的[gold]先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。"
+    "TOUHOUANCIENTS-SPIRE_HEROES_LEGEND.description": "从[blue]{Cards}[/blue]张{IfUpgraded:show:[green]升级过的[/green]}源自[gold]先古之树[/gold]的[gold]先古之民[/gold]卡牌中选择一张加入你的[gold]手牌[/gold]。这张牌在本回合可以免费打出。\n[orange]他们多数有好多谜团，这些谜团总会解开的。[/orange]"
 }

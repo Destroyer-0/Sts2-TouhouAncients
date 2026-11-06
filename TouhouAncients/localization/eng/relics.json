@@ -30,7 +30,7 @@
   "TOUHOUANCIENTS-SHEYAOTEBIEQIANG.filterKeywords": "Snake",
 
   "TOUHOUANCIENTS-YIYANDINGZHEN.title": "Snecko's True Gaze",
-  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of each turn, choose a card in your [gold]Hand[/gold]. It is free to play this turn.",
+  "TOUHOUANCIENTS-YIYANDINGZHEN.description": "Start each combat [red]Confused[/red]. At the start of each turn, choose a card in your [gold]Hand[/gold]. It's free to play this turn.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.flavor": "One True Gaze confirms it: way too costly.",
   "TOUHOUANCIENTS-YIYANDINGZHEN.selectionScreenPrompt": "Choose a card to make it free this turn.",
 
@@ -608,7 +608,8 @@
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.eventDescription": "At the start of each turn, gain {energyPrefix:energyIcons(1)} equal to the current turn number.[red]At the start of turn [blue]{TriggerTurn}[/blue], gain The Gambit.[/red]",
   "TOUHOUANCIENTS-PRIMAL_SPIRIT.flavor": "A pure power that existed before all things had names.",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.title": "Pure Light Upon the Palm",
-  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.description": "Upon pickup, remove the Enchantments from all of your Starter [gold]Strike[/gold] and [gold]Defend[/gold] cards, then [gold]Enchant[/gold] them with [purple]Purity[/purple].",
+  "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.eventDescription": "Remove the Enchantments from all of your Starter [gold]Strike[/gold] and [gold]Defend[/gold] cards, then [gold]Enchant[/gold] them with [purple]Purity[/purple].",
   "TOUHOUANCIENTS-PARE_LIGHT_OF_THE_PALM.flavor": "And God said, \"Let there be light.\"",
 
   "TOUHOUANCIENTS-BOTTOMLESS_STOMACH.title": "Bottomless Stomach",
@@ -783,7 +784,7 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "\"Dream Manager? Collect dream souls? Like bubbles! Interesting! Put my dream in a jar!!\"",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "Melting Wax Dream",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "At the start of your turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "The first time you lose HP each turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]\"Dream Manager? You must have seen many of my dreams... Now that you've taken it, let me sleep a little longer...\"[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "Blazing Candle Dream",
@@ -807,6 +808,10 @@
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.title": "Sinister Pact Dream",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.description": "When you meet the [blue]1st[/blue] [gold]Merchant[/gold], immediately obtain [red]ALL[/red] of his wares, then add a [red]Greed[/red] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-SINISTER_PACT_DREAM.flavor": "\"Heheh, a demon's dream is no simple thing. I'm sure you know the small price of a contract...\"",
+
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.title": "Rich Merchant Dream",
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.description": "For the first [blue]{Shops}[/blue] times you meet the [gold]Merchant[/gold], if you have less than [blue]{Threshold}[/blue] [gold]Gold[/gold], gain [blue]{Gold}[/blue] [gold]Gold[/gold].",
+  "TOUHOUANCIENTS-RICH_MERCHANT_DREAM.flavor": "\"Please keep supporting your local shops, even in your dreams! This is our newest low-income support service!\" (Disclaimer: This dream soul was paid for by the Merchant)",
 
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.title": "Flowing Splendor Dream",
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.description": "Upon pickup, [gold]Enchant[/gold] a pair of [gold]Strike[/gold] and [gold]Defend[/gold] in your [gold]Deck[/gold] with [purple]Glam[/purple].",

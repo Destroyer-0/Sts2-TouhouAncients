@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -14,7 +15,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
-/// 熔蜡之梦：回合开始时，若你的生命值低于50%，获得3层再生。
+/// 熔蜡之梦：每回合首次失去生命时，若生命值低于50%，获得3层再生。
 /// 如果你在一场战斗中通过此方式累计获得9点再生，则此遗物永久失效。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
@@ -66,19 +67,32 @@ public class MeltingWaxDream : TouhouAncientRelics
         return Task.CompletedTask;
     }
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player != base.Owner) return;
-        if (TouhouAncients_Expired) return;
-        if (base.Owner?.Creature?.CombatState == null) return;
+    /// <summary>本回合是否已消耗掉唯一一次判定（一次判定 = 该回合首次失去生命）。</summary>
+    private bool _triggeredThisTurn;
 
-        var creature = base.Owner.Creature;
+    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        // 「回合」以玩家回合起点为界，敌人行动与本回合共用一次判定
+        if (player == base.Owner)
+            _triggeredThisTurn = false;
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterCurrentHpChanged(Creature creature, decimal delta)
+    {
+        if (creature != base.Owner?.Creature) return;
+        if (TouhouAncients_Expired) return;
+        if (delta >= 0m) return;
+        if (_triggeredThisTurn) return;
+        if (creature.IsDead) return;
+
+        // 首次失去生命即消耗判定，之后即使未达阈值本回合也不再触发
+        _triggeredThisTurn = true;
+
         var threshold = base.DynamicVars["HpThreshold"].BaseValue;
         var currentPercent = creature.MaxHp > 0
             ? (decimal)creature.CurrentHp / creature.MaxHp * 100m
             : 0m;
-
-        // 生命值不低于阈值时不触发
         if (currentPercent >= threshold) return;
 
         var gain = (int)base.DynamicVars["RegenGain"].BaseValue;
@@ -86,7 +100,7 @@ public class MeltingWaxDream : TouhouAncientRelics
 
         Flash();
 
-        await PowerCmd.Apply<RegenPower>(choiceContext, creature, gain, creature, null);
+        await PowerCmd.Apply<RegenPower>(new ThrowingPlayerChoiceContext(), creature, gain, creature, null);
 
         _regenGainedThisCombat += gain;
 

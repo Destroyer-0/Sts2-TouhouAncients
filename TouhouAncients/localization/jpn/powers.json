@@ -55,16 +55,16 @@
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "財を捨てて災を消す",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "アタックカードで攻撃された時、攻撃者は[gold]王家の資産[/gold]を[blue]6[/blue]失う。\nダメージを与えた時、相手は[gold]王家の資産[/gold]を[blue]6[/blue]失う。",
-  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "アタックカードで攻撃された時、攻撃者は[gold]王家の資産[/gold]を[blue]{Amount}[/blue]失う。\nダメージを与えた時、相手は[gold]王家の資産[/gold]を[blue]{Amount}[/blue]失う。",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.description": "アタックカードで攻撃された時、攻撃者は[gold]ロイヤリティ[/gold]を[blue]5[/blue]失う。\nダメージを与えた時、相手は[gold]ロイヤリティ[/gold]を[blue]5[/blue]失う。\n[i][purple]万悪、貧を首とす。[/purple][/i]",
+  "TOUHOUANCIENTS-UNFORTUNATE_POWER.smartDescription": "アタックカードで攻撃された時、攻撃者は[gold]ロイヤリティ[/gold]を[blue]{Amount}[/blue]失う。\nダメージを与えた時、相手は[gold]ロイヤリティ[/gold]を[blue]{Amount}[/blue]失う。\n[i][purple]万悪、貧を首とす。[/purple][/i]",
 
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.title": "双生",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.description": "毎ターン[gold]女苑[/gold]に[blue]8[/blue][gold]ブロック[/gold]を与える。\nこのユニットが死亡した時、[blue]2[/blue]ターン後にHP[blue]50[/blue]で復活する。\n女苑が戦闘不能になった時、このユニットは[gold]スタン[/gold]し、このパワーは失われる。",
   "TOUHOUANCIENTS-TWIN_SOUL_POWER.smartDescription": "毎ターン[gold]女苑[/gold]に[blue]{Amount}[/blue][gold]ブロック[/gold]を与える。\nこのユニットが死亡した時、[blue]2[/blue]ターン後にHP[blue]{RecoverHP}[/blue]で復活する。\n女苑が戦闘不能になった時、このユニットは[gold]スタン[/gold]し、このパワーは失われる。",
 
   "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.title": "借金取り",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "次の攻撃は対象の[gold]王家の資産[/gold]の[blue]50%[/blue]を消し去り、同量の追加ダメージを与え、同量のHPを回復する。\n[gold][i]そろそろ返してもらう時間だ。[/i][/gold]",
-  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "次の攻撃は対象の[gold]王家の資産[/gold]の[blue]{Amount}%[/blue]を消し去り、同量の追加ダメージを与え、同量のHPを回復する。\n[gold][i]そろそろ返してもらう時間だ。[/i][/gold]",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.description": "次の一撃は対象の[gold]ロイヤリティ[/gold]の[blue]50%[/blue]を消し去り、同量の追加ダメージを与え、同量のHPを回復する。\n[gold][i]そろそろ返してもらう時間だ。[/i][/gold]",
+  "TOUHOUANCIENTS-DEBT_COLLECTOR_POWER.smartDescription": "次の一撃は対象の[gold]ロイヤリティ[/gold]の[blue]{Amount}%[/blue]を消し去り、同量の追加ダメージを与え、同量のHPを回復する。\n[gold][i]そろそろ返してもらう時間だ。[/i][/gold]",
 
   "TOUHOUANCIENTS-MAGICIAN_POWER.title": "普通の魔法使い",
   "TOUHOUANCIENTS-MAGICIAN_POWER.description": "[gold][jitter]マスタースパーク[/jitter][/gold]の発射準備時、場のキノコ1個につき、魔理沙は[blue]7[/blue]HPを回復し[blue]10[/blue][gold]活力[/gold]を得る。\n[gold][i]弾幕は火力[sine]だ☆ぜ[/sine]！[/i][/gold]",
