@@ -33,6 +33,15 @@ public abstract class TouhouAncientBadge(bool requiresWin, bool multiplayerOnly)
     protected static bool HasText(string? text, string value) =>
         text != null && text.Contains(value, StringComparison.OrdinalIgnoreCase);
 
+    /// <summary>
+    /// 按 ModelId 反查模型类型名做匹配：类型名不受 BaseLib / RitsuLib / 无基础库的 Id 前缀规则影响，
+    /// 避免第三方 mod 的 MODID 撞名误判。反查不到视为不命中。
+    /// </summary>
+    protected static bool ModelNameContains(ModelId? id, string value) =>
+        id != null &&
+        ModelDb.GetByIdOrNull<AbstractModel>(id) is { } model &&
+        model.GetType().Name.Contains(value, StringComparison.OrdinalIgnoreCase);
+
     /// <summary>本局进入过的全部房间。</summary>
     protected static IEnumerable<MapPointRoomHistoryEntry> AllRooms(SerializableRun run) =>
         AllPoints(run).SelectMany(point => point.Rooms);
