@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using Godot;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Saves;
 using TouhouAncients.Scripts.relics.Akyuu;
 
 namespace TouhouAncients.Scripts;
@@ -19,6 +22,21 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
 {
     /// <summary>仅第一幕出现（具体幕数校验在基类 IsValidForAct 中完成）。</summary>
     public override int? ShowAct => 1;
+
+    /// <summary>对话文案里的 {Visits}：由对话渲染时注入 DynamicVars。</summary>
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Visits", 0m)];
+
+    public override void CalculateVars()
+    {
+        base.CalculateVars();
+        // 多人下各端独立计算，避免同步值互相覆盖
+        if (LocalContext.IsMe(base.Owner))
+        {
+            int visits = SaveManager.Instance.Progress.AncientStats
+                .GetValueOrDefault(base.Id)?.GetVisitsAs(base.Owner.Character.Id) ?? 0;
+            base.DynamicVars["Visits"].BaseValue = visits + 1;
+        }
+    }
 
     public override Color ButtonColor => new(0.2f, 0.2f, 0.2f, 0.5f);
     public override Color DialogueColor => new(0.9f, 0.35f, 1f, 1f);
@@ -41,7 +59,8 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
             TARelicOption<CamelliaHairpin>(),
             TARelicOption<HardcoverBinding>(),
             TARelicOption<AncientSpecimen>(),
-            TARelicOption<MedicinalCuisine>()
+            TARelicOption<MedicinalCuisine>(),
+            TARelicOption<ScholarCrown>()
         ), 2),
         CreateTARelicOptionPool(
             TARelicOption<YougakudanCollection>(),
@@ -53,7 +72,8 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
             TARelicOption<FantasyChronicle>().Prep((FantasyChronicle relic) =>
             {
                 if (Owner != null) relic.SetupForPlayer(Owner);
-            })
+            }),
+            TARelicOption<OldNewspaper>()
             )
     ];
 
