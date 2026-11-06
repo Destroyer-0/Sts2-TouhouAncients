@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Models.Relics;
@@ -23,6 +24,8 @@ namespace TouhouAncients.Scripts.relics.Akyuu;
 [Pool(typeof(EventRelicPool))]
 public class FantasyChronicle : TouhouAncientRelics
 {
+    private const string CardListKey = "CardList";
+
     private static readonly MethodInfo? GetStarterCardMethod = typeof(ArchaicTooth).GetMethod(
         "GetTranscendenceStarterCard", BindingFlags.NonPublic | BindingFlags.Instance, null, [typeof(Player)], null);
 
@@ -44,6 +47,7 @@ public class FantasyChronicle : TouhouAncientRelics
             AssertMutable();
             _dustyTomeCard = value;
             UpdateHoverTips();
+            RefreshCardList();
         }
     }
 
@@ -57,6 +61,7 @@ public class FantasyChronicle : TouhouAncientRelics
             AssertMutable();
             _toothCard = value;
             UpdateHoverTips();
+            RefreshCardList();
         }
     }
 
@@ -84,10 +89,22 @@ public class FantasyChronicle : TouhouAncientRelics
         }
     }
 
+    // 图鉴/选项预览会拿 canonical 实例，先垫上固定候选，否则 {CardList} 为空
+    protected override IEnumerable<DynamicVar> CanonicalVars
+    {
+        get
+        {
+            StringListVar list = new(CardListKey);
+            list.Set(BuildCardNames(null, null));
+            return [list];
+        }
+    }
+
     protected override void AfterCloned()
     {
         base.AfterCloned();
         _extraHoverTips = [];
+        RefreshCardList();
     }
 
     /// <summary>
@@ -139,6 +156,25 @@ public class FantasyChronicle : TouhouAncientRelics
         card.DustyTomeCard = _dustyTomeCard;
         card.ToothCard = _toothCard;
         return HoverTipFactory.FromCard(card);
+    }
+
+    /// <summary>遗物描述里的候选牌名；AKYUUMOD 是否在场运行时判定。</summary>
+    private void RefreshCardList()
+        => ((StringListVar)base.DynamicVars[CardListKey]).Set(BuildCardNames(_dustyTomeCard, _toothCard));
+
+    /// <summary>未掷定时两张随机牌为 null，只列固定选项。</summary>
+    private static List<string> BuildCardNames(ModelId? dustyTome, SerializableCard? tooth)
+    {
+        List<string> names = [];
+
+        if (dustyTome != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(dustyTome).Title}[/gold]");
+        if (tooth?.Id != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(tooth.Id).Title}[/gold]");
+        names.Add($"[gold]{ModelDb.Card<GensokyoChronicle>().Title}[/gold]");
+        names.Add($"[gold]{ModelDb.Card<SpireHeroesLegend>().Title}[/gold]");
+        // 金色会盖掉内层颜色，阿求 mod 的卡只能整项换粉色
+        if (FantasyChronicleCard.FindAkyuuCard() is { } modCard) names.Add($"[pink]{modCard.Title}[/pink]");
+
+        return names;
     }
 
     /// <summary>照原版尘封魔典：当前角色已解锁的 Ancient 稀有度牌，排除升华用的那几张。</summary>

@@ -67,7 +67,16 @@ public class FantasyChronicleCard : TouhouAncientCards
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringListVar(CardListKey)];
+    // 图鉴直接用 canonical 实例渲染描述，这里必须先垫上固定候选，否则 {CardList} 为空
+    protected override IEnumerable<DynamicVar> CanonicalVars
+    {
+        get
+        {
+            StringListVar list = new(CardListKey);
+            list.Set(BuildCardNames(null, null));
+            return [list];
+        }
+    }
 
     /// <summary>候选牌的卡面提示；AKYUUMOD 是否在场在悬停时才判定，读档换 mod 列表也能跟上。</summary>
     protected override IEnumerable<IHoverTip> ExtraHoverTips
@@ -134,7 +143,6 @@ public class FantasyChronicleCard : TouhouAncientCards
         if (_dustyTomeCard != null)
         {
             CardModel dusty = player.RunState.CreateCard(SaveUtil.CardOrDeprecated(_dustyTomeCard), player);
-            CardCmd.Upgrade(dusty, CardPreviewStyle.None);
             list.Add(dusty);
         }
 
@@ -153,7 +161,6 @@ public class FantasyChronicleCard : TouhouAncientCards
         if (_toothCard?.Id == null) return null;
 
         CardModel card = player.RunState.CreateCard(SaveUtil.CardOrDeprecated(_toothCard.Id), player);
-        for (int i = 0; i < _toothCard.CurrentUpgradeLevel; i++) CardCmd.Upgrade(card, CardPreviewStyle.None);
         return card;
     }
 
@@ -189,16 +196,20 @@ public class FantasyChronicleCard : TouhouAncientCards
     }
 
     private void RefreshCardList()
+        => ((StringListVar)base.DynamicVars[CardListKey]).Set(BuildCardNames(_dustyTomeCard, _toothCard));
+
+    /// <summary>候选牌名；图鉴/未掷定时两张随机牌为 null，只列固定选项。</summary>
+    private static List<string> BuildCardNames(ModelId? dustyTome, SerializableCard? tooth)
     {
         List<string> names = [];
 
-        if (_dustyTomeCard != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(_dustyTomeCard).Title}[/gold]");
-        if (_toothCard?.Id != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(_toothCard.Id).Title}[/gold]");
+        if (dustyTome != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(dustyTome).Title}[/gold]");
+        if (tooth?.Id != null) names.Add($"[gold]{SaveUtil.CardOrDeprecated(tooth.Id).Title}[/gold]");
         names.Add($"[gold]{ModelDb.Card<GensokyoChronicle>().Title}[/gold]");
         names.Add($"[gold]{ModelDb.Card<SpireHeroesLegend>().Title}[/gold]");
         // 金色会盖掉内层颜色，阿求 mod 的卡只能整项换粉色
         if (FindAkyuuCard() is { } modCard) names.Add($"[pink]{modCard.Title}[/pink]");
 
-        ((StringListVar)base.DynamicVars[CardListKey]).Set(names);
+        return names;
     }
 }
