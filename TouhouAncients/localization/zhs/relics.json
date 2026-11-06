@@ -880,52 +880,52 @@
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.title": "幺乐藏品",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.description": "拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.eventDescription": "将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "这个幺乐团所残留的曲子的历史被记录了下来，并保留在了幻想乡缘起里。",
 
   "TOUHOUANCIENTS-READING_GLASSES.title": "老花镜",
   "TOUHOUANCIENTS-READING_GLASSES.description": "拾起时，将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。",
   "TOUHOUANCIENTS-READING_GLASSES.eventDescription": "将一张[gold]迷之树叶[/gold]加入你的[gold]牌组[/gold]。每当你将一张牌加入你的[gold]牌组[/gold]时，此牌将[purple]伪装[/purple]为那张牌。",
-  "TOUHOUANCIENTS-READING_GLASSES.flavor": "",
+  "TOUHOUANCIENTS-READING_GLASSES.flavor": "“呵呵，只是一份‘老朋友’的礼物。”",
 
   "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "妖魔图鉴",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "每当你遇到敌人时，记录其名称。再次遇到的名称存在于记录中的敌人将只有[blue]1[/blue]点生命值。",
-  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "若能更了解妖怪的能力和做出相应对策，回避危险的地方，那就能不用战战兢兢地生活了吧。",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "过目不忘",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "已记录的怪物：\n{Monsters:list:{}|\n}",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.inspirationTitle": "灵感来源",
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "宁神红茶",
   "TOUHOUANCIENTS-CALMING_TEA.description": "回合结束时，若你处于负面状态，获得[blue]{Block}[/blue]点[gold]格挡[/gold]。",
-  "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
+  "TOUHOUANCIENTS-CALMING_TEA.flavor": "在此期间我希望能一直边听幺乐团的音乐，边享受我最喜爱的红茶。",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "侦探小说手稿",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "“排除一切不可能的，剩下的即使再不可能，也是真相。”——夏洛克·福尔摩斯",
 
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.title": "阿加莎·克里斯Q侦探集",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.description": "在[gold]?[/gold]房间中，阻止你第一次受到的生命值损伤。\n攻击牌对意图不是攻击的敌人额外造成[blue]{Damage}[/blue]点伤害。回合结束时，场上每有一个敌人，额外最多[gold]保留[/gold][blue]{RetainCard}[/blue]张手牌。",
-  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "“我喜欢活着，我有时会痛苦难耐，会绝望无比，会饱受忧愁的折磨。可是当一切过去之后，我仍然能很清楚地认识到，好好活着就是最了不起的事情。”",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "签名色纸",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。",
-  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "阿加莎·克里斯Q的新书签售会正火热举办中！",
 
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "山茶花发饰",
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "每当你在[gold]休息处[/gold]休息时，你可以[gold]变化[/gold]一张牌。",
-  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "下次见面之时，你我之间也许再也认不出彼此了吧。",
 
   "TOUHOUANCIENTS-HARDCOVER_BINDING.title": "精装封皮",
   "TOUHOUANCIENTS-HARDCOVER_BINDING.description": "你在非战斗房间中获得的卡牌将自动[green]升级[/green]。",
-  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "作品发售前，总是还需要精心包装与修订一番。",
 
   "TOUHOUANCIENTS-SAKURA_COMB.title": "樱色发梳",
   "TOUHOUANCIENTS-SAKURA_COMB.description": "每当你进入[gold]休息处[/gold]或遇到[gold]先古之民[/gold]时，获得[blue]{MaxHp}[/blue]点[gold]最大生命[/gold]，然后将一张[red]阎罗之罪罚[/red]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "",
+  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "转生之术其实就是在生前乞求阎魔大人的许可，在得到转生用的肉体和转生前的百余年间，在地狱的阎魔大人手下劳动。",
 
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.title": "古代标本",
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.description": "[gold]精英[/gold]敌人的生命值减少[blue]{Percent}%[/blue]。",
-  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "据说在千年前已经灭绝的昆虫标本，但随着这种昆虫再次现世，标本也就失去绝版的意义了。",
 
   "TOUHOUANCIENTS-BLANK_ROSTER.title": "空白名册",
   "TOUHOUANCIENTS-BLANK_ROSTER.description": "拾起时，随机获得[blue]{Count}[/blue]件[gold]稗田阿求遗物[/gold]，将一张[red]积劳成疾[/red]加入你的[gold]牌组[/gold]。",
@@ -934,16 +934,26 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "“人类和妖怪之间的距离比想象的更近呢！”",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象录",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。进入下一阶段后，你可以将这张牌变化为{CardList:list:{}|、}中的一张。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。进入下一阶段后，你可以将这张牌变化为{CardList:list:{}|、}中的一张。",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "调理药膳",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "拾起时，获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "有助于增强记忆力。",
+
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "授业儒冠",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "每[blue]{Combats}[/blue]场战斗，额外掉落[blue]1[/blue]组[gold]稀有卡牌奖励[/gold]。",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "请不要忘记写布置的作业！",
+
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧篇",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "第九代御阿礼之子出生时的新闻。作为纪念，收藏了起来。",
 
   "TOUHOUANCIENTS-SUPPORT_BATON.title": "偶像应援棒",
   "TOUHOUANCIENTS-SUPPORT_BATON.description": "在每场战斗开始时，选择一种[purple]演奏[/purple]方式。",

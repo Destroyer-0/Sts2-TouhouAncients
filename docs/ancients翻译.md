@@ -1537,3 +1537,19 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 - 日语自称 `私`、句尾 `だな` 与魔理沙已有台词语气一致。
 
 ---
+
+## 重译（2026-11-06，阿求 `talk.ANY.11-0r`）
+
+zhs 改为强调「只负责听闻、后人评说」，原译文「作为史官只须记录」不再贴合。
+
+**键名**: `TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.ANY.11-0r.ancient`
+
+| 中文（现行） | English | 日本語 |
+|------|---------|--------|
+| ……我不会评判涅奥与建筑师的恩怨。我的使命是听闻各种各样的事件，其中的是非黑白，自会有后人评说。 | ...I will not judge the feud between Neow and the Architect. My calling is to hear of all manner of events; as for what is right and what is wrong, later generations shall judge. | ……ネオーとアーキテクトの因縁を裁くつもりはありません。私の務めはさまざまな出来事を聞き届けること。その是非善悪は、後の世の者が評するでしょう。 |
+
+- 「听闻」取 `hear of` / 「聞き届ける」，保留「只听不判」的分寸；「是非黑白」→ `what is right and what is wrong` / 「是非善悪」，与阿求其他台词的书面语气一致。
+- 删去原译的 `As a historian` / 「史官として」，因 zhs 已不点明身份。
+- 涅奥 / 建筑师沿用 `Neow` / `Architect`、`ネオー` / `アーキテクト`。
+
+---

@@ -941,11 +941,21 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "Fantasy Chronicle",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "Add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. After entering the next act, you may [gold]Transform[/gold] this card into one of: {CardList:list:{}|, }.",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "Add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. After entering the next act, you may [gold]Transform[/gold] this card into one of: {CardList:list:{}|, }.",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "Medicinal Cuisine",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "Gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "Scholar's Crown",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "Every [blue]{Combats}[/blue] combats, gain [blue]1[/blue] additional [gold]Rare Card Reward[/gold].",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "",
+
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "Old Rites News",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total.",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "Gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total.",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": ""
 }

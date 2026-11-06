@@ -3543,3 +3543,58 @@ zhs 侧将机制唯一称谓统一为「收录」（原先散落的「记录」�
 - 与遗物同名的任务牌 `FANTASY_CHRONICLE_CARD` 的译名保持完全一致（同名不同表，键不冲突）。
 - 「拾起时」照本 mod 惯例作 `Upon pickup` / 「入手時」；`.eventDescription` 因描述含「拾起时，」前缀而与 `.description` 不同，故保留。
 - 配套卡牌「幻想乡缘起」「高塔英雄传」的译法见 `docs/cards翻译.md`。
+
+---
+
+## 新增翻译（2026-11-06，阿求遗物「调理药膳」补键 + 「授业儒冠」「神事旧篇」）
+
+`MEDICINAL_CUISINE` 仅补缺的 `.eventDescription`；`SCHOLAR_CROWN`、`OLD_NEWSPAPER` 在 eng/jpn 中整条缺失，按 zhs 顺序追加在 `MEDICINAL_CUISINE` 之后。zhs 未改动。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "获得[blue]{Potions}[/blue]瓶[gold]养生药汤[/gold]。",
+"TOUHOUANCIENTS-SCHOLAR_CROWN.title": "授业儒冠",
+"TOUHOUANCIENTS-SCHOLAR_CROWN.description": "每[blue]{Combats}[/blue]场战斗，额外掉落[blue]1[/blue]组[gold]稀有卡牌奖励[/gold]。",
+"TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧篇",
+"TOUHOUANCIENTS-OLD_NEWSPAPER.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。",
+"TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。"
+```
+
+### 翻译
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `MEDICINAL_CUISINE.eventDescription` | 获得 {Potions} 瓶养生药汤。 | Gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold]. | [gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。 |
+| `SCHOLAR_CROWN.title` | 授业儒冠 | Scholar's Crown | 授業の儒冠 |
+| `SCHOLAR_CROWN.description` | 每 {Combats} 场战斗，额外掉落 1 组稀有卡牌奖励。 | Every [blue]{Combats}[/blue] combats, gain [blue]1[/blue] additional [gold]Rare Card Reward[/gold]. | [blue]{Combats}[/blue]戦ごとに、[gold]レア[/gold]の[gold]カード報酬[/gold]を追加で[blue]1[/blue]回得る。 |
+| `OLD_NEWSPAPER.title` | 神事旧篇 | Old Rites News | 神事旧聞 |
+| `OLD_NEWSPAPER.description` | 拾起时，获得 {MaxHpGain} 点最大生命。每当受到未被格挡的伤害，失去 {MaxHpLoss} 点最大生命，最多 {MaxHpLossTotal} 点。 | Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total. | 入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。 |
+| `OLD_NEWSPAPER.eventDescription` | 同上去掉「拾起时，」。 | Gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total. | [blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。 |
+
+### 说明
+- 用户指明「神事」即「御阿礼神事」，「神事旧篇」为记载该神事的旧报纸；标题定稿 `Old Rites News`（Old = 旧，News = 报纸）/ 「神事旧聞」，避开与本 mod「往昔之梦」(`BYGONE_DREAM`) 的 Bygone 撞词。
+- 「稀有卡牌奖励」日语沿 `GIFT_FROM_MOUNTAIN` 句式作「[gold]レア[/gold]の[gold]カード報酬[/gold]」。
+- 「最多失去 N 点」日文按 `HOTOKE_MISHI_ISHI_NO_HACHI` 的「最大HPを…失う」句式扩展为「（最大で…まで）」。
+- 「授业儒冠」英文取 `Scholar's Crown`（不逐字译 授业），日文「授業の儒冠」保留儒冠一词。
+
+---
+
+## 更新翻译（2026-11-06，遗物「幻想万象录」补 CardList）
+
+zhs 描述新增「这张牌会在进入下一幕后变化为 `{CardList}` 中的一张」，eng/jpn 同步；遗物脚本补 `StringListVar("CardList")` 并在候选牌变动时填充。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。这张牌会在进入下一幕后变化为{CardList:list:{}|、}中的一张。",
+"TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。这张牌会在进入下一幕后变化为{CardList:list:{}|、}中的一张。"
+```
+
+### 翻译
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.description` | 拾起时加入 1 张幻想万象录；进入下一阶段后可将它变化为候选之一。 | Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. After entering the next act, you may [gold]Transform[/gold] this card into one of: {CardList:list:{}|, }. | 入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。 |
+| `.eventDescription` | 同上去掉「拾起时，」。 | Add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. After entering the next act, you may [gold]Transform[/gold] this card into one of: {CardList:list:{}|, }. | [gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。 |
+
+### 说明
+- 列表分隔符按语言习惯：zhs/jpn 用「、」，eng 用 `, `；与 `FANTASY_CHRONICLE_CARD` 的描述写法保持一致。
+- 句式与任务牌 `FANTASY_CHRONICLE_CARD` 对齐（「你可以…变化为」→ `you may Transform ...` / 「…させることができる」），强调玩家主动选择。
+- 候选牌名由脚本填充（尘封魔典对应先古牌、古老牙齿升华牌、幻想乡缘起、高塔英雄传、AKYUUMOD 卡），选项阶段即已掷定，故遗物面板也能显示完整列表。

@@ -12,7 +12,7 @@
   "TOUHOUANCIENTS-MIRACLE_AGAIN.description": "在一场战斗中打出至少[blue]7[/blue]张带有[purple]奇迹[/purple]附魔的牌。",
   "TOUHOUANCIENTS-MIRACLE_AGAIN.title": "奇迹再现",
   "TOUHOUANCIENTS-REVENGE_FIRE.description": "使用[gold]藤原妹红[/gold]击败[gold]蓬莱山辉夜[/gold]。",
-  "TOUHOUANCIENTS-REVENGE_FIRE.title": "复仇之火",
+  "TOUHOUANCIENTS-REVENGE_FIRE.title": "仇火无休",
   "TOUHOUANCIENTS-REVENGE_FIRE_IRONCLAD.description": "使用[gold]铁甲战士[/gold]击败[gold]蓬莱山辉夜[/gold]。",
   "TOUHOUANCIENTS-REVENGE_FIRE_IRONCLAD.title": "代餐",
   "TOUHOUANCIENTS-SERVANT_FAMILY_PHOTO.description": "使用[gold]储君[/gold]时，牌组中同时存在[gold]时间仆从[/gold]、[gold]魔法仆从[/gold]与[gold]罡气仆从[/gold]。",
@@ -23,7 +23,7 @@
   "TOUHOUANCIENTS-THE_EVER_CHANGING_DUO.title": "百变拍档",
   "TOUHOUANCIENTS-THREE_SNAKE.description": "同时获得真假版本的[gold]异蛇之眼[/gold]与[gold]异眼顶真的蛇瞳[/gold]。",
   "TOUHOUANCIENTS-THREE_SNAKE.title": "三蛇戏法",
-  "TOUHOUANCIENTS-HEALTH_CONSCIOUS.description": "带着[blue]2[/blue]份[gold]养生药汤[/gold]通过第一幕。",
+  "TOUHOUANCIENTS-HEALTH_CONSCIOUS.description": "带着至少[blue]1[/blue]份[gold]养生药汤[/gold]完成游戏。",
   "TOUHOUANCIENTS-HEALTH_CONSCIOUS.title": "注重养生",
   "TOUHOUANCIENTS-ULTRA_LUCKY.description": "使用[gold]幸运白兔[/gold]一次性获得至少[blue]4[/blue]张耗能为0的牌。",
   "TOUHOUANCIENTS-ULTRA_LUCKY.title": "究极幸运",
@@ -38,5 +38,11 @@
   "TOUHOUANCIENTS-SATORI_KOISHI.goldDescription": "在一局游戏中遇到[blue]4[/blue]次[gold]古明地觉[/gold]与[blue]2[/blue]次[gold]古明地恋[/gold]。",
   "TOUHOUANCIENTS-SATORI_KOISHI.goldTitle": "四五二石",
   "TOUHOUANCIENTS-MR_ZUN.description": "在一场游戏中喝下[blue]12[/blue]杯[gold]超ZUN啤酒[/gold]。",
-  "TOUHOUANCIENTS-MR_ZUN.title": "那个男人"
+  "TOUHOUANCIENTS-MR_ZUN.title": "那个男人",
+  "TOUHOUANCIENTS-MEMORY_PALACE.bronzeDescription": "持有至少[blue]2[/blue]本[gold]《幻想乡缘起》[/gold]。",
+  "TOUHOUANCIENTS-MEMORY_PALACE.bronzeTitle": "双线叙事",
+  "TOUHOUANCIENTS-MEMORY_PALACE.silverDescription": "持有至少[blue]3[/blue]本[gold]《幻想乡缘起》[/gold]。",
+  "TOUHOUANCIENTS-MEMORY_PALACE.silverTitle": "三段式结构",
+  "TOUHOUANCIENTS-PURE_AND_SPOTLESS.description": "[gold]抽牌堆[/gold]、[gold]手牌[/gold]、[gold]弃牌堆[/gold]与[gold]消耗堆[/gold]中的所有非状态、非诅咒牌都带有[purple]纯粹[/purple][gold]附魔[/gold]。",
+  "TOUHOUANCIENTS-PURE_AND_SPOTLESS.title": "心之所在"
 }

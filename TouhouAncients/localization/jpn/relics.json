@@ -940,11 +940,21 @@
   "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象録",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。",
+  "TOUHOUANCIENTS-FANTASY_CHRONICLE.eventDescription": "[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.flavor": "",
 
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "薬膳調理",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "入手時、[gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": ""
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "[gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "授業の儒冠",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "[blue]{Combats}[/blue]戦ごとに、[gold]レア[/gold]の[gold]カード報酬[/gold]を追加で[blue]1[/blue]回得る。",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "",
+
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧聞",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": ""
 }
