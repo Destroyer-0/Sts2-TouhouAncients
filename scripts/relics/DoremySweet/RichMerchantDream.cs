@@ -16,7 +16,7 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class RichMerchantDream : TouhouAncientRelics
 {
-    private const int MaxShops = 4;
+    private const int MaxShops = 5;
 
     private int _shopsVisited;
 
