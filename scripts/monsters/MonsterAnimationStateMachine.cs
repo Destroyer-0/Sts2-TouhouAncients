@@ -190,7 +190,7 @@ public sealed class MonsterAnimationStateMachine
     }
 
     /// <summary>播放当前循环归属动画（等价旧 PlayCurrentLoopAnimation）；精灵不可用时静默忽略。</summary>
-    public void TriggerLoop()
+    public void TriggerIdleLoop()
     {
         if (ResolveSprite() == null)
             return;
@@ -247,7 +247,7 @@ public sealed class MonsterAnimationStateMachine
             }
             else
             {
-                TriggerLoop();
+                TriggerIdleLoop();
             }
             return;
         }

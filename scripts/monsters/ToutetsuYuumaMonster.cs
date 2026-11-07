@@ -188,7 +188,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         // 自身 1 层血煞祸劫（Single 类型：已有则不再叠加）
         await PowerCmd.Apply<BloodDisasterPower>(choiceContext, base.Creature, 1m, base.Creature, null);
         await Cmd.Wait(1f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -211,7 +211,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
             .Execute(null);
         
         await Cmd.Wait(0.55f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -282,7 +282,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         
         await Cmd.Wait(0.2f);
 
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -294,7 +294,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         VfxCmd.PlayOnCreatureCenter(base.Creature, "vfx/vfx_scream");
         await Cmd.Wait(1.5f);
         await PowerCmd.Apply<HungryInstinctPower>(new ThrowingPlayerChoiceContext(), targets, FeastHungryInstinct, base.Creature, null);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -340,7 +340,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
             .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.15f);
         Anim.Trigger("landing");
         await Cmd.Wait(0.2f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, ChaosHellStrength, base.Creature, null);
 
         // 连击次数 +1

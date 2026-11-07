@@ -84,7 +84,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     {
         SelfRepairState!.FollowUpState = _rootBranch;
         SetMoveImmediate(SelfRepairState, forceTransition: true);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     public override bool ShouldFadeAfterDeath => true; //IsJoonAlive();
@@ -221,7 +221,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), targets, DoomSpreadDoom, base.Creature,
             null);
         await Cmd.Wait(0.75f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -265,7 +265,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
         await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.25f)
             .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
 
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>

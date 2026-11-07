@@ -251,7 +251,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         SfxCmd.Play("event:/sfx/ui/gold/gold_2");
         await Cmd.Wait(0.6f);
         StopWealthGlyphs();
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -315,7 +315,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         await Cmd.Wait(0.25f);
         
         await PowerCmd.Apply<DebtCollectorPower>(new ThrowingPlayerChoiceContext(), base.Creature, 50m, base.Creature, null);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -337,7 +337,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
         await Cmd.Wait(0.8f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
         await Cmd.Wait(0.2f);
     }
     
@@ -353,7 +353,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CelebrityBurnStrength, base.Creature, null);
         await PowerCmd.Apply<FrailPower>(new ThrowingPlayerChoiceContext(), targets, CelebrityBurnFrail, base.Creature, null);
         await Cmd.Wait(0.8f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     private NJoonWealthBurstVfx? _wealthBurstVfx;

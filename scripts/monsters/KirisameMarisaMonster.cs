@@ -286,7 +286,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
         // 落地：dash_end
         Anim.Trigger("dash_end");
         await Cmd.Wait(0.3f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -324,7 +324,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             await MoveBody((b, tween) => tween.TweenProperty(b, "position", bodyOrigin, 0.3f)
                 .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.35f);
         }
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -357,7 +357,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
             .Execute(null);
         await Cmd.Wait(0.5f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -407,7 +407,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
 
         await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(), targets, BlackHoleEdgeWeak, base.Creature, null);
         await Cmd.Wait(0.3f);
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
@@ -496,7 +496,7 @@ public sealed class KirisameMarisaMonster : TouhouAncientMonsterBase
             await Cmd.Wait(0.5f);
             masterspark.QueueFreeSafely();
         }
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
