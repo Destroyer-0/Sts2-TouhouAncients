@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.Combat;
@@ -13,7 +14,8 @@ namespace TouhouAncients.Scripts.Vfx;
 /// 博丽灵梦怪物的视觉辅助脚本，挂在 HakureiReimuMonster.tscn 根节点上。
 /// 负责：
 /// 1. 导出灵符（Amulet）及其 7 个子节点引用，供怪物 C# 控制甩出 / 激活 / 收回；
-/// 2. 提供"符纸燃烧"特效（amuletTrigger.tscn 粒子序列帧，对象池复用，随本节点清除）的方法。
+/// 2. 提供"符纸燃烧"特效（amuletTrigger.tscn 粒子序列帧，对象池复用，随本节点清除）的方法；
+/// 3. 提供八方鬼缚阵的脚下魔法阵（MagicCircle，含 Spin 子节点）的召唤 / 扩散 / 渐隐控制。
 /// </summary>
 public partial class HakureiReimuVisuals : NCreatureVisuals
 {
@@ -21,6 +23,18 @@ public partial class HakureiReimuVisuals : NCreatureVisuals
 
     /// <summary>灵符根节点（Amulet），控制整体显隐。</summary>
     public Node2D? AmuletRoot { get; set; }
+
+    /// <summary>脚下魔法阵根节点（MagicCircle），负责整体缩放与渐隐。</summary>
+    public Node2D? MagicCircle { get; set; }
+
+    /// <summary>魔法阵的旋转子节点（MagicCircle/Spin），单独旋转以免连带压扁轴一起转。</summary>
+    private Sprite2D? _magicCircleSpin;
+
+    /// <summary>魔法阵持续旋转的 Tween（重复调用需先 Kill）。</summary>
+    private Tween? _magicCircleSpinTween;
+
+    /// <summary>魔法阵展开后的目标缩放（y = 0.6，模拟沿 x 轴旋转后贴地）。</summary>
+    private static readonly Vector2 MagicCircleScale = new(1.5f, 0.75f);
 
     public struct AmuletData
     {
@@ -72,6 +86,14 @@ public partial class HakureiReimuVisuals : NCreatureVisuals
         if (AmuletRoot == null)
         {
             AmuletRoot = GetNodeOrNull<Node2D>("Amulet");
+        }
+
+        MagicCircle ??= GetNodeOrNull<Node2D>("MagicCircle");
+        _magicCircleSpin = MagicCircle?.GetNodeOrNull<Sprite2D>("Spin");
+        // 战斗开始时不显示，等八方鬼缚阵自己召唤
+        if (MagicCircle != null)
+        {
+            MagicCircle.Visible = false;
         }
 
         for (int i = 0; i < AmuletCount; i++)
@@ -157,5 +179,57 @@ public partial class HakureiReimuVisuals : NCreatureVisuals
 
         vfx.GetParent()?.RemoveChildSafely(vfx);
         _amuletTriggerPool.Add(vfx);
+    }
+
+    /// <summary>
+    /// 召唤脚下魔法阵：从极小在 <paramref name="growSeconds"/> 内展开，并持续在自身平面内旋转。
+    /// </summary>
+    public void ShowMagicCircle(float growSeconds)
+    {
+        if (MagicCircle == null || _magicCircleSpin == null)
+        {
+            return;
+        }
+
+        MagicCircle.Visible = true;
+        MagicCircle.Modulate = new Color(1f, 1f, 1f, 1f);
+        MagicCircle.Scale = MagicCircleScale * 0.05f;
+        _magicCircleSpin.Scale = Vector2.One;
+
+        MagicCircle.CreateTween().TweenProperty(MagicCircle, "scale", MagicCircleScale, growSeconds)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
+
+        _magicCircleSpinTween?.Kill();
+        _magicCircleSpinTween = _magicCircleSpin.CreateTween().SetLoops();
+        // AsRelative：循环 tween 的起点会重设为当前 rotation，用绝对值只能在第一圈动
+        _magicCircleSpinTween.TweenProperty(_magicCircleSpin, "rotation", Mathf.Tau, 2.5f).AsRelative();
+    }
+    
+    /// <summary>魔法阵渐隐消失（<paramref name="seconds"/> 秒），结束后隐藏并停止旋转。</summary>
+    public async Task HideMagicCircle(float seconds)
+    {
+        if (MagicCircle == null || !GodotObject.IsInstanceValid(MagicCircle))
+        {
+            return;
+        }
+
+        Tween fade = MagicCircle.CreateTween();
+        fade.TweenProperty(_magicCircleSpin, "scale", Vector2.One * 2f, seconds).SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Linear);
+        fade.TweenProperty(MagicCircle, "modulate:a", 0f, seconds).SetTrans(Tween.TransitionType.Linear);
+        await fade.AwaitFinished(MagicCircle);
+
+        if (!GodotObject.IsInstanceValid(MagicCircle))
+        {
+            return;
+        }
+
+        MagicCircle.Visible = false;
+        _magicCircleSpinTween?.Kill();
+        _magicCircleSpinTween = null;
+        if (_magicCircleSpin != null && GodotObject.IsInstanceValid(_magicCircleSpin))
+        {
+            _magicCircleSpin.Scale = Vector2.One;
+            _magicCircleSpin.Rotation = 0f;
+        }
     }
 }

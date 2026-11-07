@@ -20,6 +20,7 @@ using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
+using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.cards;
@@ -95,6 +96,19 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         animationMachine.RegisterOneShot("jump_rise");
         animationMachine.RegisterOneShot("spell_1");
         animationMachine.RegisterOneShot("land");
+
+        // 六色光球 / 封印御札 / 阴阳玉 / 封魔针 / 降神 / 八方鬼缚阵 演出用
+        animationMachine.RegisterLoop("spell_musou");
+        animationMachine.RegisterOneShot("attack_slash");
+        animationMachine.RegisterOneShot("attack_a");
+        animationMachine.RegisterLoop("attack_b");
+        animationMachine.RegisterOneShot("attack_da");
+        animationMachine.RegisterLoop("attack_db");
+        animationMachine.RegisterOneShot("attack_dc");
+        animationMachine.RegisterLoop("roll");
+        animationMachine.RegisterOneShot("roll_end");
+        animationMachine.RegisterLoop("event_climax");
+        animationMachine.RegisterOneShot("damage");
     }
 
     /// <summary>当前是否处于梦想天生准备演出（jump_rise → spell_1 → spell_2）中。</summary>
@@ -184,6 +198,8 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             await Cmd.Wait(0.35f);
         }
 
+        // 进入梦想天生：同步获得翱翔
+        await PowerCmd.Apply<SoarPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
         Anim.Trigger("spell_1");
         await Cmd.Wait(0.4f);
         Anim.Trigger("spell_2");
@@ -192,10 +208,10 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
     // --- 无差别降伏：强制切换意图至梦想天生 ---
     /// <summary>
-    /// 将当前意图立即切换至梦想天生，并保证梦想天生先执行一次，
-    /// 执行完毕后回到触发切换前"原先的下一个意图"。
-    /// 切换时播放梦想天生台词（气泡时长按文本长度自动计算）；
-    /// 全部灵符激活后先收回，再播放准备演出（spell_2 姿态），切换意图后进入翱翔。
+    /// 将当前意图切换至梦想天生，并保证梦想天生先执行一次，执行完毕后回到触发切换前"原先的下一个意图"。
+    /// 触发时机可能不在灵梦自己的回合（如八方鬼缚阵的反弹伤害在玩家回合结算），
+    /// 所以准备演出只在**未处于出招流程**时立即补播；出招中则交给收尾的 <see cref="TryHoldDreamNaturePoseAsync"/>，
+    /// 否则会棚断正在播的攻击动画。
     /// </summary>
     internal async Task ForceDreamNatureNext()
     {
@@ -203,10 +219,6 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
         // 切换进入梦想天生的台词（本方法只由无差别降伏触发，故第一回合的固定梦想天生不会播放）
         TalkCmd.Play(_fantasyNatureLine, base.Creature, VfxColor.White);
-
-        // 全部灵符已激活：先渐隐并收回灵符，再摆出 spell_2 准备姿态
-        await RetractAllAmulets();
-        await PlayFantasyNaturePrepAnimation();
 
         // 保存当前技能的下一个意图：梦想天生执行后继续原序列
         MonsterState? originalNext = base.NextMove?.FollowUpState;
@@ -219,8 +231,12 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         _dreamNatureMove.MustPerformOnceBeforeTransitioning = true;
         base.SetMoveImmediate(_dreamNatureMove, forceTransition: true);
 
-        // 进入梦想天生：同步获得翱翔
-        await PowerCmd.Apply<SoarPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        // 不在出招中（反弹伤害等）：此时无人会再收尾，立即摆出施法姿态
+        if (!IsExecutingMove && !_isFantasyNaturePrepAnimating)
+        {
+            await RetractAllAmulets();
+            await PlayFantasyNaturePrepAnimation();
+        }
     }
 
     // --- 状态机 ---
@@ -228,27 +244,26 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     {
         // 梦想天生：动态伤害，单次 = max(2, floor(玩家当前生命/12))，共 6 段
         // 意图显示按每个目标玩家各自计算（DreamNatureIntent 内部按传入目标玩家取生命）
-        MoveState dreamNature = new MoveState(FantasyNatureMoveId, FantasyNatureMove,
-            new DreamNatureIntent());
+        MoveState dreamNature = new MoveState(FantasyNatureMoveId, FantasyNatureMove, new DreamNatureIntent());
 
         // 梦想封印：造成伤害并向每位玩家加入/升级状态卡牌
-        MoveState dreamSeal = new MoveState("DREAM_SEAL", DreamSealMove,
+        MoveState dreamSeal = new MoveState("DREAM_SEAL", TrackMove(DreamSealMove),
             new SingleAttackIntent(DreamSealDamage), new StatusIntent(DreamSealMoveCardNum), new CardDebuffIntent());
 
         // 八方鬼缚阵：获得格挡 + 倒映 + 残影
-        MoveState octagonal = new MoveState("OCTAGONAL_BINDING_ARRAY", OctagonalBindingArrayMove,
+        MoveState octagonal = new MoveState("OCTAGONAL_BINDING_ARRAY", TrackMove(OctagonalBindingArrayMove),
             new DefendIntent(), new BuffIntent());
 
         // 阴阳玉：造成伤害
-        MoveState tenbu = new MoveState("TENBU_HURRICANE_KICK", TenbuHurricaneKickMove,
+        MoveState tenbu = new MoveState("TENBU_HURRICANE_KICK", TrackMove(TenbuHurricaneKickMove),
             new SingleAttackIntent(TenbuHurricaneKickDamage));
 
         // 封魔针：3 段攻击
-        MoveState sealingNeedle = new MoveState("SEALING_NEEDLE", SealingNeedleMove,
+        MoveState sealingNeedle = new MoveState("SEALING_NEEDLE", TrackMove(SealingNeedleMove),
             new MultiAttackIntent(SealingNeedleDamage, SealingNeedleHits));
 
         // 降神：获得力量并减少梦想天生计数
-        MoveState subspace = new MoveState("SUBSPACE_ACUPRESSURE", SubspaceAcupressureMove,
+        MoveState subspace = new MoveState("SUBSPACE_ACUPRESSURE", TrackMove(SubspaceAcupressureMove),
             new BuffIntent());
 
         _dreamNatureMove = dreamNature;
@@ -287,8 +302,21 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     {
         CurrentMoveKey = FantasyNatureMoveId;
 
-        // --- 攻击 ---
-        await CreatureCmd.TriggerAnim(base.Creature, "Attack", 0.3f);
+        // --- 攻击演出：spell_musou 循环召出六色光球，环绕 1.5 秒后齐射爆开 ---
+        Anim.Trigger("spell_musou");
+        Vector2 impactPoint = GetTargetPoint(targets);
+        NReimuOrbBarrageVfx? barrage = SpawnOrbBarrage(impactPoint);
+        if (barrage != null)
+        {
+            // 发射瞬间切回 spell_1 → spell_2 施法姿态（光球已经甩出去了，不需要再保持 spell_musou）
+            barrage.VolleyStarting = () => TaskHelper.RunSafely(PlayFantasyNatureCastAsync());
+            await barrage.PlayAsync();
+        }
+        else
+        {
+            await Cmd.Wait(2.25f);
+            await PlayFantasyNatureCastAsync();
+        }
 
         var a = await PowerCmd.Apply<FakeDreamFantasyPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
 
@@ -307,6 +335,9 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             .Execute(null);
 
         await PowerCmd.Remove(a);
+
+        // 爆炸后约 1 秒再落地
+       // await Cmd.Wait(1f);
 
         // --- 落地演出：攻击完成，恢复受击动画 ---
         _isFantasyNaturePrepAnimating = false;
@@ -336,18 +367,38 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         }
 
         // 回到 idle 并把 7 张灵符从自己身上甩出至目标位置
-        Anim.TriggerLoop();
+        Anim.TriggerIdleLoop();
         await ThrowOutAllAmulets();
     }
 
     /// <summary>
-    /// 梦想封印：造成伤害，并向每个目标玩家的弃牌堆加入 3 张"封魔阵"。
+    /// 梦想封印：升空祭出御札弹幕，命中后造成伤害并向每个目标玩家的弃牌堆加入 3 张"封魔阵"。
     /// 每张封魔阵加入后会自动寻找一张牌为其添加侵蚀"封印"并两两对应。
     /// </summary>
     private async Task DreamSealMove(IReadOnlyList<Creature> targets)
     {
         CurrentMoveKey = "DREAM_SEAL";
 
+        Anim.Trigger("jump_rise");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Up * 200f, 0.3f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.35f);
+
+        Anim.Trigger("attack_slash");
+        await Cmd.Wait(0.2f);
+
+        // 甩出一圈御札，命中瞬间结算伤害
+        Vector2 source = base.Creature.GetCreatureNode().VfxSpawnPosition + Vector2.Up * 200f;
+        NReimuAmuletBulletVfx? bullets = SpawnAmuletBullets(source, GetTargetPoint(targets));
+        if (bullets != null)
+        {
+            await bullets.PlayAsync();
+        }
+        else
+        {
+            await Cmd.Wait(0.25f);
+        }
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         await DamageCmd.Attack(DreamSealDamage)
             .FromMonster(this)
             .WithHitFx("vfx/vfx_attack_slash")
@@ -360,53 +411,208 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
 
             await CardPileCmd.AddToCombatAndPreview<SealCircle>(player.Creature, PileType.Discard, DreamSealMoveCardNum, null, CardPilePosition.Random);
         }
+
+        // 下一意图已是梦想天生：直接保持施法姿态（优先级高于回 loop）
+
+        // 保持施术姿势缓慢下落
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.5f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.5f);
+        Anim.Trigger("land");
+        await Cmd.Wait(0.3f);
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
-    /// 八方鬼缚阵：获得格挡，以及 1 层倒映与 1 层残影。
+    /// 八方鬼缚阵：摆出阵姿召唤脚下魔法阵，获得格挡，以及 1 层倒映与 1 层残影。
+    /// 魔法阵不随技能结束收起，驻留到「倒映结束」或「护盾耗尽」（见 AfterBlockBroken / AfterBlockCleared）。
     /// </summary>
     private async Task OctagonalBindingArrayMove(IReadOnlyList<Creature> targets)
     {
         CurrentMoveKey = "OCTAGONAL_BINDING_ARRAY";
 
+        Anim.Trigger("event_climax");
+        HakureiReimuVisuals? visuals = ReimuVisuals;
+        visuals?.ShowMagicCircle(0.5f);
+        _magicCircleActive = true;
+        await Cmd.Wait(0.5f);
+
         await CreatureCmd.GainBlock(base.Creature, OctagonalBlock, ValueProp.Move, null);
         await PowerCmd.Apply<ReflectPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
         await PowerCmd.Apply<BlurPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+        //visuals?.BurstMagicCircle();
+
+        await Cmd.Wait(1f);
+        
+        Anim.TriggerIdleLoop();
+    }
+
+    /// <summary>魔法阵是否仍在场上（驻留期间为 true，保证收起幂等）。</summary>
+    private bool _magicCircleActive;
+
+    /// <summary>收起脚下魔法阵（渐隐）；已收起时直接返回。</summary>
+    public async Task HideMagicCircleAsync()
+    {
+        if (!_magicCircleActive)
+        {
+            return;
+        }
+
+        _magicCircleActive = false;
+        if (ReimuVisuals is { } visuals)
+        {
+            await visuals.HideMagicCircle(0.15f);
+        }
+    }
+
+    /// <summary>护盾被打穿：护盾耗尽即收起法阵。</summary>
+    public override async Task AfterBlockBroken(PlayerChoiceContext choiceContext, Creature target, Creature? breaker)
+    {
+        await base.AfterBlockBroken(choiceContext, target, breaker);
+        if (target == base.Creature)
+        {
+            await HideMagicCircleAsync();
+        }
     }
 
     /// <summary>
-    /// 阴阳玉：造成伤害。
+    /// 护盾被回合开始清除时收起法阵。
+    /// 该 Hook 对每个开始回合的单位都会调用（不管护盾有没有真的被清），
+    /// 必须再看 Block 是否真的归 0——残影会阻止清护盾，此时法阵要继续留着。
+    /// </summary>
+    public override async Task AfterBlockCleared(Creature creature)
+    {
+        await base.AfterBlockCleared(creature);
+        if (creature == base.Creature && base.Creature.Block <= 0)
+        {
+            await HideMagicCircleAsync();
+        }
+    }
+
+    /// <summary>
+    /// 倒映检查放在 Late 阶段：ReflectPower 自己在 AfterSideTurnStart 递减并被移除，
+    /// 晚于它才能读到「已无倒映」。
+    /// </summary>
+    public override async Task AfterSideTurnStartLate(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
+    {
+        await base.AfterSideTurnStartLate(side, participants, combatState);
+        if (_magicCircleActive && !base.Creature.HasPower<ReflectPower>())
+        {
+            await HideMagicCircleAsync();
+        }
+    }
+
+    /// <summary>
+    /// 阴阳玉：升空翻滚后甩出阴阳玉，反弹一次砸向玩家造成伤害，随后落地回到待机。
     /// </summary>
     private async Task TenbuHurricaneKickMove(IReadOnlyList<Creature> targets)
     {
         CurrentMoveKey = "TENBU_HURRICANE_KICK";
 
+        Anim.Trigger("jump_rise");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Up * 160f, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
+
+        Anim.Trigger("roll");
+        NReimuOnmyoVfx? onmyo = SpawnOnmyo(GetVisualCenter(), GetTargetPoint(targets));
+        if (onmyo != null)
+        {
+            await onmyo.PlayAsync();
+        }
+        else
+        {
+            await Cmd.Wait(0.8f);
+        }
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Right);
         await DamageCmd.Attack(TenbuHurricaneKickDamage)
             .FromMonster(this)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
+        Anim.Trigger("roll_end");
+        await Cmd.Wait(0.3f);
+        
+        Anim.Trigger("jump_fall");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.3f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.35f);
+
+        Anim.Trigger("land");
+        await Cmd.Wait(0.25f);
+        Anim.TriggerIdleLoop();
     }
 
     /// <summary>
-    /// 封魔针：3 段攻击。
+    /// 封魔针：滑铲到玩家身后、转身连刺 3 段，再保持出针姿势抛物线跳回原地。
+    /// 演出期间不动 Amulet 子节点坐标（灵符与本体位移解耦）。
     /// </summary>
     private async Task SealingNeedleMove(IReadOnlyList<Creature> targets)
     {
         CurrentMoveKey = "SEALING_NEEDLE";
 
+        AnimatedSprite2D? sprite = Sprite;
+        bool originalFlip = sprite?.FlipH ?? true;
+
+        Anim.Trigger("attack_b");
+        await MoveBody((b, tween) =>
+        {
+            tween.TweenProperty(b, "position", ResolveSlideOffset(b, targets), 0.25f)
+                .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad);
+        }, 0.3f);
+
+        // 转身面向新方向的玩家
+        await Cmd.Wait(0.15f);
+        if (sprite != null)
+        {
+            sprite.FlipH = !originalFlip;
+        }
+
+        Anim.Trigger("attack_a");
+        await Cmd.Wait(0.15f);
+
+        NCombatRoom.Instance?.RadialBlur(VfxPosition.Left);
         await DamageCmd.Attack(SealingNeedleDamage)
             .FromMonster(this)
             .WithHitCount(SealingNeedleHits)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+
+        await Cmd.Wait(0.15f);
+        Anim.Trigger("attack_da");
+        await Cmd.Wait(0.2f);
+        // 保持 attack_db 抛物线跳回原位，落地用 attack_dc 收尾
+        Vector2 slid = CurrentBody?.Position ?? Vector2.Zero;
+        Vector2 apex = new(slid.X * 0.35f, -150f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", apex, 0.25f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.3f);
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.25f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.3f);
+        Anim.Trigger("attack_dc");
+        await Cmd.Wait(0.3f);
+
+        if (sprite != null)
+        {
+            sprite.FlipH = originalFlip;
+        }
+        //await Cmd.Wait(0.25f);
+
+        Anim.TriggerIdleLoop();
+
     }
 
     /// <summary>
-    /// 降神：获得 2 点力量，并使梦想天生计数减少 3。
+    /// 降神：跃起后在 spell_musou 中降落神仪式，获得 2 点力量并使梦想天生计数减少 3。
     /// </summary>
     private async Task SubspaceAcupressureMove(IReadOnlyList<Creature> targets)
     {
         CurrentMoveKey = "SUBSPACE_ACUPRESSURE";
+
+        Anim.Trigger("jump_rise");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Up * 70f, 0.2f)
+            .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad), 0.25f);
+
+        Anim.Trigger("spell_musou");
+        await Cmd.Wait(1f);
 
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, SubspaceStrength, base.Creature, null);
         // 使梦想天生计数（无差别降伏的剩余计数）减少 3；归零后由无差别降伏在造成伤害时触发意图切换
@@ -415,9 +621,225 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
         {
             await power.DecreaseHitsLeft(SubspaceFantasyNatureCount);
         }
+
+        Anim.Trigger("jump_fall");
+        await MoveBody((b, tween) => tween.TweenProperty(b, "position", Vector2.Zero, 0.2f)
+            .SetEase(Tween.EaseType.In).SetTrans(Tween.TransitionType.Quad), 0.25f);
+
+
+        Anim.Trigger("land");
+        await Cmd.Wait(0.3f);
+        Anim.TriggerIdleLoop();
     }
 
     // --- 私有辅助 ---
+
+    /// <summary>正在执行自身技能的数量（>0 表示出招流程尚未结束，含伤害结算阶段）。</summary>
+    private int _moveDepth;
+
+    private bool IsExecutingMove => _moveDepth > 0;
+
+    /// <summary>
+    /// 包一层技能执行体，统计「是否正在出招」。无差别降伏会在攻击结算中途切意图，
+    /// 需要区分「出招中断诉求→交给收尾」与「非出招期诉求（如反弹伤害）→立即补播」。
+    /// </summary>
+    private Func<IReadOnlyList<Creature>, Task> TrackMove(Func<IReadOnlyList<Creature>, Task> move)
+        => async targets =>
+        {
+            _moveDepth++;
+            try
+            {
+                await move(targets);
+                await TryHoldDreamNaturePoseAsync();
+            }
+            finally
+            {
+                _moveDepth--;
+            }
+        };
+
+    /// <summary>梦想天生发射瞬间的施法姿态：spell_1 一次性播完，再保持 spell_2 循环。</summary>
+    private async Task PlayFantasyNatureCastAsync()
+    {
+        Anim.Trigger("spell_1");
+        await Cmd.Wait(0.4f);
+        Anim.Trigger("spell_2");
+    }
+
+    /// <summary>封魔针滑铲落点：越过最左侧玩家后再多走一段。</summary>
+    private const float SlideBehindDistance = 200f;
+
+    /// <summary>当前显示节点的灵梦专用辅助脚本（无节点时为 null）。</summary>
+    private HakureiReimuVisuals? ReimuVisuals =>
+        base.Creature.GetCreatureNode()?.Visuals as HakureiReimuVisuals;
+
+    /// <summary>下一意图是否为梦想天生（无差别降伏在本次攻击过程中已完成切换）。</summary>
+    private bool IsDreamNatureNext =>
+        _dreamNatureMove != null && ReferenceEquals(base.NextMove, _dreamNatureMove);
+
+    /// <summary>
+    /// 灵梦当前的可视中心（含升空位移）。
+    /// VfxSpawnPosition 取的是 CenterPos 标记，它不随 body 位移，升空后必须补上 body 偏移。
+    /// </summary>
+    private Vector2 GetVisualCenter()
+    {
+        NCreature? node = base.Creature.GetCreatureNode();
+        if (node == null)
+        {
+            return Vector2.Zero;
+        }
+
+        Vector2 center = node.VfxSpawnPosition;
+        Node2D? body = node.Visuals.GetCurrentBody();
+        if (body != null)
+        {
+            // body.Position 在父节点坐标系，只有父节点缩放才影响世界位移
+            Vector2 parentScale = body.GetParent() is Node2D parent ? parent.GlobalScale : Vector2.One;
+            center += body.Position * parentScale;
+        }
+
+        return center;
+    }
+
+    /// <summary>
+    /// 攻击收尾：若下一意图已切到梦想天生，则收回灵符、补播准备演出并返回 true，
+    /// 调用方据此跳过落地与回循环。必须等到当前技能动画播完才调用——无差别降伏是在攻击结算中就切意图的。
+    /// </summary>
+    private async Task<bool> TryHoldDreamNaturePoseAsync()
+    {
+        if (!IsDreamNatureNext)
+        {
+            return false;
+        }
+
+        if (!_isFantasyNaturePrepAnimating)
+        {
+            // 灵符已全部激活：先渐隐收回，再落回原位（升空高度按「原位 + 100px」重算）
+            await RetractAllAmulets();
+            SnapBodyPosition(Vector2.Zero);
+            await PlayFantasyNaturePrepAnimation();
+            return true;
+        }
+
+        // 演出已被后续位移动画打断：拉回升空高度并恢复 spell_2 姿态
+        if (_fantasyNatureLiftOffset is { } lift)
+        {
+            SnapBodyPosition(lift);
+        }
+
+        Anim.Trigger("spell_2");
+        await Cmd.Wait(0.2f);
+        return true;
+    }
+
+    /// <summary>
+    /// 取最左侧玩家的**身体中心**作为演出落点；没有可定位的玩家时退化为本体左前方。
+    /// </summary>
+    private Vector2 GetTargetPoint(IReadOnlyList<Creature> targets)
+    {
+        Vector2? position = null;
+        float minX = float.MaxValue;
+        foreach (Creature target in targets)
+        {
+            NCreature? node = target.GetCreatureNode();
+            if (node != null && node.GlobalPosition.X < minX)
+            {
+                minX = node.GlobalPosition.X;
+                position = node.VfxSpawnPosition;
+            }
+        }
+
+        if (position.HasValue)
+        {
+            return position.Value;
+        }
+
+        return GetVisualCenter() + Vector2.Left * 600f;
+    }
+
+    /// <summary>把光球轰炸特效挂到战斗 VFX 容器；容器不可用时返回 null（调用方走纯等待）。</summary>
+    private NReimuOrbBarrageVfx? SpawnOrbBarrage(Vector2 target)
+    {
+        NCreature? node = base.Creature.GetCreatureNode();
+        Control? container = NCombatRoom.Instance?.CombatVfxContainer;
+        if (node == null || container == null)
+        {
+            return null;
+        }
+
+        // 圆心取升空后的本体中心，而不是不随 body 位移的 VfxSpawnPosition
+        NReimuOrbBarrageVfx? vfx = NReimuOrbBarrageVfx.Create(GetVisualCenter(), target);
+        if (vfx == null)
+        {
+            return null;
+        }
+
+        container.AddChildSafely(vfx);
+        return vfx;
+    }
+
+    /// <summary>把御札弹幕特效挂到战斗 VFX 容器；容器不可用时返回 null。</summary>
+    private NReimuAmuletBulletVfx? SpawnAmuletBullets(Vector2 source, Vector2 target)
+    {
+        Control? container = NCombatRoom.Instance?.CombatVfxContainer;
+        if (container == null)
+        {
+            return null;
+        }
+
+        NReimuAmuletBulletVfx? vfx = NReimuAmuletBulletVfx.Create(source, target);
+        if (vfx == null)
+        {
+            return null;
+        }
+
+        container.AddChildSafely(vfx);
+        return vfx;
+    }
+
+    /// <summary>把阴阳玉特效挂到战斗 VFX 容器；容器不可用时返回 null。</summary>
+    private NReimuOnmyoVfx? SpawnOnmyo(Vector2 source, Vector2 target)
+    {
+        Control? container = NCombatRoom.Instance?.CombatVfxContainer;
+        if (container == null)
+        {
+            return null;
+        }
+
+        NReimuOnmyoVfx? vfx = NReimuOnmyoVfx.Create(source, target);
+        if (vfx == null)
+        {
+            return null;
+        }
+
+        container.AddChildSafely(vfx);
+        return vfx;
+    }
+
+    /// <summary>
+    /// 封魔针滑铲位移量：让 body 的世界 x 落到最左侧玩家左侧 FixedBehind 处。
+    /// body.Position 在父节点坐标系，只有父节点缩放才影响世界位移。
+    /// </summary>
+    private Vector2 ResolveSlideOffset(Node2D body, IReadOnlyList<Creature> targets)
+    {
+        Vector2? playerPos = null;
+        foreach (Creature target in targets)
+        {
+            NCreature? node = target.GetCreatureNode();
+            if (node != null && (playerPos == null || playerPos.Value.X > node.GlobalPosition.X))
+            {
+                playerPos = node.GlobalPosition;
+            }
+        }
+
+        float targetWorldX = playerPos.HasValue
+            ? playerPos.Value.X - SlideBehindDistance
+            : body.GlobalPosition.X - 1800f;
+        float parentScaleX = body.GetParent() is Node2D parent && !Mathf.IsZeroApprox(parent.GlobalScale.X)
+            ? parent.GlobalScale.X
+            : 1f;
+        return Vector2.Right * ((targetWorldX - body.GlobalPosition.X) / parentScaleX);
+    }
 
     /// <summary>
     /// 甩出 7 张灵符：从灵梦中心（VfxSpawnPosition）飞向 Amulet1~7 的目标位置。
