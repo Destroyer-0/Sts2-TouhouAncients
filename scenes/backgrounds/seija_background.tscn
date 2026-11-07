@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtn33wwgrb0im"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_root"]
+[ext_resource type="Texture2D" uid="uid://oy63ssh25t5k" path="res://images/sprite/map/Map_Seija.png" id="2_img"]
+
+[node name="SeijaBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_root")
+
+[node name="Visual" type="TextureRect" parent="."]
+z_index = -20
+layout_mode = 0
+offset_left = -1120.0
+offset_top = -630.0
+offset_right = 1120.0
+offset_bottom = 630.0
+texture = ExtResource("2_img")
+expand_mode = 1
+stretch_mode = 6
+flip_h = true

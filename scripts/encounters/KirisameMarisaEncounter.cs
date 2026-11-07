@@ -25,6 +25,9 @@ public sealed class KirisameMarisaEncounter : TouhouAncientEncounter
 
     public override string? BgmFileName => "TFM-Marisa.mp3";
 
+    /// <summary>专属战斗背景：Map_Marisa.png 铺满全屏。</summary>
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/marisa_background.tscn";
+
     public override string? CustomScenePath => "res://scenes/encounters/kirisame_marisa.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>

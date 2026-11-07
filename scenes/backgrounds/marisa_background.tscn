@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ysfpwyjlc6xb"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_root"]
+[ext_resource type="Texture2D" uid="uid://bk5db1rk7ruu6" path="res://images/sprite/map/Map_Marisa.png" id="2_img"]
+
+[node name="MarisaBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_root")
+
+[node name="Visual" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 0.90588236, 1)
+z_index = -20
+layout_mode = 0
+offset_left = -1610.0
+offset_top = -1500.0
+offset_right = 1610.0
+offset_bottom = 570.0
+texture = ExtResource("2_img")
+expand_mode = 1
+stretch_mode = 6

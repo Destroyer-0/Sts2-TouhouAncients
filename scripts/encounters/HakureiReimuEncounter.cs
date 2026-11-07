@@ -24,6 +24,9 @@ public sealed class HakureiReimuEncounter : TouhouAncientEncounter
 
     public override string? BgmFileName => "TFM-Reimu.mp3";
 
+    /// <summary>专属战斗背景：Map_Reimu.png 铺满全屏。</summary>
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/reimu_background.tscn";
+
     public override string? CustomScenePath => "res://scenes/encounters/hakurei_reimu.tscn";
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
     [

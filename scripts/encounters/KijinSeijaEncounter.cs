@@ -25,7 +25,10 @@ public sealed class KijinSeijaEncounter : TouhouAncientEncounter
     ];
 
     public override string? BgmFileName => "Seija.mp3";
-    
+
+    /// <summary>专属战斗背景：Map_Seija.png 铺满全屏。</summary>
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/seija_background.tscn";
+
     public override string? CustomScenePath => "res://scenes/encounters/kijin_seija.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>
