@@ -3630,3 +3630,32 @@ zhs 描述新增「这张牌会在进入下一幕后变化为 `{CardList}` 中�
 - 书名「《M因M而死》」定译 `M Dies of M` / 『ＭはＭで死ぬ』（用户指定）。
 - `YOKAI_BESTIARY`、`OLD_NEWSPAPER` 按用户要求做了删减：前者去掉「幻想乡的危险之地」「擅长退治妖怪的人类」两项并列；后者去掉第一人称主语。
 - zhs 本轮未改动（`SIGNED_SHIKISHI` 的书名为用户自行添加）。
+
+---
+
+## 新增翻译（2026-11-08，神事旧篇文案改版 + 「失效」措辞统一）
+
+### 1. `OLD_NEWSPAPER`（神事旧篇）文案改版
+
+zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最大生命；**累计失去 30 点最大生命后此遗物失效**（机制改为监听 `CreatureCmd.SetMaxHp`，任何来源的上限扣减都计入）。`{MaxHpLossTotal}` 变量并入 `{MaxHpGain}`。
+
+| 键 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.description` | 拾起时，获得{MaxHpGain}点最大生命。每当你受到未被格挡的伤害时，失去{MaxHpLoss}点最大生命。累计失去{MaxHpGain}点最大生命后，此遗物失效。 | Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold]. After you have lost a total of [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold], this relic no longer works. | 入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、この遺物の効果は消滅する。 |
+| `.eventDescription` | 同上去掉「拾起时，」。 | 同上去掉 `Upon pickup, `。 | 同上去掉「入手時、」。 |
+
+### 2. 「此遗物失效」措辞统一（4 个遗物）
+
+参照原版 `MAW_BANK`（巨口银行）：「效果消失」原版英译 `No longer works`、日译 `効果が消滅する`，全仓库统一采用，弃用 `expires` / `失効`。
+
+| 键 | English | 日本語 |
+|------|---------|--------|
+| `KOMPEITO_POT.description` | ... This relic no longer works after [blue]3[/blue] picks. | ...この遺物は[blue]3[/blue]回選ぶと効果が消滅する。 |
+| `ESTRANGED_HEART.description` | ... this relic no longer works at the end of this combat. | ...この遺物はこの戦闘終了時に効果が消滅する。 |
+| `JYOON_FAN.description` | This relic no longer works after [blue]{Charges}[/blue] non-Elite combats. ... | この遺物はエリート以外の戦闘[blue]{Charges}[/blue]回後に効果が消滅する。... |
+| `MELTING_WAX_DREAM.description` | ... this relic no longer works for the rest of the run. | ...この遺物の効果は永久に消滅する。 |
+
+### 说明
+- 「永久失效」英文取 `no longer works for the rest of the run`（原版 `No longer works` 无法表达「永久」，补时间范围）。
+- 日文统一用「遺物」而非「レリック」（`jpn/relics.json` 中原有 2 处误用「レリック」，已一并修正）。
+- zhs 本轮除 `OLD_NEWSPAPER` 外未改动。

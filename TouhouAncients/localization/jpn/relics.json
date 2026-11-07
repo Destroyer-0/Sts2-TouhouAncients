@@ -539,7 +539,7 @@
   "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "本を抱えて紅魔館から逃げ切るのに必要な速度は毎秒11.2メートル。",
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "金平糖の壺",
-  "TOUHOUANCIENTS-KOMPEITO_POT.description": "[gold]カード報酬[/gold]に[green]アップグレード済み[/green]の[gold]パワー[/gold]が追加で含まれる。この効果は[blue]3[/blue]回選ぶと失効する。",
+  "TOUHOUANCIENTS-KOMPEITO_POT.description": "[gold]カード報酬[/gold]に[green]アップグレード済み[/green]の[gold]パワー[/gold]が追加で含まれる。この遺物は[blue]3[/blue]回選ぶと効果が消滅する。",
   "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "食べ過ぎには虫歯にご注意！",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "星屑の箒",
@@ -655,7 +655,7 @@
   "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "剛欲同盟の構成員は、たいてい我が道を行く連中ばかりだ。",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "陌路の心",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "ドローフェイズ終了後、[gold]山札[/gold]から任意の枚数のカードを選んで[gold]手札[/gold]に加える。これにより[blue]{Threshold}[/blue]枚のカードを得た後、この遺物はこの戦闘終了時に失効する。",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "ドローフェイズ終了後、[gold]山札[/gold]から任意の枚数のカードを選んで[gold]手札[/gold]に加える。これにより[blue]{Threshold}[/blue]枚のカードを得た後、この遺物はこの戦闘終了時に効果が消滅する。",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "[gold]手札[/gold]に加えるカードを任意の枚数選ぶ",
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "この無敗の剛欲同盟盟主はどんな食物も拒まない――ただし油揚げだけは、その噛みつく牙を一時的に収める。",
 
@@ -673,7 +673,7 @@
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "さあ、あんたのゴールドを寄越しな。",
 
   "TOUHOUANCIENTS-JYOON_FAN.title": "ジュリアナの羽扇",
-  "TOUHOUANCIENTS-JYOON_FAN.description": "エリート以外の戦闘開始時、[blue]{Gold}[/blue][gold]ゴールド[/gold]、[blue]{Strength}[/blue][gold]筋力[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中力[/gold]を得る。この遺物はエリート以外の戦闘[blue]{Charges}[/blue]回後に失効する。エリートを撃破するたびにチャージが[blue]{Charges}[/blue]増える。",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "エリート以外の戦闘開始時、[blue]{Gold}[/blue][gold]ゴールド[/gold]、[blue]{Strength}[/blue][gold]筋力[/gold]、[blue]{Dexterity}[/blue][gold]敏捷[/gold]、[blue]{Focus}[/blue][gold]集中力[/gold]を得る。この遺物はエリート以外の戦闘[blue]{Charges}[/blue]回後に効果が消滅する。エリートを撃破するたびにチャージが[blue]{Charges}[/blue]増える。",
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "踏んだり蹴ったり。",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "百万ポンド",
@@ -784,7 +784,7 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "「ユメノツカイ？ ユメダマ、アツメル？ シャボンダマミタイ！ オモシロイ！ ボクノユメモ、ビンニツメテ！」",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "溶蝋の夢",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "自分のターン中に初めてHPを失った時、HPが[blue]{HpThreshold}%[/blue]未満なら[blue]{RegenGain}[/blue][gold]再生[/gold]を得る。1回の戦闘でこの方法により[blue]{RegenLimit}[/blue][gold]再生[/gold]を得ると、この遺物は永久に失効する。",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "自分のターン中に初めてHPを失った時、HPが[blue]{HpThreshold}%[/blue]未満なら[blue]{RegenGain}[/blue][gold]再生[/gold]を得る。1回の戦闘でこの方法により[blue]{RegenLimit}[/blue][gold]再生[/gold]を得ると、この遺物の効果は永久に消滅する。",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]「夢の使者よ……君はきっと、私の夢をたくさん見てきたのだろう……それを持っていったら……もう少しだけ、眠らせてくれ……」[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "燎燭の夢",
@@ -954,7 +954,7 @@
   "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "先生に出された宿題を忘れないでくださいね！",
 
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧聞",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、このレリックの効果は消滅する。",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、このレリックの効果は消滅する。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、この遺物の効果は消滅する。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、この遺物の効果は消滅する。",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。"
 }

@@ -539,7 +539,7 @@
   "TOUHOUANCIENTS-COMET_ACCELERATOR.flavor": "The speed required to escape the Scarlet Devil Mansion while carrying books is 11.2 meters per second.",
 
   "TOUHOUANCIENTS-KOMPEITO_POT.title": "Konpeito Pot",
-  "TOUHOUANCIENTS-KOMPEITO_POT.description": "Your [gold]Card Rewards[/gold] contain an additional [green]Upgraded[/green] [gold]Power[/gold]. Expires after [blue]3[/blue] picks.",
+  "TOUHOUANCIENTS-KOMPEITO_POT.description": "Your [gold]Card Rewards[/gold] contain an additional [green]Upgraded[/green] [gold]Power[/gold]. This relic no longer works after [blue]3[/blue] picks.",
   "TOUHOUANCIENTS-KOMPEITO_POT.flavor": "Eat too much and watch out for cavities!",
 
   "TOUHOUANCIENTS-STARDUST_BROOM.title": "Stardust Broom",
@@ -655,7 +655,7 @@
   "TOUHOUANCIENTS-GUILTLESS_FACE.flavor": "Most members of the Gouyoku Alliance are a bunch of self-serving rogues.",
 
   "TOUHOUANCIENTS-ESTRANGED_HEART.title": "Estranged Heart",
-  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "After the Draw Phase, choose any number of cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. After accumulating [blue]{Threshold}[/blue] cards obtained this way, this relic expires at the end of this combat.",
+  "TOUHOUANCIENTS-ESTRANGED_HEART.description": "After the Draw Phase, choose any number of cards from your [gold]Draw Pile[/gold] to put into your [gold]Hand[/gold]. After accumulating [blue]{Threshold}[/blue] cards obtained this way, this relic no longer works at the end of this combat.",
   "TOUHOUANCIENTS-ESTRANGED_HEART.selectionScreenPrompt": "Choose any number of cards to put into your Hand",
   "TOUHOUANCIENTS-ESTRANGED_HEART.flavor": "This Undefeated Matriarch of the Gouyoku Alliance refuses no food whatsoever — but only deep-fried tofu can make her halt her tearing fangs.",
 
@@ -673,7 +673,7 @@
   "TOUHOUANCIENTS-CHANEL_HANDBAG.flavor": "Come on, give me your gold.",
 
   "TOUHOUANCIENTS-JYOON_FAN.title": "Juliana Fan",
-  "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. This relic expires after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
+  "TOUHOUANCIENTS-JYOON_FAN.description": "At the start of non-Elite combats, gain [blue]{Gold}[/blue] [gold]Gold[/gold], [blue]{Strength}[/blue] [gold]Strength[/gold], [blue]{Dexterity}[/blue] [gold]Dexterity[/gold], and [blue]{Focus}[/blue] [gold]Focus[/gold]. This relic no longer works after [blue]{Charges}[/blue] non-Elite combats. Gain [blue]{Charges}[/blue] additional charges after each Elite kill.",
   "TOUHOUANCIENTS-JYOON_FAN.flavor": "Bad day.Bad day.Bad day!",
 
   "TOUHOUANCIENTS-MILLION_POUNDS.title": "Million Pounds",
@@ -784,7 +784,7 @@
   "TOUHOUANCIENTS-IRIDESCENT_DREAM.flavor": "\"Dream Manager? Collect dream souls? Like bubbles! Interesting! Put my dream in a jar!!\"",
 
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.title": "Melting Wax Dream",
-  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "The first time you lose HP each turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic permanently expires.",
+  "TOUHOUANCIENTS-MELTING_WAX_DREAM.description": "The first time you lose HP each turn, if your HP is below [blue]{HpThreshold}%[/blue], gain [blue]{RegenGain}[/blue] [gold]Regen[/gold]. If you gain [blue]{RegenLimit}[/blue] [gold]Regen[/gold] this way in a single combat, this relic no longer works for the rest of the run.",
   "TOUHOUANCIENTS-MELTING_WAX_DREAM.flavor": "[thinky_dots]\"Dream Manager? You must have seen many of my dreams... Now that you've taken it, let me sleep a little longer...\"[/thinky_dots]",
 
   "TOUHOUANCIENTS-BLAZING_FLAME_DREAM.title": "Blazing Candle Dream",
