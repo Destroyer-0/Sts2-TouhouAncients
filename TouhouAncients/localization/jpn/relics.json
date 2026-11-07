@@ -883,52 +883,52 @@
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.title": "幺楽コレクション",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.description": "入手時、[purple]前回のラン[/purple]で使った初期カード以外のカードをランダムに1枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.eventDescription": "[purple]前回のラン[/purple]で使った初期カード以外のカードをランダムに1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "この幺楽団に残された曲の歴史は記録され、幻想郷縁起に残されている。",
 
   "TOUHOUANCIENTS-READING_GLASSES.title": "老眼鏡",
   "TOUHOUANCIENTS-READING_GLASSES.description": "入手時、[gold]謎の木の葉[/gold]を1枚[gold]デッキ[/gold]に加える。[gold]デッキ[/gold]にカードを加えるたび、そのカードの[purple]偽装[/purple]になる。",
   "TOUHOUANCIENTS-READING_GLASSES.eventDescription": "[gold]謎の木の葉[/gold]を1枚[gold]デッキ[/gold]に加える。[gold]デッキ[/gold]にカードを加えるたび、そのカードの[purple]偽装[/purple]になる。",
-  "TOUHOUANCIENTS-READING_GLASSES.flavor": "",
+  "TOUHOUANCIENTS-READING_GLASSES.flavor": "「ふふ、ただの『旧友』からの贈り物じゃよ。」",
 
   "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "妖魔図鑑",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "敵に遭遇するたび、その名前を記録する。記録済みの名前の敵に再び遭遇した時、その敵のHPは[blue]1[/blue]になる。",
-  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "もっと妖怪の能力や対策が判っていれば、危険な場所を避けられれば、怯えて暮らさなくても済むのに、と思っている事だろう。",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "過目不忘",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "記録したモンスター：\n{Monsters:list:{}|\n}",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.inspirationTitle": "着想元",
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "寧神の紅茶",
   "TOUHOUANCIENTS-CALMING_TEA.description": "自分のターン終了時、デバフを受けているなら[blue]{Block}[/blue][gold]ブロック[/gold]を得る。",
-  "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
+  "TOUHOUANCIENTS-CALMING_TEA.flavor": "それまで、幺楽団の演奏でも聴きながら、私の好きな紅茶を愉しみ続けたい。",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "探偵小説の原稿",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "[gold]?[/gold]の部屋で、最初にHPを失う効果を1回防ぐ。",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "「ありえないものをすべて排除した後に残ったものが、たとえどれほど信じがたくても、真実なのだ。」——シャーロック・ホームズ",
 
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.title": "アガサ・クリスQ探偵集",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.description": "[gold]?[/gold]の部屋で、最初にHPを失う効果を1回防ぐ。\nアタックは攻撃以外の意図を持つ敵に追加で[blue]{Damage}[/blue]ダメージを与える。自分のターン終了時、敵1体につき追加で最大[blue]{RetainCard}[/blue]枚のカードを[gold]保留[/gold]できる。",
-  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "「私は生きることが好き。ときに激しく、絶望的に、やりきれないほど拳めで、悲しみに苛まれることもある。それでも、ただ生きていることこそが何よりも素晴らしいのだと、はっきり分かっている。」",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.selectionScreenPrompt": "[gold]保留[/gold]するカードを{Amount}枚選ぶ。",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "サイン色紙",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "各カード報酬で、ランダムなカード1枚が[purple]{EnchantmentName}[/purple]で[gold]エンチャント[/gold]される。[gold]休憩所[/gold]で[pink]サイン会[/pink]を開ける。",
-  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "アガサ・クリスQの新刊『ＭはＭで死ぬ』のサイン会が大盛況開催中！",
 
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "椿の髪飾り",
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "[gold]休憩所[/gold]で休憩するたび、カードを1枚[gold]変化[/gold]させることができる。",
-  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "次に会う時には、お互いのことがもう分からなくなっているかもしれないね。",
 
   "TOUHOUANCIENTS-HARDCOVER_BINDING.title": "上製本の表紙",
   "TOUHOUANCIENTS-HARDCOVER_BINDING.description": "戦闘以外の部屋で得たカードは自動的に[green]アップグレード[/green]される。",
-  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "作品の発売前には、やはり丁寧な装丁と推敲が欠かせない。",
 
   "TOUHOUANCIENTS-SAKURA_COMB.title": "桜色の櫛",
   "TOUHOUANCIENTS-SAKURA_COMB.description": "[gold]休憩所[/gold]に入るか[gold]エンシェント[/gold]に遭遇するたび、[blue]{MaxHp}[/blue][gold]最大HP[/gold]を得て、[red]閻魔の罪罰[/red]を1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "",
+  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "さらに言うと転生の術は、生きている内から閻魔様に許しを乞い、転生後の肉体を用意して貰うまでの百年余りの時間は、地獄の閻魔様の下で働く事となる。",
 
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.title": "古代の標本",
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.description": "[gold]エリート[/gold]のHPが[blue]{Percent}%[/blue]減少する。",
-  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "千年前に絶滅したとされる昆虫の標本。しかしその昆虫が再び現れたことで、標本は絶版としての価値を失ってしまった。",
 
   "TOUHOUANCIENTS-BLANK_ROSTER.title": "空白の名簿",
   "TOUHOUANCIENTS-BLANK_ROSTER.description": "入手時、ランダムな[gold]稗田阿求の遺物[/gold]を[blue]{Count}[/blue]個得る。[red]過労[/red]を1枚[gold]デッキ[/gold]に加える。",
@@ -937,7 +937,7 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "鈴のしおり",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "第1層では、[gold]カード報酬[/gold]に[gold]無色[/gold]カードが追加で1枚含まれ、[gold]?[/gold]の部屋でモンスターに遭遇する確率が大幅に上がる。",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "「人間と妖怪との距離は、思っているよりずっと近いんですよ！」",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象録",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "入手時、[gold]幻想万象録[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。",
@@ -947,14 +947,14 @@
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "薬膳調理",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "入手時、[gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "[gold]養生薬湯[/gold]を[blue]{Potions}[/blue]本得る。",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "記憶力の向上に役立つ。",
 
   "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "授業の儒冠",
   "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "[blue]{Combats}[/blue]戦ごとに、[gold]レア[/gold]の[gold]カード報酬[/gold]を追加で[blue]1[/blue]回得る。",
-  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "先生に出された宿題を忘れないでくださいね！",
 
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧聞",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う（最大で[blue]{MaxHpLossTotal}[/blue]まで）。",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": ""
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、このレリックの効果は消滅する。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、このレリックの効果は消滅する。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。"
 }

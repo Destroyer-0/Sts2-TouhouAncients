@@ -3598,3 +3598,35 @@ zhs 描述新增「这张牌会在进入下一幕后变化为 `{CardList}` 中�
 - 列表分隔符按语言习惯：zhs/jpn 用「、」，eng 用 `, `；与 `FANTASY_CHRONICLE_CARD` 的描述写法保持一致。
 - 句式与任务牌 `FANTASY_CHRONICLE_CARD` 对齐（「你可以…变化为」→ `you may Transform ...` / 「…させることができる」），强调玩家主动选择。
 - 候选牌名由脚本填充（尘封魔典对应先古牌、古老牙齿升华牌、幻想乡缘起、高塔英雄传、AKYUUMOD 卡），选项阶段即已掷定，故遗物面板也能显示完整列表。
+
+---
+
+## 新增翻译（2026-11-07，阿求遗物 flavor 15 条）
+
+稗田阿求遗物原本在 eng/jpn 中 `.flavor` 全为空。本次补齐 15 条（`BLANK_ROSTER`、`FANTASY_CHRONICLE` 的 zhs flavor 本身为空，跳过；`MIARE_BRUSH/INK/PAPER/INKSTONE` 亦为空，跳过）。
+
+多数文本改编自《东方求闻史纪》《东方求闻口授》原文，日文以 THBWiki 中日对照页原文为准，英文对齐 en.touhouwiki.net 措辞；用户对部分条目做了删减/改编，按用户定稿为准。
+
+| 键 | 来源 | English | 日本語 |
+|------|------|---------|--------|
+| `YOUGAKUDAN_COLLECTION` | 求闻史纪/幺乐团传单 | The history of the songs the Yougakudan left behind has been recorded and preserved in the Gensokyo Chronicle. | この幺楽団に残された曲の歴史は記録され、幻想郷縁起に残されている。 |
+| `READING_GLASSES` | 求闻口授/二岩猯藏（说话人为猯藏） | "Heh heh. Just a gift from an 'old friend.'" | 「ふふ、ただの『旧友』からの贈り物じゃよ。」 |
+| `YOKAI_BESTIARY` | 求闻史纪/序（用户删去「幻想乡」「退治妖怪的人类」两段） | You might be thinking that if people knew more about the abilities and countermeasures of youkai, and could avoid dangerous places, then we wouldn't have to live in fear. | もっと妖怪の能力や対策が判っていれば、危険な場所を避けられれば、怯えて暮らさなくても済むのに、と思っている事だろう。 |
+| `CALMING_TEA` | 求闻史纪/独白 末段 | Until then, I would like to continue enjoying the black tea I love so much as I listen to Yougakudan songs. | それまで、幺楽団の演奏でも聴きながら、私の好きな紅茶を愉しみ続けたい。 |
+| `DETECTIVE_MANUSCRIPT` | 福尔摩斯名言 | "Eliminate all that is impossible; whatever remains, however improbable, must be the truth." — Sherlock Holmes | 「ありえないものをすべて排除した後に残ったものが、たとえどれほど信じがたくても、真実なのだ。」——シャーロック・ホームズ |
+| `AGATHA_CHRIS_Q_COLLECTION` | 阿加莎·克里斯蒂名言 | "I like living. I have sometimes been wildly, despairingly, acutely miserable, racked with sorrow; but through it all I still know quite certainly that just to be alive is a grand thing." | 「私は生きることが好き。ときに激しく、絶望的に、やりきれないほど惨めで、悲しみに苛まれることもある。それでも、ただ生きていることこそが何よりも素晴らしいのだと、はっきり分かっている。」 |
+| `SIGNED_SHIKISHI` | 原创（含书名） | The signing session for Agatha Chris Q's new book M Dies of M is in full swing! | アガサ・クリスQの新刊『ＭはＭで死ぬ』のサイン会が大盛況開催中！ |
+| `CAMELLIA_HAIRPIN` | 原创 | By the time we meet again, we may no longer recognize each other. | 次に会う時には、お互いのことがもう分からなくなっているかもしれないね。 |
+| `HARDCOVER_BINDING` | 原创 | Before a work goes on sale, it always needs some careful packaging and revision. | 作品の発売前には、やはり丁寧な装丁と推敲が欠かせない。 |
+| `SAKURA_COMB` | 求闻史纪/稗田阿求 转生之术 | The ritual of reincarnation involves petitioning the Yama for permission during my lifetime; then, for over a hundred years during which my body for the next reincarnation is prepared, I work for the Yama in Hell. | さらに言うと転生の術は、生きている内から閻魔様に許しを乞い、転生後の肉体を用意して貰うまでの百年余りの時間は、地獄の閻魔様の下で働く事となる。 |
+| `ANCIENT_SPECIMEN` | 求闻史纪 虫豸条目 | A specimen of an insect said to have gone extinct a thousand years ago. But now that the insect has reappeared, it has lost its worth as a rarity. | 千年前に絶滅したとされる昆虫の標本。しかしその昆虫が再び現れたことで、標本は絶版としての価値を失ってしまった。 |
+| `BELL_BOOKMARK` | 求闻口授 正文 | "The distance between humans and yokai is much closer than you'd think!" | 「人間と妖怪との距離は、思っているよりずっと近いんですよ！」 |
+| `MEDICINAL_CUISINE` | 原创 | Helps improve memory. | 記憶力の向上に役立つ。 |
+| `SCHOLAR_CROWN` | 原创（惠音相关，用 sensei） | Please don't forget to do the homework your sensei assigned! | 先生に出された宿題を忘れないでくださいね！ |
+| `OLD_NEWSPAPER` | 求闻史纪/文文新闻 笔记（用户改编：去第一人称，改「第九代御阿礼之子出生时」） | The newspaper article released at the birth of the Ninth Child of Miare. Kept as commemoration. | 九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。 |
+
+### 说明
+- 术语：幻想乡缘起 = `Gensokyo Chronicle` / 幻想郷縁起；阎魔 = `the Yama` / 閻魔様；御阿礼之子 = `Child of Miare` / 御阿礼の子；幺乐团保留 `Yougakudan` / 幺楽団；老师用 `sensei` / 先生（与 `Keine-sensei` 一致）。
+- 书名「《M因M而死》」定译 `M Dies of M` / 『ＭはＭで死ぬ』（用户指定）。
+- `YOKAI_BESTIARY`、`OLD_NEWSPAPER` 按用户要求做了删减：前者去掉「幻想乡的危险之地」「擅长退治妖怪的人类」两项并列；后者去掉第一人称主语。
+- zhs 本轮未改动（`SIGNED_SHIKISHI` 的书名为用户自行添加）。

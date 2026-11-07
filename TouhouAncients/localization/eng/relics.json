@@ -883,16 +883,16 @@
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.title": "Yougakudan Collection",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.description": "Upon pickup, add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.eventDescription": "Add a random non-Basic card from [purple]your previous run[/purple] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-YOUGAKUDAN_COLLECTION.flavor": "The history of the songs the Yougakudan left behind has been recorded and preserved in the Gensokyo Chronicle.",
 
   "TOUHOUANCIENTS-READING_GLASSES.title": "Reading Glasses",
   "TOUHOUANCIENTS-READING_GLASSES.description": "Upon pickup, add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.",
   "TOUHOUANCIENTS-READING_GLASSES.eventDescription": "Add a [gold]Mysterious Leaf[/gold] to your [gold]Deck[/gold]. Whenever you add a card to your [gold]Deck[/gold], it becomes a [purple]Disguise[/purple] of that card.",
-  "TOUHOUANCIENTS-READING_GLASSES.flavor": "",
+  "TOUHOUANCIENTS-READING_GLASSES.flavor": "\"Heh heh. Just a gift from an 'old friend.'\"",
 
   "TOUHOUANCIENTS-YOKAI_BESTIARY.title": "Yokai Bestiary",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.description": "Whenever you encounter an enemy, record its name. Enemies you encounter again whose names are recorded have only [blue]1[/blue] HP.",
-  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "",
+  "TOUHOUANCIENTS-YOKAI_BESTIARY.flavor": "You might be thinking that if people knew more about the abilities and countermeasures of youkai, and could avoid dangerous places, then we wouldn't have to live in fear.",
 
   "TOUHOUANCIENTS-YOKAI_BESTIARY.recordTitle": "Human-Yokai Register",
   "TOUHOUANCIENTS-YOKAI_BESTIARY.record": "Recorded monsters:\n{Monsters:list:{}|\n}",
@@ -900,36 +900,36 @@
 
   "TOUHOUANCIENTS-CALMING_TEA.title": "Calming Tea",
   "TOUHOUANCIENTS-CALMING_TEA.description": "At the end of your turn, if you are affected by a debuff, gain [blue]{Block}[/blue] [gold]Block[/gold].",
-  "TOUHOUANCIENTS-CALMING_TEA.flavor": "",
+  "TOUHOUANCIENTS-CALMING_TEA.flavor": "Until then, I would like to continue enjoying the black tea I love so much as I listen to Yougakudan songs.",
 
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.title": "Detective Novel Manuscript",
   "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.description": "In [gold]?[/gold] rooms, prevent the first time you would lose HP.",
-  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "",
+  "TOUHOUANCIENTS-DETECTIVE_MANUSCRIPT.flavor": "\"Eliminate all that is impossible; whatever remains, however improbable, must be the truth.\" — Sherlock Holmes",
 
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.title": "Agatha Chris Q's Detective Collection",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.description": "In [gold]?[/gold] rooms, prevent the first time you would lose HP. Attacks deal [blue]{Damage}[/blue] additional damage to enemies not intending to Attack. At the end of your turn, [gold]Retain[/gold] [blue]{RetainCard}[/blue] additional card for each enemy.",
-  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "",
+  "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.flavor": "\"I like living. I have sometimes been wildly, despairingly, acutely miserable, racked with sorrow; but through it all I still know quite certainly that just to be alive is a grand thing.\"",
   "TOUHOUANCIENTS-AGATHA_CHRIS_Q_COLLECTION.selectionScreenPrompt": "Choose {Amount:plural:a card|{} cards} to Retain.",
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "Signed Shikishi",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "A random card in each card reward is [gold]Enchanted[/gold] with [purple]{EnchantmentName}[/purple]. You may hold a [pink]Signing Session[/pink] at [gold]Rest Sites[/gold].",
-  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "The signing session for Agatha Chris Q's new book M Dies of M is in full swing!",
 
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "Camellia Hairpin",
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "Whenever you rest at a [gold]Rest Site[/gold], you may [gold]Transform[/gold] a card.",
-  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "",
+  "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.flavor": "By the time we meet again, we may no longer recognize each other.",
 
   "TOUHOUANCIENTS-HARDCOVER_BINDING.title": "Hardcover Binding",
   "TOUHOUANCIENTS-HARDCOVER_BINDING.description": "Cards you obtain in non-combat rooms are automatically [green]Upgraded[/green].",
-  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "",
+  "TOUHOUANCIENTS-HARDCOVER_BINDING.flavor": "Before a work goes on sale, it always needs some careful packaging and revision.",
 
   "TOUHOUANCIENTS-SAKURA_COMB.title": "Sakura Comb",
   "TOUHOUANCIENTS-SAKURA_COMB.description": "Whenever you enter a [gold]Rest Site[/gold] or encounter an [gold]Ancient[/gold], gain [blue]{MaxHp}[/blue] [gold]Max HP[/gold], then add a [red]Yama's Punishment[/red] to your [gold]Deck[/gold].",
-  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "",
+  "TOUHOUANCIENTS-SAKURA_COMB.flavor": "The ritual of reincarnation involves petitioning the Yama for permission during my lifetime; then, for over a hundred years during which my body for the next reincarnation is prepared, I work for the Yama in Hell.",
 
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.title": "Ancient Specimen",
   "TOUHOUANCIENTS-ANCIENT_SPECIMEN.description": "[gold]Elite[/gold] enemies have [blue]{Percent}%[/blue] less HP.",
-  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "",
+  "TOUHOUANCIENTS-ANCIENT_SPECIMEN.flavor": "A specimen of an insect said to have gone extinct a thousand years ago. But now that the insect has reappeared, it has lost its worth as a rarity.",
 
   "TOUHOUANCIENTS-BLANK_ROSTER.title": "Blank Roster",
   "TOUHOUANCIENTS-BLANK_ROSTER.description": "Upon pickup, gain [blue]{Count}[/blue] random [gold]Hieda no Akyuu {Count:plural:relic|relics}[/gold]. Add a [red]Overwork[/red] to your [gold]Deck[/gold].",
@@ -938,7 +938,7 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "Bell Bookmark",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "In Act 1, [gold]Card Rewards[/gold] contain an additional [gold]Colorless[/gold] card, and the chance of encountering a monster in [gold]?[/gold] rooms is greatly increased.",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "\"The distance between humans and yokai is much closer than you'd think!\"",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "Fantasy Chronicle",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "Upon pickup, add [blue]1[/blue] [gold]Fantasy Chronicle[/gold] to your [gold]Deck[/gold]. After entering the next act, you may [gold]Transform[/gold] this card into one of: {CardList:list:{}|, }.",
@@ -948,14 +948,14 @@
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.title": "Medicinal Cuisine",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.description": "Upon pickup, gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",
   "TOUHOUANCIENTS-MEDICINAL_CUISINE.eventDescription": "Gain [blue]{Potions}[/blue] [gold]Wellness Tonic[/gold].",
-  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "",
+  "TOUHOUANCIENTS-MEDICINAL_CUISINE.flavor": "Helps improve memory.",
 
   "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "Scholar's Crown",
   "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "Every [blue]{Combats}[/blue] combats, gain [blue]1[/blue] additional [gold]Rare Card Reward[/gold].",
-  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "Please don't forget to do the homework your sensei assigned!",
 
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "Old Rites News",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total.",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "Gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold], up to [blue]{MaxHpLossTotal}[/blue] in total.",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": ""
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold]. After you have lost a total of [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold], this relic no longer works.",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "Gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold]. After you have lost a total of [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold], this relic no longer works.",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "The newspaper article released at the birth of the Ninth Child of Miare. Kept as commemoration."
 }

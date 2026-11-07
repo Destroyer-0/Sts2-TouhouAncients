@@ -909,7 +909,7 @@
 
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.title": "签名色纸",
   "TOUHOUANCIENTS-SIGNED_SHIKISHI.description": "每次卡牌奖励中，都会有随机一张牌被[gold]附魔[/gold]：[purple]{EnchantmentName}[/purple]。你可以在[gold]休息处[/gold][pink]签售[/pink]。",
-  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "阿加莎·克里斯Q的新书签售会正火热举办中！",
+  "TOUHOUANCIENTS-SIGNED_SHIKISHI.flavor": "阿加莎·克里斯Q的新书《M因M而死》签售会正火热举办中！",
 
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.title": "山茶花发饰",
   "TOUHOUANCIENTS-CAMELLIA_HAIRPIN.description": "每当你在[gold]休息处[/gold]休息时，你可以[gold]变化[/gold]一张牌。",
@@ -948,11 +948,11 @@
 
   "TOUHOUANCIENTS-SCHOLAR_CROWN.title": "授业儒冠",
   "TOUHOUANCIENTS-SCHOLAR_CROWN.description": "每[blue]{Combats}[/blue]场战斗，额外掉落[blue]1[/blue]组[gold]稀有卡牌奖励[/gold]。",
-  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "请不要忘记写布置的作业！",
+  "TOUHOUANCIENTS-SCHOLAR_CROWN.flavor": "请不要忘记写老师布置的作业！",
 
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧篇",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]，最多失去[blue]{MaxHpLossTotal}[/blue]点。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "拾起时，获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。累计失去[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]后，此遗物失效。",
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "获得[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]。每当你受到未被格挡的伤害时，失去[blue]{MaxHpLoss}[/blue]点[gold]最大生命[/gold]。累计失去[blue]{MaxHpGain}[/blue]点[gold]最大生命[/gold]后，此遗物失效。",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "第九代御阿礼之子出生时的新闻。作为纪念，收藏了起来。",
 
   "TOUHOUANCIENTS-SUPPORT_BATON.title": "偶像应援棒",
