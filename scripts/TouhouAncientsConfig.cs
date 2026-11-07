@@ -32,7 +32,8 @@ public enum ForcedAncientOption
     Junko纯狐,
     Yorigami依神姐妹,
     Mamizou猯藏,
-    Koishi蔷薇偶像
+    // 蔷薇偶像暂时下线，恢复时取消注释
+    // Koishi蔷薇偶像
 }
 
 /// <summary>
@@ -124,9 +125,10 @@ public class TouhouAncientsConfig : SimpleModConfig
         if (BanMamizou) mask |= 1UL << 22;
         if (BanNeow) mask |= 1UL << 23;
         if (BanDoremySweet) mask |= 1UL << 24;
-        // 阿求属测试内容：未开启即视为禁用。写进掩码是为了随联机包尾同步，各端候选池才一致。
-        if (BanHiedaNoAkyuu || !EnableHiedaNoAkyuuTest) mask |= 1UL << 25;
-        if (BanIdleKoishi) mask |= 1UL << 26;
+        // 写进掩码是为了随联机包尾同步，各端候选池才一致。
+        if (BanHiedaNoAkyuu) mask |= 1UL << 25;
+        // 蔷薇偶像暂时下线：固定置位。恢复时改回 if (BanIdleKoishi)
+        mask |= 1UL << 26;
         return mask;
     }
 
@@ -207,8 +209,8 @@ public class TouhouAncientsConfig : SimpleModConfig
             nameof(YorigamiSisterAncient) => BanYorigami,
             nameof(FutatsuiwaMamizouAncient) => BanMamizou,
             nameof(DoremySweetAncient) => BanDoremySweet,
-            nameof(HiedaNoAkyuuAncient) => BanHiedaNoAkyuu || !EnableHiedaNoAkyuuTest,
-            nameof(IdleKoishiAncient) => BanIdleKoishi,
+            nameof(HiedaNoAkyuuAncient) => BanHiedaNoAkyuu,
+            nameof(IdleKoishiAncient) => true, // 蔷薇偶像暂时下线，恢复时改回 BanIdleKoishi
             _ => false
         };
     }
@@ -276,7 +278,7 @@ public class TouhouAncientsConfig : SimpleModConfig
             ForcedAncientOption.Junko纯狐 when type is JunkoAncient => true,
             ForcedAncientOption.Yorigami依神姐妹 when type is YorigamiSisterAncient => true,
             ForcedAncientOption.Mamizou猯藏 when type is FutatsuiwaMamizouAncient => true,
-            ForcedAncientOption.Koishi蔷薇偶像 when type is IdleKoishiAncient => true,
+            // ForcedAncientOption.Koishi蔷薇偶像 when type is IdleKoishiAncient => true, // 蔷薇偶像暂时下线
             _ => false
         };
     }
@@ -301,8 +303,7 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// <summary>
     /// 初始先古之民配置：只作用于**第一幕**出现的先古之民
     /// （原版涅奥 <c>Neow</c> 与本 Mod 哆来咪·苏伊特 <c>DoremySweetAncient</c>、稗田阿求 <c>HiedaNoAkyuuAncient</c>）。
-    /// 三者同池均匀抽取，禁用后该先古之民不再参与第一幕抽取
-    /// （稗田阿求属测试内容，未开启 <see cref="EnableHiedaNoAkyuuTest"/> 时同样不参与）；
+    /// 三者同池均匀抽取，禁用后该先古之民不再参与第一幕抽取；
     /// 若全部被禁用且本 Mod 没有其它一层先古之民，则兜底保留原版抽签结果（涅奥），
     /// 避免第一幕没有可抽取的先古之民。
     /// </summary>
@@ -322,11 +323,6 @@ public class TouhouAncientsConfig : SimpleModConfig
     /// 禁用稗田阿求（仅第一幕出现）
     /// </summary>
     public static bool BanHiedaNoAkyuu { get; set; } = false;
-
-    /// <summary>
-    /// 测试内容开关：稗田阿求（仅第一幕出现）。关闭时等同禁用（见 <see cref="BuildBannedMask"/> 第 25 位）。
-    /// </summary>
-    public static bool EnableHiedaNoAkyuuTest { get; set; } = false;
 
     /// <summary>
     /// 配置该列表中先古之民不出现
@@ -371,8 +367,8 @@ public class TouhouAncientsConfig : SimpleModConfig
     public static bool BanYorigami { get; set; } = false;
     public static bool BanMamizou { get; set; } = false;
 
-    /// <summary>禁用蔷薇偶像（仅第二幕出现）</summary>
-    public static bool BanIdleKoishi { get; set; } = false;
+    /// <summary>禁用蔷薇偶像（仅第二幕出现）—— 暂时下线，恢复时取消注释</summary>
+    // public static bool BanIdleKoishi { get; set; } = false;
 
     // ───────────────────────── 设置界面：第一幕先古之民全禁用提示 ─────────────────────────
 
@@ -454,12 +450,12 @@ public class TouhouAncientsConfig : SimpleModConfig
         return null;
     }
 
-    /// <summary>涅奥、哆来咪、稗田阿求（含未开启测试内容）全部不可用时才显示警告。</summary>
+    /// <summary>涅奥、哆来咪、稗田阿求全部不可用时才显示警告。</summary>
     private static void RefreshAct1AncientBanWarning(Control row)
     {
         if (GodotObject.IsInstanceValid(row))
         {
-            row.Visible = BanNeow && BanDoremySweet && (BanHiedaNoAkyuu || !EnableHiedaNoAkyuuTest);
+            row.Visible = BanNeow && BanDoremySweet && BanHiedaNoAkyuu;
         }
     }
 }

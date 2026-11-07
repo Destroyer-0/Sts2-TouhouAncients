@@ -28,7 +28,7 @@ public class ChaosDream : TouhouAncientRelics
         ModelDb.Relic<SupremeDream>(),
         ModelDb.Relic<RevivalDream>(),
         ModelDb.Relic<BygoneDream>(),
-        ModelDb.Relic<PioneerDream>(),
+        // ModelDb.Relic<PioneerDream>(),  // 先驱之梦已停用
         ModelDb.Relic<RevelationDream>(),
         ModelDb.Relic<IridescentDream>(),
         ModelDb.Relic<MeltingWaxDream>(),

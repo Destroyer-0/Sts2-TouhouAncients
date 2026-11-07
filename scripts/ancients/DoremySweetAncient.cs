@@ -34,7 +34,7 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<SupremeDream>(),
             TARelicOption<RevivalDream>(),
             TARelicOption<BygoneDream>(),
-            TARelicOption<PioneerDream>(),
+            // TARelicOption<PioneerDream>(),  // 先驱之梦已停用
             TARelicOption<RichMerchantDream>(),
             TARelicOption<RevelationDream>()
             ),

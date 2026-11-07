@@ -19,14 +19,15 @@ internal static class TouhouAncientTimelineContent
 {
     public static void Register()
     {
-        TouhouAncientTimelineRegistry.Register<TouhouSanaeEpoch>(
-            TouhouAncientTimelineEra.Door(0),
-            TouhouTimelineUnlock.Ancient<KotiyaSanaeAncient>(),
-            position: 3);
-
-        TouhouAncientTimelineRegistry.Register<TouhouMamizouEpoch>(
-            TouhouAncientTimelineEra.Door(1),
-            TouhouTimelineUnlock.Ancient<FutatsuiwaMamizouAncient>(),
-            position: 2);
+        // 临时关闭：注册即会出现在百科大全的「时间线」里，框架保留，仅注释内容。
+        // TouhouAncientTimelineRegistry.Register<TouhouSanaeEpoch>(
+        //     TouhouAncientTimelineEra.Door(0),
+        //     TouhouTimelineUnlock.Ancient<KotiyaSanaeAncient>(),
+        //     position: 3);
+        //
+        // TouhouAncientTimelineRegistry.Register<TouhouMamizouEpoch>(
+        //     TouhouAncientTimelineEra.Door(1),
+        //     TouhouTimelineUnlock.Ancient<FutatsuiwaMamizouAncient>(),
+        //     position: 2);
     }
 }

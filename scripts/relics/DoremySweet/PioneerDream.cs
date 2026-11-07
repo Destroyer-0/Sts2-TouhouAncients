@@ -1,3 +1,5 @@
+/*
+// 已停用（整个脚本注释掉）：遗物「先驱之梦」不再使用。
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -130,3 +132,4 @@ public class PioneerDream : TouhouAncientRelics
         return players.FirstOrDefault(p => p.Character == characterId) ?? players[0];
     }
 }
+*/

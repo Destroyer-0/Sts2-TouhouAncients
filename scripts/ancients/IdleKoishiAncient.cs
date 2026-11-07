@@ -25,6 +25,8 @@ public class IdleKoishiAncient : TouhouAncientBase
 
     public override int? ShowAct => 2;
 
+    public override bool IsValidForAct(ActModel act) => false;
+
     public override Color ButtonColor => new Color(0.4863f, 0.8f, 0.8784f, 0.7f);
     public override Color DialogueColor => new Color(0.4863f, 0.5608f, 0.8784f);
 
