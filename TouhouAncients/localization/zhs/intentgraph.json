@@ -11,5 +11,7 @@
   "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CUT_HERAT": "{otherwise}",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD": "女苑存活",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER": "女苑倒下后",
-  "ui.TouhouAncientsFantasyNatureNote": "基础伤害为玩家当前生命值的 1/12"
+  "ui.TouhouAncientsFantasyNatureNote": "基础伤害为玩家当前生命值的 1/12",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION": "造成未被格挡的伤害，或生命值低于阈值后",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL": "连击次数 N 从 1 开始，每次使用后 +1"
 }

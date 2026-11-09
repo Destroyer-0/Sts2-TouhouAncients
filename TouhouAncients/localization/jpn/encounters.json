@@ -50,6 +50,8 @@
 
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "純狐",
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character}は[gold]{encounter}[/gold]の絶対的な実力に服した。",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.bgm": "故郷の星が映る海",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.bgm2": "ピュアヒューリーズ　～ 心の在処",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "饕餮尤魔",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "{character}は有機物の一片として石油の海に溶け込んだ。",

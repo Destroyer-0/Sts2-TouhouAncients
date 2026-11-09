@@ -50,6 +50,8 @@
 
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.title": "纯狐",
   "TOUHOUANCIENTS-JUNKO_ENCOUNTER.loss": "{character}臣服于[gold]{encounter}[/gold]绝对的实力。",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.bgm": "故乡之星倒映之海",
+  "TOUHOUANCIENTS-JUNKO_ENCOUNTER.bgm2": "Pure Furies　～ 心之所在",
 
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.title": "饕餮尤魔",
   "TOUHOUANCIENTS-TOUTETSU_YUUMA_ENCOUNTER.loss": "{character}作为有机物的一份子融入了石油之海。",

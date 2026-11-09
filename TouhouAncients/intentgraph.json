@@ -1,18 +1,60 @@
 {
-  "TouhouAncients.Scripts.monsters.YorigamiShionMonster": {
-    "secondaryInitialStates": [
-      "ROOT"
-    ]
-  },
-  "TouhouAncients.Scripts.monsters.HakureiReimuMonster": {
-    "graphPatch": {
-      "labels": [
-        {
-          "x": 0.0,
-          "y": 0.55,
-          "text": "ui.TouhouAncientsFantasyNatureNote"
-        }
+  "TouhouAncients.Scripts.monsters.YorigamiShionMonster": [
+    {
+      "secondaryInitialStates": [
+        "ROOT"
       ]
     }
-  }
+  ],
+  "TouhouAncients.Scripts.monsters.HakureiReimuMonster": [
+    {
+      "graphPatch": {
+        "labels": [
+          {
+            "x": 0.0,
+            "y": 0.55,
+            "text": "ui.TouhouAncientsFantasyNatureNote"
+          }
+        ]
+      }
+    }
+  ],
+  "TouhouAncients.Scripts.monsters.JunkoMonster": [
+    {
+      "upToDateCondition": "mm.count == 5 && mm.nextMoveOf_COSMIC_CONJUNCTION_is_PURE_BULLET_HELL && mm.nextMoveOf_PURE_BULLET_HELL2_is_PURE_BULLET_HELL",
+      "secondaryInitialStates": [
+        "COSMIC_CONJUNCTION"
+      ],
+      "moveReplacements": {
+        "PURE_BULLET_HELL": [
+          {
+            "timesText": "N"
+          }
+        ],
+        "PURE_BULLET_HELL2": [
+          {
+            "timesText": "N"
+          }
+        ]
+      },
+      "graphPatch": {
+        "labels": [
+          {
+            "x": 1.2,
+            "y": 0.0,
+            "align": "left",
+            "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION",
+            "relativeTo": "/COSMIC_CONJUNCTION"
+          },
+          {
+            "x": 1.2,
+            "y": 0.0,
+            "align": "left",
+            "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL",
+            "relativeTo": "/PURE_BULLET_HELL"
+          }
+        ]
+      }
+    }
+  ]
 }
