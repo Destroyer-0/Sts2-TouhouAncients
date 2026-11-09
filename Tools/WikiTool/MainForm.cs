@@ -450,6 +450,9 @@ public sealed class MainForm : Form
     private void ShowError(string title, string detail) =>
         MessageBox.Show(this, detail, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+    /// <summary>仓库内置便携版 Python（Tools\python），用于免安装运行。</summary>
+    private static string BundledPython => Path.Combine(RepoRoot, "Tools", "python", "python.exe");
+
     private async Task<(int Code, string StdOut, string StdErr)> RunPythonAsync(string arguments)
     {
         _python ??= await DetectPythonAsync();
@@ -479,9 +482,18 @@ public sealed class MainForm : Form
 
     private static async Task<string> DetectPythonAsync()
     {
-        foreach (var candidate in new[] { "py -3", "python" })
+        // 优先用仓库内置的便携版：别的机器不用装 Python
+        var bundled = BundledPython;
+        var candidates = new List<(string Exe, string Args)>();
+        if (File.Exists(bundled))
         {
-            var (exe, args) = candidate == "py -3" ? ("py", "-3 --version") : ("python", "--version");
+            candidates.Add((bundled, "--version"));
+        }
+        candidates.Add(("py", "-3 --version"));
+        candidates.Add(("python", "--version"));
+
+        foreach (var (exe, args) in candidates)
+        {
             try
             {
                 var psi = new ProcessStartInfo
@@ -501,7 +513,8 @@ public sealed class MainForm : Form
                 await process.WaitForExitAsync();
                 if (process.ExitCode == 0)
                 {
-                    return candidate;
+                    // py 启动器需要保留 "-3" 前缀，其余直接是可执行文件路径
+                    return exe == "py" ? "py -3" : exe;
                 }
             }
             catch (Exception)
@@ -509,7 +522,10 @@ public sealed class MainForm : Form
                 // 该候选不存在，试下一个
             }
         }
-        throw new InvalidOperationException("未找到 Python，请安装 Python 3 并加入 PATH（或 py 启动器）。");
+        throw new InvalidOperationException(
+            "未找到 Python。\n\n" +
+            "请确认仓库内 Tools\\python\\python.exe 存在（便携版），\n" +
+            "或安装 Python 3 并加入 PATH（或 py 启动器）。");
     }
 
     private sealed class AncientRow
