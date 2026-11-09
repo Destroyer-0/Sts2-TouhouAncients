@@ -1,0 +1,419 @@
+{
+  "unit": 1002,
+  "character": "雾雨魔理沙",
+  "styles": [
+    {
+      "file": 1,
+      "cv": "新田早規",
+      "displayName": "欲望奔放程度的声音"
+    },
+    {
+      "file": 2,
+      "cv": "渡辺はるか",
+      "displayName": "大胆施法程度的声音"
+    },
+    {
+      "file": 3,
+      "cv": "Lynn",
+      "displayName": "讲究火力程度的声音"
+    }
+  ],
+  "lines": [
+    {
+      "no": 1,
+      "title": "自我介绍",
+      "hasAudio": true,
+      "text": "哟！我的名字叫做雾雨魔理沙。如你所见，我是一个平平无奇的“普通的魔法使”。不过偷偷跟你讲，在解决异变和退治妖怪上，我可一点都不“普通”哦。不管对手是谁，我都能用弹幕把他打得找不着北！选中了这么有本事的我，你的眼光真不错！有什么麻烦事就赶紧收拾掉，然后来开开心心地开宴会吧！"
+    },
+    {
+      "no": 2,
+      "title": "信赖度1",
+      "hasAudio": true,
+      "text": "感觉会跟你相处很长时间呢。"
+    },
+    {
+      "no": 3,
+      "title": "信赖度2",
+      "hasAudio": true,
+      "text": "要来商量怎么解决异变？我觉得想太多了也不好吧。"
+    },
+    {
+      "no": 4,
+      "title": "信赖度3",
+      "hasAudio": true,
+      "text": "最近你天天都出去给别人收拾烂摊子都没怎么休息过吧？过度疲劳对身体可不好。得定期放松一下才行啊。"
+    },
+    {
+      "no": 5,
+      "title": "信赖度4",
+      "hasAudio": true,
+      "text": "我说你这家伙虽然怎么看都只是普通人类，但骨子里却跟灵梦有几分相似。也不知道该说你这是吓人，还是可靠......到底算哪一边啊！"
+    },
+    {
+      "no": 6,
+      "title": "信赖度5",
+      "hasAudio": true,
+      "text": "说实话，第一次见你时确实感觉你很不靠谱。但这是我看走眼了。这次的异变感觉是因为你在才能解决。你可真是了不起啊。"
+    },
+    {
+      "no": 7,
+      "title": "友情之证",
+      "hasAudio": true,
+      "text": "能够坚持到这儿绝对是托你的福。说不上谢礼，不过我可以安排你成为雾雨魔法店光荣的一号员工......哦？所以来握个手吧！以后请多多指教咯！"
+    },
+    {
+      "no": 8,
+      "title": "强化完成",
+      "hasAudio": true,
+      "text": "嗯，火力又提高了一个档次呢。"
+    },
+    {
+      "no": 9,
+      "title": "登录",
+      "hasAudio": true,
+      "text": "喔喔，来了来了。趁还没被灵梦那家伙抢先，我们赶紧了结这事儿吧。不用说，敢拦路的家伙就全都揍飞！"
+    },
+    {
+      "no": 10,
+      "title": "主页1",
+      "hasAudio": true,
+      "text": "我说，你还记得至今为止自己吃过几片面包么？我是和食主义者，所以是十三片。不过这数字真是不吉利啊。"
+    },
+    {
+      "no": 11,
+      "title": "主页2",
+      "hasAudio": true,
+      "text": "至今为止，为了解决异变我跟各色各样的家伙组过队，不过像你这样的还是头一回遇见。作为搭档来说还不赖哦。"
+    },
+    {
+      "no": 12,
+      "title": "主页3",
+      "hasAudio": true,
+      "text": "没有这个迷你八卦炉，我就没有活下去的自信。它就是优秀到了这个份上。虽说制造者是个怪人吧。"
+    },
+    {
+      "no": 13,
+      "title": "主页春",
+      "hasAudio": true,
+      "text": "樱花啊......不是，我倒不是说讨厌樱花......我想说的是“花瓣落在帽子上，看起来挺可爱的”！？等等，笨蛋！别看我这边啦—！"
+    },
+    {
+      "no": 14,
+      "title": "主页夏",
+      "hasAudio": true,
+      "text": "这么热的天气，感觉身体都要热化了。干脆把琪露诺抓过来放冷气得了。"
+    },
+    {
+      "no": 15,
+      "title": "主页秋",
+      "hasAudio": true,
+      "text": "说到秋天就是蘑菇。说到蘑菇就是说到我了。我在魔法之森采了一大堆蘑菇，你要一起来吃吗?能回复MP哦？"
+    },
+    {
+      "no": 16,
+      "title": "主页冬",
+      "hasAudio": true,
+      "text": "我担心这场雪会不会把香霖堂给埋了就过去看了一眼，结果看到妖梦那家伙今年又被抓来铲雪了，给我笑喷了。"
+    },
+    {
+      "no": 17,
+      "title": "任务",
+      "hasAudio": true,
+      "text": "我平时做过的任务已经够多了，这次就免了。"
+    },
+    {
+      "no": 18,
+      "title": "任务完成",
+      "hasAudio": true,
+      "text": "噢噢，还挺能干嘛。认真是一种美德。虽说我是不干的。"
+    },
+    {
+      "no": 19,
+      "title": "信箱",
+      "hasAudio": true,
+      "text": "有信送到了啊。让我看看，噢噢，这样啊—。"
+    },
+    {
+      "no": 20,
+      "title": "归来",
+      "hasAudio": true,
+      "text": "我回来啦—。累死了—。睡了—。晚安—。"
+    },
+    {
+      "no": 21,
+      "title": "派遣完成",
+      "hasAudio": true,
+      "text": "好像找到了什么好东西呢。那就去回收吧！"
+    },
+    {
+      "no": 22,
+      "title": "反应1",
+      "hasAudio": true,
+      "text": "哦，是有什么有趣的事吗？"
+    },
+    {
+      "no": 23,
+      "title": "反应2",
+      "hasAudio": true,
+      "text": "好。就去红魔馆借本书来看看吧。"
+    },
+    {
+      "no": 24,
+      "title": "反应3",
+      "hasAudio": true,
+      "text": "嚯嚯，看来你也有很多烦恼啊。"
+    },
+    {
+      "no": 25,
+      "title": "战斗开始",
+      "hasAudio": false,
+      "text": "你再动一下我就要射击了！搞错了。你要是敢射击我就跑。我现在就要跑了。"
+    },
+    {
+      "no": 26,
+      "title": "进入下波战斗",
+      "hasAudio": true,
+      "text": "还没完呢！不会这就结束了吧！？"
+    },
+    {
+      "no": 27,
+      "title": "胜利",
+      "hasAudio": false,
+      "text": "吃了我一发魔炮，别说妖怪，就连人类都会灰飞烟灭。"
+    },
+    {
+      "no": 28,
+      "title": "败北",
+      "hasAudio": true,
+      "text": "这算不上输。在我获胜之前，我会一直打下去的。"
+    },
+    {
+      "no": 29,
+      "title": "增幅1",
+      "hasAudio": false,
+      "text": "呼姆姆姆！"
+    },
+    {
+      "no": 30,
+      "title": "增幅2",
+      "hasAudio": true,
+      "text": "哈啊啊啊啊啊！"
+    },
+    {
+      "no": 31,
+      "title": "增幅3",
+      "hasAudio": true,
+      "text": "呼呜呜呜呜呜！"
+    },
+    {
+      "no": 32,
+      "title": "擦弹1",
+      "hasAudio": true,
+      "text": "吃我这下！"
+    },
+    {
+      "no": 33,
+      "title": "擦弹2",
+      "hasAudio": true,
+      "text": "看招！"
+    },
+    {
+      "no": 34,
+      "title": "擦弹3",
+      "hasAudio": true,
+      "text": "看招！"
+    },
+    {
+      "no": 35,
+      "title": "技能A",
+      "hasAudio": true,
+      "text": "事前准备要做足。"
+    },
+    {
+      "no": 36,
+      "title": "技能B",
+      "hasAudio": true,
+      "text": "接下来就得动真格啦。"
+    },
+    {
+      "no": 37,
+      "title": "指令A",
+      "hasAudio": false,
+      "text": "很投缘嘛。"
+    },
+    {
+      "no": 38,
+      "title": "指令B",
+      "hasAudio": false,
+      "text": "很好，非常完美。"
+    },
+    {
+      "no": 39,
+      "title": "指令C",
+      "hasAudio": false,
+      "text": "果然就该是这个啊。"
+    },
+    {
+      "no": 40,
+      "title": "指令D",
+      "hasAudio": false,
+      "text": "弹幕就是火力。"
+    },
+    {
+      "no": 41,
+      "title": "换人退场",
+      "hasAudio": true,
+      "text": "后背就交给你了！"
+    },
+    {
+      "no": 42,
+      "title": "换人登场",
+      "hasAudio": true,
+      "text": "压轴的来了。"
+    },
+    {
+      "no": 43,
+      "title": "射击A",
+      "hasAudio": false,
+      "text": "看我揍飞你！"
+    },
+    {
+      "no": 44,
+      "title": "射击B",
+      "hasAudio": false,
+      "text": "做好觉悟吧！"
+    },
+    {
+      "no": 45,
+      "title": "符卡A口述1",
+      "hasAudio": true,
+      "text": "这是我压箱底的绝技"
+    },
+    {
+      "no": 46,
+      "title": "符卡A口述2",
+      "hasAudio": true,
+      "text": "不要客气 接下这招吧！"
+    },
+    {
+      "no": 47,
+      "title": "符卡A宣言",
+      "hasAudio": true,
+      "text": "恋符「极限火花」"
+    },
+    {
+      "no": 48,
+      "title": "符卡B口述1",
+      "hasAudio": true,
+      "text": "才不是抄袭！ 这叫致敬！"
+    },
+    {
+      "no": 49,
+      "title": "符卡B口述2",
+      "hasAudio": true,
+      "text": "证据就是 威力可比原版高多了！"
+    },
+    {
+      "no": 50,
+      "title": "符卡B宣言",
+      "hasAudio": true,
+      "text": "恋符「非定向光线」"
+    },
+    {
+      "no": 51,
+      "title": "终符口述1",
+      "hasAudio": false,
+      "text": "没想到竟然有一天 要用到这张符卡。"
+    },
+    {
+      "no": 52,
+      "title": "终符口述2",
+      "hasAudio": false,
+      "text": "货真价实，这就是 最后的杀手锏了！"
+    },
+    {
+      "no": 53,
+      "title": "终符宣言",
+      "hasAudio": false,
+      "text": "「炽热彗星」"
+    },
+    {
+      "no": 54,
+      "title": "伤害",
+      "hasAudio": false,
+      "text": "可恶......！"
+    },
+    {
+      "no": 55,
+      "title": "大伤害",
+      "hasAudio": false,
+      "text": "真有你的！"
+    },
+    {
+      "no": 56,
+      "title": "卡片",
+      "hasAudio": false,
+      "text": "完全不顶用啊。"
+    },
+    {
+      "no": 57,
+      "title": "擦弹发动",
+      "hasAudio": true,
+      "text": "我可是很会躲弹幕的！"
+    },
+    {
+      "no": 58,
+      "title": "增幅·回复",
+      "hasAudio": true,
+      "text": "姑且说声谢谢。"
+    },
+    {
+      "no": 59,
+      "title": "无法战斗",
+      "hasAudio": true,
+      "text": "可恶......大意了。"
+    },
+    {
+      "no": 60,
+      "title": "标题",
+      "hasAudio": true,
+      "text": "东方归言录"
+    },
+    {
+      "no": 61,
+      "title": "肯定回答",
+      "hasAudio": true,
+      "text": "成了！"
+    },
+    {
+      "no": 62,
+      "title": "否定回答",
+      "hasAudio": true,
+      "text": "哎哟，你要放弃吗？"
+    },
+    {
+      "no": 63,
+      "title": "感谢",
+      "hasAudio": true,
+      "text": "谢谢啦！"
+    },
+    {
+      "no": 64,
+      "title": "低声自语",
+      "hasAudio": true,
+      "text": "“人类采用了十进位”的姿势......？"
+    },
+    {
+      "no": 65,
+      "title": "决胜台词",
+      "hasAudio": true,
+      "text": "麻烦请说人话，这里可是幻想乡。"
+    },
+    {
+      "no": 66,
+      "title": "相遇",
+      "hasAudio": false,
+      "text": "哟！我的名字是雾雨魔理沙。如你所见，我是随处可见的“普通魔法使”。"
+    }
+  ]
+}
