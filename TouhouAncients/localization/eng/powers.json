@@ -39,7 +39,7 @@
 
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.title": "Danmaku Hell",
   "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.description": "This turn, Attacks are free to play. Whenever you play an Attack, draw [blue]1[/blue] card.",
-  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "This turn, Attacks are free to play. Whenever you play an Attack, draw [blue]{Amount}[/blue] cards.",
+  "TOUHOUANCIENTS-HELL_OF_BULLETS_POWER.smartDescription": "This turn, Attacks are free to play. Whenever you play an Attack, draw [blue]{Amount}[/blue] {Amount:plural:card|cards}.",
 
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.title": "Richest Form",
   "TOUHOUANCIENTS-RICHEST_FORM_POWER.description": "Gain [blue]5[/blue] [gold]Energy[/gold] at the start of each turn. Whenever you play a card, cards of the same type cost [blue]1[/blue] more this turn.",
