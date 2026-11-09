@@ -112,6 +112,13 @@ sts2-src（.agents/local.md）──┘  （原版关键词/苦痛/卡牌/附魔
 放置：`Tools/WikiTool/`；编译产物 `Tools/WikiTool/bin/Release/net8.0-windows/WikiTool.exe`；
 单文件发布（框架依赖，需 .NET 8 桌面运行时）：`dotnet publish -c Release -r win-x64 -p:SelfContained=false -p:PublishSingleFile=true -o bin\publish` → `Tools/WikiTool/bin/publish/WikiTool.exe`（约 180 KB）。
 
+**已入库的 exe**：`Tools/WikiTool/WikiTool.exe`（同样是框架依赖单文件版，直接双击即可；对方需装 .NET 8 桌面运行时）。
+`bin/`、`obj/` 被忽略，所以别再提交 `.lnk` 快捷方式——Windows 快捷方式存的是绝对路径，换机器必然失效。
+
+**内置 Python**：`Tools/python/`（官方 embeddable 3.11.9，约 20 MB）。exe 依次尝试
+`Tools\python\python.exe` → `py -3` → `python`，所以对方**不需要安装 Python**。
+便携版只带标准库（本项目脚本只用标准库），别往里装第三方包。
+
 ### 界面
 
 ```

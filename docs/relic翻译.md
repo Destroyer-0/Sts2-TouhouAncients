@@ -873,7 +873,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Mini Hakkero` |
-| `.description` | `At end of turn, [gold]Exhaust[/gold] [blue]1~3[/blue] cards from your [gold]Hand[/gold]. If at least [blue]{Cards}[/blue] card(s) were exhausted, gain {Energy:energyIcons()} at the start of next turn.` |
+| `.description` | `At end of turn, [gold]Exhaust[/gold] [blue]1~3[/blue] cards from your [gold]Hand[/gold]. If at least [blue]{Cards}[/blue] {Cards:plural:card was|cards were} exhausted, gain {Energy:energyIcons()} at the start of next turn.` |
 | `.selectionScreenPrompt` | `Choose 1~3 cards to Exhaust` |
 | `.flavor` | `A magical weapon that focuses magical waves into one point and fires them forward.` |
 
@@ -1402,7 +1402,7 @@
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Black Cat Doll` |
-| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the start of each turn, [blue]{Cards}[/blue] random cards in your [gold]Hand[/gold] are [gold]Afflicted with[/gold] [purple]Collateral[/purple] [blue]{CollateralNum}[/blue].` |
+| `.description` | `At the start of each turn, gain {Energy:energyIcons()}. At the start of each turn, [blue]{Cards}[/blue] random {Cards:plural:card|cards} in your [gold]Hand[/gold] {Cards:plural:is|are} [gold]Afflicted with[/gold] [purple]Collateral[/purple] [blue]{CollateralNum}[/blue].` |
 | `.flavor` | `If you keep resting on your laurels, you'll be penniless in no time...` |
 
 ### 石油期货
@@ -2538,7 +2538,7 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Blazing Candle Dream` |
-| `.description` | `At the start of each combat, put [blue]{Cards}[/blue] [gold]Blazing Flame[/gold] into your [gold]Hand[/gold]. They have [gold]Exhaust[/gold].` |
+| `.description` | `At the start of each combat, put [blue]{Cards}[/blue] [gold]Brightest Flame[/gold] into your [gold]Hand[/gold]. {Cards:plural:It has|They have} [gold]Exhaust[/gold].` |
 | `.flavor` | `""`（留空） |
 
 #### 邪契之梦 `SINISTER_PACT_DREAM`
@@ -2572,7 +2572,7 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Supreme Dream` |
-| `.description` | `Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]Potions[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] card rewards.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] cards.` |
+| `.description` | `Whenever you enter a new [gold]Act[/gold]:\nGain [blue]{Potions}[/blue] [gold]{Potions:plural:Potion|Potions}[/gold].\nGain [blue]{Gold}[/blue] [gold]Gold[/gold].\nIncrease your [gold]Max HP[/gold] by [blue]{MaxHpGain}[/blue].\nGain [blue]{Cards}[/blue] {Cards:plural:card reward|card rewards}.\nRandomly [green]Upgrade[/green] [blue]{Upgrades}[/blue] {Upgrades:plural:card|cards}.` |
 | `.eventDescription` | 同上，改为不换行的连续段落 |
 | `.flavor` | `""`（留空） |
 
