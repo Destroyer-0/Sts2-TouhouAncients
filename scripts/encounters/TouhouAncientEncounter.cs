@@ -159,6 +159,21 @@ public static class TouhouAncientEncounterBgmNamePatch
             _display.Show();
     }
 
+    /// <summary>
+    /// 换曲时同步底部曲名（节点不存在则忽略）。调用方负责本地化取值。
+    /// </summary>
+    public static void SetBgmName(string bgmName)
+    {
+        if (_display == null || !GodotObject.IsInstanceValid(_display)) return;
+
+        Label? label = _display.GetNodeOrNull<Label>("%Label");
+        if (label != null)
+        {
+            label.Text = "♪ Bgm: " + bgmName;
+        }
+        _display.Show();
+    }
+
     private static void SubscribeCombatEnded()
     {
         if (_subscribed) return;
