@@ -63,7 +63,8 @@ python ".agents/skills/ancient-relic-list/scripts/relic_list.py" --out "docs/THA
 | 原版卡牌 / 附魔 | 代码 hover 里出现的原版牌与附魔也列进衍生条目（正文取本体 `cards.json` / `enchantments.json`，类型费用关键词取本体源码；网页端**不给卡图**）。原版能力/药水不列，避免噪音 |
 | 卡牌自身 hover | 衍生卡自己的 hover 提示也算（例：仆从牌 → 原版「小刀」「晕眩」，心之瞳 → 原版附魔「本能」） |
 | 关键词说明 | 上面那张关键词表（`CanonicalKeywords` + 运行时 `AddKeyword` 全文扫描）+ 代码 `FromKeyword(...)` 悬停提示，除 消耗/虚无/保留 外都会进网页衍生条目 |
-| 升级差异 | `OnUpgrade` 的 `UpgradeValueBy` / `Add|RemoveKeyword` / `EnergyCost.UpgradeBy`；网页给每个卡牌条目输出 `htmlUp` / `metaUp`（升级减费时费用标绿）/ `keywordsUp`，前端每张牌各自的「显示升级后」开关切换 |
+| 升级差异 | `OnUpgrade` 的 `UpgradeValueBy` **与 `BaseValue += / -=`**（后者漏掉会导致「升级预览与未升级一样」）/ `Add|RemoveKeyword` / `EnergyCost.UpgradeBy`；网页给每个卡牌条目输出 `htmlUp` / `metaUp`（升级减费时费用标绿）/ `keywordsUp`，前端每张牌各自的「显示升级后」开关切换 |
+| 百分比格式 | `{X:percentLess()}` → `(1-X)*100`、`{X:percentMore()}` → `(X-1)*100`（与游戏 `PercentLessFormatter` 一致；直接输出原值会变成 0.75%） |
 | 语言 | `set_language("zhs"|"eng"|"jpn")` 切换 mod 与本体本地化，并重建关键词/苦痛/标题索引、覆盖表、类型名与行标签；`ENERGY_WORD` / `COST_WORD` / `REST_SITE_WORD` 控制文案里的对应语言措辞 |
 
 - **原版卡牌 / 关键词不做衍生条目**（晕眩、孢子心灵、华彩之类直接跳过），只有本 mod 的牌、附魔、能力、药水才列。

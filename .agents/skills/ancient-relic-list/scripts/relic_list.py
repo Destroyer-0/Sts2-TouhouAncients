@@ -307,6 +307,32 @@ def charac(v):
     return v[0], None
 
 
+def parse_upgrade_deltas(ob, cs):
+    """OnUpgrade 里的数值增量。
+
+    两种写法都要认：`X.UpgradeValueBy(1m)` 与 `X.BaseValue += 1;` / `-= 1;`
+    （后者是直接改 BaseValue，漏掉的卡会出现「升级预览与未升级完全一样」）。
+    """
+    deltas = {}
+    for mm in re.finditer(r'DynamicVars(?:\.(\w+)|\["(\w+)"\])\.UpgradeValueBy\(([^)]+)\)', ob):
+        nm = mm.group(1) or mm.group(2)
+        try:
+            deltas[nm] = eval_expr(mm.group(3), cs)
+        except Exception:
+            pass
+    for mm in re.finditer(
+            r'DynamicVars(?:\.(\w+)|\["(\w+)"\])\.BaseValue\s*(\+=|-=)\s*([^;]+);', ob):
+        nm = mm.group(1) or mm.group(2)
+        if nm in deltas:
+            continue
+        try:
+            val = eval_expr(mm.group(4), cs)
+        except Exception:
+            continue
+        deltas[nm] = val if mm.group(3) == '+=' else -val
+    return deltas
+
+
 def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
     """占位符替换 + 去富文本标签。
 
@@ -342,6 +368,10 @@ def render(text, vars_, deltas=None, keep_tags=False, upgrade=None):
         if kind == 'unresolved' or val is None:
             return m.group(0)
         s = fmt_num(val)
+        if suffix.startswith(':percentLess'):      # (1 - 0.75) * 100 → 25
+            return str(int(round((1 - val) * 100)))
+        if suffix.startswith(':percentMore'):      # (1.25 - 1) * 100 → 25
+            return str(int(round((val - 1) * 100)))
         if suffix.startswith(':plural:'):          # {Cards:plural:card|cards}
             forms = suffix[len(':plural:'):].split('|')
             return forms[0] if abs(val) <= 1 else (forms[1] if len(forms) > 1 else forms[0])
@@ -670,12 +700,7 @@ def card_meta(cls, path=None):
     deltas, kws = {}, []
     ob = body_after(src, r'protected\s+override\s+void\s+OnUpgrade\s*\(\s*\)')
     if ob:
-        for mm in re.finditer(r'DynamicVars(?:\.(\w+)|\["(\w+)"\])\.UpgradeValueBy\(([^)]+)\)', ob):
-            nm = mm.group(1) or mm.group(2)
-            try:
-                deltas[nm] = eval_expr(mm.group(3), cs)
-            except Exception:
-                pass
+        deltas = parse_upgrade_deltas(ob, cs)
         for mm in re.finditer(r'(Add|Remove)Keyword\((?:CardKeyword|TouhouAncientKeywords)\.(\w+)\)', ob):
             kws.append((mm.group(1) == 'Add', mm.group(2)))
     body = arrow_body(src, r'CanonicalKeywords\s*=>')
