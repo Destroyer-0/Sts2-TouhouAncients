@@ -18,7 +18,7 @@ public abstract class TouhouAncientBadge(bool requiresWin, bool multiplayerOnly)
     public virtual string DefaultFileName => "default";
 
     public override string? CustomBadgeIconPath => TouhouAncientCmd.CheckPathExistsWithFallback(
-        $"res://images/ui/game_over_screen/{GetType().Name}.png",
+        $"res://images/icon/badge/{GetType().Name}.png",
         $"res://images/icon/relics/{DefaultFileName}.png");
 
     /// <summary>玩家是否持有指定遗物。</summary>

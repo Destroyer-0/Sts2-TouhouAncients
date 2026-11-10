@@ -71,6 +71,7 @@ public class Entry
         UltraLucky.RegisterSave();
         ScamingScamer.RegisterSave();
         PureAndSpotless.RegisterSave();
+        Flawless.RegisterSave();
         // 使得tscn可以加载自定义脚本
         ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
         // Mod 配置：只需创建 TouhouAncientsConfig 类，BaseLib 自动发现并注册
