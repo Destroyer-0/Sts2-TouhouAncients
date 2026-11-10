@@ -31,8 +31,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     protected override bool HasAnimation => false;
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 366, 355);
 
-    private int CeaselessCraneDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 25, 20);
-    private int RevolvingLightDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 30, 25);
+    private int CeaselessCraneDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
+    private int RevolvingLightDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 35, 30);
 
     private const int BulletHellDamage = 20;
     private const int RevolvingLightStrength = 10;
@@ -43,12 +43,13 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     /// <summary>无心璨炎的生命值触发阈值（多人由能力自身放大）。</summary>
     private const int HeartlessBlazeThreshold = 200;
 
-    private int ProtectionLayers => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 4);
+    /// <summary>绀珠悯悼初始层数；徽章「完美无缺」据此判断是否触发过复活。</summary>
+    internal static int ProtectionLayers => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 4);
 
     private bool _phaseTwo;
 
     /// <summary>弹幕地狱段数，每次使用后 +1。</summary>
-    private int _bulletHellCombo = 1;
+    private int _bulletHellCombo = 2;
 
     private MoveState _cosmicConjunction = null!;
 
@@ -74,10 +75,10 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
         {
             MustPerformOnceBeforeTransitioning = true
         };
-        MoveState bulletHellA = new MoveState("PURE_BULLET_HELL", PureBulletHellMove,
-            new MultiAttackIntent(BulletHellDamage, () => _bulletHellCombo));
         MoveState revolvingLight = new MoveState("PURE_REVOLVING_LIGHT", RevolvingLightMove,
             new SingleAttackIntent(RevolvingLightDamage), new BuffIntent());
+        MoveState bulletHellA = new MoveState("PURE_BULLET_HELL", PureBulletHellMove,
+            new MultiAttackIntent(BulletHellDamage, () => _bulletHellCombo));
         // 状态名以 2 结尾：图鉴不重复列出同名的弹幕地狱
         MoveState bulletHellB = new MoveState("PURE_BULLET_HELL2", PureBulletHellMove,
             new MultiAttackIntent(BulletHellDamage, () => _bulletHellCombo));
@@ -90,8 +91,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
 
         states.Add(ceaselessCrane);
         states.Add(_cosmicConjunction);
-        states.Add(bulletHellA);
         states.Add(revolvingLight);
+        states.Add(bulletHellA);
         states.Add(bulletHellB);
 
         return new MonsterMoveStateMachine(states, ceaselessCrane);
