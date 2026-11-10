@@ -44,7 +44,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     // --- 数值 ---
     /// <summary>剖心撕肉：每段伤害，低阶 4 / 高阶 5，共 3 段。</summary>
     private int CutHeartDamage => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 5, 4);
+        AscensionLevel.DeadlyEnemies, 6, 5);
 
     private const int CutHeartHits = 3;
 
@@ -227,13 +227,20 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         Anim.Trigger("attack_2a");
         await Cmd.Wait(0.2f);
 
-        // 冲过最左侧玩家，再往左多走一段
+        // 冲过本机玩家，再往左多走一段（联机各端布局不同，只有本机玩家位置含义一致）
         Vector2? playerPos = null;
-        foreach (Creature target in targets)
+        if (GetLocalPlayerNode(targets) is { } local)
         {
-            NCreature? targetNode = target.GetCreatureNode();
-            if (targetNode != null && (!playerPos.HasValue || playerPos.Value.X > targetNode.GlobalPosition.X))
-                playerPos = targetNode.GlobalPosition;
+            playerPos = local.GlobalPosition;
+        }
+        else
+        {
+            foreach (Creature target in targets)
+            {
+                NCreature? targetNode = target.GetCreatureNode();
+                if (targetNode != null && (!playerPos.HasValue || playerPos.Value.X > targetNode.GlobalPosition.X))
+                    playerPos = targetNode.GlobalPosition;
+            }
         }
 
         Anim.Trigger("attack_2c");
@@ -244,9 +251,10 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
             float parentScaleX = body.GetParent() is Node2D parent && !Mathf.IsZeroApprox(parent.GlobalScale.X)
                 ? parent.GlobalScale.X
                 : 1f;
+            // 没有可定位的玩家（图鉴）：只往左挪一小段，别冲出画面
             float targetWorldX = playerPos.HasValue
                 ? playerPos.Value.X - DashBehindDistance
-                : body.GlobalPosition.X - 1800f;
+                : body.GlobalPosition.X - 350f;
             dashOffset = bodyOrigin + Vector2.Right * ((targetWorldX - body.GlobalPosition.X) / parentScaleX);
         }
         await MoveBody((b, tween) => tween.TweenProperty(b, "position", dashOffset, 0.2f)

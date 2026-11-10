@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
@@ -5,6 +6,7 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Audio;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Nodes.Combat;
@@ -240,6 +242,22 @@ public abstract class TouhouAncientMonsterBase : CustomMonsterModel
     /// 通过 CancellationToken 主动取消，等待方立即返回。
     /// </summary>
     protected CancellationToken MoveCancellationToken => _moveCts?.Token ?? CancellationToken.None;
+
+    /// <summary>
+    /// 本机玩家对应的显示节点。联机各端玩家布局不同（本机玩家恒排首位），演出落点必须按本机玩家定。
+    /// 图鉴等没有玩家节点的场景返回 null，调用方据此走固定退化落点。
+    /// </summary>
+    protected NCreature? GetLocalPlayerNode(IReadOnlyList<Creature> targets)
+    {
+        foreach (Creature target in targets)
+        {
+            if (!LocalContext.IsMe(target)) continue;
+            NCreature? node = target.GetCreatureNode();
+            if (node != null) return node;
+        }
+
+        return null;
+    }
 
     /// <summary>
     /// 当前可用于位移的 body 节点。怪物已死、节点/body 不存在或已失效时返回 null。

@@ -733,10 +733,16 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 取最左侧玩家的**身体中心**作为演出落点；没有可定位的玩家时退化为本体左前方。
+    /// 取本机玩家的**身体中心**作为演出落点；取不到再退回最左侧玩家，最后退化为本体左前方 350px（图鉴用）。
+    /// 联机各端布局不同，只有本机玩家在各端的位置含义一致。
     /// </summary>
     private Vector2 GetTargetPoint(IReadOnlyList<Creature> targets)
     {
+        if (GetLocalPlayerNode(targets) is { } local)
+        {
+            return local.VfxSpawnPosition;
+        }
+
         Vector2? position = null;
         float minX = float.MaxValue;
         foreach (Creature target in targets)
@@ -754,7 +760,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             return position.Value;
         }
 
-        return GetVisualCenter() + Vector2.Left * 600f;
+        return GetVisualCenter() + Vector2.Left * 350f;
     }
 
     /// <summary>把光球轰炸特效挂到战斗 VFX 容器；容器不可用时返回 null（调用方走纯等待）。</summary>
@@ -817,24 +823,34 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 封魔针滑铲位移量：让 body 的世界 x 落到最左侧玩家左侧 FixedBehind 处。
+    /// 封魔针滑铲位移量：让 body 的世界 x 落到本机玩家左侧 SlideBehindDistance 处。
     /// body.Position 在父节点坐标系，只有父节点缩放才影响世界位移。
     /// </summary>
     private Vector2 ResolveSlideOffset(Node2D body, IReadOnlyList<Creature> targets)
     {
-        Vector2? playerPos = null;
-        foreach (Creature target in targets)
+        float targetWorldX;
+        if (GetLocalPlayerNode(targets) is { } local)
         {
-            NCreature? node = target.GetCreatureNode();
-            if (node != null && (playerPos == null || playerPos.Value.X > node.GlobalPosition.X))
+            targetWorldX = local.GlobalPosition.X - SlideBehindDistance;
+        }
+        else
+        {
+            Vector2? playerPos = null;
+            foreach (Creature target in targets)
             {
-                playerPos = node.GlobalPosition;
+                NCreature? node = target.GetCreatureNode();
+                if (node != null && (playerPos == null || playerPos.Value.X > node.GlobalPosition.X))
+                {
+                    playerPos = node.GlobalPosition;
+                }
             }
+
+            // 没有可定位的玩家（图鉴）：只往左挪一小段，别冲出画面
+            targetWorldX = playerPos.HasValue
+                ? playerPos.Value.X - SlideBehindDistance
+                : body.GlobalPosition.X - 350f;
         }
 
-        float targetWorldX = playerPos.HasValue
-            ? playerPos.Value.X - SlideBehindDistance
-            : body.GlobalPosition.X - 1800f;
         float parentScaleX = body.GetParent() is Node2D parent && !Mathf.IsZeroApprox(parent.GlobalScale.X)
             ? parent.GlobalScale.X
             : 1f;
