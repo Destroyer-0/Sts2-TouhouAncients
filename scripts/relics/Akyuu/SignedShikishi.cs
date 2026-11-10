@@ -65,8 +65,6 @@ public class SignedShikishi : TouhouAncientRelics
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
     {
         if (player != base.Owner) return false;
-        if (!HasSignable(player)) return false;
-
         options.Add(new SignedShikishiRestSiteOption(player, this));
         return true;
     }
