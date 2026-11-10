@@ -842,11 +842,6 @@
   "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "忘れ去られた過去の[gold]遺物[/gold]を1つ、忘れ去られた過去のカードを1枚得る。",
   "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "「ああ、お前さんの可愛い女の子の連れなら、まだ覚えてるぜ！ なかなか変わった連中だったろ？」",
 
-  "TOUHOUANCIENTS-PIONEER_DREAM.title": "先駆の夢",
-  "TOUHOUANCIENTS-PIONEER_DREAM.description": "入手時、[purple]前回のラン[/purple]で使った初期カード以外のカードをランダムに1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "[purple]前回のラン[/purple]で使った初期カード以外のカードをランダムに1枚[gold]デッキ[/gold]に加える。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "（この遺物は後日、別のエンシェント：アガサ・クリスQへ移行される予定）",
-
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "啓示の夢",
   "TOUHOUANCIENTS-REVELATION_DREAM.description": "入手時、[gold]幻夢無辺[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]休憩所[/gold]で休憩するたび、このカードの数値をランダムに変化させることができる。",
   "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "[gold]幻夢無辺[/gold]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。[gold]休憩所[/gold]で休憩するたび、このカードの数値をランダムに変化させることができる。",

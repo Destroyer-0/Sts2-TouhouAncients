@@ -843,11 +843,6 @@
   "TOUHOUANCIENTS-BYGONE_DREAM.eventDescription": "获得一件被遗忘的旧日[gold]遗物[/gold]，获得一张被遗忘的旧日卡牌。",
   "TOUHOUANCIENTS-BYGONE_DREAM.flavor": "“啊，我还记得你那些可爱的女孩同伴呢！她们可真不同寻常，不是吗？”",
 
-  "TOUHOUANCIENTS-PIONEER_DREAM.title": "先驱之梦",
-  "TOUHOUANCIENTS-PIONEER_DREAM.description": "拾起时，将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.eventDescription": "将随机一张[purple]上一场游戏[/purple]的非初始卡牌加入你的[gold]牌组[/gold]。",
-  "TOUHOUANCIENTS-PIONEER_DREAM.flavor": "（此遗物将在之后迁移给其他先古之民：阿加莎·克里斯Q。）",
-
   "TOUHOUANCIENTS-REVELATION_DREAM.title": "启示之梦",
   "TOUHOUANCIENTS-REVELATION_DREAM.description": "拾起时，将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在[gold]休息处[/gold]休息时，你可以随机变化这张牌的数值。",
   "TOUHOUANCIENTS-REVELATION_DREAM.eventDescription": "将[blue]1[/blue]张[gold]幻梦无垠[/gold]加入你的[gold]牌组[/gold]。每当你在[gold]休息处[/gold]休息时，你可以随机变化这张牌的数值。",
@@ -934,7 +929,7 @@
 
   "TOUHOUANCIENTS-BELL_BOOKMARK.title": "铃铛书签",
   "TOUHOUANCIENTS-BELL_BOOKMARK.description": "在第一幕，[gold]卡牌奖励[/gold]额外增加一张[gold]无色牌[/gold]，且[gold]?[/gold]房间出现怪物的概率大幅提升。",
-  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "“人类和妖怪之间的距离比想象的更近呢！”",
+  "TOUHOUANCIENTS-BELL_BOOKMARK.flavor": "好奇心会害死人类吗？",
 
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.title": "幻想万象录",
   "TOUHOUANCIENTS-FANTASY_CHRONICLE.description": "拾起时，将[blue]1[/blue]张[gold]幻想万象录[/gold]加入你的[gold]牌组[/gold]。进入下一阶段后，你可以将这张牌变化为{CardList:list:{}|、}中的一张。",

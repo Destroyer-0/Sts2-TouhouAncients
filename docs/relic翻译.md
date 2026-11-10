@@ -2593,15 +2593,6 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | `.eventDescription` | `Obtain a forgotten relic from the past and a forgotten card from the past.` |
 | `.flavor` | `""`（留空） |
 
-#### 先驱之梦 `PIONEER_DREAM`
-
-| 字段 | 翻译 |
-|------|------|
-| `.title` | `Pioneer Dream` |
-| `.description` | `Upon pickup, add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
-| `.eventDescription` | `Add a random non-Starter card from [purple]your previous run[/purple] to your [gold]Deck[/gold].` |
-| `.flavor` | `(This relic will be migrated to another Ancient later.)` |
-
 ---
 
 ## 增量更新（2026-10-03）
