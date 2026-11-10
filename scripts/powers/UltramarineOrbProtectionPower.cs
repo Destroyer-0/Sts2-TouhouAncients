@@ -22,8 +22,7 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 {
-    private const decimal MaxHpRetainRate = 0.7m;
-    private const decimal HealRate = 0.5m;
+    private const decimal MaxHpRetainRate = 0.5m;
 
     /// <summary>已打出、等待下回合返回手牌的孤注一掷。</summary>
     private readonly List<CardModel> _returningGambits = new();
@@ -47,12 +46,12 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
         if (creature != base.Owner) return;
 
         Flash();
-        // 直接取损失后的 70%：至少保留 1 点最大生命
+        // 直接取损失后的 50%：至少保留 1 点最大生命
         int retainedMaxHp = Math.Max(1, (int)Math.Floor(creature.MaxHp * MaxHpRetainRate));
         int lostMaxHp = creature.MaxHp - retainedMaxHp;
 
         await CreatureCmd.SetMaxHp(creature, retainedMaxHp);
-        await CreatureCmd.Heal(creature, Math.Max(1, (int)Math.Floor(retainedMaxHp * HealRate)));
+        await CreatureCmd.Heal(creature, creature.MaxHp - creature.CurrentHp);
 
         if (lostMaxHp > 0)
         {
