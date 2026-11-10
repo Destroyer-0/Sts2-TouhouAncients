@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf3d1vf0o4lsp"]
+
+[ext_resource type="Shader" path="res://shaders/afflictions/frozen_ice.gdshader" id="1_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frozen"]
+shader = ExtResource("1_shader")
+shader_parameter/ice_color = Color(0.45, 0.72, 0.95, 1)
+shader_parameter/ice_deep_color = Color(0.1, 0.3, 0.58, 1)
+shader_parameter/frost_color = Color(0.88, 0.96, 1, 1)
+shader_parameter/crack_color = Color(0.72, 0.9, 1, 1)
+shader_parameter/ice_opacity = 0.3
+shader_parameter/edge_frost = 0.15
+shader_parameter/frost_opacity = 0.55
+shader_parameter/crack_scale = 6.0
+shader_parameter/crack_width = 0.022
+shader_parameter/crack_intensity = 0.85
+shader_parameter/sparkle_amount = 0.5
+shader_parameter/shimmer_speed = 0.35
+shader_parameter/frozen_pulse = 0.1
+shader_parameter/ice_noise_scale = 3.0
+shader_parameter/corner_radius = 0.055
+
+[node name="Frozen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="IceOverlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_frozen")
+layout_mode = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+mouse_filter = 2

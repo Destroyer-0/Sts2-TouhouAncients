@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b64fuke3615ax"]
 
-[ext_resource type="Shader" uid="uid://76e442hr4mu0" path="res://shaders/afflictions/devoured.gdshader" id="1_shader"]
+[ext_resource type="Shader" uid="uid://76e442hr4mu0" path="res://shaders/afflictions/devoured.gdshader" id="1_subwv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_devoured"]
-shader = ExtResource("1_shader")
+shader = ExtResource("1_subwv")
 shader_parameter/edge_intensity = 0.8
 shader_parameter/pulse_speed = 0.7
 shader_parameter/void_width = 0.175
