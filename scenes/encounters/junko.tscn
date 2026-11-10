@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://8fpr8yeundqm"]
 
 [node name="Junko" type="Control"]
 layout_mode = 3
@@ -9,4 +9,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="junko" type="Marker2D" parent="."]
-position = Vector2(1343, 736)
+position = Vector2(1512, 699)
