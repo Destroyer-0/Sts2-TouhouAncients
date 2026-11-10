@@ -110,6 +110,14 @@ public class BottledGalaxy : TouhouAncientRelics
             availableCards.Add(cardModel);
         }
 
+        // FromChooseACardScreen 没有「候选≤需求量就自动选」的短路，只剩一张时手动跳过
+        if (combatCardsList.Count == 1)
+        {
+            await CardPileCmd.Add(availableCards[0], PileType.Hand);
+            combatCardsList.Clear();
+            return;
+        }
+
         var selected = await CardSelectCmd.FromChooseACardScreen(
             choiceContext,
             availableCards,
