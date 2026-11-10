@@ -164,7 +164,7 @@
 
   "TOUHOUANCIENTS-HYPED_POWER.title": "嗨到爆",
   "TOUHOUANCIENTS-HYPED_POWER.description": "[jitter][green]❤史上最华丽的演出~~~❤\n❤现在就要开始了！！！❤[/green][/jitter]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。",
-  "TOUHOUANCIENTS-HYPED_POWER.smartDescription": "[green]❤史上最华丽的演出现在就要开始了~~~❤[/green]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。",
+  "TOUHOUANCIENTS-HYPED_POWER.smartDescription": "[jitter][green]❤史上最华丽的演出~~~❤\n❤现在就要开始了！！！❤[/green][/jitter]\n回合结束时，清空[gold]气氛[/gold]并离开[green][jitter]嗨到爆[/jitter][/green]状态。",
 
   "TOUHOUANCIENTS-STACCATO_POWER.title": "断奏",
   "TOUHOUANCIENTS-STACCATO_POWER.description": "你每造成[blue]{DamagePerAtmosphere}[/blue]点伤害就获得[blue]{AtmosphereGain}[/blue][gold]气氛[/gold]，有敌人死亡时，获得[blue]{DeathAtmosphere}[/blue][gold]气氛[/gold]。",
@@ -183,6 +183,6 @@
   "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.smartDescription": "当你首次造成未被格挡的伤害，或生命值降低至[blue]{Amount}[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple]",
 
   "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.title": "绀珠悯悼",
-  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.description": "当你的生命值下[blue]4[/blue]次将被减少至[blue]0[/blue]或以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]0[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]聆听吧，汝等生命的倒计时。[/i][/red]",
-  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription": "{Amount:cond:>0?当你的生命值下[blue]{}[/blue]次将被减少至[blue]0[/blue]或以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n|}以此方式失去的临时最大生命在战斗结束后返还。（[blue]{LostMaxHp}[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]聆听吧，汝等生命的倒计时。[/i][/red]"
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.description": "当你的生命值下[blue]4[/blue]次将被减少至[blue]0[/blue]或以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]0[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]{Amount:cond:>0?聆听吧，汝等生命的倒计时。|此即终焉。}[/i][/red]",
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription": "{Amount:cond:>0?当你的生命值下[blue]{}[/blue]次将被减少至[blue]0[/blue]或以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]{LostMaxHp}[/blue]）|战斗结束后返还[blue]{LostMaxHp}[/blue]点最大生命。}\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]{Amount:cond:>0?聆听吧，汝等生命的倒计时。|此即终焉。}[/i][/red]"
 }
