@@ -2,8 +2,26 @@
   "TouhouAncients.Scripts.monsters.YorigamiShionMonster": [
     {
       "secondaryInitialStates": [
-        "ROOT"
-      ]
+        "ABSOLUTE_LOSER"
+      ],
+      "graphPatch": {
+        "labels": [
+          {
+            "x": -0.25,
+            "y": 0.36,
+            "align": "right",
+            "text": "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD",
+            "relativeTo": "/DOOM_SPREAD"
+          },
+          {
+            "x": -0.25,
+            "y": 1.61,
+            "align": "right",
+            "text": "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER",
+            "relativeTo": "/ABSOLUTE_LOSER"
+          }
+        ]
+      }
     }
   ],
   "TouhouAncients.Scripts.monsters.HakureiReimuMonster": [
@@ -22,8 +40,35 @@
   "TouhouAncients.Scripts.monsters.JunkoMonster": [
     {
       "upToDateCondition": "mm.count == 5 && mm.nextMoveOf_COSMIC_CONJUNCTION_is_PURE_BULLET_HELL && mm.nextMoveOf_PURE_BULLET_HELL2_is_PURE_BULLET_HELL",
-      "secondaryInitialStates": [
-        "COSMIC_CONJUNCTION"
+      "stateMachine": [
+        {
+          "name": "CEASELESS_CRANE_RETURN",
+          "isInitialState": true,
+          "followUpState": "CEASELESS_CRANE_RETURN"
+        },
+        {
+          "name": "COSMIC_CONJUNCTION",
+          "isInitialState": true,
+          "initialStatePriority": 1,
+          "offset": {
+            "x": 3.2,
+            "y": -1.5
+          },
+          "followUpState": "PURE_BULLET_HELL"
+        },
+        {
+          "name": "PURE_BULLET_HELL",
+          "notSimpleLoopStart": true,
+          "followUpState": "PURE_REVOLVING_LIGHT"
+        },
+        {
+          "name": "PURE_REVOLVING_LIGHT",
+          "followUpState": "PURE_BULLET_HELL2"
+        },
+        {
+          "name": "PURE_BULLET_HELL2",
+          "followUpState": "PURE_BULLET_HELL"
+        }
       ],
       "moveReplacements": {
         "PURE_BULLET_HELL": [
@@ -40,18 +85,18 @@
       "graphPatch": {
         "labels": [
           {
-            "x": 1.2,
-            "y": 0.0,
+            "x": 0.1,
+            "y": -0.3,
             "align": "left",
             "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION",
-            "relativeTo": "/COSMIC_CONJUNCTION"
+            "relativeTo": "/CEASELESS_CRANE_RETURN"
           },
           {
-            "x": 1.2,
-            "y": 0.0,
+            "x": 0.7,
+            "y": 1.01,
             "align": "left",
             "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL",
-            "relativeTo": "/PURE_BULLET_HELL"
+            "relativeTo": "/CEASELESS_CRANE_RETURN"
           }
         ]
       }
