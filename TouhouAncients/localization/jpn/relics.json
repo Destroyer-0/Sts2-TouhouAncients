@@ -184,7 +184,7 @@
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forget": "忘れたカード：\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "埃まみれの薔薇",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "毎ターン開始時、[gold]閉じた瞳[/gold]を[blue]1[/blue]枚[gold]手札[/gold]に加える。",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "{StarterRelic.StringValue:cond:取得時、[gold]{StarterRelic}[/gold]を[gold]{UpgradedRelic}[/gold]に置き換える。|毎ターン開始時、[gold]閉じた瞳[/gold]を[blue]1[/blue]枚[gold]手札[/gold]に加える。}",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地霊殿にある彼女の部屋の扉は常に開いたままだ。しかし薔薇が枯れ、埃が積もっても、あの元気でぼんやりした姿はついに現れない。",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "覚醒コーヒー",

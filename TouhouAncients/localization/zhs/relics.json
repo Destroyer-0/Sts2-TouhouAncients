@@ -194,7 +194,7 @@
   "TOUHOUANCIENTS-DETECTIVE_STORY.selectionScreenPrompt": "选择{Amount}张牌保留。",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "尘封蔷薇",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "在每回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "{StarterRelic.StringValue:cond:拾起时，将[gold]{StarterRelic}[/gold]替换为[gold]{UpgradedRelic}[/gold]。|在每回合开始时，将[blue]1[/blue]张[gold]禁闭之眼[/gold]放入[gold]手牌[/gold]。}",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "地灵殿那间属于她的卧室的门常年不闭，可即使等到蔷薇枯萎、灰尘满溢，也终究还未看见她活泼又模糊的身影。",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "提神咖啡",

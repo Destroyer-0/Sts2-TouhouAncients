@@ -184,7 +184,7 @@
   "TOUHOUANCIENTS-BRAIN_IN_A_VAT.forget": "Forgotten cards:\n{Cards:list:{}|\n}",
 
   "TOUHOUANCIENTS-DUSTY_ROSE.title": "Dusty Rose",
-  "TOUHOUANCIENTS-DUSTY_ROSE.description": "At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-DUSTY_ROSE.description": "{StarterRelic.StringValue:cond:Upon pickup, replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold].|At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].}",
   "TOUHOUANCIENTS-DUSTY_ROSE.flavor": "The door to her room in the Palace of the Earth Spirits is never closed, yet even as the roses wilt and dust gathers, her lively yet hazy figure never appears.",
 
   "TOUHOUANCIENTS-BITTER_COFFEE.title": "Energizing Coffee",
