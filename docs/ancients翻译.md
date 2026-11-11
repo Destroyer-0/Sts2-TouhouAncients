@@ -1553,3 +1553,73 @@ zhs 改为强调「只负责听闻、后人评说」，原译文「作为史官�
 - 涅奥 / 建筑师沿用 `Neow` / `Architect`、`ネオー` / `アーキテクト`。
 
 ---
+
+## 增量更新（2026-11-11）
+
+### 1. 古明地觉 × 古明地恋（`KOMEJI_SATORI_ANCIENT.talk.KOISHI-KOISHI`，16 条）
+
+**键名**: `TOUHOUANCIENTS-KOMEJI_SATORI_ANCIENT`
+
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `0-0.ancient` | 恋恋？恋恋，是你吗？ | Koishi? Koishi, is that you? | こいし？ こいし、あなたなの？ |
+| `0-0.next` | 回答 | Reply | 返答する |
+| `0-1.char` | 笨蛋姐姐~恋恋可是已经大闹了一通哦~ | Silly big sister~ Koishi’s already gone and raised a huge ruckus~ | おバカなお姉ちゃん～ こいしはもう大暴れしてきたよ～ |
+| `0-1.next` | 继续 | Continue | 続ける |
+| `0-2.ancient` | ……你没事就好……这里很危险，你可一定要小心。 | ...I’m just glad you’re safe... This place is dangerous—you must be careful. | ……無事でよかったわ……ここは危ないから、くれぐれも気をつけて。 |
+| `1-0r.char` | 姐——姐——大——人——我回来啦，快来陪我玩会儿！ | Big—sis—ter—! I’m baaack—come play with me! | お姉ちゃ～ん、ただいま～！ 早く遊ぼうよ！ |
+| `1-0r.next` | 继续 | Continue | 続ける |
+| `1-1r.ancient` | 恋恋……真高兴看到你回来。你没有哪里受伤吧？ | Koishi... I’m so glad to see you back. You’re not hurt anywhere, are you? | こいし……帰ってきてくれて本当に嬉しいわ。どこか怪我してない？ |
+| `2-0r.ancient` | 贤者她到底想做什么…… | Just what is the sage trying to do... | 賢者はいったい何をしようとしているのかしら…… |
+| `2-0r.next` | 打断 | Interrupt | 割り込む |
+| `2-1r.char` | 姐姐！姐姐！恋恋正找你聊天呢！ | Big sister! Big sister! Koishi was looking for you to chat! | お姉ちゃん！ お姉ちゃん！ こいしがおしゃべりしに来たんだよ！ |
+| `2-1r.next` | 继续 | Continue | 続ける |
+| `2-1r.ancient` | 啊……抱歉，恋恋，是我出神了。 | Ah... sorry, Koishi. I was spacing out. | あ……ごめんなさい、こいし。ちょっとぼんやりしてたわ。 |
+| `3-0r.char` | 姐姐一直窝在这里不会很无聊吗？外面可是很有意思的哦！ | Doesn’t it get boring, big sister, cooped up in here all the time? It’s really fun outside, you know! | お姉ちゃん、ずっとここに閉じこもってて退屈じゃないの？ 外はすっごく楽しいんだよ！ |
+| `3-0r.next` | 继续 | Continue | 続ける |
+| `3-1r.ancient` | 看到恋恋你这么高兴，我怎么会无聊呢，只要你一切安好，姐姐就很开心了。 | How could I be bored when I see you this happy, Koishi? As long as you’re safe and sound, your big sister is happy. | こいしがそんなに楽しそうなら、退屈なんてするわけないでしょう。あなたが元気でいてくれれば、お姉ちゃんはそれだけで嬉しいのよ。 |
+
+- 觉沿用既有日译口吻：自称「私」、句尾「〜わ／〜のよ」；恋用孩子气口吻、自称「こいし」、拉长音「〜だよ～」。
+- 「贤者」沿用既有 `sage` / 「賢者」（见正邪 `ANY.6-0r`）。
+- `打断` 为新增按钮词：`Interrupt` / 「割り込む」。
+
+### 2. 二岩猯藏 × 秦心（`FUTATSUIWA_MAMIZOU_ANCIENT.talk.KOKOROSTS-KOKORO_CHARACTER` 与 `KOKORO_CHARACTER_KOKORO_CHARACTER`，各 10 条）
+
+zhs 两套 key 内容相同（仅后者 `1-2r` 多一个「来」字），按要求**译文两套完全一致**。
+
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `0-0.char` | 是您…… | It’s you, ma’am... | あなた様は…… |
+| `0-0.next` | 继续 | Continue | 続ける |
+| `0-1.ancient` | 呐，你究竟要面无表情到什么时候？难道觉得这也是维持自我的一种方法？ | Say, how long do you plan on staying expressionless? You think you can preserve your sense of self like that? | なあ、いつまで無表情でいるつもりだ？ それで自我が保てると思うのかい？ |
+| `1-0r.ancient` | 在这座塔里停留了这么久，有没有什么成长呢？ | You’ve lingered in this tower for quite a while now—so, have you grown at all? | この塔にこんなに長く留まっておって、少しは成長したかのう？ |
+| `1-0r.next` | 回答 | Reply | 返答する |
+| `1-1r.char` | 成长了哦！ | I have! | したよ！ |
+| `1-1r.next` | 思考 | Thinking | 考える |
+| `1-2r.char` | 那个——和我赌上最强的名号战斗吧！／那个——来和我赌上最强的名号战斗吧！ | Fight me for the title of the strongest! | 最強の称号を賭けて私と闘え！ |
+| `1-2r.next` | 继续 | Continue | 続ける |
+| `1-3r.ancient` | 嚯，嚯，嚯——很有精神嘛！这才像个妖怪的作风！ | Ho, ho, ho—now that’s spirit! Now this is pretty youkai-like! | ほっ、ほっ、ほっ――元気があって良いのう！ それこそ妖怪らしいというものじゃ！ |
+
+- **原文依据**（thbwiki 中日对照）：
+  - `0-1` 出自《东方心绮楼》猯藏 Ending，原文「なあ、いつまで無表情でいるつもりだ？ それで自我が保てると思うのかい？」，日文照抄。
+  - `1-1`／`1-2`／`1-3` 出自《东方心绮楼》秦心 Stage 6，原文「したよ！」「さあ最強の称号を賭けて私と闘え！」「ま　それも妖怪らしくて良いじゃろう」。
+  - 注意：原文是「最強の**称号**」而非「名号」，日译按原文用「称号」。
+  - 原作猯藏笑声为「ふぉっふぉっふぉ」，但本模组既有日译统一用「ほっほ～」，为免同角色两种笑声，此处沿用「ほっ、ほっ、ほっ」。
+- 「是您」的敬语：`It’s you, ma’am...` / 「あなた様は……」——避免平铺直叙的 `It’s you...` 丢掉敬称。
+- 「维持自我」→ `preserve your sense of self` / 「自我が保てる」，呼应秦心「面具与自我」的主题；「妖怪的作风」→ `pretty youkai-like` / 「妖怪らしい」。
+- 塔：角色口语指这座建筑用 `tower`（小写），专有名词才用 `Spire`；详见术语表。
+
+### 3. 尘封蔷薇 `DUSTY_ROSE.description`（relics.json）
+
+中文为 `cond:` 双分支（恋玩家替换初始遗物／普通形态每回合加禁闭之眼），英文与日文均照原版 `TOUCH_OF_OROBAS` 的写法，**整句**放进 `cond:` 两个分支（原版是共用后半句，此处两句结构不同，故各写完整）。
+
+| 语言 | 现行 |
+|------|------|
+| eng | `{StarterRelic.StringValue:cond:Upon pickup, replace [gold]{StarterRelic}[/gold] with [gold]{UpgradedRelic}[/gold].\|At the start of each turn, add [blue]1[/blue] [gold]The Closed Eye[/gold] to your [gold]Hand[/gold].}` |
+| jpn | `{StarterRelic.StringValue:cond:取得時、[gold]{StarterRelic}[/gold]を[gold]{UpgradedRelic}[/gold]に置き換える。\|毎ターン開始時、[gold]閉じた瞳[/gold]を[blue]1[/blue]枚[gold]手札[/gold]に加える。}` |
+
+- 「拾起时」→ `Upon pickup` / 「取得時」，照原版 `TOUCH_OF_OROBAS`。
+- 卡名沿用 `The Closed Eye` / 「閉じた瞳」（`cards.json` `THE_KOISHI_EYE`）。
+- 不新增 `.eventDescription`，与 zhs 一致。
+
+---
