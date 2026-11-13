@@ -3650,3 +3650,20 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 - 「永久失效」英文取 `no longer works for the rest of the run`（原版 `No longer works` 无法表达「永久」，补时间范围）。
 - 日文统一用「遺物」而非「レリック」（`jpn/relics.json` 中原有 2 处误用「レリック」，已一并修正）。
 - zhs 本轮除 `OLD_NEWSPAPER` 外未改动。
+
+---
+
+## 增量更新（2026-11-13，百鬼夜行绘卷加入愚者）
+
+0.113 新增可用角色 **Fool（愚者）**，`HyakkiYagyoScroll.PickupPools` 的固定收录角色由 5 个增至 6 个，`description` 同步追加。
+
+| 字段 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.description` | 拾起时，将1张[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]，然后[aqua]收录[/aqua]来自[gold]铁甲战士、静默猎手、储君、亡灵契约师、故障机器人、愚者[/gold]的卡牌各一次。每当你[gold]斩杀[/gold]时，战斗奖励增加一次随机其他角色的[aqua]收录[/aqua]。 | Upon pickup, add 1 [gold]Hyakki Yagyo[/gold] to your [gold]Deck[/gold], then [aqua]Transcribe[/aqua] a card from each of The Ironclad, The Silent, The Regent, The Necrobinder, The Defect, and The Fool. Whenever [gold]Fatal[/gold], combat rewards gain an additional [aqua]Transcribe[/aqua] of a random other character. | 入手時、[gold]百鬼夜行[/gold]を1枚[gold]デッキ[/gold]に加え、[aqua]アイアンクラッド、サイレント、リージェント、ネクロバインダー、ディフェクト、フール[/aqua]からそれぞれ1回カードを[aqua]収録[/aqua]する。[gold]とどめを刺した[/gold]時、戦闘報酬にランダムな他キャラクターの[aqua]収録[/aqua]が追加される。 |
+
+### 说明
+- 角色名一律取原版 `characters.json` 的 `FOOL.title`：zhs `愚者`、eng `The Fool`、jpn `フール`，不自创译名。
+- 英文列举在 `The Defect` 与 `The Fool` 之间补 `and`，其余分隔符不变。
+- 日文列举沿用原版的片假名写法，用「、」连接。
+
+

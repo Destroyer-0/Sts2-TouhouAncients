@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using BaseLib.Patches.Content;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -14,6 +15,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.TestSupport;
 using TouhouAncients.Scripts.cards;
 using TouhouAncients.Scripts.relics;
 
@@ -113,6 +115,30 @@ public sealed class TranscribeReward : TouhouCustomReward
         }
     }
 
+    /// <summary>来源角色；卡池反查不到（如存档里的角色已被删除）时为 null。</summary>
+    private CharacterModel? SourceCharacter =>
+        Pool == null ? null : ModelDb.AllCharacters.FirstOrDefault(character => character.CardPool.Id == Pool.Id);
+
+    /// <summary>
+    /// 图标用来源角色的顶栏头像（原版 <c>images/ui/top_panel/character_icon_&lt;id&gt;.png</c>）：
+    /// mod 角色只要按同一约定提供贴图就能显示，缺失时自动回退到绘卷图标。
+    /// </summary>
+    public override Control? CreateIcon()
+    {
+        if (TestMode.IsOn) return null;
+
+        if (SourceCharacter?.IconTexture is not { } texture) return base.CreateIcon();
+
+        TextureRect icon = new()
+        {
+            Texture = texture,
+            ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
+            StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
+        };
+        icon.SetAnchorsPreset(Control.LayoutPreset.FullRect);
+        return icon;
+    }
+
     /// <summary>来源角色的本地化名；按卡池反查角色，反查不到时退回卡池名。</summary>
     private string CharacterTitle
     {
@@ -120,7 +146,7 @@ public sealed class TranscribeReward : TouhouCustomReward
         {
             if (Pool == null) return string.Empty;
 
-            CharacterModel? owner = ModelDb.AllCharacters.FirstOrDefault(character => character.CardPool.Id == Pool.Id);
+            CharacterModel? owner = SourceCharacter;
             return owner != null ? owner.Title.GetFormattedText() : Pool.Title;
         }
     }

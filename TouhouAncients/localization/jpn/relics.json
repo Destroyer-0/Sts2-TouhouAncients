@@ -743,7 +743,7 @@
   "TOUHOUANCIENTS-ONE_EYED_KARAKASA.flavor": "あの子を驚かせないよう、気をつけて。",
 
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.title": "百鬼夜行絵巻",
-  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "入手時、[gold]百鬼夜行[/gold]を1枚[gold]デッキ[/gold]に加え、[aqua]アイアンクラッド、サイレント、リージェント、ネクロバインダー、ディフェクト[/aqua]からそれぞれ1回カードを[aqua]収録[/aqua]する。[gold]とどめを刺した[/gold]時、戦闘報酬にランダムな他キャラクターの[aqua]収録[/aqua]が追加される。",
+  "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.description": "入手時、[gold]百鬼夜行[/gold]を1枚[gold]デッキ[/gold]に加え、[aqua]アイアンクラッド、サイレント、リージェント、ネクロバインダー、ディフェクト、フール[/aqua]からそれぞれ1回カードを[aqua]収録[/aqua]する。[gold]とどめを刺した[/gold]時、戦闘報酬にランダムな他キャラクターの[aqua]収録[/aqua]が追加される。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeTitle": "収録",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribeDescription": "指定したキャラクターの[gold]カード報酬[/gold]を表示し、選んだカードはすべての[gold]百鬼夜行[/gold]の収録に加えられる。そのキャラクターの収録が既にある場合、選んだカードが以前の収録カードと置き換わる。",
   "TOUHOUANCIENTS-HYAKKI_YAGYO_SCROLL.transcribedTitle": "収録",

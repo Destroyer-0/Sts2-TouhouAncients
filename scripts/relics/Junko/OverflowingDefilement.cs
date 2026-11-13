@@ -76,7 +76,7 @@ public class OverflowingDefilement : TouhouAncientRelics
         var hand = PileType.Hand.GetPile(player).Cards;
         var remainingEnergy = player.PlayerCombatState.Energy;
 
-        int debrisCount = hand.Count(x => x.Type != CardType.Status);
+        int debrisCount = hand.Count(x => !IsStatusLike(x));
         int voidCount = (int)Math.Floor((decimal)remainingEnergy);
 
         if (debrisCount <= 0 && voidCount <= 0) return;
@@ -103,5 +103,13 @@ public class OverflowingDefilement : TouhouAncientRelics
     public override Task AfterCombatEnd(MegaCrit.Sts2.Core.Rooms.CombatRoom _)
     {
         return Task.CompletedTask;
+    }
+
+    /// <summary>其他 Mod 的 PURE 牌，按状态牌处理，不计入碎屑。</summary>
+    private const string OtherModPureEntry = "GENSOKYOSPIRE-PURE";
+
+    private static bool IsStatusLike(CardModel card)
+    {
+        return card.Type == CardType.Status || card.Id.Entry == OtherModPureEntry;
     }
 }

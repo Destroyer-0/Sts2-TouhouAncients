@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.relics;
 
 /// <summary>
 /// 百鬼夜行绘卷：拾起时，将1张[gold]百鬼夜行[/gold]加入你的[gold]牌组[/gold]，
-/// 然后[aqua]收录[/aqua]来自铁甲战士、静默猎者、储君、亡灵契约师、故障机器人的各一组卡牌奖励。
+/// 然后[aqua]收录[/aqua]来自铁甲战士、静默猎者、储君、亡灵契约师、故障机器人、愚者的各一组卡牌奖励。
 /// 每当你[gold]斩杀[/gold]时，战斗奖励增加一次随机其他角色的[aqua]收录[/aqua]。
 /// </summary>
 /// <remarks>
@@ -48,7 +48,7 @@ public class HyakkiYagyoScroll : TouhouAncientRelics
             new LocString("relics", Id.Entry + ".transcribeDescription"));
 
     /// <summary>
-    /// 拾起时固定收录的五个角色；只有这一处固定角色，其余收录走玩家已解锁的其他角色。
+    /// 拾起时固定收录的六个角色；只有这一处固定角色，其余收录走玩家已解锁的其他角色。
     /// </summary>
     private IEnumerable<CardPoolModel> PickupPools =>
     [
@@ -57,10 +57,11 @@ public class HyakkiYagyoScroll : TouhouAncientRelics
         ModelDb.Character<Regent>().CardPool,
         ModelDb.Character<Necrobinder>().CardPool,
         ModelDb.Character<Defect>().CardPool,
+        ModelDb.Character<Fool>().CardPool,
     ];
 
     /// <summary>
-    /// 拾起时：先将1张百鬼夜行加入牌组，再收录五个角色各一组卡牌奖励。
+    /// 拾起时：先将1张百鬼夜行加入牌组，再收录六个角色各一组卡牌奖励。
     /// </summary>
     public override async Task AfterObtained()
     {

@@ -38,9 +38,22 @@ namespace TouhouAncients.Scripts.Patches;
 /// <c>act.Index == 0</c>（第一幕）时追加；二/三幕与共享池完全不动。追加前按 Id 去重，
 /// 别的补丁已注入过的同一个先古之民不会被算两次。
 /// </summary>
-[HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
+[HarmonyPatch]
 internal static class Act1AncientPoolPatch
 {
+    /// <summary>
+    /// 新版同时有 <c>GenerateRooms(RunState)</c>（转发）与 <c>GenerateRooms(Rng, UnlockState, bool, bool)</c>（真正干活），
+    /// 只给方法名会抛 AmbiguousMatchException，所以按参数含 <see cref="UnlockState"/> 挑后者。
+    /// </summary>
+    private static MethodBase TargetMethod()
+    {
+        return AccessTools.GetDeclaredMethods(typeof(ActModel))
+            .FirstOrDefault(m => m.Name == nameof(ActModel.GenerateRooms)
+                                 && m.GetParameters().Any(p => p.ParameterType == typeof(UnlockState)))
+            ?? throw new MissingMethodException(
+                "[TouhouAncients] Act1AncientPoolPatch: 找不到 ActModel.GenerateRooms(Rng, UnlockState, ...)");
+    }
+
     /// <summary>
     /// 原版 <c>ActModel.GenerateRooms</c> 里被虚调用的候选来源方法，Transpiler 以它的调用点为锚。
     /// 它是 abstract，所以 IL 里的 <c>callvirt</c> 指向的正是 <see cref="ActModel"/> 上声明的这一个。

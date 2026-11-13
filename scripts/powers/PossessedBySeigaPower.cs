@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,6 +11,8 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.TestSupport;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TouhouAncients.Scripts.powers;
@@ -79,27 +82,61 @@ public class PossessedBySeigaPower : TouhouAncientPowerModel
 
         // 按照费用从高到低、从左到右的顺序依次打出可合法打出的手牌。
         // 每打出一张牌后重新排序当前手牌，直到打不出任何合法牌为止。
-        while (!CombatManager.Instance.IsOverOrEnding)
+        // 与原版耳语耳环一致：接管期间压入自动选牌器，避免途中弹出选牌 UI。
+        using (RunManager.Instance.CardSelectorStack.PushSelector(player, new SeigaCardSelector()))
         {
-            CardModel? card = GetNextPlayableCard(player);
-            if (card == null)
+            int startTurn = player.PlayerCombatState?.TurnNumber ?? 0;
+            for (int played = 0; played < MaxCardsToPlay; played++)
             {
-                break;
-            }
+                if (CombatManager.Instance.IsOverOrEnding)
+                {
+                    break;
+                }
+                // 玩家已结束回合 / 回合被切走（打出结束回合类牌）时停止，避免越界到新回合。
+                if (CombatManager.Instance.IsPlayerReadyToEndTurn(player))
+                {
+                    break;
+                }
+                if ((player.PlayerCombatState?.TurnNumber ?? 0) != startTurn)
+                {
+                    break;
+                }
 
-            Creature? target = GetTarget(card, combatState);
-            if (card.TargetType == TargetType.AnyEnemy && target == null)
-            {
-                break;
-            }
-            if (card.TargetType == TargetType.AnyAlly && target == null)
-            {
-                break;
-            }
+                CardModel? card = GetNextPlayableCard(player);
+                if (card == null)
+                {
+                    break;
+                }
 
-            await card.SpendResources();
-            await CardCmd.AutoPlay(choiceContext, card, target, AutoPlayType.Default, skipXCapture: true);
+                Creature? target = GetTarget(card, combatState);
+                if (card.TargetType == TargetType.AnyEnemy && target == null)
+                {
+                    break;
+                }
+                if (card.TargetType == TargetType.AnyAlly && target == null)
+                {
+                    break;
+                }
+
+                await card.SpendResources();
+                await CardCmd.AutoPlay(choiceContext, card, target, AutoPlayType.Default, skipXCapture: true);
+            }
         }
+    }
+
+    /// <summary>单次接管最多自动打出的牌数，手牌上限 10，13 只是防死循环的保险（与原版耳语耳环一致）。</summary>
+    private const int MaxCardsToPlay = 44;
+
+    /// <summary>接管期间的自动选牌器：按顺序取前 N 张，与 VakuuCardSelector 同策略。</summary>
+    private sealed class SeigaCardSelector : ICardSelector
+    {
+        public Task<IEnumerable<CardModel>> GetSelectedCards(IEnumerable<CardModel> options, int minSelect, int maxSelect)
+            => Task.FromResult((IEnumerable<CardModel>)options.Take(maxSelect).ToList());
+
+        public CardRewardSelection GetSelectedCardReward(
+            IReadOnlyList<CardCreationResult> options,
+            IReadOnlyList<CardRewardAlternative> alternatives)
+            => new() { card = options.FirstOrDefault()?.Card };
     }
 
     /// <summary>

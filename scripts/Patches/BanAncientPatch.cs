@@ -7,6 +7,7 @@ using BaseLib.Abstracts;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Unlocks;
 
 namespace TouhouAncients.Scripts.Patches;
 
@@ -21,9 +22,19 @@ public static class BanAncientPatch
     /// 在 GetUnlockedAncients().Concat(shared) 后注入 FilterAncients 过滤，
     /// 从源头剔除被禁用的 Ancient，避免事后替换。
     /// </summary>
-    [HarmonyPatch(typeof(ActModel), nameof(ActModel.GenerateRooms))]
+    [HarmonyPatch]
     public static class ActModel_GenerateRooms_Transpiler
     {
+        // 新版两个 GenerateRooms 重载，只给方法名会歧义；挑参数含 UnlockState 的那个。
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.GetDeclaredMethods(typeof(ActModel))
+                .FirstOrDefault(m => m.Name == nameof(ActModel.GenerateRooms)
+                                     && m.GetParameters().Any(p => p.ParameterType == typeof(UnlockState)))
+                ?? throw new MissingMethodException(
+                    "[TouhouAncients] BanAncientPatch: 找不到 ActModel.GenerateRooms(Rng, UnlockState, ...)");
+        }
+
         private static readonly MethodInfo FilterAncientsMethod =
             AccessTools.Method(
                 typeof(ActModel_GenerateRooms_Transpiler),

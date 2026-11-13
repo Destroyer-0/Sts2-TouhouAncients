@@ -74,8 +74,6 @@ public static class AncientCardFramePatch
 
 	private static readonly FieldInfo _ancientPortrait = AccessTools.Field(typeof(NCard), "_ancientPortrait");
 
-	private static readonly FieldInfo _ancientBorderGlassOverlay = AccessTools.Field(typeof(NCard), "_ancientBorderGlassOverlay");
-
 	private static readonly FieldInfo _ancientBorder = AccessTools.Field(typeof(NCard), "_ancientBorder");
 
 	private static readonly FieldInfo _ancientTextBg = AccessTools.Field(typeof(NCard), "_ancientTextBg");
@@ -121,12 +119,11 @@ public static class AncientCardFramePatch
 		TextureRect val3 = (TextureRect)_frame.GetValue(__instance);
 		TextureRect val4 = (TextureRect)_banner.GetValue(__instance);
 		TextureRect val5 = (TextureRect)_ancientPortrait.GetValue(__instance);
-		TextureRect val6 = (TextureRect)_ancientBorderGlassOverlay.GetValue(__instance);
 		TextureRect val7 = (TextureRect)_ancientBorder.GetValue(__instance);
 		TextureRect val8 = (TextureRect)_ancientTextBg.GetValue(__instance);
 		Control val9 = (Control)_ancientBanner.GetValue(__instance);
 		CanvasGroup val10 = (CanvasGroup)_portraitCanvasGroup.GetValue(__instance);
-		if (val == null || val2 == null || val3 == null || val4 == null || val5 == null || val6 == null || val7 == null || val8 == null || val9 == null)
+		if (val == null || val2 == null || val3 == null || val4 == null || val5 == null || val7 == null || val8 == null || val9 == null)
 		{
 			return;
 		}
@@ -135,7 +132,6 @@ public static class AncientCardFramePatch
 			val.Visible = false;
 			val3.Visible = false;
 			val7.Visible = true;
-			val6.Visible = true;
 			val7.Texture = ResourceLoader.Load<Texture2D>(GetAncientBorderPath());
 			if (val10 != null)
 			{
