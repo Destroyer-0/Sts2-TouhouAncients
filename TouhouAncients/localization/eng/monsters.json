@@ -105,5 +105,13 @@
   "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.GREAT_FORTUNE_CREST.title": "Great Fortune Crest",
   "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.THREE_BURROWS.title": "Three Burrows",
   "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.title": "\"Equivalent\" Exchange",
-  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.banter": "Heheh! Now it's \"recycling\" time!"
+  "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.banter": "Heheh! Now it's \"recycling\" time!",
+
+  "TOUHOUANCIENTS-JUNKO_MONSTER.name": "Junko",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.CEASELESS_CRANE_RETURN.title": "The Crane Returns, Resentment Endures",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter1": "How dull. Struggle on in the gap between life and death.",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter2": "How interesting. Show me your potential.",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.COSMIC_CONJUNCTION.title": "Cosmos Overturned, Stars Conjoined",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.PURE_REVOLVING_LIGHT.title": "Purest Cleansing Light",
+  "TOUHOUANCIENTS-JUNKO_MONSTER.moves.PURE_BULLET_HELL.title": "A Pristine Danmaku Hell"
 }

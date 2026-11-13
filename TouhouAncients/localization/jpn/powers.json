@@ -136,5 +136,13 @@
 
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "有償の幸運",
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]ふふ……そう、私の力ほんの少しだけで、こんなに幸運になれるんだよ～[/i][/pink]",
-  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]ふふ……そう、私の力ほんの少しだけで、こんなに幸運になれるんだよ～[/i][/pink]"
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]ふふ……そう、私の力ほんの少しだけで、こんなに幸運になれるんだよ～[/i][/pink]",
+
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.title": "無心燦炎",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.description": "初めてブロックされなかったダメージを与えるか、HPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\n[purple][i]切り札はいつだって悪手。[/i][/purple]",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.smartDescription": "初めてブロックされなかったダメージを与えるか、HPが[blue]{Amount}[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\n[purple][i]切り札はいつだって悪手。[/i][/purple]",
+
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.title": "紺珠の哀悼",
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.description": "HPが[blue]0[/blue]以下になる時、次の[blue]4[/blue]回は代わりに最大HPの[blue]50%[/blue]を一時的に失い、HPを全回復する。\nこの方法で失った最大HPは戦闘終了時に戻る。（[blue]0[/blue]）\n[gold]背水の陣[/gold]をプレイした時、それは次のターン開始時に手札に戻る。\n[red][i]{Amount:cond:>0?聞け、お前たちの命のカウントダウンを。|これにて終焉だ。}[/i][/red]",
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription": "{Amount:cond:>0?HPが[blue]0[/blue]以下になる時、次の[blue]{}[/blue]回は代わりに最大HPの[blue]50%[/blue]を一時的に失い、HPを全回復する。\nこの方法で失った最大HPは戦闘終了時に戻る。（[blue]{LostMaxHp}[/blue]）|戦闘終了時に[blue]{LostMaxHp}[/blue]の最大HPを戻す。}\n[gold]背水の陣[/gold]をプレイした時、それは次のターン開始時に手札に戻る。\n[red][i]{Amount:cond:>0?聞け、お前たちの命のカウントダウンを。|これにて終焉だ。}[/i][/red]"
 }

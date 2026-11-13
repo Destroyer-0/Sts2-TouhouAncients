@@ -137,5 +137,13 @@
 
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "Luck for a Price",
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]",
-  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]"
+  "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]",
+
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.title": "Heartless Blaze",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.description": "When you first deal unblocked damage, or when your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.smartDescription": "When you first deal unblocked damage, or when your HP drops to [blue]{Amount}[/blue] or below, remove this effect and all [gold]Strength[/gold].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
+
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.title": "Lament of the Ultramarine Orb",
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.description": "Each of the next [blue]4[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]0[/blue])\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.|Be perished.}[/i][/red]",
+  "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription": "{Amount:cond:>0?Each of the next [blue]{}[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]{LostMaxHp}[/blue])|At the end of combat, return [blue]{LostMaxHp}[/blue] Max HP.}\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.|Be perished.}[/i][/red]"
 }
