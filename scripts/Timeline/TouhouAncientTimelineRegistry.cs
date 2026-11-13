@@ -170,7 +170,7 @@ public static class TouhouAncientTimelineRegistry
             return;
         }
 
-        if (owner.RunState.GameMode.AreAchievementsAndEpochsLocked())
+        if (GameModeHelper.AreAchievementsAndEpochsLockedForRun(owner.RunState))
         {
             return;
         }

@@ -27,7 +27,7 @@ public class FungalPower : TouhouAncientPowerModel
     /// <summary>
     /// 死亡时：向每个玩家的弃牌堆随机位置加入孢子心灵。
     /// </summary>
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (creature != base.Owner) return;
         

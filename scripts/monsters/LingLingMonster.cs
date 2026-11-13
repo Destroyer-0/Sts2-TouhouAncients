@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
@@ -80,9 +81,9 @@ public sealed class LingLingMonster : TouhouAncientMonsterBase
     /// 铃铃倒下时：梅蒂欣的毒人偶层数减少 1（不会少于 1）。
     /// 梅蒂欣倒下时：移除幻象让铃铃不再复活，并让保留的贴图正常风化消失。
     /// </summary>
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        await base.AfterDeath(choiceContext, creature, source, wasRemovalPrevented, deathAnimLength);
 
         // 梅蒂欣倒下：铃铃不再复活，后者交回原版死亡流程正常风化移除
         if (creature != base.Creature && creature.Monster is MedicineMelancholyMonster)

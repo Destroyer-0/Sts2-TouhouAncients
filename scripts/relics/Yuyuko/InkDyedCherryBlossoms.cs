@@ -88,7 +88,7 @@ public class InkDyedCherryBlossoms : TouhouAncientRelics
         }
         if (side != base.Owner.Creature.Side) return;
         // 每回合失去1最大生命
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 1m, cardSource: null);
         LostMaxHpTotal++;
     }
 

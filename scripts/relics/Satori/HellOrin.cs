@@ -85,7 +85,7 @@ public class HellOrin : TouhouAncientRelics
         return desc;
     }
 
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
         if (!creature.IsEnemy) return; // 只针对敌人死亡
         // 与原版 Feed / BookRepairKnife 的斩杀判定一致：

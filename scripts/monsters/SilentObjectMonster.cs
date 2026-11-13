@@ -321,9 +321,9 @@ public sealed class SilentObjectMonster : TouhouAncientMonsterBase
         _cardNodes.Add(nCard);
     }
 
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        await base.AfterDeath(choiceContext, creature, source, wasRemovalPrevented, deathAnimLength);
         if (creature != base.Creature || wasRemovalPrevented) return;
 
         foreach (NCard node in _cardNodes)

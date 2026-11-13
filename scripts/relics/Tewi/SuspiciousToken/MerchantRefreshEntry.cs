@@ -37,7 +37,7 @@ public sealed class MerchantRefreshEntry : MerchantEntry
         _cost = 0;
     }
 
-    protected override async Task<(bool, int)> OnTryPurchase(MerchantInventory? inventory, bool ignoreCost)
+    protected override async Task<(bool, int)> OnTryPurchaseInternal(MerchantInventory? inventory, bool ignoreCost)
     {
         if (inventory == null) return (false, 0);
 

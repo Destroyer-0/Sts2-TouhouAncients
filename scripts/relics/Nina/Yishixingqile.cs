@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.Shops;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace TouhouAncients.Scripts.relics;
@@ -55,13 +56,14 @@ public class Yishixingqile : TouhouAncientRelics
 
 
         // 从库存中随机选一个未被标记为免费的其他商品
-        if (player.RunState.CurrentRoom is MerchantRoom merchantRoom)
+        if (player.RunState.CurrentRoom is MerchantRoom)
         {
             for (int i = 0; i < player.RunState.Rng.Shuffle.NextInt(1, 3); i++)
             {
-                var candidates = merchantRoom.Inventories
-                    .Where(inv => inv.Player == player)
-                    .SelectMany(x=>x.AllEntries)
+                // 0.113 起 MerchantRoom.Inventories 移除，库存统一从 MerchantSynchronizer 取
+                var candidates = RunManager.Instance.MerchantSynchronizer
+                    .GetInventoryFor(player)
+                    .AllEntries
                     .Where(e => e.IsStocked
                                 && e != itemPurchased
                                 && e is not MerchantRefreshEntry

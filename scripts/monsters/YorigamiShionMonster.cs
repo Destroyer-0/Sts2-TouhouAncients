@@ -161,7 +161,7 @@ public sealed class YorigamiShionMonster : TouhouAncientMonsterBase
     /// 女苑死亡时：紫苑移除双生能力，本回合眩晕，下一回合切换到阶段2。
     /// 紫苑自身死亡时由 TwinSoulPower 处理复活。
     /// </summary>
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (creature == base.Creature)

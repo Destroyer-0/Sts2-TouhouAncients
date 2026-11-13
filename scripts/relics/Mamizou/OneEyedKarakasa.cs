@@ -61,7 +61,7 @@ public class OneEyedKarakasa : TouhouAncientRelics
             base.DynamicVars["StrengthDown"].BaseValue, base.Owner.Creature, null);
     }
 
-    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (wasRemovalPrevented || !creature.IsEnemy) return Task.CompletedTask;

@@ -102,7 +102,7 @@ public class KonshiiNoKusuriCard : TouhouAncientCards
         // 从手牌中移除这张牌
         await CardCmd.Discard(a, this);
         // 失去最大生命：基础 + 每层污秽额外
-        await CreatureCmd.LoseMaxHp(a, creature, DynamicVars["ShouldLose"].IntValue, isFromCard: true);
+        await CreatureCmd.LoseMaxHp(a, creature, DynamicVars["ShouldLose"].IntValue, this);
 
         // 增加一层污秽
         relic.IncrementFilth();

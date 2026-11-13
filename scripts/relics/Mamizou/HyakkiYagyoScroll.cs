@@ -76,8 +76,8 @@ public class HyakkiYagyoScroll : TouhouAncientRelics
     /// 每当你斩杀时：战斗奖励增加一次随机其他角色的收录。
     /// 斩杀判定与原版 Feed / 本 mod 地狱猫车一致（排除爪牙与复活中的敌人）。
     /// </summary>
-    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented,
-        float deathAnimLength)
+    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
+        bool wasRemovalPrevented, float deathAnimLength)
     {
         if (!creature.IsEnemy) return Task.CompletedTask;
         if (!creature.Powers.All(power => power.ShouldOwnerDeathTriggerFatal())) return Task.CompletedTask;

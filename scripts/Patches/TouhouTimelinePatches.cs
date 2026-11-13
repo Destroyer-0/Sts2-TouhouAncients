@@ -3,7 +3,6 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Screens.Timeline;
 using MegaCrit.Sts2.Core.Saves.Managers;
@@ -54,32 +53,8 @@ internal static class EpochResolvedPortraitPathPatch
     }
 }
 
-// 自建列不在 eras 表里，Year 直接读会抛 LocException，改成复用门扉年份。
-[HarmonyPatch(typeof(EpochModel), "get_Year")]
-internal static class EpochYearPatch
-{
-    public static bool Prepare() => AccessTools.PropertyGetter(typeof(EpochModel), "Year") != null;
-
-    [HarmonyPostfix]
-    private static void Postfix(EpochModel __instance, ref string __result)
-    {
-        if (__instance is not TouhouAncientTimeline)
-        {
-            return;
-        }
-
-        if (!TouhouAncientTimelineRegistry.TryGetColumnNameKey(__instance.Era, out string? nameKey) || nameKey == null)
-        {
-            return;
-        }
-
-        LocString loc = new("eras", nameKey + ".year");
-        if (loc.Exists())
-        {
-            __result = loc.GetFormattedText();
-        }
-    }
-}
+// 自建列不在 eras 表里：0.113 起列名与年份由 NEraColumn.Init 直接读 eras.{GetEraIcon 返回的 key}，
+// 而这里已把自建列的 key 统一成门扉列，年份因此自动复用门扉年份，无需再补 EpochModel.Year。
 
 [HarmonyPatch(typeof(NTimelineScreen), nameof(NTimelineScreen.GetEraIcon))]
 internal static class TimelineEraIconPatch

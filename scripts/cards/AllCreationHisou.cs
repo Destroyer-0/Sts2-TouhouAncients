@@ -173,12 +173,4 @@ public class AllCreationHisou : TouhouAncientCards
         //     }
         // }
     }
-
-    public class TenshiSelector : ICardSelector
-    {
-        public Task<IEnumerable<CardModel>> CardsSelected()
-        {
-            throw new NotImplementedException();
-        }
-    }
 }

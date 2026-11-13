@@ -55,7 +55,7 @@ public sealed class StaccatoPower : TouhouAncientPowerModel
         await KoishiPerformanceCmd.GainAtmosphere(choiceContext, player, gained);
     }
 
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (base.Owner.Player is not { } player) return;

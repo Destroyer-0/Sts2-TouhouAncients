@@ -82,7 +82,7 @@ public class OldNewspaper : TouhouAncientRelics
         var remaining = base.DynamicVars[GainKey].IntValue - MaxHpLost;
         if (remaining <= 0) return;
         var amount = Math.Min(base.DynamicVars[LossKey].IntValue, remaining);
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), target, amount, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), target, amount, cardSource: null);
     }
 
     private void CheckIfUsedUp()

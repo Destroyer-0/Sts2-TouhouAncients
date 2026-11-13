@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
 using TouhouAncients.Scripts.cards;
@@ -68,7 +69,7 @@ public class SinisterPactDream : TouhouAncientRelics
         }
 
         TouhouAncients_MerchantVisit++;
-        TaskHelper.RunSafely(PurchaseEverything(merchantRoom.GetLocalInventory()));
+        TaskHelper.RunSafely(PurchaseEverything(RunManager.Instance.MerchantSynchronizer.GetLocalInventory()));
         return Task.CompletedTask;
     }
 
@@ -102,7 +103,7 @@ public class SinisterPactDream : TouhouAncientRelics
                 }
                 else
                 {
-                    await characterCardEntry.OnTryPurchaseWrapper(inventory, ignoreCost: true);
+                    await characterCardEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
                     await Cmd.Wait(0.25f);
                 }
             }
@@ -114,7 +115,7 @@ public class SinisterPactDream : TouhouAncientRelics
                 }
                 else
                 {
-                    await colorlessCardEntry.OnTryPurchaseWrapper(inventory, ignoreCost: true);
+                    await colorlessCardEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
                     await Cmd.Wait(0.25f);
                 }
             }
@@ -123,7 +124,7 @@ public class SinisterPactDream : TouhouAncientRelics
             {
                 NRun.Instance.GlobalUi.TopBar.Map.Enable();
                 NRun.Instance.GlobalUi.TopBar.Deck.Enable();
-                await relicEntry.OnTryPurchaseWrapper(inventory, ignoreCost: true);
+                await relicEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
                 NRun.Instance.GlobalUi.TopBar.Deck.Disable();
                 NRun.Instance.GlobalUi.TopBar.Map.Disable();
                 await Cmd.Wait(0.25f);
@@ -131,7 +132,7 @@ public class SinisterPactDream : TouhouAncientRelics
 
             foreach (MerchantPotionEntry potionEntry in inventory.PotionEntries)
             {
-                await potionEntry.OnTryPurchaseWrapper(inventory, ignoreCost: true);
+                await potionEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
                 await Cmd.Wait(0.25f);
             }
         }
@@ -149,7 +150,9 @@ public class SinisterPactDream : TouhouAncientRelics
         if (inventory.CardRemovalEntry != null)
         {
             NMapScreen.Instance.SetTravelEnabled(enabled: false);
-            await inventory.CardRemovalEntry.OnTryPurchaseWrapper(inventory, ignoreCost: true, cancelable: false);
+            // 0.113 取消了购买时的 cancelable 参数，改由条目自身标记不可取消
+            inventory.CardRemovalEntry.SetPurchaseUncancelable();
+            await inventory.CardRemovalEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
             NMapScreen.Instance.SetTravelEnabled(enabled: true);
         }
 

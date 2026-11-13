@@ -50,7 +50,7 @@ public class HotokeMishiIshiNoHachi : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, MaxHpLoss, isFromCard: false);
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, MaxHpLoss, cardSource: null);
     }
 
     /// <summary>

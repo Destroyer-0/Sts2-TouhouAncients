@@ -71,7 +71,7 @@ public class BloodFang : TouhouAncientRelics
             // 拾起时按当前最大生命重新计算，失去其中的 33%（向下取整，最少 1 点）
             var loseHp = GetLossAmount(player);
             base.DynamicVars["LoseHp"].BaseValue = loseHp;
-            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), player.Creature, loseHp, isFromCard: false);
+            await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), player.Creature, loseHp, cardSource: null);
         }
     }
 }

@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -99,9 +100,9 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
     }
 
     // --- 死亡后处理 ---
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        await base.AfterDeath(choiceContext, creature, source, wasRemovalPrevented, deathAnimLength);
         if (creature != base.Creature) return;
 
         if (creature.CombatState is not CombatState combatState ||
@@ -112,7 +113,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
         if (creatureNode != null)
         {
             creatureNode.AnimHideIntent();
-            creatureNode.ToggleIsInteractable(on: false);
+            creatureNode.SetIsInteractable(false, changeVisibilityImmediately: true);
             creatureNode.AddToGroup(RetainedVisualGroup);
         }
 

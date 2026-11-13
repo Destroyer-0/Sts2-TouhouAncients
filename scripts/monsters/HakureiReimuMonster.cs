@@ -158,7 +158,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
     /// 使其随身体一起被原版死亡风化特效（NMonsterDeathVfx 溶解）风化溶解，
     /// 而不是随节点被瞬间删除。
     /// </summary>
-    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (creature == base.Creature)
@@ -172,7 +172,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
             }
         }
 
-        await base.AfterDeath(choiceContext, creature, wasRemovalPrevented, deathAnimLength);
+        await base.AfterDeath(choiceContext, creature, source, wasRemovalPrevented, deathAnimLength);
     }
 
     // --- 梦想天生准备演出 ---
@@ -907,7 +907,7 @@ public sealed class HakureiReimuMonster : TouhouAncientMonsterBase
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
             tween.TweenProperty(amulet, "modulate:a", 1f, duration)
                 .SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Quad);
-            if (await tween.AwaitFinished(amulet))
+            if (await tween.AwaitFinished(amulet) == TweenOutcome.Finished)
             {
                 // 抵达目标位置后旋转至 -90°
                 var rotateTween = amulet.CreateTween();

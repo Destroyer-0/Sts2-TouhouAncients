@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.monsters;
@@ -102,7 +103,7 @@ public class TwinSoulPower : TouhouAncientPowerModel
     /// <summary>
     /// 死亡时：标记为复活中状态（不真正死亡），切换到自修复状态显示治疗意图。
     /// </summary>
-    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature,
+    public override Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, CardModel? source,
         bool wasRemovalPrevented, float deathAnimLength)
     {
         if (wasRemovalPrevented || base.Owner != creature) return Task.CompletedTask;

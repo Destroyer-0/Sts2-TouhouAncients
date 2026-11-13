@@ -75,7 +75,7 @@ public class SuspiciousToken : TouhouAncientRelics
 
         // 1. 刷新所有卡牌（CardEntries 已包含角色+无色）
         foreach (var entry in merchantInventory.CardEntries)
-            entry.Populate();
+            entry.Populate(merchantInventory);
 
         // 2. 刷新遗物
         var relicBlacklist = merchantInventory.RelicEntries
@@ -97,7 +97,8 @@ public class SuspiciousToken : TouhouAncientRelics
                     relicBlacklist.Remove(oldRelic);
                 }
 
-                var rarity = RelicFactory.RollRarity(player);
+                // 商店补货用铺货稀有度（与 0.111 的 RollRarity(player) 等价）
+                var rarity = RelicFactory.RollRarity(player.PlayerRng.Shops);
                 fillRelic.Invoke(entry, new object[] { rarity, relicBlacklist });
 
                 if (entry.Model?.CanonicalInstance is RelicModel newRelic)
@@ -175,11 +176,11 @@ public static class SuspiciousTokenPatches
 
     [HarmonyPatch(typeof(MerchantInventory), nameof(MerchantInventory.AllEntries), MethodType.Getter)]
     [HarmonyPostfix]
-    private static void IncludeRefreshEntry(MerchantInventory __instance, ref IEnumerable<MerchantEntry> __result)
+    private static void IncludeRefreshEntry(MerchantInventory __instance, ref List<MerchantEntry> __result)
     {
         if (RefreshEntries.TryGetValue(__instance, out var entry))
         {
-            __result = __result.Append(entry);
+            __result.Add(entry);
         }
     }
 
@@ -279,6 +280,9 @@ public static class SuspiciousTokenPatches
         if (relic == null) return null;
 
         var entry = new MerchantRefreshEntry(player, relic);
+        // 0.113 购买走 MerchantSynchronizer.PurchaseLocalEntry，要求 Id 非空；
+        // 该项在 Setup 之后才注入，只能自己取「末尾下一个序号」，各端按同一顺序计算因此一致。
+        entry.Id = (uint)inventory.AllEntries.Count;
         relic.RefreshEntry = entry;
         entry.PurchaseCompleted += (_, _) =>
         {

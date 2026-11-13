@@ -136,8 +136,9 @@ public class SealCircle : TouhouAncientCards
     /// <summary>
     /// 封魔阵被变化时解除对应卡牌的封印。
     /// 变化路径走 RemoveFromState，不进消耗堆也不触发 AfterCardChangedPiles，只能靠这个回调。
+    /// 0.113 把原来的 AfterTransformedFrom 改名为「本卡被变成别的牌」= AfterThisWasTransformedIntoInternal。
     /// </summary>
-    public override void AfterTransformedFrom()
+    protected override void AfterThisWasTransformedIntoInternal(CardModel card)
     {
         if (_sealedCard?.Affliction is Sealed sealedAffliction)
         {

@@ -150,11 +150,6 @@ public partial class NMerchantRefreshSlot : NMerchantSlot
         ClearHoverTip();
     }
 
-    protected override async Task OnTryPurchase(MerchantInventory? inventory)
-    {
-        await _refreshEntry.OnTryPurchaseWrapper(inventory);
-    }
-
     protected override void CreateHoverTip()
     {
         var hoverTipSet = NHoverTipSet.CreateAndShow(this, HoverTipFactory.FromRelic(_refreshEntry.Relic));

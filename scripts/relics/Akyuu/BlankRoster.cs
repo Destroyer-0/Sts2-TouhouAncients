@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -42,7 +43,7 @@ public class BlankRoster : TouhouAncientRelics
             .Where(r => !owned.Contains(r.Id))
             .Where(r => r is not TouhouAncientRelics relic || relic.CanAppear(player))
             .ToList();
-        player.PlayerRng.Rewards.Shuffle(candidates);
+        candidates.UnstableShuffle(player.PlayerRng.Rewards);
 
         var rewards = candidates.Take(base.DynamicVars["Count"].IntValue)
             .Select(r => (Reward)new RelicReward(r, player))
