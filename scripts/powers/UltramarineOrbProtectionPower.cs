@@ -12,7 +12,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Rooms;
-using TouhouAncients.Scripts.Ui;
 
 namespace TouhouAncients.Scripts.powers;
 
@@ -42,25 +41,6 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
         return base.Amount <= 0;
     }
 
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        JunkoLifeMarkerDisplay.Attach(base.Owner, base.Amount);
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterRemoved(Creature oldOwner)
-    {
-        JunkoLifeMarkerDisplay.Detach(oldOwner);
-        return Task.CompletedTask;
-    }
-
-    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
-    {
-        await base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
-        if (power != this) return;
-        JunkoLifeMarkerDisplay.Sync(base.Owner, base.Amount);
-    }
-
     public override async Task AfterPreventingDeath(Creature creature)
     {
         if (creature != base.Owner) return;
@@ -81,8 +61,6 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 
         // 不走 PowerCmd 降层：层数归零时该能力会被移除，0 层仍需保留图标与累计信息
         SetAmount(base.Amount - 1);
-        // SetAmount 只触发 Creature 事件，不跑 AfterPowerAmountChanged 钩子，需手动刷新标记
-        JunkoLifeMarkerDisplay.Sync(base.Owner, base.Amount);
     }
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
