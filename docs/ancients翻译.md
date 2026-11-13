@@ -1623,3 +1623,16 @@ zhs 两套 key 内容相同（仅后者 `1-2r` 多一个「来」字），按要
 - 不新增 `.eventDescription`，与 zhs 一致。
 
 ---
+
+## 纯狐（2026-11-13 补全 fight.title）
+
+**键名**: `TOUHOUANCIENTS-JUNKO_ANCIENT`
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `fight.title` | 挑战纯狐 | Challenge Junko | 純狐に挑戦する |
+
+- 该键此前在 `eng/jpn` 缺失（既有缺口），随本次补齐；插入在 `epithet` 之后，与 zhs 键序一致。
+- 句式沿用同文件其它先古：`Challenge ...` / 「〜に挑戦する」。
+
+---

@@ -93,3 +93,17 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 - **`MR_ZUN.description`「一场游戏」**：沿用 `TOO_MUCH_SATORI` 系列的 `in a single run`；「超ZUN啤酒」按术语表取 `Super ZUN Beer`，引用色 `[gold]` 与 `NIDOMITEI_SPECIAL_BLEND` 一致。
 - **插入位置**：`MR_ZUN` 在 zhs 里位于文件末（`TOO_MUCH_SATORI` 之后），eng/jpn 同样追加在末尾，三份文件键序一致。
 - jpn 与 eng 一致（旧工作流下以英文填充，现改为独立日语翻译）。
+
+---
+
+## 增量更新（2026-11-13，纯狐徽章「完美无缺」）
+
+`zhs/badges.json` 的 `FLAWLESS` 在 `eng/jpn` 缺失（既有缺口），随本次补齐。
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `FLAWLESS.title` | 完美无缺 | `Flawless` | 完璧無欠 |
+| `FLAWLESS.description` | 在不失去任何[pink]残机[/pink]的情况下，击败纯狐。 | `Defeat Junko without losing any [pink]lives[/pink].` | [pink]残機[/pink]を1つも失わずに純狐を倒す。 |
+
+- 「残机」首次出现：英文取 `lives`，日文取东方原生「残機」，见术语表第二十七节。
+- 插入位置：按 zhs 顺序放在 `ENDLESS_STOMACH` 与 `GENSOKYO_TRADITION` 之间，eng/jpn 同步。

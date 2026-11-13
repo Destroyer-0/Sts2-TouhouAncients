@@ -593,3 +593,39 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 > 「欺诈戏法」与卡牌 `"Lucky" Trick` 并列取 `Fraudulent Trick`（共用 `Trick` 词根），取代旧译 `TRICKSTER_POWER` 的 `Trickster`（`诈术师`）。
 > 源文机制句用第二人称「你」（不同于 `POISON_GUARDING_POWER` 的第三人称写法），英文按源文保留 `to you`，未改成怪物名。
 > 「呼呼」按因幡帝既有语气取 `Heheh`（见 `INABA_TEWI_ANCIENT` 各句）。
+
+---
+
+## 增量更新（2026-11-13，纯狐怪物 + 能力）
+
+### 纯狐 `JUNKO_MONSTER`（monsters.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.name` | 纯狐 | `Junko` | 純狐 |
+| `.moves.CEASELESS_CRANE_RETURN.title` | 鹤归犹恨 | `The Crane Returns, Resentment Endures` | 鶴帰猶恨 |
+| `.moves.SWITCH.banter1` | 无趣。准备在生死的间隙之中挣扎吧。 | `How dull. Struggle on in the gap between life and death.` | 退屈だ。生と死の狭間でもがくがいい。 |
+| `.moves.SWITCH.banter2` | 有趣。让我见识一下你的可能性吧。 | `How interesting. Show me your potential.` | 面白い。お前の可能性、見せてみろ。 |
+| `.moves.COSMIC_CONJUNCTION.title` | 宙覆星合 | `Cosmos Overturned, Stars Conjoined` | 宙覆星合 |
+| `.moves.PURE_REVOLVING_LIGHT.title` | 至纯涤光 | `Purest Cleansing Light` | 至純滌光 |
+| `.moves.PURE_BULLET_HELL.title` | 纯粹的弹幕地狱 | `A Pristine Danmaku Hell` | 純粋な弾幕地獄 |
+
+- `PURE_BULLET_HELL.title` 沿用 `cards.json` 同名卡 `PURE_HELL_OF_BULLETS` 的既有译名。
+- `CEASELESS_CRANE_RETURN` / `PURE_REVOLVING_LIGHT` 的 zhs 文案（鹤归犹恨、至纯涤光）与 `JunkoMonster.cs` 注释（鹤归不休、至纯洄光）不一致，译文按 zhs 文案，未改 zhs。
+- 插入位置：zhs 中纯狐位于 `WATARI_NINA` 之后，而 `WATARI_NINA` 在 eng/jpn 尚缺，故本批直接追加在文件末尾（因幡帝之后）。
+
+### 纯狐能力（powers.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `HEARTLESS_BLAZE_POWER.title` | 无心璨炎 | `Heartless Blaze` | 無心燦炎 |
+| `HEARTLESS_BLAZE_POWER.description` | 当你首次造成未被格挡的伤害，或生命值降低至[blue]200[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple] | `When you first deal unblocked damage, or when your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\n[purple][i]The Trump Card is Always a Bad Move[/i][/purple]` | 初めてブロックされなかったダメージを与えるか、HPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\n[purple][i]切り札はいつだって悪手[/i][/purple] |
+| `HEARTLESS_BLAZE_POWER.smartDescription` | 同上，`200` → `{Amount}` | 同上 | 同上 |
+| `ULTRAMARINE_ORB_PROTECTION_POWER.title` | 绀珠悯悼 | `Lament of the Ultramarine Orb` | 紺珠の哀悼 |
+| `ULTRAMARINE_ORB_PROTECTION_POWER.description` | 生命值下[blue]4[/blue]次将降至[blue]0[/blue]以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]0[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]{Amount:cond:>0?聆听吧，汝等生命的倒计时。\|此即终焉。}[/i][/red] | `Each of the next [blue]4[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]0[/blue])\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.\|Be perished.}[/i][/red]` | HPが[blue]0[/blue]以下になる時、次の[blue]4[/blue]回は代わりに最大HPの[blue]50%[/blue]を一時的に失い、HPを全回復する。\nこの方法で失った最大HPは戦闘終了時に戻る。（[blue]0[/blue]）\n[gold]背水の陣[/gold]をプレイした時、それは次のターン開始時に手札に戻る。\n[red][i]{Amount:cond:>0?聞け、お前たちの命のカウントダウンを。\|これにて終焉だ。}[/i][/red]` |
+| `ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription` | 按 zhs 的 `cond:` 双分支照写 | 见 `eng/powers.json` | 见 `jpn/powers.json` |
+
+- 「未被格挡的伤害」沿用原版 `unblocked damage` / 「ブロックされなかった攻撃ダメージ」。
+- 「孤注一掷」沿用原版卡 `THE_GAMBIT`：`The Gambit` / 「背水の陣」。
+- 尾注分支「此即终焉。」英文按用户指定改为 `Be perished.`；日语仍取「これにて終焉だ。」。
+- `{Amount:cond:...}`、`{LostMaxHp}`、`{}`、`\n` 均原样保留。
