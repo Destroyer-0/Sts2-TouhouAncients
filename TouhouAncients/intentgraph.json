@@ -11,16 +11,21 @@
             "y": 0.36,
             "align": "right",
             "text": "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD",
+            "fontSize": 18,
             "relativeTo": "/DOOM_SPREAD"
           },
           {
             "x": -0.25,
-            "y": 1.61,
+            "y": 0.5,
             "align": "right",
             "text": "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER",
+            "fontSize": 18,
             "relativeTo": "/ABSOLUTE_LOSER"
           }
         ]
+      },
+      "offset": {
+        "x": 1.4
       }
     }
   ],
@@ -29,9 +34,10 @@
       "graphPatch": {
         "labels": [
           {
-            "x": 0.0,
-            "y": 0.55,
-            "text": "ui.TouhouAncientsFantasyNatureNote"
+            "y": 1.2,
+            "text": "ui.TouhouAncientsFantasyNatureNote",
+            "align": "FANTASY_NATURE",
+            "fontSize": 12
           }
         ]
       }
@@ -50,10 +56,6 @@
           "name": "COSMIC_CONJUNCTION",
           "isInitialState": true,
           "initialStatePriority": 1,
-          "offset": {
-            "x": 3.2,
-            "y": -1.5
-          },
           "followUpState": "PURE_BULLET_HELL"
         },
         {
@@ -85,20 +87,25 @@
       "graphPatch": {
         "labels": [
           {
-            "x": 0.1,
-            "y": -0.3,
-            "align": "left",
+            "x": 2.2,
+            "y": 1.25,
             "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION",
+            "align": "left",
+            "fontSize": 18,
             "relativeTo": "/CEASELESS_CRANE_RETURN"
           },
           {
-            "x": 0.7,
-            "y": 1.01,
-            "align": "left",
+            "x": 0.5,
+            "y": 2.7,
             "text": "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL",
+            "align": "COSMIC_CONJUNCTION",
+            "fontSize": 12,
             "relativeTo": "/CEASELESS_CRANE_RETURN"
           }
         ]
+      },
+      "offset": {
+        "x": 0.7
       }
     }
   ]
