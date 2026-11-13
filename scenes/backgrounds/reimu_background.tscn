@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8gejmcoeenrk"]
 
 [ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_root"]
-[ext_resource type="Texture2D" uid="uid://cq5du71xql5g2" path="res://images/sprite/map/Map_Reimu.png" id="2_img"]
+[ext_resource type="Texture2D" uid="uid://b6kmcu662rjrl" path="res://images/sprite/map/reimu.png" id="2_wa2g5"]
 
 [node name="ReimuBackground" type="Control"]
 layout_mode = 3
@@ -11,10 +11,10 @@ script = ExtResource("1_root")
 [node name="Visual" type="TextureRect" parent="."]
 z_index = -20
 layout_mode = 0
-offset_left = -1120.0
-offset_top = -720.0
-offset_right = 1120.0
-offset_bottom = 540.0
-texture = ExtResource("2_img")
+offset_left = -1350.0
+offset_top = -660.0
+offset_right = 1350.0
+offset_bottom = 580.0
+texture = ExtResource("2_wa2g5")
 expand_mode = 1
 stretch_mode = 6

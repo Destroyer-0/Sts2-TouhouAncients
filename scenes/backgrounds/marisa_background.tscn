@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://ysfpwyjlc6xb"]
+[gd_scene load_steps=9 format=3 uid="uid://ysfpwyjlc6xb"]
 
 [ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_root"]
-[ext_resource type="Texture2D" uid="uid://bk5db1rk7ruu6" path="res://images/sprite/map/Map_Marisa.png" id="2_img"]
+[ext_resource type="Texture2D" uid="uid://b8mqhiynini1x" path="res://images/sprite/map/ADV_BG_0029.png" id="2_l2bqr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_marisa_firefly"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_marisa_firefly"]
+offsets = PackedFloat32Array(0, 0.22, 0.55, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.96, 1, 0.7, 0.85, 0.86, 0.96, 0.42, 0.3, 0.8, 0.94, 0.38, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_marisa_firefly"]
+gradient = SubResource("Gradient_marisa_firefly")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_marisa_blink"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.17, 1), 0.0, 0.0, 0, 0, Vector2(0.41, 0.1), 0.0, 0.0, 0, 0, Vector2(0.62, 0.92), 0.0, 0.0, 0, 0, Vector2(0.84, 0.08), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_marisa_blink"]
+curve = SubResource("Curve_marisa_blink")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_marisa_firefly"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1300, 620, 0)
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+radial_accel_min = 3.9999976
+radial_accel_max = 3.9999976
+damping_min = 2.5
+damping_max = 6.0
+scale_min = 0.22
+scale_max = 0.6
+color = Color(1, 0.97, 0.6, 1)
+alpha_curve = SubResource("CurveTexture_marisa_blink")
+hue_variation_min = -0.06
+hue_variation_max = 0.08
+turbulence_enabled = true
+turbulence_noise_strength = 28.0
+turbulence_noise_scale = 8.0
+turbulence_noise_speed = Vector3(0.1, 0.06, 0)
+turbulence_noise_speed_random = 0.1
+turbulence_influence_min = 0.2
+turbulence_influence_max = 0.5
 
 [node name="MarisaBackground" type="Control"]
 layout_mode = 3
@@ -12,10 +58,20 @@ script = ExtResource("1_root")
 self_modulate = Color(1, 1, 0.90588236, 1)
 z_index = -20
 layout_mode = 0
-offset_left = -1610.0
-offset_top = -1500.0
-offset_right = 1610.0
-offset_bottom = 570.0
-texture = ExtResource("2_img")
+offset_left = -1350.0
+offset_top = -660.0
+offset_right = 1350.0
+offset_bottom = 580.0
+texture = ExtResource("2_l2bqr")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Fireflies" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_marisa_firefly")
+position = Vector2(0, -40)
+amount = 35
+texture = SubResource("GradientTexture2D_marisa_firefly")
+lifetime = 3.5
+preprocess = 4.0
+visibility_rect = Rect2(-1400, -700, 2800, 1400)
+process_material = SubResource("ParticleProcessMaterial_marisa_firefly")
