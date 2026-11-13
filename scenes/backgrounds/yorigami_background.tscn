@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt0al1p274yb1"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_j8vtm"]
+[ext_resource type="Texture2D" uid="uid://booc17gt020f0" path="res://images/sprite/map/yorigami.png" id="2_j8vtm"]
+[ext_resource type="Texture2D" uid="uid://bmdofx37m8gnl" path="res://shaders/smoke.png" id="3_836vr"]
+
+[sub_resource type="Curve" id="Curve_yorigami_steam_alpha"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(0.55, 0.85), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yorigami_steam_alpha"]
+curve = SubResource("Curve_yorigami_steam_alpha")
+
+[sub_resource type="Curve" id="Curve_yorigami_steam_scale"]
+_limits = [0.0, 1.0, 0.0, 1.5]
+_data = [Vector2(0, 0.9), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 1.1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yorigami_steam_scale"]
+curve = SubResource("Curve_yorigami_steam_scale")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yorigami_steam"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1250, 20, 0)
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 12.0
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+angular_velocity_min = -9.0
+angular_velocity_max = 9.0
+gravity = Vector3(0, -80, 0)
+radial_accel_min = 1.5
+radial_accel_max = 1.5
+tangential_accel_min = -6.0
+tangential_accel_max = 6.0
+scale_min = 1.5
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_yorigami_steam_scale")
+color = Color(1, 0.9411765, 0.8509804, 0.19607843)
+alpha_curve = SubResource("CurveTexture_yorigami_steam_alpha")
+turbulence_enabled = true
+turbulence_noise_strength = 6.0
+turbulence_noise_scale = 2.0
+turbulence_noise_speed = Vector3(0.05, 0.03, 0)
+
+[node name="ReimuBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_j8vtm")
+
+[node name="Visual" type="TextureRect" parent="."]
+z_index = -20
+layout_mode = 0
+offset_left = -1350.0
+offset_top = -660.0
+offset_right = 1350.0
+offset_bottom = 580.0
+texture = ExtResource("2_j8vtm")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Steam" type="GPUParticles2D" parent="."]
+position = Vector2(0, 470)
+amount = 75
+texture = ExtResource("3_836vr")
+lifetime = 4.0
+preprocess = 4.0
+visibility_rect = Rect2(-1500, -1100, 3000, 1800)
+process_material = SubResource("ParticleProcessMaterial_yorigami_steam")

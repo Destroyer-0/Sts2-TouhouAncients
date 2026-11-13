@@ -18,6 +18,7 @@ public sealed class YorigamiSistersEncounter : TouhouAncientEncounter
 
     /// <summary>本挑战战斗的自定义 BGM（位于 res://debug_audio/，import 已开启 loop）。</summary>
     public override string? BgmFileName => "TFM-Yorigami.mp3";
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/yorigami_background.tscn";
 
     public override string? CustomScenePath => "res://scenes/encounters/yorigami_sisters.tscn";
 

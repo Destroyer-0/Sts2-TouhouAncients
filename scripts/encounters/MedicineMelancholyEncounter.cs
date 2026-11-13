@@ -25,6 +25,7 @@ public sealed class MedicineMelancholyEncounter : TouhouAncientEncounter
 
     public override string? BgmFileName => "Medicine.mp3";
 
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/medicine_background.tscn";
     public override string? CustomScenePath => "res://scenes/encounters/medicine_melancholy.tscn";
 
     protected override IReadOnlyList<(MonsterModel, string?)> GenerateMonsters() =>

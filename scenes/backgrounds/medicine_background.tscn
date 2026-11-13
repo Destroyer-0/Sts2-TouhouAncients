@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://gjni0562ilpq"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_2hr3m"]
+[ext_resource type="Texture2D" uid="uid://bw1cjv2g01yew" path="res://images/sprite/map/medicine.png" id="2_2hr3m"]
+
+[node name="ReimuBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2hr3m")
+
+[node name="Visual" type="TextureRect" parent="."]
+z_index = -20
+layout_mode = 0
+offset_left = -1350.0
+offset_top = -660.0
+offset_right = 1350.0
+offset_bottom = 580.0
+texture = ExtResource("2_2hr3m")
+expand_mode = 1
+stretch_mode = 6
