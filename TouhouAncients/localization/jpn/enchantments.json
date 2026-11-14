@@ -35,7 +35,7 @@
     "TOUHOUANCIENTS-WANDERING.extraCardText": "残る未練: {RemainingChance}",
     "TOUHOUANCIENTS-WANDERING.title": "未練",
 
-    "TOUHOUANCIENTS-YUMEIRO.description": "コストを[blue]1[/blue]下げる。プレイ後、カードを1枚引く。[purple]夢色[/purple]を別のエンチャントに変化させる。",
+    "TOUHOUANCIENTS-YUMEIRO.description": "コストが{Energy:energyIcons()}減る。プレイ後、カードを1枚引く。[purple]夢色[/purple]を別のエンチャントに変化させる。",
     "TOUHOUANCIENTS-YUMEIRO.title": "夢色",
 
     "TOUHOUANCIENTS-GREED.description": "[gold]永劫[/gold]と[gold]リプレイ[/gold][blue]{Times}[/blue]を得る。このエンチャントを持つカードが[gold]手札[/gold]にある場合、このエンチャントを持つカードからプレイしなければならない。",
@@ -53,5 +53,9 @@
     "TOUHOUANCIENTS-AUTOGRAPH.title": "直筆",
 
     "TOUHOUANCIENTS-PURE_LIGHT.description": "[gold]手札[/gold]にある[purple]純粋[/purple][gold]エンチャント[/gold]を持つカード1枚につき、このカードが与えるダメージと得るブロックが[blue]1[/blue]増加する。\nこのカードをプレイした時、[gold]手札[/gold]のすべてのカードのエンチャントを解除し、[purple]純粋[/purple]で[gold]エンチャント[/gold]する。",
-    "TOUHOUANCIENTS-PURE_LIGHT.title": "純粋"
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "純粋",
+
+    "TOUHOUANCIENTS-TACITURN.description": "コストが{Energy:energyIcons()}減る。\nこのカードをプレイした後、このターンカードをあと[blue]1[/blue]枚しかプレイできない。",
+    "TOUHOUANCIENTS-TACITURN.extraCardText": "口は災いの元",
+    "TOUHOUANCIENTS-TACITURN.title": "無口"
 }

@@ -41,6 +41,7 @@ public class ChaosDream : TouhouAncientRelics
         ModelDb.Relic<FlowingSplendorDream>(),
         ModelDb.Relic<BloodbathDream>(),
         ModelDb.Relic<BoundaryDream>(),
+        ModelDb.Relic<LoneEgretDream>(),
         ModelDb.Relic<MysteriousDream>(),
     ];
 

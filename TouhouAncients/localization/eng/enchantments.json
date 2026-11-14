@@ -36,7 +36,7 @@
     "TOUHOUANCIENTS-WANDERING.title": "Lingering Regrets",
 
     "TOUHOUANCIENTS-YUMEIRO.title": "Dream Colored",
-    "TOUHOUANCIENTS-YUMEIRO.description": "Costs [blue]1[/blue] less. When played, draw [blue]1[/blue] card, replace [purple]Dream Colored[/purple] with a different enchantment.",
+    "TOUHOUANCIENTS-YUMEIRO.description": "Costs {Energy:energyIcons()} less. When played, draw [blue]1[/blue] card, replace [purple]Dream Colored[/purple] with a different enchantment.",
 
     "TOUHOUANCIENTS-GREED.description": "Gain [gold]Eternal[/gold] and [gold]Replay[/gold] [blue]{Times}[/blue]. If a card with this enchantment is in your [gold]Hand[/gold], you must play cards with this enchantment first.",
     "TOUHOUANCIENTS-GREED.title": "Greed",
@@ -53,5 +53,9 @@
     "TOUHOUANCIENTS-AUTOGRAPH.title": "Autograph",
 
     "TOUHOUANCIENTS-PURE_LIGHT.description": "For each card in your [gold]Hand[/gold] with the [purple]Purity[/purple] [gold]Enchantment[/gold], this card deals [blue]1[/blue] more damage and gains [blue]1[/blue] more [gold]Block[/gold].\nWhen you play this card, remove the Enchantments from all cards in your [gold]Hand[/gold], then [gold]Enchant[/gold] them with [purple]Purity[/purple].",
-    "TOUHOUANCIENTS-PURE_LIGHT.title": "Purity"
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "Purity",
+
+    "TOUHOUANCIENTS-TACITURN.description": "Costs {Energy:energyIcons()} less.\nAfter you play this card, you can only play [blue]1[/blue] more card this turn.",
+    "TOUHOUANCIENTS-TACITURN.extraCardText": "Loose lips bring calamity",
+    "TOUHOUANCIENTS-TACITURN.title": "Taciturn"
 }

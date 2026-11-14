@@ -50,8 +50,8 @@
   "TOUHOUANCIENTS-POOREST_FORM_POWER.smartDescription": "At the end of your turn, for each point the total cost of cards in your [gold]Hand[/gold] exceeds your remaining [gold]Energy[/gold], apply [blue]{Amount}[/blue] [gold]Doom[/gold] to a random enemy [blue]1[/blue] time.",
 
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.title": "Heavenly Sage",
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
-  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.description": "Whenever you draw a card containing “Defend”, it is played. \nᗜᴗᗜ",
+  "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.smartDescription": "Whenever you draw a card containing “Defend”, it is played. \nᗜᴗᗜ",
   "TOUHOUANCIENTS-HEAVEN_SAGE_POWER.infiniteAutoPlayCapReached": "BAKA!",
 
   "TOUHOUANCIENTS-UNFORTUNATE_POWER.title": "Buy Peace",

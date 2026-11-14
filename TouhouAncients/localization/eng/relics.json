@@ -852,6 +852,11 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "Gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [red]Ominous Dream Eternal[/red] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "Guests who enter by the gate of horn shall depart by the door of ivory.",
 
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.title": "Lone Egret Dream",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.description": "Upon pickup, choose 1 of [blue]{Cards}[/blue] [gold]Colorless[/gold] cards [gold]Enchanted[/gold] with [purple]Taciturn[/purple] to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.eventDescription": "Choose 1 of [blue]{Cards}[/blue] [gold]Colorless[/gold] cards [gold]Enchanted[/gold] with [purple]Taciturn[/purple] to add to your [gold]Deck[/gold].",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "\"...I shall be the one to say it. You can no longer escape this fate.\"",
+  
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "Deep Secret Dream",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "At the start of turn [blue]{Turns}[/blue] each combat, add a random [gold]Tarot[/gold] card to your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "\"This dream trip has really taken us somewhere incredible, hasn't it!\"",

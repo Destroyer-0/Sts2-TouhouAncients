@@ -852,6 +852,11 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "ランダムな[gold]ドレミー・スイートの遺物[/gold]を[blue]{Relics}[/blue]個得る。[red]悪夢無終[/red]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "角の門から入った客は、象牙の扉から去ることになる。",
 
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.title": "孤鷺の夢",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.description": "入手時、[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.eventDescription": "[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "「……私が口にするわ、もう貴方は運命から逃れられないわよ」",
+  
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "深秘の夢",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "各戦闘の第[blue]{Turns}[/blue]ターン開始時、ランダムな[gold]タロット[/gold]カードを[blue]1[/blue]枚[gold]手札[/gold]に加える。",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "「今回の夢旅行、とんでもない場所に来ちゃったね！」",
