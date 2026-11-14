@@ -339,9 +339,11 @@
 |------|---------|--------|
 | `.title` | `Taciturn` | `無口` |
 | `.description` | `Costs {Energy:energyIcons()} less.\nAfter you play this card, you can only play [blue]1[/blue] more card this turn.` | `コストが{Energy:energyIcons()}減る。\nこのカードをプレイした後、このターンカードをあと[blue]1[/blue]枚しかプレイできない。` |
+| `.extraCardText` | `Loose lips bring calamity.` | `口は災いの元。` |
 
 ### 说明
 - 英文 `Taciturn`（沉默寡言）对应日文「無口」，同时呼应稀神探女「因言语会反转现实而不轻易开口」的设定；术语表「探女 = `Sagume`」不受影响。
 - 「耗能减少」用 `{Energy:energyIcons()}`（参考 `SATORI_EYE`：`本回合耗能增加{Energy:energyIcons()}`），数值由附魔的 `EnergyVar(1)` 提供，与「梦色」一致；不再硬编码 `[blue]1[/blue]`。
 - 「你在本回合只能再打出1张牌」沿用原版 `ENCORE_POWER` 三语写法（eng `you can only play [blue]1[/blue] more card this turn`、jpn「このターンカードをあと[blue]1[/blue]枚しかプレイできない」）。
+- `.extraCardText` 为中文谚语「祸从口出」，英日各用对应谚语（eng `Loose lips bring calamity.`、jpn「口は災いの元。」），呼应探女「话一出口便反转现实」的设定。
 - 实现：`Taciturn.cs` —— `OnEnchant` 里 `EnergyCost.UpgradeBy(-1)`（永久、随牌进牌组；X 费牌内部自动跳过），`OnPlay` 里 `PowerCmd.Apply<EncorePower>(..., 1m, ...)`（原版 `Encore` 牌同款限制，回合结束时自行移除）。

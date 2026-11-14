@@ -56,5 +56,6 @@
     "TOUHOUANCIENTS-PURE_LIGHT.title": "Purity",
 
     "TOUHOUANCIENTS-TACITURN.description": "Costs {Energy:energyIcons()} less.\nAfter you play this card, you can only play [blue]1[/blue] more card this turn.",
+    "TOUHOUANCIENTS-TACITURN.extraCardText": "Loose lips bring calamity",
     "TOUHOUANCIENTS-TACITURN.title": "Taciturn"
 }

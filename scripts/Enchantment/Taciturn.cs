@@ -15,14 +15,12 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Taciturn : TouhouAncientEnchantmentModel
 {
-    public override bool HasExtraCardText => false;
+    public override bool HasExtraCardText => true;
 
     // 只由「无暇之梦」指定赋予，不进随机附魔池
     public override bool CanBeRandomSelected => false;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<EncorePower>()];
 
     protected override void OnEnchant()
     {

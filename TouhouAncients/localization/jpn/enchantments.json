@@ -56,5 +56,6 @@
     "TOUHOUANCIENTS-PURE_LIGHT.title": "純粋",
 
     "TOUHOUANCIENTS-TACITURN.description": "コストが{Energy:energyIcons()}減る。\nこのカードをプレイした後、このターンカードをあと[blue]1[/blue]枚しかプレイできない。",
+    "TOUHOUANCIENTS-TACITURN.extraCardText": "口は災いの元",
     "TOUHOUANCIENTS-TACITURN.title": "無口"
 }

@@ -3677,7 +3677,7 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 "TOUHOUANCIENTS-LONE_EGRET_DREAM.title": "孤鹭之梦",
 "TOUHOUANCIENTS-LONE_EGRET_DREAM.description": "拾起时，从[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]缄口[/purple]的[gold]无色牌[/gold]中选择一张加入你的[gold]牌组[/gold]。",
 "TOUHOUANCIENTS-LONE_EGRET_DREAM.eventDescription": "从[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]缄口[/purple]的[gold]无色牌[/gold]中选择一张加入你的[gold]牌组[/gold]。",
-"TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "……"
+"TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "“……就由我来宣言吧，你已经不可能逃离这份命运了。”"
 ```
 
 ### 英文翻译
@@ -3686,7 +3686,7 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 | `.title` | `Lone Egret Dream` |
 | `.description` | `Upon pickup, choose 1 of [blue]{Cards}[/blue] [gold]Colorless[/gold] cards [gold]Enchanted[/gold] with [purple]Taciturn[/purple] to add to your [gold]Deck[/gold].` |
 | `.eventDescription` | `Choose 1 of [blue]{Cards}[/blue] [gold]Colorless[/gold] cards [gold]Enchanted[/gold] with [purple]Taciturn[/purple] to add to your [gold]Deck[/gold].` |
-| `.flavor` | `...` |
+| `.flavor` | `"...I shall be the one to say it. You can no longer escape this fate."` |
 
 ### 日文翻译
 | 字段 | 翻译 |
@@ -3694,12 +3694,12 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 | `.title` | `孤鷺の夢` |
 | `.description` | `入手時、[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。` |
 | `.eventDescription` | `[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。` |
-| `.flavor` | `「……」` |
+| `.flavor` | `「……私が口にするわ、もう貴方は運命から逃れられないわよ」` |
 
 ### 说明
 - 「无色牌」取原版 `card_types` / 卡框术语：eng `Colorless`、jpn `無色`。
 - 遗物名定译：zhs 依用户原文「孤鹭之梦」，eng `Lone Egret Dream`、jpn `孤鷺の夢`。
-- `.flavor` 为省略号，与 zhs 一致（zhs `……`、eng `...`、jpn `「……」`）。
+- `.flavor` 为稀神探女台词（用户提供中文与日文原句）：zhs「……就由我来宣言吧，你已经不可能逃离这份命运了。」、jpn「……私が口にするわ、もう貴方は運命から逃れられないわよ」、eng `"...I shall be the one to say it. You can no longer escape this fate."`。
 - 效果实现：`LoneEgretDream.cs` —— 从无色池抽 3 张可被「缄口」附魔的牌并 `CardCmd.Enchant<Taciturn>`（缄口：耗能 -1，打出后本回合只能再打出 1 张牌），`CardSelectCmd.FromChooseACardScreen(..., canSkip: true)` 选 1 张入牌组。
 - 曾有的「失去 8 点最大生命」与 `{MaxHpLoss}` 变量已按用户要求移除。
 

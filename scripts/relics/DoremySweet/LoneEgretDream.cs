@@ -41,7 +41,6 @@ public class LoneEgretDream : TouhouAncientRelics
         if (offers.Count == 0) return;
 
         Flash();
-        // 恰好 3 张，可用 ChooseACardScreen（超过 3 张会抛异常）
         CardModel? selected = await CardSelectCmd.FromChooseACardScreen(context, offers, player, canSkip: true);
         if (selected == null) return;
 

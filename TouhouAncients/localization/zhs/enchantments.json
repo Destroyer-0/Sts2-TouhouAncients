@@ -60,5 +60,6 @@
     "TOUHOUANCIENTS-PURE_LIGHT.title": "纯粹",
 
     "TOUHOUANCIENTS-TACITURN.description": "耗能减少{Energy:energyIcons()}。\n打出此牌后，你在本回合只能再打出[blue]1[/blue]张牌。",
+    "TOUHOUANCIENTS-TACITURN.extraCardText": "祸从口出",
     "TOUHOUANCIENTS-TACITURN.title": "缄口"
 }
