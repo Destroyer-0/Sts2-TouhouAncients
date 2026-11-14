@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Godot;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Saves;
@@ -22,6 +23,8 @@ public class HiedaNoAkyuuAncient : TouhouAncientBase
 {
     /// <summary>仅第一幕出现（具体幕数校验在基类 IsValidForAct 中完成）。</summary>
     public override int? ShowAct => 1;
+
+    protected override LocString BlitzOptionTitle => new("ancients", "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.blitz.title");
 
     /// <summary>对话文案里的 {Visits}：由对话渲染时注入 DynamicVars。</summary>
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Visits", 0m)];

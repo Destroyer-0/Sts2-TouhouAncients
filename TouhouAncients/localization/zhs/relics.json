@@ -853,6 +853,10 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。",
 
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "深秘之梦",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "在每场战斗的第[blue]{Turns}[/blue]回合开始时，将一张随机[gold]塔罗牌[/gold]放入你的[gold]手牌[/gold]。",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "“这次的梦境旅行可是到了不得了的地方呢！”",
+
   "TOUHOUANCIENTS-MIARE_BRUSH.title": "御阿礼·笔",
   "TOUHOUANCIENTS-MIARE_BRUSH.description": "接下来的[blue]{Combats}[/blue]场战斗额外掉落[blue]1[/blue]组[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-MIARE_BRUSH.flavor": "",

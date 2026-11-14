@@ -22,6 +22,9 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class MeteorDream : TouhouAncientRelics
 {
+    // 极速地图是固定直线，没有可挑选的节点做标记
+    protected override bool BlockedInBlitz => true;
+
     [SavedProperty]
     public int MeteorDream_ActIndex { get; private set; } = -1;
 

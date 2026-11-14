@@ -23,8 +23,22 @@ public abstract class TouhouAncientRelics : CustomRelicModel
 
     public virtual string DefaultFileName => "default";
 
-    /// <summary>先古之民选项条件：返回 false 时本遗物不会被抽为选项。由 TouhouAncientBase 在抽取前统一判定。</summary>
+    /// <summary>极速模式不出现。金币/商店/地图分叉在极速里均不存在，这类遗物整条效果归零。</summary>
+    protected virtual bool BlockedInBlitz => false;
+
+    /// <summary>本模组专属的出现条件（牌组/生命/幕数等），只管自己这一层。
+    /// 通用规则（模式黑名单）不写在这，重写时也就不必记得调 base。</summary>
     public virtual bool CanAppear(Player? player) => true;
+
+    /// <summary>抽签统一入口：本模组条件 + 原版通用规则（模式/三幕黑名单）。
+    /// 只调 CanAppear 会漏掉原版黑名单，只调 IsAllowed 会漏掉本模组条件。</summary>
+    public bool CanBeOffered(Player? player)
+        // 无 player（图鉴/预生成）时只能信 CanAppear
+        => CanAppear(player) && (player == null || IsAllowed(player.RunState));
+
+    // 抽遗物奖励与选项池是两条独立路径；极速拦截放这里，CanAppear 被 override 也不会丢
+    protected override bool IsAllowedInternal(IRunState runState)
+        => !(BlockedInBlitz && runState.GameMode == GameMode.Blitz);
 
     /// <summary>蔷薇偶像遗物的通用悬停：气氛的说明挂在「嗨到爆」词条里，两个要给在一起。</summary>
     protected IEnumerable<IHoverTip> KoishiPerformanceHoverTips =>

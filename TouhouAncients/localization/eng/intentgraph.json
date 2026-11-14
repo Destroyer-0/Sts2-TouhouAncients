@@ -11,5 +11,7 @@
   "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CUT_HERAT": "{otherwise}",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD": "Joon is alive",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER": "After Joon falls",
-  "ui.TouhouAncientsFantasyNatureNote": "Base damage is 1/12 of the player's current HP"
+  "ui.TouhouAncientsFantasyNatureNote": "Base damage is 1/12 of the player's current HP",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION": "After unblocked damage is dealt or HP falls below the threshold",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL": "N starts at 2 and increases by 1 after each use"
 }

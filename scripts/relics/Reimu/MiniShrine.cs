@@ -23,6 +23,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class MiniShrine : TouhouAncientRelics
 {
+    // 极速没有金币产出，供奉进度永远不动
+    protected override bool BlockedInBlitz => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

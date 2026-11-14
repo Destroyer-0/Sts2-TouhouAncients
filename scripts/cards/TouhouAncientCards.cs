@@ -145,9 +145,9 @@ public static class AncientCardFramePatch
 			val8.Visible = true;
 			val8.Texture = ResourceLoader.Load<Texture2D>(GetAncientTextBgPath(ancientCards));
 		
-			val4.Visible = false;
-			val9.Visible = true;
-			val4.Material = null;
+			val4.Visible = true;
+			val9.Visible = false;
+			//val4.Material = null;
 		}
 	}
 }

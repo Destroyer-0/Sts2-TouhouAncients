@@ -821,6 +821,7 @@
 
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.title": "Hieda no Akyuu",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.epithet": "Writer of the Timelines",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.blitz.title": "Blitz · Memory Corridor",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.title": "Fade Away",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.description": "Meet Neow in another timeline.",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.ancient": "[thinky_dots]Good luck to you.[/thinky_dots]",
@@ -873,6 +874,7 @@
 
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "Doremy Sweet",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.epithet": "Dream Manager of the Primordial Dawn",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.blitz.title": "Blitz · Dream Trial",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.title": "Leave the Dream",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.description": "Awaken... and go meet Neow.",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient": "[thinky_dots]Is that so... Then I wish you a pleasant awakening.[/thinky_dots]",

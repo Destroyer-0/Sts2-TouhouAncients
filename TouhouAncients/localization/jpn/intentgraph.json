@@ -11,5 +11,7 @@
   "branch.TouhouAncients.Scripts.monsters.ToutetsuYuumaMonster.AFTER_FEAST.CUT_HERAT": "{otherwise}",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.DOOM_SPREAD": "女苑が生存",
   "branch.TouhouAncients.Scripts.monsters.YorigamiShionMonster.ROOT.ABSOLUTE_LOSER": "女苑の戦闘不能後",
-  "ui.TouhouAncientsFantasyNatureNote": "基本ダメージはプレイヤーの現在HPの1/12"
+  "ui.TouhouAncientsFantasyNatureNote": "基本ダメージはプレイヤーの現在HPの1/12",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.COSMIC_CONJUNCTION": "ブロックされなかったダメージを与えた後、またはHPがしきい値を下回った後",
+  "text.TouhouAncients.Scripts.monsters.JunkoMonster.PURE_BULLET_HELL": "Nは2から始まり、使用するたびに1ずつ増加する"
 }

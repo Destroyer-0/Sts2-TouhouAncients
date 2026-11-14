@@ -820,6 +820,7 @@
 
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.title": "稗田 阿求",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.epithet": "時間線の書き手",
+  "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.blitz.title": "ブリッツ・記憶の回廊",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.title": "淡く消える",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.pages.INITIAL.options.MEET_NEOW.description": "別の時間線でネオーに会う。",
   "TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.talk.MEET_NEOW.ancient": "[thinky_dots]ご武運を。[/thinky_dots]",
@@ -872,6 +873,7 @@
 
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.title": "ドレミー・スイート",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.epithet": "邃古の初めの夢の使者",
+  "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.blitz.title": "ブリッツ・夢の試練",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.title": "夢から去る",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.pages.INITIAL.options.LEAVE_DREAM.description": "目覚めて……ネオーに会いに行く。",
   "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.talk.LEAVE_DREAM.ancient": "[thinky_dots]そうですか……では、楽しい目覚めの時をお過ごしください。[/thinky_dots]",

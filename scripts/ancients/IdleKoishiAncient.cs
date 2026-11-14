@@ -99,7 +99,7 @@ public class IdleKoishiAncient : TouhouAncientBase
             {
                 if (candidate.Weight <= 0) continue;
                 if (candidate.Relic is RelicModel relic && taken.Contains(relic.Id)) continue;
-                if (candidate.Relic is TouhouAncientRelics ancientRelic && !ancientRelic.CanAppear(Owner)) continue;
+                if (candidate.Relic is TouhouAncientRelics ancientRelic && !ancientRelic.CanBeOffered(Owner)) continue;
                 available.Add(candidate);
             }
 

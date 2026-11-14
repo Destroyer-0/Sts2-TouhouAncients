@@ -29,6 +29,9 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class SinisterPactDream : TouhouAncientRelics
 {
+    // 极速商店是免费的三选项商店，没有「出售的所有物品」可拿
+    protected override bool BlockedInBlitz => true;
+
     /// <summary>已进入过的商店数量。</summary>
     [SavedProperty]
     public int TouhouAncients_MerchantVisit

@@ -20,6 +20,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class RabbitsFoot : TouhouAncientRelics
 {
+    // 金币在极速里没有用途
+    protected override bool BlockedInBlitz => true;
+
     private const string _sellKey = "SELL_CARD";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

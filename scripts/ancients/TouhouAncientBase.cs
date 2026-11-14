@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Blitz;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
@@ -100,6 +101,12 @@ public abstract class TouhouAncientBase : CustomAncientModel
 
     protected override IReadOnlyList<EventOption> GenerateInitialOptions()
     {
+        // 照涅奥：极速模式不发遗物，只给卡牌自选（判断在 Modifier 之前，与原版顺序一致）
+        if (ShowAct == 1 && Owner?.RunState.RunModels.OfType<BlitzRunModel>().Any() == true)
+        {
+            return [CreateBlitzOption()];
+        }
+
         if (ShowAct == 1 && Owner is { RunState.Modifiers.Count: > 0 })
         {
             var modifierRunOptions = RunModifierOptions;
@@ -124,10 +131,11 @@ public abstract class TouhouAncientBase : CustomAncientModel
         foreach (var (pool, count) in TARelicOptionPools)
         {
             // 过滤放在抽取之前：条件不满足、权重为 0 或已经给过的遗物不会占掉一个选项。
+            // CanBeOffered 含原版 IsAllowed，不可退回 CanAppear（会漏掉模式黑名单）。
             var available = pool.Options
                 .Where(candidate => candidate.Weight > 0)
                 .Where(candidate => candidate.Relic is not RelicModel relic || !taken.Contains(relic.Id))
-                .Where(candidate => candidate.Relic is not TouhouAncientRelics relic || relic.CanAppear(Owner))
+                .Where(candidate => candidate.Relic is not TouhouAncientRelics ancient || ancient.CanBeOffered(Owner))
                 .ToList();
 
             for (var i = 0; i < count && available.Count > 0; i++)
@@ -221,6 +229,33 @@ public abstract class TouhouAncientBase : CustomAncientModel
         }
 
         return candidates[^1];
+    }
+
+    /// <summary>极速选项的标题；默认沿用涅奥的「极速」，先古之民可换成自己的名号。</summary>
+    protected virtual LocString BlitzOptionTitle => new("ascension", "BLITZ.NEOW.title");
+
+    /// <summary>极速选项：纯 EventOption（不挂 Relic），所以不参与任何遗物过滤/去重。</summary>
+    private EventOption CreateBlitzOption() => new(
+        this,
+        OnBlitzOptionSelected,
+        BlitzOptionTitle,
+        new LocString("ascension", "BLITZ.NEOW.description"),
+        "BLITZ",
+        []);
+
+    /// <summary>照 <c>Neow.OnBlitzOptionSelected</c>：发完卡牌后接 Modifier 链（有的话），否则直接结束。</summary>
+    private async Task OnBlitzOptionSelected()
+    {
+        await BlitzRunModel.GiveNeowRewards(Owner!);
+
+        var options = RunModifierOptions;
+        if (options.Count > 0)
+        {
+            SetEventState(InitialDescription, [options[0]]);
+            return;
+        }
+
+        Done();
     }
 
     /// <summary>多人模式下挑战选项的协同提示 HoverTip 本地化键（ancients 表）。</summary>

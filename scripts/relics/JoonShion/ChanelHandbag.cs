@@ -21,6 +21,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class ChanelHandbag : TouhouAncientRelics
 {
+    // 极速商店没有卡牌出售，无牌可附魔
+    protected override bool BlockedInBlitz => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

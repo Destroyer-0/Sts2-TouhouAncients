@@ -16,6 +16,9 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class RichMerchantDream : TouhouAncientRelics
 {
+    // 极速既无金币产出也无消费场所
+    protected override bool BlockedInBlitz => true;
+
     private const int MaxShops = 5;
 
     private int _shopsVisited;

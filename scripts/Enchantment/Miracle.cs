@@ -48,8 +48,9 @@ public class Miracle : TouhouAncientEnchantmentModel
         // 根据角色过滤卡牌：
         // - 非储君(Regent)：排除带有辉星(star cost)的牌
         // - 非亡灵契约师(Necrobinder)：排除带有 OstyAttack 标签的牌
-        var isRegent = player.Relics.Any(x => x is DivineRight or DivineDestiny);
-        var isNecrobinder = player.Relics.Any(x => x is BoundPhylactery or PhylacteryUnbound);
+        var isRegent = player.Character is Regent || player.Relics.Any(x => x is DivineRight or DivineDestiny);
+        var isNecrobinder = player.Character is Necrobinder || player.Relics.Any(x => x is BoundPhylactery or PhylacteryUnbound);
+        //var isFool = player.Character is Fool || player.Relics.Any(x => x is SongBow or PhylacteryUnbound);
 
         bool IsAllowed(CardModel c) =>
             CanEnchantCardType(c.Type)
@@ -83,7 +84,8 @@ public class Miracle : TouhouAncientEnchantmentModel
                 }
 
                 CardCmd.Enchant<Miracle>(cardModel, 1m);
-                CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw, creator: player, CardPilePosition.Random));
+                CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(cardModel, PileType.Draw,
+                    creator: player, CardPilePosition.Random));
                 break;
             }
 

@@ -19,6 +19,9 @@ namespace TouhouAncients.Scripts.relics.Akyuu;
 [Pool(typeof(EventRelicPool))]
 public class DetectiveManuscript : TouhouAncientRelics
 {
+    // 极速地图没有 ? 房间，触发条件永不成立
+    protected override bool BlockedInBlitz => true;
+
     private int usedFloor = -1;
 
     /// <summary>消耗时所在楼层；同一地图点（含事件里推出的战斗子房间）只挡一次，读档也不重置。</summary>

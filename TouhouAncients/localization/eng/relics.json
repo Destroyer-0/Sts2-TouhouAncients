@@ -852,6 +852,10 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "Gain [blue]{Relics}[/blue] random [gold]Doremy Sweet {Relics:plural:relic|relics}[/gold]. Add [blue]1[/blue] [red]Ominous Dream Eternal[/red] to your [gold]Deck[/gold].",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "Guests who enter by the gate of horn shall depart by the door of ivory.",
 
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "Deep Secret Dream",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "At the start of turn [blue]{Turns}[/blue] each combat, add a random [gold]Tarot[/gold] card to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "\"This dream trip has really taken us somewhere incredible, hasn't it!\"",
+
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]Merchants[/gold] now sell [gold]Ancient Relics[/gold].",
   "TOUHOUANCIENTS-FANTASY_DREAM.flavor": "",

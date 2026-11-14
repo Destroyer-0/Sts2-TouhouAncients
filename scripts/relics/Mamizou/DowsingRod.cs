@@ -38,6 +38,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class DowsingRod : TouhouAncientRelics
 {
+    // 极速没有金币，寻宝永远开不起
+    protected override bool BlockedInBlitz => true;
+
     private const string _cardTitlesKey = "CardTitles";
     public const int GoldCost = 50;
     private const int ShiningTowerGuaranteeCount = 3;

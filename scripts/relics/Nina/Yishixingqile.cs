@@ -22,6 +22,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class Yishixingqile : TouhouAncientRelics
 {
+    // 极速商店不收费，降价逻辑全失效
+    protected override bool BlockedInBlitz => true;
+
     private const int StartingGold = 112;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Gold", StartingGold)];

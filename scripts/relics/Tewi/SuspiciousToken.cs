@@ -28,6 +28,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class SuspiciousToken : TouhouAncientRelics
 {
+    // 极速商店条目不刷新也无价格，打折逻辑全失效
+    protected override bool BlockedInBlitz => true;
+
     private const string DiscountKey = "Discount";
     public const float RefreshSlotXOffset = 180f;
     public const float RefreshSlotYOffset = 32f;

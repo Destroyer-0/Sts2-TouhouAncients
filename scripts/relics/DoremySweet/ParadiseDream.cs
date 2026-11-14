@@ -22,6 +22,9 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class ParadiseDream : TouhouAncientRelics
 {
+    // 极速战斗不掉金币，按伤害换金币的收益归零
+    protected override bool BlockedInBlitz => true;
+
     [SavedProperty] public bool ParadiseDream_Resolved { get; set; }
 
     public override bool HasUponPickupEffect => true;

@@ -33,6 +33,12 @@ public class BloodDisasterPower : TouhouAncientPowerModel
     /// <summary>hover 描述中"当前翻 X 倍"所用运行时变量的键名。</summary>
     private const string _multiplierKey = "Multiplier";
 
+    /// <summary>体型计算的力量封顶值（scale 最大 3.0），超过后不再变大。</summary>
+    private const int MaxScaleStrength = 20;
+
+    /// <summary>意图图标最高浮到的 Y。尤魔 IntentPos 在 -226，不封顶会随倍率飞出屏幕。</summary>
+    private const float MaxIntentY = -400f;
+
     public int CurrentStrength
     {
         get
@@ -135,10 +141,13 @@ public class BloodDisasterPower : TouhouAncientPowerModel
         {
             return;
         }
-        var currentStrength = Math.Max(0,CurrentStrength);
-        float scale = 1f + currentStrength * 0.1f;
+        int scaleStrength = Math.Min(Math.Max(0, CurrentStrength), MaxScaleStrength);
+        float scale = 1f + scaleStrength * 0.1f;
         node.SetScaleAndHue(scale, 0f);
-        // 体型越大越要抬高意图图标，避免压到头
-        node.IntentContainer.Position += Vector2.Up * (currentStrength * 15f);
+        // UpdateBounds 会把意图 Y 整体乘 scale，这里覆盖为封顶值，避免图标飞出屏幕
+        float baselineY = node.Visuals.IntentPosition.Position.Y - node.IntentContainer.Size.Y * 0.5f;
+        node.IntentContainer.Position = new Vector2(
+            node.IntentContainer.Position.X, baselineY * (1f + scaleStrength * 0.08f));
+        //Mathf.Max(baselineY * scale, MaxIntentY));
     }
 }

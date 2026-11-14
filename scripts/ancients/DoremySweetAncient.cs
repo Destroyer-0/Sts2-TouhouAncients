@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 using MegaCrit.Sts2.Core.Events;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using TouhouAncients.Scripts.relics.DoremySweet;
 
@@ -20,6 +21,8 @@ public class DoremySweetAncient : TouhouAncientBase
     /// <summary>仅第一幕出现（具体幕数校验在基类 IsValidForAct 中完成）。</summary>
     public override int? ShowAct => 1;
 
+    protected override LocString BlitzOptionTitle => new("ancients", "TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.blitz.title");
+
     public override Color ButtonColor => new(0.45f, 0.35f, 0.7f, 0.75f);
     public override Color DialogueColor => new(0.55f, 0.45f, 0.85f, 1f);
 
@@ -36,7 +39,8 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<BygoneDream>(),
             // TARelicOption<PioneerDream>(),  // 先驱之梦已停用
             TARelicOption<RichMerchantDream>(),
-            TARelicOption<RevelationDream>()
+            TARelicOption<RevelationDream>(),
+            TARelicOption<MysteriousDream>()
             ),
         CreateTARelicOptionPool(
             TARelicOption<IridescentDream>().Prep((IridescentDream relic) =>

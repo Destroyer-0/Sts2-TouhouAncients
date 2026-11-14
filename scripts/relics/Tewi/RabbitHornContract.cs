@@ -21,6 +21,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class RabbitHornContract : TouhouAncientRelics
 {
+    // 极速既无金币产出也无消费场所
+    protected override bool BlockedInBlitz => true;
+
     public override bool HasUponPickupEffect => true;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

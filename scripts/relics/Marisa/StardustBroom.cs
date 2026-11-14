@@ -19,6 +19,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class StardustBroom : TouhouAncientRelics
 {
+    // 极速地图是固定直线，无自由选路可言
+    protected override bool BlockedInBlitz => true;
+
     private const int MaxCharges = 3;
     private const int InitialCharges = 2;
     private const int RoomsPerCharge = 4;

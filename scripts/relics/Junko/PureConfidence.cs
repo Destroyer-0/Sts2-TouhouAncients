@@ -18,6 +18,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class PureConfidence : TouhouAncientRelics
 {
+    // 极速地图固定且不可重绘，替换地图无效
+    protected override bool BlockedInBlitz => true;
+
     private int _touhouAncientJunkoPathAct = -1;
 
     public override bool HasUponPickupEffect => true;

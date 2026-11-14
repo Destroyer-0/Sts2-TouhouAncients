@@ -1636,3 +1636,19 @@ zhs 两套 key 内容相同（仅后者 `1-2r` 多一个「来」字），按要
 - 句式沿用同文件其它先古：`Challenge ...` / 「〜に挑戦する」。
 
 ---
+
+## 哆来咪 / 阿求（2026-11-14 极速模式选项标题）
+
+极速模式下第一幕先古之民不发遗物，只提供「10 选 3 加牌」的单一选项（照涅奥 `BlitzRunModel.GiveNeowRewards`），标题各自定制。描述复用原版 `ascension` 表 `BLITZ.NEOW.description`，未新增键。
+
+| 键名 | 中文（现行） | English | 日本語 |
+|------|------|---------|--------|
+| `TOUHOUANCIENTS-DOREMY_SWEET_ANCIENT.blitz.title` | 极速·梦境试炼 | Blitz · Dream Trial | ブリッツ・夢の試練 |
+| `TOUHOUANCIENTS-HIEDA_NO_AKYUU_ANCIENT.blitz.title` | 极速·记忆回廊 | Blitz · Memory Corridor | ブリッツ・記憶の回廊 |
+
+- 「极速」沿用原版 `BLITZ.NEOW.title` 译法：`Blitz` / 「ブリッツ」。
+- 「试炼」→ `Trial` / 「試練」；「回廊」→ `Corridor` / 「回廊」（同形汉字，与阿求「记忆海洋」句的意象一致）。
+- zhs 改用「极速·X」前缀式后，eng / jpn 同步改为前置：英文半角间隔号 `·` 两侧带空格，日文用「・」。
+- 插入位置在 `epithet` 之后，与 zhs 键序一致。
+
+---

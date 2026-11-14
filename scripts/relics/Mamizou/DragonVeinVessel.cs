@@ -27,6 +27,9 @@ namespace TouhouAncients.Scripts.relics;
 [Pool(typeof(EventRelicPool))]
 public class DragonVeinVessel : TouhouAncientRelics
 {
+    // 极速地图是固定直线，无从标记路线
+    protected override bool BlockedInBlitz => true;
+
     [SavedProperty]
     public int DragonVeinVessel_ActIndex { get; private set; } = -1;
 

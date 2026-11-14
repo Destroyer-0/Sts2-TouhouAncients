@@ -20,6 +20,9 @@ namespace TouhouAncients.Scripts.relics.DoremySweet;
 [Pool(typeof(EventRelicPool))]
 public class BoundaryDream : TouhouAncientRelics
 {
+    // 极速地图是固定直线，无 ?/商店可跳选
+    protected override bool BlockedInBlitz => true;
+
     public override bool HasUponPickupEffect => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HpLossVar(17m)];
