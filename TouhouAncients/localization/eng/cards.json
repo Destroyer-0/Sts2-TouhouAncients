@@ -69,7 +69,7 @@
     "TOUHOUANCIENTS-THE_FEAST.selectionScreenPrompt": "Choose 1~3 cards to [gold]Exhaust[/gold].",
 
     "TOUHOUANCIENTS-HEAVEN_SAGE.title": "Heaven Sage",
-    "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card with \"Defend\" in its name, play this card.\nᗜᴗᗜ",
+    "TOUHOUANCIENTS-HEAVEN_SAGE.description": "Whenever you draw a card containing “Defend”, it is played.\nᗜᴗᗜ",
 
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.title": "Spear \"Gungnir\"",
     "TOUHOUANCIENTS-GUNGNIR_SPEAR_CARD.description": "Deal damage equal to {ExtraDamage:diff()}x the target's [gold]Block[/gold].\nNo matter where it is, return this card to your [gold]Hand[/gold].{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",

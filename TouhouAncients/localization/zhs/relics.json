@@ -853,6 +853,11 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "获得[blue]{Relics}[/blue]件随机[gold]哆来咪·苏伊特遗物[/gold]，将[blue]1[/blue]张[red]噩梦无终[/red]加入你的[gold]牌组[/gold]。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "穿过牛角门前来的访客，离开请走象牙色的门扉。",
 
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.title": "孤鹭之梦",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.description": "拾起时，从[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]缄口[/purple]的[gold]无色牌[/gold]中选择一张加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.eventDescription": "从[blue]{Cards}[/blue]张带有[gold]附魔[/gold]：[purple]缄口[/purple]的[gold]无色牌[/gold]中选择一张加入你的[gold]牌组[/gold]。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "……",
+
   "TOUHOUANCIENTS-MIARE_BRUSH.title": "御阿礼·笔",
   "TOUHOUANCIENTS-MIARE_BRUSH.description": "接下来的[blue]{Combats}[/blue]场战斗额外掉落[blue]1[/blue]组[gold]卡牌奖励[/gold]。",
   "TOUHOUANCIENTS-MIARE_BRUSH.flavor": "",

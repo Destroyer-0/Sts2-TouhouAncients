@@ -35,7 +35,7 @@
     "TOUHOUANCIENTS-WANDERING.extraCardText": "指引迷途的灵魂{RemainingChance}",
     "TOUHOUANCIENTS-WANDERING.title": "彷徨",
 
-    "TOUHOUANCIENTS-YUMEIRO.description": "耗能减少[blue]1[/blue]。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
+    "TOUHOUANCIENTS-YUMEIRO.description": "耗能减少{Energy:energyIcons()}。打出后，抽一张牌，失去[purple]梦色[/purple]附魔并变化为其他附魔。",
     "TOUHOUANCIENTS-YUMEIRO.title": "梦色",
 
     "TOUHOUANCIENTS-GREED.description": "获得[gold]永恒[/gold]与[gold]重放[/gold][blue]{Times}[/blue]。如果带有此附魔的牌在你的[gold]手牌[/gold]中，你必须先打出带有此附魔的牌。",
@@ -57,5 +57,8 @@
     "TOUHOUANCIENTS-ROSE.title": "蔷薇",
 
     "TOUHOUANCIENTS-PURE_LIGHT.description": "你的[gold]手牌[/gold]中每有一张带有[purple]纯粹[/purple][gold]附魔[/gold]的牌，这张牌造成的伤害与获得的格挡就增加[blue]1[/blue]点。\n当你打出这张牌时，清除你所有[gold]手牌[/gold]的附魔，并[gold]附魔[/gold]：[purple]纯粹[/purple]。",
-    "TOUHOUANCIENTS-PURE_LIGHT.title": "纯粹"
+    "TOUHOUANCIENTS-PURE_LIGHT.title": "纯粹",
+
+    "TOUHOUANCIENTS-TACITURN.description": "耗能减少{Energy:energyIcons()}。\n打出此牌后，你在本回合只能再打出[blue]1[/blue]张牌。",
+    "TOUHOUANCIENTS-TACITURN.title": "缄口"
 }

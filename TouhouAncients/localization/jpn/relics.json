@@ -852,6 +852,11 @@
   "TOUHOUANCIENTS-CHAOS_DREAM.eventDescription": "ランダムな[gold]ドレミー・スイートの遺物[/gold]を[blue]{Relics}[/blue]個得る。[red]悪夢無終[/red]を[blue]1[/blue]枚[gold]デッキ[/gold]に加える。",
   "TOUHOUANCIENTS-CHAOS_DREAM.flavor": "角の門から入った客は、象牙の扉から去ることになる。",
 
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.title": "孤鷺の夢",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.description": "入手時、[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.eventDescription": "[purple]無口[/purple]で[gold]エンチャント[/gold]された[gold]無色[/gold]カード[blue]{Cards}[/blue]枚から[blue]1[/blue]枚選んで[gold]デッキ[/gold]に加える。",
+  "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "「……」",
+
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想の夢",
   "TOUHOUANCIENTS-FANTASY_DREAM.description": "[gold]商人[/gold]が[gold]エンシェントの遺物[/gold]を販売するようになる。",
   "TOUHOUANCIENTS-FANTASY_DREAM.flavor": "",
