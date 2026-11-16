@@ -107,6 +107,8 @@ public abstract class TouhouAncientBase : CustomAncientModel
             return [CreateBlitzOption()];
         }
 
+        // 照涅奥：带 Modifier 时整页只放 Modifier 选项链。
+        // 链为空时只有每日挑战照原版给空页；用白名单而不是「!= Standard」—— 0.113 的恐惧就是被黑名单判死的（项目参考 §7.17）。
         if (ShowAct == 1 && Owner is { RunState.Modifiers.Count: > 0 })
         {
             var modifierRunOptions = RunModifierOptions;
@@ -115,7 +117,7 @@ public abstract class TouhouAncientBase : CustomAncientModel
                 return [modifierRunOptions[0]];
             }
 
-            if (Owner.RunState.GameMode != GameMode.Standard)
+            if (Owner.RunState.GameMode == GameMode.Daily)
             {
                 return Array.Empty<EventOption>();
             }
