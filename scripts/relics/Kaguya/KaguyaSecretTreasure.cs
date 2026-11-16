@@ -33,7 +33,8 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
         new CardsVar(12)
     ];
 
-    public HashSet<CardModel> _selectedCardModel = new();
+    private HashSet<CardModel> _selectedCardModel = new();
+    private bool _triggered = false;
 
     protected override void AfterCloned()
     {
@@ -45,7 +46,8 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
     {
         if (player != Owner || Owner.PlayerCombatState == null || Owner.Creature.CombatState == null || Owner.PlayerCombatState.TurnNumber != 1)
             return;
-
+        
+        _triggered = false;
         _selectedCardModel.Clear();
         Flash();
         var myPool = player.Character.CardPool;
@@ -113,6 +115,7 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
             runState.AddCard(card, base.Owner);
             SpecialCardReward specialCardReward = new SpecialCardReward(card, base.Owner);
             combatRoom.AddExtraReward(base.Owner, specialCardReward);
+            _triggered = true;
             // var newCard = ModelDb.GetById<CardModel>(cardPlay.Card.Id);
             // var options = new CardCreationOptions([newCard], CardCreationSource.Other, CardRarityOddsType.Uniform)
             //     .WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications);
@@ -120,6 +123,16 @@ public class KaguyaSecretTreasure : TouhouAncientRelics
         }
 
         return Task.CompletedTask;
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        Status = RelicStatus.Normal;
+        if (_triggered)
+        {
+            Flash();
+        }
+        return base.AfterCombatEnd(room);
     }
     //
     // /// <summary>
