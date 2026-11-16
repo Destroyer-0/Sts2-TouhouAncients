@@ -820,8 +820,8 @@
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "“梦境使者，我会向你展示我的梦境，那自然是最上等与华美的。”",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血之梦",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。\n如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "拾起时，将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。\n回合结束时，如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "将[blue]{Cards}[/blue]张[gold]撕咬[/gold]加入你的[gold]牌组[/gold]。回合结束时，如果你在本回合中没有打出过攻击牌，失去[blue]{HpLoss}[/blue]点[red]生命[/red]。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "“梦境使者，与我一战！！！——……Zzzzz”",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界之梦",

@@ -819,8 +819,8 @@
   "TOUHOUANCIENTS-FLOWING_SPLENDOR_DREAM.flavor": "「夢の使者、あたしの夢を見せてあげるわ。もちろん、一番上等で華美なやつよ」",
 
   "TOUHOUANCIENTS-BLOODBATH_DREAM.title": "浴血の夢",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "入手時、[gold]噛みつき[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。\nこのターンにアタックをプレイしていないなら、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
-  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "[gold]噛みつき[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。このターンにアタックをプレイしていないなら、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.description": "入手時、[gold]引き裂き[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。\n自身のターン中にアタックをプレイしなかった場合、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
+  "TOUHOUANCIENTS-BLOODBATH_DREAM.eventDescription": "[gold]引き裂き[/gold]を[blue]{Cards}[/blue]枚[gold]デッキ[/gold]に加える。自身のターン中にアタックをプレイしなかった場合、[blue]{HpLoss}[/blue][red]HP[/red]を失う。",
   "TOUHOUANCIENTS-BLOODBATH_DREAM.flavor": "「夢の使者、オレと戦え！！！――……Zzzzz」",
 
   "TOUHOUANCIENTS-BOUNDARY_DREAM.title": "境界の夢",

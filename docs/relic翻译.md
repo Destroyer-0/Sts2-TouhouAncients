@@ -2563,8 +2563,8 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | 字段 | 翻译 |
 |------|------|
 | `.title` | `Bloodbath Dream` |
-| `.description` | `Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
-| `.eventDescription` | `Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play an Attack this turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
+| `.description` | `Upon pickup, add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold].\nIf you did not play any Attacks during your turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
+| `.eventDescription` | `Add [blue]{Cards}[/blue] [gold]Maul[/gold] to your [gold]Deck[/gold]. If you did not play any Attacks during your turn, lose [blue]{HpLoss}[/blue] [red]HP[/red].` |
 | `.flavor` | `""`（留空） |
 
 #### 至高之梦 `SUPREME_DREAM`
