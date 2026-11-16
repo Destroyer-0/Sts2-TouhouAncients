@@ -6,12 +6,16 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Runs.History;
 using TouhouAncients.Scripts.Enchantment;
 
 namespace TouhouAncients.Scripts.relics.DoremySweet;
@@ -32,38 +36,17 @@ public class LoneEgretDream : TouhouAncientRelics
 
     public override async Task AfterObtained()
     {
-        Player? player = base.Owner;
-        if (player?.Creature == null) return;
-
-        var context = new ThrowingPlayerChoiceContext();
-
-        List<CardModel> offers = BuildOffers(player);
-        if (offers.Count == 0) return;
-
-        Flash();
-        CardModel? selected = await CardSelectCmd.FromChooseACardScreen(context, offers, player, canSkip: true);
+        var options1 = new CardCreationOptions([ModelDb.CardPool<ColorlessCardPool>()], CardCreationSource.Other, CardRarityOddsType.RegularEncounter);
+        List<CardModel> options = CardFactory.CreateForReward(Owner, 3, options1).Select((Func<CardCreationResult, CardModel>) (c => c.Card)).ToList<CardModel>();
+        foreach (CardModel card in options) CardCmd.Enchant<Taciturn>(card, 1m);
+        CardModel? selected = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), options, Owner, canSkip: true);
         if (selected == null) return;
 
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(selected, PileType.Deck), 2f);
-    }
-
-    /// <summary>3 张互不相同、已附魔「缄口」的无色牌。</summary>
-    private static List<CardModel> BuildOffers(Player player)
-    {
-        Taciturn enchantment = ModelDb.Enchantment<Taciturn>();
-        List<CardModel> pool = ModelDb.CardPool<ColorlessCardPool>()
-            .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
-            .Where(c => c.IsAllowedInRun(player.RunState) && enchantment.CanEnchant(c))
-            .ToList();
-
-        var offers = new List<CardModel>(OfferCount);
-        foreach (CardModel model in pool.UnstableShuffle(player.PlayerRng.Rewards))
+        foreach (CardModel card in options)
         {
-            if (offers.Count >= OfferCount) break;
-            offers.Add(player.RunState.CreateCard(model, player));
+            if (card != selected)
+                Owner.RunState.CurrentMapPointHistoryEntry?.GetEntry(Owner.NetId).CardChoices.Add(new CardChoiceHistoryEntry(card, false));
         }
-
-        foreach (CardModel card in offers) CardCmd.Enchant<Taciturn>(card, 1m);
-        return offers;
     }
 }
