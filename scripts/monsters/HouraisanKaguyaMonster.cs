@@ -32,7 +32,7 @@ namespace TouhouAncients.Scripts.monsters;
 /// 蓬莱山辉夜：永远亭的月之公主。
 /// 状态机：五道难题 → 苍白之瀑 → 虚假之月 → 永夜归返 →（回环）苍白之瀑。
 /// 五道难题向每位玩家发放五种谜题卡（龙颈之玉/火鼠的皮衣/燕之子安贝/佛御石之钵/蓬莱的玉枝），
-/// 并施加"公主的谜题"：未完成的谜题每道让辉夜失去生命时减少伤害。
+/// 并施加"公主的谜题"：未完成的谜题每道让辉夜受到的伤害减少。
 /// </summary>
 public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 {
@@ -49,9 +49,9 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     private int FalseMoonDamage => AscensionHelper.GetValueIfAscension(
         AscensionLevel.DeadlyEnemies, 17, 15);
     
-    /// <summary>每道未解谜题为辉夜提供的生命损失减免。</summary>
-    private int PuzzleHpLossReduction => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 6, 5);
+    /// <summary>每道未解谜题为辉夜提供的伤害减免。</summary>
+    private int PuzzleDamageReduction => AscensionHelper.GetValueIfAscension(
+        AscensionLevel.DeadlyEnemies, 5, 4);
 
     private const int EternalNightReturnStrength = 3;
 
@@ -296,7 +296,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 
         _kaguyaVisuals?.ShowPuzzles();
         
-        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, PuzzleHpLossReduction, base.Creature, null);
+        await PowerCmd.Apply<PrincessPuzzlePower>(new ThrowingPlayerChoiceContext(), base.Creature, PuzzleDamageReduction, base.Creature, null);
 
         // 台词：传入玩家数，文本内 choose 分支据此在「你」与「你们」之间选择
         // （无法取得战斗状态时按单人处理，保证变量始终存在，避免 choose 落到默认分支；

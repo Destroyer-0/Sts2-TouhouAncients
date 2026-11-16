@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -16,9 +17,9 @@ namespace TouhouAncients.Scripts.powers;
 
 /// <summary>
 /// 公主的谜题：辉夜的五道难题。
-/// 每道未完成的谜题让辉夜失去生命时减少 Amount 点生命损失。
-/// 图标层数显示当前总减伤值（HpLossReduction = 未解谜题数 × Amount）；某道谜题需要所有玩家都完成才算解开，
-/// 解开后 PuzzleNum 减少并刷新总减伤值。
+/// 每道未完成的谜题让辉夜受到的伤害减少 Amount 点（格挡前结算）。
+/// 图标层数显示当前总减伤值（DamageReduction = 未解谜题数 × Amount）；某道谜题需要所有玩家都完成才算解开，
+/// 解开后 PuzzleNum 减少并刷新总减伤值；五道全部解开后移除本能力。
 /// </summary>
 public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
 {
@@ -32,7 +33,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
 
     private const string PuzzleNumKey = "PuzzleNum";
 
-    private const string HpLossReductionKey = "HpLossReduction";
+    private const string DamageReductionKey = "DamageReduction";
 
     /// <summary>
     /// 每种谜题类型（0-4）各玩家完成状态。
@@ -47,12 +48,12 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>
     /// 图标显示当前总减伤值。
     /// </summary>
-    public override int DisplayAmount => base.DynamicVars[HpLossReductionKey].IntValue;
+    public override int DisplayAmount => base.DynamicVars[DamageReductionKey].IntValue;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DynamicVar(PuzzleNumKey, BasePuzzleNum),
-        new DynamicVar(HpLossReductionKey, Amount * BasePuzzleNum)
+        new DynamicVar(DamageReductionKey, Amount * BasePuzzleNum)
     ];
 
     /// <summary>
@@ -65,22 +66,22 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
             completed.Clear();
         }
 
-        RefreshHpLossReduction();
+        RefreshDamageReduction();
         return Task.CompletedTask;
     }
 
     /// <summary>
-    /// 辉夜失去生命时按未解谜题数减免（与钨合金棍同一节点）。
+    /// 辉夜受到的伤害按未解谜题数减免；返回负的加值，格挡前结算，引擎最后会 clamp 到 0。
     /// </summary>
-    public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props,
-        Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props,
+        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target != base.Owner)
         {
-            return amount;
+            return 0m;
         }
 
-        return Math.Max(0m, amount - base.DynamicVars[HpLossReductionKey].BaseValue);
+        return -base.DynamicVars[DamageReductionKey].BaseValue;
     }
 
     /// <summary>
@@ -88,7 +89,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// 当该类型的谜题首次达成"所有玩家都完成"时，未解开谜题数减一并刷新总减伤值。
     /// 每次有新玩家完成时，通知辉夜怪物同步谜题图标的漂浮演出透明度。
     /// </summary>
-    public void CompletePuzzle(int puzzleType, Player player)
+    public async Task CompletePuzzle(int puzzleType, Player player)
     {
         if (puzzleType < 0 || puzzleType >= _completedPlayers.Length) return;
         if (!_completedPlayers[puzzleType].Add(player)) return;
@@ -99,10 +100,15 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
         }
 
         int playerCount = base.Owner.CombatState?.Players.Count ?? 1;
-        if (_completedPlayers[puzzleType].Count >= playerCount)
+        if (_completedPlayers[puzzleType].Count < playerCount) return;
+
+        base.DynamicVars[PuzzleNumKey].BaseValue = Math.Max(0, base.DynamicVars[PuzzleNumKey].IntValue - 1);
+        RefreshDamageReduction();
+
+        // 五道全解开后能力已无效果，移除避免残留 0 层图标
+        if (base.DynamicVars[PuzzleNumKey].IntValue <= 0)
         {
-            base.DynamicVars[PuzzleNumKey].BaseValue = Math.Max(0, base.DynamicVars[PuzzleNumKey].IntValue - 1);
-            RefreshHpLossReduction();
+            await PowerCmd.Remove(this);
         }
     }
 
@@ -139,10 +145,10 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
     /// <summary>
     /// 刷新总减伤值：未解开谜题数 × 每道谜题的减伤量（Amount）。
     /// </summary>
-    private void RefreshHpLossReduction()
+    private void RefreshDamageReduction()
     {
         int puzzleNum = base.DynamicVars[PuzzleNumKey].IntValue;
-        base.DynamicVars[HpLossReductionKey].BaseValue = puzzleNum * Amount;
+        base.DynamicVars[DamageReductionKey].BaseValue = puzzleNum * Amount;
         InvokeDisplayAmountChanged();
     }
 

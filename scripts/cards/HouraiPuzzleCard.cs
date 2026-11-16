@@ -70,7 +70,7 @@ public abstract class HouraiPuzzleCard : TouhouAncientCards
         if (kaguya == null) return;
         PrincessPuzzlePower? puzzlePower = kaguya.GetPower<PrincessPuzzlePower>();
         if (puzzlePower == null) return;
-        puzzlePower.CompletePuzzle((int)PuzzleType, base.Owner);
+        await puzzlePower.CompletePuzzle((int)PuzzleType, base.Owner);
     }
 
     /// <summary>
