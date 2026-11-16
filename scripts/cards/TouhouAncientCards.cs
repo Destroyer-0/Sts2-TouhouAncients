@@ -103,9 +103,20 @@ public static class AncientCardFramePatch
 		return ImageHelper.GetImagePath("atlases/compressed_atlas.sprites/ancient_card_border.png.tres");
 	}
 
+	/// <summary>AncientBanner 下挂着的火苗特效（原版远古牌才有）。</summary>
+	private const string FireNodeName = "Fire";
+
 	[HarmonyPostfix]
 	private static void Postfix(NCard __instance)
 	{
+		// 节点池化复用：必须双向赋值，否则我们的牌用过的节点在挂回原版远古牌后火苗永久消失
+		bool hideFire = __instance.Model is TouhouAncientCards { UseAncientFrame: true };
+		if (_ancientBanner.GetValue(__instance) is Control banner
+			&& banner.GetNodeOrNull<CanvasItem>(FireNodeName) is { } fire)
+		{
+			fire.Visible = !hideFire;
+		}
+
 		if (!(__instance.Model is TouhouAncientCards { UseAncientFrame: var useAncientFrame } ancientCards))
 		{
 			return;
@@ -145,9 +156,9 @@ public static class AncientCardFramePatch
 			val8.Visible = true;
 			val8.Texture = ResourceLoader.Load<Texture2D>(GetAncientTextBgPath(ancientCards));
 		
-			val4.Visible = true;
-			val9.Visible = false;
-			//val4.Material = null;
+			val4.Visible = false;
+			val9.Visible = true;
+			val4.Material = null;
 		}
 	}
 }
