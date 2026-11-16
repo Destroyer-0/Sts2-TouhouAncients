@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
 /// 纯狐：第三幕先古之民的挑战 Boss。
-/// 一阶段只有鹤归不休；无心璨炎被破防（首次未格挡伤害 / 生命跌破阈值）后进入二阶段，
+/// 一阶段只有鹤归不休；无心璨炎被移除（首次未格挡伤害 / 生命跌破阈值 / 其它手段移除）后进入二阶段，
 /// 下一招强制为宙覆星合，随后按「弹幕地狱 → 至纯洄光 → 弹幕地狱 → 弹幕地狱」循环。
 /// 立绘：一阶段 junko2，破防瞬间 junko3，宙覆星合之后固定 junko1。
 /// </summary>
@@ -60,7 +60,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     public override async Task AfterAddedToRoom()
     {
         await base.AfterAddedToRoom();
-        await PowerCmd.Apply<HeartlessBlazePower>(new ThrowingPlayerChoiceContext(), base.Creature, HeartlessBlazeThreshold, base.Creature, null);
+        await PowerCmd.Apply<HeartlessBlazePower>(new ThrowingPlayerChoiceContext(), base.Creature,
+            HeartlessBlazeThreshold, base.Creature, null);
     }
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
@@ -99,16 +100,17 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     }
 
     /// <summary>
-    /// 二阶段入口：由 <see cref="HeartlessBlazePower"/> 在破防时调用。
+    /// 二阶段入口：由 <see cref="HeartlessBlazePower.AfterRemoved"/> 调用。
     /// 先播台词并换上 junko3，再强制下一招为宙覆星合（无眩晕）；绀珠之庇由宙覆星合自身施加。
+    /// banter 1=未格挡伤害，其余（生命阈值 / 其它手段移除）都播第 2 句。
     /// </summary>
-    public void EnterPhaseTwo(bool fromUnblockedDamage)
+    public void EnterPhaseTwo(int banter)
     {
         if (_phaseTwo || base.Creature.IsDead) return;
         _phaseTwo = true;
 
         SwitchVisual(TransitionSprite);
-        string key = $"TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter{(fromUnblockedDamage ? 1 : 2)}";
+        string key = $"TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter{(banter == 1 ? 1 : 2)}";
         TalkCmd.Play(new LocString("monsters", key), base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
 
         SetMoveImmediate(_cosmicConjunction, forceTransition: true);
@@ -132,11 +134,13 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     /// <summary>鹤归不休：单段伤害并叠加力量（增力需在伤害前，否则本次伤害的破防会清掉刚刚获得的力量）。</summary>
     private async Task CeaselessCraneMove(IReadOnlyList<Creature> targets)
     {
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CeaselessCraneStrength, base.Creature, null);
         await DamageCmd.Attack(CeaselessCraneDamage)
             .FromMonster(this)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
+        if (_phaseTwo) return;
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, CeaselessCraneStrength,
+            base.Creature, null);
     }
 
     /// <summary>宙覆星合：给所有存活玩家施加绀珠之庇，并各给 1 张带保留的孤注一掷。</summary>
@@ -155,7 +159,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
         }
 
         await Cmd.Wait(1f);
-        await PowerCmd.Apply<UltramarineOrbProtectionPower>(new ThrowingPlayerChoiceContext(), targets.Where(t => !t.IsDead), ProtectionLayers, base.Creature, null);
+        await PowerCmd.Apply<UltramarineOrbProtectionPower>(new ThrowingPlayerChoiceContext(),
+            targets.Where(t => !t.IsDead), ProtectionLayers, base.Creature, null);
 
         // 二阶段 BGM 与曲名在此切换（挑战战斗才用 JunkoEncounter）
         if (base.CombatState?.Encounter is JunkoEncounter encounter)
@@ -186,6 +191,7 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
             .FromMonster(this)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, RevolvingLightStrength, base.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), base.Creature, RevolvingLightStrength,
+            base.Creature, null);
     }
 }
