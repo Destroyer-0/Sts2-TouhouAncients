@@ -22,7 +22,7 @@ namespace TouhouAncients.Scripts.monsters;
 
 /// <summary>
 /// 纯狐：第三幕先古之民的挑战 Boss。
-/// 一阶段只有鹤归不休；无心璨炎被移除（首次未格挡伤害 / 生命跌破阈值 / 其它手段移除）后进入二阶段，
+/// 一阶段只有鹤归不休；无心璨炎被移除（生命跌破阈值 / 其它手段移除）后进入二阶段，
 /// 下一招强制为宙覆星合，随后按「弹幕地狱 → 至纯洄光 → 弹幕地狱 → 弹幕地狱」循环。
 /// 立绘：一阶段 junko2，破防瞬间 junko3，宙覆星合之后固定 junko1。
 /// </summary>
@@ -31,8 +31,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     protected override bool HasAnimation => false;
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(AscensionLevel.ToughEnemies, 366, 355);
 
-    private int CeaselessCraneDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 20, 18);
-    private int RevolvingLightDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 35, 30);
+    private int CeaselessCraneDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 25, 22);
+    private int RevolvingLightDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 45, 40);
 
     private const int BulletHellDamage = 20;
     private const int RevolvingLightStrength = 10;
@@ -42,6 +42,9 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
 
     /// <summary>无心璨炎的生命值触发阈值（多人由能力自身放大）。</summary>
     private const int HeartlessBlazeThreshold = 200;
+
+    /// <summary>宙覆星合附加给玩家的虚弱层数。</summary>
+    private const int CosmicConjunctionWeak = 99;
 
     /// <summary>绀珠悯悼初始层数；徽章「完美无缺」据此判断是否触发过复活。</summary>
     internal static int ProtectionLayers => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 3, 4);
@@ -72,7 +75,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
             new SingleAttackIntent(CeaselessCraneDamage), new BuffIntent());
         // 二阶段被 SetMoveImmediate 强制切换后，必须撑过一次出招，
         // 否则下个玩家回合的 RollMove 会直接跳到 FollowUpState（宙覆星合被跳过）
-        _cosmicConjunction = new MoveState("COSMIC_CONJUNCTION", CosmicConjunctionMove, new StatusIntent(1))
+        _cosmicConjunction = new MoveState("COSMIC_CONJUNCTION", CosmicConjunctionMove,
+            new StatusIntent(1), new DebuffIntent())
         {
             MustPerformOnceBeforeTransitioning = true
         };
@@ -102,15 +106,15 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
     /// <summary>
     /// 二阶段入口：由 <see cref="HeartlessBlazePower.AfterRemoved"/> 调用。
     /// 先播台词并换上 junko3，再强制下一招为宙覆星合（无眩晕）；绀珠之庇由宙覆星合自身施加。
-    /// banter 1=未格挡伤害，其余（生命阈值 / 其它手段移除）都播第 2 句。
+    /// 阈值被提高过不止一次时播第 1 句，否则播第 2 句。
     /// </summary>
-    public void EnterPhaseTwo(int banter)
+    public void EnterPhaseTwo(bool raisedMultipleTimes)
     {
         if (_phaseTwo || base.Creature.IsDead) return;
         _phaseTwo = true;
 
         SwitchVisual(TransitionSprite);
-        string key = $"TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter{(banter == 1 ? 1 : 2)}";
+        string key = $"TOUHOUANCIENTS-JUNKO_MONSTER.moves.SWITCH.banter{(raisedMultipleTimes ? 1 : 2)}";
         TalkCmd.Play(new LocString("monsters", key), base.Creature, VfxColor.Purple, VfxDuration.VeryLong);
 
         SetMoveImmediate(_cosmicConjunction, forceTransition: true);
@@ -131,7 +135,7 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
         sprite.FlipH = shouldFlip;
     }
 
-    /// <summary>鹤归不休：单段伤害并叠加力量（增力需在伤害前，否则本次伤害的破防会清掉刚刚获得的力量）。</summary>
+    /// <summary>鹤归不休：单段伤害并叠加力量（二阶段不再增力）。</summary>
     private async Task CeaselessCraneMove(IReadOnlyList<Creature> targets)
     {
         await DamageCmd.Attack(CeaselessCraneDamage)
@@ -143,7 +147,7 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
             base.Creature, null);
     }
 
-    /// <summary>宙覆星合：给所有存活玩家施加绀珠之庇，并各给 1 张带保留的孤注一掷。</summary>
+    /// <summary>宙覆星合：给所有存活玩家施加绀珠之庇与 99 层虚弱，并各给 1 张带保留的孤注一掷。</summary>
     private async Task CosmicConjunctionMove(IReadOnlyList<Creature> targets)
     {
         VfxCmd.PlayOnCreatureCenter(base.Creature, "vfx/vfx_scream");
@@ -161,6 +165,8 @@ public sealed class JunkoMonster : TouhouAncientMonsterBase
         await Cmd.Wait(1f);
         await PowerCmd.Apply<UltramarineOrbProtectionPower>(new ThrowingPlayerChoiceContext(),
             targets.Where(t => !t.IsDead), ProtectionLayers, base.Creature, null);
+        await PowerCmd.Apply<WeakPower>(new ThrowingPlayerChoiceContext(),
+            targets.Where(t => !t.IsDead), CosmicConjunctionWeak, base.Creature, null);
 
         // 二阶段 BGM 与曲名在此切换（挑战战斗才用 JunkoEncounter）
         if (base.CombatState?.Encounter is JunkoEncounter encounter)
