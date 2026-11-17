@@ -29,7 +29,7 @@ public class NamelessYoukai : TouhouAncientCards
 {
     public override string? Author => "茶葉馬場ば";
 
-    private const int energyCost = 0;
+    private const int energyCost = 1;
     private const CardType type = CardType.Skill;
     private const CardRarity rarity = CardRarity.Ancient;
     private const TargetType targetType = TargetType.None;
