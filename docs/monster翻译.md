@@ -619,13 +619,13 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | 键名 | 中文 | English | 日本語 |
 |------|------|---------|--------|
 | `HEARTLESS_BLAZE_POWER.title` | 无心璨炎 | `Heartless Blaze` | 無心燦炎 |
-| `HEARTLESS_BLAZE_POWER.description` | 当你首次造成未被格挡的伤害，或生命值降低至[blue]200[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple] | `When you first deal unblocked damage, or when your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\n[purple][i]The Trump Card is Always a Bad Move[/i][/purple]` | 初めてブロックされなかったダメージを与えるか、HPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\n[purple][i]切り札はいつだって悪手[/i][/purple] |
-| `HEARTLESS_BLAZE_POWER.smartDescription` | 同上，`200` → `{Amount}` | 同上 | 同上 |
+| `HEARTLESS_BLAZE_POWER.description` | 当你的生命值降低至[blue]200[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n你每次造成未被格挡的伤害时，阈值提高[blue]40[/blue]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple] | `When your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever you deal unblocked attack damage, the threshold increases by [blue]40[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]` | HPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\nブロックを上回るアタックダメージを与えるたび、しきい値が[blue]40[/blue]上昇する。\n[purple][i]切り札はいつだって悪手。[/i][/purple] |
+| `HEARTLESS_BLAZE_POWER.smartDescription` | 同上，`200` → `{Amount}`，`40` → `{Increase}` | 同上 | 同上 |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.title` | 绀珠悯悼 | `Lament of the Ultramarine Orb` | 紺珠の哀悼 |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.description` | 生命值下[blue]4[/blue]次将降至[blue]0[/blue]以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]0[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]{Amount:cond:>0?聆听吧，汝等生命的倒计时。\|此即终焉。}[/i][/red] | `Each of the next [blue]4[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]0[/blue])\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.\|Be perished.}[/i][/red]` | HPが[blue]0[/blue]以下になる時、次の[blue]4[/blue]回は代わりに最大HPの[blue]50%[/blue]を一時的に失い、HPを全回復する。\nこの方法で失った最大HPは戦闘終了時に戻る。（[blue]0[/blue]）\n[gold]背水の陣[/gold]をプレイした時、それは次のターン開始時に手札に戻る。\n[red][i]{Amount:cond:>0?聞け、お前たちの命のカウントダウンを。\|これにて終焉だ。}[/i][/red]` |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription` | 按 zhs 的 `cond:` 双分支照写 | 见 `eng/powers.json` | 见 `jpn/powers.json` |
 
-- 「未被格挡的伤害」沿用原版 `unblocked damage` / 「ブロックされなかった攻撃ダメージ」。
+- 「未被格挡的伤害」沿用原版 `unblocked damage`；新增句按用户要求照原版 `SUCK_POWER` 句式写成 `Whenever you deal unblocked attack damage` / 「ブロックを上回るアタックダメージを与えるたび」，`smartDescription` 的 `{Amount}` 实时显示当前阈值、`{Increase}` 显示多人放大后的单次增量。
 - 「孤注一掷」沿用原版卡 `THE_GAMBIT`：`The Gambit` / 「背水の陣」。
 - 尾注分支「此即终焉。」英文按用户指定改为 `Be perished.`；日语仍取「これにて終焉だ。」。
 - `{Amount:cond:...}`、`{LostMaxHp}`、`{}`、`\n` 均原样保留。
