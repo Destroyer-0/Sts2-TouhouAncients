@@ -74,7 +74,7 @@ public class NamelessYoukai : TouhouAncientCards
             var options = GetSameRarityColoredCards(card, player);
             if (options.Count == 0) continue;
             var replacement = card.CardScope!.CreateCard(rng.NextItem(options)!, player);
-            if (card.IsUpgraded && replacement.IsUpgradable)
+            if (IsUpgraded && replacement.IsUpgradable)
             {
                 CardCmd.Upgrade(replacement);
             }
@@ -84,7 +84,7 @@ public class NamelessYoukai : TouhouAncientCards
 
         if (transformations.Count > 0)
         {
-            await CardCmd.Transform(transformations, null, CardPreviewStyle.GridLayout);
+            await CardCmd.Transform(transformations, null);
         }
 
         // 施加 Power（参照原版独白 Monologue）：本回合打出与上一张颜色不同的牌时，获得1能量与本回合力量
