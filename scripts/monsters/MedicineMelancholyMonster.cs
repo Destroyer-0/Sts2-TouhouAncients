@@ -26,7 +26,7 @@ public sealed class MedicineMelancholyMonster : TouhouAncientMonsterBase
     
     // --- HP：括号外为高阶，括号内为低阶 ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 174, 165);
+        AscensionLevel.ToughEnemies, 178, 169);
 
     // --- 数值 ---
     /// <summary>夜莺与玫瑰：每段伤害，低阶 6 / 高阶 7。</summary>
