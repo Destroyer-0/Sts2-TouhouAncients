@@ -85,6 +85,14 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     /// <summary>混沌炼狱：跃起高度。</summary>
     private const float ChaosHellJumpHeight = 160f;
 
+    // --- 出生 Buff ---
+    public override async Task AfterAddedToRoom()
+    {
+        await base.AfterAddedToRoom();
+        // 血煞祸劫是固定能力，开场即生效，不再由无尽贪妄授予
+        await PowerCmd.Apply<BloodDisasterPower>(new ThrowingPlayerChoiceContext(), base.Creature, 1m, base.Creature, null);
+    }
+
     // --- 帧动画状态表 ---
     protected override void ConfigureAnimationStateMachine(MonsterAnimationStateMachine animationMachine)
     {
@@ -111,7 +119,7 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     {
         List<MonsterState> list = new List<MonsterState>();
 
-        MoveState greed = new MoveState("GREED", GreedMove, new BuffIntent(), new StatusIntent(GreedCardsPerPile * 2));
+        MoveState greed = new MoveState("GREED", GreedMove, new StatusIntent(GreedCardsPerPile * 2));
         MoveState cutHeart = new MoveState("CUT_HERAT", CutHeartMove,
             new MultiAttackIntent(CutHeartDamage, CutHeartHits));
         MoveState drinkBlood = new MoveState("DRINK_BLOOD", DrinkBloodMove,
@@ -145,13 +153,10 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
     // --- 技能方法 ---
 
     /// <summary>
-    /// 无尽贪妄（仅第一回合）：给予自身 1 层血煞祸劫（不可叠加），
-    /// 并向每个玩家的抽牌堆、弃牌堆各加入 3 张"欲壑血海"。
+    /// 无尽贪妄（仅第一回合）：向每个玩家的抽牌堆、弃牌堆各加入 3 张"欲壑血海"。
     /// </summary>
     private async Task GreedMove(IReadOnlyList<Creature> targets)
     {
-        var choiceContext = new ThrowingPlayerChoiceContext();
-
         Vector2 bodyOrigin = CurrentBody?.Position ?? Vector2.Zero;
         
         Anim.Trigger("roll");
@@ -185,9 +190,6 @@ public sealed class ToutetsuYuumaMonster : TouhouAncientMonsterBase
         }
         
         await Cmd.Wait(0.5f);
-        // 自身 1 层血煞祸劫（Single 类型：已有则不再叠加）
-        await PowerCmd.Apply<BloodDisasterPower>(choiceContext, base.Creature, 1m, base.Creature, null);
-        await Cmd.Wait(1f);
         Anim.TriggerIdleLoop();
     }
 
