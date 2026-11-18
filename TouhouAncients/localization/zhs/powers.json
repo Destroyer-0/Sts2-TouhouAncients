@@ -131,8 +131,8 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "这张牌因[purple]不被重视[/purple]而受到魔力影响暴走，被纳入了正邪麾下。被击败后，其回到你的弃牌堆并不再受正邪蛊惑。",
 
   "TOUHOUANCIENTS-TRICKSTER_POWER.title": "欺诈魔术",
-  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
-  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "耗能不为[blue]{Amount}[/blue]的攻击牌对你造成的伤害减少[blue]50%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "玩家打出“幸运”戏法以外的卡牌时，若其耗能不为[blue]{Amount}[/blue]，受到[blue]{Damage}[/blue]点伤害且造成的伤害降低[blue]{DamageReduction}%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "玩家打出“幸运”戏法以外的卡牌时，若其耗能不为[blue]{Amount}[/blue]，受到[blue]{Damage}[/blue]点伤害且造成的伤害降低[blue]{DamageReduction}%[/blue]。\n[pink][i]大家只要听我的话，就能变得幸福哦~[/i][/pink]",
 
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "有偿的幸运",
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]呼呼……没错，只要一点点我的能力，就能变得如此幸运呢~[/i][/pink]",
