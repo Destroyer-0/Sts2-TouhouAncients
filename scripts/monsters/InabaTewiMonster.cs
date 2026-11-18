@@ -23,8 +23,8 @@ namespace TouhouAncients.Scripts.monsters;
 /// <summary>
 /// 因幡帝：用「幸运」戏法搅乱玩家耗能的兔子诈骗师。
 /// 状态机：开运大纹 → 狡兔三窟 → 请君入瓮 →（回环）。
-/// 诈术师让耗能不等于目标费用的攻击牌伤害减半，狡兔三窟每轮重置目标费用并塞牌，
-/// 玩家打出的戏法越多，请君入瓮给的力量越高。
+/// 诈术师惩罚费用不匹配的玩家牌，狡兔三窟每轮重置目标费用并塞牌；
+/// 有偿的幸运达到 7 层后，幸运戏法变成留手时增加受到攻击伤害的状态牌。
 /// </summary>
 public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 {
@@ -33,7 +33,8 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private const int TricksterInitialTargetCost = 1;
     private const int LuckyTrickCardsPerMove = 2;
-    private const int TrapBaseStrength = 2;
+    private const int IntoTheTrapStrength = 1;
+    private const int IntoTheTrapHits = 5;
 
     // --- 本地化 ---
     private static readonly LocString _intoTheTrapLine =
@@ -45,7 +46,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private int GreatFortuneCrestDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 16, 15);
 
-    private int IntoTheTrapDamage => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 7, 6);
+    private int IntoTheTrapDamage => 2;
 
     private int ThreeBurrowsBlock => AscensionHelper.GetValueIfAscension(AscensionLevel.DeadlyEnemies, 12, 10);
 
@@ -67,7 +68,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
         MoveState threeBurrows = new MoveState("THREE_BURROWS", ThreeBurrowsMove,
             new StatusIntent(LuckyTrickCardsPerMove), new DefendIntent());
         MoveState intoTheTrap = new MoveState("INTO_THE_TRAP", IntoTheTrapMove,
-            new SingleAttackIntent(IntoTheTrapDamage), new BuffIntent());
+            new MultiAttackIntent(IntoTheTrapDamage, IntoTheTrapHits), new BuffIntent());
 
         greatFortuneCrest.FollowUpState = threeBurrows;
         threeBurrows.FollowUpState = intoTheTrap;
@@ -105,30 +106,18 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
     private async Task IntoTheTrapMove(IReadOnlyList<Creature> targets)
     {
         await DamageCmd.Attack(IntoTheTrapDamage)
+            .WithHitCount(IntoTheTrapHits)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
             .WithHitFx("vfx/vfx_attack_slash")
             .Execute(null);
 
         await PowerCmd.Apply<StrengthPower>(
-            new ThrowingPlayerChoiceContext(), base.Creature, TrapBaseStrength + AvgPlayedLuckyTrickCount,
+            new ThrowingPlayerChoiceContext(), base.Creature, IntoTheTrapStrength,
             base.Creature, null);
-        if (AvgPlayedLuckyTrickCount > 0)
+        if (base.CombatState.Players.Any(player => player.Creature.GetPowerAmount<LuckyTrickCountPower>() > 0))
         {
             TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.White, VfxDuration.VeryLong);
-        }
-    }
-
-    /// <summary>全场「幸运」戏法计数总和的平均值（向上取整），多人下不会随人数线性膨胀。</summary>
-    private int AvgPlayedLuckyTrickCount
-    {
-        get
-        {
-            IReadOnlyList<Player> players = base.CombatState.Players;
-            if (players.Count == 0) return 0;
-
-            int total = players.Sum(player => player.Creature.GetPower<LuckyTrickCountPower>()?.Amount ?? 0);
-            return (total + players.Count - 1) / players.Count;
         }
     }
 

@@ -1,4 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
+using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
@@ -16,9 +19,8 @@ using TouhouAncients.Scripts.powers;
 namespace TouhouAncients.Scripts.cards;
 
 /// <summary>
-/// 「幸运」戏法：因幡帝塞进玩家手牌的 0 费状态牌，保留 + 消耗。
-/// 打出后本回合随机化手牌耗能（其他「幸运」戏法除外），
-/// 并略微偏向抽中诈术师当前的目标费用——凑不出该费用的攻击牌伤害会被减半。
+/// 「幸运」戏法：因幡帝塞进玩家手牌的状态牌，保留 + 消耗。
+/// 前 7 次打出时随机化其他手牌费用；有偿的幸运达到 7 层后改为 1 费，留在手牌时提高受到的攻击伤害。
 /// </summary>
 [Pool(typeof(StatusCardPool))]
 public class LuckyTrick : TouhouAncientCards
@@ -30,6 +32,7 @@ public class LuckyTrick : TouhouAncientCards
     private const int TargetCostWeight = 2;
 
     private const int energyCost = 0;
+    private const int CursedEnergyCost = 1;
     private const CardType type = CardType.Status;
     private const CardRarity rarity = CardRarity.Status;
     private const TargetType targetType = TargetType.None;
@@ -57,6 +60,39 @@ public class LuckyTrick : TouhouAncientCards
     private int PlayCount => IsMutable && Owner != null
         ? Owner.Creature.GetPowerAmount<LuckyTrickCountPower>()
         : 0;
+
+    private bool IsCursed => PlayCount >= LuckyTrickCountPower.CurseThreshold;
+
+    protected override int CanonicalEnergyCost => IsCursed ? CursedEnergyCost : energyCost;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new StringVar("TrickText"),
+        new DynamicVar("ExtraDamage", 3m)
+    ];
+
+    protected override void AddExtraArgsToDescription(LocString description)
+    {
+        string suffix = IsCursed ? ".descriptionCursed" : ".descriptionNormal";
+        if (!LocString.Exists("cards", Id.Entry + suffix)) return;
+        var stateDescription = new LocString("cards", Id.Entry + suffix);
+        base.DynamicVars.AddTo(stateDescription);
+        string text = stateDescription.GetFormattedText();
+        ((StringVar)DynamicVars["TrickText"]).StringValue = text;
+        description.Add("TrickText", text);
+    }
+
+    public override Task AfterCardEnteredCombat(CardModel card)
+    {
+        if (card == this && IsCursed) ApplyCursedCost();
+        return Task.CompletedTask;
+    }
+
+    private void ApplyCursedCost()
+    {
+        EnergyCost.SetCustomBaseCost(CursedEnergyCost);
+        InvokeEnergyCostChanged();
+    }
 
     /// <summary>上层立绘的不透明度：随计数线性上升，到 <see cref="FadeSteps"/> 张时完全盖住底图。</summary>
     private float OverlayAlpha => Math.Clamp(PlayCount / (float)FadeSteps, 0f, 1f);
@@ -133,6 +169,8 @@ public class LuckyTrick : TouhouAncientCards
         Player? player = base.Owner;
         if (player?.PlayerCombatState == null) return ;
 
+        if (IsCursed) return;
+
         int? targetCost = FindTargetCost(player);
         foreach (CardModel card in player.PlayerCombatState.Hand.Cards)
         {
@@ -144,6 +182,15 @@ public class LuckyTrick : TouhouAncientCards
         }
 
         await PowerCmd.Apply<LuckyTrickCountPower>(choiceContext, Owner.Creature, 1m, Owner.Creature, this);
+        if (PlayCount == LuckyTrickCountPower.CurseThreshold)
+        {
+            foreach (PileType pileType in new[]
+                     { PileType.Hand, PileType.Draw, PileType.Discard, PileType.Exhaust, PileType.Play })
+            {
+                foreach (LuckyTrick trick in pileType.GetPile(player).Cards.OfType<LuckyTrick>())
+                    trick.ApplyCursedCost();
+            }
+        }
     }
 
     /// <summary>当前诈术师的目标费用；场上没有诈术师时返回 null（退化为均等随机）。</summary>

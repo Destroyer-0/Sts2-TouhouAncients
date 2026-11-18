@@ -1,4 +1,10 @@
+using System.Linq;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+using TouhouAncients.Scripts.cards;
 
 namespace TouhouAncients.Scripts.powers;
 
@@ -9,7 +15,17 @@ namespace TouhouAncients.Scripts.powers;
 /// </summary>
 public class LuckyTrickCountPower : TouhouAncientPowerModel
 {
+    public const int CurseThreshold = 7;
+
     public override PowerType Type => PowerType.None;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props,
+        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
+    {
+        if (Amount < CurseThreshold || target != Owner || dealer?.IsEnemy != true || !props.IsPoweredAttack()) return 0m;
+        return Owner.Player?.PlayerCombatState?.Hand.Cards.OfType<LuckyTrick>()
+            .Sum(card => card.DynamicVars["ExtraDamage"].BaseValue) ?? 0m;
+    }
 }
