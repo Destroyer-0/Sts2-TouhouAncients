@@ -1,5 +1,7 @@
 ﻿{
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.title": "展望未来的X药",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.title": "记者相机",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "将一张[gold]决定性瞬间[/gold]加入你的[gold]牌组[/gold]。你可以在休息处[gold]登报[/gold]。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.description": "拾起时，从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.eventDescription": "从你的角色牌中选择一张耗能为[blue]X[/blue]的牌加入你的[gold]牌组[/gold]。耗能为[blue]X[/blue]的牌的效果数值增加[blue]{Increase}[/blue]点。",
   "TOUHOUANCIENTS-ZHANGEWEILAIBA.flavor": "战什么未来？现在就要！",

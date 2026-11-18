@@ -19,5 +19,9 @@
   "OPTION_SIGNED_SHIKISHI.description": "从你的[gold]牌组[/gold]中移除一张带有[purple]亲笔[/purple][gold]附魔[/gold]的牌。\n不占用休息处选项。",
 
   "OPTION_IDOL_ALBUM.name": "重播",
-  "OPTION_IDOL_ALBUM.description": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]蔷薇[/purple]。"
+  "OPTION_IDOL_ALBUM.description": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]蔷薇[/purple]。",
+
+  "OPTION_PUBLISH_PHOTO.name": "登报",
+  "OPTION_PUBLISH_PHOTO.description": "移除一张[gold]写真底片[/gold]，获得等同于其伤害数值5倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[jitter][i]Ayaaaaaaa!!![/i][/jitter]",
+  "OPTION_PUBLISH_PHOTO.descriptionDisabled": "你的[gold]牌组[/gold]中没有[gold]写真底片[/gold]。"
 }

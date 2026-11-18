@@ -1,5 +1,10 @@
 ﻿{
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸运白兔",
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.title": "决定性瞬间",
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.description": "如果目标的意图为攻击，将一张数值等同于目标攻击意图总伤害的[gold]写真底片[/gold]加入你的手牌与[gold]牌组[/gold]。\n如果目标攻击意图的总伤害不小于你当前的生命值，[gold]写真底片[/gold]的数值翻倍。",
+    "TOUHOUANCIENTS-PHOTO_FILM.title": "写真底片",
+    "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "完美的写真底片",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n造成{Damage:diff()}点伤害。\n打出{RemainingCount}次后，[gold]消耗[/gold]并从你的[gold]牌组[/gold]中移除。",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "抽[blue]{Cards}[/blue]张牌。\n在本回合随机化你[gold]当前手牌[/gold]的耗能，并为其中费用为[blue]0[/blue]的牌在本场战斗添加[gold]重放[/gold]。",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
