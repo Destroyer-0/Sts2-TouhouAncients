@@ -68,7 +68,6 @@ public class TwinSoulPower : TouhouAncientPowerModel
         {
             return;
         }
-        
         if (side != CombatSide.Player || CombatManager.Instance.PlayersTakingExtraTurn.Count > 0)
         {
             return;
