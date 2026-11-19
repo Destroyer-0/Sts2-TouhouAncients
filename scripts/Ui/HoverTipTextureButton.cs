@@ -302,6 +302,11 @@ public partial class HoverTipTextureButton : TextureButton
 
     private void ShowTip()
     {
+        if (string.IsNullOrEmpty(LocKey))
+        {
+            return;
+        }
+
         Texture2D? icon = TextureNormal;
         LocString? title = FindSuffixedLoc(LocTable, TitleSuffix);
 

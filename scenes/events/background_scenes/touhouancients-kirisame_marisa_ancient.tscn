@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bojpjh56yguek"]
+[gd_scene load_steps=7 format=3 uid="uid://bojpjh56yguek"]
 
 [ext_resource type="Texture2D" uid="uid://48paalpd2v8v" path="res://images/KirisameMarisa.png" id="1_bw5gw"]
 [ext_resource type="Texture2D" uid="uid://cagamjjmt6v5g" path="res://images/Marisa2.png" id="2_uuj7r"]
 [ext_resource type="Script" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_random"]
+[ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_workshop"]
+[ext_resource type="Texture2D" uid="uid://1eu02dts4ly5" path="res://images/icon/Character/KirisameMarisa.png" id="5_marisaicon"]
+[ext_resource type="Texture2D" path="res://modicon/character_icon_Marisa.png" id="6_noobicon"]
 
 [node name="WatariNinaAncient" type="Control"]
 layout_mode = 3
@@ -26,3 +29,22 @@ texture = ExtResource("2_uuj7r")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_random")
+
+[node name="MarisaWorkshopButton" parent="." instance=ExtResource("4_workshop")]
+texture_normal = ExtResource("5_marisaicon")
+LocKey = "TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND"
+WorkshopId = "3747692822"
+
+[node name="TextureRect" parent="MarisaWorkshopButton" index="0"]
+texture = ExtResource("5_marisaicon")
+
+[node name="MarisaNoobCannonWorkshopButton" parent="." instance=ExtResource("4_workshop")]
+texture_normal = ExtResource("6_noobicon")
+LocKey = "TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND_2"
+WorkshopId = "3747647777"
+
+[node name="TextureRect" parent="MarisaNoobCannonWorkshopButton" index="0"]
+texture = ExtResource("6_noobicon")
+
+[editable path="MarisaWorkshopButton"]
+[editable path="MarisaNoobCannonWorkshopButton"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://iytnkehoxs1m"]
+[gd_scene load_steps=7 format=3 uid="uid://iytnkehoxs1m"]
 
 [ext_resource type="Texture2D" uid="uid://duwjrtbq0mitl" path="res://images/FutatsuiwaMamizou.png" id="1_to032"]
 [ext_resource type="Texture2D" uid="uid://cle35b3x0pra3" path="res://images/FutatsuiwaMamizou2.png" id="2_b4w3x"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_41d2p"]
 [ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_41d2p"]
 [ext_resource type="Texture2D" uid="uid://bqralfxe8poyv" path="res://images/workshop/封兽鵺.png" id="5_0xs5t"]
+[ext_resource type="Texture2D" uid="uid://cwc4r22fwu8bf" path="res://images/icon/Character/FutatsuiwaMamizou.png" id="6_mamizouicon"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -43,4 +44,22 @@ WorkshopId = "3747503434"
 [node name="TextureRect" parent="TextureButton" index="0"]
 texture = ExtResource("5_0xs5t")
 
+[node name="KokoroWorkshopButton" parent="." instance=ExtResource("4_41d2p")]
+texture_normal = ExtResource("6_mamizouicon")
+LocKey = "TOUHOUANCIENTS-HATA_NO_KOKORO_RECOMMEND"
+WorkshopId = "3815391933"
+
+[node name="TextureRect" parent="KokoroWorkshopButton" index="0"]
+texture = ExtResource("6_mamizouicon")
+
+[node name="KogasaWorkshopButton" parent="." instance=ExtResource("4_41d2p")]
+texture_normal = ExtResource("6_mamizouicon")
+LocKey = "TOUHOUANCIENTS-TATARA_KOGASA_RECOMMEND"
+WorkshopId = "3748281484"
+
+[node name="TextureRect" parent="KogasaWorkshopButton" index="0"]
+texture = ExtResource("6_mamizouicon")
+
 [editable path="TextureButton"]
+[editable path="KokoroWorkshopButton"]
+[editable path="KogasaWorkshopButton"]

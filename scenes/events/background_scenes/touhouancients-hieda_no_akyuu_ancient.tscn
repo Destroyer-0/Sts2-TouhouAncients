@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjevbempi17xr"]
+[gd_scene load_steps=8 format=3 uid="uid://cjevbempi17xr"]
 
 [ext_resource type="Texture2D" uid="uid://x2ebmqk4047p" path="res://images/HiedaNoAkyuu.png" id="1_os3ib"]
 [ext_resource type="Texture2D" uid="uid://p4gsdhaiugx5" path="res://images/HiedaNoAkyuu2.png" id="2_os3ib"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_h15s3"]
 [ext_resource type="Texture2D" uid="uid://c3x5aho4x870m" path="res://images/workshop/阿求.png" id="5_bci8x"]
 [ext_resource type="Texture2D" uid="uid://2bq4812qjvac" path="res://images/workshop/慧音.png" id="6_ioqye"]
+[ext_resource type="Texture2D" uid="uid://cynq8ec3uh4ml" path="res://images/icon/Character/HiedaNoAkyuu.png" id="7_akyuuicon"]
 
 [node name="FutatsuiwaMamizouAncient" type="Control"]
 layout_mode = 3
@@ -78,5 +79,14 @@ WorkshopId = "3747577128"
 texture = ExtResource("6_ioqye")
 metadata/_edit_lock_ = true
 
+[node name="OldenSoulsWorkshopButton" parent="." instance=ExtResource("4_h15s3")]
+texture_normal = ExtResource("7_akyuuicon")
+LocKey = "TOUHOUANCIENTS-PC98_ANCIENTS_RECOMMEND"
+WorkshopId = "3830781581"
+
+[node name="TextureRect" parent="OldenSoulsWorkshopButton" index="0"]
+texture = ExtResource("7_akyuuicon")
+
 [editable path="TextureButton"]
 [editable path="TextureButton2"]
+[editable path="OldenSoulsWorkshopButton"]
