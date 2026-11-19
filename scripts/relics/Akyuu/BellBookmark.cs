@@ -79,7 +79,7 @@ public class BellBookmark : TouhouAncientRelics
     {
         if (player != base.Owner) return false;
         if (!InFirstAct) return false;
-        if (creationOptions.Source != CardCreationSource.Encounter) return false;
+        if (!creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward)) return false;
 
         // 稀有度权重跟随原奖励房间：精英/首领分别用 Elite/Boss 权重（Boss 必出稀有）。
         // 源仍标记为 Other，避免推进本体的稀有度保底计数。

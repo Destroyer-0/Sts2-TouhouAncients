@@ -31,7 +31,7 @@ public class LordsSunscreenCream : TouhouAncientRelics
     public override CardCreationOptions ModifyCardRewardCreationOptionsLate(Player player, CardCreationOptions options)
     {
         if (base.Owner != player) return options;
-        if (options.Source != CardCreationSource.Encounter) return options;
+        if (!options.Flags.HasFlag(CardCreationFlags.IsCardReward)) return options;
         if (options.Flags.HasFlag(CardCreationFlags.NoRarityModification)) return options;
 
         // 缸中之脑优先：稀有牌全被屏蔽时别加稀有过滤，两者叠加会让奖励池为空、抽牌抛异常

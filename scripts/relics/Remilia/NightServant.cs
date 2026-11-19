@@ -32,7 +32,7 @@ public class NightServant : TouhouAncientRelics
     {
         if (base.Owner != player) return false;
 
-        if (creationOptions.Source != CardCreationSource.Encounter)
+        if (!creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward))
         {
             return false;
         }

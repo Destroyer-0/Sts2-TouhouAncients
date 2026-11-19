@@ -46,7 +46,7 @@ public class KompeitoPot : TouhouAncientRelics
     {
         if (base.Owner != player) return false;
         if (TouhouAncients_UsesRemaining <= 0) return false;
-        if (creationOptions.Source != CardCreationSource.Encounter) return false;
+        if (!creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward)) return false;
 
         // 找一张能力牌
         var enumerable = (from c in creationOptions.GetPossibleCards(player)
