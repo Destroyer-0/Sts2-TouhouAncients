@@ -1663,3 +1663,30 @@ zhs 两套 key 内容相同（仅后者 `1-2r` 多一个「来」字），按要
 
 - 中文原文为《火影忍者》自来也的台词「ワシの情報網をなめるな」梗；日译照原句，仅把自称词「ワシ」改为本角色的「私」。
 - 「哼哼」沿用同角色 `talk.ANY.1-0r.ancient` 的 `Heheh` / 「ふふん」。
+
+---
+
+## 增量更新（2026-11-20，猯藏补充对话）
+
+**键名**: `TOUHOUANCIENTS-FUTATSUIWA_MAMIZOU_ANCIENT`
+
+zhs 侧新增 7 条键，eng / jpn 同步补齐，插入位置与 zhs 键序一致。
+
+另：`talk.ANY.4-0r.ancient` 的中文已改为「这场旅途真是看不到尽头。呵呵，但偶尔也要记得享受享受哦？」，而 eng / jpn 仍留着旧的「变化之术」译文，本次按新中文重译：
+
+| 对话键 | 中文 | English | 日本語 |
+|--------|------|---------|--------|
+| `talk.ANY.4-0r.ancient` | 这场旅途真是看不到尽头。呵呵，但偶尔也要记得享受享受哦？ | This journey really does seem to have no end in sight. Hehe, but do remember to enjoy yourself now and then, hm? | この旅は本当に終わりが見えぬのう。ふふ、だがたまには楽しむことも忘れるでないぞ？ |
+| `talk.SILENT.1-0r.ancient` | 哎呀，就算俺建议你静下心来，别老把所谓的战绩看的那么重，你也不会听的，不是吗？ | Oh dear—even if this old one told you to settle your heart and stop taking those so-called battle records so seriously, you wouldn’t listen anyway, would you? | おやおや――儂が心を落ち着けて、いわゆる戦績をそこまで重く見るでないと言っても、そちは聞きはせぬじゃろ？ |
+| `talk.DEFECT.2-0r.ancient` | 满足迷失的心灵是宗教家的职责……哈哈哈哈，老朽什么时候也变成那副样子了？ | Fulfilling lost hearts is the duty of a religious figure... Ho ho ho, since when did this old one become that sort of person? | 迷える心を満たすのは宗教家の務め……ほっほっほっ、儂はいつからあんな風になったんじゃ？ |
+| `talk.NECROBINDER.2-0r.ancient` | 别总是那么急躁呢。有什么烦恼的话，老朽不介意听听哦。 | Don’t be so restless all the time. If something’s troubling you, this old one doesn’t mind lending an ear. | そういつも焦るでないぞ。何か悩みがあるなら、儂が聞いてやってもかまわんぞ。 |
+| `talk.KOKOROSTS-KOKORO_CHARACTER.2-0r.ancient` | 被建筑师打败很不是滋味吧？那就是名为懊悔与不甘的感情哦。 | Losing to the Architect leaves a bad taste, doesn’t it? That’s what they call regret and frustration. | アーキテクトに負けるのはさぞ悔しかろう？ それが悔恨と無念という感情というものじゃ。 |
+| `talk.KOKOROSTS-KOKORO_CHARACTER.3-0r.ancient` | 一味的战斗也不是理解感情的捷径呢，偶尔也停下来静静心吧。 | Fighting on and on isn’t a shortcut to understanding emotions. Every now and then, stop and settle your heart. | ただ闘い続けることも、感情を理解する近道ではないぞ。たまには立ち止まって心を鎮めるがよい。 |
+| `talk.KOKORO_CHARACTER_KOKORO_CHARACTER.2-0r.ancient` | 同上（被建筑师打败…） | 同左 | 同左 |
+| `talk.KOKORO_CHARACTER_KOKORO_CHARACTER.3-0r.ancient` | 同上（一味的战斗…） | 同左 | 同左 |
+
+- 两套秦心键（`KOKOROSTS-` / `KOKORO_CHARACTER_`）内容相同，译文完全一致，沿用本文件既有约定。
+- 「建筑师」沿用 eng `the Architect`、jpn「アーキテクト」（见 `HAKUREI_REIMU_ANCIENT.talk.DEFECT.1-0r.ancient`）。
+- 自称「老朽」→ `this old one` / 「儂」，与角色既有台词一致；「俺」的方言口吻并入同一自称，不另作区分。
+- 中文「哈哈哈哈」按角色笑声统一处理为 `Ho ho ho` / 「ほっほっほっ」，避免同一角色出现两种笑声。
+- 「不甘」→ `frustration` / 「無念」，贴合秦心「感情」主题；「静静心」→ `settle your heart` / 「心を鎮める」。
