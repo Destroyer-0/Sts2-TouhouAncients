@@ -1,14 +1,14 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Debug;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes;
@@ -19,7 +19,6 @@ using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
-using TouhouAncients.Scripts.cards;
 
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
@@ -52,6 +51,8 @@ public class SinisterPactDream : TouhouAncientRelics
 
     private int merchantVisit;
 
+    public Task? LastPurchaseEverythingTask { get; private set; }
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<Greed>();
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -61,7 +62,7 @@ public class SinisterPactDream : TouhouAncientRelics
 
     public override Task AfterRoomEntered(AbstractRoom room)
     {
-        if (!(room is MerchantRoom merchantRoom))
+        if (!(room is MerchantRoom))
         {
             return Task.CompletedTask;
         }
@@ -72,30 +73,46 @@ public class SinisterPactDream : TouhouAncientRelics
         }
 
         TouhouAncients_MerchantVisit++;
-        TaskHelper.RunSafely(PurchaseEverything(RunManager.Instance.MerchantSynchronizer.GetLocalInventory()));
+        MerchantInventory inventoryFor = RunManager.Instance.MerchantSynchronizer.GetInventoryFor(base.Owner);
+        LastPurchaseEverythingTask = TaskHelper.RunSafely(PurchaseEverything(inventoryFor));
         return Task.CompletedTask;
     }
 
     private async Task PurchaseEverything(MerchantInventory inventory)
     {
-        if (inventory.Player != base.Owner)
-        {
-            return;
-        }
-
-        bool uiBlocked = false;
+        bool isLocked = inventory.TryBeginPurchase();
         try
         {
-            if (TestMode.IsOff)
+            await PurchaseEverythingLocked(inventory);
+        }
+        finally
+        {
+            if (isLocked)
             {
-                NRun.Instance.GlobalUi.TopBar.Map.Disable();
-                NRun.Instance.GlobalUi.TopBar.Deck.Disable();
-                NMapScreen.Instance.SetTravelEnabled(enabled: false);
-                await NRun.Instance.AwaitProcessFrame();
+                inventory.EndPurchase();
+            }
+        }
+    }
+
+    private async Task PurchaseEverythingLocked(MerchantInventory inventory)
+    {
+        bool uiBlocked = false;
+        bool ownerIsLocal = LocalContext.IsMe(base.Owner);
+        try
+        {
+            if (TestMode.IsOff && ownerIsLocal)
+            {
+                NRun.Instance?.GlobalUi.TopBar.Map.Disable();
+                NRun.Instance?.GlobalUi.TopBar.Deck.Disable();
+                NMapScreen.Instance?.SetTravelEnabled(enabled: false);
+                if (NRun.Instance != null)
+                {
+                    await NRun.Instance.AwaitProcessFrame();
+                }
                 uiBlocked = true;
-                NMerchantRoom.Instance.Inventory.BlockInput();
+                NMerchantRoom.Instance?.Inventory.BlockInput();
                 await Cmd.Wait(0.75f);
-                NMerchantRoom.Instance.Inventory.Open();
+                NMerchantRoom.Instance?.Inventory.Open();
                 await Cmd.Wait(1f);
             }
 
@@ -103,6 +120,8 @@ public class SinisterPactDream : TouhouAncientRelics
             {
                 if (!characterCardEntry.IsStocked)
                 {
+                    string text = characterCardEntry.CreationResult?.Card.Id.Entry ?? "NULL";
+                    Log.Warn("SinisterPactDream tried to buy an out-of-stock character card: " + text);
                 }
                 else
                 {
@@ -115,6 +134,8 @@ public class SinisterPactDream : TouhouAncientRelics
             {
                 if (!colorlessCardEntry.IsStocked)
                 {
+                    string text2 = colorlessCardEntry.CreationResult?.Card.Id.Entry ?? "NULL";
+                    Log.Warn("SinisterPactDream tried to buy an out-of-stock colorless card: " + text2);
                 }
                 else
                 {
@@ -125,11 +146,19 @@ public class SinisterPactDream : TouhouAncientRelics
 
             foreach (MerchantRelicEntry relicEntry in inventory.RelicEntries)
             {
-                NRun.Instance.GlobalUi.TopBar.Map.Enable();
-                NRun.Instance.GlobalUi.TopBar.Deck.Enable();
+                if (ownerIsLocal)
+                {
+                    NMerchantRoom.Instance?.Inventory.UnblockInput();
+                    NRun.Instance?.GlobalUi.TopBar.Map.Enable();
+                    NRun.Instance?.GlobalUi.TopBar.Deck.Enable();
+                }
                 await relicEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
-                NRun.Instance.GlobalUi.TopBar.Deck.Disable();
-                NRun.Instance.GlobalUi.TopBar.Map.Disable();
+                if (ownerIsLocal)
+                {
+                    NMerchantRoom.Instance?.Inventory.BlockInput();
+                    NRun.Instance?.GlobalUi.TopBar.Deck.Disable();
+                    NRun.Instance?.GlobalUi.TopBar.Map.Disable();
+                }
                 await Cmd.Wait(0.25f);
             }
 
@@ -143,20 +172,25 @@ public class SinisterPactDream : TouhouAncientRelics
         {
             if (uiBlocked)
             {
-                NMerchantRoom.Instance.Inventory.UnblockInput();
-                NRun.Instance.GlobalUi.TopBar.Map.Enable();
-                NRun.Instance.GlobalUi.TopBar.Deck.Enable();
-                NMapScreen.Instance.SetTravelEnabled(enabled: true);
+                NMerchantRoom.Instance?.Inventory.UnblockInput();
+                NRun.Instance?.GlobalUi.TopBar.Map.Enable();
+                NRun.Instance?.GlobalUi.TopBar.Deck.Enable();
+                NMapScreen.Instance?.SetTravelEnabled(enabled: true);
             }
         }
 
-        if (inventory.CardRemovalEntry != null)
+        if (inventory.CardRemovalEntry != null && RunManager.Instance.IsInProgress)
         {
-            NMapScreen.Instance.SetTravelEnabled(enabled: false);
-            // 0.113 取消了购买时的 cancelable 参数，改由条目自身标记不可取消
+            if (ownerIsLocal)
+            {
+                NMapScreen.Instance?.SetTravelEnabled(enabled: false);
+            }
             inventory.CardRemovalEntry.SetPurchaseUncancelable();
             await inventory.CardRemovalEntry.OnTryPurchaseUnsynchronized(inventory, ignoreCost: true);
-            NMapScreen.Instance.SetTravelEnabled(enabled: true);
+            if (ownerIsLocal)
+            {
+                NMapScreen.Instance?.SetTravelEnabled(enabled: true);
+            }
         }
 
         // 契约代价：领完全部商品后才塞进诅咒
