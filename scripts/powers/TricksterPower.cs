@@ -44,6 +44,7 @@ public class TricksterPower : TouhouAncientPowerModel
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
+        if (!props.IsPoweredCardOrMonsterMoveBlock()) return 1m;
         if (cardSource == null || cardSource is LuckyTrick || cardSource.Owner?.Creature.IsPlayer != true) return 1m;
 
         // GetResolved 已把普通牌耗能 clamp 到 ≥0，X 费牌取打出时捕获的 X 值
