@@ -24,7 +24,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5, 1, 1, 1, 1)
 script = ExtResource("1_script")
 
 [node name="Orb0" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 texture = ExtResource("2_orb")
@@ -42,7 +42,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Orb1" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 scale = Vector2(1e-05, 1e-05)
@@ -61,7 +61,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Orb2" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 scale = Vector2(1e-05, 1e-05)
@@ -80,7 +80,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Orb3" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 scale = Vector2(1e-05, 1e-05)
@@ -99,7 +99,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Orb4" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 scale = Vector2(1e-05, 1e-05)
@@ -118,7 +118,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Orb5" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 0
 texture_filter = 1
 material = SubResource("ShaderMaterial_orb")
 scale = Vector2(1e-05, 1e-05)

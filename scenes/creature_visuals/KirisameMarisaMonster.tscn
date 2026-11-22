@@ -289,9 +289,10 @@ texture_filter = 1
 position = Vector2(9.536743e-07, -18)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_olr8y")
-animation = &"masterspark"
+animation = &"hurt"
 autoplay = "idle"
-frame_progress = 0.97658163
+frame = 1
+frame_progress = 1.0
 offset = Vector2(-2, -29.333336)
 flip_h = true
 
