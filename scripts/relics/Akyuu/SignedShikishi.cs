@@ -92,7 +92,12 @@ public class SignedShikishi : TouhouAncientRelics
         var player = base.Owner;
         if (player?.Creature == null) return false;
 
-        var prefs = new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, 1) { Cancelable = true };
+        // 只剩一张也弹窗，给玩家反悔余地
+        var prefs = new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, 1)
+        {
+            Cancelable = true,
+            RequireManualConfirmation = true,
+        };
         var target = (await CardSelectCmd.FromDeckGeneric(player, prefs, c => c.Enchantment is Autograph))
             .FirstOrDefault();
         if (target == null) return false;
