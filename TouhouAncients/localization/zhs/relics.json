@@ -1006,6 +1006,7 @@
   "TOUHOUANCIENTS-PORTRAIT_OF_SOMEONE.flavor": "画像中的人物侧身向外，仿佛真的在看着观众一般向外探望。",
   
   "TOUHOUANCIENTS-REPORTER_CAMERA.title": "记者相机",
-  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "将一张[gold]决定性瞬间[/gold]加入你的[gold]牌组[/gold]。你可以在休息处[gold]登报[/gold]。",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "拾起时，将一张[gold]决定性瞬间[/gold]加入你的[gold]牌组[/gold]。你可以在休息处[gold]登报[/gold]。",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.eventDescription": "将一张[gold]决定性瞬间[/gold]加入你的[gold]牌组[/gold]。你可以在休息处[gold]登报[/gold]。",
   "TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "射命丸文遗物测试。"
 }

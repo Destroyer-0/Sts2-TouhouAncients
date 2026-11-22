@@ -712,7 +712,7 @@
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "邪仙の簪",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "各戦闘で初めて死亡した時、最大HPの[blue]{Percent}%[/blue]まで回復する。[aqua]次のターンから、霍青娥があなたのターンを乗っ取る。[/aqua]",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "[aqua]霍青娥[/aqua]",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "霍青娥",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "[aqua]霍青娥[/aqua]が乗っ取った後、自分のターン開始時に[red]5[/red]HPを失い{energyPrefix:energyIcons(1)}を得て、その後コストの高い順、左から右へ、[gold]手札[/gold]のプレイ可能なカードを順にプレイする。",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "世の者は彼女の邪仙の名を恐れるが、その禁断の力には誰しも惹きつけられる。",
 
@@ -963,6 +963,7 @@
   "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。",
 
   "TOUHOUANCIENTS-REPORTER_CAMERA.title": "記者のカメラ",
-  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "[gold]決定的瞬間[/gold]を[gold]デッキ[/gold]に加える。休憩所で[gold]新聞掲載[/gold]ができる。",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "入手時、[gold]決定的瞬間[/gold]を[gold]デッキ[/gold]に加える。休憩所で[gold]新聞掲載[/gold]ができる。",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.eventDescription": "[gold]決定的瞬間[/gold]を[gold]デッキ[/gold]に加える。休憩所で[gold]新聞掲載[/gold]ができる。",
   "TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "射命丸文の遺物テスト。"
 }

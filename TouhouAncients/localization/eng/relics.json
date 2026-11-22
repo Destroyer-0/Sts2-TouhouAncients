@@ -712,7 +712,7 @@
 
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.title": "Wicked Hermit Hairpin",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.description": "The first time you die each combat, heal to [blue]{Percent}%[/blue] of your Max HP. [aqua]Starting next turn, Seiga Kaku takes over your turn.[/aqua]",
-  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "[aqua]Seiga Kaku[/aqua]",
+  "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigatitle": "Seiga Kaku",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.seigadescription": "After [aqua]Seiga Kaku[/aqua] takes over, at the start of your turn lose [red]5[/red] HP and gain {energyPrefix:energyIcons(1)}, then play all playable cards in your hand from highest to lowest cost, left to right.",
   "TOUHOUANCIENTS-WICKED_HERMIT_HAIRPIN.flavor": "People fear her name as a wicked hermit, yet they all yearn for that forbidden power.",
 
@@ -964,6 +964,7 @@
   "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "The newspaper article released at the birth of the Ninth Child of Miare. Kept as commemoration.",
 
   "TOUHOUANCIENTS-REPORTER_CAMERA.title": "Reporter's Camera",
-  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "Add a [gold]Decisive Moment[/gold] to your [gold]Deck[/gold]. You may [gold]Publish[/gold] at a Rest Site.",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "Upon pickup, Add a [gold]Decisive Moment[/gold] to your [gold]Deck[/gold]. You may [gold]Publish[/gold] at a Rest Site.",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.eventDescription": "Add a [gold]Decisive Moment[/gold] to your [gold]Deck[/gold]. You may [gold]Publish[/gold] at a Rest Site.",
   "TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "Aya Shameimaru relic test."
 }
