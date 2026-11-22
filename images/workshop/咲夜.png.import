@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drvcpqu8ou8kb"
-path="res://.godot/imported/character_icon_komachi.png-ad75b29112491d3faeb776f45e4bff8d.ctex"
+uid="uid://3bpb8gl0s0qx"
+path="res://.godot/imported/咲夜.png-ffe8c9e9f2e96fa6913d5571c6345d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modicon/character_icon_komachi.png"
-dest_files=["res://.godot/imported/character_icon_komachi.png-ad75b29112491d3faeb776f45e4bff8d.ctex"]
+source_file="res://images/workshop/咲夜.png"
+dest_files=["res://.godot/imported/咲夜.png-ffe8c9e9f2e96fa6913d5571c6345d12.ctex"]
 
 [params]
 

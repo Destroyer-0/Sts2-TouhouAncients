@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfpay47e5u5nn"
-path="res://.godot/imported/character_icon_Marisa.png-0f396e4e58da83448991f19112c47bd8.ctex"
+uid="uid://drvcpqu8ou8kb"
+path="res://.godot/imported/character_icon_komachi.png-60564b9e15a7ad268b115c21cac6f4d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modicon/character_icon_Marisa.png"
-dest_files=["res://.godot/imported/character_icon_Marisa.png-0f396e4e58da83448991f19112c47bd8.ctex"]
+source_file="res://images/workshop/character_icon_komachi.png"
+dest_files=["res://.godot/imported/character_icon_komachi.png-60564b9e15a7ad268b115c21cac6f4d3.ctex"]
 
 [params]
 
