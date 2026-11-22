@@ -27,6 +27,7 @@ public sealed class JunkoEncounter : TouhouAncientEncounter
     ];
 
     public override string? BgmFileName => "Junko1.mp3";
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/junko_background.tscn";
 
     public override string? CustomScenePath => "res://scenes/encounters/junko.tscn";
 

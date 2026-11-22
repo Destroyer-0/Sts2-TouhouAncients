@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhceqru4t37hm"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_iiuet"]
+[ext_resource type="Texture2D" uid="uid://bwxeiwtwiw0v1" path="res://images/sprite/map/junko.png" id="2_iiuet"]
+
+[node name="ReimuBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iiuet")
+
+[node name="Visual" type="TextureRect" parent="."]
+z_index = -20
+layout_mode = 0
+offset_left = -1275.0
+offset_top = -720.0
+offset_right = 1275.0
+offset_bottom = 633.0
+texture = ExtResource("2_iiuet")
+expand_mode = 1
+stretch_mode = 6

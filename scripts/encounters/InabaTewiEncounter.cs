@@ -23,6 +23,7 @@ public sealed class InabaTewiEncounter : TouhouAncientEncounter
     ];
 
     public override string? BgmFileName => "Tewi.mp3";
+    public override string? CustomBackgroundScenePath => "res://scenes/backgrounds/tewi_background.tscn";
 
     public override string? CustomScenePath => "res://scenes/encounters/inaba_tewi.tscn";
 

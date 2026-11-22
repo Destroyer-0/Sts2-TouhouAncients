@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bybglck0mqvgy"
-path="res://.godot/imported/TOKIAME.png-de0d809586d4ede5820f201d97782b8a.ctex"
+uid="uid://bwxeiwtwiw0v1"
+path="res://.godot/imported/junko.png-3edd2dede589e2ff70457b044f26322f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/cards/TOKIAME.png"
-dest_files=["res://.godot/imported/TOKIAME.png-de0d809586d4ede5820f201d97782b8a.ctex"]
+source_file="res://images/sprite/map/junko.png"
+dest_files=["res://.godot/imported/junko.png-3edd2dede589e2ff70457b044f26322f.ctex"]
 
 [params]
 

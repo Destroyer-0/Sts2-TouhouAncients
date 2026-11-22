@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpykdmi8pnayc"]
+
+[ext_resource type="Script" uid="uid://dmoe8hoqvfai8" path="res://scripts/Background/TouhouAncientBackground.cs" id="1_l10a2"]
+[ext_resource type="Texture2D" uid="uid://bq5fyyg5lk6mv" path="res://images/sprite/map/tewi.png" id="2_l10a2"]
+
+[node name="ReimuBackground" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l10a2")
+
+[node name="Visual" type="TextureRect" parent="."]
+z_index = -20
+layout_mode = 0
+offset_left = -1485.0
+offset_top = -750.0
+offset_right = 1485.0
+offset_bottom = 614.0
+texture = ExtResource("2_l10a2")
+expand_mode = 1
+stretch_mode = 6
