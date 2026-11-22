@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
@@ -30,50 +29,34 @@ public static class CardAuthorHoverTipPatch
     private const string AuthorTitleKey = "TOUHOUANCIENTS-TOUHOUANCIENTAUTHOR.title";
 
     /// <summary>
-    /// 处于"卡牌预览"上下文中的卡牌模板实例栈（<see cref="HoverTipFactory.FromCard"/> 调用压栈，
-    /// HoverTips 求值匹配后弹栈）。
-    /// 使用 [ThreadStatic] 保证多人/异步环境下各线程互不干扰。
-    /// 用栈而非布尔值：HoverTips 求值过程中可能嵌套调用 FromCard（卡内嵌卡的预览），
-    /// 栈能精确匹配"当前正在生成预览的卡牌模板实例"。
+    /// 待配对的预览卡（FromCard 登记、下一次 HoverTips 求值消费）。
+    /// 不用栈：卡自身的 ExtraHoverTips 可能再调 FromCard，栈顶会被顶掉，外层配对失败且记录滞留。
+    /// [ThreadStatic] 保证多人/异步下各线程互不干扰。
     /// </summary>
     [ThreadStatic]
-    private static Stack<CardModel> _previewCards;
+    private static CardModel? _pendingPreview;
 
-    /// <summary>惰性初始化线程本地栈（[ThreadStatic] 字段的初始化器不会在每个线程执行）。</summary>
-    private static Stack<CardModel> PreviewCards => _previewCards ??= new Stack<CardModel>();
+    /// <summary>登记预览卡（统一存 canonical：upgrade=true 时 FromCard 内部是克隆）。</summary>
+    internal static void MarkPreview(CardModel card) => _pendingPreview = card.CanonicalInstance;
 
-    /// <summary>进入卡牌预览上下文（<see cref="HoverTipFactory.FromCard"/> 的 Postfix 调用，压入被预览的卡牌模板实例）。</summary>
-    internal static void EnterDerivedPreviewContext(CardModel card)
+    [HarmonyPrefix]
+    private static void Prefix(CardModel __instance, out bool __state)
     {
-        if (card != null)
-        {
-            PreviewCards.Push(card);
-        }
-    }
-
-    /// <summary>
-    /// 判断指定实例是否正处于"卡牌预览"上下文中（栈顶实例与它引用相等，且为 canonical 模板实例）。
-    /// 匹配成功后弹栈（一次性消费），保证栈不残留、后续图鉴等场景悬停不受影响。
-    /// </summary>
-    private static bool IsDerivedPreview(CardModel instance)
-    {
-        var stack = _previewCards;
-        if (stack == null || stack.Count == 0) return false;
-
-        // 只匹配 canonical（不可变模板）实例：真实手牌/牌组卡是 mutable，绝不会误判
-        if (stack.Peek() is { } top && ReferenceEquals(top, instance) && instance.IsCanonical)
-        {
-            stack.Pop();
-            return true;
-        }
-        return false;
+        // 无论命中与否都消费：调用方不求值 HoverTips 时，令牌不能残留到下一次
+        var pending = _pendingPreview;
+        _pendingPreview = null;
+        // 只认 canonical：真实手牌/牌组卡是 mutable，绝不会误判
+        __state = pending != null && __instance.IsCanonical && ReferenceEquals(pending, __instance);
     }
 
     [HarmonyPostfix]
-    private static void Postfix(CardModel __instance, ref IEnumerable<IHoverTip> __result)
+    private static void Postfix(CardModel __instance, bool __state, ref IEnumerable<IHoverTip> __result)
     {
+        // 求值期间 ExtraHoverTips 新登记的令牌其 FromCard 已返回，必然配对不上，直接丢弃
+        _pendingPreview = null;
+
         // 卡牌预览（FromCard 生成）不显示绘师
-        if (IsDerivedPreview(__instance)) return;
+        if (__state) return;
         if (__instance.IsInCombat) return;
 
         // 只有东方卡牌且设置了绘师才显示
@@ -84,13 +67,10 @@ public static class CardAuthorHoverTipPatch
     }
 }
 /// <summary>
-/// Patch <see cref="HoverTipFactory.FromCard(CardModel, bool)"/>：当该方法被调用生成卡牌预览时，
-/// 将被预览的卡牌模板实例压栈，使 <see cref="CardAuthorHoverTipPatch"/> 在随后的 HoverTips 求值中
-/// 识别出"衍生卡预览"场景并跳过绘师。
-///
-/// 注意：<see cref="HoverTipFactory.FromCardWithCardHoverTips{T}"/> 内部会先调用 FromCard 生成预览，
-/// 再对同一张卡（ModelDb.Card&lt;T&gt;() 的 canonical 实例）求值 HoverTips，二者在同一线程内
-/// 顺序同步执行，因此压栈后立即匹配弹栈，标记能准确覆盖求值窗口，且不会残留影响图鉴等场景。
+/// Patch <see cref="HoverTipFactory.FromCard(CardModel, bool)"/>：生成卡牌预览时登记令牌，
+/// 使 <see cref="CardAuthorHoverTipPatch"/> 在随后的 HoverTips 求值中识别"衍生卡预览"并跳过绘师。
+/// <see cref="HoverTipFactory.FromCardWithCardHoverTips{T}"/> 的 HoverTips 参数是立即求值的，
+/// 登记后紧接消费，令牌不会影响图鉴等正常悬停。
 /// </summary>
 [HarmonyPatch]
 public static class CardAuthorDerivedPreviewPatch
@@ -109,6 +89,6 @@ public static class CardAuthorDerivedPreviewPatch
     [HarmonyPostfix]
     private static void Postfix(CardModel card)
     {
-        CardAuthorHoverTipPatch.EnterDerivedPreviewContext(card);
+        CardAuthorHoverTipPatch.MarkPreview(card);
     }
 }
