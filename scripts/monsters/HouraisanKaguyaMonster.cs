@@ -38,7 +38,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
 {
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 296, 284);
+        AscensionLevel.ToughEnemies, 292, 282);
 
     // --- 伤害/数值 ---
     private int PaleWhiteWaterfallDamage => AscensionHelper.GetValueIfAscension(
@@ -51,7 +51,7 @@ public sealed class HouraisanKaguyaMonster : TouhouAncientMonsterBase
     
     /// <summary>每道未解谜题为辉夜提供的伤害减免。</summary>
     private int PuzzleDamageReduction => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.DeadlyEnemies, 5, 4);
+        AscensionLevel.DeadlyEnemies, 4, 3);
 
     private const int EternalNightReturnStrength = 3;
 

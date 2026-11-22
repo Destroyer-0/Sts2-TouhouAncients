@@ -36,7 +36,7 @@ public sealed class YorigamiJoonMonster : TouhouAncientMonsterBase
 
     // --- HP ---
     protected override int InitialHp => AscensionHelper.GetValueIfAscension(
-        AscensionLevel.ToughEnemies, 112, 106);
+        AscensionLevel.ToughEnemies, 110, 102);
 
     // --- 伤害/数值 ---
     private int BubbleQueenRoyalties => AscensionHelper.GetValueIfAscension(
