@@ -619,13 +619,37 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | 键名 | 中文 | English | 日本語 |
 |------|------|---------|--------|
 | `HEARTLESS_BLAZE_POWER.title` | 无心璨炎 | `Heartless Blaze` | 無心燦炎 |
-| `HEARTLESS_BLAZE_POWER.description` | 当你的生命值降低至[blue]200[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n你每次造成未被格挡的伤害时，阈值提高[blue]40[/blue]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple] | `When your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever you deal unblocked attack damage, the threshold increases by [blue]40[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]` | HPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\nブロックを上回るアタックダメージを与えるたび、しきい値が[blue]40[/blue]上昇する。\n[purple][i]切り札はいつだって悪手。[/i][/purple] |
-| `HEARTLESS_BLAZE_POWER.smartDescription` | 同上，`200` → `{Amount}`，`40` → `{Increase}` | 同上 | 同上 |
+| `HEARTLESS_BLAZE_POWER.description` | 这个生物的生命值降低至[blue]200[/blue]以下时，移除此效果与所有[gold]力量[/gold]。\n这个生物每次造成未被格挡的伤害时，阈值提高[blue]40[/blue]。\n[purple][i]王牌无论何时都是着坏棋。[/i][/purple] | `When this creature's HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever this creature deals unblocked attack damage, the threshold increases by [blue]40[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]` | このモンスターはHPが[blue]200[/blue]以下になると、この効果を取り除き、[gold]筋力[/gold]をすべて失う。\nこのモンスターがブロックを上回るアタックダメージを与えるたび、しきい値が[blue]40[/blue]上昇する。\n[purple][i]切り札はいつだって悪手。[/i][/purple] |
+| `HEARTLESS_BLAZE_POWER.smartDescription` | 「这个生物」换回 `[gold]{OwnerName}[/gold]`，`200` → `{Amount}`，`40` → `{Increase}` | 同上（`{OwnerName}`） | 同上（`{OwnerName}`） |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.title` | 绀珠悯悼 | `Lament of the Ultramarine Orb` | 紺珠の哀悼 |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.description` | 生命值下[blue]4[/blue]次将降至[blue]0[/blue]以下时，改为临时失去最大生命值的[blue]50%[/blue]并恢复全部生命值。\n以此方式失去的临时最大生命在战斗结束后返还。（[blue]0[/blue]）\n当你打出[gold]孤注一掷[/gold]时，其会在下回合开始时返回你的手牌。\n[red][i]{Amount:cond:>0?聆听吧，汝等生命的倒计时。\|此即终焉。}[/i][/red] | `Each of the next [blue]4[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]0[/blue])\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.\|Be perished.}[/i][/red]` | HPが[blue]0[/blue]以下になる時、次の[blue]4[/blue]回は代わりに最大HPの[blue]50%[/blue]を一時的に失い、HPを全回復する。\nこの方法で失った最大HPは戦闘終了時に戻る。（[blue]0[/blue]）\n[gold]背水の陣[/gold]をプレイした時、それは次のターン開始時に手札に戻る。\n[red][i]{Amount:cond:>0?聞け、お前たちの命のカウントダウンを。\|これにて終焉だ。}[/i][/red]` |
 | `ULTRAMARINE_ORB_PROTECTION_POWER.smartDescription` | 按 zhs 的 `cond:` 双分支照写 | 见 `eng/powers.json` | 见 `jpn/powers.json` |
 
 - 「未被格挡的伤害」沿用原版 `unblocked damage`；新增句按用户要求照原版 `SUCK_POWER` 句式写成 `Whenever you deal unblocked attack damage` / 「ブロックを上回るアタックダメージを与えるたび」，`smartDescription` 的 `{Amount}` 实时显示当前阈值、`{Increase}` 显示多人放大后的单次增量。
+- 静态 `description` 不能写 `{OwnerName}`（`PowerModel` 只在 smart 分支注入该变量），主语按原版 `PLOW_POWER` 写作「这个生物」/ `this creature` / 「このモンスター」；仅 `smartDescription` 用 `[gold]{OwnerName}[/gold]`。
 - 「孤注一掷」沿用原版卡 `THE_GAMBIT`：`The Gambit` / 「背水の陣」。
 - 尾注分支「此即终焉。」英文按用户指定改为 `Be perished.`；日语仍取「これにて終焉だ。」。
 - `{Amount:cond:...}`、`{LostMaxHp}`、`{}`、`\n` 均原样保留。
+
+---
+
+## 增量更新（2026-11-22，因幡帝「狡兔三窟」台词 + 欺诈魔术文案修版）
+
+### 因幡帝 `INABA_TEWI_MONSTER`（monsters.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.moves.THREE_BURROWS.banter` | 多好的结果啊~ | `What a lovely outcome~` | なんていい結果なんだろうね～ |
+
+- 帝把「塞牌 + 重置目标费用」说成「好结果」是反讽，英文取 `lovely outcome`、日文取「いい結果」，都保留阴阳语气。
+- 句尾 `~` 沿用 `INABA_TEWI_ANCIENT` 各句写法（eng `~`、jpn「～」）。
+
+### 欺诈魔术 `TRICKSTER_POWER`（powers.json，修既有译文）
+
+| 字段 | 中文（新） | English（新） | 日本語（新） |
+|------|-----------|---------------|--------------|
+| `.description` / `.smartDescription` | 玩家打出“幸运”戏法以外的卡牌时，若其耗能不为[blue]{Amount}[/blue]，受到[blue]{Damage}[/blue]点伤害且造成的伤害降低[blue]{DamageReduction}%[/blue]。 | `Whenever a player plays a card other than [gold]"Lucky" Trick[/gold], if its cost isn't [blue]{Amount}[/blue], they take [blue]{Damage}[/blue] damage and deal [blue]{DamageReduction}%[/blue] less damage.` | プレイヤーが[gold]“幸運”の手品[/gold]以外のカードをプレイする時、そのコストが[blue]{Amount}[/blue]でないなら、[blue]{Damage}[/blue]ダメージを受け、与えるダメージが[blue]{DamageReduction}%[/blue]減少する。 |
+
+- zhs 已从旧的「攻击牌伤害减半」改为「任意牌耗能不符 → 受伤 + 伤害降低」，eng/jpn 同步重译；不再硬编码 `50%`，改用 `TricksterPower` 的 `{Damage}` / `{DamageReduction}` 两个 `DynamicVar`。
+- 「造成的伤害降低 X%」沿用原版 `WEAK_POWER` 句式 `deal X% less damage` / 「与えるダメージがX%減少する」。
+- 尾句 `[pink][i]…[/i][/pink]` 说话内容不变，仅正文重译。

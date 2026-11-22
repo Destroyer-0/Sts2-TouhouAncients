@@ -1493,7 +1493,7 @@ jpn 与 eng 保持一致（旧工作流下以英文填充，现改为独立日�
 | `.talk.REGENT.0-1.char` | 我是来自宇宙的，未来的[orange]王[/orange]！ | `I hail from the cosmos, the future [orange]King[/orange]!` |
 | `.talk.REGENT.0-1.next` | 继续 | `Continue` |
 | `.talk.REGENT.0-2.ancient` | 无论如何，这座高塔充满了危险，还请你一路小心。 | `In any case, this Spire is full of danger, so please be careful along the way.` |
-| `.talk.REGENT.1-0r.ancient` | 死掉总是一件很不舒服的事情…… | `Dying is always a rather unpleasant thing...` |
+| `.talk.REGENT.1-0r.ancient` | 群星在闪烁…… | `The stars are twinkling...` / `星々が瞬いている……` |
 | `.talk.REGENT.1-0r.next` | 继续 | `Continue` |
 | `.talk.REGENT.1-1r.ancient` | 援助将尽我所能，这一次请谨慎前行！ | `I’ll assist you as much as I can. This time, please tread carefully!` |
 | `.talk.DEFECT.0-0r.ancient` | 拿上这些读物，在路上慢慢看吧！ | `Take these books and read them slowly along the way!` |

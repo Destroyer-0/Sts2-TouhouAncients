@@ -347,3 +347,61 @@
 - 「你在本回合只能再打出1张牌」沿用原版 `ENCORE_POWER` 三语写法（eng `you can only play [blue]1[/blue] more card this turn`、jpn「このターンカードをあと[blue]1[/blue]枚しかプレイできない」）。
 - `.extraCardText` 为中文谚语「祸从口出」，英日各用对应谚语（eng `Loose lips bring calamity.`、jpn「口は災いの元。」），呼应探女「话一出口便反转现实」的设定。
 - 实现：`Taciturn.cs` —— `OnEnchant` 里 `EnergyCost.UpgradeBy(-1)`（永久、随牌进牌组；X 费牌内部自动跳过），`OnPlay` 里 `PowerCmd.Apply<EncorePower>(..., 1m, ...)`（原版 `Encore` 牌同款限制，回合结束时自行移除）。
+
+---
+
+## 增量更新（2026-11-22，「“幸运”戏法」双形态 + 记者相机套件）
+
+### 「“幸运”戏法」`LUCKY_TRICK`（cards.json，修既有译文）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.description` | `{TrickText}` | `{TrickText}` | `{TrickText}` |
+| `.descriptionNormal` | 本回合随机化你手牌中除[gold]"“幸运”戏法"[/gold]以外卡牌的耗能。\n[i][red]只需……一点小小的代价。[/red][/i] | `Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]"Lucky" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]` | このターン、[gold]手札[/gold]にある[gold]“幸運”の手品[/gold]以外のカードのコストをランダム化する。\n[i][red]必要なのは……ほんの少しの代償だけ。[/red][/i] |
+| `.descriptionCursed` | 如果这张牌在你的手牌中，你受到的攻击伤害增加[blue]{ExtraDamage}[/blue]。\n[red][jitter]Bingo![/jitter][/red] | `If this card is in your hand, you take [blue]{ExtraDamage}[/blue] additional Attack damage.\n[red][jitter]Bingo![/jitter][/red]` | このカードが手札にある間、受けるアタックダメージが[blue]{ExtraDamage}[/blue]増える。\n[red][jitter]ビンゴ！[/jitter][/red] |
+
+- `LuckyTrick.cs` 按 `IsCursed` 取 `.descriptionCursed` / `.descriptionNormal` 塞进 `{TrickText}`，主 `.description` 因此只剩占位符；旧的整段文案原封不动移到 `.descriptionNormal`。
+- 「受到的攻击伤害增加 X」沿用原版 `VULNERABLE` 系表述 `take X additional Attack damage` / 「受けるアタックダメージがX増える」。
+- `Bingo!` 中文原文即是英文，两侧原样保留；日文按全角惯例写「ビンゴ！」。
+
+### 决定性瞬间 `DECISIVE_MOMENT`（cards.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.title` | 决定性瞬间 | `Decisive Moment` | 決定的瞬間 |
+| `.description` | 如果目标的意图为攻击，将一张数值等同于目标攻击意图总伤害的[gold]写真底片[/gold]加入你的[gold]手牌[/gold]与[gold]牌组[/gold]。\n[jitter][yellow]Shoot・the・Bullet[/yellow][/jitter] | `If the target's intent is to Attack, add a [gold]Photo Film[/gold] with a value equal to the target's total Attack intent damage to your [gold]Hand[/gold] and [gold]Deck[/gold].\n[jitter][yellow]Shoot・the・Bullet[/yellow][/jitter]` | 対象の意図が攻撃なら、対象の攻撃意図の合計ダメージに等しい数値の[gold]写真フィルム[/gold]を[gold]手札[/gold]と[gold]デッキ[/gold]に加える。\n[jitter][yellow]Shoot・the・Bullet[/yellow][/jitter] |
+
+- 「意图为攻击」沿用 `DREAM_SEAL` / `ONE_EYED_KARAKASA` 既有写法：eng `intent is to Attack`、jpn「意図が攻撃」。
+- 尾行 `Shoot・the・Bullet` 是摄影术语梗 + 符卡风，三语都保留原文与 `・` 间隔号。
+
+### 写真底片 `PHOTO_FILM`（cards.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.title` | 写真底片 | `Photo Film` | 写真フィルム |
+| `.perfectTitle` | 完美的写真底片 | `Perfect Photo Film` | 完璧な写真フィルム |
+| `.publishGoldTip` | 在休息处[orange]登报[/orange]可获得[blue]{Gold}[/blue][gold]金币[/gold]。 | `Publishing at a Rest Site grants [blue]{Gold}[/blue] [gold]Gold[/gold].` | 休憩所で[orange]新聞掲載[/orange]すると[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。 |
+
+`.description` 一行较长，单独列出：
+
+```json
+"eng": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}",
+"jpn": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}"
+```
+
+- `{ShowValue:…|…}` 首分支 = 真照片（显示实际数值 `{Block:diff()}` / `{Damage:diff()}`），次分支 = 图鉴/预览里的无照片状态（只写「等同于拍摄效果」，不显示 0）；`PhotoFilm.cs` 用 `description.Add("ShowValue", HasRealPhoto)` 传入布尔值。
+- `{IfPerfect:…|}` 为完美底片追加的尖叫行，`{RemainingCount}` 由 `IntVar` 提供，三处变量原样保留。
+- 「失去 HP」用 `loses X HP` / 「X HPを失う」（该牌伤害带 `Unblockable`，不走 `damage` 措辞）。
+- 完美的`perfectTitle` 走 `Title` 覆写，故 `.title` 保持普通名。
+
+### 登报 `OPTION_PUBLISH_PHOTO`（rest_site_ui.json）
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `.name` | 登报 | `Publish` | 新聞掲載 |
+| `.description` | 移除一张[gold]写真底片[/gold]，获得等同于其拍摄效果[blue]10[/blue]倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[i]啊呀呀，当然就该来读读我的《文文。新闻》吧？[/i] | `Remove a [gold]Photo Film[/gold] to gain [gold]Gold[/gold] equal to [blue]10[/blue] times its photo value.\n[gold]Perfect Photo Films[/gold] grant double the Gold!\n[i]Ayaya, of course you should be reading my Bunbunmaru Newspaper![/i]` | [gold]写真フィルム[/gold]を1枚削除し、その撮影効果の[blue]10[/blue]倍の[gold]ゴールド[/gold]を得る。\n[gold]完璧な写真フィルム[/gold]ならゴールドが2倍！\n[i]あやや、当然私の『文々。新聞』を読むべきよね？[/i] |
+| `.descriptionDisabled` | 啊呀呀？好像还没收集到合适的[gold]写真底片[/gold]作为素材呢。 | `Ayaya? It seems you haven't collected a suitable [gold]Photo Film[/gold] to use as material yet.` | あやや？ 素材になる[gold]写真フィルム[/gold]がまだ集まっていないみたいね。 |
+| `.selectPrompt` | 选择一张底片移除，并获得[gold]金币[/gold]。 | `Choose a Photo Film to remove and gain [gold]Gold[/gold].` | 削除するフィルムを1枚選び、[gold]ゴールド[/gold]を得る。 |
+
+- 《文文。新闻》日文取原版既有写法「文々。新聞」（`『』` 包裹），英文取东方英译通名 `Bunbunmaru Newspaper`。
+- 「啊呀呀」取射命丸文的口头禅谐音梗（用户指定）：英文写成 `Ayaya`（= 文 Aya + 拖长音），日文写成「あやや」。两处（正文尾句、禁用提示）保持一致，句尾用 `,` / 「、」或 `?` / 「？」跟源文同形。

@@ -3727,5 +3727,37 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 - 英文「第 N 回合」无法用序数后缀（原版 `HEAVENLY_REVELATION` 写死 `3rd`），改为 `turn [blue]{Turns}[/blue]`。
 - `.flavor` 说话人为**宇佐见堇子**（外界女高中生），三语都保留轻松、兴奋的少女口吻；与本池其他梦境遗物一致，台词不署名。
 
+---
+
+## 记者相机（`REPORTER_CAMERA`，relics.json）
+
+**键名**: `TOUHOUANCIENTS-REPORTER_CAMERA`
+
+### 中文原文
+```json
+"TOUHOUANCIENTS-REPORTER_CAMERA.description": "将一张[gold]决定性瞬间[/gold]加入你的[gold]牌组[/gold]。你可以在休息处[gold]登报[/gold]。",
+"TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "射命丸文遗物测试。"
+```
+
+### 英文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `Reporter's Camera` |
+| `.description` | `Add a [gold]Decisive Moment[/gold] to your [gold]Deck[/gold]. You may [gold]Publish[/gold] at a Rest Site.` |
+| `.flavor` | `Aya Shameimaru relic test.` |
+
+### 日文翻译
+| 字段 | 翻译 |
+|------|------|
+| `.title` | `記者のカメラ` |
+| `.description` | `[gold]決定的瞬間[/gold]を[gold]デッキ[/gold]に加える。休憩所で[gold]新聞掲載[/gold]ができる。` |
+| `.flavor` | `射命丸文の遺物テスト。` |
+
+### 说明
+- 「记者相机」采用所有格 `Reporter's Camera`（用户确认），比 `Reporter Camera` 更像遗物名。
+- 「登报」统一定为 eng `Publish` / jpn「新聞掲載」，与 `OPTION_PUBLISH_PHOTO.name` 完全一致；正文里的 `[gold]登报[/gold]` 也照此加标记。
+- **`.flavor` 是开发占位**（`射命丸文遗物测试。`），按用户要求照字面直译，两侧均保留「遗物测试」字样，正式文案定稿后需重译。
+- 「休息处」eng `Rest Site`、jpn「休憩所」，与既有全部遗物一致。
+
 
 
