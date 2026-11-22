@@ -961,5 +961,9 @@
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "Old Rites News",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "Upon pickup, gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold]. After you have lost a total of [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold], this relic no longer works.",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "Gain [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold]. Whenever you take unblocked damage, lose [blue]{MaxHpLoss}[/blue] [gold]Max HP[/gold]. After you have lost a total of [blue]{MaxHpGain}[/blue] [gold]Max HP[/gold], this relic no longer works.",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "The newspaper article released at the birth of the Ninth Child of Miare. Kept as commemoration."
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "The newspaper article released at the birth of the Ninth Child of Miare. Kept as commemoration.",
+
+  "TOUHOUANCIENTS-REPORTER_CAMERA.title": "Reporter's Camera",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "Add a [gold]Decisive Moment[/gold] to your [gold]Deck[/gold]. You may [gold]Publish[/gold] at a Rest Site.",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "Aya Shameimaru relic test."
 }

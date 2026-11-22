@@ -960,5 +960,9 @@
   "TOUHOUANCIENTS-OLD_NEWSPAPER.title": "神事旧聞",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.description": "入手時、[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、この遺物の効果は消滅する。",
   "TOUHOUANCIENTS-OLD_NEWSPAPER.eventDescription": "[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を得る。ブロックされていないダメージを受けるたび、[gold]最大HP[/gold]を[blue]{MaxHpLoss}[/blue]失う。合計で[blue]{MaxHpGain}[/blue][gold]最大HP[/gold]を失うと、この遺物の効果は消滅する。",
-  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。"
+  "TOUHOUANCIENTS-OLD_NEWSPAPER.flavor": "九代目御阿礼の子が生まれた時の新聞。記念として取っておいたもの。",
+
+  "TOUHOUANCIENTS-REPORTER_CAMERA.title": "記者のカメラ",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.description": "[gold]決定的瞬間[/gold]を[gold]デッキ[/gold]に加える。休憩所で[gold]新聞掲載[/gold]ができる。",
+  "TOUHOUANCIENTS-REPORTER_CAMERA.flavor": "射命丸文の遺物テスト。"
 }

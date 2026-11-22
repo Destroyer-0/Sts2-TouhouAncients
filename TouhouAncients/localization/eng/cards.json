@@ -2,6 +2,14 @@
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "Bare White Rabbit of Good Fortune",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "Draw [blue]{Cards}[/blue] {Cards:plural:card|cards}.\nRandomize the cost of cards in your [gold]Hand[/gold] this turn, and add [gold]Replay[/gold] this combat to those that cost [blue]0[/blue].",
 
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.title": "Decisive Moment",
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.description": "If the target's intent is to Attack, add a [gold]Photo Film[/gold] with a value equal to the target's total Attack intent damage to your [gold]Hand[/gold] and [gold]Deck[/gold].\n[jitter][yellow]Shoot・the・Bullet[/yellow][/jitter]",
+    
+    "TOUHOUANCIENTS-PHOTO_FILM.title": "Photo Film",
+    "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "Perfect Photo Film",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishGoldTip": "Publishing at a Rest Site grants [blue]{Gold}[/blue] [gold]Gold[/gold].",
+
     "TOUHOUANCIENTS-SATORI_EYE.title": "Satori's 3rd Eye",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]Scry[/gold] [blue]{SatoriScry}[/blue].\nReturn this card to your [gold]Hand[/gold]. Increase this card's cost this turn by {Energy:energyIcons()}.\n[purple][jitter]Now the real climax begins![/jitter][/purple]",
 
@@ -133,7 +141,9 @@
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "Whenever you draw this card, apply [blue]1[/blue] [gold]Weak[/gold] to yourself.",
 
     "TOUHOUANCIENTS-LUCKY_TRICK.title": "\"Lucky\" Trick",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "{TrickText}",
+    "TOUHOUANCIENTS-LUCKY_TRICK.descriptionNormal": "Randomize the cost of cards in your [gold]Hand[/gold] this turn, except for [gold]\"Lucky\" Trick[/gold].\n[i][red]All it takes is... a small price.[/red][/i]",
+    "TOUHOUANCIENTS-LUCKY_TRICK.descriptionCursed": "If this card is in your hand, you take [blue]{ExtraDamage}[/blue] additional Attack damage.\n[red][jitter]Bingo![/jitter][/red]",
 
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "Fantasy Chronicle",
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "After you enter the next act, you may [gold]Transform[/gold] this card into one of the following: {CardList:list:{}|, }.\n[pink]I will probably continue collecting material for it until I must begin the preparations for my reincarnation.[/pink]",

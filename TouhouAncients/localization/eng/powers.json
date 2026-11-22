@@ -132,16 +132,16 @@
   "TOUHOUANCIENTS-SILENT_OBJECT_CARD_2_POWER.description": "This card went berserk under the influence of magic for being [purple]unappreciated[/purple], and was taken under Seija's command. When defeated, it returns to your [gold]Discard Pile[/gold] and is no longer bewitched by Seija.",
 
   "TOUHOUANCIENTS-TRICKSTER_POWER.title": "Fraudulent Trick",
-  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "Attack cards that don't cost [blue]{Amount}[/blue] deal [blue]50%[/blue] less damage to you.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
-  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "Attack cards that don't cost [blue]{Amount}[/blue] deal [blue]50%[/blue] less damage to you.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.description": "Whenever a player plays a card other than [gold]\"Lucky\" Trick[/gold], if its cost isn't [blue]{Amount}[/blue], they take [blue]{Damage}[/blue] damage and deal [blue]{DamageReduction}%[/blue] less damage.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
+  "TOUHOUANCIENTS-TRICKSTER_POWER.smartDescription": "Whenever a player plays a card other than [gold]\"Lucky\" Trick[/gold], if its cost isn't [blue]{Amount}[/blue], they take [blue]{Damage}[/blue] damage and deal [blue]{DamageReduction}%[/blue] less damage.\n[pink][i]Everyone can be happy, as long as you do as I say~[/i][/pink]",
 
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.title": "Luck for a Price",
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.description": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]",
   "TOUHOUANCIENTS-LUCKY_TRICK_COUNT_POWER.smartDescription": "[pink][i]Heheh... That's right, just a tiny bit of my power, and you can be this lucky~[/i][/pink]",
 
   "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.title": "Heartless Blaze",
-  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.description": "When your HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever you deal unblocked attack damage, the threshold increases by [blue]40[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
-  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.smartDescription": "When your HP drops to [blue]{Amount}[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever you deal unblocked attack damage, the threshold increases by [blue]{Increase}[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.description": "When this creature's HP drops to [blue]200[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever this creature deals unblocked attack damage, the threshold increases by [blue]40[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
+  "TOUHOUANCIENTS-HEARTLESS_BLAZE_POWER.smartDescription": "When [gold]{OwnerName}'s[/gold] HP drops to [blue]{Amount}[/blue] or below, remove this effect and all [gold]Strength[/gold].\nWhenever [gold]{OwnerName}[/gold] deals unblocked attack damage, the threshold increases by [blue]{Increase}[/blue].\n[purple][i]The Trump Card is Always a Bad Move.[/i][/purple]",
 
   "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.title": "Lament of the Ultramarine Orb",
   "TOUHOUANCIENTS-ULTRAMARINE_ORB_PROTECTION_POWER.description": "Each of the next [blue]4[/blue] times your HP would be reduced to [blue]0[/blue] or below, instead temporarily lose [blue]50%[/blue] of your Max HP and heal to full HP.\nMax HP lost this way is returned at the end of combat. ([blue]0[/blue])\nWhen you play [gold]The Gambit[/gold], it returns to your [gold]Hand[/gold] at the start of next turn.\n[red][i]{Amount:cond:>0?Hark, the countdown of your lives.|Be perished.}[/i][/red]",

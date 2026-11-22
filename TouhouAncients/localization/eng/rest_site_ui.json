@@ -16,5 +16,10 @@
 
   "OPTION_SIGNED_SHIKISHI.name": "Signing Session",
   "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "You have no [purple]Autograph[/purple] shikishi to use for a [pink]Signing Session[/pink]!",
-  "OPTION_SIGNED_SHIKISHI.description": "Remove a card with the [purple]Autograph[/purple] [gold]Enchantment[/gold] from your [gold]Deck[/gold].\nDoes not use a [gold]Rest Site[/gold] option."
+  "OPTION_SIGNED_SHIKISHI.description": "Remove a card with the [purple]Autograph[/purple] [gold]Enchantment[/gold] from your [gold]Deck[/gold].\nDoes not use a [gold]Rest Site[/gold] option.",
+
+  "OPTION_PUBLISH_PHOTO.name": "Publish",
+  "OPTION_PUBLISH_PHOTO.description": "Remove a [gold]Photo Film[/gold] to gain [gold]Gold[/gold] equal to [blue]10[/blue] times its photo value.\n[gold]Perfect Photo Films[/gold] grant double the Gold!\n[i]Ayaya, of course you should be reading my Bunbunmaru Newspaper![/i]",
+  "OPTION_PUBLISH_PHOTO.descriptionDisabled": "Ayaya? It seems you haven't collected a suitable [gold]Photo Film[/gold] to use as material yet.",
+  "OPTION_PUBLISH_PHOTO.selectPrompt": "Choose a Photo Film to remove and gain [gold]Gold[/gold]."
 }

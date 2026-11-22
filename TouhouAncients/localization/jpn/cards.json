@@ -2,6 +2,14 @@
     "TOUHOUANCIENTS-LUCKY_RABBIT.title": "幸運の素兎",
     "TOUHOUANCIENTS-LUCKY_RABBIT.description": "カードを[blue]{Cards}[/blue]枚引く。\nこのターン、現在の[gold]手札[/gold]のコストはランダムに変化し、その中のコストが[blue]0[/blue]のカードが、この戦闘中[gold]リプレイ[/gold]を得る。",
 
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.title": "決定的瞬間",
+    "TOUHOUANCIENTS-DECISIVE_MOMENT.description": "対象の意図が攻撃なら、対象の攻撃意図の合計ダメージに等しい数値の[gold]写真フィルム[/gold]を[gold]手札[/gold]と[gold]デッキ[/gold]に加える。\n[jitter][yellow]Shoot・the・Bullet[/yellow][/jitter]",
+    
+    "TOUHOUANCIENTS-PHOTO_FILM.title": "写真フィルム",
+    "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "完璧な写真フィルム",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishGoldTip": "休憩所で[orange]新聞掲載[/orange]すると[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
+
     "TOUHOUANCIENTS-SATORI_EYE.title": "覚りの瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]占術[/gold][blue]{SatoriScry}[/blue]。\nこれを[gold]手札[/gold]に戻す。このターン、このカードのコストが{Energy:energyIcons()}増加する。\n[purple][jitter]さあ、これからが本番よ！[/jitter][/purple]",
 
@@ -134,7 +142,9 @@
     "TOUHOUANCIENTS-OVERWORK_ILLNESS.description": "このカードを引いた時、自身に[blue]1[/blue][gold]脱力[/gold]を付与する。",
 
     "TOUHOUANCIENTS-LUCKY_TRICK.title": "“幸運”の手品",
-    "TOUHOUANCIENTS-LUCKY_TRICK.description": "このターン、[gold]手札[/gold]にある[gold]“幸運”の手品[/gold]以外のカードのコストをランダム化する。\n[i][red]必要なのは……ほんの少しの代償だけ。[/red][/i]",
+    "TOUHOUANCIENTS-LUCKY_TRICK.description": "{TrickText}",
+    "TOUHOUANCIENTS-LUCKY_TRICK.descriptionNormal": "このターン、[gold]手札[/gold]にある[gold]“幸運”の手品[/gold]以外のカードのコストをランダム化する。\n[i][red]必要なのは……ほんの少しの代償だけ。[/red][/i]",
+    "TOUHOUANCIENTS-LUCKY_TRICK.descriptionCursed": "このカードが手札にある間、受けるアタックダメージが[blue]{ExtraDamage}[/blue]増える。\n[red][jitter]ビンゴ！[/jitter][/red]",
 
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.title": "幻想万象録",
     "TOUHOUANCIENTS-FANTASY_CHRONICLE_CARD.description": "[gold]次の幕[/gold]に進んだ後、このカードを{CardList:list:{}|、}のいずれかに[gold]変化[/gold]させることができる。\n[pink]私が転生の準備を始めるまで編纂され続けるだろう。[/pink]",

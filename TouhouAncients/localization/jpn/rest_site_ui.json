@@ -16,5 +16,10 @@
 
   "OPTION_SIGNED_SHIKISHI.name": "サイン会",
   "OPTION_SIGNED_SHIKISHI.descriptionDisabled": "[pink]サイン会[/pink]に使える[purple]直筆[/purple]の色紙がない！",
-  "OPTION_SIGNED_SHIKISHI.description": "[purple]直筆[/purple]の[gold]エンチャント[/gold]を持つカードを[gold]デッキ[/gold]から削除する。\n[gold]休憩所[/gold]の選択肢を消費しない。"
+  "OPTION_SIGNED_SHIKISHI.description": "[purple]直筆[/purple]の[gold]エンチャント[/gold]を持つカードを[gold]デッキ[/gold]から削除する。\n[gold]休憩所[/gold]の選択肢を消費しない。",
+
+  "OPTION_PUBLISH_PHOTO.name": "新聞掲載",
+  "OPTION_PUBLISH_PHOTO.description": "[gold]写真フィルム[/gold]を1枚削除し、その撮影効果の[blue]10[/blue]倍の[gold]ゴールド[/gold]を得る。\n[gold]完璧な写真フィルム[/gold]ならゴールドが2倍！\n[i]あやや、当然私の『文々。新聞』を読むべきよね？[/i]",
+  "OPTION_PUBLISH_PHOTO.descriptionDisabled": "あやや？ 素材になる[gold]写真フィルム[/gold]がまだ集まっていないみたいね。",
+  "OPTION_PUBLISH_PHOTO.selectPrompt": "削除するフィルムを1枚選び、[gold]ゴールド[/gold]を得る。"
 }

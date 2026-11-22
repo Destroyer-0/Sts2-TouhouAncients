@@ -22,6 +22,7 @@
   "OPTION_IDOL_ALBUM.description": "从[gold]牌组[/gold]中选择一张牌，为它[gold]附魔[/gold]：[purple]蔷薇[/purple]。",
 
   "OPTION_PUBLISH_PHOTO.name": "登报",
-  "OPTION_PUBLISH_PHOTO.description": "移除一张[gold]写真底片[/gold]，获得等同于其伤害数值5倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[jitter][i]Ayaaaaaaa!!![/i][/jitter]",
-  "OPTION_PUBLISH_PHOTO.descriptionDisabled": "你的[gold]牌组[/gold]中没有[gold]写真底片[/gold]。"
+  "OPTION_PUBLISH_PHOTO.description": "移除一张[gold]写真底片[/gold]，获得等同于其拍摄效果[blue]10[/blue]倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[i]啊呀呀，当然就该来读读我的《文文。新闻》吧？[/i]",
+  "OPTION_PUBLISH_PHOTO.descriptionDisabled": "啊呀呀？好像还没收集到合适的[gold]写真底片[/gold]作为素材呢。",
+  "OPTION_PUBLISH_PHOTO.selectPrompt": "选择一张底片移除，并获得[gold]金币[/gold]。"
 }
