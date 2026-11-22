@@ -405,3 +405,64 @@
 
 - 《文文。新闻》日文取原版既有写法「文々。新聞」（`『』` 包裹），英文取东方英译通名 `Bunbunmaru Newspaper`。
 - 「啊呀呀」取射命丸文的口头禅谐音梗（用户指定）：英文写成 `Ayaya`（= 文 Aya + 拖长音），日文写成「あやや」。两处（正文尾句、禁用提示）保持一致，句尾用 `,` / 「、」或 `?` / 「？」跟源文同形。
+
+---
+
+## 增量更新（2026-11-22，新增 9 个模组推荐）
+
+zhs 新增 9 组推荐键（`HoverTipTextureButton` 候选池，键序排在 `KEINE_RECOMMEND` 之后）；eng / jpn 此前是空字符串占位，本批全部填充，键位与 zhs 对齐。
+
+### 中文原文（现行）
+```json
+"TOUHOUANCIENTS-REMILIA_SCARLET_RECOMMEND.title": "蕾米莉亚",
+"TOUHOUANCIENTS-REMILIA_SCARLET_RECOMMEND.description": "居住在红魔馆的吸血鬼，拥有操纵命运程度的能力。以鲜血为媒介，将所受的伤痛化为力量。\n来试试威严满满的吸血鬼家主[red]蕾米莉亚·斯卡雷特[/red]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-IZAYOI_SAKUYA_RECOMMEND.title": "十六夜咲夜",
+"TOUHOUANCIENTS-IZAYOI_SAKUYA_RECOMMEND.description": "完美而潇洒的时间仆从。\n用[blue]十六夜咲夜[/blue]操纵时间的能力完美地扫除障碍吧。",
+"TOUHOUANCIENTS-HAKUREI_REIMU_RECOMMEND.title": "博丽灵梦",
+"TOUHOUANCIENTS-HAKUREI_REIMU_RECOMMEND.description": "飞翔于空中的不可思议巫女。幻想乡的绝对主角。\n来试试[red]博丽灵梦[/red]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND.title": "雾雨魔理沙A",
+"TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND.description": "来试试在尖塔1就广受好评的[yellow]雾雨魔理沙[/yellow]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND_2.title": "雾雨魔理沙B",
+"TOUHOUANCIENTS-KIRISAME_MARISA_RECOMMEND_2.description": "来试试以强大的火力操纵正负魔导力量的[yellow]雾雨魔理沙[/yellow]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-HATA_NO_KOKORO_RECOMMEND.title": "秦心",
+"TOUHOUANCIENTS-HATA_NO_KOKORO_RECOMMEND.description": "熟练操纵[green]喜[/green]、[red]怒[/red]、[purple]哀[/purple]三种面具的面灵气，在战斗之间保持面具的朝向。\n来试试[pink]秦心[/pink]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-TATARA_KOGASA_RECOMMEND.title": "多多良小伞",
+"TOUHOUANCIENTS-TATARA_KOGASA_RECOMMEND.description": "唐伞变化而成的付丧神。总是在吓人与被吓的路上。\n来试试[aqua]多多良小伞[/aqua]作为可控角色的Mod吧！",
+"TOUHOUANCIENTS-PC98_ANCIENTS_RECOMMEND.title": "旧作先古之民",
+"TOUHOUANCIENTS-PC98_ANCIENTS_RECOMMEND.description": "被遗忘的历史。来自东方 Project 旧作？的 8？个角色作为新的先古之民。",
+"TOUHOUANCIENTS-ONOZUKA_KOMACHI_RECOMMEND.title": "小野塚小町",
+"TOUHOUANCIENTS-ONOZUKA_KOMACHI_RECOMMEND.description": "慵懒而快活惬意的死神。\n来试试使用熟练地操纵距离与灵体的三途川摆渡人[red]小野塚小町[/red]作为可控角色的Mod吧！"
+```
+
+### 翻译
+
+| 键名 | 中文 | English | 日本語 |
+|------|------|---------|--------|
+| `REMILIA_SCARLET_RECOMMEND.title` | 蕾米莉亚 | `Remilia` | レミリア |
+| `REMILIA_SCARLET_RECOMMEND.description` | 居住在红魔馆的吸血鬼，拥有操纵命运程度的能力。以鲜血为媒介，将所受的伤痛化为力量。\n来试试威严满满的吸血鬼家主[red]蕾米莉亚·斯卡雷特[/red]作为可控角色的Mod吧！ | `A vampire who lives in the Scarlet Devil Mansion, with the ability to manipulate fate. Using blood as a medium, she turns the wounds she suffers into power.\nTry out the [red]Remilia Scarlet[/red] mod as a playable character, the vampire head of the household brimming with majesty!` | 紅魔館に住む吸血鬼。運命を操る程度の能力を持つ。血を媒介として、受けた傷を力に変える。\n威厳たっぷりの吸血鬼の当主、[red]レミリア・スカーレット[/red]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `IZAYOI_SAKUYA_RECOMMEND.title` | 十六夜咲夜 | `Sakuya Izayoi` | 十六夜咲夜 |
+| `IZAYOI_SAKUYA_RECOMMEND.description` | 完美而潇洒的时间仆从。\n用[blue]十六夜咲夜[/blue]操纵时间的能力完美地扫除障碍吧。 | `The perfect and elegant servant of time.\nUse [blue]Sakuya Izayoi[/blue]'s ability to manipulate time to clear every obstacle perfectly!` | 完璧で瀟洒な時の従者。\n[blue]十六夜咲夜[/blue]の時間を操る能力で、障害を完璧に片付けよう！ |
+| `HAKUREI_REIMU_RECOMMEND.title` | 博丽灵梦 | `Reimu Hakurei` | 博麗霊夢 |
+| `HAKUREI_REIMU_RECOMMEND.description` | 飞翔于空中的不可思议巫女。幻想乡的绝对主角。\n来试试[red]博丽灵梦[/red]作为可控角色的Mod吧！ | `The wondrous shrine maiden who soars through the sky. The absolute protagonist of Gensokyo.\nTry out the [red]Reimu Hakurei[/red] mod as a playable character!` | 空を飛ぶ不思議な巫女。幻想郷の絶対的な主役。\n[red]博麗霊夢[/red]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `KIRISAME_MARISA_RECOMMEND.title` | 雾雨魔理沙A | `Marisa Kirisame (A)` | 霧雨魔理沙（A） |
+| `KIRISAME_MARISA_RECOMMEND.description` | 来试试在尖塔1就广受好评的[yellow]雾雨魔理沙[/yellow]作为可控角色的Mod吧！ | `Try out the [yellow]Marisa Kirisame[/yellow] mod as a playable character, already widely acclaimed back in Slay the Spire 1!` | 初代『Slay the Spire』でも広く高評価を得た[yellow]霧雨魔理沙[/yellow]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `KIRISAME_MARISA_RECOMMEND_2.title` | 雾雨魔理沙B | `Marisa Kirisame (B)` | 霧雨魔理沙（B） |
+| `KIRISAME_MARISA_RECOMMEND_2.description` | 来试试以强大的火力操纵正负魔导力量的[yellow]雾雨魔理沙[/yellow]作为可控角色的Mod吧！ | `Try out the [yellow]Marisa Kirisame[/yellow] mod as a playable character, commanding the powers of plus and minus magic with overwhelming firepower!` | 強大な火力で正負の魔導の力を操る[yellow]霧雨魔理沙[/yellow]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `HATA_NO_KOKORO_RECOMMEND.title` | 秦心 | `Hata no Kokoro` | 秦こころ |
+| `HATA_NO_KOKORO_RECOMMEND.description` | 熟练操纵[green]喜[/green]、[red]怒[/red]、[purple]哀[/purple]三种面具的面灵气，在战斗之间保持面具的朝向。\n来试试[pink]秦心[/pink]作为可控角色的Mod吧！ | `A menreiki who expertly wields the three masks of [green]joy[/green], [red]anger[/red], and [purple]sorrow[/purple], keeping her mask's facing between combats.\nTry out the [pink]Hata no Kokoro[/pink] mod as a playable character!` | [green]喜[/green]、[red]怒[/red]、[purple]哀[/purple]の三つの面を巧みに操る面霊気。戦いの合間にも面の向きを保ち続ける。\n[pink]秦こころ[/pink]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `TATARA_KOGASA_RECOMMEND.title` | 多多良小伞 | `Kogasa Tatara` | 多々良小傘 |
+| `TATARA_KOGASA_RECOMMEND.description` | 唐伞变化而成的付丧神。总是在吓人与被吓的路上。\n来试试[aqua]多多良小伞[/aqua]作为可控角色的Mod吧！ | `A tsukumogami born from a karakasa-obake umbrella. Always on her way to scare someone, or to be scared.\nTry out the [aqua]Kogasa Tatara[/aqua] mod as a playable character!` | 唐傘が化けた付喪神。いつも人を驚かせるか、自分が驚かされるかの道の上。\n[aqua]多々良小傘[/aqua]をプレイアブルキャラクターにするModを試してみませんか！ |
+| `PC98_ANCIENTS_RECOMMEND.title` | 旧作先古之民 | `PC-98 Ancients` | 旧作エンシェント |
+| `PC98_ANCIENTS_RECOMMEND.description` | 被遗忘的历史。来自东方 Project 旧作？的 8？个角色作为新的先古之民。 | `A forgotten history. 8? characters from the PC-98 era of Touhou Project appear as new Ancients.` | 忘れ去られた歴史。東方Projectの旧作？から8？人のキャラクターが新たなエンシェントとして登場する。 |
+| `ONOZUKA_KOMACHI_RECOMMEND.title` | 小野塚小町 | `Komachi Onozuka` | 小野塚小町 |
+| `ONOZUKA_KOMACHI_RECOMMEND.description` | 慵懒而快活惬意的死神。\n来试试使用熟练地操纵距离与灵体的三途川摆渡人[red]小野塚小町[/red]作为可控角色的Mod吧！ | `A lazy yet easygoing shinigami.\nTry out the [red]Komachi Onozuka[/red] mod as a playable character, the Sanzu River ferryman who expertly manipulates distance and spirits!` | 怠惰でありながら快活な死神。\n距離と霊体を巧みに操る三途の川の渡し守、[red]小野塚小町[/red]をプレイアブルキャラクターにするModを試してみませんか！ |
+
+### 备注
+- 人名英文一律名前姓后，与本仓库 `encounters.json` / `monsters.json` 既有译名一致：`Remilia Scarlet`、`Sakuya Izayoi`、`Reimu Hakurei`、`Marisa Kirisame`、`Komachi Onozuka`。`Hata no Kokoro`（秦心）、`Kogasa Tatara`（多多良小伞）为东方官方英译写法，与 `Hieda no Akyuu` 同型。
+- `(A)` / `(B)` 沿用既有 `Seija Kijin (A)` / `鬼人正邪（A）` 的全角/半角写法。
+- 「旧作先古之民」英文取社区通行叫法 `PC-98 Ancients`；日文「旧作エンシェント」，「エンシェント」沿用本模组既有的先古之民译法。
+- 「面灵气」→ `menreiki` / 「面霊気」；「付丧神」→ `tsukumogami` / 「付喪神」；「唐伞」→ `karakasa-obake` / 「唐傘」。
+- 「尖塔1」日语不用「尖塔」，改写为「初代『Slay the Spire』」。
+- 「正负魔导」→ `plus and minus magic` / 「正負の魔導」。
+- 「三途川摆渡人」→ `Sanzu River ferryman` / 「三途の川の渡し守」。
+- 描述句式沿用本文件既有约定：`Try out the [color]XXX[/color] mod as a playable character, <分句>!`。
