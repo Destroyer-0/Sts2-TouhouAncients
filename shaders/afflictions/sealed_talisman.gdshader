@@ -5,6 +5,7 @@ render_mode blend_premul_alpha;
 // 贴图是米色纸 + 红字/红框，用 1-G 提取红色笔画；贴图自带的红框正好成了带子两侧红线与符间分隔。
 // 四角靠折叠坐标（取到最近竖边/横边的距离）实现，天然镜像，不必写四份逻辑。
 // 所有几何都用像素量（x/y 同单位），否则 300:422 的宽高比会把斜置的符札切成长方形。
+// 卡面圆角裁剪与整卡红光由场景层（card_mask / card_glow）负责，不在这里算。
 
 uniform sampler2D talisman_texture : filter_linear, repeat_disable;
 
@@ -35,14 +36,8 @@ uniform vec4 glow_color : source_color = vec4(1.0, 0.16, 0.16, 1.0);
 uniform float paper_opacity : hint_range(0.0, 1.0) = 0.85;
 uniform vec4 paper_color : source_color = vec4(0.992, 0.965, 0.906, 1.0);
 
-// 卡面圆角半径（以卡高为单位）。
+// 卡面圆角半径（以卡高为单位）。圆角裁剪由场景遮罩负责，这里只用于定位描边与符札。
 uniform float card_corner_radius : hint_range(0.0, 0.15) = 0.055;
-
-// 整卡红光（参照原版 BOUND 侵蚀的 card_glow 层）：strength 总亮度，
-// flat 为整卡均匀泛红的占比（0 = 只有边缘发光），radius 为边缘加强的向内衰减长度。
-uniform float card_glow_strength : hint_range(0.0, 3.0) = 0.25;
-uniform float card_glow_flat : hint_range(0.0, 1.0) = 0.4;
-uniform float card_glow_radius : hint_range(0.01, 0.5) = 0.12;
 
 // 卡面描边染色（同 BOUND 的 border 层）：沿卡面轮廓铺一条纯色带，取代原卡框颜色。
 // width 为向内的带宽，outset 为向外的带宽（以卡高为单位），两者共同决定描边粗细。
@@ -52,8 +47,8 @@ uniform float border_alpha : hint_range(0.0, 1.0) = 0.95;
 // 噪声腐蚀量：0 = 实心色块，越大越破碎；噪声沿轮廓缓动。
 uniform float border_erosion : hint_range(0.0, 1.0) = 0.35;
 uniform vec4 border_color : source_color = vec4(0.90, 0.06, 0.06, 1.0);
-// 符札溢出卡面轮廓的像素数。0 = 严格裁在卡边；正数用 vertex 把 quad 撑大，
-// 符纸带就能跑到卡框描边以外（参考 BOUND 用负 offset 把内容撑出卡矩形的做法）。
+// 符札溢出卡面轮廓的像素数。注意：场景里挂在 card_mask（clip_children）下面，
+// 撑出去的像素会被遮罩裁掉，所以设为正数现在看不到效果。
 uniform float overflow_px : hint_range(0.0, 40.0) = 16.0;
 
 // 贴图 82x191，四边各有 2px 透明边；平铺前必须裁掉，否则每张符之间会露一条纸色缝。
@@ -61,6 +56,10 @@ const vec2 TEX_TRIM = vec2(2.0 / 82.0, 2.0 / 191.0);
 const vec2 TEX_INNER = vec2(1.0 - 2.0 * TEX_TRIM.x, 1.0 - 2.0 * TEX_TRIM.y);
 // 裁边后内容的宽高比（78x187），带子宽度按它算才不把符压扁。
 const float TALISMAN_RATIO = 0.4171;
+
+// 外轮廓与整卡红光都交给场景层：card_mask（ui_card_mask.png + clip_children）负责圆角裁剪，
+// card_glow（ui_card_border_glow.png）负责静态光晕；顶点色不能丢，否则卡牌淡出/变灰时 overlay 原地满色。
+varying vec4 vertex_color;
 
 float rounded_rect_sdf(vec2 p, vec2 half_size, float radius) {
 	vec2 d = abs(p) - half_size + vec2(radius);
@@ -91,6 +90,7 @@ float noise2(vec2 p) {
 
 // 把 quad 向外撑大：不撑就没有溢出区域的像素，后面的负 offset 式绘制也无处落笔。
 void vertex() {
+	vertex_color = COLOR;
 	if (overflow_px > 0.0) {
 		VERTEX += (UV * 2.0 - 1.0) * overflow_px;
 	}
@@ -104,7 +104,6 @@ void fragment() {
 	// 全部几何都在「像素空间」量：x/y 同单位，符札才是正长方形，不会被卡宽高比剪切。
 	vec2 p = (uv - 0.5) * card_px;
 	float card_sdf = rounded_rect_sdf(p, card_px * 0.5, card_corner_radius * card_px.y);
-	float card_mask = 1.0 - smoothstep(-1.0, 0.5, card_sdf);
 
 	// 折叠到最近的角：corner = 从角指向卡内的像素向量。
 	vec2 corner = min(uv, 1.0 - uv) * card_px;
@@ -156,17 +155,10 @@ void fragment() {
 	float paper = paper_opacity * inside;
 
 	// 纸在下、字在上（若改成相加，红字会被纸色冲成白粉色）。
-	// 符札不跟卡面圆角裁：让它一直铺到 quad 边界，就是「越出描边」的观感。
+	// 符札沿长轴无限延伸，末端由 card_mask 裁断，就是贴边截断的观感。
 	vec3 rgb = paper_color.rgb * paper * (1.0 - ink_amount) + ink_color.rgb * ink_amount;
 	float alpha = max(paper, ink_amount);
 	float band_glow = glow;
-
-	// 整卡红光：轮廓内均匀泛红 + 边缘加强（等价于 BOUND 的那层 card_glow，但跟着卡面圆角走）。
-	// 让开符纸带：否则纸面和红字又被加法光泛白。
-	float inner = max(-card_sdf, 0.0);
-	float rim = exp(-inner / max(card_glow_radius * card_px.y, 1e-3));
-	float card_glow = card_glow_strength * (card_glow_flat + (1.0 - card_glow_flat) * rim)
-		* card_mask * (1.0 - inside) * glow_color.a;
 
 	// 卡面描边染色：sd 在 [-inw, outw] 内的像素直接盖成纯色（BOUND 的 border 层做法）。
 	// 噪声腐蚀让它像被符呪侵蚀，而不是一圈死板的描边。
@@ -186,11 +178,13 @@ void fragment() {
 	vec3 col = rgb + border_color.rgb * border_a * (1.0 - inside);
 	float cov = alpha + border_a * (1.0 - inside);
 
-	// 红光不许越过卡面轮廓（只允许到描边外沿）：否则圆角外侧那块空隙会凭空泛红。
-	float glow_area = 1.0 - smoothstep(outw - 1.0, outw + 1.0, sd);
-	float glow_total = (band_glow + card_glow) * glow_area;
+	// 红光只能到描边外沿：圆角外侧那块空隙不能凭空泛红。
+	// 卡面以外的部分已由 card_mask 裁掉，这里只管描边外沿这一圈。
+	float glow_total = band_glow * (1.0 - smoothstep(outw - 1.0, outw + 1.0, sd));
 	col += glow_color.rgb * glow_total;
 	cov = clamp(cov + glow_total, 0.0, 1.0);
 
-	COLOR = vec4(col, cov);
+	// 预乘输出：rgb 与 alpha 一起乘顶点色
+	float va = vertex_color.a;
+	COLOR = vec4(col * vertex_color.rgb * va, cov * va);
 }

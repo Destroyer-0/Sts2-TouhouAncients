@@ -9,7 +9,7 @@ uniform vec4 ice_deep_color : source_color = vec4(0.10, 0.30, 0.58, 1.0);
 uniform vec4 frost_color : source_color = vec4(0.88, 0.96, 1.0, 1.0);
 uniform vec4 crack_color : source_color = vec4(0.72, 0.90, 1.0, 1.0);
 uniform float ice_opacity : hint_range(0.0, 1.0) = 0.30;
-uniform float edge_frost : hint_range(0.02, 0.6) = 0.15;
+uniform float edge_frost : hint_range(0.02, 0.6) = 0.13;
 uniform float frost_opacity : hint_range(0.0, 1.0) = 0.55;
 uniform float crack_scale : hint_range(1.0, 20.0) = 6.0;
 uniform float crack_width : hint_range(0.002, 0.08) = 0.022;
@@ -18,7 +18,14 @@ uniform float sparkle_amount : hint_range(0.0, 1.0) = 0.5;
 uniform float shimmer_speed : hint_range(0.0, 2.0) = 0.35;
 uniform float frozen_pulse : hint_range(0.0, 0.5) = 0.10;
 uniform float ice_noise_scale : hint_range(1.0, 12.0) = 3.0;
+// 卡面圆角半径（以卡高为单位）。圆角裁剪由场景遮罩负责，这里只用于算边角处的霜带距离。
 uniform float corner_radius : hint_range(0.0, 0.15) = 0.055;
+// 卡面像素尺寸（NCard 默认 300x422），只用于把 UV 换成等比坐标。
+uniform vec2 card_px = vec2(300.0, 422.0);
+
+// 外轮廓交给场景里的 card_mask（ui_card_mask.png + clip_children）硬裁，shader 不再重复画遮罩；
+// 顶点色不能丢，否则卡牌淡出/变灰时 overlay 原地满色。
+varying vec4 vertex_color;
 
 float hash(vec2 p) {
 	vec3 p3 = fract(vec3(p.xyx) * 0.1031);
@@ -55,6 +62,10 @@ float rounded_rect_sdf(vec2 p, vec2 half_size, float radius) {
 	return length(max(d, vec2(0.0))) + min(max(d.x, d.y), 0.0) - radius;
 }
 
+void vertex() {
+	vertex_color = COLOR;
+}
+
 // Returns (nearest distance, second nearest, cell id) for crack generation.
 vec3 voronoi(vec2 p) {
 	vec2 ip = floor(p);
@@ -84,12 +95,14 @@ void fragment() {
 	vec2 uv = UV;
 	float t = TIME * shimmer_speed;
 
-	// Card silhouette mask
-	vec2 centered = uv - 0.5;
-	float sdf = rounded_rect_sdf(centered, vec2(0.5), corner_radius);
-	float card_mask = 1.0 - smoothstep(-0.003, 0.0, sdf);
-	float edge_dist = max(-sdf, 0.0);
+	// 像素空间求 SDF：直接拿 UV 算会把圆角拉成椭圆
+	vec2 p = (uv - 0.5) * card_px;
+	float sdf = rounded_rect_sdf(p, card_px * 0.5, corner_radius * card_px.y);
+	// 换算回「卡高 = 1」，阈值才和参数同单位
+	float edge_dist = max(-sdf, 0.0) / card_px.y;
 	float edge_t = 1.0 - smoothstep(0.0, edge_frost, edge_dist);
+	// 等比坐标（卡高 = 1）：300:422 直接乘 UV 会把圆形拉成椭圆
+	vec2 nrm = p / card_px.y;
 
 	// Cloudy interior
 	float n = fbm(uv * ice_noise_scale + vec2(t * 0.05, -t * 0.04));
@@ -114,10 +127,10 @@ void fragment() {
 	crack_halo *= 1.0 - edge_t * 0.7;
 
 	// Border frost plus corner bloom, broken up into crystals
-	vec2 cvec = centered - sign(centered) * vec2(0.47);
+	vec2 cvec = nrm - sign(nrm) * (card_px * 0.5 / card_px.y);
 	float corner_frost = 1.0 - smoothstep(0.0, 0.26, length(cvec));
 	float frost = clamp(edge_t * 0.95 + corner_frost * 0.6, 0.0, 1.0);
-	frost *= 0.55 + 0.45 * fbm(uv * 18.0 + 3.0);
+	frost *= 0.55 + 0.45 * fbm(nrm * 18.0 + 3.0);
 
 	// Twinkling ice grains
 	float grains = value_noise(uv * 90.0 + floor(t * 2.0) * 7.0);
@@ -143,7 +156,7 @@ void fragment() {
 	col += frost_color.rgb * (sparkle + sheen);
 	a = clamp(a + sparkle * 0.6, 0.0, 1.0);
 
-	// col is already premultiplied; mask both channels together
-	a = clamp(a, 0.0, 1.0) * card_mask;
-	COLOR = vec4(col * card_mask, a);
+	// col 已是预乘色，rgb 与 a 一起乘顶点色 alpha
+	float ca = vertex_color.a;
+	COLOR = vec4(col * ca * vertex_color.rgb, a * ca);
 }

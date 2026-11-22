@@ -1,27 +1,57 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cyqa32rsrt668"]
 
-[ext_resource type="Shader" path="res://shaders/afflictions/rebellion_tide.gdshader" id="1_shader"]
+[ext_resource type="Shader" uid="uid://bl5wuykkj8y02" path="res://shaders/afflictions/rebellion_tide.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://ddouphww0r8d6" path="res://shaders/ui_card_mask.png" id="2_mask"]
+[ext_resource type="Texture2D" uid="uid://cgpaf12xcgk58" path="res://shaders/ui_card_border_glow.png" id="3_glow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rebellion_tide"]
 shader = ExtResource("1_shader")
 shader_parameter/edge_intensity = 0.8
 shader_parameter/pulse_speed = 0.7
-shader_parameter/void_width = 0.175
+shader_parameter/void_width = 0.13
 shader_parameter/noise_scale = 5.0
 shader_parameter/void_stretch = 3.0
-shader_parameter/void_color = Color(0.08, 0.0, 0.12, 1.0)
-shader_parameter/void_edge_color = Color(0.25, 0.02, 0.35, 1.0)
+shader_parameter/top_color = Color(0.757, 0, 0, 1)
+shader_parameter/bottom_color = Color(0.102, 0.102, 0.102, 1)
+shader_parameter/gradient_center = 0.33
+shader_parameter/gradient_softness = 0.15
 shader_parameter/corner_radius = 0.055
+shader_parameter/card_px = Vector2(300, 422)
 
 [node name="RebellionTide" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="VoidOverlay" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_rebellion_tide")
+[node name="card_mask" type="TextureRect" parent="."]
+clip_children = 1
 layout_mode = 0
 offset_left = -150.0
 offset_top = -211.0
 offset_right = 150.0
 offset_bottom = 211.0
+mouse_filter = 2
+texture = ExtResource("2_mask")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="card_glow" type="TextureRect" parent="card_mask"]
+self_modulate = Color(0.55, 0.06, 0.06, 0.9)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_glow")
+expand_mode = 1
+
+[node name="VoidOverlay" type="ColorRect" parent="card_mask"]
+material = SubResource("ShaderMaterial_rebellion_tide")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2

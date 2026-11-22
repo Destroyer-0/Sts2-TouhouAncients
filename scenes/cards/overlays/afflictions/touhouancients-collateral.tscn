@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8pmej6gf5qmr"]
+
+[ext_resource type="Shader" uid="uid://c4n3ec6mbfxnq" path="res://shaders/afflictions/collateral.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" uid="uid://do6ymq1tomky1" path="res://shaders/aura_tex0000.png" id="2_aura"]
+[ext_resource type="Texture2D" uid="uid://ddouphww0r8d6" path="res://shaders/ui_card_mask.png" id="3_mask"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_collateral"]
+shader = ExtResource("1_shader")
+shader_parameter/aura_texture = ExtResource("2_aura")
+shader_parameter/card_px = Vector2(300, 422)
+shader_parameter/corner_radius = 0.055
+shader_parameter/border_color = Color(0.00784314, 0.15294118, 0.50980395, 1)
+shader_parameter/border_width = 0.022
+shader_parameter/border_softness = 0.05000000074506
+shader_parameter/border_alpha = 0.95
+shader_parameter/flame_color = Color(2.2140146e-06, 0.48255122, 0.75280327, 1)
+shader_parameter/flame_hot_color = Color(0.72, 0.97, 1, 1)
+shader_parameter/flame_strength = 1.5
+shader_parameter/flame_alpha = 0.400000019
+shader_parameter/noise_tile = Vector2(1.6, 1.6)
+shader_parameter/secondary_tile = Vector2(2.9, 2.4)
+shader_parameter/noise_mix = 0.35
+shader_parameter/smoke_width = 0.20000000810297
+shader_parameter/smoke_falloff = 2.00000007125
+shader_parameter/erosion = Vector2(0.08, 0.58)
+shader_parameter/orbit_radius = Vector2(0.03, 0.07)
+shader_parameter/orbit_speed = 1.1610000551475
+shader_parameter/drift = Vector2(0, -0.035)
+shader_parameter/flicker_speed = 6.0
+shader_parameter/flicker_amount = 0.3
+
+[node name="Collateral" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="card_mask" type="TextureRect" parent="."]
+clip_children = 1
+layout_mode = 0
+offset_left = -150.0
+offset_top = -211.0
+offset_right = 150.0
+offset_bottom = 211.0
+mouse_filter = 2
+texture = ExtResource("3_mask")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="BorderOverlay" type="ColorRect" parent="card_mask"]
+material = SubResource("ShaderMaterial_collateral")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

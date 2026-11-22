@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://r2d7qj37w7sj"]
+[gd_scene load_steps=6 format=3 uid="uid://r2d7qj37w7sj"]
 
 [ext_resource type="Shader" uid="uid://etup87igtyyb" path="res://shaders/afflictions/sealed_talisman.gdshader" id="1_shader"]
 [ext_resource type="Texture2D" uid="uid://j0fmeyh0eea3" path="res://shaders/博丽字体.png" id="2_texture"]
+[ext_resource type="Texture2D" uid="uid://ddouphww0r8d6" path="res://shaders/ui_card_mask.png" id="3_mask"]
+[ext_resource type="Texture2D" uid="uid://cgpaf12xcgk58" path="res://shaders/ui_card_border_glow.png" id="4_glow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sealed"]
 shader = ExtResource("1_shader")
@@ -22,9 +24,6 @@ shader_parameter/glow_color = Color(1, 0.16078432, 0.16078432, 1)
 shader_parameter/paper_opacity = 0.800000038
 shader_parameter/paper_color = Color(0.99, 0.965, 0.906, 1)
 shader_parameter/card_corner_radius = 0.055
-shader_parameter/card_glow_strength = 0.2000000095
-shader_parameter/card_glow_flat = 0.4
-shader_parameter/card_glow_radius = 0.12
 shader_parameter/border_width = 0.022
 shader_parameter/border_outset = 0.0
 shader_parameter/border_alpha = 0.95
@@ -36,11 +35,36 @@ shader_parameter/overflow_px = 0.0
 layout_mode = 3
 anchors_preset = 0
 
-[node name="TalismanOverlay" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_sealed")
+[node name="card_mask" type="TextureRect" parent="."]
+clip_children = 1
 layout_mode = 0
 offset_left = -150.0
 offset_top = -211.0
 offset_right = 150.0
 offset_bottom = 211.0
+mouse_filter = 2
+texture = ExtResource("3_mask")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="card_glow" type="TextureRect" parent="card_mask"]
+self_modulate = Color(0.72, 0.08, 0.08, 0.85)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_glow")
+expand_mode = 1
+
+[node name="TalismanOverlay" type="ColorRect" parent="card_mask"]
+material = SubResource("ShaderMaterial_sealed")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
