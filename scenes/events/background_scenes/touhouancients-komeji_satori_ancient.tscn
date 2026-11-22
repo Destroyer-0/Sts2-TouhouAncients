@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b70c2i8820djp" path="res://images/KomejiSatori.png" id="1_0cqh2"]
 [ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="2_xpco5"]
 [ext_resource type="Texture2D" uid="uid://c75m3vlyhua73" path="res://images/workshop/古明地恋.png" id="3_1kcpi"]
-[ext_resource type="Texture2D" path="res://modicon/character_icon_komachi.png" id="4_komachiicon"]
+[ext_resource type="Texture2D" uid="uid://drvcpqu8ou8kb" path="res://images/workshop/character_icon_komachi.png" id="4_vgcwo"]
 
 [node name="KomejiSatoriAncient" type="Control"]
 layout_mode = 3
@@ -38,12 +38,18 @@ WorkshopId = "3747502705"
 texture = ExtResource("3_1kcpi")
 
 [node name="KomachiWorkshopButton" parent="." instance=ExtResource("2_xpco5")]
-texture_normal = ExtResource("4_komachiicon")
+layout_mode = 0
+anchors_preset = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("4_vgcwo")
 LocKey = "TOUHOUANCIENTS-ONOZUKA_KOMACHI_RECOMMEND"
 WorkshopId = "3765485950"
 
 [node name="TextureRect" parent="KomachiWorkshopButton" index="0"]
-texture = ExtResource("4_komachiicon")
+texture = ExtResource("4_vgcwo")
 
 [editable path="TextureButton"]
 [editable path="KomachiWorkshopButton"]

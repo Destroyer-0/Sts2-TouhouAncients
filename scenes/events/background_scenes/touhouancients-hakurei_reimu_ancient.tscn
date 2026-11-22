@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvgfpqetd50uv"]
+[gd_scene load_steps=5 format=3 uid="uid://bvgfpqetd50uv"]
 
 [ext_resource type="Texture2D" uid="uid://c1e0qqnyg0ghm" path="res://images/HakureiReimu.png" id="1_ck6q7"]
 [ext_resource type="Texture2D" uid="uid://cblcgso3wgulp" path="res://images/reimu2.png" id="2_fsngo"]
 [ext_resource type="Script" uid="uid://ceol02eco23x3" path="res://scenes/events/background_scenes/random_sprite.gd" id="3_fn1je"]
 [ext_resource type="Texture2D" uid="uid://t15k5p4l7rtt" path="res://images/reimu3.png" id="3_hwtdq"]
-[ext_resource type="PackedScene" uid="uid://brwkafgvbvwxs" path="res://scenes/extra/workshopButton.tscn" id="4_workshop"]
-[ext_resource type="Texture2D" uid="uid://b437yy1meslp5" path="res://images/icon/Character/HakureiReimu.png" id="5_reimuicon"]
 
 [node name="HakureiReimuAncient" type="Control"]
 layout_mode = 3
@@ -39,13 +37,3 @@ texture = ExtResource("3_hwtdq")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("3_fn1je")
-
-[node name="ReimuWorkshopButton" parent="." instance=ExtResource("4_workshop")]
-texture_normal = ExtResource("5_reimuicon")
-LocKey = "TOUHOUANCIENTS-HAKUREI_REIMU_RECOMMEND"
-WorkshopId = "3827622224"
-
-[node name="TextureRect" parent="ReimuWorkshopButton" index="0"]
-texture = ExtResource("5_reimuicon")
-
-[editable path="ReimuWorkshopButton"]

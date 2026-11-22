@@ -43,8 +43,6 @@ grow_vertical = 1
 texture_normal = ExtResource("3_3dlsf")
 LocKey = "TOUHOUANCIENTS-MOKOU_RECOMMEND"
 WorkshopId = "3747567528"
-MarginRight = null
-MarginBottom = null
 
 [node name="TextureRect" parent="TextureButton" index="0"]
 texture = ExtResource("3_3dlsf")
