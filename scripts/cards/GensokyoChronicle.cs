@@ -41,7 +41,7 @@ public class GensokyoChronicle : TouhouAncientCards
         // 与超ZUN啤酒同池：TouhouAncientCards 里可战斗生成的攻/技/能力牌
         List<CardModel> pool = ModelDb.AllCards
             .Where(c => c is TouhouAncientCards && c.CanBeGeneratedInCombat)
-            .Where(c => c.Type is CardType.Attack or CardType.Skill or CardType.Power)
+            .Where(c => c is DecisiveMoment || c.Type is CardType.Attack or CardType.Skill or CardType.Power)
             .Where(c => c is not GensokyoChronicle)
             .ToList();
 

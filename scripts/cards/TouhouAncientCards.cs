@@ -19,6 +19,9 @@ public abstract class TouhouAncientCards : CustomCardModel
 
     public virtual bool UseAncientFrame => false;
 
+    /// <summary>整幅立绘额满卡面的牌不需要原版立绘描边框。</summary>
+    public virtual bool DontUsePortraitBorderAndTitleBanner => false;
+
     /// <summary>
     /// 绘师（作者）名称。为 null 或空字符串时不显示绘师 HoverTip。
     /// </summary>
@@ -89,10 +92,11 @@ public static class AncientCardFramePatch
 		return nullable ?? master;
 	}
 
-	// 原版映射：None/Status/Curse 无专属底图退回 Skill，其余按自身类型取图
+	// 原版映射：None/Status/Curse/Quest 无专属底图退回 Skill，其余按自身类型取图
+	// （本体的 ancient_text_bg_quest 是张 NOPE 涂鸦占位图，不能用）
 	private static string GetAncientTextBgPath(CardModel model)
 	{
-		CardType bgType = model.Type is CardType.Attack or CardType.Skill or CardType.Power or CardType.Quest
+		CardType bgType = model.Type is CardType.Attack or CardType.Skill or CardType.Power
 			? model.Type
 			: CardType.Skill;
 		return ImageHelper.GetImagePath($"atlases/compressed_atlas.sprites/ancient_text_bg_{bgType.ToString().ToLowerInvariant()}.png.tres");
@@ -117,11 +121,26 @@ public static class AncientCardFramePatch
 			fire.Visible = !hideFire;
 		}
 
-		if (!(__instance.Model is TouhouAncientCards { UseAncientFrame: var useAncientFrame } ancientCards))
+		if (__instance.Model is not TouhouAncientCards ancientCards)
 		{
 			return;
 		}
-		if (!useAncientFrame)
+
+		// 原版 Reload 每次都按 Rarity 重设可见性，节点复用回原版卡会自动恢复边框
+		if (ancientCards.DontUsePortraitBorderAndTitleBanner)
+		{
+			if (_portraitBorder.GetValue(__instance) is TextureRect border)
+			{
+				border.Visible = false;
+			}
+
+			if (_banner.GetValue(__instance) is TextureRect normalbanner)
+			{
+				normalbanner.Visible = false;
+			}
+		}
+
+		if (!ancientCards.UseAncientFrame)
 		{
 			return;
 		}
@@ -138,27 +157,41 @@ public static class AncientCardFramePatch
 		{
 			return;
 		}
-		if (useAncientFrame)
+		val.Visible = false;
+		val3.Visible = false;
+		val7.Visible = true;
+		val7.Texture = ResourceLoader.Load<Texture2D>(GetAncientBorderPath());
+		if (val10 != null)
 		{
-			val.Visible = false;
-			val3.Visible = false;
-			val7.Visible = true;
-			val7.Texture = ResourceLoader.Load<Texture2D>(GetAncientBorderPath());
-			if (val10 != null)
-			{
-				val10.Material = ResourceLoader.Load<Material>(CanvasGroupMaskMaterialPath);
-			}
-			val2.Visible = false;
-			val5.Visible = true;
-			val5.Texture = ancientCards.NodePortrait;
-			val2.Material = null;
-			val5.Material = null;
-			val8.Visible = true;
-			val8.Texture = ResourceLoader.Load<Texture2D>(GetAncientTextBgPath(ancientCards));
-		
-			val4.Visible = false;
-			val9.Visible = true;
-			val4.Material = null;
+			val10.Material = ResourceLoader.Load<Material>(CanvasGroupMaskMaterialPath);
+		}
+		val2.Visible = false;
+		val5.Visible = true;
+		val5.Texture = ancientCards.NodePortrait;
+		val2.Material = null;
+		val5.Material = null;
+		val8.Visible = true;
+		val8.Texture = ResourceLoader.Load<Texture2D>(GetAncientTextBgPath(ancientCards));
+
+		val4.Visible = false;
+		val9.Visible = true;
+		val4.Material = null;
+	}
+}
+
+/// <summary>
+/// 本体没画「远古 + 任务」的文字底图，<c>ancient_text_bg_quest</c> 是官方的 NOPE 涂鸦占位图；
+/// 我们的远古任务牌改回 skill 纸底。只改自己的卡，不碰本体。
+/// </summary>
+[HarmonyPatch(typeof(CardModel), "AncientTextBgPath", MethodType.Getter)]
+internal static class AncientQuestTextBgPatch
+{
+	[HarmonyPostfix]
+	private static void Postfix(CardModel __instance, ref string __result)
+	{
+		if (__instance is TouhouAncientCards && __instance.Type == CardType.Quest)
+		{
+			__result = __result.Replace("_quest", "_skill");
 		}
 	}
 }

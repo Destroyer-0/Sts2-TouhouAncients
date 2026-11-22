@@ -43,7 +43,8 @@ public class FutatsuiwaMamizouAncient : TouhouAncientBase
         TARelicOption<OneEyedKarakasa>(),
         TARelicOption<HyakkiYagyoScroll>(),
         TARelicOption<GhostThunderCloud>(),
-        TARelicOption<EchoMicrophone>()
+        TARelicOption<EchoMicrophone>(),
+        TARelicOption<ReporterCamera>()
         //TARelicOption<NohMask>()
         );
 }
