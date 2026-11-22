@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl0su5budq6nh"
-path="res://.godot/imported/tewi.png-7807a34d21ea9fc0cd6329429926ca05.ctex"
+uid="uid://wuplv3ih8ada"
+path="res://.godot/imported/tewi0.png-3662faa242b23fdbce66475c8ff357da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/sprite/tewi/tewi.png"
-dest_files=["res://.godot/imported/tewi.png-7807a34d21ea9fc0cd6329429926ca05.ctex"]
+source_file="res://images/sprite/tewi/tewi0.png"
+dest_files=["res://.godot/imported/tewi0.png-3662faa242b23fdbce66475c8ff357da.ctex"]
 
 [params]
 

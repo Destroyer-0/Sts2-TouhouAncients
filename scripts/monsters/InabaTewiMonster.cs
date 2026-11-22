@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Ascension;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -36,9 +36,18 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
     private const int IntoTheTrapStrength = 1;
     private const int IntoTheTrapHits = 5;
 
+    // --- 立绘 ---
+    private const string SpriteDir = "res://images/sprite/tewi/";
+    private const string NormalSprite = SpriteDir + "tewi1.png";
+    private const string BurrowsSprite = SpriteDir + "tewi2.png";
+    private const string TrickSprite = SpriteDir + "tewi3.png";
+
     // --- 本地化 ---
     private static readonly LocString _intoTheTrapLine =
         new LocString("monsters", "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.INTO_THE_TRAP.banter");
+
+    private static readonly LocString _threeBurrowsLine =
+        new LocString("monsters", "TOUHOUANCIENTS-INABA_TEWI_MONSTER.moves.THREE_BURROWS.banter");
 
     protected override bool HasAnimation => false;
 
@@ -52,6 +61,9 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     /// <summary>自身身上的诈术师，用于重置目标费用（不能走 PowerCmd.ModifyAmount，见 TricksterPower）。</summary>
     private TricksterPower? _trickster;
+
+    /// <summary>入瓮台词每位玩家各自只播一次，多人下互不影响。</summary>
+    private readonly HashSet<ulong> _intoTheTrapBanterPlayers = new();
 
     public override async Task AfterAddedToRoom()
     {
@@ -79,6 +91,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private async Task GreatFortuneCrestMove(IReadOnlyList<Creature> targets)
     {
+        SwitchVisual(NormalSprite);
         await DamageCmd.Attack(GreatFortuneCrestDamage)
             .FromMonster(this)
             .WithAttackerFx(null, AttackSfx)
@@ -89,6 +102,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
     /// <summary>狡兔三窟：获得格挡，给每位玩家塞牌并重置目标费用。</summary>
     private async Task ThreeBurrowsMove(IReadOnlyList<Creature> targets)
     {
+        SwitchVisual(BurrowsSprite);
         await CreatureCmd.GainBlock(base.Creature, ThreeBurrowsBlock, ValueProp.Move, null);
 
         foreach (Creature target in targets)
@@ -105,6 +119,7 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
 
     private async Task IntoTheTrapMove(IReadOnlyList<Creature> targets)
     {
+        SwitchVisual(NormalSprite);
         await DamageCmd.Attack(IntoTheTrapDamage)
             .WithHitCount(IntoTheTrapHits)
             .FromMonster(this)
@@ -115,10 +130,41 @@ public sealed class InabaTewiMonster : TouhouAncientMonsterBase
         await PowerCmd.Apply<StrengthPower>(
             new ThrowingPlayerChoiceContext(), base.Creature, IntoTheTrapStrength,
             base.Creature, null);
-        if (base.CombatState.Players.Any(player => player.Creature.GetPowerAmount<LuckyTrickCountPower>() > 0))
+    }
+
+    /// <summary>
+    /// 玩家打出「幸运」戏法后的反应：恰好第 7 张时播入瓮台词（每人仅一次），其余每张都播三窟，
+    /// 并在未叠满前换 tewi3 到因幡帝下次行动。
+    /// 用 AfterCardPlayed：此时 OnPlay 的计数已结算，能分辨出恰好是第 7 张。
+    /// </summary>
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card is not LuckyTrick { Owner: { } owner }) return Task.CompletedTask;
+
+        int playCount = owner.Creature.GetPowerAmount<LuckyTrickCountPower>();
+        if (playCount == LuckyTrickCountPower.CurseThreshold)
         {
-            TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.White, VfxDuration.VeryLong);
+            if (_intoTheTrapBanterPlayers.Add(owner.NetId))
+                TalkCmd.Play(_intoTheTrapLine, base.Creature, VfxColor.Red);
+            return Task.CompletedTask;
         }
+
+        TalkCmd.Play(_threeBurrowsLine, base.Creature, VfxColor.White);
+        if (playCount < LuckyTrickCountPower.CurseThreshold) SwitchVisual(TrickSprite);
+        return Task.CompletedTask;
+    }
+
+    /// <summary>
+    /// 静态立绘换图；图鉴预览 / 节点已销毁时取不到 Sprite2D，静默跳过。
+    /// 朝向由 tscn 的 flip_h 决定，这里不动。
+    /// </summary>
+    private void SwitchVisual(string path)
+    {
+        if (!IsMutable) return;
+        if (base.Creature.GetCreatureNode()?.Visuals.GetCurrentBody() is not Sprite2D sprite) return;
+
+        Texture2D? texture = ResourceLoader.Load<Texture2D>(path, null, ResourceLoader.CacheMode.Reuse);
+        if (texture != null) sprite.Texture = texture;
     }
 
     /// <summary>目标费用重置为 0~3 中与当前不同的值：(current + 1~3) % 4 必然不同且三个值等概率。</summary>
