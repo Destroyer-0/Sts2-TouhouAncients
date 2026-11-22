@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.Nodes.Audio;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -77,10 +78,9 @@ public class ShiningTower : TouhouAncientCards
         var combat = base.CombatState ?? base.Owner?.Creature.CombatState;
         if (combat == null) return;
 
-        // 伤害前记下斩杀判定与特效坐标：伤害后 Creature 可能已被移出场景
-        var enemies = combat.Enemies.Where(e => e.IsAlive).ToList();
-        var fatalPositions = enemies
-            .Where(e => e.Powers.All(p => p.ShouldOwnerDeathTriggerFatal()))
+        // 坐标必须伤害前取：死后 Creature 节点会被移出场景
+        var positions = combat.Enemies
+            .Where(e => e.IsAlive)
             .ToDictionary(
                 e => e,
                 e => TestMode.IsOff
@@ -94,21 +94,27 @@ public class ShiningTower : TouhouAncientCards
             .SpawningHitVfxOnEachCreature()
             .Execute(choiceContext);
 
-        // 同贪婪之手：只算被本次伤害斩杀的敌人，每个击杀各播一次金币特效
+        // 斩杀判定必须在伤害后：AOE 的 cardPlay.Target 为 null，且千足虫 ReattachPower 要等其余节段全灭
         int killCount = 0;
         foreach (var result in attackCommand.Results.SelectMany(r => r))
         {
-            if (!result.WasTargetKilled || !fatalPositions.TryGetValue(result.Receiver, out var pos)) continue;
+            // 复活后 WasTargetKilled 仍为 true，所以要再问一次是否真算斩杀
+            if (!result.WasTargetKilled || !result.Receiver.Powers.All(p => p.ShouldOwnerDeathTriggerFatal())) continue;
             killCount++;
-            if (pos.HasValue)
+            if (positions.TryGetValue(result.Receiver, out var pos) && pos.HasValue)
             {
                 VfxCmd.PlayVfx(pos.Value, "vfx/vfx_coin_explosion_regular", NCombatRoom.Instance?.CombatVfxContainer);
             }
         }
 
-        if (killCount > 0)
+        if (killCount > 0 && base.Owner is { } owner)
         {
-            await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * killCount, base.Owner);
+            // 敌人全灭时 IsEnding 已为 true，GainGold 内的 SfxCmd.Play 会被拦掉，只能直接播
+            if (CombatManager.Instance.IsEnding)
+            {
+                NAudioManager.Instance?.PlayOneShot("event:/sfx/ui/gold/gold_3");
+            }
+            await PlayerCmd.GainGold(base.DynamicVars.Gold.IntValue * killCount, owner);
         }
 
         // 没有出招记录时 Stun 会取 StateLog.Last() 并抛异常，出牌动作就此中断
