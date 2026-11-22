@@ -81,7 +81,7 @@ public sealed class PrincessPuzzlePower : TouhouAncientPowerModel
             return 0m;
         }
 
-        if (!props.HasFlag(ValueProp.Unblockable)) return 0m;
+        if (props.HasFlag(ValueProp.Unblockable)) return 0m;
         return -base.DynamicVars[DamageReductionKey].BaseValue;
     }
 
