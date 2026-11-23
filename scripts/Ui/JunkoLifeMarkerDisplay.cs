@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Godot;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Rooms;
+using TouhouAncients.Scripts.powers;
 
 namespace TouhouAncients.Scripts.Ui;
 
@@ -25,6 +27,9 @@ public partial class JunkoLifeMarkerDisplay : Control
     /// <summary>disable 覆盖层在「刚好盖住标记」基础上的额外放大倍数。</summary>
     private const float DisableScale = 2f;
 
+    /// <summary>红光呼吸速度（弧度/秒）。</summary>
+    private const float GlowPulseSpeed = 5f;
+
     private readonly List<TextureRect> _icons = new();
     private TextureRect? _iconTemplate;
     private TextureRect? _disableIcon;
@@ -34,6 +39,12 @@ public partial class JunkoLifeMarkerDisplay : Control
     private Vector2 _iconSize;
     private int _slots;
     private int _remaining;
+
+    private Creature? _creature;
+    private UltramarineOrbProtectionPower? _power;
+    private float _glowPhase;
+    private bool _lethal;
+    private bool _glowApplied;
 
     private float TotalWidth => _slots > 0 ? _slots * _iconSize.X + (_slots - 1) * IconGap : 0f;
 
@@ -60,6 +71,8 @@ public partial class JunkoLifeMarkerDisplay : Control
         marker.Name = NodeName;
         marker._slots = amount;
         marker._remaining = amount;
+        marker._creature = creature;
+        marker._power = creature.GetPower<UltramarineOrbProtectionPower>();
         display.AddChild(marker);
     }
 
@@ -124,6 +137,49 @@ public partial class JunkoLifeMarkerDisplay : Control
         Vector2 barPos = _hpBarContainer!.GlobalPosition;
         Vector2 barSize = _hpBarContainer.Size;
         GlobalPosition = new Vector2(barPos.X + (barSize.X - Size.X) * 0.5f, barPos.Y - GapAboveBar - _iconSize.Y);
+
+        UpdateLethalGlow(delta);
+    }
+
+    /// <summary>纯狐下一次攻击会致死时，血条与爱心/禁用遮罩一起脉冲红光。</summary>
+    private void UpdateLethalGlow(double delta)
+    {
+        // 只提示本地玩家自己的血条
+        if (_creature == null || _power == null || !LocalContext.IsMe(_creature))
+        {
+            ApplyGlow(Colors.White, isGlowing: false);
+            return;
+        }
+
+        // 敌人回合的意图是「正在打的那一招」，卡牌结算中读到的是中间态，都沿用上一次结果
+        if (_creature.CombatState is { CurrentSide: CombatSide.Player }
+            && _creature.Player is { } player
+            && !CombatManager.Instance.IsExecutingCardOrPotionEffect(player))
+        {
+            _lethal = _power.IsLethalIncoming;
+        }
+
+        if (!_lethal)
+        {
+            ApplyGlow(Colors.White, isGlowing: false);
+            return;
+        }
+
+        _glowPhase = Mathf.PosMod(_glowPhase + (float)delta * GlowPulseSpeed, Mathf.Tau);
+        float t = (Mathf.Sin(_glowPhase) + 1f) * 0.5f;
+        // 亮度 >1 触发泛光；红色只压 G/B，避免整条血条变暗
+        ApplyGlow(new Color(Mathf.Lerp(1.2f, 2f, t), Mathf.Lerp(0.75f, 0.15f, t), Mathf.Lerp(0.75f, 0.15f, t)),
+            isGlowing: true);
+    }
+
+    private void ApplyGlow(Color color, bool isGlowing)
+    {
+        if (!isGlowing && !_glowApplied) return;
+
+        _glowApplied = isGlowing;
+        // 用 Modulate 而非 SelfModulate：爱心与 disable 是子节点，血条容器也有子节点
+        Modulate = color;
+        if (GodotObject.IsInstanceValid(_hpBarContainer)) _hpBarContainer!.Modulate = color;
     }
 
     public void SetRemaining(int remaining)

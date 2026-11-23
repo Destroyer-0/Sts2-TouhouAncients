@@ -7,11 +7,16 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 using TouhouAncients.Scripts.Ui;
 
 namespace TouhouAncients.Scripts.powers;
@@ -27,6 +32,13 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 
     /// <summary>已打出、等待下回合返回手牌的孤注一掷。</summary>
     private readonly List<CardModel> _returningGambits = new();
+
+    /// <summary>致死预警缓存：Hook 只置脏，推演推迟到 UI 读取时。</summary>
+    private bool _lethalDirty = true;
+    private bool _lethalCached;
+
+    /// <summary>上次读取时的意图指纹（NextMove 引用 + 总段数），用于发现击晕等无 Hook 的换招。</summary>
+    private readonly List<(MoveState? move, int hits)> _intentSignature = new();
 
     public override PowerType Type => PowerType.Buff;
 
@@ -56,9 +68,34 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
+        _lethalDirty = true;
         await base.AfterPowerAmountChanged(choiceContext, power, amount, applier, cardSource);
         if (power != this) return;
         JunkoLifeMarkerDisplay.Sync(base.Owner, base.Amount);
+    }
+
+    public override Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
+    {
+        if (creature == base.Owner) _lethalDirty = true;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterBlockCleared(Creature creature)
+    {
+        if (creature == base.Owner) _lethalDirty = true;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterBlockBroken(PlayerChoiceContext choiceContext, Creature target, Creature? breaker)
+    {
+        if (target == base.Owner) _lethalDirty = true;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterCurrentHpChanged(Creature creature, decimal delta)
+    {
+        if (creature == base.Owner) _lethalDirty = true;
+        return Task.CompletedTask;
     }
 
     public override async Task AfterPreventingDeath(Creature creature)
@@ -95,6 +132,8 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
+        // 回合切换会重掷意图，同时兜住格挡部分消耗 / 能力移除等没有 Hook 的变化
+        _lethalDirty = true;
         if (side != CombatSide.Player || !participants.Contains(base.Owner)) return;
         if (_returningGambits.Count == 0) return;
 
@@ -119,5 +158,125 @@ public sealed class UltramarineOrbProtectionPower : TouhouAncientPowerModel
 
         base.DynamicVars["LostMaxHp"].BaseValue = 0;
         await CreatureCmd.SetMaxHp(base.Owner, base.Owner.MaxHp + lostMaxHp);
+    }
+
+    /// <summary>
+    /// 推演敌人下一次攻击：本次攻击是否会让该玩家真正死亡（爱心耗尽后仍被击杀）。
+    /// 只供 UI 预警，不改动任何状态；其它免死来源不计入。
+    /// </summary>
+    public bool IsLethalIncoming
+    {
+        get
+        {
+            // canonical 实例没有 Owner，预览 UI 枚举能力时不能读
+            if (base.IsCanonical) return false;
+            if (base.Owner.IsDead || base.Owner.CombatState is not { } combatState) return false;
+            if (_lethalDirty || IntentsChanged(combatState))
+            {
+                _lethalDirty = false;
+                _lethalCached = ComputeLethal(combatState);
+            }
+            return _lethalCached;
+        }
+    }
+
+    private bool ComputeLethal(ICombatState combatState)
+    {
+        Creature creature = base.Owner;
+        if (creature.Player is not { } player) return false;
+
+        int hp = creature.CurrentHp;
+        int block = creature.Block;
+        int maxHp = creature.MaxHp;
+        int revives = (int)base.Amount;
+        bool gambit = creature.GetPower<TheGambitPower>() is not null;
+
+        IReadOnlyList<Creature> enemies = combatState.Enemies;
+        for (int e = 0; e < enemies.Count; e++)
+        {
+            Creature enemy = enemies[e];
+            if (enemy.IsDead || enemy.Monster is not { } monster) continue;
+
+            IReadOnlyList<AbstractIntent> intents = monster.NextMove.Intents;
+            for (int n = 0; n < intents.Count; n++)
+            {
+                if (intents[n] is not AttackIntent { DamageCalc: { } damageCalc } intent) continue;
+
+                // 走完整 Hook 管线：力量/虚弱/易伤/无实体上限都在这里面
+                decimal perHit = Hook.ModifyDamage(player.RunState, combatState, creature, enemy, damageCalc(),
+                    ValueProp.Move, null, null, ModifyDamageHookType.All, CardPreviewMode.None, out _);
+                if (perHit <= 0m) continue;
+
+                for (int i = 0, hits = Math.Max(1, intent.Repeats); i < hits; i++)
+                {
+                    // 与 DamageBlockInternal / LoseHpInternal 的取整方式保持一致
+                    decimal blocked = Math.Min(block, perHit);
+                    block -= (int)blocked;
+                    decimal unblocked = perHit - blocked;
+                    if (unblocked <= 0m) continue;
+
+                    if (!gambit && (int)unblocked < hp)
+                    {
+                        hp -= (int)unblocked;
+                        continue;
+                    }
+
+                    if (revives <= 0) return true;
+
+                    revives--;
+                    gambit = false; // 孤注一掷触发后原版会移除该能力
+                    maxHp = Math.Max(1, (int)Math.Floor(maxHp * MaxHpRetainRate));
+                    hp = maxHp;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>意图变化没有 Hook（击晕走 SetMoveImmediate），只能用指纹比对发现。</summary>
+    private bool IntentsChanged(ICombatState combatState)
+    {
+        bool changed = false;
+        int index = 0;
+        IReadOnlyList<Creature> enemies = combatState.Enemies;
+        for (int e = 0; e < enemies.Count; e++)
+        {
+            Creature enemy = enemies[e];
+            if (enemy.IsDead) continue;
+
+            MoveState? move = enemy.Monster?.NextMove;
+            int hits = 0;
+            if (move != null)
+            {
+                IReadOnlyList<AbstractIntent> intents = move.Intents;
+                for (int n = 0; n < intents.Count; n++)
+                {
+                    if (intents[n] is AttackIntent attack) hits += Math.Max(1, attack.Repeats);
+                }
+            }
+
+            if (index < _intentSignature.Count)
+            {
+                if (!ReferenceEquals(_intentSignature[index].move, move) || _intentSignature[index].hits != hits)
+                {
+                    _intentSignature[index] = (move, hits);
+                    changed = true;
+                }
+            }
+            else
+            {
+                _intentSignature.Add((move, hits));
+                changed = true;
+            }
+            index++;
+        }
+
+        if (_intentSignature.Count != index)
+        {
+            _intentSignature.RemoveRange(index, _intentSignature.Count - index);
+            changed = true;
+        }
+        return changed;
     }
 }
