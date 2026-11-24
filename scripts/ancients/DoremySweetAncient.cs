@@ -51,14 +51,16 @@ public class DoremySweetAncient : TouhouAncientBase
             TARelicOption<BlazingFlameDream>(),
             TARelicOption<WindPriestessDream>(),
             TARelicOption<MeteorDream>(),
-            TARelicOption<ParadiseDream>()
+            TARelicOption<ParadiseDream>(),
+            TARelicOption<BoundaryDream>()
             ),
         CreateTARelicOptionPool(
             TARelicOption<SinisterPactDream>(),
             TARelicOption<FlowingSplendorDream>(),
             TARelicOption<BloodbathDream>(),
-            TARelicOption<BoundaryDream>(),
             TARelicOption<LoneEgretDream>(),
+            TARelicOption<MountainSeaDream>(),
+            TARelicOption<DivineEdictDream>(),
             TARelicOption<ChaosDream>()
             )
     ];

@@ -42,7 +42,9 @@ public class ChaosDream : TouhouAncientRelics
         ModelDb.Relic<BloodbathDream>(),
         ModelDb.Relic<BoundaryDream>(),
         ModelDb.Relic<LoneEgretDream>(),
+        ModelDb.Relic<MountainSeaDream>(),
         ModelDb.Relic<MysteriousDream>(),
+        ModelDb.Relic<DivineEdictDream>(),
     ];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Relics", 2)];

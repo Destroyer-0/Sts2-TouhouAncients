@@ -16,9 +16,6 @@ namespace TouhouAncients.Scripts.Enchantment;
 /// </summary>
 public class Recollection : TouhouAncientEnchantmentModel
 {
-    private CardModel? _pendingRecall;
-    private bool isWaitingForFree;
-
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
         if (!HasCard) return;
