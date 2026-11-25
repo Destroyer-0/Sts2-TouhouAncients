@@ -830,8 +830,8 @@
   "TOUHOUANCIENTS-BOUNDARY_DREAM.flavor": "“呵呵，梦之支配者……幻想乡和先子星的未来这一次还请拜托你的[sine]干涉[/sine]了……”",
 
   "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.title": "山海之梦",
-  "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.description": "拾起时，连通第一幕所有上下相邻的节点。",
-  "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.eventDescription": "连通第一幕所有上下相邻的节点。",
+  "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.description": "拾起时，连接第一幕所有上下相邻的节点。",
+  "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.eventDescription": "连接第一幕所有上下相邻的节点。",
   "TOUHOUANCIENTS-MOUNTAIN_SEA_DREAM.flavor": "",
 
   "TOUHOUANCIENTS-DIVINE_EDICT_DREAM.title": "神诏之梦",
