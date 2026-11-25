@@ -5,6 +5,7 @@ using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,7 +16,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
-/// 神诏之梦：拾起时，失去 12 最大生命。每场战斗的前 3 回合，你可以依次从 3 张随机普通、罕见、稀有牌中
+/// 神诏之梦：拾起时，失去 12 最大生命。每场战斗的前 3 回合，在你的回合结束时，你可以依次从 3 张随机普通、罕见、稀有牌中
 /// 选择 1 张，洗入你的抽牌堆（可跳过）。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
@@ -43,10 +44,15 @@ public class DivineEdictDream : TouhouAncientRelics
             cardSource: null);
     }
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
+    // 不能放 AfterFlush：那里的 context 是 CombatPlayPhaseOnly，此时队列已暂停，弹选牌会卡死
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (player != base.Owner) return;
+        var player = base.Owner;
+        if (player?.Creature == null) return;
+        if (side != player.Creature.Side || !participants.Contains(player.Creature)) return;
 
+        // TurnNumber 在回合开始时自增，此处仍是本回合编号
         int turn = player.PlayerCombatState?.TurnNumber ?? 0;
         if (turn < 1 || turn > DynamicVars["Turns"].IntValue) return;
 
