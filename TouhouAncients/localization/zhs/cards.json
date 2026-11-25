@@ -7,8 +7,10 @@
     
     "TOUHOUANCIENTS-PHOTO_FILM.title": "写真底片",
     "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "完美的写真底片",
-    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:获得{Block:diff()}点[gold]格挡[/gold]。\n目标失去{Damage:diff()}点生命。\n|获得等同于拍摄效果点[gold]格挡[/gold]。\n目标失去等同于拍摄效果点生命。\n}打出[blue]{RemainingCount}[/blue]次后，[gold]消耗[/gold]并从你的[gold]牌组[/gold]中移除。{IfPerfect:\n[jitter]这下可会有大新闻了！！[/jitter]|}",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:获得{Block:diff()}点[gold]格挡[/gold]。\n目标失去{Damage:diff()}点生命。\n|获得等同于拍摄效果点[gold]格挡[/gold]。\n目标失去等同于拍摄效果点生命。\n}打出[blue]{RemainingCount}[/blue]次后，[gold]消耗[/gold]并从你的[gold]牌组[/gold]中移除。{IfPerfect:\n[jitter]这下可会有大新闻了！！[/jitter]|}{Published:\n[orange]已登报[/orange]|}",
     "TOUHOUANCIENTS-PHOTO_FILM.publishGoldTip": "在休息处[orange]登报[/orange]可获得[blue]{Gold}[/blue][gold]金币[/gold]。",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTitle": "已登报",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTip": "[orange]{MonsterName}[/orange]的恶行已经[jitter]暴露无遗[/jitter]！\n[right]——《文文。新闻》[/right]",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "觉之瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]预见[/gold][blue]{SatoriScry}[/blue]。\n将此牌返回你的[gold]手牌[/gold]，本回合耗能增加{Energy:energyIcons()}。\n[purple][jitter]现在开始才是高潮呢！[/jitter][/purple]",

@@ -7,8 +7,10 @@
     
     "TOUHOUANCIENTS-PHOTO_FILM.title": "Photo Film",
     "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "Perfect Photo Film",
-    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}{Published:\n[orange]Published[/orange]|}",
     "TOUHOUANCIENTS-PHOTO_FILM.publishGoldTip": "Publishing at a Rest Site grants [blue]{Gold}[/blue] [gold]Gold[/gold].",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTitle": "Published",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTip": "[orange]{MonsterName}[/orange]'s misdeeds have been [jitter]exposed for all to see[/jitter]!\n[right]— Bunbunmaru Newspaper[/right]",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "Satori's 3rd Eye",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]Scry[/gold] [blue]{SatoriScry}[/blue].\nReturn this card to your [gold]Hand[/gold]. Increase this card's cost this turn by {Energy:energyIcons()}.\n[purple][jitter]Now the real climax begins![/jitter][/purple]",

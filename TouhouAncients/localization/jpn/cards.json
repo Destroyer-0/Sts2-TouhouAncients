@@ -7,8 +7,10 @@
     
     "TOUHOUANCIENTS-PHOTO_FILM.title": "写真フィルム",
     "TOUHOUANCIENTS-PHOTO_FILM.perfectTitle": "完璧な写真フィルム",
-    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}",
+    "TOUHOUANCIENTS-PHOTO_FILM.description": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}{Published:\n[orange]新聞掲載済み[/orange]|}",
     "TOUHOUANCIENTS-PHOTO_FILM.publishGoldTip": "休憩所で[orange]新聞掲載[/orange]すると[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTitle": "新聞掲載済み",
+    "TOUHOUANCIENTS-PHOTO_FILM.publishedTip": "[orange]{MonsterName}[/orange]の悪行が[jitter]白日のもとに晒された[/jitter]！\n[right]——『文々。新聞』[/right]",
 
     "TOUHOUANCIENTS-SATORI_EYE.title": "覚りの瞳",
     "TOUHOUANCIENTS-SATORI_EYE.description": "[gold]占術[/gold][blue]{SatoriScry}[/blue]。\nこれを[gold]手札[/gold]に戻す。このターン、このカードのコストが{Energy:energyIcons()}増加する。\n[purple][jitter]さあ、これからが本番よ！[/jitter][/purple]",
