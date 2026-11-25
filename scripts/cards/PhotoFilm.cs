@@ -29,7 +29,7 @@ using TouhouAncients.Scripts.relics;
 namespace TouhouAncients.Scripts.cards;
 
 [Pool(typeof(EventCardPool))]
-public class PhotoFilm() : TouhouAncientCards(1, CardType.Skill, CardRarity.Event, TargetType.AnyEnemy, true)
+public class PhotoFilm() : TouhouAncientCards(0, CardType.Skill, CardRarity.Event, TargetType.AnyEnemy, true)
 {
     private const string RemainingCountKey = "RemainingCount";
     private const int MaxPlays = 2;

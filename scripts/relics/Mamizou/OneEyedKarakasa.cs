@@ -34,7 +34,11 @@ public class OneEyedKarakasa : TouhouAncientRelics
         new DynamicVar("StrengthDown", 4m),
     ];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.Static(StaticHoverTip.Fatal),
+    ];
 
     /// <summary>选项条件：猯藏出现层数小于 3 才出现（第三幕不再给）。</summary>
     public override bool CanAppear(Player? player)
