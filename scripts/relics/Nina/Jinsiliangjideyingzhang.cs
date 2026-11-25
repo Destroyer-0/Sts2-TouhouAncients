@@ -1,11 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -20,7 +23,8 @@ namespace TouhouAncients.Scripts.relics;
 /// <summary>
 /// 近似两级的营帐：拾起时，先由玩家指定降级一张牌，再随机降级一张牌；
 /// 然后以奖励列表的方式给出微型帐篷与随机两件非先古的休息处遗物。
-/// 「非先古的休息处遗物」硬编码为：壶铃、皇家枕头、铲子、小邮箱、捕梦网。
+/// 「非先古的休息处遗物」不硬编码：扫 ModelDb 全部遗物，取自己覆写了休息处钩子的非先古遗物，
+/// 并排除宠物遗物（Byrdpip / Wuppy 这类选项依赖宠物状态，给成奖励不等于多一个休息处选项）。
 /// 这些遗物里玩家已经拥有的不会出现在奖励列表中；缺少的不足两件时本遗物不作为先古选项出现。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
@@ -35,19 +39,45 @@ public class Jinsiliangjideyingzhang : TouhouAncientRelics
 
     public override bool HasUponPickupEffect => true;
 
-    /// <summary>硬编码的非先古休息处遗物池：壶铃、皇家枕头、铲子、小邮箱、捕梦网（微型帐篷另行固定给出）。</summary>
-    private static IReadOnlyList<RelicModel> RestRelicPool =>
+    /// <summary>
+    /// 「休息处遗物」的判定钩子：加休息处选项 / 加休息奖励 / 休息后的效果 / 额外回血文本。
+    /// 只扫 TryModifyRestSiteOptions 会漏掉皇家枕头、小邮箱、捕梦网这类只改休息奖励的遗物。
+    /// </summary>
+    private static readonly string[] RestSiteHooks =
     [
-        ModelDb.Relic<Girya>(),
-        ModelDb.Relic<RegalPillow>(),
-        ModelDb.Relic<Shovel>(),
-        ModelDb.Relic<TinyMailbox>(),
-        ModelDb.Relic<DreamCatcher>(),
+        nameof(AbstractModel.TryModifyRestSiteOptions),
+        nameof(AbstractModel.TryModifyRestSiteHealRewards),
+        nameof(AbstractModel.AfterRestSiteHeal),
+        nameof(AbstractModel.ModifyExtraRestSiteHealText),
     ];
 
-    /// <summary>取玩家尚未拥有的非先古休息处遗物（用 ModelId 比对，与遗物实例无关）。</summary>
+    private static List<RelicModel>? _restRelicPool;
+
+    /// <summary>
+    /// 非先古休息处遗物池：ModelDb.AllRelics 已按 Id.Entry 排序，这里再显式排一次，
+    /// 保证联机各端拿到同一顺序（后面的 UnstableShuffle 依赖初始顺序）。反射结果只算一次。
+    /// </summary>
+    private static IReadOnlyList<RelicModel> RestRelicPool =>
+        _restRelicPool ??=
+        [
+            .. ModelDb.AllRelics
+                .Where(relic => relic.Rarity != RelicRarity.Ancient)
+                .Where(relic => !relic.AddsPet && !relic.SpawnsPets)
+                .Where(relic => RestSiteHooks.Any(hook => OverridesHook(relic.GetType(), hook)))
+                .OrderBy(relic => relic.Id.Entry, StringComparer.Ordinal),
+        ];
+
+    /// <summary>该类型自己覆写了这个钩子（DeclaringType 不是 AbstractModel 的空实现）。</summary>
+    private static bool OverridesHook(Type type, string methodName)
+        => type.GetMethod(methodName, BindingFlags.Instance | BindingFlags.Public)?.DeclaringType
+           is { } declaring && declaring != typeof(AbstractModel);
+
+    /// <summary>取玩家尚未拥有、且本局允许出现的非先古休息处遗物（用 ModelId 比对，与遗物实例无关）。</summary>
     private static List<RelicModel> GetMissingRestRelics(Player player) =>
-        RestRelicPool.Where(relic => player.Relics.All(owned => owned.Id != relic.Id)).ToList();
+        RestRelicPool
+            .Where(relic => relic.IsAllowed(player.RunState))
+            .Where(relic => player.Relics.All(owned => owned.Id != relic.Id))
+            .ToList();
 
     /// <summary>选项条件：缺少的非先古休息处遗物少于两件时不出现。</summary>
     public override bool CanAppear(Player? player)
