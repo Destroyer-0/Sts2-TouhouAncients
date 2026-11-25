@@ -858,7 +858,7 @@
   "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "「……私が口にするわ、もう貴方は運命から逃れられないわよ」",
   
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "深秘の夢",
-  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "各戦闘の第[blue]{Turns}[/blue]ターン開始時、ランダムな[gold]タロット[/gold]カードを[blue]1[/blue]枚[gold]手札[/gold]に加える。",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "各戦闘の第[blue]{Turns}[/blue]ターン開始時、ランダムな[gold]タロット[/gold]カード[blue]3[/blue]枚から[blue]1[/blue]枚を選び、[gold]手札[/gold]に加える。",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "「今回の夢旅行、とんでもない場所に来ちゃったね！」",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "幻想の夢",

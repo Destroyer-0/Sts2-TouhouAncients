@@ -858,7 +858,7 @@
   "TOUHOUANCIENTS-LONE_EGRET_DREAM.flavor": "\"...I shall be the one to say it. You can no longer escape this fate.\"",
   
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "Deep Secret Dream",
-  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "At the start of turn [blue]{Turns}[/blue] each combat, add a random [gold]Tarot[/gold] card to your [gold]Hand[/gold].",
+  "TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "At the start of turn [blue]{Turns}[/blue] each combat, choose [blue]1[/blue] of [blue]3[/blue] random [gold]Tarot[/gold] cards to add into your [gold]Hand[/gold].",
   "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "\"This dream trip has really taken us somewhere incredible, hasn't it!\"",
 
   "TOUHOUANCIENTS-FANTASY_DREAM.title": "Fantasy Dream",
