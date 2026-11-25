@@ -30,6 +30,9 @@ public partial class JunkoLifeMarkerDisplay : Control
     /// <summary>红光呼吸速度（弧度/秒）。</summary>
     private const float GlowPulseSpeed = 5f;
 
+    /// <summary>脉冲最大放大量（相对自身尺寸），靠缩放做出扩散感。</summary>
+    private const float GlowPulseScale = 0.02f;
+
     private readonly List<TextureRect> _icons = new();
     private TextureRect? _iconTemplate;
     private TextureRect? _disableIcon;
@@ -43,8 +46,12 @@ public partial class JunkoLifeMarkerDisplay : Control
     private Creature? _creature;
     private UltramarineOrbProtectionPower? _power;
     private float _glowPhase;
+    private float _pulse = 1f;
     private bool _lethal;
     private bool _glowApplied;
+
+    /// <summary>disable 遮罩未脉冲时的基准尺寸；Zero 表示当前不显示。</summary>
+    private Vector2 _overlayBaseSize;
 
     private float TotalWidth => _slots > 0 ? _slots * _iconSize.X + (_slots - 1) * IconGap : 0f;
 
@@ -139,9 +146,10 @@ public partial class JunkoLifeMarkerDisplay : Control
         GlobalPosition = new Vector2(barPos.X + (barSize.X - Size.X) * 0.5f, barPos.Y - GapAboveBar - _iconSize.Y);
 
         UpdateLethalGlow(delta);
+        ApplyPulseLayout();
     }
 
-    /// <summary>纯狐下一次攻击会致死时，血条与爱心/禁用遮罩一起脉冲红光。</summary>
+    /// <summary>纯狐下一次攻击会致死时，爱心/禁用遮罩闪红并等比放大扩散。</summary>
     private void UpdateLethalGlow(double delta)
     {
         // 只提示本地玩家自己的血条
@@ -167,19 +175,38 @@ public partial class JunkoLifeMarkerDisplay : Control
 
         _glowPhase = Mathf.PosMod(_glowPhase + (float)delta * GlowPulseSpeed, Mathf.Tau);
         float t = (Mathf.Sin(_glowPhase) + 1f) * 0.5f;
-        // 亮度 >1 触发泛光；红色只压 G/B，避免整条血条变暗
-        ApplyGlow(new Color(Mathf.Lerp(1.2f, 2f, t), Mathf.Lerp(0.75f, 0.15f, t), Mathf.Lerp(0.75f, 0.15f, t)),
-            isGlowing: true);
+        // 亮度 >1 会触发 HDR 泛光，泛光后处理带整体偏移（看上去往左上飘），改用缩放扩散
+        ApplyGlow(new Color(1f, Mathf.Lerp(1f, 0.35f, t), Mathf.Lerp(1f, 0.35f, t)),
+            isGlowing: true, scale: 1f + GlowPulseScale * t);
     }
 
-    private void ApplyGlow(Color color, bool isGlowing)
+    private void ApplyGlow(Color color, bool isGlowing, float scale = 1f)
     {
         if (!isGlowing && !_glowApplied) return;
 
         _glowApplied = isGlowing;
-        // 用 Modulate 而非 SelfModulate：爱心与 disable 是子节点，血条容器也有子节点
+        // 用 Modulate 而非 SelfModulate：爱心与 disable 是子节点；血条不能一起变色
         Modulate = color;
-        if (GodotObject.IsInstanceValid(_hpBarContainer)) _hpBarContainer!.Modulate = color;
+        _pulse = scale;
+    }
+
+    /// <summary>用本地坐标模拟以整组中心为轴的等比放大：Control.Scale 的 pivot 不可靠，会往左上角长。</summary>
+    private void ApplyPulseLayout()
+    {
+        float halfW = TotalWidth * 0.5f;
+        float halfH = _iconSize.Y * 0.5f;
+        for (int i = 0; i < _icons.Count; i++)
+        {
+            Vector2 size = _iconSize * _pulse;
+            float centerX = i * (_iconSize.X + IconGap) + _iconSize.X * 0.5f;
+            _icons[i].Size = size;
+            _icons[i].Position = new Vector2(halfW + (centerX - halfW) * _pulse - size.X * 0.5f, halfH - size.Y * 0.5f);
+        }
+
+        if (_disableIcon is not { Visible: true } || _overlayBaseSize == Vector2.Zero) return;
+        Vector2 overlaySize = _overlayBaseSize * _pulse;
+        _disableIcon.Size = overlaySize;
+        _disableIcon.Position = new Vector2((TotalWidth - overlaySize.X) * 0.5f, (_iconSize.Y - overlaySize.Y) * 0.5f);
     }
 
     public void SetRemaining(int remaining)
@@ -210,7 +237,6 @@ public partial class JunkoLifeMarkerDisplay : Control
             icon.Name = $"Life{_icons.Count}";
             icon.UniqueNameInOwner = false;
             icon.Visible = true;
-            icon.Position = new Vector2(_icons.Count * (_iconSize.X + IconGap), 0f);
             AddChild(icon);
             _icons.Add(icon);
         }
@@ -219,6 +245,7 @@ public partial class JunkoLifeMarkerDisplay : Control
         if (_disableIcon != null) MoveChild(_disableIcon, GetChildCount() - 1);
 
         RefreshIcons();
+        ApplyPulseLayout();
     }
 
     private void RefreshIcons()
@@ -237,16 +264,16 @@ public partial class JunkoLifeMarkerDisplay : Control
         if (!show)
         {
             _disableIcon.Visible = false;
+            _overlayBaseSize = Vector2.Zero;
             return;
         }
 
         // 先等比缩放到刚好盖住整组标记，再整体放大；z_index 在 tscn 里置 1 保证盖在图标上
         Vector2 texSize = _disableIcon.Texture!.GetSize();
         float cover = Math.Max(TotalWidth / texSize.X, _iconSize.Y / texSize.Y);
-        Vector2 overlaySize = texSize * cover * DisableScale;
-        _disableIcon.Size = overlaySize;
-        _disableIcon.Position = new Vector2((TotalWidth - overlaySize.X) * 0.5f, (_iconSize.Y - overlaySize.Y) * 0.5f);
+        _overlayBaseSize = texSize * cover * DisableScale;
         _disableIcon.Visible = true;
+        ApplyPulseLayout();
     }
 
     private void OnCombatEnded(CombatRoom room) => QueueFree();
