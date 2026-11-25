@@ -51,7 +51,7 @@ public class LordsSunscreenCream : TouhouAncientRelics
     {
         if (base.Owner != player) return false;
 
-        AddCardRewardAlternative(alternatives, new CardRewardAlternative(
+        alternatives.Add(new CardRewardAlternative(
             _takeAllKey,
             () => OnTakeAll(player, cardReward),
             PostAlternateCardRewardAction.EndSelectionAndCompleteReward));

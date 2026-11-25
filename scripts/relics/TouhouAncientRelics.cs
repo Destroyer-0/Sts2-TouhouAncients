@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -53,16 +52,6 @@ public abstract class TouhouAncientRelics : CustomRelicModel
     {
         var choices = player.RunState.CurrentMapPointHistoryEntry?.GetEntry(player.NetId).RestSiteChoices;
         return choices is { Count: > 0 } ? choices[^1] : null;
-    }
-
-    /// <summary>
-    /// 注册卡牌奖励的替代选项。原版 <c>CardRewardAlternative.Generate</c> 最多只接受 2 个（跳过恒占 1 个），
-    /// 超了会抛异常、奖励永远领不掉，所以后来者挤掉先来者（同类遗物也互相挤）。
-    /// </summary>
-    protected static void AddCardRewardAlternative(List<CardRewardAlternative> alternatives, CardRewardAlternative alternative)
-    {
-        if (alternatives.Count > 1) alternatives.RemoveAt(alternatives.Count - 1);
-        alternatives.Add(alternative);
     }
 
     /// <summary>

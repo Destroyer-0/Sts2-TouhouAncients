@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Godot;
 using HarmonyLib;
@@ -24,6 +25,8 @@ public static class CardRewardAlternativesPatch
     private const int HSeparation = 75;
     private const int VSeparation = 10;
 
+    private static readonly ConditionalWeakTable<CardReward, List<CardRewardAlternative>> CachedAlternatives = new();
+
     /// <summary>
     /// 原版在 Generate 末尾对 >2 个直接抛异常，导致奖励点不掉。重实现生成逻辑但去掉上限。
     /// </summary>
@@ -31,7 +34,10 @@ public static class CardRewardAlternativesPatch
     [HarmonyPrefix]
     private static bool GeneratePrefix(CardReward cardReward, ref IReadOnlyList<CardRewardAlternative> __result)
     {
-        List<CardRewardAlternative> list = [];
+        // 必须复用同一个 List 实例：CardReward.OnSelect 在循环外只取一次结果，之后一直按下标取选项。
+        // 重掷会再调一次 Generate，若返回新实例，OnSelect 手里那份旧列表少了「重掷」，下标整体错位。
+        List<CardRewardAlternative> list = CachedAlternatives.GetOrCreateValue(cardReward);
+        list.Clear();
         if (cardReward.CanSkip)
         {
             list.Add(new CardRewardAlternative("Skip", PostAlternateCardRewardAction.EndSelectionAndDoNotCompleteReward));
