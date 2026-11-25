@@ -3709,7 +3709,7 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 ### 中文原文
 ```json
 "TOUHOUANCIENTS-MYSTERIOUS_DREAM.title": "深秘之梦",
-"TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "在每场战斗的第[blue]{Turns}[/blue]回合开始时，将一张随机[gold]塔罗牌[/gold]放入你的[gold]手牌[/gold]。",
+"TOUHOUANCIENTS-MYSTERIOUS_DREAM.description": "在每场战斗的第[blue]{Turns}[/blue]回合开始时，从[blue]3[/blue]张随机[gold]塔罗牌[/gold]中选择1张放入你的[gold]手牌[/gold]。",
 "TOUHOUANCIENTS-MYSTERIOUS_DREAM.flavor": "“这次的梦境旅行可是到了不得了的地方呢！”"
 ```
 
@@ -3717,12 +3717,13 @@ zhs 改为：拾起时获得最大生命；受到未被格挡伤害时失去最�
 | 字段 | English | 日本語 |
 |------|---------|--------|
 | `.title` | `Deep Secret Dream` | `深秘の夢` |
-| `.description` | `At the start of turn [blue]{Turns}[/blue] each combat, add a random [gold]Tarot[/gold] card to your [gold]Hand[/gold].` | `各戦闘の第[blue]{Turns}[/blue]ターン開始時、ランダムな[gold]タロット[/gold]カードを[blue]1[/blue]枚[gold]手札[/gold]に加える。` |
+| `.description` | `At the start of turn [blue]{Turns}[/blue] each combat, choose [blue]1[/blue] of [blue]3[/blue] random [gold]Tarot[/gold] cards to add into your [gold]Hand[/gold].` | `各戦闘の第[blue]{Turns}[/blue]ターン開始時、ランダムな[gold]タロット[/gold]カード[blue]3[/blue]枚から[blue]1[/blue]枚を選び、[gold]手札[/gold]に加える。` |
 | `.flavor` | `"This dream trip has really taken us somewhere incredible, hasn't it!"` | `「今回の夢旅行、とんでもない場所に来ちゃったね！」` |
 
 ### 说明
+- 2026-11-25 效果改为「从 3 张随机塔罗牌中选 1 张放入手牌」（可跳过）；三语句式按 0.113 原版同类牌统一：zhs「…中选择1张放入你的[gold]手牌[/gold]」、eng `choose 1 of 3 ... to add into your [gold]Hand[/gold]`（`DISCOVERY` / `ABUNDANCE` / `QUASAR` / `SEEKER_STRIKE`）、jpn「…枚から1枚を選び、[gold]手札[/gold]に加える」。
 - 标题取自《东方深秘录》（`Urban Legend in Limbo`）：zhs `深秘之梦`、eng `Deep Secret Dream`、jpn `深秘の夢`；日文沿用原版汉字的「深秘」写法。类名与本地化键仍为 `MysteriousDream` / `MYSTERIOUS_DREAM`，不跟随标题改名。
-- 塔罗牌术语一律取原版：zhs `塔罗牌`、eng `Tarot`、jpn `タロット`（`static_hover_tips.json` 的 `TAROT.title`，0.113 新增）；句式仿原版 `MYTHIC_FORM_POWER.description`（神话形态），日文连「〜ターン開始時、ランダムな[gold]タロット[/gold]カードを[blue]1[/blue]枚[gold]手札[/gold]に加える」的语序一并沿用。
+- 塔罗牌术语一律取原版：zhs `塔罗牌`、eng `Tarot`、jpn `タロット`（`static_hover_tips.json` 的 `TAROT.title`，0.113 新增）。
 - 触发回合数为动态变量 `DynamicVar("Turns")`，故 zhs/eng/jpn 三语都用 `{Turns}`，不写死 4。
 - 英文「第 N 回合」无法用序数后缀（原版 `HEAVENLY_REVELATION` 写死 `3rd`），改为 `turn [blue]{Turns}[/blue]`。
 - `.flavor` 说话人为**宇佐见堇子**（外界女高中生），三语都保留轻松、兴奋的少女口吻；与本池其他梦境遗物一致，台词不署名。

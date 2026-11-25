@@ -381,16 +381,20 @@
 | `.title` | 写真底片 | `Photo Film` | 写真フィルム |
 | `.perfectTitle` | 完美的写真底片 | `Perfect Photo Film` | 完璧な写真フィルム |
 | `.publishGoldTip` | 在休息处[orange]登报[/orange]可获得[blue]{Gold}[/blue][gold]金币[/gold]。 | `Publishing at a Rest Site grants [blue]{Gold}[/blue] [gold]Gold[/gold].` | 休憩所で[orange]新聞掲載[/orange]すると[blue]{Gold}[/blue][gold]ゴールド[/gold]を得る。 |
+| `.publishedTitle` | 已登报 | `Published` | 新聞掲載済み |
+| `.publishedTip` | [orange]{MonsterName}[/orange]的恶行已经[jitter]暴露无遗[/jitter]！\n[right]——《文文。新闻》。[/right] | `[orange]{MonsterName}[/orange]'s misdeeds have been [jitter]exposed for all to see[/jitter]!\n[right]— Bunbunmaru Newspaper[/right]` | [orange]{MonsterName}[/orange]の悪行が[jitter]白日のもとに晒された[/jitter]！\n[right]——『文々。新聞』[/right] |
 
 `.description` 一行较长，单独列出：
 
 ```json
-"eng": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}",
-"jpn": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}"
+"zhs": "{ShowValue:获得{Block:diff()}点[gold]格挡[/gold]。\n目标失去{Damage:diff()}点生命。\n|获得等同于拍摄效果点[gold]格挡[/gold]。\n目标失去等同于拍摄效果点生命。\n}打出[blue]{RemainingCount}[/blue]次后，[gold]消耗[/gold]并从你的[gold]牌组[/gold]中移除。{IfPerfect:\n[jitter]这下可会有大新闻了！！[/jitter]|}{Published:\n[orange]已登报[/orange]|}",
+"eng": "{ShowValue:Gain {Block:diff()} [gold]Block[/gold].\nThe target loses {Damage:diff()} HP.\n|Gain [gold]Block[/gold] equal to this card's photo value.\nThe target loses HP equal to this card's photo value.\n}After you play this card [blue]{RemainingCount}[/blue] times, [gold]Exhaust[/gold] it and remove it from your [gold]Deck[/gold].{IfPerfect:\n[jitter]This is going to be a huge scoop!![/jitter]|}{Published:\n[orange]Published[/orange]|}",
+"jpn": "{ShowValue:{Block:diff()}[gold]ブロック[/gold]を得る。\n対象は{Damage:diff()}HPを失う。\n|このカードの撮影効果に等しい[gold]ブロック[/gold]を得る。\n対象はこのカードの撮影効果に等しいHPを失う。\n}このカードを[blue]{RemainingCount}[/blue]回プレイした後、[gold]廃棄[/gold]され、[gold]デッキ[/gold]から削除される。{IfPerfect:\n[jitter]こりゃあ大スクープになるぞ！！[/jitter]|}{Published:\n[orange]新聞掲載済み[/orange]|}"
 ```
 
 - `{ShowValue:…|…}` 首分支 = 真照片（显示实际数值 `{Block:diff()}` / `{Damage:diff()}`），次分支 = 图鉴/预览里的无照片状态（只写「等同于拍摄效果」，不显示 0）；`PhotoFilm.cs` 用 `description.Add("ShowValue", HasRealPhoto)` 传入布尔值。
 - `{IfPerfect:…|}` 为完美底片追加的尖叫行，`{RemainingCount}` 由 `IntVar` 提供，三处变量原样保留。
+- `{Published:…|}` 为休息处登报后追加的标记行，`description.Add("Published", PhotoFilm_IsPublished)` 传入布尔值（2026-11-25 起登报不再移除底片）。
 - 「失去 HP」用 `loses X HP` / 「X HPを失う」（该牌伤害带 `Unblockable`，不走 `damage` 措辞）。
 - 完美的`perfectTitle` 走 `Title` 覆写，故 `.title` 保持普通名。
 
@@ -399,9 +403,11 @@
 | 键名 | 中文 | English | 日本語 |
 |------|------|---------|--------|
 | `.name` | 登报 | `Publish` | 新聞掲載 |
-| `.description` | 移除一张[gold]写真底片[/gold]，获得等同于其拍摄效果[blue]10[/blue]倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[i]啊呀呀，当然就该来读读我的《文文。新闻》吧？[/i] | `Remove a [gold]Photo Film[/gold] to gain [gold]Gold[/gold] equal to [blue]10[/blue] times its photo value.\n[gold]Perfect Photo Films[/gold] grant double the Gold!\n[i]Ayaya, of course you should be reading my Bunbunmaru Newspaper![/i]` | [gold]写真フィルム[/gold]を1枚削除し、その撮影効果の[blue]10[/blue]倍の[gold]ゴールド[/gold]を得る。\n[gold]完璧な写真フィルム[/gold]ならゴールドが2倍！\n[i]あやや、当然私の『文々。新聞』を読むべきよね？[/i] |
+| `.description` | 选择一张[gold]写真底片[/gold]，获得等同于其拍摄效果[blue]10[/blue]倍的[gold]金币[/gold]。\n[gold]完美的写真底片[/gold]提供的金币翻倍！\n[i]啊呀呀，当然就该来读读我的《文文。新闻》吧？[/i] | `Choose a [gold]Photo Film[/gold] to gain [gold]Gold[/gold] equal to [blue]10[/blue] times its photo value.\n[gold]Perfect Photo Films[/gold] grant double the Gold!\n[i]Ayaya, of course you should be reading my Bunbunmaru Newspaper![/i]` | [gold]写真フィルム[/gold]を1枚選び、その撮影効果の[blue]10[/blue]倍の[gold]ゴールド[/gold]を得る。\n[gold]完璧な写真フィルム[/gold]ならゴールドが2倍！\n[i]あやや、当然私の『文々。新聞』を読むべきよね？[/i] |
 | `.descriptionDisabled` | 啊呀呀？好像还没收集到合适的[gold]写真底片[/gold]作为素材呢。 | `Ayaya? It seems you haven't collected a suitable [gold]Photo Film[/gold] to use as material yet.` | あやや？ 素材になる[gold]写真フィルム[/gold]がまだ集まっていないみたいね。 |
-| `.selectPrompt` | 选择一张底片移除，并获得[gold]金币[/gold]。 | `Choose a Photo Film to remove and gain [gold]Gold[/gold].` | 削除するフィルムを1枚選び、[gold]ゴールド[/gold]を得る。 |
+| `.selectPrompt` | 选择一张写真底片，获得[gold]金币[/gold]。 | `Choose a Photo Film to gain [gold]Gold[/gold].` | 写真フィルムを1枚選び、[gold]ゴールド[/gold]を得る。 |
+
+- 2026-11-25 起登报不再移除底片，改为给该牌打「已登报」标记（`PhotoFilm_IsPublished`），三语同步去掉「移除 / remove / 削除」措辞；`publishedTip` 是登报后的报纸头条，`{MonsterName}` 由 `PhotoFilm_MonsterEntry` 反查怪物本地化名。
 
 - 《文文。新闻》日文取原版既有写法「文々。新聞」（`『』` 包裹），英文取东方英译通名 `Bunbunmaru Newspaper`。
 - 「啊呀呀」取射命丸文的口头禅谐音梗（用户指定）：英文写成 `Ayaya`（= 文 Aya + 拖长音），日文写成「あやや」。两处（正文尾句、禁用提示）保持一致，句尾用 `,` / 「、」或 `?` / 「？」跟源文同形。
