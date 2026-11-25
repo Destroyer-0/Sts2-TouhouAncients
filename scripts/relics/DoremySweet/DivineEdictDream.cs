@@ -1,35 +1,39 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace TouhouAncients.Scripts.relics.DoremySweet;
 
 /// <summary>
-/// 神诏之梦：拾起时，失去 12 最大生命。每场战斗的前 3 回合，在你的回合结束时，你可以依次从 3 张随机普通、罕见、稀有牌中
-/// 选择 1 张，洗入你的抽牌堆（可跳过）。
+/// 神诏之梦：拾起时，失去 10 最大生命，再以不可跳过的奖励面板把一张随机形态牌加入你的牌组。
+/// 「形态牌」= 稀有度为稀有、类型为能力、Entry 以 FORM 结尾的牌（先古形态因稀有度被排除）。
 /// </summary>
 [Pool(typeof(EventRelicPool))]
 public class DivineEdictDream : TouhouAncientRelics
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new HpLossVar(12m),
-        new CardsVar(3),
-        new DynamicVar("Turns", 3)
-    ];
+    /// <summary>形态牌的 Entry 后缀。</summary>
+    private const string FormEntrySuffix = "FORM";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new HpLossVar(10m)];
 
     public override bool HasUponPickupEffect => true;
+
+    /// <summary>形态牌判定：稀有 + 能力 + Entry 以 FORM 结尾。</summary>
+    private static bool IsFormCard(CardModel card)
+        => card.Type == CardType.Power
+           && card.Rarity == CardRarity.Rare
+           && card.Id.Entry.EndsWith(FormEntrySuffix, StringComparison.Ordinal);
 
     public override async Task AfterObtained()
     {
@@ -42,43 +46,32 @@ public class DivineEdictDream : TouhouAncientRelics
             player.Creature,
             DynamicVars.HpLoss.BaseValue,
             cardSource: null);
-    }
 
-    // 不能放 AfterFlush：那里的 context 是 CombatPlayPhaseOnly，此时队列已暂停，弹选牌会卡死
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        var player = base.Owner;
-        if (player?.Creature == null) return;
-        if (side != player.Creature.Side || !participants.Contains(player.Creature)) return;
+        var template = RollFormCard(player);
+        if (template == null) return;
 
-        // TurnNumber 在回合开始时自增，此处仍是本回合编号
-        int turn = player.PlayerCombatState?.TurnNumber ?? 0;
-        if (turn < 1 || turn > DynamicVars["Turns"].IntValue) return;
-
-        // 第 1/2/3 回合依次给普通 / 罕见 / 稀有
-        CardRarity rarity = turn switch
+        var rewards = new List<Reward>
         {
-            1 => CardRarity.Common,
-            2 => CardRarity.Uncommon,
-            _ => CardRarity.Rare
+            // 拾起时就掷定牌面：SpecialCardReward 自带 SpecialCard 序列化，读档不会丢；
+            // 面板上显示「将{牌名}加入你的牌组」，点一次即入组。
+            new SpecialCardReward(player.RunState.CreateCard(template, player), player)
         };
 
-        var pool = player.Character.CardPool
-            .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
-            .Where(c => c.Rarity == rarity);
+        // 不可跳过：语义等同「拾起时即获得」，玩家必须把牌拿走
+        await new RewardsSet(player).WithCustomRewards(rewards).WithSkippingDisallowed().Offer();
+    }
 
-        // 同原版工具箱：联机各端用同一 RNG 流生成选项，玩家只同步选中的序号
-        var choices = CardFactory
-            .GetDistinctForCombat(player, pool, DynamicVars.Cards.IntValue, player.RunState.Rng.CombatCardGeneration)
+    /// <summary>从全部卡池（各角色 + 共享池）随机取一张形态牌；按 Entry 排序，保证联机各端抽到同一张。</summary>
+    private CardModel? RollFormCard(Player player)
+    {
+        // Uniform 不会掷稀有度，避免筛完没有对应稀有度而抛异常（照御阿礼·砚）
+        var options = CardCreationOptions.ForNonCombatWithUniformOdds(ModelDb.AllCardPools, IsFormCard);
+
+        var candidates = options.GetPossibleCards(player)
+            .Distinct()
+            .OrderBy(card => card.Id.Entry, StringComparer.Ordinal)
             .ToList();
-
-        if (choices.Count == 0) return;
-
-        Flash();
-        var chosen = await CardSelectCmd.FromChooseACardScreen(choiceContext, choices, player, canSkip: true);
-        if (chosen == null) return;
-
-        await CardPileCmd.AddGeneratedCardToCombat(chosen, PileType.Draw, player, CardPilePosition.Random);
+        if (candidates.Count == 0) return null;
+        return player.PlayerRng.Rewards.NextItem(candidates);
     }
 }
