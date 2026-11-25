@@ -36,6 +36,7 @@ public class PhotoFilm() : TouhouAncientCards(0, CardType.Skill, CardRarity.Even
     private int _remainingCount = MaxPlays;
     private int _photoValue;
     private bool _isPerfect;
+    private bool _isPublished;
     private string _monsterEntry = "";
 
     public override bool CanBeGeneratedByModifiers => false;
@@ -94,6 +95,18 @@ public class PhotoFilm() : TouhouAncientCards(0, CardType.Skill, CardRarity.Even
         }
     }
 
+    /// <summary>已登报的底片留在牌组里，但不能再用于登报。</summary>
+    [SavedProperty]
+    public bool PhotoFilm_IsPublished
+    {
+        get => _isPublished;
+        set
+        {
+            AssertMutable();
+            _isPublished = value;
+        }
+    }
+
     [SavedProperty]
     public string PhotoFilm_MonsterEntry
     {
@@ -126,9 +139,11 @@ public class PhotoFilm() : TouhouAncientCards(0, CardType.Skill, CardRarity.Even
     internal int PublishGold => PhotoFilm_Value * (PhotoFilm_IsPerfect ? 20 : 10);
 
     /// <summary>只在真底片上给登报提示，否则图鉴/衍生预览会显示 0 金币。</summary>
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => HasRealPhoto
-        ? [new HoverTip(PublishGoldLoc())]
-        : [];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => PhotoFilm_IsPublished
+        ? [new HoverTip(PublishLoc("publishedTitle"), PublishedTipLoc())]
+        : HasRealPhoto
+            ? [new HoverTip(PublishGoldLoc())]
+            : [];
 
     /// <summary>牌组里有底片就能登报，不必留着相机（没有相机时选项不闪）。</summary>
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
@@ -140,16 +155,31 @@ public class PhotoFilm() : TouhouAncientCards(0, CardType.Skill, CardRarity.Even
 
     private LocString PublishGoldLoc()
     {
-        var loc = new LocString("cards", Id.Entry + ".publishGoldTip");
+        var loc = PublishLoc("publishGoldTip");
         loc.Add("Gold", PublishGold);
         return loc;
     }
+
+    private LocString PublishLoc(string suffix) => new("cards", Id.Entry + "." + suffix);
+
+    private LocString PublishedTipLoc()
+    {
+        var loc = PublishLoc("publishedTip");
+        loc.Add("MonsterName", MonsterName);
+        return loc;
+    }
+
+    /// <summary>用拍到的怪物 entry 反查本地化名；查不到时退回 entry。</summary>
+    private string MonsterName =>
+        ModelDb.GetByIdOrNull<MonsterModel>(new ModelId("MONSTER", PhotoFilm_MonsterEntry))?.Title.GetFormattedText()
+        ?? PhotoFilm_MonsterEntry;
 
     // show 只认 IfUpgradedVar，布尔条件要走智能格式的 | 分支
     protected override void AddExtraArgsToDescription(LocString description)
     {
         description.Add("ShowValue", HasRealPhoto);
         description.Add("IfPerfect", PhotoFilm_IsPerfect);
+        description.Add("Published", PhotoFilm_IsPublished);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -49,7 +49,8 @@ internal sealed class PublishPhotoOption(Player owner, RelicModel? source) : Res
     public override bool IsEnabled => Owner.Deck.Cards.Any(CanPublish);
 
     internal static LocString Loc(string suffix) => new("rest_site_ui", $"OPTION_{OptionIdValue}.{suffix}");
-    private bool CanPublish(CardModel card) => card is PhotoFilm && card.IsRemovable;
+    private bool CanPublish(CardModel card) =>
+        card is PhotoFilm { PhotoFilm_IsPublished: false } film && film.IsRemovable;
 
     public override async Task<bool> OnSelect()
     {
@@ -64,7 +65,8 @@ internal sealed class PublishPhotoOption(Player owner, RelicModel? source) : Res
         if (selected is not PhotoFilm film) return false;
 
         source?.Flash();
-        await CardPileCmd.RemoveFromDeck(film);
+        // 登报不消耗底片，只打标记防止重复登报
+        film.PhotoFilm_IsPublished = true;
         await PlayerCmd.GainGold(film.PublishGold, Owner);
         return true;
     }
